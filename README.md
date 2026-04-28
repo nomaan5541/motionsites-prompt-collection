@@ -192,5 +192,8 @@ Stay updated with the latest AI design trends and prompt engineering techniques.
 *   **GitHub**: [Nomaan-Khan](https://github.com/nomaan-khan)
 
 ---
-
+### My Tech Stack & Interests
+#template #ui-design #apple #ui #templates #cursor #emergent #codex 
+#cursor-theme #ai-agents #claude #antigravity #loveable #claude-code 
+#claude-code-skills #antigravity-stack #claudecode-template #motionsites
 *Maintained with ❤️ by **Nomaan Khan***
