@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblex | Smart Website Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>tailwind.config={theme:{extend:{colors:{background:'hsl(240 67% 1%)',foreground:'hsl(0 0% 100%)',primary:'hsl(73 98% 57%)','primary-fg':'hsl(240 67% 1%)',secondary:'hsl(0 0% 100%)','secondary-fg':'hsl(240 67% 1%)',muted:'hsl(240 10% 12%)','muted-fg':'hsla(0,0%,82%,0.8)'}}}}</script>
+</head>
+<body class="bg-background text-foreground antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current; if (!v) return;
+                let raf, fadingOut = false;
+                const fade = (target, dur) => { const start = performance.now(); const from = parseFloat(v.style.opacity)||0;
+                    const tick = (now) => { const p = Math.min(1,(now-start)/dur); v.style.opacity = from + (target-from)*p; if(p<1) raf=requestAnimationFrame(tick); };
+                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+                };
+                v.addEventListener('timeupdate', () => { if(v.duration && v.currentTime > v.duration-1.5 && !fadingOut) { fadingOut=true; fade(0, (v.duration-v.currentTime-0.3)*1000); } });
+                v.addEventListener('ended', () => { v.style.opacity=0; fadingOut=false; v.currentTime=0; v.play(); fade(1, 1000); });
+                v.style.opacity=0; v.play().then(() => fade(1, 1000)).catch(() => {});
+            }, [menuOpen]);
+            return (
+                <div className="min-h-screen bg-background relative overflow-hidden">
+                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260221_085953_8463b46e-ba85-4bb7-912a-1feaf346e970.mp4" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0 }} muted loop playsInline />
+
+                    {/* Navbar */}
+                    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5">
+                        <span className="text-lg font-semibold text-foreground">Weblex<span className="text-primary">.</span></span>
+                        <div className="hidden md:flex items-center gap-6">
+                            {['Home','Features','Pricing','About'].map(l => <a key={l} href="#" className="text-sm text-muted-fg hover:text-foreground transition-colors">{l}</a>)}
+                        </div>
+                        <button className="hidden md:block bg-primary text-primary-fg rounded-full px-4 py-2 text-sm font-medium">Get Started</button>
+                        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide={menuOpen?'x':'menu'} className="w-6 h-6"></i></button>
+                    </nav>
+                    {menuOpen && <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-6"><button className="absolute top-5 right-6" onClick={() => setMenuOpen(false)}><i data-lucide="x" className="w-6 h-6"></i></button>{['Home','Features','Pricing','About'].map(l => <a key={l} href="#" className="text-white text-xl">{l}</a>)}<button className="bg-primary text-primary-fg rounded-full px-6 py-3 font-medium">Get Started</button></div>}
+
+                    {/* Hero - bottom aligned */}
+                    <div className="relative z-10 h-screen flex flex-col items-center justify-end text-center px-4" style={{ paddingBottom: '100px' }}>
+                        <div className="max-w-[603px]">
+                            <div className="rounded-full border border-white/10 px-4 py-2 mb-6 inline-block">
+                                <span className="text-sm text-muted-fg">Introducing Smart Website Builder</span>
+                            </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-[62px] font-medium leading-[1.1] mb-6">
+                                Turn your big idea into a stunning website
+                            </h1>
+                            <p className="text-muted-fg text-base max-w-[520px] mx-auto mb-8">
+                                Fintech is its potential to promote financial inclusion. In many parts of the world, millions of people lack access to traditional banking services.
+                            </p>
+                            <div className="flex items-center justify-center gap-4">
+                                <button className="bg-primary text-primary-fg rounded-full px-6 py-3 text-lg font-medium flex items-center gap-2 hover:brightness-110 transition-all">
+                                    <i data-lucide="arrow-up-right" className="w-5 h-5"></i> Get Started Now
+                                </button>
+                                <button className="bg-secondary text-secondary-fg rounded-full px-6 py-3 text-lg font-medium">See Pricing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

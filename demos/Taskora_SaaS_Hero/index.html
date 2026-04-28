@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskora | Simplify Your Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif; background:#050505; color:white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion } = window.Motion;
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+            return (
+                <div className="min-h-screen relative overflow-hidden" style={{ background: '#050505' }}>
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260201_052917_7fc4e418-3123-40bf-b5ba-394c28eb4b3a.mp4" className="absolute inset-0 w-full h-full object-cover opacity-50 z-0" autoPlay loop muted playsInline />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-[#050505] z-[1]"></div>
+
+                    {/* Navbar */}
+                    <div className="relative z-20 flex justify-center pt-4 px-4">
+                        <nav className="rounded-full px-6 py-3 flex items-center gap-6 max-w-3xl w-full" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}>
+                            <span className="font-bold text-lg text-white">Taskora</span>
+                            <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
+                                {['Home','Features','Company','Contact'].map(l => <a key={l} href="#" className="text-sm text-white/80 hover:text-white transition-colors">{l}</a>)}
+                            </div>
+                            <div className="hidden md:flex items-center gap-2 ml-auto">
+                                <button className="text-sm text-white/80 px-3 py-1.5">Sign Up</button>
+                                <button className="text-sm bg-white text-black px-4 py-2 rounded-full font-medium">Sign In</button>
+                            </div>
+                            <button className="md:hidden ml-auto" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide="menu" className="w-5 h-5 text-white"></i></button>
+                        </nav>
+                    </div>
+                    {menuOpen && <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-6"><button className="absolute top-4 right-6" onClick={() => setMenuOpen(false)}><i data-lucide="x" className="w-6 h-6 text-white"></i></button>{['Home','Features','Company','Contact'].map(l => <a key={l} href="#" className="text-white text-xl">{l}</a>)}</div>}
+
+                    {/* Hero */}
+                    <div className="relative z-10 text-center px-4 pt-20">
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/10 mb-6" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                            <span className="text-sm" style={{ background: 'linear-gradient(135deg, #60a5fa, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>★</span>
+                            <span className="text-sm text-white/70" style={{ fontFamily: "'Manrope',sans-serif" }}>Trusted by +30.000 of clients globally</span>
+                        </motion.div>
+                        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-medium tracking-tight leading-[1.05] max-w-4xl mx-auto mb-6">
+                            Simplify Your <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>Workflow</span>. Stay Focused.
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="text-gray-400 text-lg max-w-xl mx-auto mb-8">
+                            Taskora helps teams manage projects, tasks, and deadlines with clarity.
+                        </motion.p>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }}>
+                            <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:scale-105 hover:shadow-xl transition-all" style={{ fontFamily: "'Cabin',sans-serif" }}>Book a Free Demo</button>
+                        </motion.div>
+
+                        {/* Dashboard Preview */}
+                        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.7 }}
+                            className="mt-16 max-w-5xl mx-auto rounded-2xl overflow-hidden border border-white/10" style={{ background: '#F9F9FA' }}>
+                            <div className="flex">
+                                <div className="w-12 bg-gray-100 border-r border-gray-200 py-4 flex flex-col items-center gap-4">
+                                    {['home','users','bar-chart-2','settings'].map(ic => <i key={ic} data-lucide={ic} className="w-4 h-4 text-gray-400"></i>)}
+                                </div>
+                                <div className="flex-1 p-4">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="flex-1 bg-gray-200 rounded-lg h-8"></div>
+                                        <i data-lucide="bell" className="w-5 h-5 text-gray-400"></i>
+                                        <div className="w-8 h-8 rounded-full bg-gray-300"></div>
+                                    </div>
+                                    <div className="grid grid-cols-3 gap-3 mb-4">
+                                        {[{t:'Total Sales',v:'$24,780',c:'text-green-600',p:'+12.5%'},{t:'Operating',v:'$8,230',c:'text-red-500',p:'-3.2%'},{t:'Gross Profit',v:'$16,550',c:'text-green-600',p:'+18.7%'}].map(s => (
+                                            <div key={s.t} className="bg-white rounded-xl p-3 border border-gray-100">
+                                                <p className="text-xs text-gray-400">{s.t}</p>
+                                                <p className="text-lg font-bold text-gray-900">{s.v}</p>
+                                                <span className={`text-xs font-medium ${s.c}`}>{s.p}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="bg-white rounded-xl p-3 border border-gray-100">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="text-sm font-medium text-gray-700">Revenue</span>
+                                            <span className="text-xs text-gray-400">Last 7 days</span>
+                                        </div>
+                                        <div className="flex items-end gap-1 h-16">
+                                            {[40,65,45,80,55,70,90].map((h,i) => <div key={i} className="flex-1 rounded-t" style={{ height: `${h}%`, background: 'linear-gradient(180deg, #3b82f6, #60a5fa)' }}></div>)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

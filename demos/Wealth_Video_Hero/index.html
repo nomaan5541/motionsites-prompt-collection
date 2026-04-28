@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth | Build Wealth That Lasts Generations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            const steps = [{t:'Create Your Free Account',d:'Sign up in seconds using your email address or mobile number.'},{t:'Connect Your Bank Accounts',d:'Securely link your bank accounts, cards, or digital wallets.'},{t:'Set Your Financial Goals',d:'Customize your savings, spending, or investment goals.'},{t:'Track, Grow, and Optimize',d:'Watch your money work for you in real time—get insights and tips.'}];
+            return (
+                <div className="relative min-h-screen bg-black overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260207_050933_33e2620d-09cd-43a2-80ef-4cdbb42f4194.mp4" className="absolute inset-0 w-full h-full z-0" style={{ transform: 'scale(1.5)', transformOrigin: 'top left', objectFit: 'cover', objectPosition: 'left top' }} autoPlay muted loop playsInline />
+                    <div className="relative z-10 min-h-screen flex flex-col">
+                        {/* Navbar */}
+                        <nav className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 md:px-12 py-6 z-20">
+                            <span className="text-white text-xl font-semibold">W</span>
+                            <div className="hidden md:flex items-center gap-6">
+                                <button className="text-white/80 text-sm flex items-center gap-1 hover:text-white">Features <i data-lucide="chevron-down" className="w-4 h-4"></i></button>
+                                {['Company','Blogs'].map(l => <a key={l} href="#" className="text-white/80 text-sm hover:text-white">{l}</a>)}
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <a href="#" className="text-white text-sm hidden sm:inline">Sign in</a>
+                                <button className="bg-white text-black rounded-full px-5 py-2 text-sm font-medium">Get Started</button>
+                            </div>
+                        </nav>
+
+                        {/* Hero */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 pb-48">
+                            <div className="rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-2 mb-8">
+                                <span className="text-sm text-white/90">Real-Time Budget Tracking</span>
+                            </div>
+                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-bold leading-[1.05] tracking-tight max-w-5xl">
+                                Build Wealth That Lasts Generations
+                            </h1>
+                            <p className="text-lg text-white/70 max-w-xl mt-6">
+                                Transform today's earnings into tomorrow's family fortune with proven wealth-building strategies
+                            </p>
+                            <button className="bg-white text-black rounded-full px-8 py-4 font-medium text-lg mt-8 hover:scale-105 transition-transform">
+                                Start Building Wealth
+                            </button>
+                        </div>
+
+                        {/* Bottom Features */}
+                        <div className="absolute bottom-8 left-4 right-4 z-20">
+                            <div className="max-w-5xl mx-auto rounded-2xl p-6 grid grid-cols-1 md:grid-cols-4 gap-6 border border-white/10" style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(20px)' }}>
+                                {steps.map((s,i) => (
+                                    <div key={i}>
+                                        <div className="text-xs text-white/40 mb-2">0{i+1}</div>
+                                        <h3 className="text-sm font-semibold mb-1">{s.t}</h3>
+                                        <p className="text-xs text-white/50">{s.d}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

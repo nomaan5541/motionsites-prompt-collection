@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terra | Geo Map Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7DF3','primary-fg':'white','muted-fg':'#6b7280'}}}}</script>
+</head>
+<body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+            return (
+                <div className="min-h-screen flex flex-col bg-white">
+                    {/* Navbar */}
+                    <nav className="max-w-7xl mx-auto w-full flex items-center justify-between px-6 py-4">
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #2E7DF3, #60a5fa)' }}>🌍</div>
+                            <span className="font-bold text-lg">Terra</span>
+                        </div>
+                        <div className="hidden lg:flex items-center gap-6">
+                            {['Product','Solutions','Resources','Examples','Pricing'].map((l,i) => (
+                                <button key={l} className="text-muted-fg hover:text-gray-900 text-sm flex items-center gap-1 transition-colors">
+                                    {l} {i<3 && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>}
+                                </button>
+                            ))}
+                        </div>
+                        <div className="hidden lg:flex items-center gap-3">
+                            <button className="px-4 py-2 rounded-full border text-sm font-medium hover:bg-gray-50 transition-colors">Login</button>
+                            <button className="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium">Sign Up</button>
+                        </div>
+                        <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide={menuOpen ? 'x' : 'menu'} className="w-6 h-6"></i></button>
+                    </nav>
+                    {menuOpen && <div className="lg:hidden px-6 pb-4 flex flex-col gap-3">{['Product','Solutions','Resources','Examples','Pricing'].map(l => <a key={l} href="#" className="text-gray-600">{l}</a>)}<button className="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium w-fit">Sign Up</button></div>}
+
+                    {/* Hero */}
+                    <div className="flex-1 flex flex-col items-center justify-center px-4 pt-8">
+                        <div className="mt-10 rounded-lg border border-red-200 px-4 py-2 flex items-center gap-2" style={{ background: 'rgba(254,226,226,0.5)' }}>
+                            <span>🏆</span>
+                            <div><span className="text-[10px] uppercase tracking-wider text-red-400 font-medium">PRODUCT HUNT</span><span className="text-sm font-semibold text-red-500 ml-2">#1 Product of the Day</span></div>
+                        </div>
+                        <h1 className="text-5xl md:text-7xl font-medium text-center mt-8 max-w-3xl" style={{ letterSpacing: '-0.2em' }}>
+                            <span className="text-primary">The ultimate geo</span><br />
+                            <span className="text-primary">map </span>
+                            <span className="relative inline-block">
+                                <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #767676 0%, #D3D3D3 100%)' }}>builder</span>
+                                <svg className="absolute -inset-3 md:-inset-4 w-[calc(100%+24px)] h-[calc(100%+24px)]" viewBox="0 0 200 95" preserveAspectRatio="none" style={{ transform: 'rotate(-0.5deg)' }}>
+                                    <path d="M5 5 L195 5 L195 88 L5 72 Z" fill="none" stroke="#B0B0B0" strokeWidth="1.2" strokeDasharray="6 4" />
+                                    {[[5,5],[195,5],[5,72],[195,88]].map(([cx,cy],i) => <circle key={i} cx={cx} cy={cy} r="3.5" fill="#B0B0B0" />)}
+                                    {[[100,5],[100,80],[5,38.5],[195,46.5]].map(([cx,cy],i) => <circle key={`m${i}`} cx={cx} cy={cy} r="3" fill="#B0B0B0" />)}
+                                </svg>
+                            </span>
+                        </h1>
+                        <p className="mt-8 text-muted-fg text-base md:text-lg max-w-lg text-center leading-relaxed">
+                            Terra is how teams build maps and run spatial intelligence together. Design, collaborate, share — all in one place.
+                        </p>
+                        <button className="mt-8 px-10 py-4 bg-primary text-white font-semibold rounded-full shadow-lg" style={{ boxShadow: '0 10px 30px rgba(46,125,243,0.2)' }}>
+                            Get Started
+                        </button>
+                        <div className="mt-12 max-w-5xl w-full rounded-xl overflow-hidden">
+                            <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_092310_5c71bab5-63cd-4a95-9390-cc6a1189d553.mp4" className="w-full rounded-xl" muted autoPlay loop playsInline />
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

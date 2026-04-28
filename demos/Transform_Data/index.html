@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform Data Quickly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-black antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current; if (!v) return;
+                let raf, fadingOut = false;
+                const fadeIn = () => { const start = performance.now(); const from = parseFloat(v.style.opacity)||0;
+                    const tick = (now) => { const p = Math.min(1,(now-start)/250); v.style.opacity = from+(1-from)*p; if(p<1) raf=requestAnimationFrame(tick); };
+                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+                };
+                const fadeOut = () => { if(fadingOut) return; fadingOut=true; const start=performance.now(); const from=parseFloat(v.style.opacity)||1;
+                    const tick = (now) => { const p=Math.min(1,(now-start)/250); v.style.opacity = from*(1-p); if(p<1) raf=requestAnimationFrame(tick); };
+                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+                };
+                v.addEventListener('timeupdate', () => { if(v.duration && v.currentTime > v.duration-0.55) fadeOut(); });
+                v.addEventListener('ended', () => { v.style.opacity=0; fadingOut=false; setTimeout(() => { v.currentTime=0; v.play(); fadeIn(); }, 100); });
+                v.style.opacity = 0; v.play().then(fadeIn).catch(() => {});
+            }, []);
+            return (
+                <div className="relative min-h-screen overflow-hidden bg-white">
+                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260329_050842_be71947f-f16e-4a14-810c-06e83d23ddb5.mp4" className="absolute inset-0 object-top z-0" style={{ width: '115%', height: '115%', left: '-7.5%', opacity: 0 }} muted playsInline />
+                    <div className="relative z-10">
+                        {/* Navbar */}
+                        <nav className="flex items-center justify-between" style={{ padding: '16px 120px' }}>
+                            <span className="text-2xl font-semibold" style={{ fontFamily: "'Schibsted Grotesk',sans-serif", letterSpacing: '-1.44px' }}>Logoipsum</span>
+                            <div className="hidden md:flex items-center gap-6">
+                                {['Platform','Features','Projects','Community','Contact'].map((l,i) => (
+                                    <a key={l} href="#" className="text-base font-medium flex items-center gap-1" style={{ fontFamily: "'Schibsted Grotesk',sans-serif", letterSpacing: '-0.2px' }}>
+                                        {l} {i===1 && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
+                                    </a>
+                                ))}
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <button className="text-sm font-medium px-4 py-2" style={{ width: '82px' }}>Sign Up</button>
+                                <button className="text-sm font-medium bg-black text-white px-4 py-2 rounded-lg" style={{ width: '101px' }}>Log In</button>
+                            </div>
+                        </nav>
+
+                        {/* Hero - moved up 50px */}
+                        <div className="flex flex-col items-center text-center px-4" style={{ marginTop: '-50px', paddingTop: '110px' }}>
+                            <div className="flex items-center gap-2 rounded-full px-4 py-2 shadow-sm border mb-8" style={{ background: 'white' }}>
+                                <span className="bg-[#0e1311] text-white rounded-full px-2 py-0.5 text-xs flex items-center gap-1"><i data-lucide="star" className="w-3 h-3 fill-white"></i> New</span>
+                                <span className="text-sm" style={{ fontFamily: "'Inter',sans-serif" }}>Discover what's possible</span>
+                            </div>
+                            <h1 className="text-[80px] font-bold text-black text-center leading-none" style={{ fontFamily: "'Inter',sans-serif", letterSpacing: '-4.8px' }}>
+                                Transform Data Quickly
+                            </h1>
+                            <p className="mt-8 text-xl font-medium text-center" style={{ color: '#505050', maxWidth: '542px', letterSpacing: '-0.4px', fontFamily: "'Inter',sans-serif" }}>
+                                Upload your information and get powerful insights right away. Work smarter and achieve goals effortlessly.
+                            </p>
+                            {/* Search Box */}
+                            <div className="mt-11 w-full max-w-[728px] rounded-[18px] p-4" style={{ backdropFilter: 'blur(10px)', background: 'rgba(0,0,0,0.24)', height: '200px' }}>
+                                <div className="flex items-center justify-between mb-3">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-white text-xs" style={{ fontFamily: "'Schibsted Grotesk',sans-serif" }}>60/450 credits</span>
+                                        <button className="text-xs px-2 py-0.5 rounded text-black font-medium" style={{ background: 'rgba(90,225,76,0.89)' }}>Upgrade</button>
+                                    </div>
+                                    <span className="text-white text-xs flex items-center gap-1" style={{ fontFamily: "'Schibsted Grotesk',sans-serif" }}>✨ Powered by GPT-4o</span>
+                                </div>
+                                <div className="bg-white rounded-xl shadow p-3 flex items-center gap-3">
+                                    <input type="text" placeholder="Type question..." className="flex-1 outline-none text-base" style={{ color: 'rgba(0,0,0,0.6)' }} />
+                                    <button className="w-9 h-9 rounded-full bg-black flex items-center justify-center"><i data-lucide="arrow-up" className="w-4 h-4 text-white"></i></button>
+                                </div>
+                                <div className="flex items-center justify-between mt-3">
+                                    <div className="flex gap-2">
+                                        {[{i:'paperclip',t:'Attach'},{i:'mic',t:'Voice'},{i:'search',t:'Prompts'}].map(b => (
+                                            <button key={b.t} className="text-xs text-white/80 bg-white/10 rounded px-2 py-1 flex items-center gap-1"><i data-lucide={b.i} className="w-3 h-3"></i> {b.t}</button>
+                                        ))}
+                                    </div>
+                                    <span className="text-xs text-white/50">0/3,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

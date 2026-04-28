@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandly | Building Brands That Resonate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased overflow-hidden" style="font-family:'Inter',sans-serif; background:#F5F3EE; color:#080808">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            const brands = ['Frame Blox','Supa Blox','Hype Blox','Hype Blox','Ultra Blox','Ship Blox'];
+            const icons = ['□','◇','△','△','○','⬡'];
+            return (
+                <div className="h-screen overflow-hidden flex flex-col relative" style={{ background: '#F5F3EE' }}>
+                    <video className="fixed top-0 left-0 w-full h-full object-cover pointer-events-none z-0" autoPlay loop muted playsInline>
+                        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_102305_3a7cab3b-7a86-46e8-a0f9-6937f035b087.mp4" type="video/mp4" />
+                    </video>
+
+                    {/* Header */}
+                    <header className="relative z-10 px-6 lg:px-12 py-4 lg:py-6 flex-shrink-0">
+                        <nav className="flex items-center justify-between">
+                            <span className="text-2xl lg:text-3xl font-bold text-black">Brandly</span>
+                            <div className="hidden md:flex items-center gap-8">
+                                {['About','Features','Pricing','FAQ','Help'].map(l => <a key={l} href="#" className="text-base lg:text-lg hover:opacity-70 transition-opacity" style={{ color: '#080808' }}>{l}</a>)}
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <button className="px-4 lg:px-6 py-2 text-base lg:text-lg hover:text-black transition-colors" style={{ color: '#080808' }}>Sign Up</button>
+                                <button className="px-4 lg:px-6 py-2 bg-black text-white text-base lg:text-lg hover:bg-gray-800 transition-colors">Log In</button>
+                            </div>
+                        </nav>
+                    </header>
+
+                    {/* Main */}
+                    <main className="relative z-10 px-6 lg:px-12 py-6 lg:py-8 flex-1 flex flex-col justify-between">
+                        {/* Top Row */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                            <div>
+                                <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-normal text-black leading-[0.80] tracking-tight mb-4 lg:mb-5" style={{ fontFamily: "'Anton',sans-serif" }}>
+                                    BUILDING<br />BRANDS THAT<br />RESONATE
+                                </h1>
+                                <p className="text-lg lg:text-xl mb-4 lg:mb-5 max-w-md" style={{ color: '#080808' }}>
+                                    Thoughtful design that captivates, empowers, and creates lasting impact.
+                                </p>
+                                <button className="flex items-center gap-3 pl-8 pr-1.5 py-1.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                                    Start today
+                                    <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><i data-lucide="arrow-right" className="w-4 h-4 text-black"></i></span>
+                                </button>
+                            </div>
+                            <div className="text-right hidden lg:block">
+                                <h2 className="text-3xl xl:text-4xl font-normal text-black leading-[0.85] tracking-tight mb-3" style={{ fontFamily: "'Anton',sans-serif" }}>50+ BRANDS LAUNCHED</h2>
+                                <p className="text-sm max-w-xs ml-auto" style={{ color: '#080808' }}>We've helped over 50 brands establish their digital presence with precision and creativity.</p>
+                            </div>
+                        </div>
+
+                        {/* Middle Row */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
+                            <div>
+                                <p className="text-sm max-w-xs mb-3" style={{ color: '#080808' }}>Brand designer with a passion for clean, functional aesthetics that speak to audiences.</p>
+                                <div className="flex items-center gap-3">
+                                    {['facebook','instagram','youtube'].map(ic => <i key={ic} data-lucide={ic} className="w-5 h-5 text-black/60 hover:text-black cursor-pointer transition-colors"></i>)}
+                                </div>
+                            </div>
+                            <div className="text-right hidden lg:block">
+                                <h2 className="text-3xl xl:text-4xl font-normal text-black leading-[0.85] tracking-tight mb-3" style={{ fontFamily: "'Anton',sans-serif" }}>5+ YEARS IN THE INDUSTRY</h2>
+                                <p className="text-sm max-w-xs ml-auto" style={{ color: '#080808' }}>Half a decade of creating brand identities that stand out and endure.</p>
+                            </div>
+                        </div>
+
+                        {/* Bottom - Brand Logo Bar */}
+                        <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mt-6">
+                            {brands.map((b,i) => (
+                                <div key={i} className="bg-white rounded-lg p-3 flex flex-col items-center justify-center gap-2 shadow-sm">
+                                    <span className="text-2xl text-black/30">{icons[i]}</span>
+                                    <span className="text-xs font-medium text-black/70">{b}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

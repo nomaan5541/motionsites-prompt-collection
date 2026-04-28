@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 EOS | Speed of Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const PillBtn = ({ text, dark }) => (
+            <div className="rounded-full relative" style={{ padding: '0.6px', border: 'none' }}>
+                <div className="absolute inset-0 rounded-full" style={{ border: '0.6px solid white' }}></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-2 rounded-full" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.5), transparent)', filter: 'blur(3px)' }}></div>
+                <button className={`relative rounded-full px-[29px] py-[11px] text-sm font-medium ${dark ? 'bg-black text-white' : 'bg-white text-black'}`}>{text}</button>
+            </div>
+        );
+        const App = () => (
+            <div className="relative min-h-screen overflow-hidden bg-black">
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260217_030345_246c0224-10a4-422c-b324-070b7c0eceda.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay muted loop playsInline />
+                <div className="absolute inset-0 bg-black/50 z-[1]"></div>
+                <div className="relative z-10 min-h-screen flex flex-col">
+                    {/* Navbar */}
+                    <nav className="flex items-center justify-between px-8 lg:px-[120px] py-5">
+                        <div className="flex items-center gap-8">
+                            <span className="text-white font-semibold text-lg tracking-wide" style={{ width: '187px' }}>LOGOIPSUM</span>
+                            <div className="hidden md:flex items-center gap-[30px]">
+                                {['Get Started','Developers','Features','Resources'].map(l => (
+                                    <a key={l} href="#" className="text-white text-sm font-medium flex items-center gap-[14px]">
+                                        {l} <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 6L7 9L10 6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                        <PillBtn text="Join Waitlist" dark />
+                    </nav>
+
+                    {/* Hero */}
+                    <div className="flex-1 flex flex-col items-center justify-center text-center px-4" style={{ paddingTop: '200px', paddingBottom: '102px' }}>
+                        <div className="flex flex-col items-center gap-10">
+                            <div className="rounded-[20px] px-4 py-2 flex items-center gap-2" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                                <span className="w-1 h-1 rounded-full bg-white"></span>
+                                <span className="text-[13px] font-medium"><span className="text-white/60">Early access available from</span> May 1, 2026</span>
+                            </div>
+                            <h1 className="text-4xl md:text-[56px] font-medium leading-[1.28] max-w-[613px] bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(144.5deg, white 28%, rgba(0,0,0,0) 115%)' }}>
+                                Web3 at the Speed of Experience
+                            </h1>
+                            <p className="text-[15px] font-normal text-white/70 max-w-[680px] leading-relaxed" style={{ marginTop: '-16px' }}>
+                                Powering seamless experiences and real-time connections, EOS is the base for creators who move with purpose, leveraging resilience, speed, and scale to shape the future.
+                            </p>
+                            <PillBtn text="Join Waitlist" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
