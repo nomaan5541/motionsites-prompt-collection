@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logoisum | Video Editing Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Barlow',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className="relative overflow-hidden" style={{ minHeight: '90vh' }}>
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260228_065522_522e2295-ba22-457e-8fdb-fbcd68109c73.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                    
+                    <div className="relative z-10 flex flex-col min-h-[90vh]">
+                        {/* Floating White Navbar */}
+                        <div className="px-6 py-6">
+                            <nav className="bg-white rounded-[16px] shadow-lg flex items-center justify-between px-6 py-3 max-w-6xl mx-auto">
+                                <span className="text-black font-semibold text-lg tracking-tight">Logoisum</span>
+                                <div className="hidden md:flex items-center gap-6">
+                                    {['About','Works','Services','Testimonial'].map(l => (
+                                        <a key={l} href="#" className="text-black text-sm font-medium hover:opacity-70 transition-opacity" style={{ fontFamily: "'Barlow',sans-serif", fontSize: '14px' }}>{l}</a>
+                                    ))}
+                                </div>
+                                <button className="flex items-center gap-3 text-white text-sm font-medium px-5 py-2.5 rounded-lg" style={{ background: '#222' }}>
+                                    Book A Free Meeting
+                                    <span className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center">
+                                        <i data-lucide="arrow-up-right" className="w-3 h-3" style={{ transform: 'rotate(0deg)' }}></i>
+                                    </span>
+                                </button>
+                            </nav>
+                        </div>
+
+                        {/* Hero Content */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-12">
+                            <h1 className="mb-6 max-w-4xl">
+                                <span className="block text-white font-medium" style={{ fontFamily: "'Barlow',sans-serif", fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-4px', lineHeight: 1.1 }}>Agency that makes your</span>
+                                <span className="block text-white" style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '84px', lineHeight: 1.05 }}>videos & reels viral</span>
+                            </h1>
+                            <p className="text-white text-center mb-8" style={{ fontFamily: "'Barlow',sans-serif", fontSize: '18px', fontWeight: 500 }}>
+                                Short-form video editing for Influencers, Creators and Brands
+                            </p>
+                            <button className="bg-white text-black rounded-full px-10 py-4 font-medium text-lg flex items-center gap-3 hover:scale-105 transition-transform">
+                                <i data-lucide="play" className="w-5 h-5 fill-black"></i>
+                                See Our Workreel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

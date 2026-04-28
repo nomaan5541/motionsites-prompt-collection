@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framelix 3D | Cinematic Motion Studios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script>
+        tailwind.config = { theme: { extend: { keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } }, animation: { marquee: 'marquee 20s linear infinite' } } } }
+    </script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { motion } = window.Motion;
+        const App = () => (
+            <div className="bg-black">
+                {/* Navbar */}
+                <nav className="flex items-center justify-between bg-black" style={{ padding: '32px 36px 20px' }}>
+                    <div className="text-white font-semibold text-xl brightness-0 invert" style={{ height: '36px', display: 'flex', alignItems: 'center' }}>Framelix<sup className="text-sm">3D</sup></div>
+                    <div className="hidden md:grid grid-cols-3 gap-16 text-center">
+                        {[['Reels','Services'],['Projects','Pipeline'],['Careers','Get In Touch']].map((col,i) => (
+                            <div key={i} className="flex flex-col gap-1">{col.map(l => <a key={l} href="#" className="text-white/80 hover:text-white text-sm transition-colors">{l}</a>)}</div>
+                        ))}
+                    </div>
+                    <div className="relative w-7 h-7 flex items-center justify-center">
+                        <svg width="27" height="30" viewBox="0 0 27 30" fill="none"><rect x="1" y="1" width="25" height="28" rx="4" stroke="white" strokeWidth="1.5"/></svg>
+                        <span className="absolute text-xs text-white font-bold">0</span>
+                    </div>
+                </nav>
+
+                {/* Hero */}
+                <section className="relative min-h-screen overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_060517_9feec9ab-18e4-477a-b034-de5903a67e91.mp4" className="w-full h-auto object-cover" autoPlay loop muted playsInline />
+                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+                        className="absolute top-[50px] left-1/2 -translate-x-1/2 text-center z-10">
+                        <div className="text-white text-base font-medium">Framelix<sup className="text-[26px] font-medium">3D</sup></div>
+                        <h2 className="text-white font-medium" style={{ fontSize: 'clamp(2rem, 5vw, 68px)' }}>Cinematic Motion Studios</h2>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
+                        className="absolute bottom-[12%] left-1/2 -translate-x-1/2 text-center z-10">
+                        <button className="bg-white text-black text-[22px] font-medium rounded-full px-14 py-4 mb-3 hover:scale-105 transition-transform">Explore Reel</button>
+                        <p className="text-white/50 text-sm">Ready in 24-48 hours</p>
+                    </motion.div>
+                </section>
+
+                {/* Marquee */}
+                <div className="py-[14px] overflow-hidden" style={{ background: '#A6A4FF' }}>
+                    <div className="flex w-max animate-marquee">
+                        {Array(12).fill(null).map((_, i) => (
+                            <span key={i} className="text-black text-base font-medium mx-[30px] whitespace-nowrap">New! 3D^OS V1.2.1 out now!</span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Shipping Section */}
+                <div style={{ background: '#EAEAEA', borderBottomLeftRadius: '40px', borderBottomRightRadius: '40px' }}>
+                    <div className="text-center pt-16">
+                        <div className="text-black text-base font-medium">Framelix<sup className="text-[20px] font-medium">3D</sup></div>
+                        <h2 className="text-black font-medium" style={{ fontSize: 'clamp(2rem, 4vw, 52px)' }}>Shipping Now</h2>
+                    </div>
+                    <div className="flex justify-center -my-24">
+                        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_063954_03a5f7ec-5f10-4acb-ba8d-dce4815217db.mp4" className="w-[800px] h-[800px] object-contain rounded-2xl" autoPlay loop muted playsInline />
+                    </div>
+                    <div className="text-center pb-32">
+                        <button className="bg-black text-white text-[18px] font-medium rounded-full px-[184px] py-3 mb-3 hover:scale-105 transition-transform">Buy Now</button>
+                        <p className="text-black text-[20px]" style={{ fontWeight: 450 }}>Explore now</p>
+                    </div>
+                </div>
+            </div>
+        );
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Deck | Innovation and Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence } = window.Motion;
+
+        const ease = [0.25, 0.1, 0.25, 1];
+        const Logo = () => <div className="text-white font-semibold text-lg tracking-tight" style={{ width: '116px' }}>VIKTORY</div>;
+
+        const SlideUpLine = ({ children, delay = 0, duration = 0.7 }) => (
+            <span className="overflow-hidden inline-block"><motion.span className="inline-block" initial={{ y: '100%' }} animate={{ y: '0%' }} transition={{ duration, delay, ease }}>{children}</motion.span></span>
+        );
+        const WordByWordReveal = ({ text, baseDelay = 0.25, stagger = 0.035, duration = 0.55, className }) => (
+            <span className={className}>{text.split(' ').map((w,i) => (
+                <span key={i} className="overflow-hidden inline-block mr-[0.27em]"><motion.span className="inline-block" initial={{ y: '100%' }} animate={{ y: '0%' }} transition={{ duration, delay: baseDelay + i*stagger, ease }}>{w}</motion.span></span>
+            ))}</span>
+        );
+        const BlurReveal = ({ children, delay = 0, duration = 0.9, className }) => (
+            <motion.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration, delay, ease }} className={className}>{children}</motion.div>
+        );
+
+        const HlsVideo = ({ src, className, style }) => {
+            const ref = useRef(null);
+            useEffect(() => {
+                const v = ref.current; if (!v) return;
+                if (Hls.isSupported()) { const h = new Hls({ autoStartLoad: true }); h.loadSource(src); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); return () => h.destroy(); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.addEventListener('loadedmetadata', () => v.play().catch(() => {})); }
+            }, [src]);
+            return <video ref={ref} className={className} style={style} autoPlay muted loop playsInline />;
+        };
+
+        const slides = [
+            { url: 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8', num: '01', vStyle: {} },
+            { url: 'https://stream.mux.com/s8pMcOvMQXc4GD6AX4e1o01xFogFxipmuKltNfSYza0200.m3u8', num: '02', vStyle: {} },
+            { url: 'https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8', num: '03', vStyle: { transform: 'scale(-1,-1)', opacity: 0.5 } },
+            { url: 'https://stream.mux.com/PkFsoKeakRLgL01gjf02CRcSbsJ600Z00NvLr9eRZ92pLbA.m3u8', num: '04', vStyle: { left: '400px' } },
+            { url: 'https://stream.mux.com/BuGGTsiXq1T00WUb8qfURrHkTCbhrkfFLSv4uAOZzdhw.m3u8', num: '05', vStyle: { width: '200%', height: '200%', bottom: 0, left: 0, top: 'auto' } },
+        ];
+
+        const Slide1 = ({ active }) => {
+            const [ac, setAc] = useState(0);
+            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
+            return (
+                <div className="w-full h-full flex flex-col relative overflow-hidden">
+                    <HlsVideo src={slides[0].url} className="absolute inset-0 w-full h-full object-cover" />
+                    <div key={ac} className="relative z-10 flex flex-col h-full">
+                        <BlurReveal delay={0.1} className="flex items-center justify-between px-[5%] pt-[3.5%]">
+                            <Logo />
+                            <div className="hidden md:flex gap-8">{[{l:'Type',v:'Investor Deck'},{l:'Investor',v:'BlackRock'},{l:'Date',v:'February 2026'},{l:'Industry',v:'Artificial Intelligence'}].map(m => <div key={m.l} className="flex flex-col gap-[2px]"><span className="text-[#80838e] text-[13px]">{m.l}</span><span className="text-white text-[13px]">{m.v}</span></div>)}</div>
+                        </BlurReveal>
+                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
+                        <div className="flex-1 flex items-end px-[5%] pb-[8%]">
+                            <h1 className="text-white leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(48px, 10vw, 140px)' }}>
+                                <SlideUpLine delay={0.3}>Innovation</SlideUpLine><br /><SlideUpLine delay={0.4}>and Growth</SlideUpLine>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Slide2 = ({ active }) => {
+            const [ac, setAc] = useState(0);
+            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
+            const stats = [{v:'80%',l:'Face data complexity'},{v:'63%',l:'Struggle with AI integration'},{v:'47%',l:'Delay decisions due to bottlenecks'}];
+            return (
+                <div className="w-full h-full flex flex-col relative overflow-hidden">
+                    <HlsVideo src={slides[1].url} className="absolute inset-0 w-full h-full object-cover" />
+                    <div key={ac} className="relative z-10 flex flex-col h-full">
+                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">02</span></BlurReveal>
+                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
+                        <div className="flex flex-col flex-1 justify-between pt-[4%] pb-[5%] px-[5%]">
+                            <div className="max-w-[85%]">
+                                <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 18px)' }}>Problem Statement</p></BlurReveal>
+                                <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(22px, 3.5vw, 56px)' }}>
+                                    <WordByWordReveal text="In the realm of AI, businesses face challenges in data analysis, decision-making bottlenecks, and seamless integration of AI solutions" baseDelay={0.25} />
+                                </h2>
+                            </div>
+                            <div className="flex gap-4 w-full">
+                                {stats.map((s,i) => (
+                                    <motion.div key={i} className="flex-1 flex flex-col gap-3" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.6+i*0.1, ease }}>
+                                        <div className="text-white leading-[0.96] tracking-tight" style={{ fontSize: 'clamp(32px, 6vw, 96px)' }}>{s.v}</div>
+                                        <div className="text-white" style={{ fontSize: 'clamp(13px, 1.2vw, 20px)' }}>{s.l}</div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Slide3 = ({ active }) => {
+            const [ac, setAc] = useState(0);
+            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
+            return (
+                <div className="w-full h-full flex flex-col relative overflow-hidden">
+                    <HlsVideo src={slides[2].url} className="absolute inset-0 w-full h-full object-cover" style={slides[2].vStyle} />
+                    <div key={ac} className="relative z-10 flex flex-col h-full">
+                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">03</span></BlurReveal>
+                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
+                        <div className="max-w-[55%] px-[5%] pt-[3%]">
+                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 18px)' }}>Market Opportunity</p></BlurReveal>
+                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 3.2vw, 52px)' }}>
+                                <WordByWordReveal text="At Viktory, we target a growing market for AI innovation, especially in cybersecurity and web3" baseDelay={0.25} />
+                            </h2>
+                            <BlurReveal delay={0.8}><p className="text-[#80838e] max-w-[90%] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 18px)' }}>We strategically focus on AI innovation at the intersection of cybersecurity and web3, meeting the growing demand for advanced solutions.</p></BlurReveal>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Slide4 = ({ active }) => {
+            const [ac, setAc] = useState(0);
+            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
+            return (
+                <div className="w-full h-full flex flex-col relative overflow-hidden">
+                    <HlsVideo src={slides[3].url} className="absolute top-0 bottom-0 right-0 h-full object-cover" style={{ left: '400px' }} />
+                    <div className="absolute top-0 left-0 right-0 pt-[3.5%] z-20">
+                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%]"><Logo /><span className="text-[#80838e] text-[20px]">04</span></BlurReveal>
+                        <div className="absolute" style={{ top: 'calc(3.5% + 52px)', left: 0, right: 0 }}><div className="bg-white/15 h-px w-full px-[5%]"></div></div>
+                    </div>
+                    <div key={ac} className="flex flex-col w-full h-full justify-center relative z-10">
+                        <div className="max-w-[65%] px-[5%]">
+                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 26px)' }}>Sales and Distribution Channels</p></BlurReveal>
+                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 4vw, 80px)' }}>
+                                <WordByWordReveal text="Our direct sales team engages with enterprises, while online platforms and strategic partnerships expand our outreach" baseDelay={0.25} />
+                            </h2>
+                            <BlurReveal delay={1.2}><p className="text-[#80838e] max-w-[784px] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 26px)' }}>Our direct engagement ensures tailored solutions through consultations.</p></BlurReveal>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Slide5 = ({ active }) => {
+            const [ac, setAc] = useState(0);
+            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
+            return (
+                <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ background: '#131318' }}>
+                    <HlsVideo src={slides[4].url} className="absolute object-cover" style={slides[4].vStyle} />
+                    <div key={ac} className="relative z-10 flex flex-col h-full">
+                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">05</span></BlurReveal>
+                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
+                        <div className="flex-1"></div>
+                        <div className="max-w-[55%] px-[5%] pb-[5%]">
+                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 26px)' }}>Global Expansion</p></BlurReveal>
+                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 4vw, 80px)' }}>
+                                <WordByWordReveal text="Opportunities across continents" baseDelay={0.25} />
+                            </h2>
+                            <BlurReveal delay={0.6}><p className="text-[#80838e] max-w-[680px] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 26px)' }}>Our global break-even journey aligns revenue with expenses worldwide. We target break-even within 18 months.</p></BlurReveal>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [current, setCurrent] = useState(0);
+            const comps = [Slide1, Slide2, Slide3, Slide4, Slide5];
+            useEffect(() => {
+                const handler = (e) => {
+                    if (['ArrowRight','ArrowDown','Space',' '].includes(e.key)) { e.preventDefault(); setCurrent(p => Math.min(4, p+1)); }
+                    if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); setCurrent(p => Math.max(0, p-1)); }
+                };
+                window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler);
+            }, []);
+            return (
+                <div className="w-screen h-screen overflow-hidden bg-black relative" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {comps.map((Comp, i) => (
+                        <motion.div key={i} className="absolute inset-0" animate={{ opacity: current === i ? 1 : 0 }} transition={{ duration: 0.35, ease: 'easeInOut' }}
+                            style={{ zIndex: current === i ? 10 : 0, pointerEvents: current === i ? 'auto' : 'none' }}>
+                            <Comp active={current === i} />
+                        </motion.div>
+                    ))}
+                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                        {[0,1,2,3,4].map(i => (
+                            <button key={i} onClick={() => setCurrent(i)}
+                                className={`rounded-full transition-all duration-300 ${current===i ? 'bg-white w-6 h-2' : 'bg-white/40 w-2 h-2'}`}></button>
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

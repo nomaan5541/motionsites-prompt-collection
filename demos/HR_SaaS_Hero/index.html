@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR SaaS | Simple Management for Remote Teams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-black antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const { motion } = window.Motion;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <section className="relative min-h-screen overflow-hidden">
+                    {/* Video BG - flipped */}
+                    <div className="absolute inset-0 z-0">
+                        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260302_085640_276ea93b-d7da-4418-a09b-2aa5b490e838.mp4" className="w-full h-full object-cover" style={{ transform: 'scaleY(-1)' }} autoPlay loop muted playsInline />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0) 26.416%, white 66.943%)' }}></div>
+                    </div>
+
+                    <div className="relative z-10 max-w-[1200px] mx-auto px-6" style={{ paddingTop: '290px' }}>
+                        <div className="flex flex-col gap-8">
+                            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+                                className="font-medium" style={{ fontSize: '80px', letterSpacing: '-0.04em', fontFamily: "'Inter',sans-serif", lineHeight: 1 }}>
+                                Simple <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '100px' }}>management</span> for your remote team
+                            </motion.h1>
+
+                            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+                                className="text-lg max-w-[554px]" style={{ opacity: 0.8, color: '#373a46' }}>
+                                Streamline your remote workforce with intuitive tools designed for modern teams. Manage schedules, track progress, and collaborate seamlessly from anywhere.
+                            </motion.p>
+
+                            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+                                <div className="flex items-center rounded-[40px] border border-gray-200 p-1.5 max-w-lg" style={{ background: '#fcfcfc', boxShadow: '0px 10px 40px 5px rgba(194,194,194,0.25)' }}>
+                                    <input type="email" placeholder="Enter your email" className="flex-1 px-5 py-3 bg-transparent outline-none text-base" />
+                                    <button className="text-white rounded-full px-6 py-3 text-sm font-medium" style={{ background: 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%)', boxShadow: 'inset -4px -6px 25px 0px rgba(201,201,201,0.08), inset 4px 4px 10px 0px rgba(29,29,29,0.24)' }}>
+                                        Create Free Account
+                                    </button>
+                                </div>
+                                <div className="flex items-center gap-3 mt-4 pl-2">
+                                    <div className="flex -space-x-1">
+                                        {['⭐','⭐','⭐','⭐','⭐'].map((s,i) => <span key={i} className="text-xs">{s}</span>)}
+                                    </div>
+                                    <span className="text-sm text-gray-500">1,020+ Reviews</span>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
