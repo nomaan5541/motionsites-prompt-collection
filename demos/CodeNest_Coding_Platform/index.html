@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeNest | Launch Your Coding Career</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React, Framer Motion, HLS.js, Lucide Icons -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#5ed29c',
+                        darkBg: '#070b0a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .liquid-glass {
+                background: rgba(255, 255, 255, 0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(4px);
+                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+                position: relative;
+            }
+            .liquid-glass::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 1.4px;
+                border-radius: inherit;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+            .grid-line {
+                @apply absolute top-0 bottom-0 w-px bg-white/10 hidden lg:block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence } = window.Motion;
+
+        const Navbar = () => {
+            const [isOpen, setIsOpen] = useState(false);
+            
+            return (
+                <header className="absolute top-0 left-0 w-full z-[100] px-8 py-6 flex justify-between items-center">
+                    <div className="text-2xl font-bold tracking-tighter">CodeNest</div>
+                    
+                    {/* Desktop Menu */}
+                    <nav className="hidden lg:flex space-x-10">
+                        {['PROJECTS', 'BLOG', 'ABOUT', 'RESUME'].map(item => (
+                            <a key={item} href="#" className="text-sm font-medium tracking-widest hover:text-brand transition-colors">
+                                {item}
+                            </a>
+                        ))}
+                    </nav>
+                    
+                    {/* Mobile Menu Trigger */}
+                    <button onClick={() => setIsOpen(true)} className="lg:hidden p-2">
+                        <i data-lucide="menu" className="w-6 h-6"></i>
+                    </button>
+                    
+                    {/* Full-screen Mobile Menu */}
+                    <AnimatePresence>
+                        {isOpen && (
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-darkBg z-[110] flex flex-col items-center justify-center space-y-8"
+                            >
+                                <button onClick={() => setIsOpen(false)} className="absolute top-8 right-8 p-2">
+                                    <i data-lucide="x" className="w-8 h-8"></i>
+                                </button>
+                                {['PROJECTS', 'BLOG', 'ABOUT', 'RESUME'].map(item => (
+                                    <a key={item} href="#" className="text-2xl font-bold tracking-widest hover:text-brand">
+                                        {item}
+                                    </a>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </header>
+            );
+        };
+
+        const Hero = () => {
+            const videoRef = useRef(null);
+            
+            useEffect(() => {
+                const video = videoRef.current;
+                const streamUrl = 'https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8';
+                
+                if (Hls.isSupported()) {
+                    const hls = new Hls({ enableWorker: false });
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = streamUrl;
+                }
+                
+                lucide.createIcons();
+            }, []);
+
+            return (
+                <section className="relative w-full h-screen overflow-hidden flex items-center px-8 lg:px-24">
+                    {/* Background Video */}
+                    <video 
+                        ref={videoRef}
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 -z-30"
+                        autoPlay loop muted playsInline
+                    />
+                    
+                    {/* Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-darkBg via-darkBg/50 to-transparent -z-20"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent -z-20"></div>
+                    
+                    {/* Grid System */}
+                    <div className="grid-line left-[25%]"></div>
+                    <div className="grid-line left-[50%]"></div>
+                    <div className="grid-line left-[75%]"></div>
+                    
+                    {/* Central Glow */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10">
+                        <svg width="800" height="400" viewBox="0 0 800 400" fill="none">
+                            <defs>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="25" />
+                                </filter>
+                            </defs>
+                            <ellipse cx="400" cy="0" rx="300" ry="100" fill="#5ed29c" fillOpacity="0.2" filter="url(#glow)" />
+                        </svg>
+                    </div>
+                    
+                    {/* Main Content */}
+                    <div className="relative z-10 max-w-4xl pt-20">
+                        {/* Floating Liquid Glass Card */}
+                        <motion.div 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: -50, opacity: 1 }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                            className="liquid-glass w-[200px] h-[200px] rounded-2xl p-6 flex flex-col justify-between mb-8"
+                        >
+                            <span className="text-[14px] text-brand/80 font-medium">[ 2025 ]</span>
+                            <h3 className="text-[18px] leading-tight font-medium">
+                                Taught by <span className="font-serif italic font-normal">Industry</span> Professionals
+                            </h3>
+                            <p className="text-[11px] opacity-60">
+                                Verified experts from leading tech giants worldwide.
+                            </p>
+                        </motion.div>
+                        
+                        <div className="space-y-4">
+                            <span className="font-jakarta text-[11px] font-bold text-brand uppercase tracking-[0.2em] block mb-2">
+                                Career-Ready Curriculum
+                            </span>
+                            
+                            <h1 className="font-sans font-black text-[40px] lg:text-[72px] leading-[0.9] tracking-tighter uppercase max-w-2xl">
+                                LAUNCH YOUR CODING CAREER<span className="text-brand">.</span>
+                            </h1>
+                            
+                            <p className="text-sm md:text-[14px] opacity-70 max-w-[512px] leading-relaxed">
+                                Master in-demand coding skills with our accelerated paths. From zero to professional with real-world projects and direct mentorship.
+                            </p>
+                            
+                            <div className="pt-8">
+                                <motion.button 
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-brand text-[#070b0a] px-8 py-4 rounded-full font-bold uppercase text-xs flex items-center gap-3 tracking-widest shadow-lg shadow-brand/20"
+                                >
+                                    Get Started
+                                    <i data-lucide="arrow-right" className="w-4 h-4"></i>
+                                </motion.button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const App = () => (
+            <div>
+                <Navbar />
+                <Hero />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
