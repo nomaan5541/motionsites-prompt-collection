@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuralyn | Analytics Dashboard SaaS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0 0% 0%)',
+                        foreground: 'hsl(0 0% 100%)',
+                        'muted-foreground': 'hsl(0 0% 65%)',
+                        card: 'hsl(0 0% 5%)',
+                        border: 'hsl(0 0% 20%)',
+                        'hero-subtitle': 'hsl(210 17% 95%)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass {
+                background: rgba(255,255,255,0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+                border: none;
+                box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+                position: relative; overflow: hidden;
+            }
+            .liquid-glass::before {
+                content: ''; position: absolute; inset: 0;
+                border-radius: inherit; padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor; mask-composite: exclude;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useRef, useEffect } = React;
+        const { motion, useScroll, useTransform } = window.Motion;
+
+        const Navbar = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <nav className="flex items-center justify-between px-8 md:px-28 py-4">
+                    <div className="flex items-center gap-12 md:gap-20">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center text-background font-bold text-sm">N</div>
+                            <span className="text-xl font-bold tracking-tight">Neuralyn</span>
+                        </div>
+                        <div className="hidden md:flex items-center gap-1">
+                            {['Home', 'Services', 'Reviews', 'Contact us'].map((link, i) => (
+                                <a key={link} href="#" className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                                    {link}
+                                    {link === 'Services' && <i data-lucide="chevron-down" className="w-3 h-3"></i>}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                    <button className="bg-foreground text-background rounded-lg px-5 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity">
+                        Sign In
+                    </button>
+                </nav>
+            );
+        };
+
+        const Hero = () => {
+            const sectionRef = useRef(null);
+            const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+            const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+            const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+            const dashboardY = useTransform(scrollYProgress, [0, 1], [0, -250]);
+
+            return (
+                <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
+                    <Navbar />
+                    
+                    {/* Hero Content */}
+                    <motion.div 
+                        style={{ y: contentY, opacity: contentOpacity }}
+                        className="flex flex-col items-center text-center mt-16 md:mt-20 px-4"
+                    >
+                        {/* Tag Pill */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0 }}
+                            className="liquid-glass rounded-lg px-3 py-2 flex items-center gap-2 mb-6"
+                        >
+                            <span className="bg-foreground text-background rounded-md text-sm font-medium px-2 py-0.5">New</span>
+                            <span className="text-sm font-medium text-muted-foreground">Say Hello to Corewave v3.2</span>
+                        </motion.div>
+
+                        {/* Title */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="text-5xl md:text-7xl tracking-[-2px] font-medium leading-tight md:leading-[1.15] mb-3"
+                        >
+                            Your Insights.<br />One Clear <span className="font-serif italic font-normal">Overview.</span>
+                        </motion.h1>
+
+                        {/* Subtitle */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-lg font-normal leading-6 opacity-90 mb-8 text-hero-subtitle"
+                        >
+                            Neuralyn helps teams track metrics, goals,<br />and progress with precision.
+                        </motion.p>
+
+                        {/* CTA */}
+                        <motion.button
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-foreground text-background rounded-full px-8 py-3.5 text-base font-medium"
+                        >
+                            Get Started for Free
+                        </motion.button>
+                    </motion.div>
+
+                    {/* Dashboard + Video Area */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="relative mt-16 w-screen" style={{ marginLeft: 'calc(-50vw + 50%)' }}
+                    >
+                        <div className="relative aspect-[16/9]">
+                            <video
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+                                className="absolute inset-0 w-full h-full object-cover"
+                                autoPlay loop muted playsInline
+                            />
+                            <motion.img
+                                src="https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif"
+                                className="absolute left-1/2 -translate-x-1/2 top-8 max-w-5xl w-[90%] rounded-2xl shadow-2xl"
+                                style={{ mixBlendMode: 'luminosity', y: dashboardY }}
+                            />
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-30 pointer-events-none"></div>
+                    </motion.div>
+                </section>
+            );
+        };
+
+        const Testimonial = () => {
+            const containerRef = useRef(null);
+            const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end center"] });
+            
+            const text = "Neuralyn revolutionized how we handle financial insights using smart analytics. We are now driving better outcomes quicker than we ever imagined! Neuralyn revolutionized how we handle financial insights using smart analytics.";
+            const words = text.split(" ");
+
+            return (
+                <section ref={containerRef} className="min-h-screen py-24 md:py-32 px-8 md:px-28 flex items-center">
+                    <div className="max-w-3xl mx-auto flex flex-col items-start gap-10">
+                        <div className="text-6xl font-serif italic text-muted-foreground">"</div>
+                        <div className="text-4xl md:text-5xl font-medium leading-[1.2] flex flex-wrap">
+                            {words.map((word, i) => {
+                                const start = i / words.length;
+                                const end = (i + 1) / words.length;
+                                const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1]);
+                                const color = useTransform(scrollYProgress, [start, end], ['hsl(0 0% 35%)', 'hsl(0 0% 100%)']);
+                                return (
+                                    <motion.span key={i} style={{ opacity, color }} className="mr-[0.3em]">
+                                        {word}
+                                    </motion.span>
+                                );
+                            })}
+                            <span className="text-muted-foreground ml-2">"</span>
+                        </div>
+                        <div className="flex items-center gap-4 mt-4">
+                            <img src="https://i.pravatar.cc/100?img=47" className="w-14 h-14 rounded-full border-[3px] border-foreground object-cover" />
+                            <div>
+                                <div className="text-base font-semibold leading-7">Brooklyn Simmons</div>
+                                <div className="text-sm font-normal leading-5 text-muted-foreground">Product Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const App = () => (
+            <div>
+                <Hero />
+                <Testimonial />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

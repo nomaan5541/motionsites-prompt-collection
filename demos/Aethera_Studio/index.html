@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aethera® Studio | Beyond Silence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Instrument Serif', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-rise': {
+                            from: { opacity: '0', transform: 'translateY(20px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-rise': 'fade-rise 0.8s ease-out both',
+                        'fade-rise-delay': 'fade-rise 0.8s ease-out 0.2s both',
+                        'fade-rise-delay-2': 'fade-rise 0.8s ease-out 0.4s both',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-black font-body antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+
+        const App = () => {
+            const videoRef = useRef(null);
+
+            useEffect(() => {
+                const video = videoRef.current;
+                if (!video) return;
+
+                let rafId;
+                const fade = () => {
+                    if (!video.duration) { rafId = requestAnimationFrame(fade); return; }
+                    const t = video.currentTime;
+                    const d = video.duration;
+                    if (t < 0.5) video.style.opacity = t / 0.5;
+                    else if (t > d - 0.5) video.style.opacity = (d - t) / 0.5;
+                    else video.style.opacity = 1;
+                    rafId = requestAnimationFrame(fade);
+                };
+
+                video.addEventListener('ended', () => {
+                    video.style.opacity = 0;
+                    setTimeout(() => { video.currentTime = 0; video.play(); }, 100);
+                });
+                video.play();
+                rafId = requestAnimationFrame(fade);
+                return () => cancelAnimationFrame(rafId);
+            }, []);
+
+            return (
+                <div className="relative min-h-screen w-full overflow-hidden">
+                    {/* Video Background */}
+                    <video 
+                        ref={videoRef}
+                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4"
+                        className="absolute w-full h-auto object-cover"
+                        style={{ top: '300px', inset: 'auto 0 0 0', opacity: 0 }}
+                        muted playsInline
+                    />
+                    {/* Gradient Overlay on video */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none"></div>
+                    
+                    {/* Navigation z-10 */}
+                    <nav className="relative z-10 flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+                        <div className="font-display text-3xl tracking-tight">
+                            Aethera<sup className="text-xs">®</sup>
+                        </div>
+                        <div className="hidden md:flex items-center space-x-8">
+                            {[
+                                { name: 'Home', color: '#000000' },
+                                { name: 'Studio', color: '#6F6F6F' },
+                                { name: 'About', color: '#6F6F6F' },
+                                { name: 'Journal', color: '#6F6F6F' },
+                                { name: 'Reach Us', color: '#6F6F6F' }
+                            ].map(link => (
+                                <a key={link.name} href="#" className="text-sm transition-colors hover:text-black" style={{ color: link.color }}>
+                                    {link.name}
+                                </a>
+                            ))}
+                        </div>
+                        <button className="bg-black text-white rounded-full px-6 py-2.5 text-sm font-medium hover:scale-[1.03] active:scale-[0.97] transition-transform">
+                            Begin Journey
+                        </button>
+                    </nav>
+
+                    {/* Hero Section z-10 */}
+                    <section className="relative z-10 flex flex-col items-center justify-center text-center px-6" style={{ paddingTop: 'calc(8rem - 75px)', paddingBottom: '10rem' }}>
+                        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl max-w-7xl font-normal animate-fade-rise" style={{ lineHeight: 0.95, letterSpacing: '-2.46px' }}>
+                            Beyond <span className="italic" style={{ color: '#6F6F6F' }}>silence,</span> we build <span className="italic" style={{ color: '#6F6F6F' }}>the eternal.</span>
+                        </h1>
+                        <p className="text-base sm:text-lg max-w-2xl mt-8 leading-relaxed animate-fade-rise-delay" style={{ color: '#6F6F6F' }}>
+                            Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows.
+                        </p>
+                        <button className="bg-black text-white rounded-full px-14 py-5 text-base mt-12 hover:scale-[1.03] active:scale-[0.97] transition-transform animate-fade-rise-delay-2">
+                            Begin Journey
+                        </button>
+                    </section>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

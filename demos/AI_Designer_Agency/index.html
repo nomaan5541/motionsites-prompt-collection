@@ -192,7 +192,7 @@
         );
 
         const Work = () => (
-            <section class="bg-background py-32 px-8 max-w-6xl mx-auto">
+            <section class="bg-background py-32 pb-16 px-8 max-w-6xl mx-auto">
                 <h2 class="text-4xl md:text-5xl font-medium tracking-[-2px] text-center mb-4">
                     Selected <span class="font-accent italic font-normal">Work</span>
                 </h2>
@@ -237,21 +237,39 @@
             }, []);
 
             return (
-                <section class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+                <section class="relative w-full h-screen overflow-hidden flex items-center justify-center z-10">
                     <video ref={videoRef} class="absolute inset-0 w-full h-full object-cover -z-10" autoPlay loop muted playsInline />
                     <div class="absolute inset-0 bg-black/30 -z-10"></div>
                     <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent -z-10"></div>
                     <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent -z-10"></div>
                     
                     <div class="relative z-10 text-center max-w-3xl px-8">
-                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-2px] mb-6 leading-tight">
+                        <motion.h2 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-2px] mb-6 leading-tight"
+                        >
                             Ready to <span class="font-accent italic font-normal">Transform</span> Your Brand?
-                        </h2>
-                        <p class="text-lg text-muted-foreground mb-10">Let's build something extraordinary together.</p>
-                        <div class="flex flex-col sm:flex-row justify-center gap-4">
-                            <button class="bg-foreground text-background rounded-full px-10 py-4 font-semibold">START A PROJECT</button>
+                        </motion.h2>
+                        <motion.p 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.15 }}
+                            class="text-lg text-muted-foreground mb-10"
+                        >Let's build something extraordinary together.</motion.p>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            class="flex flex-col sm:flex-row justify-center gap-4"
+                        >
+                            <button class="bg-foreground text-background rounded-full px-10 py-4 font-semibold hover:opacity-90 transition-opacity">START A PROJECT</button>
                             <button class="liquid-glass-strong rounded-full px-10 py-4 font-semibold">BOOK A CALL</button>
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
             );
@@ -267,19 +285,19 @@
                     <div>
                         <h4 class="font-medium mb-4">Services</h4>
                         <ul class="space-y-2 text-sm text-muted-foreground">
-                            {['Brand Design', 'AI Web Design', 'AI Web Development', 'Optimization'].map(it => <li key={it}>{it}</li>)}
+                            {['Brand Design', 'AI Web Design', 'AI Web Development', 'Optimization'].map(it => <li key={it}><a href="#" class="hover:text-foreground transition-colors">{it}</a></li>)}
                         </ul>
                     </div>
                     <div>
                         <h4 class="font-medium mb-4">Company</h4>
                         <ul class="space-y-2 text-sm text-muted-foreground">
-                            {['About', 'Work', 'Blog', 'Careers'].map(it => <li key={it}>{it}</li>)}
+                            {['About', 'Work', 'Blog', 'Careers'].map(it => <li key={it}><a href="#" class="hover:text-foreground transition-colors">{it}</a></li>)}
                         </ul>
                     </div>
                     <div>
                         <h4 class="font-medium mb-4">Connect</h4>
                         <ul class="space-y-2 text-sm text-muted-foreground">
-                            {['Twitter', 'LinkedIn', 'Instagram', 'Dribbble'].map(it => <li key={it}>{it}</li>)}
+                            {['Twitter', 'LinkedIn', 'Instagram', 'Dribbble'].map(it => <li key={it}><a href="#" class="hover:text-foreground transition-colors">{it}</a></li>)}
                         </ul>
                     </div>
                 </div>
