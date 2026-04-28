@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | IT Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { background: 'hsl(0 0% 100%)', foreground: 'hsl(220 20% 20%)', primary: 'hsl(212 72% 18%)', 'muted-foreground': 'hsl(220 10% 50%)' } } } }
+    </script>
+    <style>
+        .heading-gradient { background: linear-gradient(180deg, hsl(212 72% 10%), hsl(205 65% 48%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const NotchedButton = ({ text }) => (
+            <button className="relative px-8 py-4 border border-foreground/20 text-foreground uppercase tracking-[0.05em] text-lg font-medium hover:bg-foreground hover:text-background transition-colors" style={{ fontFamily: "'Akshar',sans-serif" }}>
+                {/* Corner decorations */}
+                {[{t:'0',l:'0',h:true},{t:'0',r:'0',h:true},{b:'0',l:'0',h:true},{b:'0',r:'0',h:true},{t:'0',l:'0'},{t:'0',r:'0'},{b:'0',l:'0'},{b:'0',r:'0'}].map((s,i) => (
+                    <span key={i} className="absolute bg-foreground/40" style={{ top:s.t,bottom:s.b,left:s.l,right:s.r, width: i<4?'10px':'1px', height: i<4?'1px':'10px', inset: undefined, ...(s.t!==undefined?{top:'4px'}:{}), ...(s.b!==undefined?{bottom:'4px'}:{}), ...(s.l!==undefined?{left:'4px'}:{}), ...(s.r!==undefined?{right:'4px'}{}) }}></span>
+                ))}
+                {text}
+            </button>
+        );
+
+        const App = () => (
+            <div className="min-h-screen bg-background">
+                <div className="h-screen flex flex-col relative overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_065810_0098b193-498c-4d26-9abd-5db8bf4fb479.mp4" className="absolute inset-0 w-full h-full object-fill z-0" autoPlay muted loop playsInline />
+                    <div className="relative z-10 flex flex-col flex-1">
+                        {/* Navbar */}
+                        <nav className="flex items-center justify-between px-8 py-5 max-w-7xl mx-auto w-full gap-12">
+                            <span className="text-xl font-medium tracking-wider text-foreground" style={{ fontFamily: "'Akshar',sans-serif" }}>NEXUS</span>
+                            <div className="hidden md:flex items-center gap-8">
+                                {['HOME','SOLUTIONS','OUR TEAM','NEWS'].map(l => (
+                                    <a key={l} href="#" className="text-lg tracking-[0.05em] text-muted-foreground hover:text-foreground transition-colors" style={{ fontFamily: "'Akshar',sans-serif" }}>{l}</a>
+                                ))}
+                            </div>
+                            <button className="border border-foreground/10 text-muted-foreground hover:bg-muted-foreground hover:text-background uppercase tracking-[0.05em] text-xl px-6 py-2 transition-colors" style={{ fontFamily: "'Akshar',sans-serif", borderRadius: 0 }}>
+                                GET IN TOUCH
+                            </button>
+                        </nav>
+
+                        {/* Hero */}
+                        <div className="flex-1 flex flex-col justify-center px-8 max-w-7xl mx-auto w-full">
+                            <h1 className="heading-gradient text-4xl md:text-5xl lg:text-6xl font-normal leading-tight max-w-3xl" style={{ letterSpacing: '-0.06em' }}>
+                                We drive companies beyond their biggest obstacles
+                            </h1>
+                            <p className="mt-6 text-muted-foreground text-lg md:text-xl max-w-xl" style={{ fontFamily: "'Akshar',sans-serif" }}>
+                                Accelerating Growth through IT Strategy, Digital Innovation, and Custom-Built Technology Platforms
+                            </p>
+                            <div className="mt-8">
+                                <button className="relative px-8 py-4 border border-foreground/20 text-foreground uppercase tracking-[0.05em] text-lg font-medium hover:bg-foreground hover:text-background transition-colors" style={{ fontFamily: "'Akshar',sans-serif" }}>
+                                    START YOUR JOURNEY
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Trusted By */}
+                        <div className="px-8 pb-10 max-w-7xl mx-auto w-full">
+                            <p className="uppercase tracking-[0.12em] text-muted-foreground text-sm mb-4" style={{ fontFamily: "'Akshar',sans-serif" }}>Trusted by leading innovators worldwide</p>
+                            <div className="flex flex-wrap items-center gap-8">
+                                {['FedEx','amazon','McKESSON','pitney bowes'].map(b => (
+                                    <span key={b} className="text-lg md:text-2xl font-bold tracking-wide opacity-40">{b}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

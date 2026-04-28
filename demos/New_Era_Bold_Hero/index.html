@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Era of Design Starts Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body class="antialiased overflow-x-hidden" style="font-family:'Rubik',sans-serif; background: #21346e">
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => (
+            <div className="relative min-h-screen overflow-hidden" style={{ background: '#21346e' }}>
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260206_044704_dd33cb15-c23f-4cfc-aa09-a0465d4dcb54.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                <div className="relative z-10 pt-32 md:pt-48 px-6 md:px-16 lg:px-24">
+                    <h1 className="text-white font-bold uppercase" style={{ fontSize: 'clamp(60px, 8vw, 100px)', lineHeight: 0.98, letterSpacing: '-3px' }}>
+                        <span className="block">NEW ERA</span>
+                        <span className="block">OF DESIGN</span>
+                        <span className="block">STARTS NOW</span>
+                    </h1>
+                    <div className="mt-10">
+                        <button className="relative w-[184px] h-[65px] hover:scale-105 active:scale-95 transition-transform">
+                            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 184 65" fill="white" preserveAspectRatio="none">
+                                <rect width="184" height="65" rx="12" fill="white"/>
+                            </svg>
+                            <span className="relative z-10 font-bold uppercase text-[20px]" style={{ color: '#161a20' }}>GET STARTED</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Era Automotive | Find Your Car</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#010101] text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <section className="relative w-full overflow-hidden" style={{ height: 'clamp(600px, 100vh, 965px)' }}>
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260213_051817_c7d8ccc6-bfaa-417c-8474-e5cefeea26b4.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                    <div className="absolute top-0 left-0 right-0 h-[260px] bg-gradient-to-b from-black/30 to-transparent z-[1]"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[260px] bg-gradient-to-t from-black/30 to-transparent z-[1]"></div>
+
+                    {/* Decorative NEW ERA text */}
+                    <div className="absolute top-[15%] left-1/2 -translate-x-1/2 z-[2] w-[75%] max-w-[1073px] text-center pointer-events-none">
+                        <span className="font-bold uppercase bg-clip-text text-transparent" style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 'clamp(80px, 15vw, 200px)', lineHeight: 0.9, backgroundImage: 'linear-gradient(to bottom, rgba(255,255,255,0.83), rgba(255,255,255,0.12))' }}>NEW ERA</span>
+                    </div>
+
+                    {/* Navbar */}
+                    <nav className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 lg:px-20 py-5">
+                        <div className="flex items-center gap-3">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><path d="M14 0L17 11L28 14L17 17L14 28L11 17L0 14L11 11Z"/></svg>
+                            <span className="hidden sm:inline text-white text-2xl" style={{ fontFamily: "'Inter',sans-serif" }}>Logoipsum</span>
+                        </div>
+                        <div className="hidden lg:flex items-center gap-8">
+                            {['Home','Shop','Blog','About Us','Contact Us'].map(l => (
+                                <a key={l} href="#" className="text-[#EEEFF2] text-sm" style={{ letterSpacing: '-0.32px' }}>{l}</a>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <a href="#" className="hidden sm:inline text-[#FBFBFD] text-sm">Sign In</a>
+                            <button className="h-12 flex items-center gap-2 bg-white rounded-lg px-5 shadow-sm">
+                                <i data-lucide="shopping-cart" className="w-[18px] h-[18px] text-[#272835]"></i>
+                                <span className="text-[#272835] text-sm font-medium" style={{ fontFamily: "'Inter',sans-serif" }}>Cart</span>
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Bottom CTA */}
+                    <div className="absolute bottom-0 left-0 right-0 z-10 px-6 lg:px-20 pb-10">
+                        <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-end gap-6 max-w-lg">
+                                <p className="text-white text-base sm:text-xl leading-relaxed max-w-[414px]" style={{ lineHeight: '30px' }}>
+                                    Choose from thousands of certified cars you can trust, transparently priced, because buying a car should feel exciting.
+                                </p>
+                                <button className="h-12 flex items-center gap-2 bg-white rounded-lg px-5 border border-[#EEEFF2] shadow-sm shrink-0">
+                                    <span className="text-[#272835] text-sm font-medium" style={{ fontFamily: "'Inter',sans-serif" }}>Shop Now</span>
+                                    <i data-lucide="arrow-right" className="w-[18px] h-[18px] text-[#272835]"></i>
+                                </button>
+                            </div>
+                            <h2 className="text-white text-5xl sm:text-6xl lg:text-[64px] max-w-[466px] text-right lg:text-right" style={{ fontFamily: "'Bebas Neue',sans-serif", lineHeight: 1 }}>
+                                Find the perfect car that fits our journey
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
