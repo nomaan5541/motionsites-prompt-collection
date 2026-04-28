@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktor Oddy | New Design Era</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        ::selection { background: white; color: #fd2601; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            const brands = ['GUCCI', 'ZARA', 'VOGUE', 'SONY', 'ZALORA'];
+            return (
+                <div className="relative min-h-screen overflow-hidden" style={{ background: 'linear-gradient(180deg, #fd2601 0%, #f37e1c 100%)' }}>
+                    {/* Background Name */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                        <span className="text-white/[0.08] text-[20vw] font-bold uppercase" style={{ fontFamily: "'Anton',sans-serif", filter: 'blur(4px)' }}>OLIVIA</span>
+                    </div>
+                    {/* Glowing blobs */}
+                    <div className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-60 mix-blend-screen pointer-events-none" style={{ background: '#F4791B', filter: 'blur(80px)' }}></div>
+                    <div className="absolute bottom-[-5%] left-[5%] w-[600px] h-[300px] rounded-full opacity-60 mix-blend-screen pointer-events-none" style={{ background: '#F4791B', filter: 'blur(80px)' }}></div>
+
+                    {/* Navbar */}
+                    <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-6 md:px-12 py-6">
+                        <span className="text-white text-sm font-medium tracking-widest uppercase" style={{ fontFamily: "'Inter',sans-serif" }}>✱ VIKTORODDY</span>
+                        <div className="hidden md:flex items-center gap-8">
+                            {['PROJECTS','BLOG','ABOUT','RESUME'].map(l => (
+                                <a key={l} href="#" className="text-white text-xs tracking-widest uppercase hover:opacity-80 transition-opacity">{l}</a>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <span className="text-white text-xs tracking-widest uppercase hidden sm:inline">// HIRE ME</span>
+                            <button className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center group hover:bg-white transition-colors">
+                                <i data-lucide="arrow-up-right" className="w-4 h-4 text-white group-hover:text-[#fd2601] transition-colors"></i>
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero Content */}
+                    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32">
+                        {/* Central Image with brush mask */}
+                        <div className="absolute z-20 pointer-events-none w-[280px] h-[400px] md:w-[320px] md:h-[460px]" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=550&fit=crop&crop=face" className="w-full h-full object-cover" style={{
+                                WebkitMaskImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cellipse cx='150' cy='200' rx='130' ry='180' fill='black'/%3E%3Cellipse cx='100' cy='80' rx='60' ry='40' fill='black'/%3E%3Cellipse cx='220' cy='340' rx='50' ry='35' fill='black'/%3E%3Cellipse cx='60' cy='300' rx='45' ry='50' fill='black'/%3E%3C/svg%3E\")",
+                                WebkitMaskSize: 'cover', WebkitMaskRepeat: 'no-repeat',
+                                maskImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cellipse cx='150' cy='200' rx='130' ry='180' fill='black'/%3E%3Cellipse cx='100' cy='80' rx='60' ry='40' fill='black'/%3E%3Cellipse cx='220' cy='340' rx='50' ry='35' fill='black'/%3E%3Cellipse cx='60' cy='300' rx='45' ry='50' fill='black'/%3E%3C/svg%3E\")",
+                                maskSize: 'cover', maskRepeat: 'no-repeat'
+                            }} />
+                        </div>
+
+                        {/* Headline */}
+                        <h1 className="relative z-10 text-white text-center uppercase tracking-wide" style={{ fontFamily: "'Anton',sans-serif", fontSize: 'clamp(60px, 12vw, 180px)', lineHeight: 0.95 }}>
+                            <span className="hidden md:block">NEW DESIGN ERA</span>
+                            <span className="md:hidden flex flex-col">
+                                <span>NEW</span><span>DESIGN</span><span>ERA</span>
+                            </span>
+                        </h1>
+
+                        {/* Floating Text */}
+                        <div className="hidden lg:block absolute bottom-32 left-12 z-30 text-white text-sm leading-relaxed max-w-xs">
+                            <span className="opacity-60">// </span>I'm Olivia — a freelance<br />UI/UX designer crafting bold<br />digital experiences
+                        </div>
+                        <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 z-30 text-white text-sm text-right leading-relaxed">
+                            <span className="opacity-60">// </span>DESIGN THAT<br />SPEAKS YOUR BRAND
+                        </div>
+                        {/* Mobile floating text */}
+                        <div className="lg:hidden text-white text-sm text-center mt-8 z-30 space-y-2">
+                            <p><span className="opacity-60">// </span>I'm Olivia — a freelance UI/UX designer</p>
+                            <p><span className="opacity-60">// </span>DESIGN THAT SPEAKS YOUR BRAND</p>
+                        </div>
+                    </div>
+
+                    {/* Brand Strip */}
+                    <div className="absolute bottom-0 left-0 right-0 z-30 flex flex-wrap justify-center md:justify-evenly items-center gap-8 md:gap-0 px-8 pb-8">
+                        {brands.map(b => (
+                            <span key={b} className="text-white/90 text-lg md:text-xl font-medium tracking-widest">{b}</span>
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

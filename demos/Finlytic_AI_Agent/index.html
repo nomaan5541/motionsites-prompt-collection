@@ -15,56 +15,164 @@
     <script type="text/babel">
         const { useEffect } = React;
 
+        const Dashboard = () => (
+            <div className="w-full rounded-lg bg-[#0d0d0d] border border-white/10 overflow-hidden text-[11px] select-none pointer-events-none">
+                {/* Top Bar */}
+                <div className="flex items-center justify-between px-5 py-3 border-b border-white/10">
+                    <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 rounded bg-[#7b39fc] flex items-center justify-center text-white text-[9px] font-bold">F</div>
+                        <span className="text-white text-xs font-semibold">Finlytic</span>
+                    </div>
+                    <div className="flex items-center gap-2 bg-white/5 rounded-md px-3 py-1.5 text-white/40 text-[10px] w-44">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        Search... <span className="ml-auto opacity-40">⌘K</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                        <div className="w-6 h-6 rounded-full bg-[#7b39fc] flex items-center justify-center text-[9px] text-white font-bold">AK</div>
+                    </div>
+                </div>
+                <div className="flex">
+                    {/* Sidebar */}
+                    <div className="hidden md:block w-36 border-r border-white/10 py-3 px-3 space-y-0.5">
+                        {[{l:'Dashboard',a:true},{l:'Agents'},{l:'Workflows'},{l:'Leads',b:'24'},{l:'Support'},{l:'Analytics'},{l:'Settings'}].map(i => (
+                            <div key={i.l} className={`flex items-center justify-between px-2 py-1.5 rounded text-[10px] ${i.a ? 'bg-[#7b39fc]/20 text-[#a78bfa]' : 'text-white/50'}`}>
+                                {i.l} {i.b && <span className="bg-[#7b39fc] text-white px-1.5 rounded text-[8px]">{i.b}</span>}
+                            </div>
+                        ))}
+                    </div>
+                    {/* Main Content */}
+                    <div className="flex-1 p-4 space-y-4 bg-black/30">
+                        <div className="flex items-center justify-between">
+                            <div className="text-sm font-semibold text-white">Overview</div>
+                            <div className="text-[10px] text-white/40">Last 30 days</div>
+                        </div>
+                        {/* Metrics Row */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {[{l:'Active Agents',v:'12',c:'+3'},{l:'Leads Generated',v:'1,847',c:'+22%'},{l:'Tasks Completed',v:'9,214',c:'+18%'},{l:'Time Saved',v:'342h',c:'+45%'}].map(m => (
+                                <div key={m.l} className="bg-white/5 rounded-xl p-3 border border-white/5">
+                                    <div className="text-[10px] text-white/40 mb-1">{m.l}</div>
+                                    <div className="text-lg font-semibold text-white">{m.v}</div>
+                                    <div className="text-[10px] text-green-400 mt-0.5">{m.c}</div>
+                                </div>
+                            ))}
+                        </div>
+                        {/* Chart */}
+                        <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                            <div className="text-[10px] font-semibold text-white mb-3">Agent Performance</div>
+                            <svg viewBox="0 0 400 100" className="w-full h-20">
+                                <defs>
+                                    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#7b39fc" stopOpacity="0.3"/><stop offset="100%" stopColor="#7b39fc" stopOpacity="0"/></linearGradient>
+                                </defs>
+                                <path d="M0,80 C40,75 60,60 100,55 C140,50 160,30 200,35 C240,40 280,20 320,15 C360,10 380,25 400,20 L400,100 L0,100Z" fill="url(#fg)"/>
+                                <path d="M0,80 C40,75 60,60 100,55 C140,50 160,30 200,35 C240,40 280,20 320,15 C360,10 380,25 400,20" fill="none" stroke="#7b39fc" strokeWidth="2"/>
+                            </svg>
+                        </div>
+                        {/* Recent Activity */}
+                        <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                            <div className="text-[10px] font-semibold text-white mb-3">Recent Agent Activity</div>
+                            <table className="w-full text-[10px]">
+                                <thead><tr className="text-white/40 border-b border-white/5"><th className="text-left pb-2 font-normal">Agent</th><th className="text-left pb-2 font-normal">Task</th><th className="text-right pb-2 font-normal">Status</th><th className="text-right pb-2 font-normal">Time</th></tr></thead>
+                                <tbody>
+                                    {[
+                                        {a:'LeadBot',t:'Email outreach campaign',s:'Running',sc:'text-[#7b39fc] bg-[#7b39fc]/10',time:'2m ago'},
+                                        {a:'SupportAI',t:'Ticket #4821 resolved',s:'Completed',sc:'text-green-400 bg-green-400/10',time:'5m ago'},
+                                        {a:'DataSync',t:'CRM data entry batch',s:'Completed',sc:'text-green-400 bg-green-400/10',time:'12m ago'},
+                                        {a:'LeadBot',t:'LinkedIn prospect scrape',s:'Queued',sc:'text-amber-400 bg-amber-400/10',time:'15m ago'},
+                                    ].map((r,i) => (
+                                        <tr key={i} className="border-b border-white/5 last:border-none text-white/70">
+                                            <td className="py-2 text-white font-medium">{r.a}</td>
+                                            <td className="py-2">{r.t}</td>
+                                            <td className="py-2 text-right"><span className={`px-2 py-0.5 rounded-full text-[9px] ${r.sc}`}>{r.s}</span></td>
+                                            <td className="py-2 text-right text-white/40">{r.time}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
         const App = () => {
             useEffect(() => { lucide.createIcons(); }, []);
 
             return (
                 <section className="relative w-full overflow-hidden bg-black">
-                    {/* Background Video */}
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260215_121759_424f8e9c-d8bd-4974-9567-52709dfb6842.mp4" className="absolute inset-0 object-cover z-0" style={{ width: '120%', height: '120%', marginLeft: '-10%', objectPosition: 'bottom' }} autoPlay loop muted playsInline />
+                    {/* Background Video - scaled 120%, anchored bottom */}
+                    <div className="absolute inset-0 z-0 overflow-hidden flex items-end justify-center">
+                        <video 
+                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260215_121759_424f8e9c-d8bd-4974-9567-52709dfb6842.mp4" 
+                            className="object-cover"
+                            style={{ width: '120%', height: '120%', objectPosition: 'center bottom' }}
+                            autoPlay loop muted playsInline
+                        />
+                    </div>
                     
-                    {/* Blurred pill shape */}
-                    <div className="absolute z-[1] w-[801px] h-[384px] rounded-full bg-black pointer-events-none" style={{ left: '50%', top: '215px', transform: 'translateX(-50%)', filter: 'blur(77.5px)' }}></div>
+                    {/* Blurred pill shape - z-1 */}
+                    <div className="absolute z-[1] pointer-events-none" style={{ width: '801px', height: '384px', borderRadius: '9999px', background: '#000000', filter: 'blur(77.5px)', left: '50%', top: '215px', transform: 'translateX(-50%)' }}></div>
 
-                    {/* Content */}
+                    {/* All Content - z-2 */}
                     <div className="relative z-[2]">
-                        {/* Navbar */}
-                        <nav className="max-w-[1440px] mx-auto flex items-center justify-between h-[102px]" style={{ padding: '16px 120px' }}>
-                            <div className="flex items-center gap-20">
-                                <span className="text-white font-bold text-lg tracking-tight">LOGOIPSUM</span>
-                                <div className="hidden md:flex items-center gap-[10px]">
+                        {/* Navbar - max-w-[1440px], px-[120px] */}
+                        <nav className="max-w-[1440px] mx-auto flex items-center justify-between px-6 md:px-[120px]" style={{ padding: '16px 120px', height: '102px' }}>
+                            <div className="flex items-center" style={{ gap: '80px' }}>
+                                {/* Logo */}
+                                <div className="flex items-center gap-2">
+                                    <svg width="28" height="25" viewBox="0 0 28 25" fill="white">
+                                        <rect x="0" y="0" width="8" height="25" rx="2"/>
+                                        <rect x="10" y="0" width="8" height="16" rx="2"/>
+                                        <rect x="20" y="0" width="8" height="21" rx="2"/>
+                                    </svg>
+                                    <span className="text-white font-bold text-base tracking-tight" style={{ fontFamily: "'Manrope',sans-serif" }}>LOGOIPSUM</span>
+                                </div>
+                                {/* Nav Links */}
+                                <div className="hidden md:flex items-center" style={{ gap: '10px' }}>
                                     {['Home', 'Services', 'Reviews', 'Contact us'].map((l, i) => (
-                                        <a key={l} href="#" className="px-[10px] py-1 text-sm font-medium text-white leading-[22px] flex items-center gap-[3px]">
-                                            {l} {i === 1 && <i data-lucide="chevron-down" className="w-6 h-6"></i>}
+                                        <a key={l} href="#" className="text-white flex items-center font-medium" style={{ fontFamily: "'Manrope',sans-serif", fontSize: '14px', lineHeight: '22px', padding: '4px 10px', gap: '3px' }}>
+                                            {l} {i === 1 && <i data-lucide="chevron-down" style={{ width: '24px', height: '24px' }}></i>}
                                         </a>
                                     ))}
                                 </div>
                             </div>
-                            <div className="hidden md:flex items-center gap-3">
-                                <button className="bg-white px-4 py-2 rounded-lg font-semibold text-sm text-[#171717] border border-[#d4d4d4]">Sign In</button>
-                                <button className="bg-[#7b39fc] px-4 py-2 rounded-lg font-semibold text-sm text-[#fafafa] shadow-[0_4px_16px_rgba(23,23,23,0.04)]">Get Started</button>
+                            {/* Right Buttons */}
+                            <div className="hidden md:flex items-center" style={{ gap: '12px' }}>
+                                <button style={{ fontFamily: "'Manrope',sans-serif", fontSize: '14px', lineHeight: '22px', fontWeight: 600, padding: '8px 16px', borderRadius: '8px', background: 'white', color: '#171717', border: '1px solid #d4d4d4' }}>Sign In</button>
+                                <button style={{ fontFamily: "'Manrope',sans-serif", fontSize: '14px', lineHeight: '22px', fontWeight: 600, padding: '8px 16px', borderRadius: '8px', background: '#7b39fc', color: '#fafafa', boxShadow: '0px 4px 16px rgba(23,23,23,0.04)' }}>Get Started</button>
                             </div>
                         </nav>
 
-                        {/* Hero Content */}
-                        <div className="flex flex-col items-center text-center max-w-[871px] mx-auto mt-[162px] gap-6 px-4">
-                            <div className="flex flex-col gap-[10px]">
-                                <h1 className="text-[76px] font-medium text-white leading-[1.15]" style={{ letterSpacing: '-2px', fontFamily: "'Inter', sans-serif" }}>Automate repetitive.</h1>
-                                <h1 className="text-[76px] text-white leading-[1.15]" style={{ letterSpacing: '-2px', fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>Focus on growth.</h1>
-                                <p className="text-[18px] leading-[26px] text-[#f6f7f9] opacity-90 max-w-[613px] mx-auto mt-4" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                        {/* Hero Content - centered, max-w-[871px], mt-[162px] */}
+                        <div className="flex flex-col items-center text-center mx-auto px-4" style={{ maxWidth: '871px', marginTop: '162px', gap: '24px' }}>
+                            {/* Heading Block */}
+                            <div className="flex flex-col" style={{ gap: '10px' }}>
+                                <h1 style={{ fontFamily: "'Inter',sans-serif", fontWeight: 500, fontSize: '76px', color: 'white', letterSpacing: '-2px', lineHeight: 1.15 }}>
+                                    Automate repetitive.
+                                </h1>
+                                <h1 style={{ fontFamily: "'Instrument Serif',serif", fontStyle: 'italic', fontWeight: 400, fontSize: '76px', color: 'white', letterSpacing: '-2px', lineHeight: 1.15 }}>
+                                    Focus on growth.
+                                </h1>
+                                <p style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 400, fontSize: '18px', lineHeight: '26px', color: '#f6f7f9', opacity: 0.9, maxWidth: '613px', marginLeft: 'auto', marginRight: 'auto', marginTop: '16px' }}>
                                     The next-generation AI agent platform that handles lead generation, customer support, and data entry while you build.
                                 </p>
                             </div>
-                            <div className="flex items-center gap-[22px]">
-                                <button className="bg-[#7b39fc] px-6 py-3.5 rounded-[10px] font-medium text-base text-white" style={{ fontFamily: "'Cabin', sans-serif" }}>Get Started Free</button>
-                                <button className="bg-[#2b2344] px-6 py-3.5 rounded-[10px] font-medium text-base text-[#f6f7f9]" style={{ fontFamily: "'Cabin', sans-serif" }}>Watch 2min Demo</button>
+
+                            {/* CTA Buttons */}
+                            <div className="flex flex-row items-center" style={{ gap: '22px' }}>
+                                <button style={{ fontFamily: "'Cabin',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: 1.7, background: '#7b39fc', color: 'white', padding: '14px 24px', borderRadius: '10px' }}>
+                                    Get Started Free
+                                </button>
+                                <button style={{ fontFamily: "'Cabin',sans-serif", fontWeight: 500, fontSize: '16px', lineHeight: 1.7, background: '#2b2344', color: '#f6f7f9', padding: '14px 24px', borderRadius: '10px' }}>
+                                    Watch 2min Demo
+                                </button>
                             </div>
                         </div>
 
-                        {/* Dashboard Preview */}
-                        <div className="flex justify-center mt-20 pb-10 px-4">
-                            <div className="w-[1163px] max-w-[90%] rounded-3xl p-[22.5px]" style={{ backdropFilter: 'blur(10px)', background: 'rgba(255,255,255,0.05)', border: '1.5px solid transparent' }}>
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop" className="w-full h-auto rounded-lg object-cover" />
+                        {/* Dashboard - glassmorphic container */}
+                        <div className="flex justify-center px-4" style={{ marginTop: '80px', paddingBottom: '40px' }}>
+                            <div style={{ width: '1163px', maxWidth: '90%', borderRadius: '24px', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', background: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.1)', padding: '22.5px' }}>
+                                <Dashboard />
                             </div>
                         </div>
                     </div>

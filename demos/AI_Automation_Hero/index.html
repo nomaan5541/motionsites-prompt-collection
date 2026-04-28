@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation | Unlock the Power</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased overflow-x-hidden" style="background:#070612; font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const { motion } = window.Motion;
+
+        const SplitText = ({ text, className }) => {
+            const words = text.split(' ');
+            return (
+                <span className={className}>
+                    {words.map((w, i) => (
+                        <motion.span key={i} className="inline-block mr-[0.3em]"
+                            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: i * 0.08 }}>{w}</motion.span>
+                    ))}
+                </span>
+            );
+        };
+
+        const BlurIn = ({ children, delay = 0, className }) => (
+            <motion.div initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }} animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                transition={{ duration: 0.6, delay }} className={className}>{children}</motion.div>
+        );
+
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current;
+                const url = 'https://stream.mux.com/s8pMcOvMQXc4GD6AX4e1o01xFogFxipmuKltNfSYza0200.m3u8';
+                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
+            }, []);
+
+            return (
+                <div className="relative h-screen w-full overflow-hidden" style={{ background: '#070612' }}>
+                    <video ref={videoRef} className="absolute inset-0 h-full object-cover z-0" style={{ marginLeft: '200px', transform: 'scale(1.2)', transformOrigin: 'left center', width: 'calc(100% - 200px)' }} muted loop playsInline />
+                    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#070612] to-transparent z-10"></div>
+
+                    <div className="relative z-20 h-full flex flex-col justify-center max-w-7xl mx-auto px-6 lg:px-12">
+                        <div className="flex flex-col gap-12">
+                            <div className="flex flex-col gap-6">
+                                <BlurIn delay={0}>
+                                    <span className="inline-flex items-center gap-2 rounded-full border border-white/20 backdrop-blur-sm px-4 py-2">
+                                        <i data-lucide="sparkles" className="w-3 h-3 text-white/80"></i>
+                                        <span className="text-sm font-medium text-white/80">New AI Automation Ally</span>
+                                    </span>
+                                </BlurIn>
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight lg:leading-[1.2]">
+                                    <SplitText text="Unlock the Power of AI" className="block" />
+                                    <SplitText text="for Your" className="inline" />
+                                    {' '}<span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>
+                                        <SplitText text="Business." className="inline" />
+                                    </span>
+                                </h1>
+                                <BlurIn delay={0.4} className="text-white/80 text-lg font-normal leading-relaxed max-w-xl">
+                                    Our cutting-edge AI platform automates, analyzes, and accelerates your workflows so you can focus on what really matters.
+                                </BlurIn>
+                            </div>
+                            <BlurIn delay={0.6} className="flex flex-wrap gap-4">
+                                <a href="/book-call" className="bg-white text-[#070612] rounded-full px-5 py-3 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+                                    Book A Free Call <i data-lucide="arrow-right" className="w-4 h-4"></i>
+                                </a>
+                                <button className="bg-white/20 backdrop-blur-sm text-white rounded-full px-8 py-3 font-medium hover:bg-white/30 transition-colors">
+                                    Learn now
+                                </button>
+                            </BlurIn>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

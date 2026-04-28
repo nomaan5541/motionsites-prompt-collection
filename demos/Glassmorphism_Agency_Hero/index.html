@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency | Your Vision, Our Digital Reality</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
+                    animation: { marquee: 'marquee 25s linear infinite' },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased overflow-x-hidden" style="background:#010101; font-family:'Inter',sans-serif; color:white">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const { motion } = window.Motion;
+
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current;
+                const url = 'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8';
+                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
+            }, []);
+
+            const logos = [
+                'https://html.tailus.io/blocks/customers/openai.svg',
+                'https://html.tailus.io/blocks/customers/nvidia.svg',
+                'https://html.tailus.io/blocks/customers/github.svg',
+                'https://html.tailus.io/blocks/customers/google.svg',
+                'https://html.tailus.io/blocks/customers/microsoft.svg',
+            ];
+
+            return (
+                <div className="min-h-screen" style={{ background: '#010101' }}>
+                    {/* Hero */}
+                    <section className="relative flex flex-col items-center text-center overflow-hidden">
+                        {/* Text Content - z-20 */}
+                        <div className="relative z-20 pt-24 pb-12 px-4">
+                            {/* Pill Badge */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+                                className="inline-flex items-center gap-3 mb-8 rounded-full px-4 py-2 border border-white/10" style={{ background: 'rgba(28,27,36,0.15)' }}>
+                                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FA93FA, #C967E8, #983AD6)', boxShadow: '0 0 16px rgba(201,103,232,0.4)' }}>
+                                    <i data-lucide="zap" className="w-3.5 h-3.5 text-white fill-white"></i>
+                                </div>
+                                <span className="text-sm text-white/70">Used by founders. Loved by devs.</span>
+                            </motion.div>
+
+                            {/* Headline */}
+                            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+                                className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold leading-[1.05] mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(180deg, #ffffff 30%, #C967E8 100%)' }}>
+                                Your Vision<br />Our Digital Reality.
+                            </motion.h1>
+
+                            {/* Subtitle */}
+                            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
+                                className="text-white/80 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+                                We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.
+                            </motion.p>
+
+                            {/* CTA */}
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }}>
+                                <button className="inline-flex items-center gap-3 bg-white text-black rounded-full pl-6 pr-2 py-2 font-semibold text-base hover:scale-105 transition-transform">
+                                    Book a 15-min call
+                                    <span className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FA93FA, #983AD6)' }}>
+                                        <i data-lucide="arrow-right" className="w-5 h-5 text-white"></i>
+                                    </span>
+                                </button>
+                            </motion.div>
+                        </div>
+
+                        {/* Video - z-10, overlaps text */}
+                        <div className="relative z-10 w-full -mt-[150px]">
+                            <video ref={videoRef} className="w-full h-auto mix-blend-screen" muted loop playsInline />
+                            <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-transparent to-[#010101] pointer-events-none"></div>
+                        </div>
+                    </section>
+
+                    {/* Logo Cloud */}
+                    <section className="bg-black/20 backdrop-blur-sm border-t border-white/5 py-8 px-6">
+                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                            <div className="flex items-center gap-6 shrink-0">
+                                <span className="text-white/60 text-sm whitespace-nowrap">Powering the best teams</span>
+                                <div className="hidden md:block w-px h-8 bg-white/10"></div>
+                            </div>
+                            <div className="overflow-hidden flex-1 w-full">
+                                <div className="flex w-max animate-marquee items-center">
+                                    {[...logos, ...logos].map((src, i) => (
+                                        <img key={i} src={src} className="h-7 mx-10 brightness-0 invert opacity-50" alt="" />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

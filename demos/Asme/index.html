@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asme | Built for the Curious</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current; if (!v) return; let raf, fadingOut = false;
+                const fadeIn = () => { const start = performance.now(); const from = parseFloat(v.style.opacity)||0;
+                    const tick = (now) => { const p = Math.min(1,(now-start)/500); v.style.opacity = from + (1-from)*p; if(p<1) raf=requestAnimationFrame(tick); };
+                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+                };
+                const fadeOut = () => { if(fadingOut) return; fadingOut=true; const start=performance.now(); const from=parseFloat(v.style.opacity)||1;
+                    const tick = (now) => { const p=Math.min(1,(now-start)/500); v.style.opacity = from*(1-p); if(p<1) raf=requestAnimationFrame(tick); };
+                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
+                };
+                v.addEventListener('timeupdate', () => { if(v.duration && v.currentTime > v.duration - 0.55) fadeOut(); });
+                v.addEventListener('ended', () => { v.style.opacity=0; fadingOut=false; setTimeout(() => { v.currentTime=0; v.play(); fadeIn(); }, 100); });
+                v.style.opacity = 0; v.play().then(fadeIn).catch(() => {});
+            }, []);
+
+            return (
+                <div className="min-h-screen bg-black overflow-hidden relative flex flex-col">
+                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4" className="absolute inset-0 w-full h-full object-cover translate-y-[17%]" style={{ opacity: 0 }} muted playsInline />
+
+                    {/* Navbar */}
+                    <nav className="relative z-20 px-6 py-6">
+                        <div className="rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto">
+                            <div className="flex items-center gap-8">
+                                <div className="flex items-center gap-2">
+                                    <i data-lucide="globe" className="w-6 h-6 text-white"></i>
+                                    <span className="text-white font-semibold text-lg">Asme</span>
+                                </div>
+                                <div className="hidden md:flex items-center gap-6">
+                                    {['Features','Pricing','About'].map(l => (
+                                        <a key={l} href="#" className="text-white/80 hover:text-white transition-colors text-sm font-medium">{l}</a>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <a href="#" className="text-white text-sm font-medium">Sign Up</a>
+                                <button className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium">Login</button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero Content */}
+                    <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                            Built for the curious
+                        </h1>
+                        <div className="max-w-xl w-full space-y-4">
+                            <div className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3">
+                                <input type="email" placeholder="Enter your email" className="flex-1 bg-transparent outline-none text-white placeholder:text-white/40 text-base" />
+                                <button className="bg-white rounded-full p-3 text-black shrink-0">
+                                    <i data-lucide="arrow-right" className="w-5 h-5"></i>
+                                </button>
+                            </div>
+                            <p className="text-white text-sm leading-relaxed px-4">
+                                Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates.
+                            </p>
+                            <div className="flex justify-center">
+                                <button className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors">
+                                    Manifesto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Social Footer */}
+                    <div className="relative z-10 flex justify-center gap-4 pb-12">
+                        {['instagram','twitter','globe'].map(icon => (
+                            <button key={icon} className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all" aria-label={icon}>
+                                <i data-lucide={icon} className="w-5 h-5"></i>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
