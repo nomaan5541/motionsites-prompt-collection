@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finlytic | AI Agent Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Manrope',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+
+            return (
+                <section className="relative w-full overflow-hidden bg-black">
+                    {/* Background Video */}
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260215_121759_424f8e9c-d8bd-4974-9567-52709dfb6842.mp4" className="absolute inset-0 object-cover z-0" style={{ width: '120%', height: '120%', marginLeft: '-10%', objectPosition: 'bottom' }} autoPlay loop muted playsInline />
+                    
+                    {/* Blurred pill shape */}
+                    <div className="absolute z-[1] w-[801px] h-[384px] rounded-full bg-black pointer-events-none" style={{ left: '50%', top: '215px', transform: 'translateX(-50%)', filter: 'blur(77.5px)' }}></div>
+
+                    {/* Content */}
+                    <div className="relative z-[2]">
+                        {/* Navbar */}
+                        <nav className="max-w-[1440px] mx-auto flex items-center justify-between h-[102px]" style={{ padding: '16px 120px' }}>
+                            <div className="flex items-center gap-20">
+                                <span className="text-white font-bold text-lg tracking-tight">LOGOIPSUM</span>
+                                <div className="hidden md:flex items-center gap-[10px]">
+                                    {['Home', 'Services', 'Reviews', 'Contact us'].map((l, i) => (
+                                        <a key={l} href="#" className="px-[10px] py-1 text-sm font-medium text-white leading-[22px] flex items-center gap-[3px]">
+                                            {l} {i === 1 && <i data-lucide="chevron-down" className="w-6 h-6"></i>}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="hidden md:flex items-center gap-3">
+                                <button className="bg-white px-4 py-2 rounded-lg font-semibold text-sm text-[#171717] border border-[#d4d4d4]">Sign In</button>
+                                <button className="bg-[#7b39fc] px-4 py-2 rounded-lg font-semibold text-sm text-[#fafafa] shadow-[0_4px_16px_rgba(23,23,23,0.04)]">Get Started</button>
+                            </div>
+                        </nav>
+
+                        {/* Hero Content */}
+                        <div className="flex flex-col items-center text-center max-w-[871px] mx-auto mt-[162px] gap-6 px-4">
+                            <div className="flex flex-col gap-[10px]">
+                                <h1 className="text-[76px] font-medium text-white leading-[1.15]" style={{ letterSpacing: '-2px', fontFamily: "'Inter', sans-serif" }}>Automate repetitive.</h1>
+                                <h1 className="text-[76px] text-white leading-[1.15]" style={{ letterSpacing: '-2px', fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>Focus on growth.</h1>
+                                <p className="text-[18px] leading-[26px] text-[#f6f7f9] opacity-90 max-w-[613px] mx-auto mt-4" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                                    The next-generation AI agent platform that handles lead generation, customer support, and data entry while you build.
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-[22px]">
+                                <button className="bg-[#7b39fc] px-6 py-3.5 rounded-[10px] font-medium text-base text-white" style={{ fontFamily: "'Cabin', sans-serif" }}>Get Started Free</button>
+                                <button className="bg-[#2b2344] px-6 py-3.5 rounded-[10px] font-medium text-base text-[#f6f7f9]" style={{ fontFamily: "'Cabin', sans-serif" }}>Watch 2min Demo</button>
+                            </div>
+                        </div>
+
+                        {/* Dashboard Preview */}
+                        <div className="flex justify-center mt-20 pb-10 px-4">
+                            <div className="w-[1163px] max-w-[90%] rounded-3xl p-[22.5px]" style={{ backdropFilter: 'blur(10px)', background: 'rgba(255,255,255,0.05)', border: '1.5px solid transparent' }}>
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop" className="w-full h-auto rounded-lg object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

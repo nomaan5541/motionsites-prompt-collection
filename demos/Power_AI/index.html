@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power AI | Talent Acquisition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(260 87% 3%)', foreground: 'hsl(40 6% 95%)', 'hero-sub': 'hsl(40 6% 82%)' },
+                    fontFamily: { body: ['Inter', 'system-ui', 'sans-serif'] },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
+                    animation: { marquee: 'marquee 20s linear infinite' },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-body antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+
+        const App = () => {
+            const videoRef = useRef(null);
+            const logos = ['Vortex','Nimbus','Prysma','Cirrus','Kynder','Halcyn'];
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current; if (!v) return; let raf;
+                const fade = () => { if (!v.duration) { raf = requestAnimationFrame(fade); return; } const t=v.currentTime,d=v.duration; v.style.opacity = t<0.5 ? t/0.5 : t>d-0.5 ? (d-t)/0.5 : 1; raf = requestAnimationFrame(fade); };
+                v.addEventListener('ended', () => { v.style.opacity=0; setTimeout(() => { v.currentTime=0; v.play(); }, 100); });
+                v.play(); raf = requestAnimationFrame(fade); return () => cancelAnimationFrame(raf);
+            }, []);
+
+            return (
+                <div className="relative overflow-hidden min-h-screen flex flex-col">
+                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0 }} muted playsInline />
+                    
+                    <div className="relative z-10 flex flex-col min-h-screen">
+                        {/* Navbar */}
+                        <nav className="flex items-center justify-between py-5 px-8">
+                            <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center text-sm font-bold">P</div>
+                            <div className="hidden md:flex items-center gap-1">
+                                {['Features','Solutions','Plans','Learning'].map((l,i) => (
+                                    <button key={l} className="px-3 py-2 text-foreground/90 text-base hover:text-foreground transition-colors flex items-center gap-1">
+                                        {l} {(i===0||i===3) && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
+                                    </button>
+                                ))}
+                            </div>
+                            <button className="liquid-glass text-foreground rounded-full px-4 py-2 text-sm">Sign Up</button>
+                        </nav>
+                        <div className="mt-[3px] w-full h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent"></div>
+
+                        {/* Blurred Shape */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[984px] h-[527px] opacity-90 bg-gray-950 blur-[82px] pointer-events-none z-[5]"></div>
+
+                        {/* Hero Content */}
+                        <div className="flex-1 flex items-center justify-center relative z-10 overflow-visible">
+                            <div className="text-center">
+                                <h1 className="font-normal leading-[1.02] tracking-[-0.024em]" style={{ fontSize: '220px', fontFamily: "'General Sans', sans-serif" }}>
+                                    <span className="text-foreground">Power </span>
+                                    <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to left, #6366f1, #a855f7, #fcd34d)' }}>AI</span>
+                                </h1>
+                                <p className="text-hero-sub text-lg leading-8 max-w-md mx-auto mt-[9px] opacity-80">
+                                    The most powerful AI ever deployed<br />in talent acquisition
+                                </p>
+                                <div className="mt-[25px]">
+                                    <button className="liquid-glass text-foreground rounded-full text-base" style={{ padding: '24px 29px' }}>Schedule a Consult</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Marquee */}
+                        <div className="pb-10">
+                            <div className="max-w-5xl mx-auto flex items-center gap-12 px-4">
+                                <p className="text-foreground/50 text-sm shrink-0 whitespace-nowrap">Relied on by brands<br />across the globe</p>
+                                <div className="overflow-hidden flex-1">
+                                    <div className="flex w-max animate-marquee gap-16 items-center">
+                                        {[...logos,...logos].map((n,i) => (
+                                            <div key={i} className="shrink-0 flex items-center gap-2">
+                                                <div className="liquid-glass w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold text-foreground/70">{n[0]}</div>
+                                                <span className="text-base font-semibold whitespace-nowrap">{n}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

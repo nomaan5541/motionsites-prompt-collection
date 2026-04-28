@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velorah® | Where Dreams Rise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(201 100% 13%)', foreground: 'hsl(0 0% 100%)', 'muted-foreground': 'hsl(240 4% 66%)', border: 'hsl(0 0% 18%)' },
+                    fontFamily: { display: ['Instrument Serif', 'serif'], body: ['Inter', 'sans-serif'] },
+                    keyframes: { 'fade-rise': { from: { opacity: '0', transform: 'translateY(24px)' }, to: { opacity: '1', transform: 'translateY(0)' } } },
+                    animation: { 'fade-rise': 'fade-rise 0.8s ease-out both', 'fade-rise-d': 'fade-rise 0.8s ease-out 0.2s both', 'fade-rise-d2': 'fade-rise 0.8s ease-out 0.4s both' },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-body antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => (
+            <div className="relative min-h-screen overflow-hidden">
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                <nav className="relative z-10 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+                    <div className="font-display text-3xl tracking-tight">Velorah<sup className="text-xs">®</sup></div>
+                    <div className="hidden md:flex items-center gap-8">
+                        {[{n:'Home',c:'text-foreground'},{n:'Studio',c:'text-muted-foreground'},{n:'About',c:'text-muted-foreground'},{n:'Journal',c:'text-muted-foreground'},{n:'Reach Us',c:'text-muted-foreground'}].map(l => (
+                            <a key={l.n} href="#" className={`text-sm ${l.c} hover:text-foreground transition-colors`}>{l.n}</a>
+                        ))}
+                    </div>
+                    <button className="liquid-glass rounded-full px-6 py-2.5 text-sm text-foreground hover:scale-[1.03] transition-transform">Begin Journey</button>
+                </nav>
+                <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-32 pb-40">
+                    <h1 className="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] tracking-[-2.46px] max-w-7xl font-normal animate-fade-rise">
+                        Where <em className="not-italic text-muted-foreground">dreams</em> rise <em className="not-italic text-muted-foreground">through the silence.</em>
+                    </h1>
+                    <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mt-8 leading-relaxed animate-fade-rise-d">
+                        We're designing tools for deep thinkers, bold creators, and quiet rebels. Amid the chaos, we build digital spaces for sharp focus and inspired work.
+                    </p>
+                    <button className="liquid-glass rounded-full px-14 py-5 text-base text-foreground mt-12 hover:scale-[1.03] transition-transform cursor-pointer animate-fade-rise-d2">
+                        Begin Journey
+                    </button>
+                </section>
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

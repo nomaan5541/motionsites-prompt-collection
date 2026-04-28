@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIONOVA | Biotech Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(0 0% 100%)', foreground: 'hsl(0 0% 17%)', 'hero-btn': 'hsl(213 90% 78%)' },
+                    fontFamily: { heading: ['Poppins', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(20px); filter:blur(4px); } to { opacity:1; transform:translateY(0); filter:blur(0); } }
+        .fade-up { animation: fadeUp 700ms cubic-bezier(0.16,1,0.3,1) forwards; }
+        .fade-up-delay { animation: fadeUp 700ms cubic-bezier(0.16,1,0.3,1) 150ms forwards; opacity: 0; }
+    </style>
+</head>
+<body class="bg-white text-foreground antialiased">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+
+        const App = () => {
+            const vRefs = useRef([]);
+            const streams = [
+                'https://stream.mux.com/1RdbcBtpEUK6501pc6yaIvwo9UfSnOg02k1uHxat00xR3w.m3u8',
+                'https://stream.mux.com/t1TbTB8M1VYHkhxBuap4A8Vm1x015HTHyuQxqchDBago.m3u8',
+                'https://stream.mux.com/6yvj9SR5bjmXq9N3ak7gy427RwUs8R2ZoH4ndA7Q1018.m3u8'
+            ];
+            useEffect(() => {
+                lucide.createIcons();
+                streams.forEach((url, i) => {
+                    const v = vRefs.current[i]; if (!v) return;
+                    if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
+                    else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
+                });
+            }, []);
+
+            return (
+                <section className="min-h-screen lg:h-screen flex flex-col lg:overflow-hidden">
+                    {/* Navbar */}
+                    <nav className="flex items-center justify-between px-5 lg:px-16 py-5">
+                        <span className="text-xl font-bold tracking-tight">BIONOVA</span>
+                        <div className="hidden md:flex items-center gap-8">
+                            {['About','Offerings','Pricing','Blog'].map(l => (
+                                <a key={l} href="#" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity">{l}</a>
+                            ))}
+                        </div>
+                        <div className="hidden md:flex items-center gap-4">
+                            <a href="#" className="text-sm font-medium">Log in</a>
+                            <button className="bg-hero-btn text-white rounded-full px-5 py-2.5 text-sm font-medium">Request a call</button>
+                        </div>
+                    </nav>
+
+                    {/* Content Grid */}
+                    <div className="flex-1 px-5 lg:px-16 pb-8 lg:pb-[82px]">
+                        <div className="grid lg:grid-cols-2 gap-8 items-stretch h-full">
+                            {/* Left Column */}
+                            <div className="flex flex-col justify-between fade-up">
+                                <div>
+                                    <h1 className="text-[2rem] sm:text-5xl lg:text-[3.5rem] xl:text-7xl leading-[1.08] tracking-tight font-normal">
+                                        <span className="inline-flex items-center gap-3">
+                                            <span className="w-20 h-10 sm:w-24 sm:h-12 rounded-full overflow-hidden inline-block"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=50&fit=crop" className="w-full h-full object-cover" /></span>
+                                            World-class
+                                        </span><br />
+                                        consultants that<br />
+                                        <span className="inline-flex items-center gap-3">
+                                            empower
+                                            <button className="border-2 border-foreground rounded-full px-4 py-1.5 sm:px-6 sm:py-2 text-sm inline-flex items-center gap-2">
+                                                <i data-lucide="play" className="w-3 h-3 fill-current"></i> How do we work
+                                            </button>
+                                        </span><br />
+                                        biotech leaders
+                                    </h1>
+                                    <div className="flex items-center gap-5 pt-6">
+                                        <button className="bg-hero-btn text-white rounded-full px-6 py-3 text-sm font-medium flex items-center gap-2">
+                                            Contact us <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
+                                        </button>
+                                        <a href="#" className="text-sm underline">Request a call</a>
+                                    </div>
+                                </div>
+                                <div className="hidden lg:block mt-8">
+                                    <p className="text-sm text-foreground/70 max-w-md mb-6">We connect world-class biotech consultants with emerging and established companies to accelerate breakthroughs in life sciences.</p>
+                                    <div className="flex flex-wrap items-center gap-8 text-2xl font-bold">
+                                        <span>Headway</span><span>brightline</span><span>hazel</span><span>G&STC</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Right Column */}
+                            <div className="flex flex-col gap-4 fade-up-delay">
+                                {/* Card 1 */}
+                                <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black flex-1 min-h-[200px] relative overflow-hidden flex flex-col justify-between p-6 lg:p-8">
+                                    <video ref={el => vRefs.current[0] = el} className="absolute inset-0 w-full h-full object-cover" muted loop playsInline preload="auto" />
+                                    <h3 className="relative z-10 text-white text-2xl lg:text-3xl font-medium max-w-sm">If you're ready to build your bioventure, let's get in touch.</h3>
+                                    <div className="relative z-10 flex justify-between items-end mt-4">
+                                        <p className="text-white/85 text-sm max-w-xs">Expert guidance from ideation to market.</p>
+                                        <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+                                            <i data-lucide="arrow-up-right" className="w-4 h-4 text-black"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                {/* Cards 2 & 3 */}
+                                <div className="grid grid-cols-2 gap-3 lg:gap-4 flex-1">
+                                    <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black p-5 lg:p-8 min-h-[180px] relative overflow-hidden flex flex-col justify-between">
+                                        <video ref={el => vRefs.current[1] = el} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] object-cover" muted loop playsInline preload="auto" />
+                                        <div className="relative z-10 flex justify-between items-start">
+                                            <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-medium">locations</span>
+                                            <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><i data-lucide="arrow-up-right" className="w-3 h-3 text-black"></i></button>
+                                        </div>
+                                        <div className="relative z-10 mt-auto">
+                                            <h4 className="text-white text-lg lg:text-2xl font-medium">United bio-entrepreneurs</h4>
+                                            <p className="text-white/80 text-xs lg:text-sm mt-1">Global network of biotech leaders</p>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black p-5 lg:p-8 min-h-[180px] relative overflow-hidden flex flex-col justify-between">
+                                        <video ref={el => vRefs.current[2] = el} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280%] h-[280%] object-cover" muted loop playsInline preload="auto" />
+                                        <div className="relative z-10"><span className="bg-white text-black rounded-full px-3 py-1 text-xs font-medium">scientists</span></div>
+                                        <div className="relative z-10 mt-auto">
+                                            <div className="text-white text-4xl lg:text-7xl font-bold">34</div>
+                                            <p className="text-white/80 text-xs lg:text-sm mt-1">Leading research scientists on board</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
