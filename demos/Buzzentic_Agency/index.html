@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzentic | Videos & Reels that Go Viral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Barlow',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className="relative min-h-screen overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_074215_04640ca7-042c-45d6-bb56-58b1e8a42489.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                    <div className="relative z-10 min-h-screen flex flex-col">
+                        {/* Navbar */}
+                        <nav className="flex items-center justify-between px-8 md:px-16 py-6">
+                            <span className="text-white text-xl font-semibold tracking-tight" style={{ fontFamily: "'Barlow',sans-serif" }}>Buzzentic</span>
+                            <div className="hidden md:flex items-center gap-1">
+                                {['Home','Services','Work','About','Contact'].map(l => (
+                                    <a key={l} href="#" className="text-white text-sm px-4 py-2 rounded hover:bg-white/10 transition-colors">{l}</a>
+                                ))}
+                            </div>
+                            <button className="text-white text-sm px-5 py-2 rounded-sm hover:bg-white/10 transition-colors" style={{ background: 'transparent' }}>Get Started</button>
+                        </nav>
+
+                        {/* Hero */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center px-6" style={{ paddingBottom: '250px' }}>
+                            {/* Badge */}
+                            <div className="mb-8">
+                                <div className="inline-flex items-center rounded-full px-1 py-1" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(4px)' }}>
+                                    <span className="rounded-full px-4 py-1.5 text-xs font-medium text-white" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', color: '#171717' }}>Featured in Fortune</span>
+                                </div>
+                            </div>
+
+                            {/* Content Container with corner accents */}
+                            <div className="relative max-w-3xl">
+                                {/* Corner squares */}
+                                <div className="absolute -top-4 -left-4 w-[7px] h-[7px] bg-white"></div>
+                                <div className="absolute -top-4 -right-4 w-[7px] h-[7px] bg-white"></div>
+                                <div className="absolute -bottom-4 -left-4 w-[7px] h-[7px] bg-white"></div>
+                                <div className="absolute -bottom-4 -right-4 w-[7px] h-[7px] bg-white"></div>
+
+                                <h1 className="mb-6">
+                                    <span className="block font-light text-white" style={{ fontSize: '64px', lineHeight: 1.1, fontFamily: "'Barlow',sans-serif" }}>Agency that makes your</span>
+                                    <span className="block text-white" style={{ fontSize: '64px', lineHeight: 1.1, fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>videos & reels viral</span>
+                                </h1>
+                                <p className="text-white/75 text-base max-w-lg mx-auto mb-8 leading-relaxed" style={{ fontFamily: "'Barlow',sans-serif" }}>
+                                    We craft scroll-stopping video content that amplifies your brand's reach and turns viewers into customers across every platform.
+                                </p>
+                                <div className="flex items-center justify-center gap-4">
+                                    <button className="px-8 py-3 text-sm font-medium transition-colors hover:bg-white" style={{ background: '#f8f8f8', color: '#171717', borderRadius: '2px', fontFamily: "'Barlow',sans-serif" }}>
+                                        Start a Project
+                                    </button>
+                                    <button className="px-8 py-3 text-sm font-medium transition-colors hover:bg-white" style={{ background: '#f8f8f8', color: '#171717', borderRadius: '2px', fontFamily: "'Barlow',sans-serif" }}>
+                                        View Our Work
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

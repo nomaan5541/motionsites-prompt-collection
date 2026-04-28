@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearInvoice | Manage Your Online Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const { motion } = window.Motion;
+
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                lucide.createIcons();
+                const v = videoRef.current;
+                const url = 'https://stream.mux.com/hUT6X11m1Vkw1QMxPOLgI761x2cfpi9bHFbi5cNg4014.m3u8';
+                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); return () => h.destroy(); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
+            }, []);
+
+            return (
+                <div className="relative min-h-screen overflow-hidden bg-black">
+                    <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover -z-10" muted loop playsInline />
+                    {/* Top gradient bar */}
+                    <div className="w-full h-[5px] bg-gradient-to-r from-[#ccf] via-[#e7d04c] to-[#31fb78] relative z-10"></div>
+
+                    {/* Navbar */}
+                    <nav className="relative z-20 max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center"><i data-lucide="file-text" className="w-4 h-4 text-black"></i></div>
+                            <span className="font-semibold text-lg">ClearInvoice</span>
+                        </div>
+                        <div className="hidden md:flex items-center gap-6">
+                            {['Features','Pricing','Reviews'].map(l => <a key={l} href="#" className="text-sm text-white/80 hover:text-white transition-colors">{l}</a>)}
+                        </div>
+                        <div className="hidden md:flex items-center gap-3">
+                            <button className="text-sm text-white/80 hover:text-white px-4 py-2">Sign In</button>
+                            <button className="text-sm bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/10 hover:bg-white/20 transition-colors">Sign Up</button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24 pb-32">
+                        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
+                            className="text-4xl sm:text-5xl md:text-6xl font-medium leading-tight tracking-tight mb-6">
+                            Manage your online store while save 3x operating cost
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+                            className="text-lg text-white/90 max-w-xl mx-auto mb-8">
+                            ClearInvoice takes the hassle out of billing with easy-to-use tools.
+                        </motion.p>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+                            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                            <div className="relative group">
+                                <div className="absolute inset-0 bg-orange-600 blur-lg opacity-20 group-hover:opacity-60 transition-opacity rounded-full"></div>
+                                <button className="relative bg-gradient-to-r from-[#FF3300] to-[#EE7926] text-white px-8 py-3.5 rounded-full font-medium text-base border-[1.5px] border-white/20 hover:scale-105 transition-transform flex items-center gap-2">
+                                    Get Started Free <i data-lucide="arrow-right" className="w-4 h-4"></i>
+                                </button>
+                            </div>
+                            <button className="bg-white/90 backdrop-blur-sm text-black px-8 py-3.5 rounded-full font-medium text-base border-[1.5px] border-black/5 hover:bg-white hover:scale-105 transition-all">
+                                Watch Demo
+                            </button>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
+                            className="flex items-center justify-center gap-3">
+                            <div className="flex -space-x-2">
+                                {['E8D5B7','C4A882','A08060'].map((c,i) => (
+                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-black" style={{ background: `#${c}` }}></div>
+                                ))}
+                            </div>
+                            <span className="text-sm text-white/70">Trusted by 210k+ stores worldwide</span>
+                        </motion.div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

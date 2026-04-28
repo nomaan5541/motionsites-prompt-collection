@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesignPro | Become Product Leader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useState } = React;
+        const { motion } = window.Motion;
+
+        const ShinyText = ({ text }) => {
+            const [pos, setPos] = useState(0);
+            useEffect(() => {
+                let raf; const start = performance.now();
+                const tick = (now) => { setPos(((now - start) / 3000 * 100) % 200); raf = requestAnimationFrame(tick); };
+                raf = requestAnimationFrame(tick); return () => cancelAnimationFrame(raf);
+            }, []);
+            return (
+                <span style={{
+                    backgroundImage: `linear-gradient(100deg, #64CEFB 0%, #64CEFB ${pos-20}%, #ffffff ${pos}%, #64CEFB ${pos+20}%, #64CEFB 100%)`,
+                    WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', color: 'transparent',
+                }}>{text}</span>
+            );
+        };
+
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+            return (
+                <div className="relative h-screen overflow-hidden bg-black">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+
+                    <div className="relative z-10 h-full flex flex-col">
+                        {/* Navbar */}
+                        <nav className="max-w-7xl w-full mx-auto flex items-center justify-between px-6 py-6">
+                            <div className="flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
+                                    <div className="w-3 h-3 rounded-full bg-white"></div>
+                                </div>
+                                <span className="text-white font-medium">DesignPro</span>
+                            </div>
+                            <div className="hidden lg:flex items-center">
+                                <div className="flex items-center rounded-full border border-gray-700 px-1 py-1 gap-1">
+                                    {['Home','About Us','Courses','Instructors','Testimonials','Blog'].map(l => (
+                                        <a key={l} href="#" className="text-white/80 hover:text-white text-sm px-4 py-2 rounded-full transition-colors">{l}</a>
+                                    ))}
+                                    <a href="#" className="text-white/80 hover:text-white text-sm px-4 py-2 rounded-full transition-colors flex items-center gap-1">Contact us <i data-lucide="arrow-up-right" className="w-3 h-3"></i></a>
+                                </div>
+                            </div>
+                            <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide="menu" className="w-6 h-6"></i></button>
+                        </nav>
+
+                        {menuOpen && (
+                            <div className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-6 lg:hidden">
+                                <button className="absolute top-6 right-6" onClick={() => setMenuOpen(false)}><i data-lucide="x" className="w-6 h-6"></i></button>
+                                {['Home','About Us','Courses','Instructors','Testimonials','Blog','Contact us'].map(l => <a key={l} href="#" className="text-white text-xl">{l}</a>)}
+                            </div>
+                        )}
+
+                        {/* Content */}
+                        <div className="flex-1 max-w-7xl w-full mx-auto px-6 flex flex-col">
+                            {/* Top descriptions */}
+                            <div className="flex flex-col lg:flex-row justify-between gap-4 mb-auto">
+                                <p className="text-white/80 text-sm md:text-base max-w-md">
+                                    We deliver transformative programs that empower emerging product designers with cutting-edge expertise and vision to thrive globally.
+                                </p>
+                                <p className="text-white/80 text-sm md:text-base lg:text-right">
+                                    8000+ Talented Designers Launched !
+                                </p>
+                            </div>
+
+                            {/* Hero center */}
+                            <div className="flex flex-col items-center justify-center text-center my-auto">
+                                <p className="text-white/80 text-xs md:text-sm tracking-tight uppercase mb-6">
+                                    Seats for Next Program Opening Soon
+                                </p>
+                                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-medium tracking-tighter text-white" style={{ lineHeight: 0.85 }}>
+                                    Become<br /><ShinyText text="Product Leader." />
+                                </h1>
+                                <div className="mt-8">
+                                    <a href="#" className="group inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white rounded-full px-6 md:px-8 py-3 md:py-4 text-sm font-medium transition-colors">
+                                        Apply for Next Enrollment
+                                        <i data-lucide="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="mb-8"></div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
