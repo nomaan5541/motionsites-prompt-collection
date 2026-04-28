@@ -1,0 +1,51 @@
+# Framelix 3D Studios
+
+**ID:** 13  
+**Category:** Agency  
+**Type:** landing-page  
+
+---
+
+Create a dark-themed landing page for "Framelix 3D" — a cinematic motion studio brand. The entire site uses a pure black background (#000) with white text. Use the Inter font (import from Google Fonts). The project uses React, Tailwind CSS, TypeScript, and framer-motion.
+
+Global Theme (CSS variables):
+
+Background: black (0 0% 0%), Foreground: white (0 0% 100%), Primary: white, Primary-foreground: black. Border radius: 9999px (fully rounded). No light mode — dark only.
+
+1. Navbar:
+
+Black background, horizontal padding 36px, top padding 32px, bottom padding 20px.
+
+Left: Logo image (apply brightness-0 invert so it appears white), height 36px.
+
+Center: 3 columns of nav links (hidden on mobile), each column has 2 stacked links: [Reels, Services], [Projects, Pipeline], [Careers, Get In Touch]. Gap between columns: 64px.
+
+Right: A custom ticket/coupon-shaped SVG cart icon (27x30 viewBox with scalloped edges) with a "0" count overlaid centered on the icon.
+
+2. Hero Section:
+
+Full-width section, relative positioned, min-height screen, overflow hidden.
+
+Background: an auto-playing, looped, muted, inline video taking full width (w-full h-auto object-cover). Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_060517_9feec9ab-18e4-477a-b034-de5903a67e91.mp4
+
+Overlay text at top (absolute, top 50px, centered): "Framelix" with superscript "3D" (26px, medium weight), below it "Cinematic Motion Studios" heading (clamp 2rem–68px, medium weight). Animate in with framer-motion fade+slide down (0.8s).
+
+Overlay CTA at bottom (absolute, bottom 12%, centered): "Explore Reel" button (white bg, black text, 22px, rounded-full, px-14 py-4). Below it "Ready in 24-48 hours" muted text. Animate in with framer-motion fade+slide up (0.8s, 0.3s delay).
+
+3. Marquee Banner:
+
+Background color: #A6A4FF (lavender/purple). Black text, 16px, medium weight.
+
+Infinitely scrolling marquee text: "New! 3D^OS V1.2.1 out now!" repeated 6 times in a row, duplicated for seamless loop. Use CSS animation translateX(0) to translateX(-50%) over 20s linear infinite. Vertical padding 14px, gap 60px between items.
+
+4. Shipping Section:
+
+Background: #EAEAEA (light gray), with rounded bottom corners (40px radius). All text is black.
+
+Top: Centered text — "Framelix" with superscript "3D" (20px) and "Shipping Now" heading (clamp 2rem–52px). Top padding 64px.
+
+Center: Auto-playing, looped, muted video, 800x800px, object-contain, rounded-2xl, with -my-24 negative vertical margin to reduce whitespace. Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_063954_03a5f7ec-5f10-4acb-ba8d-dce4815217db.mp4
+
+Bottom: Centered "Buy Now" button (black bg, white text, 18px, rounded-full, px-46 py-3), below it "Explore now" text (20px, font-weight 450). Bottom padding 128px on the wrapper.
+
+Tailwind config: Add a marquee keyframe and animation (translateX 0 to -50%, 20s linear infinite). Use tailwindcss-animate plugin.

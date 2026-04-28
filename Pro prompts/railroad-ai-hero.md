@@ -1,0 +1,77 @@
+# Railroad.ai
+
+**ID:** railroad-ai-hero  
+**Category:** Hero Section  
+**Type:** hero  
+
+---
+
+Create a landing page hero section with the following exact specifications:
+
+Background:
+
+Full-screen background video covering the entire viewport with object-cover, autoplaying, looping, muted, inline playback, and preloaded
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260317_100335_dc625816-c3c1-4b00-b93e-4cb301cf5ea5.mp4
+A subtle bg-black/5 overlay on top of the video
+
+Fonts:
+
+Import: https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap
+However, the actual font-family used is the system font stack: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif for both heading and body
+
+Color Tokens (HSL, in CSS variables):
+
+--background: 213 45% 67%
+--foreground: 0 0% 100% (white)
+--heading: 205 52% 5% (near-black)
+--description: 180 9% 33% (muted dark gray)
+--primary: 0 0% 100% (white)
+--primary-foreground: 0 0% 0% (black)
+--radius: 9999px (fully rounded)
+
+Navbar (fixed, top 30px):
+
+Fixed position, top-[30px], full width, z-50, horizontal padding px-8 lg:px-16, flex row with space-between
+Left: Logo text "Railroad.ai" in heading font, text-2xl, white, tight tracking
+Center: A liquid-glass pill with rounded-full containing 4 nav links: "Home", "Voyages", "Worlds", "Innovation" — each text-sm font-medium text-foreground/90, hidden on mobile (hidden md:flex)
+Right: "Get Started" button with ArrowUpRight icon, bg-primary text-primary-foreground rounded-full px-4 py-2 text-sm font-medium
+
+Hero Content (centered, vertically):
+
+Container: flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 pb-[200px]
+Badge: A liquid-glass rounded-full pill with bg-black/10, containing text "10K+ already subscribed" in text-sm text-foreground/90 px-3 font-body
+
+Heading: "Focus in a Constantly Distracted World" — uses a custom BlurText component that splits text into words and animates each word individually with framer-motion: blur(10px) → blur(0px), opacity 0→1, y 50→0, duration 0.35s, staggered delay of 100ms per word. Styled as text-6xl md:text-7xl lg:text-[5.5rem] font-heading text-heading leading-[0.85] tracking-[-4px] max-w-3xl
+
+Subheading: "Cut through the noise of notifications, endless feeds, and constant interruptions. Learn how to reclaim your attention and do meaningful work that truly matters." — framer-motion animation: blur(10px)→blur(0px), opacity 0→1, y 20→0, duration 0.6s, delay 0.8s. Styled as text-[calc(1rem+3px)] md:text-[calc(1.125rem+3px)] text-description max-w-2xl leading-tight tracking-[-0.05em]
+
+Email Input: framer-motion animated (same blur/fade pattern, delay 1.1s). A liquid-glass rounded-full container with inline styles: backdropFilter: blur(100px), background: rgba(0,0,0,0.25), padding p-1.5 pl-6. Inside: a transparent <input> with placeholder "Enter your email" and a white rounded-full "Join Waitlist" button with ArrowUpRight icon (bg-primary text-primary-foreground rounded-full px-5 py-2.5 text-sm font-medium)
+
+Liquid Glass CSS (critical):
+
+.liquid-glass {
+  background: rgba(255,255,255,0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+Tech Stack: React, Vite, TypeScript, Tailwind CSS, framer-motion, lucide-react (ArrowUpRight icon), shadcn/ui design tokens.

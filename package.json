@@ -1,0 +1,20 @@
+{
+  "name": "templateprompts",
+  "version": "1.0.0",
+  "description": "MotionSites AI Pro Prompts Library CLI",
+  "main": "index.js",
+  "bin": {
+    "templateprompts": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "prompts",
+    "templates",
+    "cli"
+  ],
+  "author": "Nomaan Khan",
+  "license": "MIT"
+}

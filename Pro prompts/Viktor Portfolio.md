@@ -1,0 +1,69 @@
+# Viktor Portfolio
+
+**ID:** 19  
+**Category:** Portfolio  
+**Type:** landing-page  
+
+---
+
+Build a high-end, cinematic 2-page architectural portfolio using React, Tailwind CSS, and Framer Motion (motion/react). The aesthetic is minimalist, dark-themed (black background, white text), and uses a sophisticated typographic hierarchy.
+
+Global Configuration:
+
+Fonts: Import and use 'Orbitron' for display headings, 'Space Grotesk' for body text, and 'JetBrains Mono' for technical/mono elements.
+
+Selection: Custom selection color (white background, black text).
+
+Icons: Use lucide-react (Snowflake, Maximize, Zap, ArrowLeft, ArrowRight).
+
+Page 1: Hero (Modern Architect)
+
+Background: Full-screen looping video: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260304_101127_49ce07b7-f19a-4882-b19c-1d2a27d97ac3.mp4.
+
+Settings: Muted, playsInline, loop, preload="auto".
+
+Overlays: Radial vignette on desktop (70% transparent center to 70% black edges) and a bottom-fade gradient on mobile.
+
+Top Nav: Right-aligned '1/01' counter with a progress line and a 'Next Project' button in mono font.
+
+Main Content:
+
+Large title: 'Viktor-O // MODERN ARCHITECT' (font-display, uppercase, tracking-tighter).
+
+Description: Light-weight sans text with a max-width of 450px.
+
+Technical Specs (Right Column): A list (Stack, Logic, Uptime, Scale) with labels and values separated by thin border-white/20.
+
+Bottom Section:
+
+A glass-morphism card (bg-white/5, backdrop-blur-xl) with a tech image (https://picsum.photos/seed/tech/200/200), project title 'VK-01: React Engine', and a 'View Project' button.
+
+A row of pill-shaped tags (TS/JS, V1, Full-Stack, Cloud-Ready) at the bottom right.
+
+Page 2: Project Details (Projecty Engine)
+
+Background: Full-screen looping video: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260304_102019_f84678ca-ffe7-49a5-895a-75ac1f71ad46.mp4.
+
+Overlays: Subtle elliptical vignette to ensure text legibility.
+
+Top Nav: 'Back Home' button with an arrow icon.
+
+Main Content:
+
+Massive display title on the left: 'PROJECTY ENGINE' (leading-0.85, uppercase).
+
+Right-aligned description text about a flagship React engine, with a 'Read More' link featuring a minimalist underline.
+
+Bottom Section:
+
+Two structured info blocks: '01 // CORE ARCHITECTURE' and '02 // PERFORMANCE METRICS' with uppercase mono subtext.
+
+Navigation arrows (Left/Right) in circular borders and a meta-info block (Date | Project) with an italicized caption.
+
+Interactions & Responsiveness:
+
+Use AnimatePresence for smooth opacity/exit transitions between pages.
+
+Implement entrance animations for text and cards (opacity and y-offset).
+
+On mobile: The video should occupy the top half (h-[50vh]) with a smooth gradient transition to the content below.

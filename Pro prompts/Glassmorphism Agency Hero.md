@@ -1,0 +1,68 @@
+# Glassmorphism Agency Hero
+
+**ID:** 5  
+**Category:** Agency  
+**Type:** hero  
+
+---
+
+Build a production-ready, responsive landing page using React, Tailwind CSS v4, and Vite. The design should feature a high-end, dark-mode "glassmorphism" aesthetic with specific purple/pink gradients.
+
+1. Tech Stack & Libraries:
+Use hls.js for video streaming.
+Use motion/react (formerly Framer Motion) for animations.
+Use react-use-measure for sizing logic.
+Use clsx and tailwind-merge for class management.
+Use lucide-react for standard icons (if needed), but I will provide custom SVG paths for specific UI elements.
+
+2. Global Styling:
+Background: Dark/Black (#010101).
+Primary Gradient: A diagonal gradient used for accents: from-[#FA93FA] via-[#C967E8] to-[#983AD6].
+Typography: Modern sans-serif, center-aligned hero text.
+
+3. Hero Section Components:
+Announcement Pill:
+A pill-shaped top badge.
+Background: Semi-transparent dark (bg-[rgba(28,27,36,0.15)]) with a subtle border.
+Icon: A "Zap" icon inside a gradient-filled box with a glow effect.
+Text: "Used by founders. Loved by devs." in light grey.
+
+Main Headline (H1):
+Large text (responsive sizing: 48px mobile to 80px desktop).
+Text: "Your Vision" on line 1, "Our Digital Reality." on line 2.
+Style: Text should have a gradient fill (White to Purple/Pink).
+
+Subheadline:
+Text: "We turn bold ideas into modern designs that don't just look amazing, they grow your business fast."
+Color: text-white/80.
+
+CTA Button:
+"Book a 15-min call" text.
+Rounded full button with a white background and black text.
+Includes a circle icon with an arrow inside, styled with the primary purple gradient.
+Outer border wrapper with a glass effect.
+
+4. Hero Video Integration (Critical Details):
+Source: HLS Stream URL: https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8
+Fallback: If HLS fails, fallback to this MP4: /_videos/v1/f0c78f536d5f21a047fb7792723a36f9d647daa1
+Implementation: Do NOT use react-player. Use a native <video> tag with a custom useEffect hook implementation of hls.js.
+Styling:
+Blend Mode: Use mix-blend-screen so the video black background blends into the page.
+Positioning: The video should be at the bottom of the hero. Apply a negative top margin (-mt-[150px]) so it overlaps behind the text.
+Z-Index: Ensure the text content is z-20 (above) and video is z-10 (below).
+Layout: The video must be 100% width (w-full), auto height, and stretch edge-to-edge without being cropped (do not use object-contain or fixed heights).
+Overlay: Add a gradient fade (from-[#010101] via-transparent to-[#010101]) over the video container.
+
+5. Logo Cloud Section (Animated):
+Place this section immediately below the video.
+Background: Semi-transparent glass (bg-black/20 backdrop-blur-sm) with a top border (border-white/5).
+Layout:
+Desktop: "Powering the best teams" text on the left, separated by a vertical divider. Animated logo slider on the right.
+Mobile: Stacked vertically.
+Animation: Create an InfiniteSlider component using motion/react that scrolls logos horizontally forever.
+Logos: Use these SVG URLs (OpenAI, Nvidia, GitHub, etc.) and apply brightness-0 invert to make them white.
+https://html.tailus.io/blocks/customers/openai.svg
+https://html.tailus.io/blocks/customers/nvidia.svg
+(Include others similarly)
+
+Please assemble these into a cohesive Hero.tsx, App.tsx, and components/ui/infinite-slider.tsx structure.

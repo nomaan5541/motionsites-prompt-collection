@@ -1,0 +1,113 @@
+# Bionova Biotech
+
+**ID:** bionova-hero  
+**Category:** SaaS  
+**Type:** hero  
+
+---
+
+Create a "BIONOVA" biotech consulting hero section that spans exactly 100vh on desktop (scrollable on mobile). Use Poppins font (imported from Google Fonts) as the heading font family. Install hls.js for video streaming.
+
+Design system:
+
+Background: white (hsl(0 0% 100%))
+
+Foreground/text: dark gray (hsl(0 0% 17%))
+
+Hero button color: soft blue (hsl(213 90% 78%))
+
+Font: Poppins (400, 500, 600, 700 weights)
+
+Custom animation fade-up: translateY(20px) + opacity 0 + blur(4px) → translateY(0) + opacity 1 + blur(0), 700ms with cubic-bezier(0.16, 1, 0.3, 1) easing, forwards fill
+
+Navigation:
+
+Logo text "BIONOVA" (bold, tracking-tight, xl) on the left
+
+Center links (hidden on mobile): About, Offerings, Pricing, Blog — semibold, text-sm, 70% opacity, hover to full
+
+Right side (hidden on mobile): "Log in" text link + "Request a call" rounded-full pill button in hero-btn blue with white text
+
+Layout:
+
+Full section: min-h-screen lg:h-screen, flex column, lg:overflow-hidden
+
+Content area: px-5 lg:px-16, pb-8 lg:pb-[82px], flex-1
+
+Two-column grid (lg:grid-cols-2), items-stretch, gap-8
+
+Left column (flex col, justify-between, fade-up animation):
+
+Top group:
+
+H1 with text sizes: text-[2rem] sm:text-5xl lg:text-[3.5rem] xl:text-7xl, leading-[1.08], tracking-tight, font-normal
+
+First line: small rounded-full image pill (w-20 h-10 / sm:w-24 sm:h-12, bg-cover) inline next to "World-class"
+
+Second line: "consultants that"
+
+Third line: "empower" followed by an inline pill button with Play icon + "How do we work" (border-2, rounded-full, smaller text on mobile)
+
+Fourth line: "biotech leaders"
+
+CTAs directly under headline (pt-6): "Contact us" blue pill button with ArrowUpRight icon + "Request a call" underlined text link
+
+Bottom group (hidden on mobile, hidden lg:block):
+
+Description paragraph (text-sm, max-w-md)
+
+Logo bar: "Headway", "brightline", "hazel", "G&STC" — bold text-2xl, flex-wrap
+
+Right column (flex col, gap-4, fade-up with 150ms delay):
+
+Card 1 (top, larger): rounded-[1.5rem] lg:rounded-[2.5rem], bg-black, flex-1, min-h-[200px] on mobile
+
+Background: autoplay muted looping HLS video — https://stream.mux.com/1RdbcBtpEUK6501pc6yaIvwo9UfSnOg02k1uHxat00xR3w.m3u8 — object-cover, full size
+
+White heading (text-2xl lg:text-3xl): "If you're ready to build your bioventure, let's get in touch."
+
+Bottom: description text (white/85) + white circle arrow button (bg-background)
+
+Cards 2 & 3 (bottom row): grid-cols-2, gap-3 lg:gap-4, flex-1
+
+Card 2: rounded-[1.5rem] lg:rounded-[2.5rem], bg-black, p-5 lg:p-8, min-h-[180px]
+
+Background: HLS video https://stream.mux.com/t1TbTB8M1VYHkhxBuap4A8Vm1x015HTHyuQxqchDBago.m3u8 — scaled to 150%, centered with top-1/2 left-1/2 -translate-x/y-1/2
+
+Top: "locations" white pill badge + arrow circle button (both bg-background)
+
+Bottom: "United bio-entrepreneurs" heading (text-lg lg:text-2xl, white) + description (text-xs lg:text-sm, white/80)
+
+Card 3: same card style as Card 2
+
+Background: HLS video https://stream.mux.com/6yvj9SR5bjmXq9N3ak7gy427RwUs8R2ZoH4ndA7Q1018.m3u8 — scaled to 280%, centered same way
+
+Top: "scientists" white pill badge
+
+Bottom: large "34" number (text-4xl lg:text-7xl, white) + description (text-xs lg:text-sm, white/80)
+
+HLS video implementation:
+
+Use hls.js library with useRef for each video element
+
+Loop through all 3 streams in a single useEffect
+
+Handle native HLS (Safari) with canPlayType fallback
+
+All videos: autoPlay, muted, loop, playsInline, preload="auto"
+
+All card content uses relative z-10 to sit above the video
+
+Responsive (mobile only):
+
+Section becomes min-h-screen (scrollable) instead of fixed h-screen
+
+Nav links and right-side buttons hidden below md
+
+Smaller padding (px-5), smaller border radius (rounded-[1.5rem]), smaller card padding (p-5/p-6)
+
+Bottom description/logo bar hidden below lg
+
+Headline button smaller on mobile (px-4 py-1.5 text-sm)
+
+Card text sizes scale down on mobile
