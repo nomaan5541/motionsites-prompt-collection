@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA Space | Launch Systems</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React, Lucide Icons -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0 0% 0%)',
+                        foreground: 'hsl(0 0% 100%)',
+                        'muted-foreground': 'hsl(0 0% 65%)',
+                        'nav-border': 'hsl(0 0% 35%)',
+                        border: 'hsl(0 0% 25%)',
+                    },
+                    fontFamily: {
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        none: '0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            * {
+                border-radius: 0 !important;
+            }
+            body {
+                @apply bg-background text-foreground font-body;
+            }
+        }
+        @layer utilities {
+            .v-divider {
+                @apply w-px bg-nav-border mx-3 mt-3 mb-3;
+            }
+            .h-divider {
+                @apply h-px bg-nav-border flex-1;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const Navbar = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <nav className="h-16 border-b border-nav-border flex items-stretch">
+                    {/* Desktop Left */}
+                    <div className="hidden md:flex items-stretch flex-1">
+                        {['Programs', 'Systems', 'Discover'].map((link, i) => (
+                            <React.Fragment key={link}>
+                                <a href="#" className="flex items-center px-6 text-sm tracking-wide hover:opacity-60 transition-opacity uppercase">{link}</a>
+                                <div className="v-divider"></div>
+                            </React.Fragment>
+                        ))}
+                    </div>
+                    
+                    {/* Center Logo */}
+                    <div className="flex-[2] flex flex-col items-center justify-center relative">
+                        <div className="text-2xl font-bold tracking-[0.3em] font-display">NOVA</div>
+                        <div className="absolute bottom-0 w-full flex gap-4 px-4">
+                            <div className="h-divider"></div>
+                            <div className="h-divider"></div>
+                        </div>
+                    </div>
+                    
+                    {/* Right */}
+                    <div className="flex-1 flex items-stretch justify-end">
+                        <div className="hidden md:flex items-center gap-4 px-6 opacity-60">
+                            <span className="text-xs tracking-widest uppercase">Search</span>
+                            <i data-lucide="search" className="w-4 h-4"></i>
+                        </div>
+                        <div className="v-divider hidden md:block"></div>
+                        <div className="flex items-center px-6">
+                            <i data-lucide="menu" className="w-5 h-5 cursor-pointer"></i>
+                        </div>
+                    </div>
+                </nav>
+            );
+        };
+
+        const Hero = () => (
+            <section className="relative h-[calc(100vh-64px)] overflow-hidden">
+                <video 
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_031824_0c85e1e9-fe2b-4d52-8cde-25b0c2b5e8a2.mp4"
+                    className="absolute inset-0 w-full h-full object-cover object-[85%_center] md:object-center"
+                    autoPlay loop muted playsInline
+                />
+                
+                <div className="relative z-10 px-8 pt-12 md:pt-24 h-full flex flex-col">
+                    <h1 className="text-[4.5rem] md:text-[10rem] lg:text-[12rem] font-black leading-[0.85] tracking-tighter uppercase">
+                        ROCKETS
+                    </h1>
+                    
+                    <div className="mt-auto pb-24 flex justify-end">
+                        <div className="flex flex-col items-end max-w-3xl">
+                            <p className="text-base md:text-lg text-foreground/90 leading-relaxed text-right mb-10">
+                                From precise orbital insertions to deep space trajectories, NOVA's launch systems deliver unmatched performance and dependability, backed by over five decades of proven spaceflight excellence.
+                            </p>
+                            <button className="bg-white text-black pl-5 pr-1.5 py-1.5 text-sm tracking-wide flex items-center gap-4 hover:opacity-90 transition-opacity">
+                                VIEW OUR FLEET
+                                <div className="w-10 h-10 bg-black flex items-center justify-center text-white">
+                                    <i data-lucide="arrow-up-right" className="w-5 h-5"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const RocketScience = () => (
+            <section className="bg-black py-32 px-8">
+                <div className="mb-24 flex justify-center">
+                    <h2 className="text-[2.5rem] md:text-[6rem] lg:text-[7rem] font-extralight leading-[0.9] tracking-tighter uppercase">
+                        ROCKET<br />
+                        <span className="ml-[1.5em] md:ml-[3.5em]">SCIENCE</span>
+                    </h2>
+                </div>
+                
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex gap-4 mb-16">
+                        {[1,2,3,4].map(i => <div key={i} className="h-divider"></div>)}
+                    </div>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_1fr_auto] gap-y-16">
+                        {/* Decorative V Divider */}
+                        <div className="v-divider h-full hidden lg:block"></div>
+                        
+                        {/* Row 1 Content */}
+                        <div className="p-12 border-b border-nav-border lg:border-none">
+                            <h3 className="text-2xl md:text-3xl font-normal mb-6">How do we get to space?</h3>
+                            <p className="text-muted-foreground leading-relaxed text-lg font-light">
+                                Launching a payload into orbit requires achieving orbital velocity. Our systems utilize multi-stage combustion cycles to provide the necessary delta-v for complex trajectories.
+                            </p>
+                        </div>
+                        
+                        <div className="v-divider h-full hidden lg:block"></div>
+                        
+                        <div className="row-span-2 p-6 h-full border-b border-nav-border lg:border-none">
+                            <video 
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_032431_5e054107-51c0-4162-9f0f-3a40054761ef.mp4"
+                                className="w-full h-full object-cover"
+                                autoPlay loop muted playsInline
+                            />
+                        </div>
+
+                        <div className="v-divider h-full hidden lg:block"></div>
+
+                        {/* Row 2 Content (Staggered) */}
+                        <div className="v-divider h-full hidden lg:block"></div>
+                        
+                        <div className="row-span-2 p-6 h-full border-b border-nav-border lg:border-none lg:order-last">
+                            <video 
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_032535_4ccc152e-0cc8-4ee5-a698-e1a98cea8a1e.mp4"
+                                className="w-full h-full object-cover"
+                                autoPlay loop muted playsInline
+                            />
+                        </div>
+
+                        <div className="v-divider h-full hidden lg:block"></div>
+
+                        <div className="p-12">
+                            <h3 className="text-2xl md:text-3xl font-normal mb-6">Launch vehicles</h3>
+                            <p className="text-muted-foreground leading-relaxed text-lg font-light">
+                                From smallsat delivery to heavy-lift lunar missions, our fleet of modular rockets is designed for high flight cadence and rapid reusability.
+                            </p>
+                        </div>
+
+                        <div className="v-divider h-full hidden lg:block"></div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const App = () => (
+            <div>
+                <Navbar />
+                <Hero />
+                <RocketScience />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

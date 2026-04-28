@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoVision | New Digital Universe</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React, Lucide Icons -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        heroLight: '#FBFDFD',
+                        darkSection: '#0F0F0F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .video-plus-darker {
+                mix-blend-mode: normal !important;
+            }
+            .hero-stat-group {
+                margin-right: 0;
+            }
+            @media (min-width: 768px) {
+                .hero-stat-group {
+                    margin-right: 20%;
+                    justify-content: center;
+                }
+            }
+            .hero-description-group {
+                margin-right: 0;
+            }
+            @media (min-width: 768px) {
+                .hero-description-group {
+                    margin-right: 50%;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-neutral-900 font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const Navbar = () => {
+            const [isOpen, setIsOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, []);
+
+            return (
+                <nav className="relative z-50 flex justify-between items-center px-5 py-4 md:px-12 md:py-6">
+                    <div className="flex items-center gap-12">
+                        <div className="text-xl font-bold tracking-tighter">NEOVISION</div>
+                        <div className="hidden md:flex items-center gap-8">
+                            {['Home', 'About', 'Services', 'Contact'].map(link => (
+                                <a key={link} href="#" className="text-sm text-neutral-500 hover:text-neutral-900">{link}</a>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div className="hidden md:flex items-center relative">
+                        <input 
+                            type="text" 
+                            placeholder="I am looking for..." 
+                            className="rounded-full w-72 px-5 py-2 border border-neutral-300 text-sm text-neutral-600 outline-none"
+                        />
+                        <i data-lucide="search" className="w-4 h-4 absolute right-4 text-neutral-400"></i>
+                    </div>
+
+                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center">
+                        <i data-lucide={isOpen ? "x" : "menu"} className="w-5 h-5"></i>
+                    </button>
+
+                    {isOpen && (
+                        <div className="absolute top-full left-0 w-full bg-white border-b border-neutral-200 p-6 flex flex-col gap-6 md:hidden z-[60] shadow-xl">
+                            {['Home', 'About', 'Services', 'Contact'].map(link => (
+                                <a key={link} href="#" className="text-sm font-medium">{link}</a>
+                            ))}
+                            <div className="relative">
+                                <input type="text" placeholder="I am looking for..." className="w-full rounded-full px-5 py-2 border border-neutral-300 text-sm" />
+                                <i data-lucide="search" className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400"></i>
+                            </div>
+                        </div>
+                    )}
+                </nav>
+            );
+        };
+
+        const Hero = () => (
+            <section className="relative w-full h-screen md:h-screen min-h-screen overflow-hidden">
+                <div className="absolute inset-0 bg-heroLight -z-10"></div>
+                
+                <video 
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131232_feeda0b7-d00d-4bfa-a9d5-5d38648a4214.mp4"
+                    className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] h-full object-cover object-top opacity-30 md:opacity-100 video-plus-darker -z-10"
+                    autoPlay loop muted playsInline
+                />
+                
+                <div className="relative h-full flex flex-col">
+                    <Navbar />
+                    
+                    <div className="flex-1 flex flex-col justify-between px-5 pt-8 pb-20 md:px-12 md:pt-16 md:pb-36">
+                        <div>
+                            <span className="text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase">Futuristic</span>
+                            <div className="flex items-start gap-4 mt-6">
+                                <span className="text-sm text-neutral-400 mt-2 md:mt-4">05</span>
+                                <h1 className="text-[2.75rem] md:text-[5.5rem] leading-[0.95] font-light tracking-tight text-neutral-900 uppercase">
+                                    New Digital<br />Universe
+                                </h1>
+                            </div>
+                            <div className="flex items-center gap-8 mt-10">
+                                <button className="bg-neutral-900 text-white text-sm font-medium rounded px-8 py-3.5 hover:bg-neutral-800 transition-colors">
+                                    Get Started
+                                </button>
+                                <a href="#" className="text-sm font-medium border-b border-neutral-900">Contact Us</a>
+                            </div>
+                        </div>
+
+                        <div className="hero-stat-group flex flex-col items-start md:items-center">
+                            <span className="text-5xl md:text-6xl font-light">47.2%</span>
+                            <span className="text-xs uppercase tracking-widest text-neutral-500">Reality</span>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-8">
+                            <div className="flex items-center gap-4">
+                                <span className="text-xs font-medium text-neutral-500 uppercase vertical-text hidden md:block">Trusted by Clients</span>
+                                <div className="flex -space-x-2">
+                                    {[1,2,3,4].map(id => (
+                                        <img key={id} src={`https://i.pravatar.cc/100?img=${id+40}`} className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-neutral-100 object-cover" />
+                                    ))}
+                                </div>
+                                <span className="text-sm font-medium text-neutral-500">20+</span>
+                            </div>
+
+                            <div className="hero-description-group flex items-start gap-4">
+                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-neutral-300 flex items-center justify-center shrink-0">
+                                    <i data-lucide="link" className="w-4 h-4"></i>
+                                </div>
+                                <p className="text-xs md:text-sm text-neutral-500 max-w-[200px] md:max-w-sm leading-relaxed">
+                                    In this futuristic realm, users can explore hyper-realistic virtual environments, interact with AI-driven avatars.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Diagonal Divider */}
+                <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
+                    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[120px] fill-darkSection">
+                        <polygon points="0,0 0,120 1440,120 1440,80 920,80 680,0" />
+                    </svg>
+                </div>
+            </section>
+        );
+
+        const About = () => (
+            <section className="bg-darkSection flex flex-col lg:flex-row min-h-[600px] lg:min-h-[700px]">
+                <div className="lg:w-1/2 h-[400px] lg:h-auto overflow-hidden">
+                    <video 
+                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_132809_d6ea910f-d700-44f7-afea-27d517487177.mp4"
+                        className="w-full h-full object-cover mix-blend-lighten"
+                        autoPlay loop muted playsInline
+                    />
+                </div>
+                <div className="lg:w-1/2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-20 xl:px-28">
+                    <span className="text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase mb-8 md:mb-10">About Us</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.05] mb-10 md:mb-12">
+                        THE DIGITAL<br />FRONTIER
+                    </h2>
+                    <div className="flex flex-wrap gap-3 mb-10">
+                        {['Digital', 'Reality', 'Next'].map(tag => (
+                            <span key={tag} className="px-5 py-2 rounded-full border border-neutral-700 text-sm text-neutral-300 hover:border-neutral-500 transition-colors">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed max-w-md mb-12">
+                        Step into The Digital Frontier, where the boundaries between reality and virtual innovation disappear. This is the next era of immersive technology.
+                    </p>
+                    <div className="flex items-center gap-8">
+                        <button className="bg-neutral-800 text-white text-sm font-medium rounded px-8 py-3.5 hover:bg-neutral-700 transition-colors">
+                            Learn More
+                        </button>
+                        <div className="flex items-center gap-3 cursor-pointer group">
+                            <div className="w-10 h-10 rounded-full border border-neutral-700 flex items-center justify-center group-hover:border-neutral-500 transition-colors">
+                                <i data-lucide="play" className="w-4 h-4 fill-white text-white"></i>
+                            </div>
+                            <span className="text-sm font-medium text-white">Watch a Video</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Insights = () => {
+            const [activeTab, setActiveTab] = useState('Innovation');
+            const tabs = {
+                Innovation: { title: "How VR is Transforming Our Digital World", desc: "Virtual Reality (VR) is no longer a concept of the future...", date: "08 February 2025", author: "Henry Leonardo", img: "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif" },
+                Technology: { title: "The Rise of Spatial Computing in Everyday Life", desc: "Spatial computing is bridging the gap...", date: "15 March 2025", author: "Sarah Mitchell", img: "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" },
+                Experience: { title: "Designing Immersive Worlds That Feel Real", desc: "From haptic feedback to photorealistic rendering...", date: "22 April 2025", author: "James Park", img: "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" }
+            };
+
+            return (
+                <section className="bg-darkSection px-8 md:px-16 lg:px-20 xl:px-28 pt-24 pb-32">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-light italic tracking-tight text-white leading-[1.05] max-w-5xl mb-20 md:mb-28">
+                        LIMITLESS POSSIBILITIES WITH NEOVISION
+                    </h2>
+                    
+                    <div className="flex flex-col lg:flex-row gap-16">
+                        <div className="lg:w-[200px] flex flex-col gap-6">
+                            {Object.keys(tabs).map(tab => (
+                                <button 
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`text-left text-sm font-medium transition-colors ${activeTab === tab ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'}`}
+                                >
+                                    {tab}
+                                </button>
+                            ))}
+                        </div>
+                        
+                        <div className="flex-1 flex flex-col md:flex-row gap-12 items-start">
+                            <div className="w-full md:w-[420px] xl:w-[480px] aspect-[4/3] rounded-2xl overflow-hidden grayscale">
+                                <img src={tabs[activeTab].img} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="flex-1 space-y-6">
+                                <h3 className="text-2xl md:text-3xl font-light text-white leading-snug max-w-sm">
+                                    {tabs[activeTab].title}
+                                </h3>
+                                <p className="text-sm md:text-base text-neutral-400 leading-relaxed max-w-sm">
+                                    {tabs[activeTab].desc}
+                                </p>
+                                <a href="#" className="text-sm text-white font-medium underline underline-offset-4 block pt-4">Learn More</a>
+                                
+                                <div className="border-t border-neutral-800 pt-6 flex justify-between items-center text-[10px] uppercase tracking-widest text-neutral-500">
+                                    <span>{tabs[activeTab].date}</span>
+                                    <span>{tabs[activeTab].author}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const App = () => (
+            <div>
+                <Hero />
+                <About />
+                <Insights />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

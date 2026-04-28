@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Agency | AI-Powered Web Design</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React, Framer Motion, HLS.js, Lucide Icons -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(213 45% 67%)',
+                        foreground: 'hsl(0 0% 100%)',
+                    },
+                    fontFamily: {
+                        heading: ["'Instrument Serif'", 'serif'],
+                        body: ["'Barlow'", 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass {
+                background: rgba(255, 255, 255, 0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(4px);
+                position: relative;
+                overflow: hidden;
+            }
+            .liquid-glass::before {
+                content: '';
+                position: absolute; inset: 0;
+                border-radius: inherit;
+                padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+            .liquid-glass-strong {
+                background: rgba(255, 255, 255, 0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(50px);
+                box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
+                position: relative;
+            }
+            .liquid-glass-strong::before {
+                content: '';
+                position: absolute; inset: 0;
+                border-radius: inherit;
+                padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.5) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+            .section-badge {
+                @apply liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body inline-block mb-4;
+            }
+            .section-heading {
+                @apply text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9];
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body font-light overflow-x-hidden antialiased">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence, useInView } = window.Motion;
+
+        const HlsVideo = ({ src, className, desaturated = false }) => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                const video = videoRef.current;
+                if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(src);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = src;
+                }
+            }, [src]);
+            return (
+                <video 
+                    ref={videoRef} 
+                    className={`${className} ${desaturated ? 'saturate-0' : ''}`} 
+                    autoPlay loop muted playsInline 
+                />
+            );
+        };
+
+        const BlurText = ({ text }) => {
+            const words = text.split(" ");
+            return (
+                <div className="flex flex-wrap justify-center gap-x-4">
+                    {words.map((word, i) => (
+                        <motion.span
+                            key={i}
+                            initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+                            whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                            transition={{ duration: 0.35, delay: i * 0.1 }}
+                            viewport={{ once: true }}
+                            className="inline-block"
+                        >
+                            {word}
+                        </motion.span>
+                    ))}
+                </div>
+            );
+        };
+
+        const Navbar = () => (
+            <div className="fixed top-4 left-0 w-full z-50 flex justify-center px-4">
+                <div className="liquid-glass rounded-full px-6 py-2 flex items-center gap-8 max-w-fit shadow-2xl">
+                    <div className="text-xl font-heading italic tracking-tighter">L.G.A</div>
+                    <div className="hidden md:flex items-center gap-6">
+                        {['Home', 'Services', 'Work', 'Process', 'Pricing'].map(link => (
+                            <a key={link} href="#" className="text-sm font-medium opacity-90 hover:opacity-100 transition-opacity">{link}</a>
+                        ))}
+                    </div>
+                    <button className="bg-white text-black rounded-full px-5 py-2 text-sm font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+                        Get Started <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        );
+
+        const Hero = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <section className="relative w-full h-[1000px] overflow-visible flex flex-col items-center pt-[150px] text-center px-6">
+                    <video 
+                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+                        className="absolute top-[20%] left-0 w-full h-auto object-contain -z-10"
+                        autoPlay loop muted playsInline
+                    />
+                    <div className="absolute inset-0 bg-black/5 -z-10"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-black to-transparent z-[1]"></div>
+                    
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="liquid-glass rounded-full px-4 py-1.5 flex items-center gap-2 mb-8"
+                    >
+                        <span className="bg-white text-black px-2 py-0.5 rounded-full text-[10px] font-bold">New</span>
+                        <span className="text-xs opacity-90">Introducing AI-powered web design.</span>
+                    </motion.div>
+                    
+                    <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic leading-[0.8] tracking-[-4px] mb-8 max-w-5xl">
+                        <BlurText text="The Website Your Brand Deserves" />
+                    </h1>
+                    
+                    <motion.p 
+                        initial={{ opacity: 0, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, filter: "blur(0px)" }}
+                        transition={{ delay: 0.8 }}
+                        className="text-white/60 text-lg max-w-2xl mb-12"
+                    >
+                        Stunning design. Blazing performance. Built by AI, refined by experts. This is web design, wildly reimagined.
+                    </motion.p>
+                    
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.1 }}
+                        className="flex flex-col sm:flex-row gap-6 items-center"
+                    >
+                        <button className="liquid-glass-strong rounded-full px-8 py-4 font-medium flex items-center gap-2 hover:scale-105 transition-transform">
+                            Get Started <i data-lucide="arrow-up-right" className="w-5 h-5"></i>
+                        </button>
+                        <button className="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity">
+                            <i data-lucide="play" className="w-4 h-4 fill-white"></i> Watch the Film
+                        </button>
+                    </motion.div>
+                </section>
+            );
+        };
+
+        const PartnersBar = () => (
+            <section className="bg-black py-24 flex flex-col items-center">
+                <div className="section-badge">Trusted by the teams behind</div>
+                <div className="flex flex-wrap justify-center gap-x-16 gap-y-8 mt-8 opacity-40">
+                    {['Stripe', 'Vercel', 'Linear', 'Notion', 'Figma'].map(p => (
+                        <span key={p} className="text-2xl md:text-3xl font-heading italic">{p}</span>
+                    ))}
+                </div>
+            </section>
+        );
+
+        const HowItWorks = () => (
+            <section className="relative min-h-[700px] py-32 px-8 lg:px-24 flex flex-col items-center text-center">
+                <HlsVideo 
+                    src="https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8"
+                    className="absolute inset-0 w-full h-full object-cover -z-20"
+                />
+                <div className="absolute inset-x-0 top-0 h-[200px] bg-gradient-to-b from-black to-transparent -z-10"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-black to-transparent -z-10"></div>
+                
+                <div className="z-10 mt-auto">
+                    <div className="section-badge">How It Works</div>
+                    <h2 className="section-heading mb-6">You dream it. We ship it.</h2>
+                    <p className="text-white/60 max-w-xl mb-10">Share your vision. Our AI handles the rest—wireframes, design, code, launch. All in days, not quarters.</p>
+                    <button className="liquid-glass-strong rounded-full px-8 py-4 font-medium flex items-center gap-2 mx-auto">
+                        Get Started <i data-lucide="arrow-up-right" className="w-5 h-5"></i>
+                    </button>
+                </div>
+            </section>
+        );
+
+        const FeaturesGrid = () => (
+            <section className="bg-black py-32 px-8 lg:px-24">
+                <div className="text-center mb-16">
+                    <div className="section-badge">Why Us</div>
+                    <h2 className="section-heading">The difference is everything.</h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        { icon: 'zap', title: 'Days, Not Months', desc: 'Concept to launch at a pace that redefines fast.' },
+                        { icon: 'palette', title: 'Obsessively Crafted', desc: 'Every detail considered. Every element refined.' },
+                        { icon: 'bar-chart-3', title: 'Built to Convert', desc: 'Layouts informed by data. Decisions backed by performance.' },
+                        { icon: 'shield', title: 'Secure by Default', desc: 'Enterprise-grade protection comes standard.' }
+                    ].map((card, i) => (
+                        <div key={i} className="liquid-glass rounded-2xl p-8 hover:bg-white/5 transition-colors">
+                            <div className="liquid-glass-strong rounded-full w-10 h-10 flex items-center justify-center mb-6">
+                                <i data-lucide={card.icon} className="w-5 h-5"></i>
+                            </div>
+                            <h3 className="text-xl font-heading italic mb-3">{card.title}</h3>
+                            <p className="text-white/60 text-sm">{card.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        );
+
+        const Stats = () => (
+            <section className="relative py-32 px-8 lg:px-24 flex flex-col items-center">
+                <HlsVideo 
+                    src="https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8"
+                    className="absolute inset-0 w-full h-full object-cover -z-20"
+                    desaturated
+                />
+                <div className="absolute inset-x-0 top-0 h-[200px] bg-gradient-to-b from-black to-transparent -z-10"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-black to-transparent -z-10"></div>
+                
+                <div className="liquid-glass rounded-3xl p-12 lg:p-16 w-full grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                    {[
+                        { val: '200+', label: 'Sites launched' },
+                        { val: '98%', label: 'Client satisfaction' },
+                        { val: '3.2x', label: 'More conversions' },
+                        { val: '5 days', label: 'Average delivery' }
+                    ].map((s, i) => (
+                        <div key={i}>
+                            <div className="text-4xl md:text-5xl lg:text-6xl font-heading italic mb-2">{s.val}</div>
+                            <div className="text-white/60 text-sm uppercase tracking-widest">{s.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer className="relative bg-black pt-48 pb-12 px-8 lg:px-24 text-center">
+                <HlsVideo 
+                    src="https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8"
+                    className="absolute inset-0 w-full h-full object-cover -z-20 opacity-30"
+                />
+                <div className="absolute inset-x-0 top-0 h-[200px] bg-gradient-to-b from-black to-transparent -z-10"></div>
+                
+                <div className="z-10 relative">
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-heading italic mb-6">Your next website starts here.</h2>
+                    <p className="text-white/60 text-lg mb-12">Book a free strategy call. See what AI-powered design can do.</p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-32">
+                        <button className="liquid-glass-strong rounded-full px-12 py-5 font-bold uppercase tracking-widest text-xs">Book a Call</button>
+                        <button className="bg-white text-black rounded-full px-12 py-5 font-bold uppercase tracking-widest text-xs">View Pricing</button>
+                    </div>
+                    
+                    <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-white/40 text-[10px] uppercase tracking-widest gap-8">
+                        <div>© 2026 Studio. All rights reserved.</div>
+                        <div className="flex gap-12">
+                            <a href="#">Privacy</a>
+                            <a href="#">Terms</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        const App = () => (
+            <div className="bg-black">
+                <Navbar />
+                <Hero />
+                <PartnersBar />
+                <HowItWorks />
+                <FeaturesGrid />
+                <Stats />
+                <Footer />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
