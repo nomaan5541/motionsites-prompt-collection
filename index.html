@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotionSites.ai — Prompt Library | AI-Powered Landing Page Demos</title>
+    <meta name="description" content="Browse 65+ high-fidelity landing page demos built from AI prompts. Each demo is a production-ready hero section with video backgrounds, glassmorphism, and modern animations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #08080a; --surface: #111114; --surface2: #1a1a1f;
+            --border: rgba(255,255,255,0.06); --text: #f5f5f7; --text2: #8e8e93;
+            --accent: #6c5ce7; --accent2: #a29bfe; --green: #00b894;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Glow */
+        .hero-glow { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 500px; background: radial-gradient(ellipse, rgba(108,92,231,0.12) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+        /* Header */
+        .header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); background: rgba(8,8,10,0.7); border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--text2); font-weight: 500; }
+        .badge span { color: var(--green); font-weight: 600; }
+        .gh-btn { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text); transition: all 0.2s; }
+        .gh-btn:hover { background: var(--surface2); border-color: rgba(255,255,255,0.12); }
+        .gh-btn svg { width: 18px; height: 18px; fill: white; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 80px 32px 40px; position: relative; z-index: 1; }
+        .hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; -webkit-text-fill-color: var(--accent2); }
+        .hero p { font-size: 18px; color: var(--text2); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+
+        /* Search */
+        .search-wrap { max-width: 520px; margin: 0 auto 20px; position: relative; }
+        .search-wrap input { width: 100%; padding: 14px 20px 14px 48px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 15px; outline: none; transition: border-color 0.2s; font-family: 'Inter', sans-serif; }
+        .search-wrap input:focus { border-color: rgba(108,92,231,0.5); }
+        .search-wrap input::placeholder { color: var(--text2); }
+        .search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; stroke: var(--text2); fill: none; }
+
+        /* Filters */
+        .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 1400px; margin: 0 auto 40px; padding: 0 32px; }
+        .filter-btn { padding: 8px 18px; border-radius: 10px; border: 1px solid var(--border); background: transparent; color: var(--text2); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+        .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        /* Grid */
+        .grid { max-width: 1400px; margin: 0 auto; padding: 0 32px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; position: relative; z-index: 1; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+        /* Card */
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
+        .card:hover { border-color: rgba(108,92,231,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(108,92,231,0.15); }
+        .card-preview { height: 200px; background: var(--surface2); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .card-preview .letter { font-size: 48px; font-weight: 800; color: rgba(255,255,255,0.06); letter-spacing: -2px; }
+        .card-preview .overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(162,155,254,0.05)); opacity: 0; transition: opacity 0.3s; }
+        .card:hover .overlay { opacity: 1; }
+        .card-body { padding: 20px; }
+        .card-cat { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent2); margin-bottom: 8px; }
+        .card-title { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 6px; }
+        .card-type { font-size: 13px; color: var(--text2); margin-bottom: 16px; }
+        .card-actions { display: flex; gap: 8px; }
+        .btn-demo { flex: 1; padding: 10px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; font-size: 13px; font-weight: 600; text-align: center; border: none; cursor: pointer; transition: opacity 0.2s; }
+        .btn-demo:hover { opacity: 0.9; }
+        .btn-prompt { flex: 1; padding: 10px; border-radius: 10px; background: var(--surface2); color: var(--text2); font-size: 13px; font-weight: 500; text-align: center; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+        .btn-prompt:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+
+        /* Count */
+        .count { text-align: center; padding: 0 32px 24px; font-size: 14px; color: var(--text2); position: relative; z-index: 1; }
+        .count strong { color: var(--text); }
+
+        /* Footer */
+        .footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; color: var(--text2); font-size: 13px; }
+        .footer a { color: var(--accent2); }
+
+        /* No results */
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text2); font-size: 16px; }
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { animation: fadeUp 0.5s ease-out both; }
+    </style>
+</head>
+<body>
+    <div class="hero-glow"></div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-icon">⚡</div>
+                MotionSites.ai
+            </a>
+            <div class="header-right">
+                <div class="badge"><span>65</span> Free Prompts</div>
+                <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library" target="_blank" class="gh-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>AI-Powered <em>Prompt</em> Library</h1>
+        <p>Browse 65+ production-ready landing page demos. Each built from a single AI prompt with video backgrounds, glassmorphism, and modern animations.</p>
+        <div class="search-wrap">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search" placeholder="Search demos... (e.g. SaaS, Portfolio, Web3)">
+        </div>
+    </section>
+
+    <div class="filters" id="filters"></div>
+    <div class="count" id="count"></div>
+    <div class="grid" id="grid"></div>
+
+    <footer class="footer">
+        Built by <a href="https://github.com/nomaan5541" target="_blank">Nomaan Khan</a> — Powered by MotionSites.ai
+    </footer>
+
+    <script>
+    const demos = [
+        { name: "Aethera_Studio", title: "Aethera Studio", cat: "Agency", type: "Hero" },
+        { name: "AI_Automation_Hero", title: "AI Automation Hero", cat: "SaaS", type: "Hero" },
+        { name: "AI_Designer_Agency", title: "AI Designer Agency", cat: "Agency", type: "Landing Page" },
+        { name: "AI_Designer_Portfolio", title: "AI Designer Portfolio", cat: "Portfolio", type: "Hero" },
+        { name: "AKOR_Security", title: "AKOR Security", cat: "SaaS", type: "Hero" },
+        { name: "Apex_SaaS", title: "Apex SaaS", cat: "SaaS", type: "Hero" },
+        { name: "Asme", title: "Asme", cat: "Agency", type: "Hero" },
+        { name: "Automation_Machines", title: "Automation Machines", cat: "SaaS", type: "Landing Page" },
+        { name: "Bionova_Biotech", title: "Bionova Biotech", cat: "SaaS", type: "Hero" },
+        { name: "Bloom_AI", title: "Bloom AI", cat: "SaaS", type: "Hero" },
+        { name: "Bold_Portfolio_Hero", title: "Bold Portfolio Hero", cat: "Portfolio", type: "Hero" },
+        { name: "Buzzentic_Agency", title: "Buzzentic Agency", cat: "Agency", type: "Hero" },
+        { name: "ClearInvoice_SaaS_Hero", title: "ClearInvoice SaaS", cat: "SaaS", type: "Hero" },
+        { name: "ClubX_Investors", title: "ClubX Investors", cat: "Fintech", type: "Hero" },
+        { name: "CodeNest_Coding_Platform", title: "CodeNest Coding Platform", cat: "SaaS", type: "Hero" },
+        { name: "Dark_Portfolio_Hero", title: "Dark Portfolio Hero", cat: "Portfolio", type: "Hero" },
+        { name: "Datacore_Booking", title: "Datacore Booking", cat: "SaaS", type: "Hero" },
+        { name: "Datacore_SaaS_Hero", title: "Datacore SaaS", cat: "SaaS", type: "Hero" },
+        { name: "DesignPro_Academy", title: "DesignPro Academy", cat: "Agency", type: "Hero" },
+        { name: "Digitwist_AI_Builder", title: "Digitwist AI Builder", cat: "SaaS", type: "Hero" },
+        { name: "E-commerce_Website", title: "E-commerce Website", cat: "E-commerce", type: "Landing Page" },
+        { name: "EVR_Ventures", title: "EVR Ventures", cat: "Fintech", type: "Hero" },
+        { name: "Finlytic_AI_Agent", title: "Finlytic AI Agent", cat: "SaaS", type: "Hero" },
+        { name: "Framelix_3D_Studios", title: "Framelix 3D Studios", cat: "Agency", type: "Hero" },
+        { name: "Glassmorphism_Agency_Hero", title: "Glassmorphism Agency", cat: "Agency", type: "Hero" },
+        { name: "Grow_AI_Talent_Platform", title: "Grow AI Talent Platform", cat: "SaaS", type: "Hero" },
+        { name: "HR_SaaS_Hero", title: "HR SaaS Hero", cat: "SaaS", type: "Hero" },
+        { name: "Investor_Deck", title: "Investor Deck", cat: "Fintech", type: "Presentation" },
+        { name: "Liquid_Glass_Agency", title: "Liquid Glass Agency", cat: "Agency", type: "Landing Page" },
+        { name: "Loader_Animation", title: "Loader Animation", cat: "Component", type: "Animation" },
+        { name: "Logoisum_Video_Agency", title: "Logoisum Video Agency", cat: "Agency", type: "Hero" },
+        { name: "Mindloop", title: "Mindloop", cat: "SaaS", type: "Hero" },
+        { name: "Mindloop_Landing", title: "Mindloop Landing", cat: "SaaS", type: "Landing Page" },
+        { name: "NeoVision", title: "NeoVision", cat: "SaaS", type: "Hero" },
+        { name: "Neuralyn", title: "Neuralyn", cat: "SaaS", type: "Hero" },
+        { name: "New_Era_Automotive_Hero", title: "New Era Automotive", cat: "Automotive", type: "Hero" },
+        { name: "New_Era_Bold_Hero", title: "New Era Bold Hero", cat: "Agency", type: "Hero" },
+        { name: "Nexora_Automation", title: "Nexora Automation", cat: "SaaS", type: "Hero" },
+        { name: "Nexus_IT_Solutions", title: "Nexus IT Solutions", cat: "SaaS", type: "Hero" },
+        { name: "Nickel_Payments", title: "Nickel Payments", cat: "Fintech", type: "Hero" },
+        { name: "NOVA_Space_Systems", title: "NOVA Space Systems", cat: "SaaS", type: "Hero" },
+        { name: "Orbis_NFT", title: "Orbis NFT", cat: "Web3", type: "Hero" },
+        { name: "Orbit_Engineers", title: "Orbit Engineers", cat: "SaaS", type: "Hero" },
+        { name: "Orbit_Web3", title: "Orbit Web3", cat: "Web3", type: "Hero" },
+        { name: "Planet_Orbit", title: "Planet Orbit", cat: "SaaS", type: "Hero" },
+        { name: "Portfolio_Cosmic", title: "Portfolio Cosmic", cat: "Portfolio", type: "Hero" },
+        { name: "Power_AI", title: "Power AI", cat: "SaaS", type: "Hero" },
+        { name: "Price_Calculator", title: "Price Calculator", cat: "SaaS", type: "Component" },
+        { name: "Railroad.ai", title: "Railroad.ai", cat: "SaaS", type: "Hero" },
+        { name: "SkyElite_Private_Jets", title: "SkyElite Private Jets", cat: "Landing Page", type: "Hero" },
+        { name: "Space_Voyage", title: "Space Voyage", cat: "SaaS", type: "Hero" },
+        { name: "Stellar_AI", title: "Stellar AI", cat: "SaaS", type: "Hero" },
+        { name: "Synapse_Dark_Hero", title: "Synapse Dark Hero", cat: "SaaS", type: "Hero" },
+        { name: "Sync_AI", title: "Sync AI", cat: "SaaS", type: "Hero" },
+        { name: "Targo_Logistics_Hero", title: "Targo Logistics", cat: "SaaS", type: "Hero" },
+        { name: "Taskly", title: "Taskly", cat: "SaaS", type: "Hero" },
+        { name: "Taskora_SaaS_Hero", title: "Taskora SaaS", cat: "SaaS", type: "Hero" },
+        { name: "Terra_Geo_Map", title: "Terra Geo Map", cat: "SaaS", type: "Hero" },
+        { name: "Transform_Data", title: "Transform Data", cat: "SaaS", type: "Hero" },
+        { name: "Velorah", title: "Velorah", cat: "Agency", type: "Hero" },
+        { name: "Viktor_Portfolio", title: "Viktor Portfolio", cat: "Portfolio", type: "Landing Page" },
+        { name: "Wealth_Video_Hero", title: "Wealth Video Hero", cat: "Fintech", type: "Hero" },
+        { name: "Web3_EOS_Hero", title: "Web3 EOS Hero", cat: "Web3", type: "Hero" },
+        { name: "Weblex_Dark_Hero", title: "Weblex Dark Hero", cat: "Landing Page", type: "Hero" },
+        { name: "xPortfolio_Hero", title: "xPortfolio Hero", cat: "Portfolio", type: "Hero" },
+    ];
+
+    const categories = ['All', ...new Set(demos.map(d => d.cat))].sort((a,b) => a === 'All' ? -1 : a.localeCompare(b));
+    let activeFilter = 'All';
+
+    function render() {
+        const q = document.getElementById('search').value.toLowerCase();
+        const filtered = demos.filter(d => {
+            const matchSearch = !q || d.title.toLowerCase().includes(q) || d.cat.toLowerCase().includes(q) || d.type.toLowerCase().includes(q);
+            const matchCat = activeFilter === 'All' || d.cat === activeFilter;
+            return matchSearch && matchCat;
+        });
+
+        document.getElementById('count').innerHTML = `Showing <strong>${filtered.length}</strong> of <strong>${demos.length}</strong> demos`;
+
+        const grid = document.getElementById('grid');
+        if (filtered.length === 0) {
+            grid.innerHTML = '<div class="no-results">No demos found. Try a different search term.</div>';
+            return;
+        }
+
+        grid.innerHTML = filtered.map((d, i) => `
+            <div class="card" style="animation-delay: ${Math.min(i * 0.03, 0.5)}s">
+                <div class="card-preview">
+                    <span class="letter">${d.title.charAt(0)}</span>
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body">
+                    <div class="card-cat">${d.cat}</div>
+                    <div class="card-title">${d.title}</div>
+                    <div class="card-type">${d.type}</div>
+                    <div class="card-actions">
+                        <a href="/demos/${d.name}/" class="btn-demo" target="_blank">▶ View Demo</a>
+                        <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library/blob/main/prompts/${d.name}.md" class="btn-prompt" target="_blank">📄 View Prompt</a>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Filters
+    const filtersEl = document.getElementById('filters');
+    filtersEl.innerHTML = categories.map(c => `<button class="filter-btn ${c === 'All' ? 'active' : ''}" data-cat="${c}">${c}</button>`).join('');
+    filtersEl.addEventListener('click', e => {
+        if (e.target.classList.contains('filter-btn')) {
+            activeFilter = e.target.dataset.cat;
+            filtersEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            render();
+        }
+    });
+
+    document.getElementById('search').addEventListener('input', render);
+    render();
+    </script>
+</body>
+</html>
