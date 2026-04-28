@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Voyage | Venture Past Our Sky</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(213 45% 67%)', foreground: 'hsl(0 0% 100%)' },
+                    fontFamily: { heading: ["'Instrument Serif'", 'serif'], body: ["'Barlow'", 'sans-serif'] },
+                    borderRadius: { full: '9999px' },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass {
+                background: rgba(255,255,255,0.01); background-blend-mode: luminosity;
+                backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+                border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+                position: relative; overflow: hidden;
+            }
+            .liquid-glass::before {
+                content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+            }
+            .liquid-glass-strong {
+                background: rgba(255,255,255,0.01); background-blend-mode: luminosity;
+                backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px);
+                box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
+                position: relative; overflow: hidden;
+            }
+            .liquid-glass-strong::before {
+                content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.5) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-white font-body antialiased overflow-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const { motion } = window.Motion;
+
+        const BlurText = ({ text, className }) => {
+            const words = text.split(' ');
+            const ref = useRef(null);
+            const [inView, setInView] = React.useState(false);
+            useEffect(() => {
+                const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold: 0.1 });
+                if (ref.current) obs.observe(ref.current);
+                return () => obs.disconnect();
+            }, []);
+            return (
+                <h1 ref={ref} className={`flex flex-wrap ${className}`}>
+                    {words.map((word, i) => (
+                        <motion.span key={i} className="mr-[0.25em]"
+                            initial={{ filter: 'blur(10px)', opacity: 0, y: 50 }}
+                            animate={inView ? { filter: 'blur(0px)', opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.35, delay: i * 0.1 }}
+                        >{word}</motion.span>
+                    ))}
+                </h1>
+            );
+        };
+
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className="relative h-screen flex flex-col">
+                    {/* Video BG */}
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_115329_5e00c9c5-4d69-49b7-94c3-9c31c60bb644.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                    <div className="absolute inset-0 bg-black/5 z-0"></div>
+
+                    <div className="relative z-10 flex flex-col h-full">
+                        {/* Navbar */}
+                        <nav className="fixed top-4 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-16">
+                            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-lg font-heading italic">S</div>
+                            <div className="hidden md:flex items-center">
+                                <div className="liquid-glass rounded-full flex items-center px-2 py-1.5 gap-1">
+                                    {['Home', 'Voyages', 'Worlds', 'Innovation', 'Plan Launch'].map(l => (
+                                        <a key={l} href="#" className="px-3 py-2 text-sm font-medium text-white/90 font-body">{l}</a>
+                                    ))}
+                                    <button className="bg-white text-black rounded-full px-3.5 py-1.5 text-sm font-medium font-body flex items-center gap-1">
+                                        Claim a Spot <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+
+                        {/* Hero Content */}
+                        <div className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-24">
+                            {/* Badge */}
+                            <div className="liquid-glass rounded-full px-1 py-1 flex items-center gap-2 mb-2">
+                                <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-semibold font-body">New</span>
+                                <span className="text-sm text-white/90 pr-3 font-body">Maiden Crewed Voyage to Mars Arrives 2026</span>
+                            </div>
+
+                            {/* Heading */}
+                            <BlurText 
+                                text="Venture Past Our Sky Across the Universe"
+                                className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic leading-[0.8] max-w-2xl justify-center tracking-[-4px]"
+                            />
+
+                            {/* Subheading */}
+                            <motion.p 
+                                initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }}
+                                animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                                className="mt-1 text-sm md:text-base text-white max-w-2xl font-body font-light leading-tight"
+                            >
+                                Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.
+                            </motion.p>
+
+                            {/* CTA */}
+                            <motion.div 
+                                initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }}
+                                animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 1.1 }}
+                                className="flex items-center gap-6 mt-4"
+                            >
+                                <button className="liquid-glass-strong rounded-full px-5 py-2.5 text-sm font-medium font-body flex items-center gap-2">
+                                    Start Your Voyage <i data-lucide="arrow-up-right" className="w-5 h-5"></i>
+                                </button>
+                                <button className="text-sm font-medium font-body flex items-center gap-2">
+                                    View Liftoff <i data-lucide="play" className="w-4 h-4 fill-current"></i>
+                                </button>
+                            </motion.div>
+                        </div>
+
+                        {/* Partners Bar */}
+                        <div className="flex flex-col items-center gap-4 pb-8">
+                            <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
+                                Collaborating with top aerospace pioneers globally
+                            </div>
+                            <div className="flex gap-12 md:gap-16">
+                                {['Aeon', 'Vela', 'Apex', 'Orbit', 'Zeno'].map(name => (
+                                    <span key={name} className="text-2xl md:text-3xl font-heading italic text-white tracking-tight">{name}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

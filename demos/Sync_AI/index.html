@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar.ai | Work Smarter. Move Faster.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-fade-in-overlay { animation: fadeInOverlay 0.4s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-white text-black antialiased">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+
+            return (
+                <div className="relative h-screen bg-white overflow-hidden">
+                    {/* Background Video */}
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260330_153826_e9005cf7-a1c7-4c7d-886f-fea22d644a9c.mp4" className="absolute inset-0 w-full h-full object-cover pt-[120px] md:pt-[200px]" autoPlay loop muted playsInline />
+                    
+                    {/* Gradient overlays */}
+                    <div className="absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '120px', height: '200px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
+                    <div className="hidden md:block absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '200px', height: '300px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
+                    <div className="md:hidden absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '120px', height: '200px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
+
+                    {/* Navbar */}
+                    <nav className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between animate-fade-in-up" style={{ opacity: 0, animationDelay: '0.1s' }}>
+                        <div className="flex items-center gap-2">
+                            <i data-lucide="star" className="w-5 h-5 fill-black stroke-black"></i>
+                            <span className="text-lg font-semibold">Stellar.ai</span>
+                        </div>
+                        <div className="hidden md:flex items-center gap-8">
+                            {['Solutions', 'For Teams', 'About Us', 'Learn Hub'].map((l, i) => (
+                                <button key={l} className="text-sm text-gray-700 hover:text-black transition-colors flex items-center gap-1">
+                                    {l} {i < 2 && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
+                                </button>
+                            ))}
+                        </div>
+                        <div className="hidden sm:flex items-center gap-4">
+                            <a href="#" className="text-sm text-gray-700 hover:text-black">Login</a>
+                            <button className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Get started free</button>
+                        </div>
+                        <button onClick={() => setMenuOpen(!menuOpen)} className="sm:hidden">
+                            <i data-lucide={menuOpen ? 'x' : 'menu'} className="w-6 h-6"></i>
+                        </button>
+                    </nav>
+
+                    {/* Mobile Menu */}
+                    {menuOpen && (
+                        <div className="absolute top-[60px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex flex-col gap-4 animate-fade-in-overlay">
+                            {['Solutions', 'For Teams', 'About Us', 'Learn Hub'].map(l => (
+                                <button key={l} className="text-sm text-gray-700 text-left">{l}</button>
+                            ))}
+                            <div className="border-t border-gray-200 pt-4 flex flex-col gap-3">
+                                <a href="#" className="text-sm text-gray-700">Login</a>
+                                <button className="w-full bg-black text-white py-2.5 rounded-full text-sm font-medium">Get started free</button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Hero Content */}
+                    <div className="relative z-20 px-4 sm:px-6 pt-6 sm:pt-12 pb-16 sm:pb-32 max-w-7xl mx-auto text-center">
+                        {/* Rating */}
+                        <div className="animate-fade-in-up inline-flex items-center gap-2 mb-5 sm:mb-8" style={{ opacity: 0, animationDelay: '0.2s' }}>
+                            <span className="w-6 h-6 border border-gray-300 rounded flex items-center justify-center">
+                                <i data-lucide="star" className="w-4 h-4 fill-black stroke-black"></i>
+                            </span>
+                            <span className="text-xs sm:text-sm font-medium">4.9 rating from 18.3K+ users</span>
+                        </div>
+
+                        {/* Heading */}
+                        <h1 className="animate-fade-in-up font-normal leading-[1.1] tracking-tight mb-4 sm:mb-5 text-[38px] sm:text-6xl md:text-7xl lg:text-[80px]" style={{ opacity: 0, animationDelay: '0.3s' }}>
+                            <span className="sm:hidden">Work Smarter.<br />Move Faster.<br /></span>
+                            <span className="hidden sm:inline">Work Smarter. Move Faster.<br /></span>
+                            <span className="bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text text-transparent">AI Powers You Up.</span>
+                        </h1>
+
+                        {/* Subheading */}
+                        <p className="animate-fade-in-up text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2" style={{ opacity: 0, animationDelay: '0.4s' }}>
+                            Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time.
+                        </p>
+
+                        {/* CTA */}
+                        <button className="animate-fade-in-up bg-black text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-gray-800 transition-colors" style={{ opacity: 0, animationDelay: '0.5s' }}>
+                            Begin Free Trial
+                        </button>
+                    </div>
+
+                    {/* Partner Bar */}
+                    <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-center gap-3 sm:gap-4 pb-4 sm:pb-8 px-4 animate-fade-in-up" style={{ opacity: 0, animationDelay: '0.6s' }}>
+                        <div className="rounded-full px-3 sm:px-3.5 py-1 text-[10px] sm:text-xs font-medium text-white backdrop-blur-md bg-white/15 border border-white/20">
+                            Collaborating with top aerospace pioneers globally
+                        </div>
+                        <div className="flex gap-5 sm:gap-12 md:gap-16 flex-wrap justify-center">
+                            {['Aeon', 'Vela', 'Apex', 'Orbit', 'Zeno'].map(name => (
+                                <span key={name} className="text-lg sm:text-2xl md:text-3xl italic text-white tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>{name}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

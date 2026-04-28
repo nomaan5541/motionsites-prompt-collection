@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVR | Evolve Responsible Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Gilda+Display&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(0 0% 0%)', foreground: 'hsl(0 0% 100%)' },
+                    fontFamily: { sans: ['Geist', 'sans-serif'], display: ['Gilda Display', 'serif'] },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
+                    animation: { marquee: 'marquee 20s linear infinite' },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence } = window.Motion;
+
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            const [progress, setProgress] = useState(0);
+            useEffect(() => { lucide.createIcons(); setTimeout(() => setProgress(75), 500); }, []);
+            useEffect(() => { document.body.style.overflow = menuOpen ? 'hidden' : ''; }, [menuOpen]);
+            const circumference = 2 * Math.PI * 54;
+            const offset = circumference - (progress / 100) * circumference;
+            const brands = ['Opensense', 'DKNY', 'Under Armour', 'LIU·JO', 'ATOM', 'ECCO', 'ORUM'];
+
+            return (
+                <div className="relative h-screen flex flex-col overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_024928_1efd0b0d-6c02-45a8-8847-1030900c4f63.mp4" className="absolute inset-0 w-full h-full object-cover object-[37%_center] z-0" autoPlay loop muted playsInline />
+
+                    {/* Navbar */}
+                    <nav className="relative z-10 flex items-center justify-between px-6 md:px-10 py-6">
+                        <button onClick={() => setMenuOpen(true)} className="flex items-center gap-3 rounded-full border border-white/30 px-5 py-3 text-xs uppercase tracking-widest">
+                            <div className="flex flex-col gap-1"><span className="w-7 h-[2px] bg-white block"></span><span className="w-7 h-[2px] bg-white block"></span></div>
+                            Menu
+                        </button>
+                        <span className="absolute left-1/2 -translate-x-1/2 text-2xl font-bold tracking-wider">EVR</span>
+                        <div className="hidden md:flex items-center gap-4">
+                            <button className="rounded-full border border-white/30 px-5 py-3 text-xs uppercase tracking-widest">About Us</button>
+                            <button className="rounded-full border border-white/30 px-5 py-3 text-xs uppercase tracking-widest">Services</button>
+                            <button className="bg-gradient-to-r from-[hsl(220,70%,78%)] to-[hsl(40,80%,82%)] text-black rounded-full px-6 py-3 text-xs uppercase tracking-widest font-medium">Get Started</button>
+                        </div>
+                    </nav>
+
+                    {/* Full-Screen Menu */}
+                    <AnimatePresence>
+                        {menuOpen && (
+                            <motion.div initial={{ clipPath: 'circle(0% at 80px 40px)' }} animate={{ clipPath: 'circle(150% at 80px 40px)' }} exit={{ clipPath: 'circle(0% at 80px 40px)' }} transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+                                className="fixed inset-0 z-50 bg-white flex flex-col px-10 py-8"
+                            >
+                                <div className="flex justify-between items-center mb-12">
+                                    <button onClick={() => setMenuOpen(false)} className="flex items-center gap-3 rounded-full border border-black/30 px-5 py-3 text-xs uppercase tracking-widest text-black">
+                                        <i data-lucide="x" className="w-5 h-5"></i> Close
+                                    </button>
+                                    <span className="text-2xl font-bold tracking-wider text-black">EVR</span>
+                                </div>
+                                <div className="flex-1 flex flex-col justify-center">
+                                    {['Home', 'About Us', 'Services', 'Projects', 'Contact'].map((link, i) => (
+                                        <motion.a key={link} href="#" initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 + i * 0.08, ease: [0.25, 1, 0.5, 1] }}
+                                            className="flex items-center justify-between py-6 border-b border-black/10 text-black font-light tracking-[-0.06em] group"
+                                            style={{ fontSize: 'clamp(2rem, 5vw, 4.5rem)' }}
+                                        >
+                                            <span className="group-hover:translate-x-1 transition-transform">{link}</span>
+                                            <i data-lucide="arrow-right" className="w-8 h-8 group-hover:translate-x-0.5 transition-transform"></i>
+                                        </motion.a>
+                                    ))}
+                                </div>
+                                <div className="flex justify-between text-black/40 text-xs tracking-[0.2em] uppercase pt-8">
+                                    <span>Evolve Responsible Ventures</span><span>© 2026</span>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    {/* Main Content */}
+                    <div className="relative z-10 flex-1 flex flex-col justify-start pt-6 px-6 pb-2 md:justify-end md:pt-0 md:px-10 md:pb-16">
+                        <div className="flex items-center gap-2 mb-6 text-xs font-medium tracking-[0.25em] uppercase">
+                            <i data-lucide="arrow-right" className="w-4 h-4"></i> Evolve Responsible Ventures
+                        </div>
+                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
+                            <h1 className="leading-[0.9] tracking-[-0.2em]" style={{ fontSize: 'clamp(2rem, 6vw, 5rem)' }}>
+                                <span className="font-light">Navigating the</span><br />
+                                <span className="font-light">route to impactful</span><br />
+                                <span className="font-display">regeneration</span>
+                            </h1>
+                            <div className="lg:max-w-xs lg:pb-4 mt-8 lg:mt-0 flex flex-col items-center lg:items-start">
+                                <svg width="120" height="120" viewBox="0 0 120 120">
+                                    <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="3" />
+                                    <circle cx="60" cy="60" r="54" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
+                                        strokeDasharray={circumference} strokeDashoffset={offset}
+                                        className="transition-all duration-1000 ease-out" style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }} />
+                                    <text x="60" y="65" textAnchor="middle" fill="white" fontSize="18" fontWeight="500">75%</text>
+                                </svg>
+                                <p className="text-white/70 text-sm leading-relaxed mt-4 max-w-xs text-center lg:text-left">
+                                    Guiding organizations toward lasting environmental performance through actionable strategy and measurable outcomes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Marquee Bar */}
+                    <div className="relative z-10 px-6 md:px-10 pb-6">
+                        <div className="flex justify-between items-center mb-4">
+                            <span className="text-xs font-medium tracking-[0.2em] uppercase">Our Partners</span>
+                            <span className="hidden md:block text-xs font-medium tracking-[0.2em] uppercase">Backed by 30+ global brands</span>
+                        </div>
+                        <div className="border-t border-white/10 overflow-hidden py-5">
+                            <div className="flex w-max animate-marquee">
+                                {[...brands, ...brands].map((b, i) => (
+                                    <span key={i} className="text-white/50 text-lg font-medium tracking-wide mx-8">{b}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

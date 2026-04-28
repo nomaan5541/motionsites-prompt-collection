@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbis.Nft | Beyond Earth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Condiment&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { bg: '#010828', cream: '#EFF4FF', neon: '#6FFF00' },
+                    fontFamily: { grotesk: ['Anton', 'sans-serif'], condiment: ['Condiment', 'cursive'] },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass {
+                background: rgba(255,255,255,0.01); background-blend-mode: luminosity;
+                backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+                border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+                position: relative; overflow: hidden;
+            }
+            .liquid-glass::before {
+                content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-bg text-cream font-mono antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+
+        const SocialIcons = ({ className = '', vertical = false }) => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className={`flex ${vertical ? 'flex-col' : ''} gap-3 ${className}`}>
+                    {['mail', 'twitter', 'github'].map(icon => (
+                        <button key={icon} className="liquid-glass w-14 h-14 rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <i data-lucide={icon} className="w-5 h-5"></i>
+                        </button>
+                    ))}
+                </div>
+            );
+        };
+
+        const Hero = () => (
+            <section className="relative min-h-screen rounded-b-[32px] overflow-hidden">
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4" className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline />
+                <div className="relative z-10 max-w-[1831px] mx-auto px-6 md:px-12 lg:px-16 py-8 min-h-screen flex flex-col">
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                        <span className="font-grotesk text-base uppercase">Orbis.Nft</span>
+                        <nav className="hidden lg:block liquid-glass rounded-[28px] px-[52px] py-[24px]">
+                            <div className="flex gap-8">
+                                {['Homepage', 'Gallery', 'Buy NFT', 'FAQ', 'Contact'].map(l => (
+                                    <a key={l} href="#" className="font-grotesk text-[13px] uppercase hover:text-neon transition-colors">{l}</a>
+                                ))}
+                            </div>
+                        </nav>
+                    </div>
+                    {/* Hero Content */}
+                    <div className="flex-1 flex flex-col justify-end pb-16 lg:pb-24">
+                        <div className="relative max-w-[780px] lg:ml-32">
+                            <h1 className="font-grotesk text-[40px] sm:text-[60px] md:text-[75px] lg:text-[90px] uppercase leading-[1.05] md:leading-[1]">
+                                Beyond earth<br />and ( its ) familiar boundaries
+                            </h1>
+                            <span className="font-condiment text-neon text-[24px] sm:text-[36px] md:text-[48px] absolute -right-4 top-0 md:-right-12 md:top-4 -rotate-1 mix-blend-exclusion opacity-90">Nft collection</span>
+                        </div>
+                        <SocialIcons className="mt-8 lg:hidden justify-center" />
+                    </div>
+                    <SocialIcons className="absolute top-32 right-6 lg:right-16 hidden lg:flex" vertical={true} />
+                </div>
+            </section>
+        );
+
+        const About = () => (
+            <section className="relative min-h-screen overflow-hidden">
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_151551_992053d1-3d3e-4b8c-abac-45f22158f411.mp4" className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline />
+                <div className="relative z-10 max-w-[1831px] mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-24">
+                    <div className="flex flex-col lg:flex-row justify-between gap-12 mb-24">
+                        <div className="relative">
+                            <h2 className="font-grotesk text-[32px] sm:text-[48px] lg:text-[60px] uppercase leading-[1]">Hello!<br />I'm orbis</h2>
+                            <span className="font-condiment text-neon text-[36px] lg:text-[68px] absolute bottom-0 right-0 lg:-right-12 -rotate-1 mix-blend-exclusion">Orbis</span>
+                        </div>
+                        <p className="font-mono text-[14px] lg:text-[16px] uppercase max-w-[266px] text-cream leading-relaxed">
+                            A digital object fixed beyond time and place. An exploration of distance, form, and silence in space
+                        </p>
+                    </div>
+                    <div className="flex justify-between">
+                        <p className="font-mono text-[14px] uppercase text-cream opacity-10 max-w-[266px]">A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p>
+                        <p className="font-mono text-[14px] uppercase text-cream opacity-10 max-w-[266px] hidden lg:block">A digital object fixed beyond time and place. An exploration of distance, form, and silence in space</p>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const NFTCard = ({ videoUrl, score }) => (
+            <div className="liquid-glass rounded-[32px] p-[18px] hover:bg-white/10 transition-colors">
+                <div className="relative pb-[100%] rounded-[24px] overflow-hidden">
+                    <video src={videoUrl} className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline />
+                </div>
+                <div className="liquid-glass rounded-[20px] px-5 py-4 mt-4 flex items-center justify-between">
+                    <div>
+                        <span className="text-cream/70 text-[11px] uppercase tracking-wider">Rarity Score:</span>
+                        <span className="text-[16px] font-semibold ml-2">{score}</span>
+                    </div>
+                    <button className="w-12 h-12 rounded-full bg-gradient-to-br from-[#b724ff] to-[#7c3aed] flex items-center justify-center shadow-lg shadow-purple-500/50 hover:scale-110 transition-transform">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        );
+
+        const Collection = () => (
+            <section className="bg-bg py-16 lg:py-24">
+                <div className="max-w-[1831px] mx-auto px-6 md:px-12 lg:px-16">
+                    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+                        <h2 className="font-grotesk text-[32px] sm:text-[48px] lg:text-[60px] uppercase leading-[1]">
+                            Collection of<br /><span className="ml-12 md:ml-24 lg:ml-32"><span className="font-condiment text-neon normal-case">Space</span> objects</span>
+                        </h2>
+                        <div className="cursor-pointer">
+                            <div className="font-grotesk uppercase flex items-baseline gap-2">
+                                <span className="text-[32px] lg:text-[60px]">SEE</span>
+                                <div className="flex flex-col leading-tight text-[20px] lg:text-[36px]"><span>ALL</span><span>CREATORS</span></div>
+                            </div>
+                            <div className="bg-neon h-[6px] lg:h-[10px] w-full mt-2"></div>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <NFTCard videoUrl="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_053923_22c0a6a5-313c-474c-85ff-3b50d25e944a.mp4" score="8.7/10" />
+                        <NFTCard videoUrl="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_054411_511c1b7a-fb2f-42ef-bf6c-32c0b1a06e79.mp4" score="9/10" />
+                        <NFTCard videoUrl="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055427_ac7035b5-9f3b-4289-86fc-941b2432317d.mp4" score="8.2/10" />
+                    </div>
+                </div>
+            </section>
+        );
+
+        const CTA = () => (
+            <section className="relative bg-bg overflow-hidden">
+                <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_055729_72d66327-b59e-4ae9-bb70-de6ccb5ecdb0.mp4" className="w-full h-auto block" autoPlay loop muted playsInline />
+                <div className="absolute inset-0 flex items-center justify-end px-6 lg:pr-[20%] lg:pl-[15%]">
+                    <div className="relative">
+                        <span className="font-condiment text-neon text-[17px] sm:text-[36px] lg:text-[68px] absolute -top-8 sm:-top-12 lg:-top-20 left-0 mix-blend-exclusion">Go beyond</span>
+                        <h2 className="font-grotesk text-[16px] sm:text-[36px] lg:text-[60px] uppercase leading-[1.1]">
+                            <span className="block mb-4 sm:mb-8 lg:mb-12">JOIN US.</span>
+                            REVEAL WHAT'S HIDDEN.<br />DEFINE WHAT'S NEXT.<br />FOLLOW THE SIGNAL.
+                        </h2>
+                    </div>
+                </div>
+                <div className="absolute left-[8%] bottom-[12%] lg:bottom-[20%]">
+                    <div className="liquid-glass rounded-[0.5rem] lg:rounded-[1.25rem] flex flex-col">
+                        {['mail', 'twitter', 'github'].map((icon, i) => (
+                            <button key={icon} className={`w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center hover:bg-white/10 transition-colors ${i < 2 ? 'border-b border-white/10' : ''}`}>
+                                <i data-lucide={icon} className="w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (<div><Hero /><About /><Collection /><CTA /></div>);
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
