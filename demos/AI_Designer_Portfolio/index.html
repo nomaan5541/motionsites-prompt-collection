@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V Vortex | Sarah Vortex Portfolio</title>
+    <!-- Fonts -->
+    <style>
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'PP Neue Montreal';
+            src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+        /* Fallback for Mondwest if local file not present */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+    </style>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & Framer Motion -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryDark: '#051A24',
+                        dark: '#0D212C',
+                        mutedDark: '#273C46',
+                        lightText: '#F6FCFF',
+                        lightMuted: '#E0EBF0',
+                    },
+                    fontFamily: {
+                        body: ["'PP Neue Montreal'", '-apple-system', 'BlinkMacSystemFont', "'Segoe UI'", 'sans-serif'],
+                        mondwest: ["'Libre Baskerville'", 'serif'], // Fallback for demo
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        marquee: 'marquee 30s linear infinite',
+                        'marquee-mobile': 'marquee 10s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .mondwest { font-family: 'Libre Baskerville', serif; font-style: italic; }
+            .animate-delay-100 { animation-delay: 100ms; }
+            .animate-delay-200 { animation-delay: 200ms; }
+            .animate-delay-300 { animation-delay: 300ms; }
+        }
+    </style>
+</head>
+<body class="bg-white text-primaryDark font-body overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { motion, useInView } = window.Motion;
+        const { useState, useEffect, useRef } = React;
+
+        const Button = ({ children, variant = 'primary', href }) => {
+            const baseStyles = "px-7 py-3 rounded-full font-medium text-sm transition-all whitespace-nowrap inline-block";
+            const variants = {
+                primary: "bg-[#051A24] text-white hover:bg-[#0D212C] shadow-[0_10px_20px_rgba(5,26,36,0.2)]",
+                secondary: "bg-white text-[#051A24] border border-[#E0EBF0] shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg",
+                tertiary: "bg-white text-[#051A24] shadow-inner"
+            };
+            
+            const className = `${baseStyles} ${variants[variant]}`;
+            
+            if (href) return <a href={href} className={className}>{children}</a>;
+            return <button className={className}>{children}</button>;
+        };
+
+        const Hero = () => {
+            const ref = useRef(null);
+            const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+            return (
+                <section ref={ref} className="max-w-[440px] mx-auto px-6 pt-12 md:pt-16 text-center">
+                    <h1 className={`text-[32px] md:text-[40px] lg:text-[44px] font-semibold mb-2 mondwest opacity-0 ${isInView ? 'animate-fade-in-up' : ''}`}>
+                        V Vortex
+                    </h1>
+                    <p className={`font-mono text-xs md:text-sm mb-12 opacity-0 animate-delay-100 ${isInView ? 'animate-fade-in-up' : ''}`}>
+                        The creative studio of Sarah Vortex
+                    </p>
+                    
+                    <h2 className={`text-4xl md:text-5xl font-medium tracking-tight mb-8 leading-tight opacity-0 animate-delay-200 ${isInView ? 'animate-fade-in-up' : ''}`}>
+                        Build the <span className="mondwest">next wave</span>,<br /> the <span className="mondwest">bold way.</span>
+                    </h2>
+                    
+                    <div className={`space-y-6 text-sm md:text-base text-mutedDark mb-12 opacity-0 animate-delay-300 ${isInView ? 'animate-fade-in-up' : ''}`}>
+                        <p>After a decade at Apple designing the interfaces you use every day, I started V Vortex to bring that same level of craft to the world's most ambitious builders.</p>
+                        <p>I partner with founders to transform abstract ideas into category-defining digital products.</p>
+                        <p className="font-semibold text-primaryDark">Partnerships start at $25,000/month.</p>
+                    </div>
+                    
+                    <div className={`flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-delay-300 ${isInView ? 'animate-fade-in-up' : ''}`}>
+                        <Button variant="primary">Start a chat</Button>
+                        <Button variant="secondary">View projects</Button>
+                    </div>
+                </section>
+            );
+        };
+
+        const Marquee = () => {
+            const images = [
+                "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif",
+                "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
+                "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
+                "https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif",
+                "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif",
+                "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
+                "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
+                "https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif"
+            ];
+
+            return (
+                <div className="w-full overflow-hidden mt-16 md:mt-20 mb-16 relative">
+                    <div className="flex w-max animate-marquee md:animate-marquee">
+                        {[...images, ...images].map((src, i) => (
+                            <img key={i} src={src} className="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg" />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        const TestimonialQuote = () => (
+            <section className="max-w-2xl mx-auto px-6 py-24 text-center">
+                <blockquote className="text-3xl md:text-4xl font-medium leading-tight mb-8">
+                    "Sarah's ability to translate complex systems into human experiences is rare. She brings the <span className="mondwest">Apple standard</span> to startups."
+                </blockquote>
+                <cite className="block mondwest text-xl not-italic">— Sarah Vortex</cite>
+            </section>
+        );
+
+        const Pricing = () => (
+            <section className="max-w-7xl mx-auto px-6 py-24">
+                <div className="flex flex-col md:flex-row justify-end gap-6">
+                    <div className="bg-primaryDark text-white p-12 rounded-3xl max-w-md w-full">
+                        <h3 className="text-2xl font-medium mb-4">Monthly Partnership</h3>
+                        <p className="text-lightMuted mb-8">One dedicated design partner. Unlimited requests. 48hr delivery.</p>
+                        <div className="text-4xl font-semibold mb-8">$25,000<span className="text-lg font-normal text-lightMuted">/mo</span></div>
+                        <Button variant="secondary">Get Started</Button>
+                    </div>
+                    <div className="bg-white border border-[#E0EBF0] p-12 rounded-3xl max-w-md w-full">
+                        <h3 className="text-2xl font-medium mb-4">Custom Project</h3>
+                        <p className="text-mutedDark mb-8">Fixed-scope projects for new products, rebrands, or complex systems.</p>
+                        <div className="text-4xl font-semibold mb-8">$25,000<span className="text-lg font-normal text-mutedDark">+</span></div>
+                        <Button variant="primary">Inquire</Button>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Projects = () => {
+            const projects = [
+                { title: "Linear Redesign", img: "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif" },
+                { title: "Raycast Website", img: "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" },
+                { title: "Mux Dashboard", img: "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" }
+            ];
+            
+            return (
+                <section className="max-w-[1200px] mx-auto px-6 py-24">
+                    <h2 className="text-3xl font-medium mb-12">Selected Projects</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {projects.map((p, i) => (
+                            <div key={i} className="group cursor-pointer">
+                                <div className="aspect-video rounded-2xl overflow-hidden mb-4 bg-gray-100">
+                                    <img src={p.img} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                                </div>
+                                <h4 className="text-lg font-medium">{p.title}</h4>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        const Footer = () => (
+            <footer className="max-w-7xl mx-auto px-6 py-24 border-t border-[#E0EBF0]">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="mondwest text-2xl font-semibold">V Vortex</div>
+                    <div className="flex space-x-8 text-sm font-medium">
+                        <a href="#" className="hover:opacity-60">Twitter</a>
+                        <a href="#" className="hover:opacity-60">LinkedIn</a>
+                        <a href="#" className="hover:opacity-60">Instagram</a>
+                    </div>
+                    <div className="text-sm text-mutedDark">© 2026 V Vortex Studio. All rights reserved.</div>
+                </div>
+            </footer>
+        );
+
+        const FixedNav = () => (
+            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+                <div className="bg-white/80 backdrop-blur-xl border border-[#E0EBF0] rounded-full px-4 py-2 flex items-center gap-4 shadow-xl">
+                    <div className="mondwest font-bold text-xl px-2">V</div>
+                    <Button variant="primary">Start a chat</Button>
+                </div>
+            </div>
+        );
+
+        const App = () => (
+            <div className="pt-20">
+                <Hero />
+                <Marquee />
+                <TestimonialQuote />
+                <Projects />
+                <Pricing />
+                <Footer />
+                <FixedNav />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <!-- Babel for browser-side JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

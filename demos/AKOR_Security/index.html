@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKOR | Intelligent Security Systems</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & Framer Motion -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0 0% 10%)',
+                        foreground: 'hsl(0 0% 96%)',
+                        primary: 'hsl(119 99% 46%)',
+                        'primary-foreground': 'hsl(0 0% 4%)',
+                        'muted-foreground': 'hsl(0 0% 60%)',
+                        border: 'hsl(0 0% 20%)',
+                        'hero-bg': 'hsl(0 0% 8%)',
+                        'nav-button': 'hsl(0 0% 18%)',
+                    },
+                    fontFamily: {
+                        sora: ['Sora', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(16px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 600ms ease-out forwards',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .animate-delay-200 { animation-delay: 200ms; }
+            .animate-delay-450 { animation-delay: 450ms; }
+            .animate-delay-650 { animation-delay: 650ms; }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sora antialiased overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { motion } = window.Motion;
+
+        const Navbar = () => (
+            <nav class="fixed top-0 left-0 w-full z-50 flex flex-row justify-between items-center px-8 lg:px-16 py-5">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded bg-primary flex items-center justify-center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2l9 4.5V17.5L12 22l-9-4.5V6.5L12 2z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold tracking-tight">AKOR</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-12">
+                    {['Services', 'About Us', 'Projects', 'Team', 'Contacts'].map(link => (
+                        <a key={link} href="#" class="text-sm text-muted-foreground uppercase tracking-widest hover:text-foreground transition-colors">{link}</a>
+                    ))}
+                </div>
+                <div class="hidden md:block">
+                    <button class="bg-nav-button text-foreground hover:bg-nav-button/80 active:scale-[0.97] rounded-lg uppercase text-xs tracking-widest px-6 h-11 transition-all">
+                        Get Quote
+                    </button>
+                </div>
+            </nav>
+        );
+
+        const Hero = () => (
+            <section class="min-h-screen flex flex-col justify-end bg-hero-bg overflow-hidden relative">
+                <video 
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260322_013248_a74099a8-be2b-4164-a823-eddd5e149fa1.mp4"
+                    class="absolute inset-0 w-full h-full object-cover -z-10"
+                    autoPlay loop muted playsInline
+                />
+                <div class="relative z-10 px-8 lg:px-16 pb-20 lg:pb-28 pt-32">
+                    <h1 class="text-5xl sm:text-6xl lg:text-[5.5rem] font-light leading-[0.95] tracking-tight opacity-0 animate-fade-up animate-delay-200">
+                        Intelligent<br />Security Systems
+                    </h1>
+                    <p class="text-muted-foreground text-base lg:text-lg max-w-xl mb-10 mt-8 opacity-0 animate-fade-up animate-delay-450">
+                        Innovative security, automation, and AI solutions for businesses and smart cities
+                    </p>
+                    <div class="flex flex-wrap gap-8 opacity-0 animate-fade-up animate-delay-650">
+                        <button class="bg-primary text-primary-foreground font-semibold hover:bg-primary/90 active:scale-[0.97] rounded-lg px-8 uppercase text-xs tracking-widest h-11 transition-all">
+                            Get Consultation
+                        </button>
+                        <a href="#" class="uppercase text-xs tracking-widest text-foreground border-b border-primary pb-1 hover:text-primary transition-colors flex items-center">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Services = () => (
+            <section class="bg-foreground text-background py-24 px-8 lg:px-16">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-muted-foreground/60 text-xs uppercase tracking-[0.25em] mb-8">Services</div>
+                    <div class="h-px w-full bg-muted-foreground/20 mb-16"></div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+                        <div class="lg:w-[38%]">
+                            <h2 class="text-3xl sm:text-4xl leading-[1.15] tracking-tight font-normal mb-10">
+                                Security, automation, and AI, helping businesses enhance efficiency
+                            </h2>
+                            <button class="bg-primary text-primary-foreground font-semibold hover:bg-primary/90 active:scale-[0.97] rounded-lg px-8 uppercase text-xs tracking-widest h-11 transition-all">
+                                Get Consultation
+                            </button>
+                        </div>
+                        <div class="lg:w-[62%] grid grid-cols-1 sm:grid-cols-2 gap-y-16 border-t border-border/10 pt-16">
+                            {[
+                                { num: '01', title: 'AI-Driven\nSecurity Solutions', desc: 'Advanced monitoring and threat detection.', icon: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260322_015134_c80a3c98-609e-4526-b79e-94dc96cd34e8.png' },
+                                { num: '02', title: 'Smart Building\nAutomation', desc: 'Seamlessly integrated building systems.', icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260322_014934_6e2804d7-d219-461d-98d5-36140fc90c4c.png&w=1280&q=85' },
+                                { num: '03', title: 'AI Consulting\nand Integration', desc: 'Expert strategy for digital transformation.', icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260322_014626_97cccc38-534a-4c9d-a801-68a449da9d0c.png&w=1920&q=85' },
+                                { num: '04', title: 'Training\nand Support', desc: 'Empowering your team with knowledge.', icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260322_014849_570d4eeb-9613-4b19-a084-46c7a2665243.png&w=1280&q=85' }
+                            ].map((s, i) => (
+                                <div key={i} class="pl-8 border-l border-border/20">
+                                    <img src={s.icon} class="w-16 h-16 object-contain mb-6" />
+                                    <div class="text-muted-foreground/40 text-xs mb-2">{s.num}</div>
+                                    <h3 class="text-xl font-medium leading-tight mb-3 whitespace-pre-line">{s.title}</h3>
+                                    <p class="text-muted-foreground/50 text-sm leading-relaxed">{s.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const About = () => (
+            <section class="bg-black py-24 px-8 lg:px-16">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-muted-foreground/60 text-xs uppercase tracking-[0.25em] mb-8">About Us</div>
+                    <div class="h-px w-full bg-muted-foreground/20 mb-16"></div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-12 lg:gap-0 items-stretch">
+                        <div class="lg:w-[45%]">
+                            <video 
+                                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260322_011532_86f9b93a-2ffc-42fd-8735-12a4c55ab536.mp4"
+                                class="w-full h-auto rounded-sm"
+                                autoPlay loop muted playsInline
+                            />
+                        </div>
+                        <div class="hidden lg:block w-px bg-muted-foreground/20 mx-10 mt-8"></div>
+                        <div class="flex-1 flex flex-col justify-between min-h-[400px]">
+                            <h2 class="text-3xl sm:text-4xl leading-[1.15] tracking-tight font-normal">
+                                AI-powered security, automation for businesses and smart infrastructures
+                            </h2>
+                            <div class="mt-auto">
+                                <p class="text-muted-foreground text-sm max-w-lg mb-8">
+                                    Our mission is to redefine the standards of security and automation through the power of artificial intelligence. We create environments that are not just safe, but intelligent.
+                                </p>
+                                <button class="bg-primary text-primary-foreground font-semibold hover:bg-primary/90 active:scale-[0.97] rounded-lg px-10 uppercase text-xs tracking-widest h-11 transition-all">
+                                    Get Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const App = () => (
+            <div>
+                <Navbar />
+                <Hero />
+                <Services />
+                <About />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

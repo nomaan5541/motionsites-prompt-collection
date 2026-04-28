@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClubX | Private Tech Investor Club</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Instrument Serif', 'serif'],
+                    },
+                    colors: {
+                        background: 'hsl(201 100% 13%)',
+                    },
+                    keyframes: {
+                        'fade-rise': {
+                            'from': { opacity: '0', transform: 'translateY(24px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-rise': 'fade-rise 0.8s ease-out both',
+                        'fade-rise-delay': 'fade-rise 0.8s ease-out 0.2s both',
+                        'fade-rise-delay-2': 'fade-rise 0.8s ease-out 0.4s both',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-pill {
+                @apply bg-white/20 backdrop-blur-sm border border-gray-900/10 rounded-full;
+            }
+            .glass-card {
+                @apply bg-white/10 backdrop-blur-sm border border-gray-900/10 rounded-3xl;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-gray-900 font-sans overflow-hidden">
+    <!-- Full-screen Background Video -->
+    <video 
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260323_071151_38c3924f-c312-48af-a196-3fbb80e4226f.mp4"
+        class="fixed inset-0 w-full h-full object-cover -z-10"
+        autoPlay loop muted playsInline
+    ></video>
+
+    <!-- Navigation -->
+    <nav class="relative z-50 px-8 py-8 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center space-x-2">
+            <div class="h-10 w-10 bg-[#FF4500] rounded-full flex items-center justify-center text-white font-serif text-2xl font-bold">C</div>
+            <span class="text-xl font-bold tracking-tight">ClubX</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            {['Home', 'Studio', 'About', 'Journal', 'Reach Us'].map((link, i) => (
+                <a key={link} href="#" class={`text-sm font-medium transition-colors ${i === 0 ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
+                    {link}
+                </a>
+            ))}
+        </div>
+        <button class="bg-gray-900 text-white rounded-full px-6 py-2.5 text-sm font-medium transition-transform hover:scale-[1.03] active:scale-[0.97]">
+            Begin Journey
+        </button>
+    </nav>
+
+    <!-- Hero Content -->
+    <main class="relative z-10 flex flex-col items-center text-center pt-32 pb-12 px-6">
+        <!-- Social Proof Badge -->
+        <div class="glass-pill px-4 py-2 flex items-center space-x-3 mb-8 animate-fade-rise">
+            <div class="flex -space-x-2.5">
+                {[12, 13, 14, 15, 16].map(id => (
+                    <img key={id} src={`https://i.pravatar.cc/100?img=${id}`} class="w-8 h-8 rounded-full border-2 border-white/30" />
+                ))}
+            </div>
+            <span class="text-sm font-medium text-gray-800">400+ tech investors join the club. Join us!</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-[4.9rem] font-bold leading-[0.95] tracking-[-1.5px] max-w-5xl animate-fade-rise">
+            Finance. Freedom. Fellows.
+        </h1>
+        
+        <p class="text-base sm:text-lg text-gray-800 max-w-2xl mt-6 leading-relaxed animate-fade-rise-delay">
+            Private club of top tech investors.
+        </p>
+        
+        <button class="bg-gray-900 text-white rounded-full px-12 py-4 text-sm font-medium mt-9 transition-transform hover:scale-[1.03] active:scale-[0.97] animate-fade-rise-delay-2 shadow-2xl">
+            Begin Journey
+        </button>
+    </main>
+
+    <!-- Stats Bar -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-4xl px-6 animate-fade-rise-delay-2">
+        <div class="glass-card px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="flex flex-col">
+                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">410+</span>
+                <span class="text-white/70 text-sm">Tech professionals</span>
+            </div>
+            <div class="flex flex-col border-l border-white/10 md:pl-8">
+                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">€11M</span>
+                <span class="text-white/70 text-sm">Invested</span>
+            </div>
+            <div class="flex flex-col border-l border-white/10 md:pl-8">
+                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">14</span>
+                <span class="text-white/70 text-sm">Deals made</span>
+            </div>
+            <div class="flex flex-col border-l border-white/10 md:pl-8">
+                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">2.5</span>
+                <span class="text-white/70 text-sm">Years on market</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRALMEDIA | AI Web Design Agency</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Framer Motion & React via CDNs -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <!-- HLS.js -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0 0% 0%)',
+                        foreground: 'hsl(0 0% 100%)',
+                        card: 'hsl(0 0% 9%)',
+                        'card-foreground': 'hsl(0 0% 100%)',
+                        primary: 'hsl(0 0% 97%)',
+                        'primary-foreground': 'hsl(0 0% 9%)',
+                        secondary: 'hsl(0 0% 15%)',
+                        'secondary-foreground': 'hsl(0 0% 100%)',
+                        muted: 'hsl(0 0% 15%)',
+                        'muted-foreground': 'hsl(0 0% 75%)',
+                        accent: 'hsl(0 0% 15%)',
+                        'accent-foreground': 'hsl(0 0% 100%)',
+                        border: 'hsl(0 0% 20%)',
+                    },
+                    fontFamily: {
+                        body: ['Barlow', 'sans-serif'],
+                        accent: ['Instrument Serif', 'serif'],
+                    },
+                    borderRadius: {
+                        'radius': '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .liquid-glass {
+                background: rgba(255, 255, 255, 0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(4px);
+                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+                position: relative;
+            }
+            .liquid-glass::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 1.4px;
+                border-radius: inherit;
+                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+            .liquid-glass-strong {
+                background: rgba(255, 255, 255, 0.01);
+                background-blend-mode: luminosity;
+                backdrop-filter: blur(50px);
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+                position: relative;
+            }
+            .liquid-glass-strong::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 1.4px;
+                border-radius: inherit;
+                background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.5) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-body overflow-x-hidden">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { motion, useScroll, useTransform } = window.Motion;
+        const { useState, useEffect, useRef } = React;
+
+        const Navbar = () => (
+            <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 flex flex-row justify-between items-center">
+                <div class="text-xl font-semibold tracking-tight">VIRALMEDIA</div>
+                <div class="hidden md:flex flex-row space-x-2">
+                    {['Work', 'Services', 'About', 'Blog', 'Contact'].map(link => (
+                        <a key={link} href="#" class="px-4 py-2 text-sm font-medium hover:bg-white/10 rounded-sm transition-colors">{link}</a>
+                    ))}
+                </div>
+                <button class="liquid-glass-strong rounded-full px-6 py-2.5 text-sm font-medium">Get Started</button>
+            </nav>
+        );
+
+        const Hero = () => (
+            <section class="relative w-full h-screen overflow-hidden flex flex-col justify-end">
+                <video 
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260326_073936_8dd07fdb-4f6b-4220-a3f0-9dedfaab0c88.mp4"
+                    class="absolute inset-0 w-full h-full object-cover object-bottom -translate-y-[100px] md:translate-y-0 -z-10"
+                    autoPlay loop muted playsInline
+                />
+                <div class="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-background to-transparent -z-10"></div>
+                
+                <div class="relative z-10 px-8 pb-10 md:pb-20 max-w-6xl">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="flex -space-x-2">
+                            {[1,2,3].map(i => (
+                                <img key={i} src={`https://i.pravatar.cc/100?img=${i+10}`} class="w-8 h-8 rounded-full border-2 border-background" />
+                            ))}
+                        </div>
+                        <span class="text-muted-foreground text-sm">7,000+ brands already transformed</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-1px] md:tracking-[-2px] mb-4 leading-tight">
+                        Build Stunning with <br />
+                        <span class="font-accent italic font-normal">AI Magic</span>
+                    </h1>
+                    
+                    <p class="text-sm md:text-lg text-muted-foreground mb-8 max-w-2xl">
+                        AI-powered websites crafted for beauty, speed, and lasting performance.
+                    </p>
+                    
+                    <div class="liquid-glass rounded-full p-1.5 md:p-2 max-w-lg flex">
+                        <input type="text" placeholder="Enter your email" class="bg-transparent flex-1 px-4 outline-none text-sm" />
+                        <motion.button 
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            class="bg-foreground text-background rounded-full px-8 py-2.5 text-sm font-semibold"
+                        >
+                            SUBSCRIBE
+                        </motion.button>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const ScrollRevealText = ({ text }) => {
+            const targetRef = useRef(null);
+            const { scrollYProgress } = useScroll({
+                target: targetRef,
+                offset: ["start 0.9", "start 0.3"]
+            });
+
+            const words = text.split(" ");
+            
+            return (
+                <div ref={targetRef} class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-1px] leading-relaxed py-32 px-8 max-w-4xl mx-auto text-center">
+                    {words.map((word, i) => {
+                        const start = i / words.length;
+                        const end = start + (1 / words.length);
+                        const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
+                        return (
+                            <motion.span key={i} style={{ opacity }} class="inline-block mr-3">
+                                {word}
+                            </motion.span>
+                        );
+                    })}
+                </div>
+            );
+        };
+
+        const ProjectCard = ({ title, category, img, index }) => (
+            <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                class="flex flex-col"
+            >
+                <div class="aspect-[4/3] liquid-glass rounded-2xl overflow-hidden mb-4">
+                    <img src={img} class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+                <h3 class="text-xl font-medium">{title}</h3>
+                <p class="text-sm text-muted-foreground mt-1">{category}</p>
+            </motion.div>
+        );
+
+        const Work = () => (
+            <section class="bg-background py-32 px-8 max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-medium tracking-[-2px] text-center mb-4">
+                    Selected <span class="font-accent italic font-normal">Work</span>
+                </h2>
+                <p class="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-16">
+                    A curated collection of projects where bold design meets intelligent technology.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <ProjectCard index={0} title="Nova Finance" category="Brand & Web Design" img="https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif" />
+                    <ProjectCard index={1} title="Pulse Health" category="AI Web Development" img="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" />
+                    <ProjectCard index={2} title="Drift Studios" category="Website Optimization" img="https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" />
+                    <ProjectCard index={3} title="Arc Commerce" category="Brand & Development" img="https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif" />
+                </div>
+            </section>
+        );
+
+        const VideoShowcase = () => (
+            <div class="relative h-[650px] overflow-hidden -mt-[325px] z-0">
+                <video 
+                    src="https://media.cleanshot.cloud/media/21620/nKosRonaEKSufJVJ4VtouFhOPkqgJ3dPoQ8ZP52S.mp4"
+                    class="w-full h-full object-cover"
+                    autoPlay loop muted playsInline
+                />
+                <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent z-10"></div>
+                <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-10"></div>
+            </div>
+        );
+
+        const CTA = () => {
+            const videoRef = useRef(null);
+            
+            useEffect(() => {
+                const video = videoRef.current;
+                const streamUrl = 'https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8';
+                
+                if (Hls.isSupported()) {
+                    const hls = new Hls();
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(video);
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    video.src = streamUrl;
+                }
+            }, []);
+
+            return (
+                <section class="relative w-full h-screen overflow-hidden flex items-center justify-center">
+                    <video ref={videoRef} class="absolute inset-0 w-full h-full object-cover -z-10" autoPlay loop muted playsInline />
+                    <div class="absolute inset-0 bg-black/30 -z-10"></div>
+                    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent -z-10"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent -z-10"></div>
+                    
+                    <div class="relative z-10 text-center max-w-3xl px-8">
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-[-2px] mb-6 leading-tight">
+                            Ready to <span class="font-accent italic font-normal">Transform</span> Your Brand?
+                        </h2>
+                        <p class="text-lg text-muted-foreground mb-10">Let's build something extraordinary together.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button class="bg-foreground text-background rounded-full px-10 py-4 font-semibold">START A PROJECT</button>
+                            <button class="liquid-glass-strong rounded-full px-10 py-4 font-semibold">BOOK A CALL</button>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Footer = () => (
+            <footer class="bg-background border-t border-border px-8 py-16 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    <div>
+                        <div class="text-xl font-semibold mb-4">VIRALMEDIA</div>
+                        <p class="text-muted-foreground text-sm">AI-powered web design agency crafting digital experiences that convert.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-4">Services</h4>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            {['Brand Design', 'AI Web Design', 'AI Web Development', 'Optimization'].map(it => <li key={it}>{it}</li>)}
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-4">Company</h4>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            {['About', 'Work', 'Blog', 'Careers'].map(it => <li key={it}>{it}</li>)}
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-4">Connect</h4>
+                        <ul class="space-y-2 text-sm text-muted-foreground">
+                            {['Twitter', 'LinkedIn', 'Instagram', 'Dribbble'].map(it => <li key={it}>{it}</li>)}
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground border-t border-border pt-8">
+                    <p>© 2026 VIRALMEDIA. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        const App = () => (
+            <div>
+                <Navbar />
+                <Hero />
+                <ScrollRevealText text="We blend artificial intelligence with human creativity to craft digital experiences that captivate, convert, and scale — building ambitious brands that truly thrive and lead in the modern web." />
+                <Work />
+                <VideoShowcase />
+                <CTA />
+                <Footer />
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <!-- Babel for browser-side JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
