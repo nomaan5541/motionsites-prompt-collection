@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Smith | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { bg: '#0a0a0a', surface: '#141414', 'text-primary': '#f5f5f5', muted: '#888888', accent: '#f5f5f5', stroke: '#1f1f1f' },
+                    fontFamily: { display: ['Instrument Serif', 'serif'], body: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; }
+        .accent-gradient { background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%); }
+        @keyframes scrollDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+        @keyframes roleFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-scroll-down { animation: scrollDown 1.5s ease-in-out infinite; }
+        .animate-role-fade { animation: roleFade 0.4s ease-out; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence } = window.Motion;
+
+        const LoadingScreen = ({ onComplete }) => {
+            const [count, setCount] = useState(0);
+            const [wordIdx, setWordIdx] = useState(0);
+            const words = ['Design', 'Create', 'Inspire'];
+            useEffect(() => {
+                const start = Date.now();
+                const tick = () => {
+                    const elapsed = Date.now() - start;
+                    const pct = Math.min(100, Math.floor((elapsed / 2700) * 100));
+                    setCount(pct);
+                    if (pct < 100) requestAnimationFrame(tick);
+                    else setTimeout(onComplete, 400);
+                };
+                requestAnimationFrame(tick);
+                const wi = setInterval(() => setWordIdx(p => (p + 1) % 3), 900);
+                return () => clearInterval(wi);
+            }, []);
+            return (
+                <motion.div exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between">
+                    <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-xs md:text-sm text-muted uppercase tracking-[0.3em] absolute top-8 left-8 md:top-12 md:left-12">Portfolio</motion.div>
+                    <div className="flex-1 flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.span key={wordIdx} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                                className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80">{words[wordIdx]}</motion.span>
+                        </AnimatePresence>
+                    </div>
+                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-6xl md:text-8xl lg:text-9xl font-display text-text-primary tabular-nums absolute bottom-8 right-8 md:bottom-12 md:right-12">{String(count).padStart(3, '0')}</motion.div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
+                        <div className="h-full accent-gradient origin-left transition-transform" style={{ transform: `scaleX(${count / 100})`, boxShadow: '0 0 8px rgba(137,170,204,0.35)' }}></div>
+                    </div>
+                </motion.div>
+            );
+        };
+
+        const Hero = () => {
+            const videoRef = useRef(null);
+            const [roleIdx, setRoleIdx] = useState(0);
+            const roles = ['Creative', 'Fullstack', 'Founder', 'Scholar'];
+            useEffect(() => {
+                const v = videoRef.current;
+                const url = 'https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8';
+                if (Hls.isSupported()) { const hls = new Hls(); hls.loadSource(url); hls.attachMedia(v); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) v.src = url;
+                const ri = setInterval(() => setRoleIdx(p => (p + 1) % 4), 2000);
+                return () => clearInterval(ri);
+            }, []);
+
+            return (
+                <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+                    <video ref={videoRef} className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0" autoPlay muted loop playsInline />
+                    <div className="absolute inset-0 bg-black/20 z-[1]"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent z-[2]"></div>
+
+                    {/* Navbar */}
+                    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
+                        <div className="inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2">
+                            <div className="w-9 h-9 rounded-full p-[2px] accent-gradient">
+                                <div className="w-full h-full rounded-full bg-bg flex items-center justify-center text-[13px] font-display italic tracking-tighter">JA</div>
+                            </div>
+                            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+                            {['Home', 'Work', 'Resume'].map((l, i) => (
+                                <a key={l} href="#" className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors ${i === 0 ? 'text-text-primary bg-stroke/50' : 'text-muted hover:text-text-primary hover:bg-stroke/50'}`}>{l}</a>
+                            ))}
+                            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+                            <a href="#" className="text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-text-primary transition-colors">Say hi ↗</a>
+                        </div>
+                    </nav>
+
+                    {/* Hero Content */}
+                    <div className="relative z-10 text-center px-4">
+                        <p className="text-xs text-muted uppercase tracking-[0.3em] mb-8">COLLECTION '26</p>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight mb-6">Michael Smith</h1>
+                        <p className="text-lg md:text-xl lg:text-2xl text-muted mb-10">
+                            A <span key={roleIdx} className="font-display italic text-text-primary animate-role-fade inline-block">{roles[roleIdx]}</span> lives in Chicago.
+                        </p>
+                        <p className="text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-12">
+                            Designing seamless digital interactions by focusing on the unique nuances which bring systems to life.
+                        </p>
+                        <div className="inline-flex gap-4">
+                            <button className="px-7 py-3.5 bg-text-primary text-bg text-sm rounded-full hover:scale-105 transition-transform">See Works</button>
+                            <button className="px-7 py-3.5 bg-bg text-text-primary text-sm rounded-full border-2 border-stroke hover:scale-105 transition-transform">Reach out...</button>
+                        </div>
+                    </div>
+
+                    {/* Scroll Indicator */}
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+                        <span className="text-xs text-muted uppercase tracking-[0.2em]">SCROLL</span>
+                        <div className="w-px h-10 bg-stroke relative overflow-hidden">
+                            <div className="w-full h-2 bg-text-primary animate-scroll-down"></div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const App = () => {
+            const [loading, setLoading] = useState(true);
+            return (
+                <AnimatePresence>
+                    {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+                    {!loading && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}><Hero /></motion.div>}
+                </AnimatePresence>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

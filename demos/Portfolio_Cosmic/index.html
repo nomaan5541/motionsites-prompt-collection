@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Smith | Cosmic Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { bg: '#0a0a0a', surface: '#141414', 'tp': '#f5f5f5', muted: '#888888', stroke: '#1f1f1f' },
+                    fontFamily: { display: ['Instrument Serif', 'serif'], body: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; }
+        .accent-gradient { background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%); }
+        @keyframes scrollDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+        @keyframes roleFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-scroll { animation: scrollDown 1.5s ease-in-out infinite; }
+        .animate-role { animation: roleFade 0.4s ease-out; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+        const { motion, AnimatePresence, useInView } = window.Motion;
+
+        const LoadingScreen = ({ onComplete }) => {
+            const [count, setCount] = useState(0);
+            const [wi, setWi] = useState(0);
+            const words = ['Design', 'Create', 'Inspire'];
+            useEffect(() => {
+                const s = Date.now();
+                const tick = () => { const e = Date.now() - s; const p = Math.min(100, Math.floor((e/2700)*100)); setCount(p); if (p < 100) requestAnimationFrame(tick); else setTimeout(onComplete, 400); };
+                requestAnimationFrame(tick);
+                const i = setInterval(() => setWi(p => (p+1)%3), 900);
+                return () => clearInterval(i);
+            }, []);
+            return (
+                <motion.div exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="fixed inset-0 z-[9999] bg-bg flex flex-col">
+                    <motion.span initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-xs text-muted uppercase tracking-[0.3em] absolute top-8 left-8 md:top-12 md:left-12">Portfolio</motion.span>
+                    <div className="flex-1 flex items-center justify-center">
+                        <AnimatePresence mode="wait">
+                            <motion.span key={wi} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}
+                                className="text-4xl md:text-6xl lg:text-7xl font-display italic text-tp/80">{words[wi]}</motion.span>
+                        </AnimatePresence>
+                    </div>
+                    <span className="text-6xl md:text-8xl lg:text-9xl font-display text-tp tabular-nums absolute bottom-8 right-8 md:bottom-12 md:right-12">{String(count).padStart(3,'0')}</span>
+                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
+                        <div className="h-full accent-gradient origin-left" style={{ transform: `scaleX(${count/100})`, boxShadow: '0 0 8px rgba(137,170,204,0.35)' }}></div>
+                    </div>
+                </motion.div>
+            );
+        };
+
+        const Navbar = () => (
+            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
+                <div className="inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2">
+                    <div className="w-9 h-9 rounded-full p-[2px] accent-gradient"><div className="w-full h-full rounded-full bg-bg flex items-center justify-center text-[13px] font-display italic tracking-tighter">JA</div></div>
+                    <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+                    {['Home','Work','Resume'].map((l,i) => (
+                        <a key={l} href="#" className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 ${i===0 ? 'text-tp bg-stroke/50' : 'text-muted hover:text-tp hover:bg-stroke/50'} transition-colors`}>{l}</a>
+                    ))}
+                    <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
+                    <a href="#" className="text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-tp">Say hi ↗</a>
+                </div>
+            </nav>
+        );
+
+        const Hero = () => {
+            const videoRef = useRef(null);
+            const [ri, setRi] = useState(0);
+            const roles = ['Creative','Fullstack','Founder','Scholar'];
+            useEffect(() => {
+                const v = videoRef.current;
+                const url = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
+                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) v.src = url;
+                const i = setInterval(() => setRi(p => (p+1)%4), 2000);
+                return () => clearInterval(i);
+            }, []);
+            return (
+                <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+                    <video ref={videoRef} className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0" autoPlay muted loop playsInline />
+                    <div className="absolute inset-0 bg-black/20 z-[1]"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent z-[2]"></div>
+                    <Navbar />
+                    <div className="relative z-10 text-center px-4">
+                        <p className="text-xs text-muted uppercase tracking-[0.3em] mb-8">COLLECTION '26</p>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight mb-6">Michael Smith</h1>
+                        <p className="text-lg md:text-xl lg:text-2xl text-muted mb-10">A <span key={ri} className="font-display italic text-tp animate-role inline-block">{roles[ri]}</span> lives in Chicago.</p>
+                        <p className="text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-12">Designing seamless digital interactions by focusing on the unique nuances which bring systems to life.</p>
+                        <div className="inline-flex gap-4">
+                            <button className="px-7 py-3.5 bg-tp text-bg text-sm rounded-full hover:scale-105 transition-transform">See Works</button>
+                            <button className="px-7 py-3.5 bg-bg text-tp text-sm rounded-full border-2 border-stroke hover:scale-105 transition-transform">Reach out...</button>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+                        <span className="text-xs text-muted uppercase tracking-[0.2em]">SCROLL</span>
+                        <div className="w-px h-10 bg-stroke relative overflow-hidden"><div className="w-full h-2 bg-tp animate-scroll"></div></div>
+                    </div>
+                </section>
+            );
+        };
+
+        const WorkCard = ({ title, span, img }) => (
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.8 }}
+                className={`${span} bg-surface border border-stroke rounded-3xl overflow-hidden relative group aspect-[4/3] cursor-pointer`}
+            >
+                <img src={img} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-bg/70 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white text-black rounded-full px-6 py-2.5 text-sm font-medium">View — <span className="font-display italic">{title}</span></span>
+                </div>
+            </motion.div>
+        );
+
+        const Works = () => (
+            <section className="bg-bg py-12 md:py-16">
+                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 1 }} className="mb-12">
+                        <div className="flex items-center gap-3 mb-4"><div className="w-8 h-px bg-stroke"></div><span className="text-xs text-muted uppercase tracking-[0.3em]">Selected Work</span></div>
+                        <h2 className="text-3xl md:text-4xl font-medium mb-3">Featured <span className="font-display italic">projects</span></h2>
+                        <p className="text-muted text-sm mb-6">A selection of projects I've worked on, from concept to launch.</p>
+                    </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+                        <WorkCard title="Automotive Motion" span="md:col-span-7" img="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop" />
+                        <WorkCard title="Urban Architecture" span="md:col-span-5" img="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=600&h=450&fit=crop" />
+                        <WorkCard title="Human Perspective" span="md:col-span-5" img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop" />
+                        <WorkCard title="Brand Identity" span="md:col-span-7" img="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop" />
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Stats = () => (
+            <section className="bg-bg py-16 md:py-24">
+                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[{ n: '20+', l: 'Years Experience' }, { n: '95+', l: 'Projects Done' }, { n: '200%', l: 'Satisfied Clients' }].map(s => (
+                        <motion.div key={s.l} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+                            className="text-center py-8 border border-stroke rounded-2xl">
+                            <div className="text-4xl md:text-5xl font-display italic mb-2">{s.n}</div>
+                            <div className="text-muted text-sm">{s.l}</div>
+                        </motion.div>
+                    ))}
+                </div>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer className="bg-bg pt-16 md:pt-20 pb-8 md:pb-12 overflow-hidden">
+                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center">
+                    <div className="overflow-hidden mb-16">
+                        <div className="flex whitespace-nowrap" style={{ animation: 'marquee 40s linear infinite' }}>
+                            {Array(10).fill('BUILDING THE FUTURE • ').map((t, i) => (
+                                <span key={i} className="text-4xl md:text-6xl font-display italic text-tp/10 mx-4">{t}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <a href="mailto:hello@michaelsmith.com" className="inline-block px-8 py-4 rounded-full border-2 border-stroke text-tp text-sm hover:scale-105 transition-transform mb-12">hello@michaelsmith.com ↗</a>
+                    <div className="flex items-center justify-center gap-8 mb-8">
+                        {['Twitter', 'LinkedIn', 'Dribbble', 'GitHub'].map(l => (
+                            <a key={l} href="#" className="text-muted text-xs uppercase tracking-widest hover:text-tp transition-colors">{l}</a>
+                        ))}
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-xs text-muted">
+                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for projects
+                    </div>
+                </div>
+            </footer>
+        );
+
+        const App = () => {
+            const [loading, setLoading] = useState(true);
+            return (
+                <AnimatePresence>
+                    {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+                    {!loading && (
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                            <Hero /><Works /><Stats /><Footer />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+</body>
+</html>

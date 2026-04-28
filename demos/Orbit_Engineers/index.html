@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Engineers | Space Engineering Consultancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: 'hsl(210 33% 19%)', foreground: 'hsl(0 0% 100%)', primary: 'hsl(199 89% 60%)' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-white font-sans antialiased" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion, AnimatePresence } = window.Motion;
+        const videos = [
+            'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_190803_f5595254-156c-4d10-ad09-51a56eb4bc1e.mp4',
+            'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_204728_2dbcd1c4-63bc-4779-b06c-b7e2d5788ea7.mp4',
+            'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_210050_14d4d9cf-782b-4f6f-9764-08d793cf427c.mp4',
+        ];
+
+        const App = () => {
+            const [sec, setSec] = useState(0);
+            useEffect(() => { lucide.createIcons(); }, [sec]);
+            const next = () => setSec(p => Math.min(p + 1, 2));
+            const prev = () => setSec(p => Math.max(p - 1, 0));
+
+            const enterAnim = sec === 0 ? { opacity: 0, scale: 1.05, filter: 'blur(10px)' } : { opacity: 0, y: 80, scale: 1.08, filter: 'blur(14px)' };
+            const animAnim = { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' };
+            const exitAnim = sec === 0 ? { opacity: 0, scale: 0.92, filter: 'blur(12px)', y: -60 } : { opacity: 0, y: -80, scale: 0.95, filter: 'blur(10px)' };
+
+            return (
+                <div className="min-h-screen overflow-hidden relative">
+                    {/* Background Videos */}
+                    {videos.map((v, i) => (
+                        <video key={i} src={v} className={`fixed inset-0 w-full h-full object-cover -z-10 transition-opacity duration-700 ${sec === i ? 'opacity-100' : 'opacity-0'}`} autoPlay loop muted playsInline />
+                    ))}
+
+                    {/* Navbar */}
+                    <nav className="relative z-20 flex items-center justify-between px-10 pt-8">
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 rounded-full bg-primary"></div>
+                            <div className="text-xl font-bold tracking-tight leading-none">WE ARE<br />ORBIT<br />ENGINEERS</div>
+                        </div>
+                        <div className="hidden md:flex items-center gap-12">
+                            {['Industries', 'Projects', 'Insights'].map(l => (
+                                <a key={l} href="#" className="uppercase tracking-widest text-sm font-medium hover:text-white/80 transition-colors">{l}</a>
+                            ))}
+                        </div>
+                        <div className="text-xs tracking-widest uppercase font-mono text-right leading-relaxed">51.50732 N<br />-0.12765 W</div>
+                    </nav>
+
+                    {/* Sections */}
+                    <AnimatePresence mode="wait">
+                        {sec === 0 && (
+                            <motion.div key="s0" initial={enterAnim} animate={animAnim} exit={exitAnim} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                                className="relative z-10 h-[calc(100vh-120px)] flex flex-col items-center justify-center text-center px-6"
+                            >
+                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal max-w-4xl" style={{ letterSpacing: '-3px' }}>
+                                    Unlock Tactical<br />Excellence through Space<br />Engineering
+                                </h1>
+                                <div className="absolute bottom-8 left-10 right-10 flex justify-between items-center">
+                                    <button onClick={next} className="flex items-center gap-2 text-xs uppercase tracking-widest cursor-pointer hover:text-white/80">
+                                        Scroll to explore <i data-lucide="chevron-down" className="w-4 h-4 animate-bounce"></i>
+                                    </button>
+                                    <div className="w-2 h-2 rounded-full bg-white/60"></div>
+                                </div>
+                            </motion.div>
+                        )}
+                        {sec === 1 && (
+                            <motion.div key="s1" initial={enterAnim} animate={animAnim} exit={exitAnim} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                                className="relative z-10 h-[calc(100vh-120px)] flex flex-col justify-between px-10 py-12"
+                            >
+                                <div className="flex flex-col md:flex-row items-center md:justify-between gap-10">
+                                    <motion.h2 initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}
+                                        className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-light leading-[0.95]" style={{ letterSpacing: '-2px' }}>
+                                        Spatial Vision<br />at Your Command
+                                    </motion.h2>
+                                    <motion.button initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+                                        className="bg-white text-black rounded-full px-8 py-4 uppercase tracking-[0.25em] text-sm font-medium hover:scale-105 transition-transform flex items-center gap-2">
+                                        Begin Your Mission <i data-lucide="arrow-right" className="w-4 h-4"></i>
+                                    </motion.button>
+                                    <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.45 }}
+                                        className="flex items-center gap-4">
+                                        <span className="text-xs tracking-[0.3em] uppercase">Why We Are</span>
+                                        <div className="flex flex-col gap-1.5">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
+                                            {[1,2,3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full border border-white/50"></div>)}
+                                        </div>
+                                    </motion.div>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <button onClick={prev} className="flex items-center gap-2 text-xs uppercase tracking-widest cursor-pointer hover:text-white/80">
+                                        <i data-lucide="chevron-down" className="w-4 h-4 rotate-180"></i> Back to top
+                                    </button>
+                                    <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
+                                        className="text-xs tracking-[0.25em] uppercase text-center hidden md:block">
+                                        Orbital Solutions is a key strategic<br />consulting firm in space engineering
+                                    </motion.p>
+                                    <button onClick={next} className="flex items-center gap-2 text-xs uppercase tracking-widest cursor-pointer hover:text-white/80">
+                                        Next <i data-lucide="chevron-down" className="w-4 h-4 animate-bounce"></i>
+                                    </button>
+                                </div>
+                            </motion.div>
+                        )}
+                        {sec === 2 && (
+                            <motion.div key="s2" initial={enterAnim} animate={animAnim} exit={exitAnim} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                                className="relative z-10 h-[calc(100vh-120px)] flex flex-col items-center justify-center text-center px-6 gap-6"
+                            >
+                                <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+                                    className="text-sm tracking-[0.3em] uppercase text-white/60 font-mono">01</motion.span>
+                                <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+                                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-[1.05]" style={{ letterSpacing: '-2px' }}>
+                                    Operational Feasibility<br />Evaluation
+                                </motion.h2>
+                                <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
+                                    className="text-sm tracking-[0.15em] text-white/70 max-w-md font-mono leading-relaxed">
+                                    We analyze engineering proposals against strategic benchmarks to uncover growth paths and highlight untapped market potential.
+                                </motion.p>
+                                <div className="absolute bottom-8 left-10 right-10 flex justify-between items-center">
+                                    <button onClick={prev} className="flex items-center gap-2 text-xs uppercase tracking-widest cursor-pointer hover:text-white/80">
+                                        <i data-lucide="chevron-down" className="w-4 h-4 rotate-180"></i> Back
+                                    </button>
+                                    <button className="bg-white text-black rounded-full px-8 py-4 uppercase tracking-[0.25em] text-sm font-medium hover:scale-105 transition-transform">
+                                        Reach Out +
+                                    </button>
+                                    <div className="w-20"></div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

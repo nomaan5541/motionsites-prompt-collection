@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Machines | Code Your Dreams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { bg: '#0a0a0a', text: '#f5f5f5', muted: '#888888', stroke: '#1f1f1f', 'brand-orange': '#F27D26' },
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'], display: ['Orbitron', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .text-glow { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        ::selection { background: white; color: black; }
+    </style>
+</head>
+<body class="bg-black text-white antialiased">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const { motion } = window.Motion;
+
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            const specs = [
+                { label: 'Stack', value: 'React + Node + SQL' },
+                { label: 'Logic', value: 'V8 - Runtime Logic' },
+                { label: 'Uptime', value: '99.9% High-Avail' },
+                { label: 'Scale', value: 'Responsive Modern Layout' },
+            ];
+            return (
+                <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+                    {/* Spline 3D Background (iframe fallback) */}
+                    <iframe src="https://my.spline.design/PIgTjpRFA03yfLyK/" className="absolute inset-0 w-full h-full z-0 border-none" style={{ transform: 'translateX(15%)' }}></iframe>
+
+                    {/* Content */}
+                    <div className="mx-auto px-4 md:px-6 pt-6 md:pt-10 min-h-screen md:h-screen flex flex-col justify-between pb-6 relative z-10 pointer-events-none">
+                        {/* Top Section */}
+                        <div className="space-y-6 md:space-y-8">
+                            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+                                <h1 className="font-display text-[40px] sm:text-[56px] md:text-[72px] font-extralight tracking-tight uppercase leading-[1] md:leading-[0.9] max-w-xl bg-gradient-to-r from-white/20 via-white/70 to-white bg-clip-text text-transparent">
+                                    Automation<br />Machines •
+                                </h1>
+                            </motion.div>
+                            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
+                                className="text-sm text-white max-w-md leading-relaxed font-light"
+                            >
+                                Developed with high-end skills and a pixel-perfect frame for those who don't just browse the web—they build it. Code your dreams....
+                            </motion.p>
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex gap-4"
+                            >
+                                {['snowflake', 'maximize', 'zap'].map(icon => (
+                                    <div key={icon} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white/60 transition-colors cursor-pointer pointer-events-auto">
+                                        <i data-lucide={icon} className="w-4 h-4 text-white/80"></i>
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom Section */}
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 md:gap-0 mt-16 md:mt-0">
+                            <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
+                                className="p-6 md:p-8 w-full md:max-w-md pointer-events-auto"
+                            >
+                                <div className="text-[10px] font-mono tracking-[0.3em] uppercase text-white/60 mb-5">Technical Specs</div>
+                                <div className="space-y-4">
+                                    {specs.map(s => (
+                                        <div key={s.label} className="flex justify-between items-end border-b border-white/10 pb-3 group cursor-default">
+                                            <span className="text-xs text-white/70 group-hover:text-white transition-colors">{s.label}</span>
+                                            <span className="text-xs font-mono tracking-tight text-white">{s.value}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}
+                                className="flex items-center w-full md:w-auto"
+                            >
+                                <div className="flex flex-wrap gap-2 bg-white/10 backdrop-blur-md rounded-2xl md:rounded-full p-2 border border-white/5 w-full md:w-auto pointer-events-auto">
+                                    <span className="px-4 py-2 text-[10px] font-mono tracking-widest bg-white text-black rounded-full">TS/JS</span>
+                                    <span className="px-3 py-2 text-[10px] font-mono tracking-widest border border-white/20 rounded-full">V1</span>
+                                    <span className="px-4 py-2 text-[10px] font-mono tracking-widest border border-white/20 rounded-full">Full-Stack</span>
+                                    <span className="px-4 py-2 text-[10px] font-mono tracking-widest border border-white/20 rounded-full">Cloud-Ready</span>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
