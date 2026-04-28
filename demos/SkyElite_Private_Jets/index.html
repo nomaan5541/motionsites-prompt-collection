@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyElite | Premium Private Jets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const App = () => {
+            const [menuOpen, setMenuOpen] = useState(false);
+            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+            return (
+                <div className="min-h-screen bg-gray-50">
+                    <section className="relative h-screen overflow-hidden">
+                        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay muted loop playsInline />
+                        <div className="relative h-full flex flex-col z-10">
+                            {/* Navbar */}
+                            <nav className="max-w-7xl w-full mx-auto flex items-center justify-between px-8 py-6">
+                                <span className="text-2xl font-semibold text-gray-900">SkyElite</span>
+                                <div className="hidden md:flex items-center gap-8">
+                                    {['Start','Story','Rates','Benefits','FAQ'].map(l => <a key={l} href="#" className="text-gray-900 hover:text-gray-700 transition-colors">{l}</a>)}
+                                </div>
+                                <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide={menuOpen ? 'x' : 'menu'} className="w-6 h-6"></i></button>
+                            </nav>
+                            {menuOpen && (
+                                <div className="md:hidden bg-white/95 backdrop-blur-md rounded-xl shadow-lg mx-4 p-6 flex flex-col gap-4">
+                                    {['Start','Story','Rates','Benefits','FAQ'].map(l => <a key={l} href="#" className="text-gray-900 text-lg">{l}</a>)}
+                                </div>
+                            )}
+                            {/* Hero Content */}
+                            <div className="flex-1 flex items-center justify-center -mt-20">
+                                <div className="text-center max-w-2xl px-4">
+                                    <p className="text-sm font-semibold text-gray-600 tracking-wider uppercase mb-4">PRIVATE JETS</p>
+                                    <h1>
+                                        <span className="block text-6xl md:text-7xl lg:text-8xl font-normal text-gray-500 leading-none tracking-tighter">Premium.</span>
+                                        <span className="block text-6xl md:text-7xl lg:text-8xl font-normal leading-none tracking-tighter" style={{ color: '#202A36', marginTop: '-12px' }}>Accessible.</span>
+                                    </h1>
+                                    <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-2xl mt-6">Your dedication deserves recognition.</p>
+                                    <div className="flex items-center justify-center gap-4">
+                                        <button className="px-4 py-2 rounded-full bg-gray-300 text-gray-800 font-medium hover:bg-gray-400 transition-colors">Discover</button>
+                                        <button className="px-4 py-2 rounded-full text-white font-medium hover:opacity-90 transition-opacity" style={{ background: '#202A36' }}>Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

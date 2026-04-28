@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railroad.ai | Focus in a Distracted World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden" style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif; background: hsl(213 45% 67%)">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const { motion } = window.Motion;
+        const BlurText = ({ text, className }) => text.split(' ').map((w, i) => (
+            <motion.span key={i} className="inline-block mr-[0.3em]" initial={{ filter: 'blur(10px)', opacity: 0, y: 50 }} animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: i * 0.1 }}>{w}</motion.span>
+        ));
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className="relative min-h-screen overflow-hidden">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260317_100335_dc625816-c3c1-4b00-b93e-4cb301cf5ea5.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay muted loop playsInline preload="auto" />
+                    <div className="absolute inset-0 bg-black/5 z-[1]"></div>
+
+                    {/* Navbar */}
+                    <nav className="fixed top-[30px] left-0 right-0 z-50 px-8 lg:px-16 flex items-center justify-between">
+                        <span className="text-2xl text-white tracking-tight font-semibold">Railroad.ai</span>
+                        <div className="hidden md:flex liquid-glass rounded-full px-6 py-2.5 gap-6">
+                            {['Home','Voyages','Worlds','Innovation'].map(l => <a key={l} href="#" className="text-sm font-medium text-white/90 hover:text-white transition-colors">{l}</a>)}
+                        </div>
+                        <button className="bg-white text-black rounded-full px-4 py-2 text-sm font-medium flex items-center gap-2">
+                            Get Started <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
+                        </button>
+                    </nav>
+
+                    {/* Hero */}
+                    <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 pb-[200px] min-h-screen">
+                        <div className="liquid-glass rounded-full bg-black/10 px-3 py-1.5 mb-8">
+                            <span className="text-sm text-white/90">10K+ already subscribed</span>
+                        </div>
+                        <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-medium leading-[0.85] tracking-[-4px] max-w-3xl mb-8" style={{ color: 'hsl(205 52% 5%)' }}>
+                            <BlurText text="Focus in a Constantly Distracted World" />
+                        </h1>
+                        <motion.p initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }} animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}
+                            className="max-w-2xl leading-tight mb-8" style={{ color: 'hsl(180 9% 33%)', fontSize: 'calc(1rem + 3px)', letterSpacing: '-0.05em' }}>
+                            Cut through the noise of notifications, endless feeds, and constant interruptions. Learn how to reclaim your attention and do meaningful work that truly matters.
+                        </motion.p>
+                        <motion.div initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }} animate={{ filter: 'blur(0px)', opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.1 }}
+                            className="rounded-full p-1.5 pl-6 flex items-center gap-3 w-full max-w-md" style={{ backdropFilter: 'blur(100px)', background: 'rgba(0,0,0,0.25)' }}>
+                            <input type="email" placeholder="Enter your email" className="flex-1 bg-transparent outline-none text-white placeholder:text-white/40 text-base" />
+                            <button className="bg-white text-black rounded-full px-5 py-2.5 text-sm font-medium flex items-center gap-2 shrink-0">
+                                Join Waitlist <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
+                            </button>
+                        </motion.div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator | Project Estimation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { background: '#0a0a0a', muted: '#1a1a1a', 'muted-fg': '#888' } } } }</script>
+</head>
+<body class="bg-background text-white antialiased" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+        const App = () => {
+            const [service, setService] = useState('both');
+            const [pages, setPages] = useState(5);
+            const [content, setContent] = useState(false);
+            const [seo, setSeo] = useState(false);
+            const [timeline, setTimeline] = useState('regular');
+
+            const calc = () => {
+                const bases = { design: { base: 399, pp: 100 }, development: { base: 199, pp: 100 }, both: { base: 499, pp: 200 } };
+                const { base, pp } = bases[service];
+                let t = Math.max(base, base + (pages - 1) * pp);
+                if (content) t += pages * 50;
+                if (seo) t += pages * 50;
+                if (timeline === 'rush') t += pages * 100;
+                if (timeline === 'fast') t += pages * 25;
+                return t;
+            };
+            const agency = () => { const pp = service === 'both' ? 1000 : 400; return 8000 + (pages - 1) * pp; };
+            const freelancer = () => { const pp = service === 'both' ? 500 : 200; return 3000 + (pages - 1) * pp; };
+            const fmt = (n) => '$' + n.toLocaleString();
+
+            const Radio = ({ name, value, checked, onChange, label, sub }) => (
+                <label className="flex items-center gap-3 cursor-pointer py-1">
+                    <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${checked ? 'border-[#FF5656]' : 'border-white/30'}`}>
+                        {checked && <span className="w-2 h-2 rounded-full bg-[#FF5656]"></span>}
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    {sub && <span className="text-[#FF5656] text-sm">{sub}</span>}
+                    <input type="radio" name={name} value={value} checked={checked} onChange={() => onChange(value)} className="hidden" />
+                </label>
+            );
+
+            const Check = ({ checked, onChange, label, sub }) => (
+                <label className="flex items-center gap-3 cursor-pointer py-1">
+                    <span className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 ${checked ? 'border-[#FF5656] bg-[#FF5656]' : 'border-white/30'}`}>
+                        {checked && <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    <span className="text-[#FF5656] text-sm">{sub}</span>
+                    <input type="checkbox" checked={checked} onChange={() => onChange(!checked)} className="hidden" />
+                </label>
+            );
+
+            return (
+                <section id="calculator-section" className="bg-background py-16 md:py-28 px-4 md:px-16 max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <p className="text-muted-fg uppercase tracking-widest text-sm mb-3" style={{ fontFamily: "'JetBrains Mono',monospace" }}>Try project estimation calculator</p>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal">Get premium website within your budget</h2>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden">
+                        {/* Left - Form */}
+                        <div className="p-8 lg:p-12 divide-y divide-[#1E1E1E]" style={{ background: '#0D0D0D' }}>
+                            <div className="pb-6">
+                                <h3 className="text-lg font-medium mb-4">What kind of service do you need?</h3>
+                                <div className="space-y-2">
+                                    <Radio name="service" value="design" checked={service==='design'} onChange={setService} label="Only Design" />
+                                    <Radio name="service" value="development" checked={service==='development'} onChange={setService} label="Only Development" />
+                                    <Radio name="service" value="both" checked={service==='both'} onChange={setService} label="Design + Development" />
+                                </div>
+                            </div>
+                            <div className="py-6">
+                                <h3 className="text-lg font-medium mb-4">Number of Pages: <span className="text-[#FF5656]">{pages}</span></h3>
+                                <input type="range" min="1" max="30" step="1" value={pages} onChange={e => setPages(Number(e.target.value))} className="w-full accent-[#FF5656]" />
+                                <div className="flex justify-between text-sm text-muted-fg mt-1"><span>1</span><span>30</span></div>
+                            </div>
+                            <div className="py-6">
+                                <h3 className="text-lg font-medium mb-4">Add-ons</h3>
+                                <div className="space-y-2">
+                                    <Check checked={content} onChange={setContent} label="I will need help with content" sub="+$50/pages" />
+                                    <Check checked={seo} onChange={setSeo} label="I want to optimize my website for SEO" sub="+$50/pages" />
+                                </div>
+                            </div>
+                            <div className="pt-6">
+                                <h3 className="text-lg font-medium mb-4">How fast do you need this?</h3>
+                                <div className="space-y-2">
+                                    <Radio name="timeline" value="rush" checked={timeline==='rush'} onChange={setTimeline} label="Within 7 Days" sub="+$100/pages" />
+                                    <Radio name="timeline" value="fast" checked={timeline==='fast'} onChange={setTimeline} label="Within 14 Days" sub="+$25/pages" />
+                                    <Radio name="timeline" value="regular" checked={timeline==='regular'} onChange={setTimeline} label="Regular Speed (Based on discussion)" />
+                                </div>
+                            </div>
+                        </div>
+                        {/* Right - Estimation */}
+                        <div className="p-8 lg:p-12 border border-white/10 rounded-r-2xl" style={{ minHeight: '717.98px' }}>
+                            <h3 className="text-xl font-medium mb-2">Estimated Cost</h3>
+                            <p className="text-muted-fg text-sm mb-8">Compare prices and see how much you save</p>
+                            <div className="space-y-4">
+                                <div className="bg-muted/50 rounded-2xl p-6 space-y-3">
+                                    <p className="text-sm text-muted-fg">Typical Agency charges minimum</p>
+                                    <p className="text-4xl font-bold">{fmt(agency())}</p>
+                                    <p className="text-xs text-muted-fg">+ Too much extra time & additional cost</p>
+                                </div>
+                                <div className="bg-muted/50 rounded-2xl p-6 space-y-3">
+                                    <p className="text-sm text-muted-fg">Regular Freelancer charges minimum</p>
+                                    <p className="text-4xl font-bold">{fmt(freelancer())}</p>
+                                    <p className="text-xs text-muted-fg">+ Too much headache & back-and-forth</p>
+                                </div>
+                                <div className="rounded-2xl p-6 space-y-3 text-white" style={{ background: 'linear-gradient(135deg, #ec4899, #f97316)' }}>
+                                    <p className="text-sm text-white/80">With Webfluin Studio</p>
+                                    <p className="text-5xl font-bold">{fmt(calc())}</p>
+                                    <p className="text-sm text-white/80">Save your money, time & headache</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

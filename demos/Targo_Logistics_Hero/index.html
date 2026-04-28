@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Targo | Swift and Simple Transport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Rubik',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect } = React;
+        const ClipBtn = ({ text, bg, color, className = '' }) => (
+            <button className={`px-6 py-3 font-bold uppercase text-sm tracking-wide ${className}`}
+                style={{ background: bg, color, clipPath: 'polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)' }}>
+                {text}
+            </button>
+        );
+        const App = () => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return (
+                <div className="relative min-h-screen overflow-hidden bg-black">
+                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+                    <div className="relative z-10 min-h-screen flex flex-col" style={{ padding: '32px 64px', paddingLeft: 'max(32px, 64px)', paddingRight: 'max(32px, 64px)' }}>
+                        {/* Header */}
+                        <header className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><polygon points="14,2 26,14 14,26 2,14"/></svg>
+                                <span className="text-white text-xl font-bold tracking-tight">targo</span>
+                            </div>
+                            <div className="hidden md:flex items-center gap-6">
+                                {['Home','About','Contact Us'].map(l => <a key={l} href="#" className="text-white/80 hover:text-white transition-colors text-sm">{l}</a>)}
+                                <ClipBtn text="Contact Us" bg="#EE3F2C" color="white" />
+                            </div>
+                        </header>
+
+                        {/* Hero - top-aligned */}
+                        <div className="mt-16 md:mt-24">
+                            <h1 className="text-[42px] md:text-[64px] font-bold uppercase text-white leading-[1.05]" style={{ letterSpacing: '-0.04em' }}>
+                                Swift and Simple<br />Transport
+                            </h1>
+                            <div className="mt-6">
+                                <ClipBtn text="Get Started" bg="#EE3F2C" color="white" />
+                            </div>
+                        </div>
+
+                        {/* Bottom consultation card */}
+                        <div className="mt-auto mb-0">
+                            <div className="max-w-sm rounded-xl p-6" style={{
+                                backdropFilter: 'blur(40px) saturate(180%)',
+                                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                background: 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+                                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 40px rgba(0,0,0,0.3)'
+                            }}>
+                                <h3 className="text-white font-bold text-lg mb-2">Book a Free Consultation</h3>
+                                <p className="text-white/60 text-sm mb-4">Let's discuss how we can streamline your logistics operations.</p>
+                                <ClipBtn text="Book a Call" bg="white" color="#1a1a1a" className="flex items-center gap-2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>

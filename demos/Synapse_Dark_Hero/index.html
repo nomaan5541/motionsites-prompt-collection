@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse | Innovation Meets Execution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useEffect, useRef } = React;
+        const { motion } = window.Motion;
+        const App = () => {
+            const videoRef = useRef(null);
+            useEffect(() => {
+                const v = videoRef.current;
+                const url = 'https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8';
+                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); return () => h.destroy(); }
+                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
+            }, []);
+            const logos = ['OpenAI','Nvidia','GitHub','Google','Meta'];
+            return (
+                <div className="min-h-screen bg-black relative overflow-hidden">
+                    {/* Video - floating behind */}
+                    <div className="absolute w-full z-0" style={{ height: '80vh', bottom: '35vh' }}>
+                        <video ref={videoRef} className="w-full h-full object-cover" muted loop playsInline />
+                    </div>
+
+                    {/* Navbar */}
+                    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/30 border-b border-white/5">
+                        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+                            <span className="text-white font-medium tracking-tight text-lg">Synapse</span>
+                            <div className="hidden md:flex items-center gap-1">
+                                {[{n:'Features',a:true},{n:'Insights'},{n:'About'},{n:'Case Studies',s:true},{n:'Contact'}].map(l => (
+                                    <a key={l.n} href="#" className={`text-sm px-3 py-1.5 rounded ${l.a ? 'border border-white/20 bg-white/5' : ''} ${l.s ? 'line-through text-white/50' : 'text-white/80 hover:text-white'} transition-colors`}>{l.n}</a>
+                                ))}
+                            </div>
+                            <button className="text-sm px-4 py-2 rounded-full font-medium" style={{ background: 'linear-gradient(180deg, #666 0%, #fff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', border: '1px solid rgba(255,255,255,0.2)' }}>
+                                <span className="text-white">Get Started for Free</span>
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <div className="relative z-10 flex flex-col items-center text-center pt-32 pb-20 px-4 min-h-screen">
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+                            className="flex items-center gap-3 mb-8">
+                            {['Slack','Notion','Figma'].map(t => (
+                                <span key={t} className="px-3 py-1.5 rounded-full text-xs text-white/70 border border-white/10 backdrop-blur-sm bg-white/5">Integrated with {t}</span>
+                            ))}
+                        </motion.div>
+                        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-medium tracking-tight leading-[1.05] max-w-4xl mb-6">
+                            Where Innovation Meets Execution
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
+                            className="text-white/60 text-lg max-w-xl mb-8 leading-relaxed">
+                            Accelerate your testing and deployment pipeline with AI-powered automation that scales with your team.
+                        </motion.p>
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }}
+                            className="flex items-center gap-4">
+                            <button className="bg-black text-white border border-white/30 rounded-full px-6 py-3 text-sm font-medium hover:bg-white/10 transition-colors">Get Started for Free</button>
+                            <button className="backdrop-blur-sm bg-white/5 border border-white/10 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/10 transition-colors">Let's Get Connected</button>
+                        </motion.div>
+
+                        {/* Logo row */}
+                        <div className="mt-auto pt-20 flex items-center gap-12 opacity-40">
+                            {logos.map(l => <span key={l} className="text-white text-lg font-semibold tracking-wide">{l}</span>)}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+</html>
