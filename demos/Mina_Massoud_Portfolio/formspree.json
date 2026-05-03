@@ -1,0 +1,9 @@
+{
+    "forms": {
+      "signupForm": {
+        "name": "Sign-up Form",
+        "actions": [{ "type": "email", "to": "minamelad232@gmail.com" }],
+        "fields": {"email": {"required": "true", "type": "email"}}
+      }
+    }
+  }
