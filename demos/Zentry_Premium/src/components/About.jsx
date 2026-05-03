@@ -27,22 +27,22 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="min-h-screen w-screen">
+    <div id="about" className="min-h-screen w-screen bg-white text-black">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">
-          Welcome to MotionZ
+          Welcome to Zentry
         </p>
 
         <AnimatedTitle
-          title="Disc<b>o</b>ver the world's <br /> largest shared <b>d</b>esign"
+          title="Human life <br /> p<b>o</b>wers AI"
           containerClass="mt-5 !text-black text-center"
         />
 
-        <div className="about-subtext">
-          <p>The Future of Design begins—your project, now an epic experience</p>
-          <p className="text-gray-500">
-            MotionZ unites every designer from countless industries, both
-            digital and physical, into a unified Design Economy
+        <div className="about-subtext mt-10">
+          <p>The metagame layer connecting life, data, and AI.</p>
+          <p className="text-gray-500 mt-2">
+            Zentry creates a perpetual engine that compounds intelligence,
+            capability, and value by integrating human activity into a unified OS.
           </p>
         </div>
       </div>
