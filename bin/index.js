@@ -7,7 +7,7 @@ const path = require('path');
 const args = process.argv.slice(2);
 const command = args[0];
 
-const Pro_DIR = path.join(__dirname, '../prompts Pro');
+const PRO_DIR = path.join(__dirname, '../Pro prompts');
 const FREE_DIR = path.join(__dirname, '../prompts');
 
 function listPrompts(dir, label) {
@@ -25,19 +25,19 @@ function listPrompts(dir, label) {
 
 function showHelp() {
   console.log(`
-🚀 TemplatePrompts CLI
-==========================
+⚡ MotionSites.ai Prompt Library CLI
+=====================================
 Usage:
   templateprompts list       - List all available Pro and free prompts
   templateprompts help       - Show this help menu
 
-(More features coming soon, like copying a prompt directly to clipboard!)
+Browse the full library at: https://motionsites-ai.vercel.app/
 `);
 }
 
 switch (command) {
   case 'list':
-    listPrompts(Pro_DIR, 'Pro Prompts');
+    listPrompts(PRO_DIR, 'Pro Prompts');
     listPrompts(FREE_DIR, 'Free Prompts');
     break;
   case 'help':

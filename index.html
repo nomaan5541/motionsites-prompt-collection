@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotionSites.ai — Prompt Library | AI-Powered Landing Page Demos</title>
-    <meta name="description" content="Browse 68+ high-fidelity landing page demos built from AI prompts. Each demo is a production-ready hero section with video backgrounds, glassmorphism, and modern animations.">
+    <title>MotionSites.ai — Free AI Prompt Library | 67+ Landing Page Templates</title>
+    <meta name="description" content="Browse 67+ free, production-ready AI web design prompts. Each prompt generates a stunning landing page with modern animations, glassmorphism, and responsive design. Works with Bolt.new, v0, GPT-Engineer.">
+    <meta name="keywords" content="AI prompts, web design, landing page, Bolt.new, v0, GPT-Engineer, React, Tailwind CSS, Framer Motion, free templates, SaaS, portfolio, agency">
+    <meta name="author" content="Nomaan Khan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://motionsites-ai.vercel.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MotionSites.ai — Free AI Prompt Library">
+    <meta property="og:description" content="67+ free, production-ready AI web design prompts. Generate stunning landing pages in seconds.">
+    <meta property="og:url" content="https://motionsites-ai.vercel.app/">
+    <meta property="og:site_name" content="MotionSites.ai">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MotionSites.ai — Free AI Prompt Library">
+    <meta name="twitter:description" content="67+ free AI web design prompts. Generate stunning landing pages instantly.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MotionSites.ai Prompt Library",
+        "description": "A curated collection of 67+ free AI web design prompts for generating production-ready landing pages.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "Nomaan Khan" }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -14,7 +45,7 @@
             --border: rgba(255,255,255,0.06); --text: #f5f5f7; --text2: #8e8e93;
             --accent: #6c5ce7; --accent2: #a29bfe; --green: #00b894;
         }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; min-height: 100vh; }
         a { text-decoration: none; color: inherit; }
 
         /* Glow */
@@ -25,18 +56,26 @@
         .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
         .logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 16px; }
-        .header-right { display: flex; align-items: center; gap: 16px; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
         .badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px; font-size: 13px; color: var(--text2); font-weight: 500; }
         .badge span { color: var(--green); font-weight: 600; }
         .gh-btn { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--text); transition: all 0.2s; }
         .gh-btn:hover { background: var(--surface2); border-color: rgba(255,255,255,0.12); }
         .gh-btn svg { width: 18px; height: 18px; fill: white; }
+        .star-btn { background: linear-gradient(135deg, #ffd700, #ffaa00); color: #000; border: none; padding: 8px 16px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+        .star-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(255,215,0,0.3); }
 
         /* Hero */
         .hero { text-align: center; padding: 80px 32px 40px; position: relative; z-index: 1; }
         .hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero h1 em { font-family: 'Instrument Serif', serif; font-style: italic; -webkit-text-fill-color: var(--accent2); }
-        .hero p { font-size: 18px; color: var(--text2); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+        .hero p { font-size: 18px; color: var(--text2); max-width: 620px; margin: 0 auto 32px; line-height: 1.6; }
+        .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; font-size: 12px; color: var(--text2); }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
+        .dot-green { background: var(--green); }
+        .dot-purple { background: var(--accent); }
+        .dot-yellow { background: #ffd700; }
 
         /* Search */
         .search-wrap { max-width: 520px; margin: 0 auto 20px; position: relative; }
@@ -57,16 +96,71 @@
         /* Card */
         .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; display: flex; flex-direction: column; }
         .card:hover { border-color: rgba(108,92,231,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(108,92,231,0.15); }
-        .card-preview { display: block; height: 220px; min-height: 220px; max-height: 220px; flex-shrink: 0; background: var(--surface2); position: relative; overflow: hidden; cursor: pointer; }
-        .card-preview iframe { width: 400%; height: 400%; transform: scale(0.25); transform-origin: top left; border: none; pointer-events: none; position: absolute; top: 0; left: 0; z-index: 1; }
-        .card-preview .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--surface2); z-index: 2; transition: opacity 0.4s; }
-        .card-preview .placeholder.loaded { opacity: 0; pointer-events: none; }
-        .card-preview .placeholder .letter { font-size: 48px; font-weight: 800; color: rgba(255,255,255,0.06); letter-spacing: -2px; }
-        .card-preview .placeholder .spinner { width: 24px; height: 24px; border: 2px solid rgba(255,255,255,0.1); border-top-color: var(--accent2); border-radius: 50%; animation: spin 0.8s linear infinite; position: absolute; bottom: 12px; right: 12px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .card-preview .hover-play { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 0.25s; backdrop-filter: blur(2px); }
+
+        /* CSS Preview Card (replaces iframes) */
+        .card-visual { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .card-visual::before { content: attr(data-letter); font-size: 160px; font-weight: 900; opacity: 0.06; position: absolute; line-height: 1; color: white; letter-spacing: -8px; pointer-events: none; }
+        .card-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--surface) 0%, transparent 60%); pointer-events: none; }
+        .card-visual .deco { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.25; pointer-events: none; }
+        .card-visual .deco-1 { width: 100px; height: 100px; top: -10%; right: -5%; }
+        .card-visual .deco-2 { width: 70px; height: 70px; bottom: 10%; left: 10%; }
+        .card-visual .deco-3 { width: 40px; height: 40px; top: 30%; left: 60%; opacity: 0.15; }
+        .card-visual .hover-play { position: absolute; inset: 0; z-index: 3; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); opacity: 0; transition: opacity 0.25s; backdrop-filter: blur(2px); }
         .card:hover .hover-play { opacity: 1; }
         .hover-play span { width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 1.5px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; backdrop-filter: blur(8px); }
+
+        /* Category Gradients */
+        .cat-saas { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #6c5ce7 100%); }
+        .cat-saas .deco-1 { background: #6c5ce7; }
+        .cat-saas .deco-2 { background: #a29bfe; }
+        .cat-saas .deco-3 { background: #fd79a8; }
+
+        .cat-agency { background: linear-gradient(135deg, #0a192f 0%, #112240 40%, #00cec9 100%); }
+        .cat-agency .deco-1 { background: #00cec9; }
+        .cat-agency .deco-2 { background: #55efc4; }
+        .cat-agency .deco-3 { background: #81ecec; }
+
+        .cat-portfolio { background: linear-gradient(135deg, #2d1b3d 0%, #3d1b5e 40%, #e84393 100%); }
+        .cat-portfolio .deco-1 { background: #e84393; }
+        .cat-portfolio .deco-2 { background: #fd79a8; }
+        .cat-portfolio .deco-3 { background: #a29bfe; }
+
+        .cat-fintech { background: linear-gradient(135deg, #0a2e1a 0%, #0d3b24 40%, #00b894 100%); }
+        .cat-fintech .deco-1 { background: #00b894; }
+        .cat-fintech .deco-2 { background: #55efc4; }
+        .cat-fintech .deco-3 { background: #00cec9; }
+
+        .cat-web3 { background: linear-gradient(135deg, #2e1a0a 0%, #3d2a0a 40%, #fdcb6e 100%); }
+        .cat-web3 .deco-1 { background: #fdcb6e; }
+        .cat-web3 .deco-2 { background: #f39c12; }
+        .cat-web3 .deco-3 { background: #e17055; }
+
+        .cat-landing { background: linear-gradient(135deg, #1a1a3e 0%, #1a2a5e 40%, #0984e3 100%); }
+        .cat-landing .deco-1 { background: #0984e3; }
+        .cat-landing .deco-2 { background: #74b9ff; }
+        .cat-landing .deco-3 { background: #a29bfe; }
+
+        .cat-ecommerce { background: linear-gradient(135deg, #1a2e2e 0%, #0d3d3d 40%, #00b4d8 100%); }
+        .cat-ecommerce .deco-1 { background: #00b4d8; }
+        .cat-ecommerce .deco-2 { background: #48cae4; }
+        .cat-ecommerce .deco-3 { background: #00cec9; }
+
+        .cat-component { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 40%, #636e72 100%); }
+        .cat-component .deco-1 { background: #636e72; }
+        .cat-component .deco-2 { background: #b2bec3; }
+        .cat-component .deco-3 { background: #dfe6e9; }
+
+        .cat-automotive { background: linear-gradient(135deg, #2e1a1a 0%, #3d1515 40%, #d63031 100%); }
+        .cat-automotive .deco-1 { background: #d63031; }
+        .cat-automotive .deco-2 { background: #ff7675; }
+        .cat-automotive .deco-3 { background: #fab1a0; }
+
+        .cat-premium { background: linear-gradient(135deg, #2e2a0a 0%, #3d350a 40%, #f39c12 100%); }
+        .cat-premium .deco-1 { background: #f39c12; }
+        .cat-premium .deco-2 { background: #ffd700; }
+        .cat-premium .deco-3 { background: #fdcb6e; }
+
+        /* Card Body */
         .card-body { padding: 20px; position: relative; z-index: 4; background: var(--surface); }
         .card-cat { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent2); margin-bottom: 8px; }
         .card-title { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 6px; }
@@ -74,19 +168,8 @@
         .card-actions { display: flex; gap: 8px; }
         .btn-demo { flex: 1; padding: 10px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; font-size: 13px; font-weight: 600; text-align: center; border: none; cursor: pointer; transition: opacity 0.2s; }
         .btn-demo:hover { opacity: 0.9; }
-        .btn-prompt { flex: 1; padding: 10px; border-radius: 10px; background: var(--surface2); color: var(--text2); font-size: 13px; font-weight: 500; text-align: center; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+        .btn-prompt { flex: 1; padding: 10px; border-radius: 10px; background: var(--surface2); color: var(--text2); font-size: 13px; font-weight: 500; text-align: center; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
         .btn-prompt:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
-
-        /* Count */
-        .count { text-align: center; padding: 0 32px 24px; font-size: 14px; color: var(--text2); position: relative; z-index: 1; }
-        .count strong { color: var(--text); }
-
-        /* Footer */
-        .footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; color: var(--text2); font-size: 13px; }
-        .footer a { color: var(--accent2); }
-
-        /* No results */
-        .no-results { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text2); font-size: 16px; }
 
         /* Premium Card */
         .card.premium { border-color: rgba(255, 215, 0, 0.3); box-shadow: 0 0 20px rgba(255, 215, 0, 0.05); }
@@ -95,9 +178,54 @@
         .card.premium .card-cat::before { content: '★'; font-size: 10px; }
         .card.premium .btn-demo { background: linear-gradient(135deg, #ffd700, #b8860b); color: #000; }
 
+        /* Count */
+        .count { text-align: center; padding: 0 32px 24px; font-size: 14px; color: var(--text2); position: relative; z-index: 1; }
+        .count strong { color: var(--text); }
+
+        /* Prompt Modal */
+        .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; max-width: 720px; width: 100%; max-height: 80vh; display: flex; flex-direction: column; animation: modalIn 0.25s ease-out; }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+        .modal-header h3 { font-size: 18px; font-weight: 600; }
+        .modal-close { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface2); color: var(--text2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.2s; }
+        .modal-close:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+        .modal-content { padding: 24px; overflow-y: auto; flex: 1; }
+        .modal-content pre { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; font-size: 13px; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; color: var(--text2); font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; }
+        .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 10px; flex-shrink: 0; }
+        .btn-copy { flex: 1; padding: 12px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; font-size: 14px; font-weight: 600; text-align: center; border: none; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+        .btn-copy:hover { opacity: 0.9; }
+        .btn-copy.copied { background: linear-gradient(135deg, var(--green), #2ecc71); }
+        .modal-loading { text-align: center; padding: 40px; color: var(--text2); }
+        .modal-loading .spinner { width: 32px; height: 32px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--accent2); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green); color: #fff; padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; z-index: 200; transition: transform 0.3s ease-out; pointer-events: none; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Footer */
+        .footer { border-top: 1px solid var(--border); padding: 40px 32px; text-align: center; color: var(--text2); font-size: 13px; max-width: 800px; margin: 0 auto; }
+        .footer a { color: var(--accent2); }
+        .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+        .footer-disclaimer { margin-top: 16px; font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.6; }
+
+        /* No results */
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text2); font-size: 16px; }
+
         /* Animations */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
         .card { animation: fadeUp 0.5s ease-out both; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header-inner { padding: 12px 16px; }
+            .hero { padding: 50px 16px 30px; }
+            .grid { padding: 0 16px 60px; }
+            .filters { padding: 0 16px; }
+            .badge { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -110,10 +238,10 @@
                 MotionSites.ai
             </a>
             <div class="header-right">
-                <div class="badge"><span>68</span> Free Prompts</div>
+                <div class="badge"><span id="demoCount">67</span> Free Prompts</div>
                 <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library" target="_blank" class="gh-btn">
                     <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    GitHub
+                    Star ⭐
                 </a>
             </div>
         </div>
@@ -121,7 +249,12 @@
 
     <section class="hero">
         <h1>AI-Powered <em>Prompt</em> Library</h1>
-        <p>Browse 68+ production-ready landing page demos. Each built from a single AI prompt with video backgrounds, glassmorphism, and modern animations.</p>
+        <p>Browse 67+ free, production-ready AI web design prompts. Copy a prompt, paste into your favorite AI tool, and watch it generate a stunning landing page in seconds.</p>
+        <div class="hero-badges">
+            <div class="hero-badge"><span class="dot dot-green"></span> 100% Free & Open Source</div>
+            <div class="hero-badge"><span class="dot dot-purple"></span> Works with Bolt.new, v0, GPT-Engineer</div>
+            <div class="hero-badge"><span class="dot dot-yellow"></span> React + Tailwind + Framer Motion</div>
+        </div>
         <div class="search-wrap">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="text" id="search" placeholder="Search demos... (e.g. SaaS, Portfolio, Web3)">
@@ -132,84 +265,128 @@
     <div class="count" id="count"></div>
     <div class="grid" id="grid"></div>
 
+    <!-- Prompt Modal -->
+    <div class="modal-overlay" id="promptModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Prompt</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-content" id="modalContent">
+                <div class="modal-loading">
+                    <div class="spinner"></div>
+                    Loading prompt...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-copy" id="btnCopy" onclick="copyPrompt()">📋 Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">✅ Prompt copied to clipboard!</div>
+
     <footer class="footer">
-        Built by <a href="https://github.com/nomaan5541" target="_blank">Nomaan Khan</a> — Powered by MotionSites.ai
+        <div class="footer-links">
+            <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library" target="_blank">GitHub</a>
+            <a href="https://instagram.com/Virus_boss" target="_blank">Instagram</a>
+            <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library/blob/main/CONTRIBUTING.md" target="_blank">Contribute</a>
+            <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library/blob/main/LICENSE" target="_blank">MIT License</a>
+        </div>
+        <p>Built with ❤️ by <a href="https://github.com/nomaan5541" target="_blank">Nomaan Khan</a></p>
+        <p class="footer-disclaimer">
+            ⚖️ Disclaimer: All prompts in this library generate original, fictional designs. No copyrighted material, trademarked brands, or proprietary assets are used. 
+            All brand names, logos, and designs referenced in prompts are entirely fictional and created for demonstration purposes only. 
+            Users are solely responsible for the content they generate using these prompts. This project is not affiliated with or endorsed by any third-party company.
+        </p>
     </footer>
 
     <script>
+    const CAT_CLASS = {
+        'SaaS': 'cat-saas', 'Agency': 'cat-agency', 'Portfolio': 'cat-portfolio',
+        'Fintech': 'cat-fintech', 'Web3': 'cat-web3', 'Landing Page': 'cat-landing',
+        'E-commerce': 'cat-ecommerce', 'Component': 'cat-component',
+        'Automotive': 'cat-automotive', 'Premium': 'cat-premium'
+    };
+
     const demos = [
-        { name: "Aethera_Studio", title: "Aethera Studio", cat: "Agency", type: "Hero" },
-        { name: "AI_Automation_Hero", title: "AI Automation Hero", cat: "SaaS", type: "Hero" },
+        { name: "Aethera_Studio", title: "Aethera Studio", cat: "Agency", type: "Hero Section" },
+        { name: "AI_Automation_Hero", title: "AI Automation Hero", cat: "SaaS", type: "Hero Section" },
         { name: "AI_Designer_Agency", title: "AI Designer Agency", cat: "Agency", type: "Landing Page" },
-        { name: "AI_Designer_Portfolio", title: "AI Designer Portfolio", cat: "Portfolio", type: "Hero" },
-        { name: "AKOR_Security", title: "AKOR Security", cat: "SaaS", type: "Hero" },
-        { name: "Apex_SaaS", title: "Apex SaaS", cat: "SaaS", type: "Hero" },
-        { name: "Asme", title: "Asme", cat: "Agency", type: "Hero" },
+        { name: "AI_Designer_Portfolio", title: "AI Designer Portfolio", cat: "Portfolio", type: "Hero Section" },
+        { name: "AKOR_Security", title: "AKOR Security", cat: "SaaS", type: "Hero Section" },
+        { name: "Apex_SaaS", title: "Apex SaaS", cat: "SaaS", type: "Hero Section" },
+        { name: "Asme", title: "Asme", cat: "Agency", type: "Hero Section" },
         { name: "Automation_Machines", title: "Automation Machines", cat: "SaaS", type: "Landing Page" },
-        { name: "Bionova_Biotech", title: "Bionova Biotech", cat: "SaaS", type: "Hero" },
+        { name: "Bionova_Biotech", title: "Bionova Biotech", cat: "SaaS", type: "Hero Section" },
         { name: "Big_Bang_Origin", title: "Big Bang Origin", cat: "Landing Page", type: "Landing Page" },
-        { name: "Bloom_AI", title: "Bloom AI", cat: "SaaS", type: "Hero" },
-        { name: "Bold_Portfolio_Hero", title: "Bold Portfolio Hero", cat: "Portfolio", type: "Hero" },
-        { name: "Buzzentic_Agency", title: "Buzzentic Agency", cat: "Agency", type: "Hero" },
-        { name: "ClearInvoice_SaaS_Hero", title: "ClearInvoice SaaS", cat: "SaaS", type: "Hero" },
-        { name: "ClubX_Investors", title: "ClubX Investors", cat: "Fintech", type: "Hero" },
-        { name: "CodeNest_Coding_Platform", title: "CodeNest Coding Platform", cat: "SaaS", type: "Hero" },
-        { name: "Dark_Portfolio_Hero", title: "Dark Portfolio Hero", cat: "Portfolio", type: "Hero" },
-        { name: "Datacore_Booking", title: "Datacore Booking", cat: "SaaS", type: "Hero" },
-        { name: "Datacore_SaaS_Hero", title: "Datacore SaaS", cat: "SaaS", type: "Hero" },
-        { name: "DesignPro_Academy", title: "DesignPro Academy", cat: "Agency", type: "Hero" },
-        { name: "Digitwist_AI_Builder", title: "Digitwist AI Builder", cat: "SaaS", type: "Hero" },
+        { name: "Bloom_AI", title: "Bloom AI", cat: "SaaS", type: "Hero Section" },
+        { name: "Bold_Portfolio_Hero", title: "Bold Portfolio Hero", cat: "Portfolio", type: "Hero Section" },
+        { name: "Buzzentic_Agency", title: "Buzzentic Agency", cat: "Agency", type: "Hero Section" },
+        { name: "ClearInvoice_SaaS_Hero", title: "ClearInvoice SaaS", cat: "SaaS", type: "Hero Section" },
+        { name: "ClubX_Investors", title: "ClubX Investors", cat: "Fintech", type: "Hero Section" },
+        { name: "CodeNest_Coding_Platform", title: "CodeNest Coding Platform", cat: "SaaS", type: "Hero Section" },
+        { name: "Dark_Portfolio_Hero", title: "Dark Portfolio Hero", cat: "Portfolio", type: "Hero Section" },
+        { name: "Datacore_Booking", title: "Datacore Booking", cat: "SaaS", type: "Hero Section" },
+        { name: "Datacore_SaaS_Hero", title: "Datacore SaaS", cat: "SaaS", type: "Hero Section" },
+        { name: "DesignPro_Academy", title: "DesignPro Academy", cat: "Agency", type: "Hero Section" },
+        { name: "Digitwist_AI_Builder", title: "Digitwist AI Builder", cat: "SaaS", type: "Hero Section" },
         { name: "E-commerce_Website", title: "E-commerce Website", cat: "E-commerce", type: "Landing Page" },
-        { name: "EVR_Ventures", title: "EVR Ventures", cat: "Fintech", type: "Hero" },
-        { name: "Finlytic_AI_Agent", title: "Finlytic AI Agent", cat: "SaaS", type: "Hero" },
-        { name: "Framelix_3D_Studios", title: "Framelix 3D Studios", cat: "Agency", type: "Hero" },
-        { name: "Glassmorphism_Agency_Hero", title: "Glassmorphism Agency", cat: "Agency", type: "Hero" },
-        { name: "Grow_AI_Talent_Platform", title: "Grow AI Talent Platform", cat: "SaaS", type: "Hero" },
-        { name: "HR_SaaS_Hero", title: "HR SaaS Hero", cat: "SaaS", type: "Hero" },
-        { name: "Iron_Man_Stark", title: "Iron Man Stark Industries", cat: "Landing Page", type: "Landing Page" },
+        { name: "EVR_Ventures", title: "EVR Ventures", cat: "Fintech", type: "Hero Section" },
+        { name: "Finlytic_AI_Agent", title: "Finlytic AI Agent", cat: "SaaS", type: "Hero Section" },
+        { name: "Framelix_3D_Studios", title: "Framelix 3D Studios", cat: "Agency", type: "Hero Section" },
+        { name: "Glassmorphism_Agency_Hero", title: "Glassmorphism Agency", cat: "Agency", type: "Hero Section" },
+        { name: "Grow_AI_Talent_Platform", title: "Grow AI Talent Platform", cat: "SaaS", type: "Hero Section" },
+        { name: "HR_SaaS_Hero", title: "HR SaaS Hero", cat: "SaaS", type: "Hero Section" },
         { name: "Investor_Deck", title: "Investor Deck", cat: "Fintech", type: "Presentation" },
         { name: "Liquid_Glass_Agency", title: "Liquid Glass Agency", cat: "Agency", type: "Landing Page" },
         { name: "Loader_Animation", title: "Loader Animation", cat: "Component", type: "Animation" },
-        { name: "Logoisum_Video_Agency", title: "Logoisum Video Agency", cat: "Agency", type: "Hero" },
-        { name: "Mindloop", title: "Mindloop", cat: "SaaS", type: "Hero" },
+        { name: "Logoisum_Video_Agency", title: "Logoisum Video Agency", cat: "Agency", type: "Hero Section" },
+        { name: "Mindloop", title: "Mindloop", cat: "SaaS", type: "Hero Section" },
         { name: "Mindloop_Landing", title: "Mindloop Landing", cat: "SaaS", type: "Landing Page" },
-        { name: "NeoVision", title: "NeoVision", cat: "SaaS", type: "Hero" },
-        { name: "Neuralyn", title: "Neuralyn", cat: "SaaS", type: "Hero" },
-        { name: "New_Era_Automotive_Hero", title: "New Era Automotive", cat: "Automotive", type: "Hero" },
-        { name: "New_Era_Bold_Hero", title: "New Era Bold Hero", cat: "Agency", type: "Hero" },
-        { name: "Nexora_Automation", title: "Nexora Automation", cat: "SaaS", type: "Hero" },
-        { name: "Nexus_IT_Solutions", title: "Nexus IT Solutions", cat: "SaaS", type: "Hero" },
-        { name: "Nickel_Payments", title: "Nickel Payments", cat: "Fintech", type: "Hero" },
-        { name: "NOVA_Space_Systems", title: "NOVA Space Systems", cat: "SaaS", type: "Hero" },
-        { name: "Orbis_NFT", title: "Orbis NFT", cat: "Web3", type: "Hero" },
-        { name: "Orbit_Engineers", title: "Orbit Engineers", cat: "SaaS", type: "Hero" },
-        { name: "Orbit_Web3", title: "Orbit Web3", cat: "Web3", type: "Hero" },
-        { name: "Planet_Orbit", title: "Planet Orbit", cat: "SaaS", type: "Hero" },
-        { name: "Portfolio_Cosmic", title: "Portfolio Cosmic", cat: "Portfolio", type: "Hero" },
-        { name: "Power_AI", title: "Power AI", cat: "SaaS", type: "Hero" },
+        { name: "NeoVision", title: "NeoVision", cat: "SaaS", type: "Hero Section" },
+        { name: "Neuralyn", title: "Neuralyn", cat: "SaaS", type: "Hero Section" },
+        { name: "New_Era_Automotive_Hero", title: "New Era Automotive", cat: "Automotive", type: "Hero Section" },
+        { name: "New_Era_Bold_Hero", title: "New Era Bold Hero", cat: "Agency", type: "Hero Section" },
+        { name: "Nexora_Automation", title: "Nexora Automation", cat: "SaaS", type: "Hero Section" },
+        { name: "Nexus_IT_Solutions", title: "Nexus IT Solutions", cat: "SaaS", type: "Hero Section" },
+        { name: "Nickel_Payments", title: "Nickel Payments", cat: "Fintech", type: "Hero Section" },
+        { name: "NOVA_Space_Systems", title: "NOVA Space Systems", cat: "SaaS", type: "Hero Section" },
+        { name: "Orbis_NFT", title: "Orbis NFT", cat: "Web3", type: "Hero Section" },
+        { name: "Orbit_Engineers", title: "Orbit Engineers", cat: "SaaS", type: "Hero Section" },
+        { name: "Orbit_Web3", title: "Orbit Web3", cat: "Web3", type: "Hero Section" },
+        { name: "Planet_Orbit", title: "Planet Orbit", cat: "SaaS", type: "Hero Section" },
+        { name: "Portfolio_Cosmic", title: "Portfolio Cosmic", cat: "Portfolio", type: "Hero Section" },
+        { name: "Power_AI", title: "Power AI", cat: "SaaS", type: "Hero Section" },
         { name: "Price_Calculator", title: "Price Calculator", cat: "SaaS", type: "Component" },
-        { name: "Railroad.ai", title: "Railroad.ai", cat: "SaaS", type: "Hero" },
-        { name: "SkyElite_Private_Jets", title: "SkyElite Private Jets", cat: "Landing Page", type: "Hero" },
-        { name: "Space_Voyage", title: "Space Voyage", cat: "SaaS", type: "Hero" },
-        { name: "Stellar_AI", title: "Stellar AI", cat: "SaaS", type: "Hero" },
-        { name: "Synapse_Dark_Hero", title: "Synapse Dark Hero", cat: "SaaS", type: "Hero" },
-        { name: "Sync_AI", title: "Sync AI", cat: "SaaS", type: "Hero" },
-        { name: "Targo_Logistics_Hero", title: "Targo Logistics", cat: "SaaS", type: "Hero" },
-        { name: "Taskly", title: "Taskly", cat: "SaaS", type: "Hero" },
-        { name: "Taskora_SaaS_Hero", title: "Taskora SaaS", cat: "SaaS", type: "Hero" },
-        { name: "Terra_Geo_Map", title: "Terra Geo Map", cat: "SaaS", type: "Hero" },
-        { name: "Transform_Data", title: "Transform Data", cat: "SaaS", type: "Hero" },
-        { name: "Velorah", title: "Velorah", cat: "Agency", type: "Hero" },
+        { name: "Railroad.ai", title: "Railroad.ai", cat: "SaaS", type: "Hero Section" },
+        { name: "SkyElite_Private_Jets", title: "SkyElite Private Jets", cat: "Landing Page", type: "Hero Section" },
+        { name: "Space_Voyage", title: "Space Voyage", cat: "SaaS", type: "Hero Section" },
+        { name: "Stellar_AI", title: "Stellar AI", cat: "SaaS", type: "Hero Section" },
+        { name: "Synapse_Dark_Hero", title: "Synapse Dark Hero", cat: "SaaS", type: "Hero Section" },
+        { name: "Sync_AI", title: "Sync AI", cat: "SaaS", type: "Hero Section" },
+        { name: "Targo_Logistics_Hero", title: "Targo Logistics", cat: "SaaS", type: "Hero Section" },
+        { name: "Taskly", title: "Taskly", cat: "SaaS", type: "Hero Section" },
+        { name: "Taskora_SaaS_Hero", title: "Taskora SaaS", cat: "SaaS", type: "Hero Section" },
+        { name: "Terra_Geo_Map", title: "Terra Geo Map", cat: "SaaS", type: "Hero Section" },
+        { name: "Transform_Data", title: "Transform Data", cat: "SaaS", type: "Hero Section" },
+        { name: "Velorah", title: "Velorah", cat: "Agency", type: "Hero Section" },
         { name: "Viktor_Portfolio", title: "Viktor Portfolio", cat: "Portfolio", type: "Landing Page" },
-        { name: "Wealth_Video_Hero", title: "Wealth Video Hero", cat: "Fintech", type: "Hero" },
-        { name: "Web3_EOS_Hero", title: "Web3 EOS Hero", cat: "Web3", type: "Hero" },
-        { name: "Weblex_Dark_Hero", title: "Weblex Dark Hero", cat: "Landing Page", type: "Hero" },
-        { name: "xPortfolio_Hero", title: "xPortfolio Hero", cat: "Portfolio", type: "Hero" },
-        { name: "Zentry_Premium", title: "MotionZ Premium", cat: "Premium", type: "Landing Page", premium: true },
+        { name: "Wealth_Video_Hero", title: "Wealth Video Hero", cat: "Fintech", type: "Hero Section" },
+        { name: "Web3_EOS_Hero", title: "Web3 EOS Hero", cat: "Web3", type: "Hero Section" },
+        { name: "Weblex_Dark_Hero", title: "Weblex Dark Hero", cat: "Landing Page", type: "Hero Section" },
+        { name: "xPortfolio_Hero", title: "xPortfolio Hero", cat: "Portfolio", type: "Hero Section" },
+        { name: "MotionZ_Premium", title: "MotionZ Premium", cat: "Premium", type: "Landing Page", premium: true },
     ];
 
     const categories = ['All', ...new Set(demos.map(d => d.cat))].sort((a,b) => a === 'All' ? -1 : a.localeCompare(b));
     let activeFilter = 'All';
+    let currentPromptText = '';
+
+    function getCatClass(cat) {
+        return CAT_CLASS[cat] || 'cat-saas';
+    }
 
     function render() {
         const q = document.getElementById('search').value.toLowerCase();
@@ -220,6 +397,7 @@
         });
 
         document.getElementById('count').innerHTML = `Showing <strong>${filtered.length}</strong> of <strong>${demos.length}</strong> demos`;
+        document.getElementById('demoCount').textContent = demos.length;
 
         const grid = document.getElementById('grid');
         if (filtered.length === 0) {
@@ -229,11 +407,10 @@
 
         grid.innerHTML = filtered.map((d, i) => `
             <div class="card ${d.premium ? 'premium' : ''}" style="animation-delay: ${Math.min(i * 0.03, 0.5)}s">
-                <a href="/demos/${d.name}/" target="_blank" class="card-preview" data-src="/demos/${d.name}/">
-                    <div class="placeholder">
-                        <span class="letter">${d.title.charAt(0)}</span>
-                        <div class="spinner"></div>
-                    </div>
+                <a href="/demos/${d.name}/" target="_blank" class="card-visual ${getCatClass(d.cat)}" data-letter="${d.title.charAt(0)}">
+                    <div class="deco deco-1"></div>
+                    <div class="deco deco-2"></div>
+                    <div class="deco deco-3"></div>
                     <div class="hover-play"><span>▶</span></div>
                 </a>
                 <div class="card-body">
@@ -241,35 +418,12 @@
                     <div class="card-title">${d.title}</div>
                     <div class="card-type">${d.type}</div>
                     <div class="card-actions">
-                        <a href="/demos/${d.name}/" class="btn-demo" target="_blank">▶ View Demo</a>
-                        <a href="https://github.com/nomaan5541/motionsites.ai-prompt-library/blob/main/prompts/${d.name}.md" class="btn-prompt" target="_blank">📄 View Prompt</a>
+                        <a href="/demos/${d.name}/" class="btn-demo" target="_blank">▶ Live Demo</a>
+                        <button class="btn-prompt" onclick="showPrompt('${d.name}', '${d.title.replace(/'/g, "\\'")}')">📋 Copy Prompt</button>
                     </div>
                 </div>
             </div>
         `).join('');
-
-        // Lazy-load iframes with IntersectionObserver
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const preview = entry.target;
-                    if (preview.querySelector('iframe')) return;
-                    const src = preview.dataset.src;
-                    const iframe = document.createElement('iframe');
-                    iframe.src = src;
-                    iframe.loading = 'lazy';
-                    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-                    iframe.onload = () => {
-                        const ph = preview.querySelector('.placeholder');
-                        if (ph) ph.classList.add('loaded');
-                    };
-                    preview.insertBefore(iframe, preview.firstChild);
-                    observer.unobserve(preview);
-                }
-            });
-        }, { rootMargin: '200px' });
-
-        document.querySelectorAll('.card-preview[data-src]').forEach(el => observer.observe(el));
     }
 
     // Filters
@@ -286,6 +440,73 @@
 
     document.getElementById('search').addEventListener('input', render);
     render();
+
+    // Prompt Modal
+    async function showPrompt(name, title) {
+        const modal = document.getElementById('promptModal');
+        const content = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        
+        modalTitle.textContent = title + ' — Prompt';
+        content.innerHTML = '<div class="modal-loading"><div class="spinner"></div>Loading prompt...</div>';
+        modal.classList.add('active');
+        currentPromptText = '';
+
+        try {
+            const resp = await fetch(`/prompts/${name}.md`);
+            if (!resp.ok) throw new Error('Not found');
+            const text = await resp.text();
+            
+            // Extract prompt text between ```text and ```
+            const match = text.match(/```text\n([\s\S]*?)```/);
+            const prompt = match ? match[1].trim() : text;
+            currentPromptText = prompt;
+            
+            content.innerHTML = `<pre>${escapeHtml(prompt)}</pre>`;
+        } catch (e) {
+            content.innerHTML = '<div class="modal-loading">Prompt not available yet. Try the live demo instead!</div>';
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('promptModal').classList.remove('active');
+    }
+
+    function copyPrompt() {
+        if (!currentPromptText) return;
+        navigator.clipboard.writeText(currentPromptText).then(() => {
+            const btn = document.getElementById('btnCopy');
+            btn.textContent = '✅ Copied!';
+            btn.classList.add('copied');
+            showToast();
+            setTimeout(() => {
+                btn.textContent = '📋 Copy to Clipboard';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Close modal on overlay click
+    document.getElementById('promptModal').addEventListener('click', e => {
+        if (e.target === e.currentTarget) closeModal();
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+    });
     </script>
 </body>
 </html>

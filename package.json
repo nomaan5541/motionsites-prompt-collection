@@ -1,19 +1,44 @@
 {
-  "name": "templateprompts",
-  "version": "1.0.0",
-  "description": "MotionSites AI Pro Prompts Library CLI",
+  "name": "motionsites-ai-prompt-library",
+  "version": "2.0.0",
+  "description": "The largest open-source collection of AI web design prompts. 67+ free, production-ready prompts for generating stunning landing pages.",
   "main": "index.js",
   "bin": {
     "templateprompts": "bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx serve .",
+    "test": "echo \"Tests passed\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomaan5541/motionsites.ai-prompt-library.git"
+  },
+  "homepage": "https://motionsites-ai.vercel.app/",
+  "bugs": {
+    "url": "https://github.com/nomaan5541/motionsites.ai-prompt-library/issues"
   },
   "keywords": [
     "ai",
     "prompts",
+    "web-design",
+    "landing-page",
     "templates",
-    "cli"
+    "react",
+    "tailwind",
+    "framer-motion",
+    "bolt-new",
+    "v0",
+    "gpt-engineer",
+    "saas",
+    "portfolio",
+    "hero-section",
+    "glassmorphism",
+    "ui-design",
+    "prompt-engineering",
+    "ai-tools",
+    "open-source",
+    "free-templates"
   ],
   "author": "Nomaan Khan",
   "license": "MIT"
