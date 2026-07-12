@@ -28,7 +28,7 @@ Have a great AI web design prompt? We'd love to include it!
 1. **Fork** this repository
 2. **Clone** your fork:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/motionsites.ai-prompt-library.git
+   git clone https://github.com/YOUR-USERNAME/motionsites-prompt-collection.git
    ```
 3. **Create a branch**:
    ```bash

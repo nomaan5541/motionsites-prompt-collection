@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nomaan5541/motionsites.ai-prompt-library.git"
+    "url": "https://github.com/nomaan5541/motionsites-prompt-collection.git"
   },
   "homepage": "https://motionsites-ai.vercel.app/",
   "bugs": {
-    "url": "https://github.com/nomaan5541/motionsites.ai-prompt-library/issues"
+    "url": "https://github.com/nomaan5541/motionsites-prompt-collection/issues"
   },
   "keywords": [
     "ai",

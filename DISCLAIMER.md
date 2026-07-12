@@ -35,7 +35,7 @@ This library is provided for **educational and creative purposes**. It demonstra
 
 If you believe any content in this repository inadvertently infringes on your rights, please contact us immediately:
 
-- **GitHub Issues**: [Open an issue](https://github.com/nomaan5541/motionsites.ai-prompt-library/issues)
+- **GitHub Issues**: [Open an issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
 - **Email**: Open a GitHub issue with the subject "Content Concern"
 
 We take intellectual property rights seriously and will promptly address any legitimate concerns.

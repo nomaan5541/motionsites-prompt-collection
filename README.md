@@ -5,9 +5,9 @@
 ### The largest open-source collection of AI web design prompts
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites.ai-prompt-library?style=social)](https://github.com/nomaan5541/motionsites.ai-prompt-library/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/nomaan5541/motionsites.ai-prompt-library?style=social)](https://github.com/nomaan5541/motionsites.ai-prompt-library/network/members)
-[![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites.ai-prompt-library)](https://github.com/nomaan5541/motionsites.ai-prompt-library/issues)
+[![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/network/members)
+[![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites-prompt-collection)](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 **67+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
@@ -82,7 +82,7 @@ Each prompt generates designs using:
 
 We welcome contributions! Here's how you can help:
 
-- 🐛 **Report Bugs** — Found a broken demo? [Open an issue](https://github.com/nomaan5541/motionsites.ai-prompt-library/issues/new)
+- 🐛 **Report Bugs** — Found a broken demo? [Open an issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues/new)
 - 💡 **Suggest Designs** — Have an idea for a new prompt? Let us know!
 - 🔧 **Submit PRs** — Improve existing prompts or add new ones
 

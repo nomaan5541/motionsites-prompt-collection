@@ -17,7 +17,7 @@ If you are a copyright holder and believe that any content in this repository in
 
 ## How to Submit
 
-- **GitHub Issues**: [Open an issue](https://github.com/nomaan5541/motionsites.ai-prompt-library/issues) with the subject "DMCA Notice"
+- **GitHub Issues**: [Open an issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues) with the subject "DMCA Notice"
 - Please allow up to **48 hours** for a response
 
 ## Our Response Process
