@@ -1,7 +1,7 @@
 {
   "name": "motionsites-ai-prompt-library",
   "version": "2.0.0",
-  "description": "The largest open-source collection of AI web design prompts. 67+ free, production-ready prompts for generating stunning landing pages.",
+  "description": "The largest open-source collection of AI web design prompts. 102+ free, production-ready prompts for generating stunning landing pages.",
   "main": "index.js",
   "bin": {
     "templateprompts": "bin/index.js"

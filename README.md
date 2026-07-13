@@ -10,7 +10,7 @@
 [![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites-prompt-collection)](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**67+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
+**102+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
 
 [🌐 **Browse the Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
@@ -26,7 +26,7 @@
 
 | Feature | Description |
 |---------|-------------|
-| 🎨 **67+ Unique Designs** | Landing pages, hero sections, SaaS dashboards, portfolios, and more |
+| 🎨 **102+ Unique Designs** | Landing pages, hero sections, SaaS dashboards, portfolios, and more |
 | 📋 **One-Click Copy** | Click "Copy Prompt" on the website to instantly copy any prompt |
 | ▶️ **Live Demos** | Every prompt has a live, interactive demo you can preview |
 | 🆓 **100% Free** | MIT licensed, use for personal and commercial projects |
