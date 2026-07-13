@@ -2,7 +2,7 @@
 
 # ⚡ MotionSites.ai — AI Prompt Library
 
-### The largest open-source collection of AI web design prompts
+### The largest open-source collection of production-ready AI web design prompts
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
@@ -10,120 +10,146 @@
 [![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites-prompt-collection)](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**163+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
+**166+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
 
-[🌐 **Browse the Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+[🌐 **Browse the Live Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
 ---
 
-## 🚀 What is this?
+## 🚀 Overview
 
-**MotionSites.ai Prompt Library** is a curated collection of high-performance AI prompts, each designed to generate a complete, production-ready web design. Every prompt is battle-tested and optimized for modern AI tools.
+**MotionSites.ai** is a curated prompt collection designed for modern AI developer platforms (such as **Bolt.new**, **v0.dev**, **GPT-Engineer**, and **Lovable.dev**). Standard AI models often struggle to generate premium web interfaces with advanced motion design. This library solves this problem by providing highly detailed, pre-engineered layout and animation blueprints.
 
-### ✨ Key Features
+Each prompt in this library acts as an elite frontend specification, guiding AI generators to build stunning web interfaces utilizing modern typography, HSL tailored colors, responsive structures, and advanced motion libraries (Framer Motion and GSAP).
 
-| Feature | Description |
-|---------|-------------|
-| 🎨 **163+ Unique Designs** | Landing pages, hero sections, SaaS dashboards, portfolios, and more |
-| 📋 **One-Click Copy** | Click "Copy Prompt" on the website to instantly copy any prompt |
-| ▶️ **Live Demos** | Every prompt has a live, interactive demo you can preview |
-| 🆓 **100% Free** | MIT licensed, use for personal and commercial projects |
-| 🔧 **Modern Stack** | React, Tailwind CSS, Framer Motion, GSAP optimized |
-| 🤖 **AI-Ready** | Works with **Bolt.new**, **v0**, **GPT-Engineer**, and more |
+---
+
+## ✨ Key Features
+
+- 🎨 **166+ Unique Designs**: Browse through a curated catalog of landing pages, hero sections, custom cards, SaaS dashboards, portfolios, and more.
+- 🖼️ **Vibrant Visual Previews**: The web gallery uses actual `.webp` screenshots fetched dynamically from DigitalOcean Spaces CDN to show you the expected design output.
+- 📋 **One-Click Instant Copy**: Click **"📋 Copy Prompt"** on the website to immediately copy the entire system prompt code.
+- 🎥 **Hover Video Autoplay**: Hovering over card visuals plays preview video loops instantly. Mouseleave events immediately pause playback to optimize CPU usage.
+- 🤖 **AI-Ready Layouts**: Prompts are optimized to work out-of-the-box with **v0**, **Bolt.new**, **Claude 3.5 Sonnet**, and **Lovable**.
+- 🆓 **100% Free & Open Source**: Released under the MIT license, available for commercial and personal usage.
+
+---
+
+## 📂 Detailed Categories Directory
+
+The library covers a wide range of categories, from full page templates to specific high-fidelity UI sections:
+
+### Full Templates
+- 💼 **SaaS** (25+ items): Modern software-as-a-service layouts, dashboard designs, and feature matrices.
+- 🏢 **Agency** (10+ items): Creative agency pages, studio portfolios, and interactive showrooms.
+- 🖼️ **Portfolio** (6+ items): Elegant, minimalist personal sites for designers, developers, and writers.
+- 💰 **Fintech** (5+ items): High-contrast finance platforms, currency dashboards, and transaction grids.
+- 🌐 **Web3** (3+ items): Immersive DeFi interfaces, NFT galleries, and blockchain dashboards.
+- 🛒 **E-commerce** (2+ items): Modern digital storefronts, clean product showcase pages, and grids.
+
+### UI Sections & Components
+- ⚡ **Hero Sections**: Stunning landing folds featuring cinematic backgrounds, animated badges, and glowing typography.
+- 🏷️ **Pricing Tables**: Brutalist, glassmorphism, and neon pricing cards with monthly/yearly toggles.
+- ⚙️ **Features Sections**: Grid layouts, horizontal scroll timelines, dynamic sliders, and hover-triggered details.
+- 🗣️ **Testimonials**: Dual marquee carousels, swing layouts, and star-rating grids.
+- 📑 **Footers**: Creative parallax footers, orbit menus, and glassmorphic quick-link maps.
+- ❓ **FAQ Accordions**: Clean dark-mode accordions with smooth spring transitions.
+
+---
+
+## 🛠️ The Tech Stack Generated
+
+Each prompt is engineered to enforce code generation on a high-fidelity stack:
+
+1. **React.js**: Directs the AI to build reusable component structures, responsive state hooks, and optimized layout loops.
+2. **Tailwind CSS**: Commands precise utility classes, CSS grid structures, flex layouts, border overlays, glassmorphic filters, and tailored HSL color tokens.
+3. **Framer Motion**: Enforces physics-based spring animations, layout transitions, exit animations, click gestures, drag items, and scroll-linked fade-in triggers.
+4. **GSAP & ScrollTrigger**: Guides complex timeline orchestration, text split effects, and horizontal scroll layouts.
+5. **Lucide React**: Integrates clean, modern iconography automatically.
 
 ---
 
 ## 🎯 How to Use
 
-### Option 1: Browse the Website (Recommended)
-1. Visit **[motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)**
-2. Browse or search through the design gallery
-3. Click **"📋 Copy Prompt"** on any design you like
-4. Paste into your favorite AI tool (Bolt.new, v0, GPT-Engineer, etc.)
-5. Watch the magic happen ✨
+### Option 1: Live Interactive Library (Recommended)
+1. Navigate to **[motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)**.
+2. Filter by category (e.g., *SaaS, Portfolio, Fintech*) or search for designs.
+3. Click the **"Code"** button to view the prompt description.
+4. Click **"📋 Copy Prompt"** to copy the full specification.
+5. Paste it directly into your AI generator (e.g., Bolt.new or v0.dev) and run the generation.
 
-### Option 2: CLI Tool
+### Option 2: Local CLI Tool
+To browse and retrieve prompt names directly from your local terminal workspace:
+
 ```bash
+# List all Pro and Free prompts available in the project
 npx templateprompts list
+
+# Display helper information
+npx templateprompts help
 ```
 
 ---
 
-## 📂 Categories
+## 🧑‍💻 How the Prompts Are Engineered
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| 💼 **SaaS** | 25+ | SaaS dashboards, hero sections, pricing pages |
-| 🏢 **Agency** | 10+ | Creative agency websites, studio pages |
-| 🖼️ **Portfolio** | 6+ | Developer & designer portfolios |
-| 💰 **Fintech** | 5+ | Payment platforms, investor pages |
-| 🌐 **Web3** | 3+ | NFT galleries, DeFi interfaces |
-| 🛒 **E-commerce** | 2+ | Online stores, product pages |
-| 🚗 **Automotive** | 1+ | Car showcase pages |
-| ⚙️ **Components** | 2+ | Loaders, calculators, micro-interactions |
+Every `.md` file inside the [prompts/](file:///f:/motionsites.ai-main/prompts/) directory is structured with YAML frontmatter metadata at the top:
 
+```markdown
+---
+title: "Luxury Real Estate"
+category: Templates
+subCategory: Real-estate
+premium: false
+imageUrl: https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780826949672-Luxonn.webp
 ---
 
-## 🛠️ Tech Stack
+# Luxury Real Estate
+```
 
-Each prompt generates designs using:
-
-- **React** — Component-based architecture
-- **Tailwind CSS** — Utility-first styling
-- **Framer Motion** — Smooth animations
-- **GSAP** — Advanced scroll-driven effects
-- **Lucide React** — Beautiful icons
+The system prompt follows a strict schema to prevent AI models from generating basic, unstyled pages:
+- **Role Definition**: e.g., *"Act as an award-winning Creative Director and Elite Frontend Architect..."*
+- **Visual Design Rules**: Specifying a dark-mode background (`bg-[#030305]`), specific HSL typography contrast values, neon highlights, and absolute border variables.
+- **Interactions & Motion**: Demanding exact Framer Motion animation properties (e.g., `transition: { type: "spring", stiffness: 100, damping: 20 }`).
+- **Dummy Data & Copywriting**: Enforcing premium, realistic mock copywriting instead of lazy `Lorem Ipsum` placeholders.
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+We love contributions! If you have a beautiful design prompt or want to submit an improvement:
 
-- 🐛 **Report Bugs** — Found a broken demo? [Open an issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues/new)
-- 💡 **Suggest Designs** — Have an idea for a new prompt? Let us know!
-- 🔧 **Submit PRs** — Improve existing prompts or add new ones
+1. **Fork** the repository.
+2. Create a new design prompt file under `/prompts/` (or `/Pro prompts/`) with the appropriate metadata.
+3. Register your new card in the `demos` list array inside `index.html`.
+4. Create a stub folder under `/demos/<Your_Design_Name>/index.html` referencing your prompt.
+5. Open a **Pull Request** explaining your prompt design style.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
----
-
-## ⭐ Support This Project
-
-If this library helped you build something awesome, please consider giving it a star! It helps others discover this resource and motivates continued development.
-
-```
-⭐ Click the "Star" button at the top of this page ⭐
-```
-
-Every star helps this project grow and reach more developers who can benefit from free AI design prompts.
+Please review our [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
 
 ---
 
-## 📜 Legal
+## ⚖️ Legal Disclaimer
 
-- **License**: [MIT](LICENSE) — Use freely in personal and commercial projects
-- **Disclaimer**: [DISCLAIMER.md](DISCLAIMER.md) — All designs are original and fictional
-- **Security**: [SECURITY.md](SECURITY.md) — Responsible disclosure policy
-
-> ⚖️ All prompts generate original, fictional designs. No copyrighted material, trademarked brands, or proprietary assets are used. All brand names and designs are entirely fictional.
+- **Trademark & Brands**: All company names, logos, brand specifications, and UI layouts featured in these prompts are entirely fictional. Any resemblance to real brands is coincidental.
+- **Licensing**: All code and prompts are distributed under the [MIT License](LICENSE). You are free to modify, integrate, sell, or distribute the generated designs for personal or commercial projects.
 
 ---
 
 ## 🔗 Connect
 
-- **Website**: [motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)
-- **GitHub**: [@nomaan5541](https://github.com/nomaan5541)
-- **Instagram**: [@Virus_boss](https://instagram.com/Virus_boss)
+- **Live Website**: [motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)
+- **GitHub profile**: [@nomaan5541](https://github.com/nomaan5541)
+- **Instagram Direct**: [@Virus_boss](https://instagram.com/Virus_boss)
 
 ---
 
 <div align="center">
 
-### Made with ❤️ by [Nomaan Khan](https://github.com/nomaan5541)
+### Designed and Built by [Nomaan Khan](https://github.com/nomaan5541)
 
-If you find this useful, please ⭐ star this repository!
+If you find this project useful, please consider giving it a ⭐ star!
 
 </div>
