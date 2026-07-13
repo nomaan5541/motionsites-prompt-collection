@@ -3,105 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asme | Built for the Curious</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style type="text/tailwindcss">
-        @layer components {
-            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-        }
+    <title>Asme — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Asme</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">asme.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a single-page hero section with a full-screen looping background video, liquid glass UI elements, and a dark cinematic aesthetic. Use React, TypeScript, Tailwind CSS, and Lucide React icons. Here are the exact specifications:
 
-        const App = () => {
-            const videoRef = useRef(null);
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current; if (!v) return; let raf, fadingOut = false;
-                const fadeIn = () => { const start = performance.now(); const from = parseFloat(v.style.opacity)||0;
-                    const tick = (now) => { const p = Math.min(1,(now-start)/500); v.style.opacity = from + (1-from)*p; if(p<1) raf=requestAnimationFrame(tick); };
-                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
-                };
-                const fadeOut = () => { if(fadingOut) return; fadingOut=true; const start=performance.now(); const from=parseFloat(v.style.opacity)||1;
-                    const tick = (now) => { const p=Math.min(1,(now-start)/500); v.style.opacity = from*(1-p); if(p<1) raf=requestAnimationFrame(tick); };
-                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
-                };
-                v.addEventListener('timeupdate', () => { if(v.duration && v.currentTime > v.duration - 0.55) fadeOut(); });
-                v.addEventListener('ended', () => { v.style.opacity=0; fadingOut=false; setTimeout(() => { v.currentTime=0; v.play(); fadeIn(); }, 100); });
-                v.style.opacity = 0; v.play().then(fadeIn).catch(() => {});
-            }, []);
+Background Video:
 
-            return (
-                <div className="min-h-screen bg-black overflow-hidden relative flex flex-col">
-                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4" className="absolute inset-0 w-full h-full object-cover translate-y-[17%]" style={{ opacity: 0 }} muted playsInline />
+Full-screen muted autoplaying video covering the entire viewport, positioned absolutely with object-cover
+Video source URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4
+The video is shifted down by 17% (translate-y-[17%]) so the top portion of the video is cropped -- the interesting content is in the lower portion of the frame
+The video loops seamlessly with a custom JavaScript fade system (no CSS transitions): 500ms requestAnimationFrame-based fade-in on load/loop start, 500ms fade-out when 0.55 seconds remain before the video ends. A fadingOutRef boolean prevents re-triggering the fade-out from repeated timeUpdate events. On ended, opacity is set to 0, then after 100ms the video resets to currentTime = 0, plays, and fades back in. Each new fade cancels any running animation frame to prevent competing animations. Fades resume from the current opacity rather than snapping.
+The outer container is min-h-screen bg-black with overflow-hidden
 
-                    {/* Navbar */}
-                    <nav className="relative z-20 px-6 py-6">
-                        <div className="rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto">
-                            <div className="flex items-center gap-8">
-                                <div className="flex items-center gap-2">
-                                    <i data-lucide="globe" className="w-6 h-6 text-white"></i>
-                                    <span className="text-white font-semibold text-lg">Asme</span>
-                                </div>
-                                <div className="hidden md:flex items-center gap-6">
-                                    {['Features','Pricing','About'].map(l => (
-                                        <a key={l} href="#" className="text-white/80 hover:text-white transition-colors text-sm font-medium">{l}</a>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <a href="#" className="text-white text-sm font-medium">Sign Up</a>
-                                <button className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium">Login</button>
-                            </div>
-                        </div>
-                    </nav>
+Font:
 
-                    {/* Hero Content */}
-                    <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                            Built for the curious
-                        </h1>
-                        <div className="max-w-xl w-full space-y-4">
-                            <div className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3">
-                                <input type="email" placeholder="Enter your email" className="flex-1 bg-transparent outline-none text-white placeholder:text-white/40 text-base" />
-                                <button className="bg-white rounded-full p-3 text-black shrink-0">
-                                    <i data-lucide="arrow-right" className="w-5 h-5"></i>
-                                </button>
-                            </div>
-                            <p className="text-white text-sm leading-relaxed px-4">
-                                Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates.
-                            </p>
-                            <div className="flex justify-center">
-                                <button className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors">
-                                    Manifesto
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+Import Google Font "Instrument Serif" (both regular and italic) via CSS @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap')
+The heading uses fontFamily: "'Instrument Serif', serif" applied via inline style
 
-                    {/* Social Footer */}
-                    <div className="relative z-10 flex justify-center gap-4 pb-12">
-                        {['instagram','twitter','globe'].map(icon => (
-                            <button key={icon} className="liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all" aria-label={icon}>
-                                <i data-lucide={icon} className="w-5 h-5"></i>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            );
-        };
+Liquid Glass CSS (.liquid-glass class):
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+background: rgba(255, 255, 255, 0.01) with background-blend-mode: luminosity
+backdrop-filter: blur(4px) and -webkit-backdrop-filter: blur(4px)
+border: none
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1)
+position: relative; overflow: hidden
+A ::before pseudo-element creates the glass border effect:
+position: absolute; inset: 0; border-radius: inherit; padding: 1.4px
+background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%)
+Mask trick for border-only rendering: -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude
+pointer-events: none
+
+Layout (all inside one full-screen flex column):
+
+Navigation bar (relative z-20, padding pl-6 pr-6 py-6):
+Inner container: rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto
+Left side: Logo area with a Globe icon (size 24) and text "Asme" in white, font-semibold text-lg, with gap-2
+Next to the logo (with gap-8): three nav links ("Features", "Pricing", "About") -- hidden on mobile, shown on md: -- styled text-white/80 hover:text-white transition-colors text-sm font-medium
+Right side (gap-4): "Sign Up" as plain white text button, "Login" as a liquid-glass rounded-full px-6 py-2 button
+
+Hero content area (relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]):
+Heading: "Built for the curious" -- text-5xl md:text-6xl lg:text-7xl text-white mb-8 tracking-tight whitespace-nowrap with Instrument Serif font
+Below the heading, a max-w-xl w-full space-y-4 container:
+Email input bar: liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3. Inside: a transparent email input (placeholder: "Enter your email", text-white placeholder:text-white/40 text-base) and a white circular submit button (bg-white rounded-full p-3 text-black) containing an ArrowRight icon (size 20)
+Subtitle text: text-white text-sm leading-relaxed px-4 -- "Stay updated with the latest news and insights. Subscribe to our newsletter today and never miss out on exciting updates."
+Manifesto button: centered, liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors
+
+Social icons footer (relative z-10 flex justify-center gap-4 pb-12):
+Three circular icon buttons, each liquid-glass rounded-full p-4 text-white/80 hover:text-white hover:bg-white/5 transition-all
+Icons: Instagram, Twitter, Globe (all size 20) from lucide-react
+Each has an aria-label
+
+Tech stack: Vite + React 18 + TypeScript, Tailwind CSS 3, lucide-react for all icons. Default Tailwind config with no extensions. No other UI libraries.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

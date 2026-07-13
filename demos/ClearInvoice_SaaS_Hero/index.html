@@ -3,90 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClearInvoice | Manage Your Online Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>ClearInvoice SaaS Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
-        const { motion } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>ClearInvoice SaaS Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">clearinvoice_saas_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a high-fidelity, dark-mode Hero section for a SaaS product called "ClearInvoice" using React and Tailwind CSS.
 
-        const App = () => {
-            const videoRef = useRef(null);
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current;
-                const url = 'https://stream.mux.com/hUT6X11m1Vkw1QMxPOLgI761x2cfpi9bHFbi5cNg4014.m3u8';
-                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); return () => h.destroy(); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
-            }, []);
+Tech Stack:
+Framework: React (Vite)
+Styling: Tailwind CSS
+Animation: motion/react (Framer Motion)
+Icons: lucide-react
+Video: Native HTML5 <video> with hls.js for streaming (Do NOT use react-player).
 
-            return (
-                <div className="relative min-h-screen overflow-hidden bg-black">
-                    <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover -z-10" muted loop playsInline />
-                    {/* Top gradient bar */}
-                    <div className="w-full h-[5px] bg-gradient-to-r from-[#ccf] via-[#e7d04c] to-[#31fb78] relative z-10"></div>
+1. Background Video (Crucial):
+Source: https://stream.mux.com/hUT6X11m1Vkw1QMxPOLgI761x2cfpi9bHFbi5cNg4014.m3u8
+Behavior: Autoplay, Loop, Muted, PlaysInline.
+Opacity: 100% (No dark overlay).
+Implementation: Create a memoized BackgroundVideo component using hls.js to handle the .m3u8 stream natively. Ensure it cleans up properly on unmount to prevent "AbortError".
+Z-Index: It must sit behind all content (-z-10).
 
-                    {/* Navbar */}
-                    <nav className="relative z-20 max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-                        <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center"><i data-lucide="file-text" className="w-4 h-4 text-black"></i></div>
-                            <span className="font-semibold text-lg">ClearInvoice</span>
-                        </div>
-                        <div className="hidden md:flex items-center gap-6">
-                            {['Features','Pricing','Reviews'].map(l => <a key={l} href="#" className="text-sm text-white/80 hover:text-white transition-colors">{l}</a>)}
-                        </div>
-                        <div className="hidden md:flex items-center gap-3">
-                            <button className="text-sm text-white/80 hover:text-white px-4 py-2">Sign In</button>
-                            <button className="text-sm bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/10 hover:bg-white/20 transition-colors">Sign Up</button>
-                        </div>
-                    </nav>
+2. Layout & Styling:
+Font Family:
+Headings: "Switzer" (Medium weight, tight tracking).
+Body: "Geist" (Clean, legible).
 
-                    {/* Hero */}
-                    <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-24 pb-32">
-                        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-                            className="text-4xl sm:text-5xl md:text-6xl font-medium leading-tight tracking-tight mb-6">
-                            Manage your online store while save 3x operating cost
-                        </motion.h1>
-                        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-                            className="text-lg text-white/90 max-w-xl mx-auto mb-8">
-                            ClearInvoice takes the hassle out of billing with easy-to-use tools.
-                        </motion.p>
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                            <div className="relative group">
-                                <div className="absolute inset-0 bg-orange-600 blur-lg opacity-20 group-hover:opacity-60 transition-opacity rounded-full"></div>
-                                <button className="relative bg-gradient-to-r from-[#FF3300] to-[#EE7926] text-white px-8 py-3.5 rounded-full font-medium text-base border-[1.5px] border-white/20 hover:scale-105 transition-transform flex items-center gap-2">
-                                    Get Started Free <i data-lucide="arrow-right" className="w-4 h-4"></i>
-                                </button>
-                            </div>
-                            <button className="bg-white/90 backdrop-blur-sm text-black px-8 py-3.5 rounded-full font-medium text-base border-[1.5px] border-black/5 hover:bg-white hover:scale-105 transition-all">
-                                Watch Demo
-                            </button>
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
-                            className="flex items-center justify-center gap-3">
-                            <div className="flex -space-x-2">
-                                {['E8D5B7','C4A882','A08060'].map((c,i) => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-black" style={{ background: `#${c}` }}></div>
-                                ))}
-                            </div>
-                            <span className="text-sm text-white/70">Trusted by 210k+ stores worldwide</span>
-                        </motion.div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Top Bar: A 5px high gradient bar at the very top: from-[#ccf] via-[#e7d04c] to-[#31fb78].
+Navbar:
+Logo on left.
+Links (Features, Pricing, Reviews) centered.
+Auth buttons (Sign In, Sign Up) on right.
+Mobile: Hamburger menu that opens a full-width dropdown.
+
+3. Hero Content:
+Headline: "Manage your online store while save 3x operating cost" (Large text: text-6xl, tight leading).
+Subhead: "ClearInvoice takes the hassle out of billing with easy-to-use tools." (White/90).
+Animations: Use motion/react to stagger the entrance of the Text, Buttons, and Social Proof (Fade Up + Slide).
+
+4. Button Styles (Exact Recreation):
+Primary Button:
+Background: Gradient from-[#FF3300] to-[#EE7926].
+Glow: An absolute positioned div behind the button with bg-orange-600 blur-lg opacity-20.
+Inner Stroke: A 1.5px border overlay (border-white/20) inside the button for a "glassy" edge.
+Hover: scale: 1.05, glow increases to opacity-60, and an Arrow icon slides in from the left.
+
+Secondary Button:
+Background: bg-white/90 backdrop blur.
+Inner Stroke: 1.5px border (border-black/5).
+Hover: scale: 1.05, background becomes solid white.
+
+5. Social Proof:
+Row of 3 user avatars (overlapping borders).
+Text: "Trusted by 210k+ stores worldwide".</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

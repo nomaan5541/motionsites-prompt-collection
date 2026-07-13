@@ -3,220 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeNest | Launch Your Coding Career</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React, Framer Motion, HLS.js, Lucide Icons -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#5ed29c',
-                        darkBg: '#070b0a',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Instrument Serif', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .liquid-glass {
-                background: rgba(255, 255, 255, 0.01);
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(4px);
-                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-                position: relative;
-            }
-            .liquid-glass::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                padding: 1.4px;
-                border-radius: inherit;
-                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask-composite: exclude;
-            }
-            .grid-line {
-                @apply absolute top-0 bottom-0 w-px bg-white/10 hidden lg:block;
-            }
-        }
+    <title>CodeNest Coding Platform — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>CodeNest Coding Platform</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">codenest_coding_platform.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a high-end, dark-themed hero section for a coding education platform called 'CodeNest' using React and Tailwind CSS. The design must be responsive and follow these precise specifications:
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, AnimatePresence } = window.Motion;
+1. Background & Layout:
 
-        const Navbar = () => {
-            const [isOpen, setIsOpen] = useState(false);
-            
-            return (
-                <header className="absolute top-0 left-0 w-full z-[100] px-8 py-6 flex justify-between items-center">
-                    <div className="text-2xl font-bold tracking-tighter">CodeNest</div>
-                    
-                    {/* Desktop Menu */}
-                    <nav className="hidden lg:flex space-x-10">
-                        {['PROJECTS', 'BLOG', 'ABOUT', 'RESUME'].map(item => (
-                            <a key={item} href="#" className="text-sm font-medium tracking-widest hover:text-brand transition-colors">
-                                {item}
-                            </a>
-                        ))}
-                    </nav>
-                    
-                    {/* Mobile Menu Trigger */}
-                    <button onClick={() => setIsOpen(true)} className="lg:hidden p-2">
-                        <i data-lucide="menu" className="w-6 h-6"></i>
-                    </button>
-                    
-                    {/* Full-screen Mobile Menu */}
-                    <AnimatePresence>
-                        {isOpen && (
-                            <motion.div 
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="fixed inset-0 bg-darkBg z-[110] flex flex-col items-center justify-center space-y-8"
-                            >
-                                <button onClick={() => setIsOpen(false)} className="absolute top-8 right-8 p-2">
-                                    <i data-lucide="x" className="w-8 h-8"></i>
-                                </button>
-                                {['PROJECTS', 'BLOG', 'ABOUT', 'RESUME'].map(item => (
-                                    <a key={item} href="#" className="text-2xl font-bold tracking-widest hover:text-brand">
-                                        {item}
-                                    </a>
-                                ))}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </header>
-            );
-        };
+Background: Implement a full-screen background video using the HLS stream: https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8. Use hls.js and set enableWorker: false to ensure stability in sandboxed environments.
 
-        const Hero = () => {
-            const videoRef = useRef(null);
-            
-            useEffect(() => {
-                const video = videoRef.current;
-                const streamUrl = 'https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8';
-                
-                if (Hls.isSupported()) {
-                    const hls = new Hls({ enableWorker: false });
-                    hls.loadSource(streamUrl);
-                    hls.attachMedia(video);
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = streamUrl;
-                }
-                
-                lucide.createIcons();
-            }, []);
+Overlays: Set the video to 60% opacity. Add a dark linear gradient from the left (#070b0a to transparent) and a bottom-up gradient for readability.
 
-            return (
-                <section className="relative w-full h-screen overflow-hidden flex items-center px-8 lg:px-24">
-                    {/* Background Video */}
-                    <video 
-                        ref={videoRef}
-                        className="absolute inset-0 w-full h-full object-cover opacity-60 -z-30"
-                        autoPlay loop muted playsInline
-                    />
-                    
-                    {/* Overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-darkBg via-darkBg/50 to-transparent -z-20"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent -z-20"></div>
-                    
-                    {/* Grid System */}
-                    <div className="grid-line left-[25%]"></div>
-                    <div className="grid-line left-[50%]"></div>
-                    <div className="grid-line left-[75%]"></div>
-                    
-                    {/* Central Glow */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10">
-                        <svg width="800" height="400" viewBox="0 0 800 400" fill="none">
-                            <defs>
-                                <filter id="glow">
-                                    <feGaussianBlur stdDeviation="25" />
-                                </filter>
-                            </defs>
-                            <ellipse cx="400" cy="0" rx="300" ry="100" fill="#5ed29c" fillOpacity="0.2" filter="url(#glow)" />
-                        </svg>
-                    </div>
-                    
-                    {/* Main Content */}
-                    <div className="relative z-10 max-w-4xl pt-20">
-                        {/* Floating Liquid Glass Card */}
-                        <motion.div 
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: -50, opacity: 1 }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="liquid-glass w-[200px] h-[200px] rounded-2xl p-6 flex flex-col justify-between mb-8"
-                        >
-                            <span className="text-[14px] text-brand/80 font-medium">[ 2025 ]</span>
-                            <h3 className="text-[18px] leading-tight font-medium">
-                                Taught by <span className="font-serif italic font-normal">Industry</span> Professionals
-                            </h3>
-                            <p className="text-[11px] opacity-60">
-                                Verified experts from leading tech giants worldwide.
-                            </p>
-                        </motion.div>
-                        
-                        <div className="space-y-4">
-                            <span className="font-jakarta text-[11px] font-bold text-brand uppercase tracking-[0.2em] block mb-2">
-                                Career-Ready Curriculum
-                            </span>
-                            
-                            <h1 className="font-sans font-black text-[40px] lg:text-[72px] leading-[0.9] tracking-tighter uppercase max-w-2xl">
-                                LAUNCH YOUR CODING CAREER<span className="text-brand">.</span>
-                            </h1>
-                            
-                            <p className="text-sm md:text-[14px] opacity-70 max-w-[512px] leading-relaxed">
-                                Master in-demand coding skills with our accelerated paths. From zero to professional with real-world projects and direct mentorship.
-                            </p>
-                            
-                            <div className="pt-8">
-                                <motion.button 
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-brand text-[#070b0a] px-8 py-4 rounded-full font-bold uppercase text-xs flex items-center gap-3 tracking-widest shadow-lg shadow-brand/20"
-                                >
-                                    Get Started
-                                    <i data-lucide="arrow-right" className="w-4 h-4"></i>
-                                </motion.button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+Grid System: Add three thin vertical grid lines (white/10 opacity) at the 25%, 50%, and 75% marks across the screen (visible on desktop).
 
-        const App = () => (
-            <div>
-                <Navbar />
-                <Hero />
-            </div>
-        );
+Central Glow: Place a large horizontal SVG ellipse glow in the center-top area with a cyan/dark green hue, using a 25px Gaussian blur filter.
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+2. The Liquid Glass Card:
+
+Component: Create a 200x200px floating card positioned above the main headline, shifted exactly 50px upwards using translate-y-[-50px].
+
+CSS Styling (Liquid Glass):
+
+background: rgba(255, 255, 255, 0.01) with background-blend-mode: luminosity.
+
+backdrop-filter: blur(4px).
+
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1).
+
+Border Effect: A ::before pseudo-element with inset: 0, padding: 1.4px, and a 180-degree white linear gradient. Use -webkit-mask-composite: xor and mask-composite: exclude to create a sharp, high-end border frame.
+
+Content: '[ 2025 ]' tag (14px), 'Taught by Industry Professionals' headline (18px, using Instrument Serif italic for 'Industry'), and a small description (11px).
+
+3. Hero Content & Typography:
+
+Eyebrow: 'Career-Ready Curriculum' in Plus Jakarta Sans, bold, 11px, color #5ed29c.
+
+Main Headline: 'LAUNCH YOUR CODING CAREER.' in Inter Extra Bold, uppercase, tracking-tight. Scale from 40px (mobile) to 72px (desktop). The final period must be green (#5ed29c).
+
+Description: 'Master in-demand coding skills...' in Inter, 14px, 70% white opacity, max-width 512px.
+
+Primary CTA: 'Get Started' button with an ArrowRight icon. Rounded-full, background #5ed29c, text #070b0a, uppercase, bold.
+
+4. Global Navigation:
+
+Header: Sticky/Absolute header with a white minimalist logo.
+
+Desktop Menu: Links for 'PROJECTS', 'BLOG', 'ABOUT', 'RESUME' in Inter, 16px. Hover state: #5ed29c.
+
+Mobile Menu: A functional hamburger menu that toggles a full-screen dark overlay.
+
+5. Required Imports:
+
+Fonts: Inter, Plus Jakarta Sans, and Instrument Serif (italic).
+
+Icons: lucide-react (ArrowRight, Menu, X).
+
+Library: hls.js for video streaming.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

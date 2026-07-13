@@ -4,270 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spaceup — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #00cec9 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #00cec9;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #00cec9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #00cec9;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782880936906-spaceup_website.webp" alt="Spaceup preview" onerror="this.style.display='none'">
+        <div class="badge">Agency • Premium</div>
+        <h1>Spaceup</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">spaceup.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Act like an award-winning designer and web developer. Your task is to build an immersive, ultra-premium digital agency portfolio website using React, Tailwind CSS, Framer Motion, and GSAP. The design must be breathtaking, interactive, and flawlessly responsive, utilizing a dark "deep space and clouds" aesthetic.
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">Agency Template</div>
-            <h1>Spaceup</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">spaceup.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+Below is the complete, exhaustive specification for this project.
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+---
+
+# 1. Visual Design System
+
+## Exact Color Palette
+- **Deep Navy Background (Primary):** \`#0a0f24\`
+- **Pitch Navy Background (Secondary):** \`#050814\`
+- **Gradient Transition Blue:** \`#1a2b4c\`
+- **Neon Cyan Accent:** \`#00ffcc\`
+- **Primary Text:** \`#ffffff\` (White)
+- **Dark Text (for high contrast areas):** \`#112024\`
+- **White Opacities:** heavily utilize \`rgba(255,255,255, 0.8)\` for body text and \`rgba(255,255,255, 0.1)\` for borders and subtle icons.
+
+## Typography
+- **Primary Headings:** \`Cormorant Garamond\`
+  - Sizes ranging from \`text-5xl\` up to \`text-[12rem]\` or \`15vw\`.
+  - Weights: \`font-light\` (Hero), \`font-semibold\` (Logos).
+  - Tracking: \`tracking-tighter\` or normal.
+  - Line Height: Ultra-tight (\`leading-none\`, \`leading-[0.85]\`).
+- **Body \\u0026 Accents:** \`Inter\`
+  - Sizes: \`text-xs\` to \`text-xl\`.
+  - Styling for overlines/categories: \`uppercase\`, \`tracking-[0.2em]\` to \`tracking-[0.3em]\`, \`font-bold\` or \`font-medium\`.
+
+## Layout \\u0026 Grid
+- The site follows a central max-width constraint for content blocks (e.g., \`max-w-7xl\` or \`max-w-[90rem]\`), while backgrounds, nav, and hero sections bleed full-width (\`w-full\`).
+- Deep use of \`relative\`, \`absolute\`, and \`z-index\` layering to manage complex parallax elements (stars, clouds, images, text).
+
+---
+
+# 2. Section-by-Section Architecture \\u0026 Interactions
+
+## A. Navigation (Navbar)
+- **Positioning:** Fixed at the top, centered, with \`max-w-4xl\`.
+- **Styling:** Pill-shaped (\`rounded-full\`), glassmorphism (\`bg-[#0a0f24]/95 backdrop-blur-2xl\`), very thin white border (\`border-white/5\`), subtle shadow.
+- **Video Background:** Behind the glass, an embedded muted looping video (\`https://res.cloudinary.com/dprydfxok/video/upload/v1782477184/bg7_nke0yy.mp4\`) at 60% opacity, fading to 100% on container hover.
+- **Content:** Logo "SpaceUp" on the left, Links (About, Services, Work) centered, "Start Project" button on the right.
+- **Interaction:** Nav stays hidden on initial load and slides/fades down (\`translate-y-0 opacity-100\`) only after the user scrolls past the Hero section (250vh).
+- **Mobile:** Full-screen blurred overlay menu triggered by a hamburger icon.
+
+## B. Hero Section
+- **Visuals:** A massive pinned full-screen section (\`100vh\`) with a background gradient from \`#0a0f24\` to \`#1a2b4c\` to \`#ffffff\`.
+- **Assets:** 
+  - Astronaut (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782880425/austronaut_jabuud.png\`)
+  - Drifting Clouds (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782880424/white-cloud_yhr9j9.avif\`)
+  - A generative subtle starry background (\`<Stars />\`).
+- **GSAP ScrollTrigger Sequence (Pinned):**
+  1. **Initial Load:** Astronaut fades in and glides up from \`50vh\` below the screen. It also has a continuous Framer Motion floating loop (\`y: [0, -15, 0]\`).
+  2. **Scroll 1:** First huge text ("ELEVATE YOUR BRAND") fades out moving up. Astronaut moves left, rotates, and scales down. Clouds scale up.
+  3. **Scroll 2:** Second text ("DOMINATE THE DIGITAL SPACE") fades in. Astronaut glides to the right.
+  4. **Scroll 3:** Third text ("UNLEASH YOUR POTENTIAL" in dark text) fades in. Astronaut centers.
+  5. **Scroll 4:** Astronaut plunges deep into the clouds (\`y: 800\`, scales to 0.5, fades out). Clouds engulf the screen, and the background crossfades to pure white (\`#ffffff\`).
+- **Additional Effect:** The clouds use a horizontal CSS mask (\`maskImage: linear-gradient(to right, transparent, black 10%, black 90%, transparent)\`) to seamlessly blur and fade the left and right edges.
+- **Logo Area:** At the bottom, a \`text-[#0a0f24]\` "SpaceUp" logo and "Scroll to Explore" text fade out when scrolling starts.
+
+## C. Services Section
+- **Layout:** A grid with 4 premium cards. Cards span different columns (e.g., 2 cols, 1 col).
+- **Card Styling:** Dark backgrounds (\`#0a0f24\` or \`#050814\`). \`rounded-[2rem]\`. 
+- **Video Overlay:** Each card has a background video (\`https://res.cloudinary.com/dprydfxok/video/upload/v1782477183/bg10_mvrasv.mp4\`) that plays on hover (\`opacity-0\` to \`opacity-60\`).
+- **Solid Bottom:** The bottom 20% of the video mask fades to a 100% solid dark navy blue so the text remains highly legible.
+- **Typography/Icons:** Titles in Cormorant, description in white Inter. Icons scale and rotate slightly on hover.
+- **Entrance Animation:** GSAP staggered slide-up when the section scrolls into view.
+
+## D. Selected Works (Interactive Master-Detail Gallery)
+- **Layout:** 2-column grid (\`lg:grid-cols-2\`), full screen height \`min-h-screen\`, dark \`#0a0f24\` background with stars and clouds at the bottom.
+- **Left Column:** 
+  - Massive active image container (\`aspect-[4/3]\`) with a bottom-to-top gradient overlay.
+  - A horizontally scrolling row of thumbnail images right beneath it (scrollbar hidden). 
+  - Thumbnails scale up and get a neon cyan border (\`#00ffcc\`) and glow when active.
+- **Right Column:** 
+  - Dynamic content: Category (cyan tracking text), massive Project Title, 3-line description, and a "Visit Site" button.
+  - The button features an arrow inside a circle that translates right (\`group-hover:translate-x-2\`) on hover.
+- **Interactions:** Clicking a thumbnail updates the active index. The main image crossfades/scales via GSAP (\`opacity: 0.2, scale: 1.05\` to \`opacity: 1, scale: 1\`). The right-column text slides in from the left (\`x: -20\` to \`x: 0\`) with a smooth staggered fade.
+- **Assets (Images 3:2 or 4:3 crop):**
+  - EcoNexa: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823787/EcoNexa_w4kl4w.webp\`
+  - Bali Travel: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823794/Bali_travel_oxtsng.webp\`
+  - Calm: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823790/Calm_Hero_fbj3b9.webp\`
+  - Northridge: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823785/Northridge_Hero_lltty5.webp\`
+  - Naturally: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823785/Naturally_Website_h5aq5g.webp\`
+  - Basilico: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823783/basilico_restaurant_ycdzct.webp\`
+  - Wander: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823783/Wander_Hero_yvqcsi.webp\`
+  - Hublot: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823725/hublot-watches_gmf6wu.webp\`
+  - Crush: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823712/crush_website_1_ls4lc7.webp\`
+
+## E. Footer
+- **Layout:** Massive typography "LET'S TALK", centered layout, full height (\`h-screen\`).
+- **Visuals:** Background color \`#0a0f24\`. A subtle gradient to transparent at the top. The clouds asset (\`white-cloud.avif\`) overlaid at \`opacity-10\` with \`mix-blend-screen\`.
+- **Bottom Bar:** Copyright and social links in a wide flex row at the bottom, using tiny tracking caps text.
+
+---
+
+# 3. Technical Implementation Details
+
+## Tech Stack
+- **Framework:** React 18 (Vite)
+- **Styling:** Tailwind CSS (Vanilla setup, no complex plugins).
+- **Animation:** GSAP (ScrollTrigger for scroll-bound timelines, core GSAP for UI transitions) and Framer Motion (for continuous looping animations like drifting clouds and the floating astronaut).
+- **Icons:** Lucide React.
+
+## Performance \\u0026 SEO
+- **Images/Videos:** All assets must be loaded via Cloudinary (AVIF/WEBP format).
+- **Accessibility:** Use semantic HTML (\`<nav>\`, \`<main>\`, \`<section>\`, \`<footer>\`). Add appropriate \`aria-labels\` to buttons and \`alt\` tags to images. Ensure color contrast for primary reading text.
+- **Responsive Design:** Mobile-first approach using Tailwind's \`md:\` and \`lg:\` breakpoints. Text scales fluidly using \`vw\` units in the hero section, while standardized tailwind text sizes (\`text-5xl\`, etc) are used elsewhere.
+
+## Motion \\u0026 Micro-interactions 
+- **Easing:** Rely heavily on \`power2.out\`, \`power3.out\`, and \`easeInOut\` for frictionless, highly premium motion.
+- **Hover States:** Buttons should scale up (\`hover:scale-105\`), borders should glow, and arrows should translate. 
+- **Durations:** Page transitions and image crossfades should be unhurried (e.g. \`0.6s\` to \`1.0s\` duration).
+
+Follow these instructions exactly to rebuild this masterpiece.</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

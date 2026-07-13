@@ -3,195 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom AI | Innovating the Spirit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Serif+4:ital,wght@1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Poppins', 'sans-serif'],
-                        serif: ['Source Serif 4', 'serif'],
-                    },
-                    borderRadius: { custom: '1rem' },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer components {
-            .liquid-glass {
-                background: rgba(255,255,255,0.01);
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(4px);
-                border: none;
-                box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
-                position: relative; overflow: hidden;
-            }
-            .liquid-glass::before {
-                content: ''; position: absolute; inset: 0;
-                border-radius: inherit; padding: 1.4px;
-                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor; mask-composite: exclude;
-                pointer-events: none;
-            }
-            .liquid-glass-strong {
-                background: rgba(255,255,255,0.01);
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(50px);
-                box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15);
-                position: relative;
-            }
-            .liquid-glass-strong::before {
-                content: ''; position: absolute; inset: 0;
-                border-radius: inherit; padding: 1.4px;
-                background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.5) 100%);
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor; mask-composite: exclude;
-                pointer-events: none;
-            }
-        }
+    <title>Bloom AI — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-black text-white font-display antialiased overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Bloom AI</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">bloom_ai.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a full-screen hero landing page for "Bloom" — an AI-powered plant/floral design platform. The design uses a liquid glass morphism aesthetic over a looping video background.
 
-    <script type="text/babel">
-        const { useEffect } = React;
+Background
+Full-screen autoplaying, looping, muted video background: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4
+Video covers entire viewport with object-cover, sits at z-0. All content floats above at z-10.
 
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
+Fonts
+Display/Body: Poppins (Google Fonts) — used for headings and body text
+Serif accent: Source Serif 4 (Google Fonts) — used only for italic/emphasis text inside headings (e.g., <em>, <i>, .italic inside h1-h3)
+Headings use font-weight: 500
 
-            return (
-                <div className="relative min-h-screen flex flex-col lg:flex-row">
-                    {/* Full-screen Background Video */}
-                    <video 
-                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4"
-                        className="fixed inset-0 w-full h-full object-cover -z-10"
-                        autoPlay loop muted playsInline
-                    />
+Color Palette
+Strict grayscale only — all CSS variables are 0 0% X% HSL values
+Text is text-white, text-white/80, text-white/60, text-white/50 for hierarchy
+No colored accents whatsoever
 
-                    {/* ── LEFT PANEL (52%) ── */}
-                    <div className="w-full lg:w-[52%] min-h-screen relative flex flex-col p-4 lg:p-6">
-                        <div className="liquid-glass-strong absolute inset-4 lg:inset-6 rounded-3xl pointer-events-none"></div>
-                        
-                        {/* Nav */}
-                        <nav className="relative z-10 flex justify-between items-center px-6 py-5">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                                    <i data-lucide="sparkles" className="w-4 h-4"></i>
-                                </div>
-                                <span className="text-2xl font-semibold tracking-tighter">bloom</span>
-                            </div>
-                            <button className="liquid-glass rounded-full px-5 py-2 flex items-center gap-2 text-sm hover:scale-105 transition-transform">
-                                <i data-lucide="menu" className="w-4 h-4"></i> Menu
-                            </button>
-                        </nav>
+Liquid Glass CSS (two tiers)
+Define under @layer components:
 
-                        {/* Hero Center */}
-                        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8 text-center">
-                            <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center mb-10">
-                                <i data-lucide="sparkles" className="w-8 h-8"></i>
-                            </div>
-                            <h1 className="text-5xl lg:text-7xl font-medium tracking-[-0.05em] leading-[0.95] mb-8">
-                                Innovating the<br /><span className="font-serif italic text-white/80">spirit of bloom AI</span>
-                            </h1>
-                            <button className="liquid-glass-strong rounded-full px-8 py-4 flex items-center gap-3 text-sm font-medium hover:scale-105 active:scale-95 transition-transform mb-8">
-                                Explore Now
-                                <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
-                                    <i data-lucide="download" className="w-3.5 h-3.5"></i>
-                                </span>
-                            </button>
-                            <div className="flex flex-wrap justify-center gap-3">
-                                {['Artistic Gallery', 'AI Generation', '3D Structures'].map(tag => (
-                                    <span key={tag} className="liquid-glass rounded-full px-4 py-1.5 text-xs text-white/80">{tag}</span>
-                                ))}
-                            </div>
-                        </div>
+.liquid-glass (light)
+background: rgba(255,255,255,0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+position: relative; overflow: hidden;
+::before pseudo-element: gradient border using linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%) with padding: 1.4px, masked via -webkit-mask-composite: xor; mask-composite: exclude;
 
-                        {/* Bottom Quote */}
-                        <div className="relative z-10 px-8 pb-8 text-center">
-                            <div className="text-xs tracking-widest uppercase text-white/50 mb-4">Visionary Design</div>
-                            <p className="text-lg font-medium mb-4">
-                                "We imagined a realm with <span className="font-serif italic text-white/80">no ending.</span>"
-                            </p>
-                            <div className="flex items-center justify-center gap-4 text-xs tracking-widest uppercase text-white/50">
-                                <span className="h-px w-12 bg-white/20"></span>
-                                MARCUS AURELIO
-                                <span className="h-px w-12 bg-white/20"></span>
-                            </div>
-                        </div>
-                    </div>
+.liquid-glass-strong (heavy, for CTA/panels)
+Same structure but backdrop-filter: blur(50px), box-shadow: 4px 4px 4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.15), and ::before uses 0.5/0.2 alpha instead of 0.45/0.15.
 
-                    {/* ── RIGHT PANEL (48%) ── */}
-                    <div className="hidden lg:flex w-[48%] min-h-screen flex-col p-6">
-                        {/* Top Social Bar */}
-                        <div className="flex justify-between items-center mb-8">
-                            <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-4">
-                                {['twitter', 'linkedin', 'instagram'].map(icon => (
-                                    <a key={icon} href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:text-white/80 transition-colors">
-                                        <i data-lucide={icon} className="w-4 h-4"></i>
-                                    </a>
-                                ))}
-                                <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                                    <i data-lucide="arrow-right" className="w-4 h-4"></i>
-                                </span>
-                            </div>
-                            <button className="liquid-glass rounded-full px-5 py-2 flex items-center gap-2 text-sm hover:scale-105 transition-transform">
-                                <i data-lucide="sparkles" className="w-4 h-4"></i> Account
-                            </button>
-                        </div>
+Layout — Two-Panel Split
+Flex row, min-h-screen. Left panel w-[52%], right panel w-[48%] (hidden on mobile lg:flex).
 
-                        {/* Community Card */}
-                        <div className="liquid-glass rounded-2xl p-6 w-56 mb-auto">
-                            <h3 className="text-sm font-semibold mb-2">Enter our ecosystem</h3>
-                            <p className="text-xs text-white/60 leading-relaxed">Join a community of creators shaping the future of AI-powered design.</p>
-                        </div>
+Left Panel
+Has a liquid-glass-strong overlay (absolute inset-4 lg:inset-6 rounded-3xl)
+Nav: Logo image (/logo.png, 32×32) + "bloom" text (semibold, 2xl, tracking-tighter, white) on left. "Menu" button with Menu icon on right, liquid-glass pill.
+Hero center (flex-1, centered):
+Logo image again (80×80)
+h1: "Innovating the / spirit of bloom AI" — text-6xl lg:text-7xl, tracking-[-0.05em], white. The italic part uses font-serif text-white/80
+CTA button: "Explore Now" with Download icon in a w-7 h-7 rounded-full bg-white/15 circle. Button is liquid-glass-strong, rounded-full, hover:scale-105 active:scale-95
+Three pills: "Artistic Gallery", "AI Generation", "3D Structures" — liquid-glass, rounded-full, text-xs text-white/80
+Bottom quote:
+"VISIONARY DESIGN" label (text-xs tracking-widest uppercase text-white/50)
+Quote: "We imagined a realm with no ending." — mixed font-display/font-serif italic spans
+Author: "MARCUS AURELIO" with horizontal lines on each side
 
-                        {/* Bottom Feature Section */}
-                        <div className="liquid-glass rounded-[2.5rem] p-6 mt-auto">
-                            <div className="grid grid-cols-2 gap-4 mb-4">
-                                <div className="liquid-glass rounded-3xl p-5">
-                                    <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                                        <i data-lucide="wand-2" className="w-4 h-4"></i>
-                                    </span>
-                                    <h4 className="text-sm font-medium mb-1">Processing</h4>
-                                    <p className="text-xs text-white/50">AI-powered generation in real time</p>
-                                </div>
-                                <div className="liquid-glass rounded-3xl p-5">
-                                    <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                                        <i data-lucide="book-open" className="w-4 h-4"></i>
-                                    </span>
-                                    <h4 className="text-sm font-medium mb-1">Growth Archive</h4>
-                                    <p className="text-xs text-white/50">Track your creative evolution</p>
-                                </div>
-                            </div>
-                            <div className="liquid-glass rounded-3xl p-5 flex items-center gap-5">
-                                <div className="w-24 h-16 rounded-xl bg-white/5 overflow-hidden shrink-0">
-                                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=200&h=150&fit=crop" className="w-full h-full object-cover opacity-60" />
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="text-sm font-medium mb-1">Advanced Plant Sculpting</h4>
-                                    <p className="text-xs text-white/50">Design living art with AI precision</p>
-                                </div>
-                                <button className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0 hover:scale-105 transition-transform text-lg">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Right Panel (desktop only)
+Top bar: Social icons (Twitter, LinkedIn, Instagram) in a liquid-glass pill with ArrowRight. Account button with Sparkles icon button, both liquid-glass.
+Community card: Small liquid-glass card (w-56), "Enter our ecosystem" title + description
+Bottom feature section (mt-auto): Outer liquid-glass container with rounded-[2.5rem]
+Two side-by-side cards: "Processing" (Wand2 icon) and "Growth Archive" (BookOpen icon), each liquid-glass rounded-3xl
+Bottom card: flower image thumbnail (from @/assets/hero-flowers.png, 96×64), "Advanced Plant Sculpting" title + description, and a "+" button. All liquid-glass.
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Icons
+All from lucide-react: Sparkles, Download, Wand2, BookOpen, ArrowRight, Twitter, Linkedin, Instagram, Menu
+
+Key Details
+All interactive elements: hover:scale-105 transition-transform
+Social icon links: text-white hover:text-white/80 transition-colors
+Icon containers: w-8 h-8 rounded-full bg-white/10 flex items-center justify-center
+No border classes anywhere — glass effect handles all borders via ::before
+border-radius token: --radius: 1rem</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

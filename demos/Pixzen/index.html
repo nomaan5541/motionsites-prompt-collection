@@ -4,270 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixzen — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #6c5ce7 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #6c5ce7;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #6c5ce7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #6c5ce7;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781522720269-Pixzen.webp" alt="Pixzen preview" onerror="this.style.display='none'">
+        <div class="badge">SaaS </div>
+        <h1>Pixzen</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">pixzen.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">You are an expert Frontend Engineer tasked with building "PIXZEN", an elite, world-class futuristic AI agency website. The design must feature an ultra-clean monochrome editorial aesthetic, massive premium typography, fluid interactions (GSAP \\u0026 Framer Motion), and cinematic storytelling.
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">SaaS Template</div>
-            <h1>Pixzen</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">pixzen.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+## CORE TECH STACK
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS v4 (using CSS variables in \`globals.css\`)
+- **Animations**: GSAP (ScrollTrigger), Framer Motion, CSS Keyframes
+- **Scrolling**: Lenis Smooth Scrolling (\`lenis\`)
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+## GLOBAL DESIGN SYSTEM
+- **Typography**: "Satoshi" (via Fontshare CDN in layout.tsx). Use tight line-heights and massive letter spacing (\`tracking-widest\`) for labels.
+- **Color Palette**:
+  - Background (Light): \`#F5F3EF\` (Warm white)
+  - Secondary Background: \`#EAE7E1\` (Soft gray)
+  - Text Foreground: \`#0A0A0A\` (Pure black)
+  - Muted Text: \`#8E8E8E\`
+- **Global Texture**: Implement a persistent SVG fractal noise/grain overlay fixed across the entire site (opacity \`0.03\`, \`mix-blend-multiply\`).
+
+## CORE FEATURES \\u0026 SECTIONS (BUILD WITH 100% ACCURACY)
+
+### 1. Global Setup \\u0026 Smooth Scrolling
+- Wrap the entire application in a Lenis smooth scrolling component (\`lerp: 0.05\`).
+- Ensure all sections use a border-top separator (\`border-border\`).
+
+### 2. Floating Navbar (\`Navbar.tsx\`)
+- Fixed at the top, transparent on load, applying a backdrop blur (\`backdrop-blur-md bg-background/80\`) after 50px of scroll.
+- **Left**: "PIXZEN" logo (tracking \`0.2em\`).
+- **Center**: Hidden on mobile. Desktop links have a sleek scale-x hover underline animation.
+- **Right**: "LET'S TALK" pill button.
+- **Mobile Menu**: Include a hamburger menu that toggles a full-screen, fading background overlay containing large navigation links.
+
+### 3. Hero Section (\`Hero.tsx\`)
+- **Layout**: Center-aligned, minimalist typography covering the full screen (\`min-h-screen\`).
+- **Background Texture**: Absolute \`<video>\` element (\`hero_bg_animation_hand.mp4\`) washed out with \`opacity-[0.85]\` and \`mix-blend-luminosity\`, covered by a custom CSS \`radial-gradient\` Halftone Dot pattern overlay to create a premium printed-ink aesthetic.
+- **Typography**: A single-line massive \`h1\` (\`90px+\` on desktop). 
+- **Interaction**: Implement a dynamic typing effect that seamlessly cycles through 3 phrases ("Building Tomorrow", "Shaping Futures", "Driving Growth") with a blinking cursor. Include a bouncing "Scroll Down" chevron at the bottom.
+
+### 4. Trusted Brands (\`TrustedBrands.tsx\`)
+- **Layout**: An Infinite Scrolling CSS Marquee spanning the full width.
+- **Interaction**: The row of \`lucide-react\` icons and brand names continuously scrolls left. Default to \`opacity-40 grayscale\`, transitioning to full opacity and pausing the animation on hover. Include gradient edge fades.
+
+### 5. Our Expertise (\`Services.tsx\`)
+- **Layout**: Interactive List \\u0026 Sticky Media Reveal. Shifted to a 12-column grid layout with a 5/7 split for desktop.
+- **Interaction**: The left column contains a list of services. As the user hovers over a service title, the right column (a sticky \`framer-motion\` container) smoothly crossfades to reveal a corresponding high-res image and description text.
+
+### 6. Selected Work (\`FeaturedWork.tsx\`)
+- **Layout**: Premium Sticky Stacking Cards. A centered deck of massive, full-bleed project cards.
+- **Scroll Interaction**: As the user scrolls down, each card pins to the top of the screen (\`position: sticky\`). Using \`framer-motion\`'s \`useScroll\`, cards subtly scale down in the background as subsequent cards layer over them, enhancing depth.
+- **Click Interaction**: Include a Case Study Modal. Clicking "View Case" slides up a beautifully animated \`framer-motion\` overlay containing project details, locking the background scroll.
+
+### 7. About Vision \\u0026 Marquee (\`About.tsx\`)
+- **Scroll Reveal Text**: A massive manifesto text block. Use \`SplitType\` and GSAP \`ScrollTrigger\` with \`scrub: 1\` to highlight the words one by one as the user scrolls down the section.
+- **Marquee**: A pure CSS infinite scrolling marquee below the text spanning the full width with massive uppercase brand values ("ARTIFICIAL INTELLIGENCE — BRAND STRATEGY...").
+
+### 8. Insights (\`Insights.tsx\`)
+- Clean, editorial table-like rows featuring category, title, date, and an arrow icon.
+- **Interaction (CRITICAL)**: Implement a custom "Cursor Image Reveal". Create an absolute \`next/image\` thumbnail that is completely hidden by default. When the user hovers over a specific article row, the thumbnail must smoothly scale up and use \`gsap.to\` to physically follow their mouse cursor coordinates across the screen.
+
+### 9. Contact / Sticky Footer (\`Contact.tsx\`)
+- **Design**: Massive centered typography: "Let's Build The Future." with \`mix-blend-difference\` if overlaid on gradients. Add animated background gradients (\`animate-pulse\`, \`blur-3xl\`).
+- **Interaction**: A pill button ("Start a Project") wrapped in a custom Magnetic Button effect. Use mouse coordinates and \`gsap.to\` to pull the button slightly towards the user's cursor when they hover nearby, snapping back via \`elastic.out\` when they leave.
+
+### 10. Footer (\`Footer.tsx\`)
+- Ultra minimal, multi-column directory footer. Clean borders, small muted typography, referencing "PIXZEN" and "hello@pixzen.ai".
+
+## STRICT DEVELOPMENT RULES
+- Do not use generic startup templates. This must feel like a premium, Awwwards-winning luxury digital agency.
+- All animations must use \`power4.out\` or similar easing for premium buttery smoothness.
+- Absolutely NO \`any\` types in TypeScript.
+- Build fully responsive (stack to single columns on mobile).
+- Ensure \`globals.css\` properly wires Tailwind v4 themes without needing a separate \`tailwind.config.ts\`.</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

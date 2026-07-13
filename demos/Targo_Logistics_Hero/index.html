@@ -3,72 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Targo | Swift and Simple Transport</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Targo Logistics Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Rubik',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        const ClipBtn = ({ text, bg, color, className = '' }) => (
-            <button className={`px-6 py-3 font-bold uppercase text-sm tracking-wide ${className}`}
-                style={{ background: bg, color, clipPath: 'polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)' }}>
-                {text}
-            </button>
-        );
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <div className="relative min-h-screen overflow-hidden bg-black">
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
-                    <div className="relative z-10 min-h-screen flex flex-col" style={{ padding: '32px 64px', paddingLeft: 'max(32px, 64px)', paddingRight: 'max(32px, 64px)' }}>
-                        {/* Header */}
-                        <header className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="white"><polygon points="14,2 26,14 14,26 2,14"/></svg>
-                                <span className="text-white text-xl font-bold tracking-tight">targo</span>
-                            </div>
-                            <div className="hidden md:flex items-center gap-6">
-                                {['Home','About','Contact Us'].map(l => <a key={l} href="#" className="text-white/80 hover:text-white transition-colors text-sm">{l}</a>)}
-                                <ClipBtn text="Contact Us" bg="#EE3F2C" color="white" />
-                            </div>
-                        </header>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Targo Logistics Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">targo_logistics_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Design Prompt: Targo Hero Section
 
-                        {/* Hero - top-aligned */}
-                        <div className="mt-16 md:mt-24">
-                            <h1 className="text-[42px] md:text-[64px] font-bold uppercase text-white leading-[1.05]" style={{ letterSpacing: '-0.04em' }}>
-                                Swift and Simple<br />Transport
-                            </h1>
-                            <div className="mt-6">
-                                <ClipBtn text="Get Started" bg="#EE3F2C" color="white" />
-                            </div>
-                        </div>
+Brand Identity: Create a high-end, dark-themed hero section for a logistics brand called "targo". Use a color palette of deep black (#000000), a vibrant brand red (#EE3F2C), and crisp white for primary text. The typography should use the Rubik font family, with headlines in bold, uppercase, and slightly tight letter-spacing (approx. -4%).
 
-                        {/* Bottom consultation card */}
-                        <div className="mt-auto mb-0">
-                            <div className="max-w-sm rounded-xl p-6" style={{
-                                backdropFilter: 'blur(40px) saturate(180%)',
-                                WebkitBackdropFilter: 'blur(40px) saturate(180%)',
-                                border: '1px solid rgba(255,255,255,0.12)',
-                                background: 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
-                                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 40px rgba(0,0,0,0.3)'
-                            }}>
-                                <h3 className="text-white font-bold text-lg mb-2">Book a Free Consultation</h3>
-                                <p className="text-white/60 text-sm mb-4">Let's discuss how we can streamline your logistics operations.</p>
-                                <ClipBtn text="Book a Call" bg="white" color="#1a1a1a" className="flex items-center gap-2" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Layout & Positioning:
+
+Header: A clean top navigation bar with a white SVG logo (abstract symbol + "targo" wordmark) on the left. Include "Home", "About", and "Contact Us" links, plus a small red "Contact Us" button with clipped corners on the right.
+
+Main Hero: The headline "Swift and Simple Transport" and a "Get Started" button should be left-aligned and positioned in the upper-third of the section (aligned toward the top rather than centered).
+
+Bottom Widget: A "Book a Free Consultation" card positioned at the bottom-left.
+
+Key Design Elements:
+
+Video Background: An auto-looping, muted background video using URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4. Ensure it has 100% opacity with no dark overlay.
+
+Clipped-Corner Buttons: All primary buttons must feature a custom geometric shape using CSS clip-path (a 10-12px diagonal cut on the top-right and bottom-left corners). Use the brand red for "Get Started" and solid white for "Book a Call".
+
+Liquid Glass Effect: The consultation card must use advanced glassmorphism: backdrop-filter: blur(40px) saturate(180%), a 1px white border with 12% opacity, a subtle diagonal white-to-transparent shine gradient across the surface, and an inner box-shadow for depth.
+
+Scaled Proportions: The layout should feel refined and compact. Headlines should be roughly 64px on desktop, and the overall spacing should avoid excessive padding to maintain a "scaled-down" professional look.
+
+Technical Details:
+
+Frameworks: React & Tailwind CSS.
+
+Icons: Use the Phone icon from lucide-react inside the consultation button.
+
+Responsiveness: Ensure the headline scales down to ~42px on mobile and the padding adjusts from 64px (desktop) to 32px (mobile).</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

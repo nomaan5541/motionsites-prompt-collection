@@ -3,74 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weblex | Smart Website Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>tailwind.config={theme:{extend:{colors:{background:'hsl(240 67% 1%)',foreground:'hsl(0 0% 100%)',primary:'hsl(73 98% 57%)','primary-fg':'hsl(240 67% 1%)',secondary:'hsl(0 0% 100%)','secondary-fg':'hsl(240 67% 1%)',muted:'hsl(240 10% 12%)','muted-fg':'hsla(0,0%,82%,0.8)'}}}}</script>
+    <title>Weblex Dark Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-background text-foreground antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const App = () => {
-            const [menuOpen, setMenuOpen] = useState(false);
-            const videoRef = useRef(null);
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current; if (!v) return;
-                let raf, fadingOut = false;
-                const fade = (target, dur) => { const start = performance.now(); const from = parseFloat(v.style.opacity)||0;
-                    const tick = (now) => { const p = Math.min(1,(now-start)/dur); v.style.opacity = from + (target-from)*p; if(p<1) raf=requestAnimationFrame(tick); };
-                    cancelAnimationFrame(raf); raf=requestAnimationFrame(tick);
-                };
-                v.addEventListener('timeupdate', () => { if(v.duration && v.currentTime > v.duration-1.5 && !fadingOut) { fadingOut=true; fade(0, (v.duration-v.currentTime-0.3)*1000); } });
-                v.addEventListener('ended', () => { v.style.opacity=0; fadingOut=false; v.currentTime=0; v.play(); fade(1, 1000); });
-                v.style.opacity=0; v.play().then(() => fade(1, 1000)).catch(() => {});
-            }, [menuOpen]);
-            return (
-                <div className="min-h-screen bg-background relative overflow-hidden">
-                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260221_085953_8463b46e-ba85-4bb7-912a-1feaf346e970.mp4" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0 }} muted loop playsInline />
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Weblex Dark Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">weblex_dark_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a dark, full-screen hero section with a background video and a transparent navbar.
 
-                    {/* Navbar */}
-                    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5">
-                        <span className="text-lg font-semibold text-foreground">Weblex<span className="text-primary">.</span></span>
-                        <div className="hidden md:flex items-center gap-6">
-                            {['Home','Features','Pricing','About'].map(l => <a key={l} href="#" className="text-sm text-muted-fg hover:text-foreground transition-colors">{l}</a>)}
-                        </div>
-                        <button className="hidden md:block bg-primary text-primary-fg rounded-full px-4 py-2 text-sm font-medium">Get Started</button>
-                        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}><i data-lucide={menuOpen?'x':'menu'} className="w-6 h-6"></i></button>
-                    </nav>
-                    {menuOpen && <div className="fixed inset-0 bg-background z-40 flex flex-col items-center justify-center gap-6"><button className="absolute top-5 right-6" onClick={() => setMenuOpen(false)}><i data-lucide="x" className="w-6 h-6"></i></button>{['Home','Features','Pricing','About'].map(l => <a key={l} href="#" className="text-white text-xl">{l}</a>)}<button className="bg-primary text-primary-fg rounded-full px-6 py-3 font-medium">Get Started</button></div>}
+Navbar:
 
-                    {/* Hero - bottom aligned */}
-                    <div className="relative z-10 h-screen flex flex-col items-center justify-end text-center px-4" style={{ paddingBottom: '100px' }}>
-                        <div className="max-w-[603px]">
-                            <div className="rounded-full border border-white/10 px-4 py-2 mb-6 inline-block">
-                                <span className="text-sm text-muted-fg">Introducing Smart Website Builder</span>
-                            </div>
-                            <h1 className="text-4xl md:text-5xl lg:text-[62px] font-medium leading-[1.1] mb-6">
-                                Turn your big idea into a stunning website
-                            </h1>
-                            <p className="text-muted-fg text-base max-w-[520px] mx-auto mb-8">
-                                Fintech is its potential to promote financial inclusion. In many parts of the world, millions of people lack access to traditional banking services.
-                            </p>
-                            <div className="flex items-center justify-center gap-4">
-                                <button className="bg-primary text-primary-fg rounded-full px-6 py-3 text-lg font-medium flex items-center gap-2 hover:brightness-110 transition-all">
-                                    <i data-lucide="arrow-up-right" className="w-5 h-5"></i> Get Started Now
-                                </button>
-                                <button className="bg-secondary text-secondary-fg rounded-full px-6 py-3 text-lg font-medium">See Pricing</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Fixed at the top, fully transparent (no blur, no border, no background)
+
+Left: Brand name "Weblex." with a green dot accent using the primary color
+
+Center (desktop): Navigation links — Home, Features, Pricing, About — in muted foreground color, small text
+
+Right (desktop): "Get Started" button — primary color background, dark text, rounded-full, small text
+
+Mobile: Hamburger menu icon that toggles a dropdown with the same links and button
+
+Hero Section:
+
+Full viewport height (h-screen)
+
+Background video playing on autoplay, loop, muted, playsInline, covering the full section with object-cover
+
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260221_085953_8463b46e-ba85-4bb7-912a-1feaf346e970.mp4
+
+Video has a seamless loop transition: fades out to black starting 1.5 seconds before the end (reaching opacity 0 by 0.3s before the end), then fades back in over the first 1 second when the video restarts. Use requestAnimationFrame for smooth opacity updates.
+
+No dark overlay on the video — full opacity
+
+Content is aligned to the bottom of the screen with 100px bottom padding, centered horizontally, max-width 603px
+
+Hero Content (bottom-aligned, centered):
+
+Badge: A small pill/badge that says "Introducing Smart Website Builder" — styled with a border, rounded-full, small text, muted foreground color
+
+Heading: "Turn your big idea into a stunning website" — 62px font size, font-medium, centered, line-height 1.1. Responsive: 48px on medium, 36px on small screens
+
+Paragraph: "Fintech is its potential to promote financial inclusion. In many parts of the world, millions of people lack access to traditional banking services." — muted foreground color, centered, max-width 520px
+
+Two buttons side by side:
+
+"Get Started Now" — primary color background, dark text, rounded-full, with an ArrowUpRight icon on the left, 18px text, hover brightness effect
+
+"See Pricing" — secondary (white) background, dark text, rounded-full, 18px text
+
+Color Theme (dark mode only, HSL values in CSS variables):
+
+--background: 240 67% 1% (near-black)
+
+--foreground: 0 0% 100% (white)
+
+--primary: 73 98% 57% (bright lime green)
+
+--primary-foreground: 240 67% 1% (dark)
+
+--secondary: 0 0% 100% (white)
+
+--secondary-foreground: 240 67% 1% (dark)
+
+--muted: 240 10% 12%
+
+--muted-foreground: 0 0% 82% / 0.8
+
+--border: 0 0% 100% / 0.1
+
+Tech: React, TypeScript, Tailwind CSS, Lucide icons for ArrowUpRight and Menu/X icons.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

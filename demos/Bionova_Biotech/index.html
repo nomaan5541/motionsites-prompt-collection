@@ -3,146 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIONOVA | Biotech Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { background: 'hsl(0 0% 100%)', foreground: 'hsl(0 0% 17%)', 'hero-btn': 'hsl(213 90% 78%)' },
-                    fontFamily: { heading: ['Poppins', 'sans-serif'] },
-                }
-            }
-        }
-    </script>
+    <title>Bionova Biotech — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        @keyframes fadeUp { from { opacity:0; transform:translateY(20px); filter:blur(4px); } to { opacity:1; transform:translateY(0); filter:blur(0); } }
-        .fade-up { animation: fadeUp 700ms cubic-bezier(0.16,1,0.3,1) forwards; }
-        .fade-up-delay { animation: fadeUp 700ms cubic-bezier(0.16,1,0.3,1) 150ms forwards; opacity: 0; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-white text-foreground antialiased">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Bionova Biotech</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">bionova_biotech.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a "BIONOVA" biotech consulting hero section that spans exactly 100vh on desktop (scrollable on mobile). Use Poppins font (imported from Google Fonts) as the heading font family. Install hls.js for video streaming.
 
-        const App = () => {
-            const vRefs = useRef([]);
-            const streams = [
-                'https://stream.mux.com/1RdbcBtpEUK6501pc6yaIvwo9UfSnOg02k1uHxat00xR3w.m3u8',
-                'https://stream.mux.com/t1TbTB8M1VYHkhxBuap4A8Vm1x015HTHyuQxqchDBago.m3u8',
-                'https://stream.mux.com/6yvj9SR5bjmXq9N3ak7gy427RwUs8R2ZoH4ndA7Q1018.m3u8'
-            ];
-            useEffect(() => {
-                lucide.createIcons();
-                streams.forEach((url, i) => {
-                    const v = vRefs.current[i]; if (!v) return;
-                    if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
-                    else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
-                });
-            }, []);
+Design system:
 
-            return (
-                <section className="min-h-screen lg:h-screen flex flex-col lg:overflow-hidden">
-                    {/* Navbar */}
-                    <nav className="flex items-center justify-between px-5 lg:px-16 py-5">
-                        <span className="text-xl font-bold tracking-tight">BIONOVA</span>
-                        <div className="hidden md:flex items-center gap-8">
-                            {['About','Offerings','Pricing','Blog'].map(l => (
-                                <a key={l} href="#" className="text-sm font-semibold opacity-70 hover:opacity-100 transition-opacity">{l}</a>
-                            ))}
-                        </div>
-                        <div className="hidden md:flex items-center gap-4">
-                            <a href="#" className="text-sm font-medium">Log in</a>
-                            <button className="bg-hero-btn text-white rounded-full px-5 py-2.5 text-sm font-medium">Request a call</button>
-                        </div>
-                    </nav>
+Background: white (hsl(0 0% 100%))
 
-                    {/* Content Grid */}
-                    <div className="flex-1 px-5 lg:px-16 pb-8 lg:pb-[82px]">
-                        <div className="grid lg:grid-cols-2 gap-8 items-stretch h-full">
-                            {/* Left Column */}
-                            <div className="flex flex-col justify-between fade-up">
-                                <div>
-                                    <h1 className="text-[2rem] sm:text-5xl lg:text-[3.5rem] xl:text-7xl leading-[1.08] tracking-tight font-normal">
-                                        <span className="inline-flex items-center gap-3">
-                                            <span className="w-20 h-10 sm:w-24 sm:h-12 rounded-full overflow-hidden inline-block"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=50&fit=crop" className="w-full h-full object-cover" /></span>
-                                            World-class
-                                        </span><br />
-                                        consultants that<br />
-                                        <span className="inline-flex items-center gap-3">
-                                            empower
-                                            <button className="border-2 border-foreground rounded-full px-4 py-1.5 sm:px-6 sm:py-2 text-sm inline-flex items-center gap-2">
-                                                <i data-lucide="play" className="w-3 h-3 fill-current"></i> How do we work
-                                            </button>
-                                        </span><br />
-                                        biotech leaders
-                                    </h1>
-                                    <div className="flex items-center gap-5 pt-6">
-                                        <button className="bg-hero-btn text-white rounded-full px-6 py-3 text-sm font-medium flex items-center gap-2">
-                                            Contact us <i data-lucide="arrow-up-right" className="w-4 h-4"></i>
-                                        </button>
-                                        <a href="#" className="text-sm underline">Request a call</a>
-                                    </div>
-                                </div>
-                                <div className="hidden lg:block mt-8">
-                                    <p className="text-sm text-foreground/70 max-w-md mb-6">We connect world-class biotech consultants with emerging and established companies to accelerate breakthroughs in life sciences.</p>
-                                    <div className="flex flex-wrap items-center gap-8 text-2xl font-bold">
-                                        <span>Headway</span><span>brightline</span><span>hazel</span><span>G&STC</span>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Right Column */}
-                            <div className="flex flex-col gap-4 fade-up-delay">
-                                {/* Card 1 */}
-                                <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black flex-1 min-h-[200px] relative overflow-hidden flex flex-col justify-between p-6 lg:p-8">
-                                    <video ref={el => vRefs.current[0] = el} className="absolute inset-0 w-full h-full object-cover" muted loop playsInline preload="auto" />
-                                    <h3 className="relative z-10 text-white text-2xl lg:text-3xl font-medium max-w-sm">If you're ready to build your bioventure, let's get in touch.</h3>
-                                    <div className="relative z-10 flex justify-between items-end mt-4">
-                                        <p className="text-white/85 text-sm max-w-xs">Expert guidance from ideation to market.</p>
-                                        <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
-                                            <i data-lucide="arrow-up-right" className="w-4 h-4 text-black"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                {/* Cards 2 & 3 */}
-                                <div className="grid grid-cols-2 gap-3 lg:gap-4 flex-1">
-                                    <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black p-5 lg:p-8 min-h-[180px] relative overflow-hidden flex flex-col justify-between">
-                                        <video ref={el => vRefs.current[1] = el} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] object-cover" muted loop playsInline preload="auto" />
-                                        <div className="relative z-10 flex justify-between items-start">
-                                            <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-medium">locations</span>
-                                            <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><i data-lucide="arrow-up-right" className="w-3 h-3 text-black"></i></button>
-                                        </div>
-                                        <div className="relative z-10 mt-auto">
-                                            <h4 className="text-white text-lg lg:text-2xl font-medium">United bio-entrepreneurs</h4>
-                                            <p className="text-white/80 text-xs lg:text-sm mt-1">Global network of biotech leaders</p>
-                                        </div>
-                                    </div>
-                                    <div className="rounded-[1.5rem] lg:rounded-[2.5rem] bg-black p-5 lg:p-8 min-h-[180px] relative overflow-hidden flex flex-col justify-between">
-                                        <video ref={el => vRefs.current[2] = el} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280%] h-[280%] object-cover" muted loop playsInline preload="auto" />
-                                        <div className="relative z-10"><span className="bg-white text-black rounded-full px-3 py-1 text-xs font-medium">scientists</span></div>
-                                        <div className="relative z-10 mt-auto">
-                                            <div className="text-white text-4xl lg:text-7xl font-bold">34</div>
-                                            <p className="text-white/80 text-xs lg:text-sm mt-1">Leading research scientists on board</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+Foreground/text: dark gray (hsl(0 0% 17%))
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Hero button color: soft blue (hsl(213 90% 78%))
+
+Font: Poppins (400, 500, 600, 700 weights)
+
+Custom animation fade-up: translateY(20px) + opacity 0 + blur(4px) → translateY(0) + opacity 1 + blur(0), 700ms with cubic-bezier(0.16, 1, 0.3, 1) easing, forwards fill
+
+Navigation:
+
+Logo text "BIONOVA" (bold, tracking-tight, xl) on the left
+
+Center links (hidden on mobile): About, Offerings, Pricing, Blog — semibold, text-sm, 70% opacity, hover to full
+
+Right side (hidden on mobile): "Log in" text link + "Request a call" rounded-full pill button in hero-btn blue with white text
+
+Layout:
+
+Full section: min-h-screen lg:h-screen, flex column, lg:overflow-hidden
+
+Content area: px-5 lg:px-16, pb-8 lg:pb-[82px], flex-1
+
+Two-column grid (lg:grid-cols-2), items-stretch, gap-8
+
+Left column (flex col, justify-between, fade-up animation):
+
+Top group:
+
+H1 with text sizes: text-[2rem] sm:text-5xl lg:text-[3.5rem] xl:text-7xl, leading-[1.08], tracking-tight, font-normal
+
+First line: small rounded-full image pill (w-20 h-10 / sm:w-24 sm:h-12, bg-cover) inline next to "World-class"
+
+Second line: "consultants that"
+
+Third line: "empower" followed by an inline pill button with Play icon + "How do we work" (border-2, rounded-full, smaller text on mobile)
+
+Fourth line: "biotech leaders"
+
+CTAs directly under headline (pt-6): "Contact us" blue pill button with ArrowUpRight icon + "Request a call" underlined text link
+
+Bottom group (hidden on mobile, hidden lg:block):
+
+Description paragraph (text-sm, max-w-md)
+
+Logo bar: "Headway", "brightline", "hazel", "G&STC" — bold text-2xl, flex-wrap
+
+Right column (flex col, gap-4, fade-up with 150ms delay):
+
+Card 1 (top, larger): rounded-[1.5rem] lg:rounded-[2.5rem], bg-black, flex-1, min-h-[200px] on mobile
+
+Background: autoplay muted looping HLS video — https://stream.mux.com/1RdbcBtpEUK6501pc6yaIvwo9UfSnOg02k1uHxat00xR3w.m3u8 — object-cover, full size
+
+White heading (text-2xl lg:text-3xl): "If you're ready to build your bioventure, let's get in touch."
+
+Bottom: description text (white/85) + white circle arrow button (bg-background)
+
+Cards 2 & 3 (bottom row): grid-cols-2, gap-3 lg:gap-4, flex-1
+
+Card 2: rounded-[1.5rem] lg:rounded-[2.5rem], bg-black, p-5 lg:p-8, min-h-[180px]
+
+Background: HLS video https://stream.mux.com/t1TbTB8M1VYHkhxBuap4A8Vm1x015HTHyuQxqchDBago.m3u8 — scaled to 150%, centered with top-1/2 left-1/2 -translate-x/y-1/2
+
+Top: "locations" white pill badge + arrow circle button (both bg-background)
+
+Bottom: "United bio-entrepreneurs" heading (text-lg lg:text-2xl, white) + description (text-xs lg:text-sm, white/80)
+
+Card 3: same card style as Card 2
+
+Background: HLS video https://stream.mux.com/6yvj9SR5bjmXq9N3ak7gy427RwUs8R2ZoH4ndA7Q1018.m3u8 — scaled to 280%, centered same way
+
+Top: "scientists" white pill badge
+
+Bottom: large "34" number (text-4xl lg:text-7xl, white) + description (text-xs lg:text-sm, white/80)
+
+HLS video implementation:
+
+Use hls.js library with useRef for each video element
+
+Loop through all 3 streams in a single useEffect
+
+Handle native HLS (Safari) with canPlayType fallback
+
+All videos: autoPlay, muted, loop, playsInline, preload="auto"
+
+All card content uses relative z-10 to sit above the video
+
+Responsive (mobile only):
+
+Section becomes min-h-screen (scrollable) instead of fixed h-screen
+
+Nav links and right-side buttons hidden below md
+
+Smaller padding (px-5), smaller border radius (rounded-[1.5rem]), smaller card padding (p-5/p-6)
+
+Bottom description/logo bar hidden below lg
+
+Headline button smaller on mobile (px-4 py-1.5 text-sm)
+
+Card text sizes scale down on mobile</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

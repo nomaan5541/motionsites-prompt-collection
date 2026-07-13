@@ -3,99 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbit Web3 | Own the Future</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { background: 'hsl(150 20% 5%)', foreground: 'hsl(45 30% 90%)', accent: 'hsl(45 70% 75%)', 'accent-foreground': 'hsl(150 20% 5%)' },
-                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-                    animation: { marquee: 'marquee 20s linear infinite' },
-                }
-            }
-        }
-    </script>
-    <style> body { font-family: 'Instrument Serif', serif; } </style>
+    <title>Orbit Web3 — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-background text-foreground antialiased overflow-visible">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Orbit Web3</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">orbit_web3.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a dark, cinematic hero landing page with these exact specifications:
 
-        const GlowButton = ({ text }) => (
-            <button className="relative px-10 py-4 rounded-[43px] bg-accent text-accent-foreground text-xl font-normal overflow-hidden hover:scale-105 transition-transform"
-                style={{ boxShadow: '0px 4px 95px 4px hsla(45,70%,50%,0.6)' }}>
-                <span className="absolute w-48 h-10 rounded-full top-[-12px] left-1/2 -translate-x-1/2" style={{ background: 'hsl(45 60% 95%)', filter: 'blur(16px)' }}></span>
-                <span className="relative z-10">{text}</span>
-            </button>
-        );
+Font: Google Font Instrument Serif (serif), loaded via <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">. Used as the base font for the entire page (font-family: 'Instrument Serif', serif).
 
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            const logos = [
-                { icon: 'sun', name: 'Nebulon' }, { icon: 'box', name: 'Prismify' },
-                { icon: 'star', name: 'Nova Labs' }, { icon: 'feather', name: 'Zephyr' },
-                { icon: 'sparkles', name: 'Ignite' },
-            ];
+Color palette (HSL, CSS variables):
+--background: 150 20% 5% (deep dark green-black)
+--foreground: 45 30% 90% (warm off-white)
+--accent: 45 70% 75% (warm amber/gold for button)
+--accent-foreground: 150 20% 5% (dark text on accent)
 
-            return (
-                <div className="min-h-screen bg-background flex flex-col relative overflow-visible">
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_094440_a3592600-bd1e-49e5-9bce-a73662061d83.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
+Background video: Full-screen, absolutely positioned behind all content. Muted, autoplay, loop, playsInline.
+URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_094440_a3592600-bd1e-49e5-9bce-a73662061d83.mp4
+object-cover, fills entire viewport.
 
-                    <div className="relative z-10 flex flex-col min-h-screen">
-                        {/* Navbar */}
-                        <nav className="flex items-center gap-8 px-8 py-6 md:px-16">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="shrink-0">
-                                <path d="M8 10L14 30L20 16L26 30L32 10" stroke="hsl(45,30%,90%)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                            <div className="flex items-center gap-6">
-                                {['Vault','Send','Receive','Trade'].map(l => (
-                                    <a key={l} href="#" className="text-foreground text-base tracking-wide hover:opacity-80 transition-opacity">{l}</a>
-                                ))}
-                            </div>
-                        </nav>
+Navbar: Horizontal, top-left. Contains an SVG "W" logo (stroke-based zigzag path: M8 10L14 30L20 16L26 30L32 10, strokeWidth 3, rounded caps/joins, 40x40). Nav links: "Vault", "Send", "Receive", "Trade" — text-base tracking-wide, foreground color, hover to 80% opacity. Padding: px-8 py-6 md:px-16, gap-8 between logo and links, gap-6 between links.
 
-                        {/* Main Content */}
-                        <div className="flex-1 flex flex-col justify-between px-8 md:px-16 pb-10">
-                            <div className="my-auto max-w-3xl">
-                                <h1 className="text-6xl md:text-8xl lg:text-[7rem] leading-[0.95] tracking-tight text-foreground mb-12 overflow-visible">
-                                    Own the future of<br />your <span className="relative overflow-visible inline-block">
-                                        assets.
-                                        <span className="absolute inset-0 text-white" style={{ WebkitMaskImage: 'linear-gradient(to bottom left, white 20%, transparent 50%)', filter: 'blur(4px)' }}>assets.</span>
-                                        <span className="absolute inset-0 text-white opacity-60" style={{ WebkitMaskImage: 'linear-gradient(to bottom left, white 25%, transparent 55%)', filter: 'blur(8px)' }}>assets.</span>
-                                    </span>
-                                </h1>
-                                <GlowButton text="Launch your orbit" />
-                            </div>
+Hero heading: Vertically centered in viewport (flex-1 flex flex-col justify-between, content wrapper with my-auto). Max-width max-w-3xl. Font sizes: text-6xl md:text-8xl lg:text-[7rem], leading-[0.95] tracking-tight, white text (text-foreground). Copy:
+Own the future of
+your assets.
 
-                            {/* Logo Marquee */}
-                            <div className="mt-auto w-full md:w-1/2 lg:w-1/2">
-                                <p className="text-foreground/50 text-base mb-5 text-left">Trusted by top builders</p>
-                                <div className="overflow-hidden">
-                                    <div className="flex w-max animate-marquee">
-                                        {[...logos, ...logos].map((l, i) => (
-                                            <div key={i} className="flex items-center gap-3 mx-6">
-                                                <i data-lucide={l.icon} className="w-6 h-6 text-foreground/60"></i>
-                                                <span className="text-foreground/60 text-2xl tracking-wide whitespace-nowrap">{l.name}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+The word "assets." has a neon glow effect: two absolutely-positioned duplicate <span>s layered on top, both white (hsl(0 0% 100%)), with gradient masks (linear-gradient(to bottom left, white 20%/25%, transparent 50%/55%)) creating a directional top-right glow. First span: blur-sm, second: blur-md opacity-60. The parent span has overflow-visible to allow glow to bleed out. The outer heading container and page root also use overflow-visible. Bottom margin on heading: mb-12.
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+CTA Button (GlowButton): px-10 py-4 rounded-[43px], background accent, text accent-foreground, text-xl. Box shadow: 0px 4px 95px 4px hsl(45 70% 50% / 0.6) (large amber glow). Contains an internal blurred blob: a w-48 h-10 rounded-full span, blur-xl, color hsl(45 60% 95%), positioned at top: -12px, centered horizontally, clipped by overflow-hidden on the button. Hover: scale-105 transition. Text: "Launch your orbit".
+
+Logo marquee: Pinned to bottom of hero (mt-auto). Width: full on mobile, md:w-1/2 lg:w-1/2. Label: "Trusted by top builders" — text-foreground/50 text-base mb-5 text-left. Five logos using Lucide icons (Sun, Box, Star, Feather, Sparkles) with names: Nebulon, Prismify, Nova Labs, Zephyr, Ignite. Each: flex items-center gap-3 mx-6, icon w-6 h-6 text-foreground/60, name text-foreground/60 text-2xl tracking-wide whitespace-nowrap. Infinite horizontal scroll via CSS @keyframes marquee { 0% { translateX(0) } 100% { translateX(-50%) } }, animation: marquee 20s linear infinite. Logos rendered twice for seamless loop.
+
+Layout structure: Root div min-h-screen bg-background flex flex-col relative overflow-visible. Video is z-0. Content wrapper is relative z-10 flex flex-col min-h-screen. Main area: flex-1 flex flex-col justify-between px-8 md:px-16 pb-10.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

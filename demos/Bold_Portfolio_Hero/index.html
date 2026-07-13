@@ -3,97 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viktor Oddy | New Design Era</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Bold Portfolio Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        ::selection { background: white; color: #fd2601; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Bold Portfolio Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">bold_portfolio_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a high-end, responsive Hero Section for a personal portfolio website using React and Tailwind CSS. The design should feel bold, modern, and energetic.
 
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            const brands = ['GUCCI', 'ZARA', 'VOGUE', 'SONY', 'ZALORA'];
-            return (
-                <div className="relative min-h-screen overflow-hidden" style={{ background: 'linear-gradient(180deg, #fd2601 0%, #f37e1c 100%)' }}>
-                    {/* Background Name */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                        <span className="text-white/[0.08] text-[20vw] font-bold uppercase" style={{ fontFamily: "'Anton',sans-serif", filter: 'blur(4px)' }}>OLIVIA</span>
-                    </div>
-                    {/* Glowing blobs */}
-                    <div className="absolute bottom-[-5%] right-[10%] w-[300px] h-[300px] rounded-full opacity-60 mix-blend-screen pointer-events-none" style={{ background: '#F4791B', filter: 'blur(80px)' }}></div>
-                    <div className="absolute bottom-[-5%] left-[5%] w-[600px] h-[300px] rounded-full opacity-60 mix-blend-screen pointer-events-none" style={{ background: '#F4791B', filter: 'blur(80px)' }}></div>
+1. Global Styles & Theme:
 
-                    {/* Navbar */}
-                    <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-6 md:px-12 py-6">
-                        <span className="text-white text-sm font-medium tracking-widest uppercase" style={{ fontFamily: "'Inter',sans-serif" }}>✱ VIKTORODDY</span>
-                        <div className="hidden md:flex items-center gap-8">
-                            {['PROJECTS','BLOG','ABOUT','RESUME'].map(l => (
-                                <a key={l} href="#" className="text-white text-xs tracking-widest uppercase hover:opacity-80 transition-opacity">{l}</a>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <span className="text-white text-xs tracking-widest uppercase hidden sm:inline">// HIRE ME</span>
-                            <button className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center group hover:bg-white transition-colors">
-                                <i data-lucide="arrow-up-right" className="w-4 h-4 text-white group-hover:text-[#fd2601] transition-colors"></i>
-                            </button>
-                        </div>
-                    </nav>
+Background: A vertical gradient from a vibrant red-orange [#fd2601] at the top to a lighter orange [#f37e1c] at the bottom.
 
-                    {/* Hero Content */}
-                    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-32">
-                        {/* Central Image with brush mask */}
-                        <div className="absolute z-20 pointer-events-none w-[280px] h-[400px] md:w-[320px] md:h-[460px]" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=550&fit=crop&crop=face" className="w-full h-full object-cover" style={{
-                                WebkitMaskImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cellipse cx='150' cy='200' rx='130' ry='180' fill='black'/%3E%3Cellipse cx='100' cy='80' rx='60' ry='40' fill='black'/%3E%3Cellipse cx='220' cy='340' rx='50' ry='35' fill='black'/%3E%3Cellipse cx='60' cy='300' rx='45' ry='50' fill='black'/%3E%3C/svg%3E\")",
-                                WebkitMaskSize: 'cover', WebkitMaskRepeat: 'no-repeat',
-                                maskImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cellipse cx='150' cy='200' rx='130' ry='180' fill='black'/%3E%3Cellipse cx='100' cy='80' rx='60' ry='40' fill='black'/%3E%3Cellipse cx='220' cy='340' rx='50' ry='35' fill='black'/%3E%3Cellipse cx='60' cy='300' rx='45' ry='50' fill='black'/%3E%3C/svg%3E\")",
-                                maskSize: 'cover', maskRepeat: 'no-repeat'
-                            }} />
-                        </div>
+Typography:
+Headlines: Use the font "Anton" (or a similar heavy, condensed sans-serif). Text should be massive, uppercase, and tracking wide.
 
-                        {/* Headline */}
-                        <h1 className="relative z-10 text-white text-center uppercase tracking-wide" style={{ fontFamily: "'Anton',sans-serif", fontSize: 'clamp(60px, 12vw, 180px)', lineHeight: 0.95 }}>
-                            <span className="hidden md:block">NEW DESIGN ERA</span>
-                            <span className="md:hidden flex flex-col">
-                                <span>NEW</span><span>DESIGN</span><span>ERA</span>
-                            </span>
-                        </h1>
+Body/UI: Use "Inter" or a clean sans-serif. Minimalist, uppercase, and legible.
 
-                        {/* Floating Text */}
-                        <div className="hidden lg:block absolute bottom-32 left-12 z-30 text-white text-sm leading-relaxed max-w-xs">
-                            <span className="opacity-60">// </span>I'm Olivia — a freelance<br />UI/UX designer crafting bold<br />digital experiences
-                        </div>
-                        <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 z-30 text-white text-sm text-right leading-relaxed">
-                            <span className="opacity-60">// </span>DESIGN THAT<br />SPEAKS YOUR BRAND
-                        </div>
-                        {/* Mobile floating text */}
-                        <div className="lg:hidden text-white text-sm text-center mt-8 z-30 space-y-2">
-                            <p><span className="opacity-60">// </span>I'm Olivia — a freelance UI/UX designer</p>
-                            <p><span className="opacity-60">// </span>DESIGN THAT SPEAKS YOUR BRAND</p>
-                        </div>
-                    </div>
+Colors: All text and icons should be White.
 
-                    {/* Brand Strip */}
-                    <div className="absolute bottom-0 left-0 right-0 z-30 flex flex-wrap justify-center md:justify-evenly items-center gap-8 md:gap-0 px-8 pb-8">
-                        {brands.map(b => (
-                            <span key={b} className="text-white/90 text-lg md:text-xl font-medium tracking-widest">{b}</span>
-                        ))}
-                    </div>
-                </div>
-            );
-        };
+Selection State: When user selects text, make the background White and text Orange [#fd2601].
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+2. Ambient Background Elements:
+
+Place a large, faint SVG text or pattern (like the name "OLIVIA") in the absolute background. It should be centered, white, very low opacity (0.08), and blurred (4px).
+
+Add glowing "blobs" behind the main content:
+
+One bottom-right (300x300px, #F4791B, blur 80px).
+
+One bottom-left (600x300px, #F4791B, blur 80px).
+
+Use mix-blend-screen and opacity-60 for these blobs to make them blend beautifully.
+
+3. Navigation Bar (Floating Top):
+
+Position: Absolute top, full width, transparent background.
+
+Left: Text logo "✱ VIKTORODDY" (Sans-serif, tracking wide).
+
+Center (Desktop only): Links [PROJECTS, BLOG, ABOUT, RESUME]. Hover effect: opacity-80.
+
+Right: A "HIRE ME" CTA.
+
+Format: Text // HIRE ME followed by a circular button (white border) containing a diagonal arrow icon.
+
+Hover: The circle fills white, icon turns orange.
+
+4. Main Hero Content (Centered):
+
+Headline: The text "NEW DESIGN ERA".
+
+Desktop: Display on one line (or slightly wrapped), font size ~12vw (max 180px), z-index: 10.
+
+Mobile: Stack vertically: "NEW" / "DESIGN" / "ERA".
+
+Central Image: Place a portrait image of a person absolutely centered over the headline. CRITICAL: Apply a CSS Mask (paint brush stroke shape) to the image so it looks like a rough cutout, not a rectangle. The image should overlap the text, creating depth (z-index: 20).
+
+Floating Elements (Desktop):
+
+Bottom-Left: Intro text: "// I'm Olivia — a freelance UI/UX designer..." indented with a clean hierarchy.
+
+Right-Middle: Tagline: "// DESIGN THAT [newline] SPEAKS YOUR BRAND". Text aligned right.
+
+Mobile Layout: Move the floating elements below the main image/text stack so they don't overlap.
+
+5. Footer / Brand Strip:
+
+A row of white, semi-transparent (opacity-90) logos at the bottom (e.g., Gucci, Zara, Vogue, Sony, Zalora).
+
+Desktop: Spread evenly across the width.
+
+Mobile: Wrap them nicely in the center.
+
+Technical Requirements:
+
+Use flexbox for layout alignment.
+
+Ensure the image is pointer-events-none so it doesn't block text selection.
+
+Make it fully responsive: The massive text must scale down on mobile, and the layout must shift from absolute positioning (Desktop) to stacked block layout (Mobile).</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

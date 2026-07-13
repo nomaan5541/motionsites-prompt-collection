@@ -3,75 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buzzentic | Videos & Reels that Go Viral</title>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Buzzentic Agency — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Barlow',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <div className="relative min-h-screen overflow-hidden">
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_074215_04640ca7-042c-45d6-bb56-58b1e8a42489.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
-                    <div className="relative z-10 min-h-screen flex flex-col">
-                        {/* Navbar */}
-                        <nav className="flex items-center justify-between px-8 md:px-16 py-6">
-                            <span className="text-white text-xl font-semibold tracking-tight" style={{ fontFamily: "'Barlow',sans-serif" }}>Buzzentic</span>
-                            <div className="hidden md:flex items-center gap-1">
-                                {['Home','Services','Work','About','Contact'].map(l => (
-                                    <a key={l} href="#" className="text-white text-sm px-4 py-2 rounded hover:bg-white/10 transition-colors">{l}</a>
-                                ))}
-                            </div>
-                            <button className="text-white text-sm px-5 py-2 rounded-sm hover:bg-white/10 transition-colors" style={{ background: 'transparent' }}>Get Started</button>
-                        </nav>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Buzzentic Agency</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">buzzentic_agency.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Project Requirements: Build a high-impact, full-screen React hero section using Tailwind CSS v4 and custom typography.
 
-                        {/* Hero */}
-                        <div className="flex-1 flex flex-col items-center justify-center text-center px-6" style={{ paddingBottom: '250px' }}>
-                            {/* Badge */}
-                            <div className="mb-8">
-                                <div className="inline-flex items-center rounded-full px-1 py-1" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(4px)' }}>
-                                    <span className="rounded-full px-4 py-1.5 text-xs font-medium text-white" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', color: '#171717' }}>Featured in Fortune</span>
-                                </div>
-                            </div>
+1. Background & Layout:
 
-                            {/* Content Container with corner accents */}
-                            <div className="relative max-w-3xl">
-                                {/* Corner squares */}
-                                <div className="absolute -top-4 -left-4 w-[7px] h-[7px] bg-white"></div>
-                                <div className="absolute -top-4 -right-4 w-[7px] h-[7px] bg-white"></div>
-                                <div className="absolute -bottom-4 -left-4 w-[7px] h-[7px] bg-white"></div>
-                                <div className="absolute -bottom-4 -right-4 w-[7px] h-[7px] bg-white"></div>
+Full-Screen Video: Implement a background video that covers the entire viewport (object-cover).
 
-                                <h1 className="mb-6">
-                                    <span className="block font-light text-white" style={{ fontSize: '64px', lineHeight: 1.1, fontFamily: "'Barlow',sans-serif" }}>Agency that makes your</span>
-                                    <span className="block text-white" style={{ fontSize: '64px', lineHeight: 1.1, fontFamily: "'Instrument Serif', serif", fontStyle: 'italic' }}>videos & reels viral</span>
-                                </h1>
-                                <p className="text-white/75 text-base max-w-lg mx-auto mb-8 leading-relaxed" style={{ fontFamily: "'Barlow',sans-serif" }}>
-                                    We craft scroll-stopping video content that amplifies your brand's reach and turns viewers into customers across every platform.
-                                </p>
-                                <div className="flex items-center justify-center gap-4">
-                                    <button className="px-8 py-3 text-sm font-medium transition-colors hover:bg-white" style={{ background: '#f8f8f8', color: '#171717', borderRadius: '2px', fontFamily: "'Barlow',sans-serif" }}>
-                                        Start a Project
-                                    </button>
-                                    <button className="px-8 py-3 text-sm font-medium transition-colors hover:bg-white" style={{ background: '#f8f8f8', color: '#171717', borderRadius: '2px', fontFamily: "'Barlow',sans-serif" }}>
-                                        View Our Work
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Video Source: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260306_074215_04640ca7-042c-45d6-bb56-58b1e8a42489.mp4
+
+Video Settings: Auto-play, loop, muted, and playsInline with no color overlays or filters.
+
+Content Spacing: The main content block should have 250px of bottom padding to create breathing room above the fold.
+
+2. Typography & Colors:
+
+Primary Font: "Barlow" (sans-serif) for general UI and body text.
+
+Accent Font: "Instrument Serif" (italic) for poetic emphasis.
+
+Color Palette: Primary text is pure white (#FFFFFF) or white at 75% opacity. CTA buttons and badges use a neutral off-white (#f8f8f8).
+
+3. Specific UI Elements:
+
+Transparent Navigation: A floating navbar with no background fill and no border strokes. All navigation links and the brand logo must be white.
+
+Featured Badge: A "Featured in Fortune" badge centered at the top. It features a "liquid glass" effect using a white/10 background with backdrop-blur-sm on the outer ring and white/90 with backdrop-blur-md on the inner pill.
+
+Dynamic Headline:
+
+Line 1: "Agency that makes your" (Barlow, font-light, text-white, 64px).
+
+Line 2: "videos & reels viral" (Instrument Serif, italic, text-white, 64px).
+
+Sub-headline: A max-width paragraph in Barlow font, white at 75% opacity, explaining the agency's value proposition.
+
+Button Styling: Rectangular buttons with a very sharp 2px border radius, #f8f8f8 background, and #171717 medium Barlow text.
+
+Corner Accents: Four 7px x 7px solid white squares positioned exactly at the four corners of the central hero content container.
+
+4. Interactions & Animations:
+
+All buttons and interactive badges should have smooth transition-colors on hover.
+
+Buttons should shift from #f8f8f8 to pure white on hover.
+
+Navigation items should have a subtle white/10 background highlight on hover.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

@@ -3,267 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoVision | New Digital Universe</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React, Lucide Icons -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        heroLight: '#FBFDFD',
-                        darkSection: '#0F0F0F',
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .video-plus-darker {
-                mix-blend-mode: normal !important;
-            }
-            .hero-stat-group {
-                margin-right: 0;
-            }
-            @media (min-width: 768px) {
-                .hero-stat-group {
-                    margin-right: 20%;
-                    justify-content: center;
-                }
-            }
-            .hero-description-group {
-                margin-right: 0;
-            }
-            @media (min-width: 768px) {
-                .hero-description-group {
-                    margin-right: 50%;
-                }
-            }
-        }
+    <title>NeoVision — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-black text-neutral-900 font-sans antialiased overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>NeoVision</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">neovision.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a modern, futuristic landing page using React + Vite + TypeScript + Tailwind CSS. Use lucide-react for icons. The page has 3 sections: a Hero, an About section, and an Insights section. The overall page background is black (bg-black). No custom fonts -- use the Tailwind default (system sans-serif).
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+SECTION 1: HERO (full viewport height, light background)
 
-        const Navbar = () => {
-            const [isOpen, setIsOpen] = useState(false);
-            useEffect(() => { lucide.createIcons(); }, []);
+The hero wrapper is a relative container. On mobile it has min-height: 100vh. On desktop (md: breakpoint) it has height: 100vh and min-height: auto. It has overflow: hidden.
 
-            return (
-                <nav className="relative z-50 flex justify-between items-center px-5 py-4 md:px-12 md:py-6">
-                    <div className="flex items-center gap-12">
-                        <div className="text-xl font-bold tracking-tighter">NEOVISION</div>
-                        <div className="hidden md:flex items-center gap-8">
-                            {['Home', 'About', 'Services', 'Contact'].map(link => (
-                                <a key={link} href="#" className="text-sm text-neutral-500 hover:text-neutral-900">{link}</a>
-                            ))}
-                        </div>
-                    </div>
-                    
-                    <div className="hidden md:flex items-center relative">
-                        <input 
-                            type="text" 
-                            placeholder="I am looking for..." 
-                            className="rounded-full w-72 px-5 py-2 border border-neutral-300 text-sm text-neutral-600 outline-none"
-                        />
-                        <i data-lucide="search" className="w-4 h-4 absolute right-4 text-neutral-400"></i>
-                    </div>
+Background layers (stacked with z-index):
 
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center">
-                        <i data-lucide={isOpen ? "x" : "menu"} className="w-5 h-5"></i>
-                    </button>
+z-index 0: A solid background fill #FBFDFD covering the entire wrapper (absolute inset-0).
+z-index 1: A background video positioned absolute right-0 top-0 bottom-0. On mobile it is full width with opacity-30. On desktop it is w-[55%] with full opacity. The video element has object-cover object-top. The video URL is: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131232_feeda0b7-d00d-4bfa-a9d5-5d38648a4214.mp4 (autoPlay, loop, muted, playsInline). The video container and video both have a CSS class video-plus-darker with mix-blend-mode: normal !important.
+z-index 2: The content layer. This is a relative div with min-h-screen md:h-screen flex flex-col. It contains the Navbar and HeroSection.
 
-                    {isOpen && (
-                        <div className="absolute top-full left-0 w-full bg-white border-b border-neutral-200 p-6 flex flex-col gap-6 md:hidden z-[60] shadow-xl">
-                            {['Home', 'About', 'Services', 'Contact'].map(link => (
-                                <a key={link} href="#" className="text-sm font-medium">{link}</a>
-                            ))}
-                            <div className="relative">
-                                <input type="text" placeholder="I am looking for..." className="w-full rounded-full px-5 py-2 border border-neutral-300 text-sm" />
-                                <i data-lucide="search" className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400"></i>
-                            </div>
-                        </div>
-                    )}
-                </nav>
-            );
-        };
+Navbar (inside content layer):
 
-        const Hero = () => (
-            <section className="relative w-full h-screen md:h-screen min-h-screen overflow-hidden">
-                <div className="absolute inset-0 bg-heroLight -z-10"></div>
-                
-                <video 
-                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131232_feeda0b7-d00d-4bfa-a9d5-5d38648a4214.mp4"
-                    className="absolute right-0 top-0 bottom-0 w-full md:w-[55%] h-full object-cover object-top opacity-30 md:opacity-100 video-plus-darker -z-10"
-                    autoPlay loop muted playsInline
-                />
-                
-                <div className="relative h-full flex flex-col">
-                    <Navbar />
-                    
-                    <div className="flex-1 flex flex-col justify-between px-5 pt-8 pb-20 md:px-12 md:pt-16 md:pb-36">
-                        <div>
-                            <span className="text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase">Futuristic</span>
-                            <div className="flex items-start gap-4 mt-6">
-                                <span className="text-sm text-neutral-400 mt-2 md:mt-4">05</span>
-                                <h1 className="text-[2.75rem] md:text-[5.5rem] leading-[0.95] font-light tracking-tight text-neutral-900 uppercase">
-                                    New Digital<br />Universe
-                                </h1>
-                            </div>
-                            <div className="flex items-center gap-8 mt-10">
-                                <button className="bg-neutral-900 text-white text-sm font-medium rounded px-8 py-3.5 hover:bg-neutral-800 transition-colors">
-                                    Get Started
-                                </button>
-                                <a href="#" className="text-sm font-medium border-b border-neutral-900">Contact Us</a>
-                            </div>
-                        </div>
+relative z-10, flex row, justify-between, padding px-5 py-4 md:px-12 md:py-6
+Left side: Logo image (/image.png, height h-7 md:h-8), followed by hidden-on-mobile nav links: Home, About, Services, Contact. Links are text-sm text-neutral-500 hover:text-neutral-900. Gap between logo and links: gap-12.
+Right side: A search input (hidden on mobile, shown on desktop). Rounded-full, w-72, placeholder "I am looking for...", with a Search icon from lucide-react positioned absolute right inside. Border border-neutral-300, text text-neutral-600.
+Mobile: A hamburger button (Menu icon from lucide-react) in a 40px circle with border-neutral-300. When toggled, a dropdown shows the nav links vertically and a full-width search input.
 
-                        <div className="hero-stat-group flex flex-col items-start md:items-center">
-                            <span className="text-5xl md:text-6xl font-light">47.2%</span>
-                            <span className="text-xs uppercase tracking-widest text-neutral-500">Reality</span>
-                        </div>
+HeroSection (inside content layer, flex-1):
 
-                        <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-8">
-                            <div className="flex items-center gap-4">
-                                <span className="text-xs font-medium text-neutral-500 uppercase vertical-text hidden md:block">Trusted by Clients</span>
-                                <div className="flex -space-x-2">
-                                    {[1,2,3,4].map(id => (
-                                        <img key={id} src={`https://i.pravatar.cc/100?img=${id+40}`} className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-neutral-100 object-cover" />
-                                    ))}
-                                </div>
-                                <span className="text-sm font-medium text-neutral-500">20+</span>
-                            </div>
+relative z-10 flex-1 flex flex-col justify-between with padding px-5 pt-8 pb-20 md:px-12 md:pt-16 md:pb-36
+Top: Label "Futuristic" -- text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase
+Main heading area: Flex row with a small "05" number on the left (text-sm text-neutral-400 mt-2 md:mt-4), then the heading: text-[2.75rem] md:text-[5.5rem] leading-[0.95] font-light tracking-tight text-neutral-900 reading "NEW DIGITAL" (line break) "UNIVERSE". Below the heading: a "Get Started" button (bg-neutral-900 text-white text-sm font-medium rounded, px-6 py-3 md:px-8 md:py-3.5) and a "Contact Us" text link.
+Middle stat: "47.2%" with "Reality" label underneath. The stat group uses a custom CSS class hero-stat-group that on desktop has margin-right: 20% and justify-center. On mobile, margin-right: 0 and justify-start.
+Bottom bar: Flex col on mobile, flex row on desktop with justify-between. Left side: "Trusted by Clients" label with 4 overlapping avatar circles (Pexels photos: 415829, 1222271, 1239291, 2379004 at w=100) using -space-x-2, each w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-neutral-100 object-cover, followed by "20+" text. Right side: A link icon (lucide Link) in a w-10 h-10 md:w-12 md:h-12 circle with border-neutral-300, next to a description paragraph "In this futuristic realm, users can explore hyper-realistic virtual environments, interact with AI-driven avatars." (text-xs md:text-sm text-neutral-500 max-w-[200px] md:max-w-sm). This group uses custom class hero-description-group which on desktop has margin-right: 50%.
 
-                            <div className="hero-description-group flex items-start gap-4">
-                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-neutral-300 flex items-center justify-center shrink-0">
-                                    <i data-lucide="link" className="w-4 h-4"></i>
-                                </div>
-                                <p className="text-xs md:text-sm text-neutral-500 max-w-[200px] md:max-w-sm leading-relaxed">
-                                    In this futuristic realm, users can explore hyper-realistic virtual environments, interact with AI-driven avatars.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+Diagonal Section Divider (between Hero and About):
 
-                {/* Diagonal Divider */}
-                <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
-                    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[120px] fill-darkSection">
-                        <polygon points="0,0 0,120 1440,120 1440,80 920,80 680,0" />
-                    </svg>
-                </div>
-            </section>
-        );
+The SectionDivider is positioned absolute bottom-0 left-0 w-full with z-index: 3, inside the hero wrapper.
+Contains an SVG with viewBox="0 0 1440 120", preserveAspectRatio="none", height h-[60px] md:h-[120px].
+The SVG has a single polygon: points="0,0 0,120 1440,120 1440,80 920,80 680,0" filled with #0F0F0F. This creates a diagonal cut from the left side going down to the black About section.
 
-        const About = () => (
-            <section className="bg-darkSection flex flex-col lg:flex-row min-h-[600px] lg:min-h-[700px]">
-                <div className="lg:w-1/2 h-[400px] lg:h-auto overflow-hidden">
-                    <video 
-                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_132809_d6ea910f-d700-44f7-afea-27d517487177.mp4"
-                        className="w-full h-full object-cover mix-blend-lighten"
-                        autoPlay loop muted playsInline
-                    />
-                </div>
-                <div className="lg:w-1/2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-20 xl:px-28">
-                    <span className="text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase mb-8 md:mb-10">About Us</span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.05] mb-10 md:mb-12">
-                        THE DIGITAL<br />FRONTIER
-                    </h2>
-                    <div className="flex flex-wrap gap-3 mb-10">
-                        {['Digital', 'Reality', 'Next'].map(tag => (
-                            <span key={tag} className="px-5 py-2 rounded-full border border-neutral-700 text-sm text-neutral-300 hover:border-neutral-500 transition-colors">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                    <p className="text-sm md:text-base text-neutral-400 leading-relaxed max-w-md mb-12">
-                        Step into The Digital Frontier, where the boundaries between reality and virtual innovation disappear. This is the next era of immersive technology.
-                    </p>
-                    <div className="flex items-center gap-8">
-                        <button className="bg-neutral-800 text-white text-sm font-medium rounded px-8 py-3.5 hover:bg-neutral-700 transition-colors">
-                            Learn More
-                        </button>
-                        <div className="flex items-center gap-3 cursor-pointer group">
-                            <div className="w-10 h-10 rounded-full border border-neutral-700 flex items-center justify-center group-hover:border-neutral-500 transition-colors">
-                                <i data-lucide="play" className="w-4 h-4 fill-white text-white"></i>
-                            </div>
-                            <span className="text-sm font-medium text-white">Watch a Video</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
+SECTION 2: ABOUT (dark background #0F0F0F)
 
-        const Insights = () => {
-            const [activeTab, setActiveTab] = useState('Innovation');
-            const tabs = {
-                Innovation: { title: "How VR is Transforming Our Digital World", desc: "Virtual Reality (VR) is no longer a concept of the future...", date: "08 February 2025", author: "Henry Leonardo", img: "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif" },
-                Technology: { title: "The Rise of Spatial Computing in Everyday Life", desc: "Spatial computing is bridging the gap...", date: "15 March 2025", author: "Sarah Mitchell", img: "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" },
-                Experience: { title: "Designing Immersive Worlds That Feel Real", desc: "From haptic feedback to photorealistic rendering...", date: "22 April 2025", author: "James Park", img: "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" }
-            };
+Full-width section, backgroundColor: '#0F0F0F'
+Two-column layout on desktop (lg:flex-row), stacked on mobile. Min-height 600px (lg: 700px).
+Left column: A video that fills the space (object-cover mix-blend-lighten). Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_132809_d6ea910f-d700-44f7-afea-27d517487177.mp4 (autoPlay, loop, muted, playsInline). On mobile the video area is h-[400px].
+Right column: Padding px-8 py-16 md:px-16 lg:px-20 xl:px-28, vertically centered content with max-width max-w-lg:
+Label: "About Us" (text-xs font-medium tracking-[0.3em] text-neutral-500 uppercase, mb-8 md:mb-10)
+Heading: "THE DIGITAL FRONTIER" (text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[1.05], mb-10 md:mb-12)
+Three pill tags: "Digital", "Reality", "Next" -- px-5 py-2 rounded-full border border-neutral-700 text-sm text-neutral-300 hover:border-neutral-500
+Paragraph: "Step into The Digital Frontier, where the boundaries between reality and virtual innovation disappear. This is the next era of immersive technology." (text-sm md:text-base text-neutral-400 leading-relaxed max-w-md)
+Actions: "Learn More" button (bg-neutral-800 text-white text-sm font-medium rounded px-7 py-3.5 hover:bg-neutral-700) and a "Watch a Video" link with a Play icon (lucide Play) inside a w-10 h-10 bordered circle.
 
-            return (
-                <section className="bg-darkSection px-8 md:px-16 lg:px-20 xl:px-28 pt-24 pb-32">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-light italic tracking-tight text-white leading-[1.05] max-w-5xl mb-20 md:mb-28">
-                        LIMITLESS POSSIBILITIES WITH NEOVISION
-                    </h2>
-                    
-                    <div className="flex flex-col lg:flex-row gap-16">
-                        <div className="lg:w-[200px] flex flex-col gap-6">
-                            {Object.keys(tabs).map(tab => (
-                                <button 
-                                    key={tab}
-                                    onClick={() => setActiveTab(tab)}
-                                    className={`text-left text-sm font-medium transition-colors ${activeTab === tab ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'}`}
-                                >
-                                    {tab}
-                                </button>
-                            ))}
-                        </div>
-                        
-                        <div className="flex-1 flex flex-col md:flex-row gap-12 items-start">
-                            <div className="w-full md:w-[420px] xl:w-[480px] aspect-[4/3] rounded-2xl overflow-hidden grayscale">
-                                <img src={tabs[activeTab].img} className="w-full h-full object-cover" />
-                            </div>
-                            <div className="flex-1 space-y-6">
-                                <h3 className="text-2xl md:text-3xl font-light text-white leading-snug max-w-sm">
-                                    {tabs[activeTab].title}
-                                </h3>
-                                <p className="text-sm md:text-base text-neutral-400 leading-relaxed max-w-sm">
-                                    {tabs[activeTab].desc}
-                                </p>
-                                <a href="#" className="text-sm text-white font-medium underline underline-offset-4 block pt-4">Learn More</a>
-                                
-                                <div className="border-t border-neutral-800 pt-6 flex justify-between items-center text-[10px] uppercase tracking-widest text-neutral-500">
-                                    <span>{tabs[activeTab].date}</span>
-                                    <span>{tabs[activeTab].author}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+SECTION 3: INSIGHTS (dark background #0F0F0F, tabbed content)
 
-        const App = () => (
-            <div>
-                <Hero />
-                <About />
-                <Insights />
-            </div>
-        );
+Same backgroundColor: '#0F0F0F'. Padding px-8 md:px-16 lg:px-20 xl:px-28 pt-24 pb-32.
+Large italic heading: "LIMITLESS POSSIBILITIES WITH NEOVISION" (text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-light italic tracking-tight text-white leading-[1.05] max-w-5xl, mb-20 md:mb-28).
+Below: a flex layout (col on mobile, row on desktop).
+Left: Tab buttons (vertical list) for 3 tabs: "Innovation", "Technology", "Experience". Active tab is text-white font-medium, inactive is text-neutral-500 hover:text-neutral-300. Width lg:w-[160px] xl:w-[200px].
+Right: Content area with an image and text side by side on desktop.
+Image: lg:w-[420px] xl:w-[480px] aspect-[4/3] rounded-2xl overflow-hidden. Images are local files /Mask_group.jpg, /Mask_group-1.jpg, /Mask_group-2.jpg for the 3 tabs respectively.
+Text side: Title (text-2xl md:text-3xl font-light text-white leading-snug max-w-sm), description (text-sm md:text-base text-neutral-400 leading-relaxed max-w-sm), "Learn More" underlined link (text-sm text-white font-medium underline underline-offset-4). At the bottom: date and author separated by a border-t border-neutral-800.
+Tab data:
+Innovation: "How VR is Transforming Our Digital World" / "Virtual Reality (VR) is no longer a concept of the future..." / 08 February 2025 / Henry Leonardo
+Technology: "The Rise of Spatial Computing in Everyday Life" / "Spatial computing is bridging the gap..." / 15 March 2025 / Sarah Mitchell
+Experience: "Designing Immersive Worlds That Feel Real" / "From haptic feedback to photorealistic rendering..." / 22 April 2025 / James Park
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+CUSTOM CSS (index.css):
+
+.video-plus-darker {
+  mix-blend-mode: normal !important;
+}
+
+.app-hero-wrapper {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .app-hero-wrapper {
+    min-height: auto;
+    height: 100vh;
+  }
+}
+
+.hero-description-group {
+  margin-right: 0;
+}
+
+.hero-stat-group {
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-description-group {
+    margin-right: 50%;
+  }
+
+  .hero-stat-group {
+    margin-right: 20%;
+  }
+}
+
+KEY DETAILS:
+
+Tech stack: React 18, Vite, TypeScript, Tailwind CSS 3, lucide-react for all icons
+No custom fonts -- default Tailwind sans-serif stack
+Color palette: White hero (#FBFDFD), dark sections (#0F0F0F), neutral grays from Tailwind for text
+The diagonal divider SVG polygon creates an angled transition from the light hero to the dark about section. It is positioned absolutely at the bottom of the hero wrapper.
+Both videos are autoPlay, loop, muted, playsInline
+The hero section has pb-20 md:pb-36 bottom padding to prevent the diagonal divider from overlapping the "Trusted by Clients" content
+The SectionDivider component is rendered inside the hero wrapper div (not between wrapper and AboutSection)
+Logo image at /image.png in the public folder
+Insight images at /Mask_group.jpg, /Mask_group-1.jpg, /Mask_group-2.jpg in the public folder</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

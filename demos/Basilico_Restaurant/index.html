@@ -4,270 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basilico Restaurant — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #fdcb6e 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #fdcb6e;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #fdcb6e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #fdcb6e;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781521132099-basilico_restaurant.webp" alt="Basilico Restaurant preview" onerror="this.style.display='none'">
+        <div class="badge">Restaurant </div>
+        <h1>Basilico Restaurant</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">basilico_restaurant.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># MASTER IMPLEMENTATION PROMPT — BASILICO LUXURY RESTAURANT WEBSITE
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">Restaurant Template</div>
-            <h1>Basilico Restaurant</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">basilico_restaurant.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+You are an expert Frontend Developer and UI/UX Designer. Your task is to build a premium, cinematic fine-dining restaurant website named "Basilico". The website must feel luxurious, warm, sophisticated, and highly immersive, taking inspiration from award-winning Awwwards experiences.
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+## 1. TECH STACK
+- Next.js (App Router)
+- Tailwind CSS v4
+- GSAP (for scroll triggers and staggered reveals)
+- Framer Motion (for custom cursor)
+- Lenis (for smooth scrolling)
+- TypeScript
+- \`next/image\` for image optimization
+
+## 2. DESIGN SYSTEM \\u0026 AESTHETICS
+- **Theme**: Dark Mode strictly. The main background color must be pure black (\`#070707\`).
+- **Color Palette**: 
+  - Primary text: White
+  - Accents: Luxury Gold (\`#D9A35F\`) and Burnt Orange (\`#C97A2B\`)
+  - Secondary text: Warm Gray (\`#BDBDBD\`)
+- **Typography**: 
+  - Headings: \`font-serif\` (Playfair Display)
+  - Body: \`font-sans\` (Inter), extremely clean and highly legible, using light font weights (\`font-light\`).
+- **Container**: The root \`<main>\` container must be constrained to \`max-w-[1280px] mx-auto\` to create a beautifully boxed, cinematic frame on large monitors.
+- **Glassmorphism**: Use translucent backgrounds (\`bg-white/5\` or \`bg-[#070707]/50\`) paired with \`backdrop-blur-md\`, subtle white/10 borders, and glowing box shadows (\`shadow-[0_0_30px_rgba(217,163,95,0.1)]\`) for UI cards and modals.
+
+## 3. SECTIONS \\u0026 LAYOUT
+
+### 3.1 Custom Global Elements
+- **Smooth Scroll**: Implement Lenis for buttery smooth scrolling.
+- **Custom Cursor**: Implement a custom dot cursor using Framer Motion that follows the mouse and expands slightly when hovering over clickable elements.
+- **Navbar**: Sticky glassmorphism header, "Basilico" brand logo on the left, centered navigation links, and a gold-bordered "Reserve Table" button on the right.
+
+### 3.2 Hero Section
+- **Background**: Use \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/restaurant_bg.png\`. 
+  - Set it as absolute, \`opacity-90\` over a \`#070707\` base.
+  - Apply a subtle edge vignette using a radial gradient to darken the corners, and a linear gradient on the left side (\`from-[#070707]/60 to-transparent\`) to ensure text readability. Do not wash out the image with heavy black overlays.
+- **Typography Layout**: On the left, display a massive staggered reveal headline: "Crafting Exceptional Culinary Experiences" (with "Exceptional" highlighted in a gold gradient). Font size must be carefully scaled (e.g. \`text-[50px]\` on desktop).
+- **Video Card**: On the center-right, display a floating, looping, muted \`<video>\` card (\`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_food_video.mp4\`). Constrain its width to \`max-w-[450px]\` with an \`aspect-[4/5]\`. Include a glass overlay text tag that says "Chef's Special: Truffle Wagyu Ribeye".
+- **Animations**: Use GSAP to animate the text in from the bottom (\`y: 100\`), stagger them, and make the video card float continuously up and down (\`yoyo: true\`).
+
+### 3.3 Featured Dishes (Menu preview)
+- Display a grid of 4 luxury dishes.
+- Each dish card should have an aspect-[3/4] image that scales up slightly on hover, a glassmorphism base, and text below it (Name, Price, short description).
+- Includes a "View Full Menu" button in the section header.
+- **Menu Modal**: Clicking "View Full Menu" must open a stunning, full-screen glassmorphism modal overlay. 
+  - Must lock background scrolling (\`document.body.style.overflow = "hidden"\`).
+  - Must display categorized lists (Starters, Mains, Desserts) with elegant dashed lines connecting item names to prices.
+
+### 3.4 About Section
+- Split layout: Text on the left, an overlapping circular or uniquely shaped image on the right (\`aspect-square rounded-full\`).
+- Text should detail Chef Alexander Thorne's vision.
+- Include an elegant, italicized serif signature (\`font-serif italic text-4xl text-[#BDBDBD] opacity-80\`) that says "Alexander Thorne" at the bottom of the text.
+
+### 3.5 Special Tasting Menu
+- 3-column layout highlighting a 7-course tasting menu.
+- Use staggered GSAP scroll-triggers to fade these columns in sequentially when scrolling into view.
+
+### 3.6 Immersive Experience
+- A cinematic parallax section with a fixed background image or a very large image card detailing the restaurant's atmosphere, private dining, and wine cellar.
+
+### 3.7 Testimonials
+- A clean, interactive carousel of food critic quotes.
+- Background of the section must seamlessly inherit the main \`#070707\` background (do not apply different background colors to outer section tags).
+
+### 3.8 Reservations
+- A beautifully styled form allowing users to select Date, Time (dropdowns must retain standard background colors for visibility like \`bg-[#121212]\`), Guests, and Special Requests.
+- The form should sit over a subtle gold glowing radial background.
+
+### 3.9 Gallery (Visual Story)
+- A dense, editorial-style masonry or asymmetric grid layout showcasing restaurant ambiance, plating, and ingredients. 
+- Ensure high-quality image selection.
+
+### 3.10 Footer
+- Elegant minimalist footer containing the Basilico logo, brief description, contact info, newsletter signup, and copyright text.
+
+## 4. IMAGE \\u0026 ASSET REQUIREMENTS
+- **CRITICAL**: Use the exact working images below to prevent 404 errors. Do not use random unsplash IDs as they often break or require premium access.
+- **Hero Background**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/restaurant_bg.png\`
+- **Hero Video**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_food_video.mp4\`
+- **Featured Dishes**:
+  - \`https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80\\u0026w=800\\u0026auto=format\\u0026fit=crop\`
+  - \`https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80\\u0026w=800\\u0026auto=format\\u0026fit=crop\`
+  - \`https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80\\u0026w=800\\u0026auto=format\\u0026fit=crop\`
+  - \`https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80\\u0026w=800\\u0026auto=format\\u0026fit=crop\`
+- Ensure \`images.unsplash.com\` is configured in \`next.config.ts\` under \`remotePatterns\`.
+
+## 5. ANIMATION \\u0026 INTERACTION RULES
+- Animations must feel expensive: use slow durations (\`1s\` to \`2s\`), custom easing (\`power3.out\`, \`power4.out\`), and slight scale or y-axis reveals.
+- Do not make animations too fast or bouncy; luxury is slow and deliberate.
+- Every major section should fade in smoothly via GSAP ScrollTrigger as it enters the viewport.
+
+**Execute this build prioritizing flawless responsive design, high-contrast legibility, and premium cinematic immersion.**</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

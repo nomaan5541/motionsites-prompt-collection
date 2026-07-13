@@ -4,270 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hublot Watches — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #fd79a8 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #fd79a8;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #fd79a8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #fd79a8;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782788815855-hublot-watches.webp" alt="Hublot Watches preview" onerror="this.style.display='none'">
+        <div class="badge">E-commerce • Premium</div>
+        <h1>Hublot Watches</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">hublot_watches.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Act as an award-winning UI/UX designer, master motion specialist, and elite web developer. Your objective is to recreate a hyper-premium, luxury watch brand website with absolute pixel-perfection, complex scroll-tied animations, and flawless multi-device responsiveness. 
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">E-commerce Template</div>
-            <h1>Hublot Watches</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">hublot_watches.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+This document serves as the absolute source of truth. Every detail must be implemented exactly as described below.
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+---
+
+## 1. Visual Design System
+
+### 1.1 Color Palette
+The site uses a strict dark-mode luxury aesthetic with gold accents.
+- **Background (\`--color-bg\`)**: \`#050505\` (Deep space black)
+- **Text (\`--color-text\`)**: \`#FFFFFF\` (Pure white)
+- **Accent/Gold (\`--color-accent\` \\u0026 \`--color-primary-container\`)**: \`#C79A42\` (Luxury matte gold)
+- **Muted Text (\`--color-muted\`)**: \`#888888\`
+- **Border (\`--color-border\`)**: \`#222222\`
+- **Overlay (\`--color-overlay\`)**: \`rgba(5, 5, 5, 0.7)\`
+- **Surface (\`--color-surface\`)**: \`#111111\`
+- **Surface Variant (\`--color-on-surface-variant\`)**: \`#AAAAAA\`
+
+### 1.2 Typography
+- **Heading Font (\`--font-heading\`)**: \`'Bodoni Moda', serif\` (For luxurious, high-contrast display titles)
+- **Body Font (\`--font-body\`)**: \`'Hanken Grotesk', sans-serif\` (For ultra-legible, modern sans-serif body copy)
+- **Title Sizes**: Scaled using \`clamp(3rem, 6vw, 5rem)\` for fluid typography.
+- **Letter Spacing**: Used heavily on navigation and uppercase accents (e.g., \`letter-spacing: 4px\` or \`0.2em\`).
+- **Line Heights**: \`1.1\` to \`1.2\` for headings, \`1.5\` to \`1.6\` for body text.
+
+---
+
+## 2. Global Layout \\u0026 Grid System
+- **Maximum Width**: Constrained elements use a \`max-width: 1440px\` with \`margin: 0 auto\`.
+- **Global Padding**: \`1.5rem\` horizontal padding on mobile/tablet (\`<=1024px\`), and \`2rem\` on desktop (\`>1024px\`).
+- **Scroll Behavior**: Hidden horizontal overflow (\`overflow-x: hidden\`) strictly enforced on \`html, body\`.
+- **Box Sizing**: All elements inherit \`box-sizing: border-box\`.
+
+---
+
+## 3. Section-By-Section Implementation Details
+
+### 3.1 ScrollHero Section (Canvas Video Scrubbing)
+- **Architecture**: A 100vh pinned container that scrubs through a high-definition video using an HTML5 \`<canvas>\` element tied to the user's scroll position.
+- **Video Source**: \`https://res.cloudinary.com/dprydfxok/video/upload/v1740660604/scrolling_d8p8d8.mp4\`
+- **Technical Logic**:
+  - Load video and draw frames to a \`100%\` width, \`100%\` height canvas using \`object-fit: cover\`.
+  - Use \`requestVideoFrameCallback\` to sync canvas drawing with video playback.
+  - Pin the container using GSAP \`ScrollTrigger\` (pin duration \`+=2500\`).
+  - Animate an internal \`frameObj.frame\` tied to the scroll \`scrub: 2\` (smooth scrubbing).
+- **Navigation (Overlay)**:
+  - Top navigation overlapping the canvas.
+  - Desktop: Flexbox \`justify-content: space-between\`.
+  - Mobile (\`<= 1024px\`): Custom hamburger menu toggle. When open, a full-screen glassmorphism overlay (\`backdrop-filter: blur(15px)\`, \`background: rgba(5, 5, 5, 0.95)\`) slides in from \`translateY(-100%)\`.
+- **Loading State**: An ultra-premium "vs-loading" overlay (\`backdrop-filter: blur(25px)\`) displaying a spinning gold loader (\`border-top-color: var(--color-accent)\`) until the video metadata triggers \`loadeddata\`.
+- **Text Layers**: Sections of text (Title, description) fading in and out over the video at specific scroll percentages.
+
+### 3.2 Narrative Section
+- **Layout**: Center-aligned typography block.
+- **Padding**: \`16rem 0\` on desktop, \`6rem 1.5rem\` on mobile.
+- **Styling**: Large luxury heading with a muted, refined body text restricted to \`max-width: 800px\`. Includes a subtle radial background glow (\`background: radial-gradient(circle, rgba(199, 154, 66, 0.05), transparent 70%)\`).
+
+### 3.3 Features Section (Material Alchemy)
+- **Desktop Layout (\`>1024px\`)**: Grid \`7fr 4fr\`, \`gap: 6rem\`.
+- **Mobile Layout (\`<=1024px\`)**: Flex column \`gap: 4rem\`. Image wrapper naturally hugs the image (no \`aspect-ratio\` collapse).
+- **Image (\`hhttps://res.cloudinary.com/dprydfxok/image/upload/v1782786581/w2_ih6nz9.webp\`)**: Absolute positioned floating specs (\`18K Rose Gold\`, \`Skeletonized Dial\`) pinned to the image wrapper's corners, featuring a thin \`border: 1px solid var(--color-border)\` and microscopic backdrop blur.
+- **Content**: Clean typography lists separating "Case", "Bezel", and "Strap".
+
+### 3.4 Exploded View Section
+- **Layout**: Stacked center-aligned layout.
+- **Image (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782788684/img-2_zuiqcy.png\`)**: The exploded mechanical view of the watch spanning \`max-width: 800px\`.
+
+### 3.5 Collection Gallery
+- **Desktop Layout (\`>1024px\`)**: A stunning 5-item, 6-column bento grid. 
+  - Items 1 \\u0026 2: \`grid-column: span 3; aspect-ratio: 4 / 3\`.
+  - Items 3, 4, \\u0026 5: \`grid-column: span 2; aspect-ratio: 3 / 4\`.
+- **Mobile Layout (\`<=1024px\`)**: Single column stacking.
+- **Assets**:
+  1. \`https://res.cloudinary.com/dprydfxok/image/upload/v1782786580/w1_f1ngdv.webp\`
+  2. \`https://res.cloudinary.com/dprydfxok/image/upload/v1782786581/w2_ih6nz9.webp\`
+  3. \`https://res.cloudinary.com/dprydfxok/image/upload/v1782786581/w3_gwriiw.webp\`
+  4. \`https://res.cloudinary.com/dprydfxok/image/upload/v1782786581/w4_ezumqb.webp\`
+  5. \`https://res.cloudinary.com/dprydfxok/image/upload/v1782786581/w5_t0vdxr.webp\`
+- **Interactions**: On hover (\`>1024px\`), image scales slightly (\`1.05\`), text overlay fades in, and image goes from grayscale/dimmed to full vibrant color. On touch devices (\`<=1024px\`), text overlays are permanently visible.
+
+### 3.6 Heritage \\u0026 Boutique Section
+- **Desktop Layout (\`>1024px\`)**: Grid \`6fr 5fr\`, \`gap: 6rem\`.
+- **Mobile Layout (\`<=1024px\`)**: Flex column \`gap: 4rem\`.
+- **Heritage Image (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782788683/img-3_ztdqsd.jpg\`)**: Full-width object-fit cover image.
+- **Boutique Image (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782786901/watch-img_f0wpnt.png\`)**: \`aspect-ratio: 21 / 9\` on desktop, shifting to \`16 / 9\` on mobile. Deep \`filter: brightness(0.75) contrast(1.25)\` applied for mood.
+
+### 3.7 Footer
+- **CTA Section**: Massive text ("CRAFT YOUR LEGACY") above an outlined button.
+- **Footer Bottom**: Standard flex layout, splitting a logo, navigation links, and copyright info. Stacked vertically on mobile.
+
+---
+
+## 4. Animations \\u0026 Micro-Interactions
+- **GSAP ScrollTrigger**: Used comprehensively for reveal animations. Every text block and image is wrapped in an \`.animate-stagger\` class. 
+  - Config: \`y: 50, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out'\`.
+- **Context Handling**: All GSAP animations inside React \`useEffect\` hooks MUST be wrapped in \`gsap.context()\` for proper cleanup on unmounts (React 18 StrictMode safe).
+
+---
+
+## 5. Responsive Behavior \\u0026 Accessibility
+- **The 1024px Breakpoint**: All layout shifts from desktop (grids, multi-columns) to mobile/tablet (single column, flex-column, hamburger menus) trigger precisely at \`max-width: 1024px\` to natively support iPads in portrait mode.
+- **Scroll Locking**: The canvas hero must use \`width: 100%\` (NOT \`100vw\` which causes horizontal scrollbar bugs on mobile).
+- **Accessibility**: Use semantic HTML tags (\`<section>\`, \`<nav>\`, \`<main>\`), proper \`alt\` tags for all watch images, and maintain high contrast (\`#FFFFFF\` on \`#050505\`).
+
+---
+
+## 6. Technical Stack \\u0026 Architecture
+- **Framework**: React.js (Vite).
+- **Styling**: Pure CSS (No Tailwind, No CSS-in-JS). Each component maintains a corresponding \`.css\` file (e.g. \`Features.css\`, \`Collection.css\`).
+- **Dependencies**: 
+  - \`gsap\` (for timelines and ScrollTrigger)
+- **Performance**: 
+  - Hardware accelerated canvas drawing.
+  - Image assets utilizing highly compressed \`.webp\` formats.
+  - Reduced layout thrashing by avoiding CSS \`aspect-ratio\` on grid columns during mobile view.</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

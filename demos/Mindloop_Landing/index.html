@@ -3,291 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindloop | Content Platform</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React, Framer Motion, HLS.js, Lucide -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'hsl(0 0% 0%)',
-                        foreground: 'hsl(0 0% 100%)',
-                        card: 'hsl(0 0% 5%)',
-                        'card-foreground': 'hsl(0 0% 100%)',
-                        primary: 'hsl(0 0% 100%)',
-                        'primary-foreground': 'hsl(0 0% 0%)',
-                        secondary: 'hsl(0 0% 12%)',
-                        'secondary-foreground': 'hsl(0 0% 85%)',
-                        muted: 'hsl(0 0% 15%)',
-                        'muted-foreground': 'hsl(0 0% 65%)',
-                        accent: 'hsl(170 15% 45%)',
-                        'accent-foreground': 'hsl(0 0% 100%)',
-                        border: 'hsl(0 0% 20%)',
-                        input: 'hsl(0 0% 18%)',
-                        ring: 'hsl(0 0% 40%)',
-                        'hero-subtitle': 'hsl(210 17% 95%)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Instrument Serif', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer components {
-            .liquid-glass {
-                background: rgba(255, 255, 255, 0.01);
-                background-blend-mode: luminosity;
-                backdrop-filter: blur(4px);
-                -webkit-backdrop-filter: blur(4px);
-                position: relative;
-                overflow: hidden;
-            }
-            .liquid-glass::before {
-                content: '';
-                position: absolute; inset: 0;
-                border-radius: inherit;
-                padding: 1.4px;
-                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask-composite: exclude;
-                pointer-events: none;
-            }
-        }
+    <title>210 17% 95% — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-background text-foreground font-sans antialiased overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>210 17% 95%</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">mindloop_landing.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a dark monochrome landing page called Mindloop — a newsletter/content platform. Use React + Vite + TypeScript + Tailwind CSS + shadcn/ui + Framer Motion. Fonts: Inter (sans) and Instrument Serif (serif, used for italic accent words). The entire theme is pure black (#000) background with white foreground — no colors or gradients beyond monochrome. Install hls.js and framer-motion.
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, useScroll, useTransform } = window.Motion;
+Design System (index.css)
+All CSS variables in HSL (no hsl() wrapper in the variable, just the values):
 
-        const fadeUp = (delay) => ({
-            initial: { opacity: 0, y: 20 },
-            whileInView: { opacity: 1, y: 0 },
-            viewport: { once: true, margin: "-100px" },
-            transition: { duration: 0.6, delay, ease: "easeOut" },
-        });
+--background: 0 0% 0%
+--foreground: 0 0% 100%
+--card: 0 0% 5%
+--card-foreground: 0 0% 100%
+--primary: 0 0% 100%
+--primary-foreground: 0 0% 0%
+--secondary: 0 0% 12%
+--secondary-foreground: 0 0% 85%
+--muted: 0 0% 15%
+--muted-foreground: 0 0% 65%
+--accent: 170 15% 45%
+--accent-foreground: 0 0% 100%
+--border: 0 0% 20%
+--input: 0 0% 18%
+--ring: 0 0% 40%
+--hero-subtitle: 210 17% 95%
+Liquid Glass Effect (global CSS class .liquid-glass)
 
-        const LogoIcon = ({ size = "w-7 h-7", innerSize = "w-3 h-3" }) => (
-            <div className={`${size} rounded-full border-2 border-foreground/60 flex items-center justify-center`}>
-                <div className={`${innerSize} rounded-full border border-foreground/60`}></div>
-            </div>
-        );
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+Animation Pattern
+All sections use a reusable fadeUp helper with staggered delays:
 
-        const Navbar = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-28 py-4 bg-transparent">
-                    <div className="flex items-center gap-12">
-                        <div className="flex items-center gap-3">
-                            <LogoIcon />
-                            <span className="font-bold text-lg">Mindloop</span>
-                        </div>
-                        <div className="hidden md:flex items-center space-x-6 text-sm">
-                            {['Home', 'How It Works', 'Philosophy', 'Use Cases'].map((link, i) => (
-                                <React.Fragment key={link}>
-                                    <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">{link}</a>
-                                    {i < 3 && <span className="text-muted-foreground/30">•</span>}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        {['instagram', 'linkedin', 'twitter'].map(icon => (
-                            <button key={icon} className="liquid-glass w-10 h-10 rounded-full flex items-center justify-center">
-                                <i data-lucide={icon} className="w-4 h-4"></i>
-                            </button>
-                        ))}
-                    </div>
-                </nav>
-            );
-        };
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.6, delay, ease: "easeOut" },
+});
 
-        const Hero = () => (
-            <section className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center text-center px-6">
-                <video 
-                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_120549_0cd82c36-56b3-4dd9-b190-069cfc3a623f.mp4"
-                    className="absolute inset-0 w-full h-full object-cover -z-10"
-                    autoPlay loop muted playsInline
-                />
-                <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent -z-10"></div>
-                
-                <div className="z-10 pt-28 md:pt-32">
-                    <div className="flex items-center justify-center space-x-4 mb-8">
-                        <div className="flex -space-x-2">
-                            {[1,2,3].map(i => (
-                                <img key={i} src={`https://i.pravatar.cc/100?img=${i+20}`} className="w-8 h-8 rounded-full border-2 border-background" />
-                            ))}
-                        </div>
-                        <span className="text-muted-foreground text-sm">7,000+ people already subscribed</span>
-                    </div>
-                    
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-2px] mb-6 max-w-5xl leading-tight">
-                        Get <span className="font-serif italic font-normal">Inspired</span> with Us
-                    </h1>
-                    
-                    <p className="text-lg text-hero-subtitle max-w-2xl mx-auto mb-12">
-                        Join our feed for meaningful updates, news around technology and a shared journey toward depth and direction.
-                    </p>
-                    
-                    <div className="liquid-glass rounded-full p-2 max-w-lg mx-auto flex items-center shadow-2xl">
-                        <input type="email" placeholder="Enter your email" className="bg-transparent flex-1 px-6 text-sm outline-none" />
-                        <motion.button 
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="bg-foreground text-background rounded-full px-8 py-3 text-sm font-bold uppercase tracking-widest"
-                        >
-                            SUBSCRIBE
-                        </motion.button>
-                    </div>
-                </div>
-            </section>
-        );
+Page Structure (top to bottom)
+1. Navbar (fixed, transparent)
+Left: Logo (concentric circles icon — outer w-7 h-7 with border-2 border-foreground/60, inner w-3 h-3 with border border-foreground/60) + "Mindloop" bold text.
+Center-left: Nav links ["Home", "How It Works", "Philosophy", "Use Cases"] separated by • dots. Links are text-muted-foreground hover:text-foreground.
+Right: 3 social icons (Instagram, Linkedin, Twitter from lucide-react) in liquid-glass circular buttons (w-10 h-10 rounded-full).
+No background — fully transparent, fixed top-0 z-50, padding px-8 md:px-28 py-4.
 
-        const PlatformCards = () => (
-            <section className="pt-52 md:pt-64 pb-20 px-8 lg:px-28">
-                <div className="text-center mb-32">
-                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium mb-12 leading-none">
-                        Search has <span className="font-serif italic">changed.</span> Have you?
-                    </h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        In an era of instant answers, we value the journey of discovery.
-                    </p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 mb-20 max-w-7xl mx-auto">
-                    {[
-                        { name: 'ChatGPT', icon: 'https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif', desc: 'Instant answers for your immediate needs.' },
-                        { name: 'Perplexity', icon: 'https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif', desc: 'Real-time discovery at your fingertips.' },
-                        { name: 'Google AI', icon: 'https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif', desc: 'The future of search, reimagined.' }
-                    ].map((card, i) => (
-                        <div key={i} className="flex flex-col items-center text-center">
-                            <div className="w-[200px] h-[200px] liquid-glass rounded-2xl flex items-center justify-center mb-8 overflow-hidden">
-                                <img src={card.icon} className="w-full h-full object-cover grayscale opacity-60" />
-                            </div>
-                            <h4 className="font-semibold text-lg mb-2">{card.name}</h4>
-                            <p className="text-muted-foreground text-sm max-w-[200px]">{card.desc}</p>
-                        </div>
-                    ))}
-                </div>
-                <p className="text-muted-foreground text-sm text-center">If you don't answer the questions, someone else will.</p>
-            </section>
-        );
+2. Hero Section (full viewport height)
+Background: autoplaying looping muted MP4 video covering the entire section.
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_120549_0cd82c36-56b3-4dd9-b190-069cfc3a623f.mp4
+Bottom gradient: h-64 bg-gradient-to-t from-background to-transparent for smooth fade to black.
+Content (centered, z-10, pt-28 md:pt-32):
+Avatar row: 3 overlapping circular avatars (-space-x-2, w-8 h-8 rounded-full border-2 border-background) + "7,000+ people already subscribed" in text-muted-foreground text-sm.
+Heading: text-5xl md:text-7xl lg:text-8xl font-medium tracking-[-2px] — "Get Inspired with Us" where "Inspired" is font-serif italic font-normal.
+Subtitle: text-lg in hsl(var(--hero-subtitle)) color — "Join our feed for meaningful updates, news around technology and a shared journey toward depth and direction."
+Email form: liquid-glass rounded-full p-2 max-w-lg container with email input and a white bg-foreground text-background rounded-full px-8 py-3 "SUBSCRIBE" button with whileHover scale 1.03 and whileTap scale 0.98.
 
-        const MissionReveal = () => {
-            const containerRef = useRef(null);
-            const { scrollYProgress } = useScroll({
-                target: containerRef,
-                offset: ["start 0.8", "end 0.2"]
-            });
+3. "Search has changed" Section
+Top padding pt-52 md:pt-64, bottom padding pb-6 md:pb-9.
+Heading: text-5xl md:text-7xl lg:text-8xl — "Search has changed. Have you?" with "changed." in serif italic.
+Subtitle: text-muted-foreground text-lg max-w-2xl mx-auto mb-24.
+3 platform cards (grid md:grid-cols-3 gap-12 md:gap-8 mb-20): Each card has a 200x200 icon image centered, platform name (font-semibold text-base), and description (text-muted-foreground text-sm).
+ChatGPT icon: local asset icon-chatgpt.png
+Perplexity icon: local asset icon-perplexity.png
+Google AI icon: local asset icon-google.png
+Bottom tagline: "If you don't answer the questions, someone else will." in text-muted-foreground text-sm text-center.
 
-            const text1 = "We're building a space where curiosity meets clarity — where readers find depth, writers find reach, and every newsletter becomes a conversation worth having.";
-            const words1 = text1.split(" ");
-            const highlights = ["curiosity", "meets", "clarity"];
+4. Mission Section
+Padding pt-0 pb-32 md:pb-44.
+Video: Large 800x800 looping autoplaying muted video centered.
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_132944_a0d124bb-eaa1-4082-aa30-2310efb42b4b.mp4
+Scroll-driven word-by-word reveal using useScroll and useTransform from framer-motion:
+Paragraph 1 (text-2xl md:text-4xl lg:text-5xl font-medium tracking-[-1px]): "We're building a space where curiosity meets clarity — where readers find depth, writers find reach, and every newsletter becomes a conversation worth having." Words "curiosity", "meets", "clarity" are highlighted in --foreground, rest in --hero-subtitle.
+Paragraph 2 (text-xl md:text-2xl lg:text-3xl font-medium mt-10): "A platform where content, community, and insight flow together — with less noise, less friction, and more meaning for everyone involved."
+Each word transitions opacity from 0.15 to 1 based on scroll progress.
 
-            return (
-                <section ref={containerRef} className="pb-32 md:pb-44 flex flex-col items-center">
-                    <video 
-                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_132944_a0d124bb-eaa1-4082-aa30-2310efb42b4b.mp4"
-                        className="w-[800px] h-[800px] object-cover -z-10 mb-20 grayscale opacity-40"
-                        autoPlay loop muted playsInline
-                    />
-                    
-                    <div className="max-w-5xl px-8 text-center">
-                        <div className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-[-1px] leading-relaxed">
-                            {words1.map((word, i) => {
-                                const start = i / words1.length;
-                                const end = start + (1 / words1.length);
-                                const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
-                                const cleanWord = word.replace(/[^\w]/g, '').toLowerCase();
-                                const isHighlighted = highlights.includes(cleanWord);
-                                return (
-                                    <motion.span key={i} style={{ opacity }} className={`inline-block mr-3 ${isHighlighted ? 'text-foreground' : 'text-hero-subtitle'}`}>
-                                        {word}
-                                    </motion.span>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+5. Solution Section
+Padding py-32 md:py-44, border-t border-border/30.
+Label: "SOLUTION" in text-xs tracking-[3px] uppercase text-muted-foreground.
+Heading: text-4xl md:text-6xl — "The platform for meaningful content" (serif italic on "meaningful").
+Video: Rounded rounded-2xl, aspect-[3/1] object-cover.
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_125119_8e5ae31c-0021-4396-bc08-f7aebeb877a2.mp4
+4-column feature grid (md:grid-cols-4 gap-8): Curated Feed, Writer Tools, Community, Distribution — each with title (font-semibold text-base) and description (text-muted-foreground text-sm).
 
-        const CTA = () => {
-            const videoRef = useRef(null);
-            useEffect(() => {
-                const video = videoRef.current;
-                const streamUrl = 'https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8';
-                if (Hls.isSupported()) {
-                    const hls = new Hls();
-                    hls.loadSource(streamUrl);
-                    hls.attachMedia(video);
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = streamUrl;
-                }
-            }, []);
+6. CTA Section
+Padding py-32 md:py-44, border-t border-border/30, overflow-hidden.
+Background video (HLS via hls.js): absolute inset-0 object-cover z-0.
+HLS URL: https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8
+Uses Hls.isSupported() check with fallback to native HLS for Safari.
+Overlay: absolute inset-0 bg-background/45 z-[1].
+Content (z-10, centered):
+Concentric circles logo icon (w-10 h-10 outer, w-5 h-5 inner).
+Heading: "Start Your Journey" (serif italic).
+Subtitle in text-muted-foreground.
+Two buttons: "Subscribe Now" (bg-foreground text-background rounded-lg px-8 py-3.5) and "Start Writing" (liquid-glass rounded-lg).
 
-            return (
-                <section className="relative py-32 md:py-44 overflow-hidden flex items-center justify-center border-t border-border/30">
-                    <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover -z-10 grayscale" autoPlay loop muted playsInline />
-                    <div className="absolute inset-0 bg-background/45 -z-[5]"></div>
-                    
-                    <div className="relative z-10 text-center">
-                        <div className="flex justify-center mb-8">
-                            <LogoIcon size="w-10 h-10" innerSize="w-5 h-5" />
-                        </div>
-                        <h2 className="text-5xl font-serif italic mb-6">Start Your Journey</h2>
-                        <p className="text-muted-foreground mb-12">Experience the future of meaningful content.</p>
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <button className="bg-foreground text-background rounded-lg px-10 py-4 font-bold text-sm uppercase tracking-widest">Subscribe Now</button>
-                            <button className="liquid-glass rounded-lg px-10 py-4 font-bold text-sm uppercase tracking-widest">Start Writing</button>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+7. Footer
+Simple py-12 px-8 md:px-28 footer.
+Left: "© 2026 Mindloop. All rights reserved." in text-muted-foreground text-sm.
+Right: Privacy, Terms, Contact links in text-muted-foreground text-sm hover:text-foreground.
 
-        const Footer = () => (
-            <footer className="py-12 px-8 md:px-28 border-t border-border/30 flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
-                <p>© 2026 Mindloop. All rights reserved.</p>
-                <div className="flex space-x-12 mt-6 md:mt-0">
-                    <a href="#" className="hover:text-foreground">Privacy</a>
-                    <a href="#" className="hover:text-foreground">Terms</a>
-                    <a href="#" className="hover:text-foreground">Contact</a>
-                </div>
-            </footer>
-        );
+Key Dependencies
+framer-motion for all animations
+hls.js for the CTA background video streaming
+@fontsource/inter (400, 500, 600, 700)
+@fontsource/instrument-serif (400, 400-italic)
+lucide-react for icons
+tailwindcss-animate plugin
 
-        const App = () => (
-            <div>
-                <Navbar />
-                <Hero />
-                <PlatformCards />
-                <MissionReveal />
-                <CTA />
-                <Footer />
-            </div>
-        );
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Assets Needed
+3 avatar images (avatar-1.png, avatar-2.png, avatar-3.png)
+3 platform icons (icon-chatgpt.png, icon-perplexity.png, icon-google.png)</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

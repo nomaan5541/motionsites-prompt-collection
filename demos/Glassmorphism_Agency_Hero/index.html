@@ -3,117 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agency | Your Vision, Our Digital Reality</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-                    animation: { marquee: 'marquee 25s linear infinite' },
-                }
-            }
-        }
-    </script>
+    <title>Glassmorphism Agency Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="antialiased overflow-x-hidden" style="background:#010101; font-family:'Inter',sans-serif; color:white">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
-        const { motion } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Glassmorphism Agency Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">glassmorphism_agency_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a production-ready, responsive landing page using React, Tailwind CSS v4, and Vite. The design should feature a high-end, dark-mode "glassmorphism" aesthetic with specific purple/pink gradients.
 
-        const App = () => {
-            const videoRef = useRef(null);
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current;
-                const url = 'https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8';
-                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
-            }, []);
+1. Tech Stack & Libraries:
+Use hls.js for video streaming.
+Use motion/react (formerly Framer Motion) for animations.
+Use react-use-measure for sizing logic.
+Use clsx and tailwind-merge for class management.
+Use lucide-react for standard icons (if needed), but I will provide custom SVG paths for specific UI elements.
 
-            const logos = [
-                'https://html.tailus.io/blocks/customers/openai.svg',
-                'https://html.tailus.io/blocks/customers/nvidia.svg',
-                'https://html.tailus.io/blocks/customers/github.svg',
-                'https://html.tailus.io/blocks/customers/google.svg',
-                'https://html.tailus.io/blocks/customers/microsoft.svg',
-            ];
+2. Global Styling:
+Background: Dark/Black (#010101).
+Primary Gradient: A diagonal gradient used for accents: from-[#FA93FA] via-[#C967E8] to-[#983AD6].
+Typography: Modern sans-serif, center-aligned hero text.
 
-            return (
-                <div className="min-h-screen" style={{ background: '#010101' }}>
-                    {/* Hero */}
-                    <section className="relative flex flex-col items-center text-center overflow-hidden">
-                        {/* Text Content - z-20 */}
-                        <div className="relative z-20 pt-24 pb-12 px-4">
-                            {/* Pill Badge */}
-                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-                                className="inline-flex items-center gap-3 mb-8 rounded-full px-4 py-2 border border-white/10" style={{ background: 'rgba(28,27,36,0.15)' }}>
-                                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FA93FA, #C967E8, #983AD6)', boxShadow: '0 0 16px rgba(201,103,232,0.4)' }}>
-                                    <i data-lucide="zap" className="w-3.5 h-3.5 text-white fill-white"></i>
-                                </div>
-                                <span className="text-sm text-white/70">Used by founders. Loved by devs.</span>
-                            </motion.div>
+3. Hero Section Components:
+Announcement Pill:
+A pill-shaped top badge.
+Background: Semi-transparent dark (bg-[rgba(28,27,36,0.15)]) with a subtle border.
+Icon: A "Zap" icon inside a gradient-filled box with a glow effect.
+Text: "Used by founders. Loved by devs." in light grey.
 
-                            {/* Headline */}
-                            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-                                className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold leading-[1.05] mb-6 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(180deg, #ffffff 30%, #C967E8 100%)' }}>
-                                Your Vision<br />Our Digital Reality.
-                            </motion.h1>
+Main Headline (H1):
+Large text (responsive sizing: 48px mobile to 80px desktop).
+Text: "Your Vision" on line 1, "Our Digital Reality." on line 2.
+Style: Text should have a gradient fill (White to Purple/Pink).
 
-                            {/* Subtitle */}
-                            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}
-                                className="text-white/80 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-                                We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.
-                            </motion.p>
+Subheadline:
+Text: "We turn bold ideas into modern designs that don't just look amazing, they grow your business fast."
+Color: text-white/80.
 
-                            {/* CTA */}
-                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }}>
-                                <button className="inline-flex items-center gap-3 bg-white text-black rounded-full pl-6 pr-2 py-2 font-semibold text-base hover:scale-105 transition-transform">
-                                    Book a 15-min call
-                                    <span className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FA93FA, #983AD6)' }}>
-                                        <i data-lucide="arrow-right" className="w-5 h-5 text-white"></i>
-                                    </span>
-                                </button>
-                            </motion.div>
-                        </div>
+CTA Button:
+"Book a 15-min call" text.
+Rounded full button with a white background and black text.
+Includes a circle icon with an arrow inside, styled with the primary purple gradient.
+Outer border wrapper with a glass effect.
 
-                        {/* Video - z-10, overlaps text */}
-                        <div className="relative z-10 w-full -mt-[150px]">
-                            <video ref={videoRef} className="w-full h-auto mix-blend-screen" muted loop playsInline />
-                            <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-transparent to-[#010101] pointer-events-none"></div>
-                        </div>
-                    </section>
+4. Hero Video Integration (Critical Details):
+Source: HLS Stream URL: https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8
+Fallback: If HLS fails, fallback to this MP4: /_videos/v1/f0c78f536d5f21a047fb7792723a36f9d647daa1
+Implementation: Do NOT use react-player. Use a native <video> tag with a custom useEffect hook implementation of hls.js.
+Styling:
+Blend Mode: Use mix-blend-screen so the video black background blends into the page.
+Positioning: The video should be at the bottom of the hero. Apply a negative top margin (-mt-[150px]) so it overlaps behind the text.
+Z-Index: Ensure the text content is z-20 (above) and video is z-10 (below).
+Layout: The video must be 100% width (w-full), auto height, and stretch edge-to-edge without being cropped (do not use object-contain or fixed heights).
+Overlay: Add a gradient fade (from-[#010101] via-transparent to-[#010101]) over the video container.
 
-                    {/* Logo Cloud */}
-                    <section className="bg-black/20 backdrop-blur-sm border-t border-white/5 py-8 px-6">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
-                            <div className="flex items-center gap-6 shrink-0">
-                                <span className="text-white/60 text-sm whitespace-nowrap">Powering the best teams</span>
-                                <div className="hidden md:block w-px h-8 bg-white/10"></div>
-                            </div>
-                            <div className="overflow-hidden flex-1 w-full">
-                                <div className="flex w-max animate-marquee items-center">
-                                    {[...logos, ...logos].map((src, i) => (
-                                        <img key={i} src={src} className="h-7 mx-10 brightness-0 invert opacity-50" alt="" />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            );
-        };
+5. Logo Cloud Section (Animated):
+Place this section immediately below the video.
+Background: Semi-transparent glass (bg-black/20 backdrop-blur-sm) with a top border (border-white/5).
+Layout:
+Desktop: "Powering the best teams" text on the left, separated by a vertical divider. Animated logo slider on the right.
+Mobile: Stacked vertically.
+Animation: Create an InfiniteSlider component using motion/react that scrolls logos horizontally forever.
+Logos: Use these SVG URLs (OpenAI, Nvidia, GitHub, etc.) and apply brightness-0 invert to make them white.
+https://html.tailus.io/blocks/customers/openai.svg
+https://html.tailus.io/blocks/customers/nvidia.svg
+(Include others similarly)
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Please assemble these into a cohesive Hero.tsx, App.tsx, and components/ui/infinite-slider.tsx structure.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

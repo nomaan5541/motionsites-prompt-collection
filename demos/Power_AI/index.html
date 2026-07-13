@@ -3,110 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power AI | Talent Acquisition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { background: 'hsl(260 87% 3%)', foreground: 'hsl(40 6% 95%)', 'hero-sub': 'hsl(40 6% 82%)' },
-                    fontFamily: { body: ['Inter', 'system-ui', 'sans-serif'] },
-                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-                    animation: { marquee: 'marquee 20s linear infinite' },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-        }
+    <title>The most powerful AI ever deployed / in talent acquisition — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-background text-foreground font-body antialiased overflow-x-hidden">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>The most powerful AI ever deployed / in talent acquisition</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">power_ai.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a full-screen dark hero section with a looping background video, navbar, headline, subtitle, CTA button, and a logo marquee at the bottom. Here are the exact specifications:
 
-        const App = () => {
-            const videoRef = useRef(null);
-            const logos = ['Vortex','Nimbus','Prysma','Cirrus','Kynder','Halcyn'];
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current; if (!v) return; let raf;
-                const fade = () => { if (!v.duration) { raf = requestAnimationFrame(fade); return; } const t=v.currentTime,d=v.duration; v.style.opacity = t<0.5 ? t/0.5 : t>d-0.5 ? (d-t)/0.5 : 1; raf = requestAnimationFrame(fade); };
-                v.addEventListener('ended', () => { v.style.opacity=0; setTimeout(() => { v.currentTime=0; v.play(); }, 100); });
-                v.play(); raf = requestAnimationFrame(fade); return () => cancelAnimationFrame(raf);
-            }, []);
+Theme & Colors (index.css CSS variables):
+Background: 260 87% 3% (deep dark blue-purple)
+Foreground: 40 6% 95% (off-white)
+Hero sub text: 40 6% 82%
+Body font: Geist Sans (via @fontsource/geist-sans)
+Headline font: General Sans (loaded from Fontshare: https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap)
 
-            return (
-                <div className="relative overflow-hidden min-h-screen flex flex-col">
-                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0 }} muted playsInline />
-                    
-                    <div className="relative z-10 flex flex-col min-h-screen">
-                        {/* Navbar */}
-                        <nav className="flex items-center justify-between py-5 px-8">
-                            <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center text-sm font-bold">P</div>
-                            <div className="hidden md:flex items-center gap-1">
-                                {['Features','Solutions','Plans','Learning'].map((l,i) => (
-                                    <button key={l} className="px-3 py-2 text-foreground/90 text-base hover:text-foreground transition-colors flex items-center gap-1">
-                                        {l} {(i===0||i===3) && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
-                                    </button>
-                                ))}
-                            </div>
-                            <button className="liquid-glass text-foreground rounded-full px-4 py-2 text-sm">Sign Up</button>
-                        </nav>
-                        <div className="mt-[3px] w-full h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent"></div>
+Background Video (Index page wrapper):
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4
+Positioned absolute inset-0 w-full h-full object-cover behind all content
+Starts with opacity: 0
+Custom JS-controlled fade loop: 0.5s fade-in at start, 0.5s fade-out at end, using requestAnimationFrame. On ended, opacity resets to 0, waits 100ms, then replays from 0
+No gradient overlays on the video
+The wrapper div has overflow-hidden, the hero content sits in a relative z-10 div above
 
-                        {/* Blurred Shape */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[984px] h-[527px] opacity-90 bg-gray-950 blur-[82px] pointer-events-none z-[5]"></div>
+Blurred overlay shape (centered behind content):
+w-[984px] h-[527px] opacity-90 bg-gray-950 blur-[82px]
+Absolutely positioned at top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+pointer-events-none
+The hero section has overflow-visible so the blur is not clipped
 
-                        {/* Hero Content */}
-                        <div className="flex-1 flex items-center justify-center relative z-10 overflow-visible">
-                            <div className="text-center">
-                                <h1 className="font-normal leading-[1.02] tracking-[-0.024em]" style={{ fontSize: '220px', fontFamily: "'General Sans', sans-serif" }}>
-                                    <span className="text-foreground">Power </span>
-                                    <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to left, #6366f1, #a855f7, #fcd34d)' }}>AI</span>
-                                </h1>
-                                <p className="text-hero-sub text-lg leading-8 max-w-md mx-auto mt-[9px] opacity-80">
-                                    The most powerful AI ever deployed<br />in talent acquisition
-                                </p>
-                                <div className="mt-[25px]">
-                                    <button className="liquid-glass text-foreground rounded-full text-base" style={{ padding: '24px 29px' }}>Schedule a Consult</button>
-                                </div>
-                            </div>
-                        </div>
+Navbar:
+Full width, py-5 px-8, flex row with justify-between
+Left: logo image (src/assets/logo.png, height 32px)
+Center: nav items — "Features" (with ChevronDown), "Solutions", "Plans", "Learning" (with ChevronDown). Each is a button with text-foreground/90 and hover transition
+Right: "Sign Up" button using heroSecondary variant, rounded-full px-4 py-2
+Below navbar: a 1px divider line with gradient from-transparent via-foreground/20 to-transparent, offset mt-[3px]
 
-                        {/* Marquee */}
-                        <div className="pb-10">
-                            <div className="max-w-5xl mx-auto flex items-center gap-12 px-4">
-                                <p className="text-foreground/50 text-sm shrink-0 whitespace-nowrap">Relied on by brands<br />across the globe</p>
-                                <div className="overflow-hidden flex-1">
-                                    <div className="flex w-max animate-marquee gap-16 items-center">
-                                        {[...logos,...logos].map((n,i) => (
-                                            <div key={i} className="shrink-0 flex items-center gap-2">
-                                                <div className="liquid-glass w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold text-foreground/70">{n[0]}</div>
-                                                <span className="text-base font-semibold whitespace-nowrap">{n}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Hero content (vertically centered in remaining space via flex-1):
+Headline: "Power AI" at text-[220px], font-normal, leading-[1.02], tracking-[-0.024em], font-family General Sans
+"Power " is plain text-foreground
+"AI" uses bg-clip-text text-transparent with backgroundImage: linear-gradient(to left, #6366f1, #a855f7, #fcd34d) (indigo → purple → amber)
+Subtitle: "The most powerful AI ever deployed / in talent acquisition" — text-hero-sub, text-lg, leading-8, max-w-md, mt-[9px], opacity-80
+CTA: "Schedule a Consult" button, heroSecondary variant, px-[29px] py-[24px], mt-[25px]
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Logo marquee (pinned to bottom of hero, pb-10):
+Container: max-w-5xl mx-auto
+Left side: static text "Relied on by brands / across the globe" in text-foreground/50 text-sm
+Right side: infinite scrolling marquee with logos: Vortex, Nimbus, Prysma, Cirrus, Kynder, Halcyn (duplicated for seamless loop)
+Each logo: a liquid-glass 24x24 rounded-lg icon showing the first letter, plus the name in text-base font-semibold text-foreground
+Marquee animation: translateX(0%) → translateX(-50%), 20s linear infinite
+gap-16 between logos, gap-12 between text and marquee
+
+Liquid glass utility class (in index.css):
+.liquid-glass { background: rgba(255, 255, 255, 0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; }
+.liquid-glass::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+
+Section structure: min-h-screen flex flex-col — navbar at top, content centered via flex-1 flex items-center justify-center, marquee at bottom.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

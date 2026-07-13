@@ -1,202 +1,233 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Smith | Cosmic Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { bg: '#0a0a0a', surface: '#141414', 'tp': '#f5f5f5', muted: '#888888', stroke: '#1f1f1f' },
-                    fontFamily: { display: ['Instrument Serif', 'serif'], body: ['Inter', 'sans-serif'] },
-                }
-            }
-        }
-    </script>
+    <title>Portfolio Cosmic — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; }
-        .accent-gradient { background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%); }
-        @keyframes scrollDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
-        @keyframes roleFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-scroll { animation: scrollDown 1.5s ease-in-out infinite; }
-        .animate-role { animation: roleFade 0.4s ease-out; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, AnimatePresence, useInView } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Portfolio Cosmic</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">portfolio_cosmic.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Prompt to recreate this landing page:
 
-        const LoadingScreen = ({ onComplete }) => {
-            const [count, setCount] = useState(0);
-            const [wi, setWi] = useState(0);
-            const words = ['Design', 'Create', 'Inspire'];
-            useEffect(() => {
-                const s = Date.now();
-                const tick = () => { const e = Date.now() - s; const p = Math.min(100, Math.floor((e/2700)*100)); setCount(p); if (p < 100) requestAnimationFrame(tick); else setTimeout(onComplete, 400); };
-                requestAnimationFrame(tick);
-                const i = setInterval(() => setWi(p => (p+1)%3), 900);
-                return () => clearInterval(i);
-            }, []);
-            return (
-                <motion.div exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="fixed inset-0 z-[9999] bg-bg flex flex-col">
-                    <motion.span initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-xs text-muted uppercase tracking-[0.3em] absolute top-8 left-8 md:top-12 md:left-12">Portfolio</motion.span>
-                    <div className="flex-1 flex items-center justify-center">
-                        <AnimatePresence mode="wait">
-                            <motion.span key={wi} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-display italic text-tp/80">{words[wi]}</motion.span>
-                        </AnimatePresence>
-                    </div>
-                    <span className="text-6xl md:text-8xl lg:text-9xl font-display text-tp tabular-nums absolute bottom-8 right-8 md:bottom-12 md:right-12">{String(count).padStart(3,'0')}</span>
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
-                        <div className="h-full accent-gradient origin-left" style={{ transform: `scaleX(${count/100})`, boxShadow: '0 0 8px rgba(137,170,204,0.35)' }}></div>
-                    </div>
-                </motion.div>
-            );
-        };
+Build a single-page dark portfolio landing page using React + Vite + Tailwind CSS + TypeScript + GSAP + Framer Motion + hls.js.
 
-        const Navbar = () => (
-            <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
-                <div className="inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2">
-                    <div className="w-9 h-9 rounded-full p-[2px] accent-gradient"><div className="w-full h-full rounded-full bg-bg flex items-center justify-center text-[13px] font-display italic tracking-tighter">JA</div></div>
-                    <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
-                    {['Home','Work','Resume'].map((l,i) => (
-                        <a key={l} href="#" className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 ${i===0 ? 'text-tp bg-stroke/50' : 'text-muted hover:text-tp hover:bg-stroke/50'} transition-colors`}>{l}</a>
-                    ))}
-                    <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
-                    <a href="#" className="text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-tp">Say hi ↗</a>
-                </div>
-            </nav>
-        );
+---
 
-        const Hero = () => {
-            const videoRef = useRef(null);
-            const [ri, setRi] = useState(0);
-            const roles = ['Creative','Fullstack','Founder','Scholar'];
-            useEffect(() => {
-                const v = videoRef.current;
-                const url = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
-                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) v.src = url;
-                const i = setInterval(() => setRi(p => (p+1)%4), 2000);
-                return () => clearInterval(i);
-            }, []);
-            return (
-                <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-                    <video ref={videoRef} className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0" autoPlay muted loop playsInline />
-                    <div className="absolute inset-0 bg-black/20 z-[1]"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent z-[2]"></div>
-                    <Navbar />
-                    <div className="relative z-10 text-center px-4">
-                        <p className="text-xs text-muted uppercase tracking-[0.3em] mb-8">COLLECTION '26</p>
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight mb-6">Michael Smith</h1>
-                        <p className="text-lg md:text-xl lg:text-2xl text-muted mb-10">A <span key={ri} className="font-display italic text-tp animate-role inline-block">{roles[ri]}</span> lives in Chicago.</p>
-                        <p className="text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-12">Designing seamless digital interactions by focusing on the unique nuances which bring systems to life.</p>
-                        <div className="inline-flex gap-4">
-                            <button className="px-7 py-3.5 bg-tp text-bg text-sm rounded-full hover:scale-105 transition-transform">See Works</button>
-                            <button className="px-7 py-3.5 bg-bg text-tp text-sm rounded-full border-2 border-stroke hover:scale-105 transition-transform">Reach out...</button>
-                        </div>
-                    </div>
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-                        <span className="text-xs text-muted uppercase tracking-[0.2em]">SCROLL</span>
-                        <div className="w-px h-10 bg-stroke relative overflow-hidden"><div className="w-full h-2 bg-tp animate-scroll"></div></div>
-                    </div>
-                </section>
-            );
-        };
+## Global Design System
 
-        const WorkCard = ({ title, span, img }) => (
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.8 }}
-                className={`${span} bg-surface border border-stroke rounded-3xl overflow-hidden relative group aspect-[4/3] cursor-pointer`}
-            >
-                <img src={img} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-bg/70 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white text-black rounded-full px-6 py-2.5 text-sm font-medium">View — <span className="font-display italic">{title}</span></span>
-                </div>
-            </motion.div>
-        );
+### Fonts
+Google Fonts import: Inter (300–700) and Instrument Serif (italic, 400).
+- --font-body: 'Inter', sans-serif → Tailwind font-body
+- --font-display: 'Instrument Serif', serif → Tailwind font-display
 
-        const Works = () => (
-            <section className="bg-bg py-12 md:py-16">
-                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 1 }} className="mb-12">
-                        <div className="flex items-center gap-3 mb-4"><div className="w-8 h-px bg-stroke"></div><span className="text-xs text-muted uppercase tracking-[0.3em]">Selected Work</span></div>
-                        <h2 className="text-3xl md:text-4xl font-medium mb-3">Featured <span className="font-display italic">projects</span></h2>
-                        <p className="text-muted text-sm mb-6">A selection of projects I've worked on, from concept to launch.</p>
-                    </motion.div>
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
-                        <WorkCard title="Automotive Motion" span="md:col-span-7" img="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop" />
-                        <WorkCard title="Urban Architecture" span="md:col-span-5" img="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=600&h=450&fit=crop" />
-                        <WorkCard title="Human Perspective" span="md:col-span-5" img="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop" />
-                        <WorkCard title="Brand Identity" span="md:col-span-7" img="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop" />
-                    </div>
-                </div>
-            </section>
-        );
+### CSS Custom Properties (HSL, no hsl() wrapper — Tailwind adds it)
+--bg: 0 0% 4%;
+--surface: 0 0% 8%;
+--text: 0 0% 96%;
+--muted: 0 0% 53%;
+--stroke: 0 0% 12%;
+--accent: 0 0% 96%;
 
-        const Stats = () => (
-            <section className="bg-bg py-16 md:py-24">
-                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[{ n: '20+', l: 'Years Experience' }, { n: '95+', l: 'Projects Done' }, { n: '200%', l: 'Satisfied Clients' }].map(s => (
-                        <motion.div key={s.l} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-                            className="text-center py-8 border border-stroke rounded-2xl">
-                            <div className="text-4xl md:text-5xl font-display italic mb-2">{s.n}</div>
-                            <div className="text-muted text-sm">{s.l}</div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
-        );
+### Tailwind Custom Colors
+bg: "hsl(var(--bg))",
+surface: "hsl(var(--surface))",
+"text-primary": "hsl(var(--text))",
+muted: "hsl(var(--muted))",
+stroke: "hsl(var(--stroke))",
 
-        const Footer = () => (
-            <footer className="bg-bg pt-16 md:pt-20 pb-8 md:pb-12 overflow-hidden">
-                <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 text-center">
-                    <div className="overflow-hidden mb-16">
-                        <div className="flex whitespace-nowrap" style={{ animation: 'marquee 40s linear infinite' }}>
-                            {Array(10).fill('BUILDING THE FUTURE • ').map((t, i) => (
-                                <span key={i} className="text-4xl md:text-6xl font-display italic text-tp/10 mx-4">{t}</span>
-                            ))}
-                        </div>
-                    </div>
-                    <a href="mailto:hello@michaelsmith.com" className="inline-block px-8 py-4 rounded-full border-2 border-stroke text-tp text-sm hover:scale-105 transition-transform mb-12">hello@michaelsmith.com ↗</a>
-                    <div className="flex items-center justify-center gap-8 mb-8">
-                        {['Twitter', 'LinkedIn', 'Dribbble', 'GitHub'].map(l => (
-                            <a key={l} href="#" className="text-muted text-xs uppercase tracking-widest hover:text-tp transition-colors">{l}</a>
-                        ))}
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-xs text-muted">
-                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for projects
-                    </div>
-                </div>
-            </footer>
-        );
+### Accent Gradient
+linear-gradient(90deg, #89AACC 0%, #4E85BF 100%) — used on logo ring, hover borders, progress bars. CSS utility class .accent-gradient.
 
-        const App = () => {
-            const [loading, setLoading] = useState(true);
-            return (
-                <AnimatePresence>
-                    {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-                    {!loading && (
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-                            <Hero /><Works /><Stats /><Footer />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            );
-        };
+### Custom Animations (in index.css)
+- @keyframes scroll-down — translateY(-100%) → translateY(200%), 1.5s ease-in-out infinite
+- @keyframes role-fade-in — opacity 0 + translateY(8px) → opacity 1 + translateY(0), 0.4s ease-out
+- @keyframes gradient-shift — background-position 0% 50% → 100% 50% → 0% 50%, 6s ease infinite (for animated gradient borders)
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
+### Forced dark theme — no light mode toggle. body gets bg-bg text-text-primary.
+
+---
+
+## Page Structure (Index.tsx)
+
+{isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+
+---
+
+## Section 1: Loading Screen
+
+Full-screen overlay (fixed inset-0 z-[9999] bg-bg). Uses requestAnimationFrame counter from 000→100 over 2700ms.
+
+- Top-left: "Portfolio" label — text-xs text-muted uppercase tracking-[0.3em]. Animates y:-20→0, opacity 0→1.
+- Center: Rotating words ["Design", "Create", "Inspire"] cycling every 900ms. AnimatePresence mode="wait" with y:20→0→-20 transitions. text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80.
+- Bottom-right: Counter display — text-6xl md:text-8xl lg:text-9xl font-display text-text-primary tabular-nums. Shows String(count).padStart(3, "0").
+- Bottom progress bar: h-[3px] bg-stroke/50, inner div with .accent-gradient, scaleX(count/100) transform, box-shadow: 0 0 8px rgba(137, 170, 204, 0.35).
+- On complete (count reaches 100): 400ms delay then calls onComplete.
+
+---
+
+## Section 2: Hero
+
+Full-viewport section with background HLS video and centered content.
+
+### Background Video
+- HLS source: https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8
+- Uses hls.js — if Hls.isSupported(), create HLS instance; else if native HLS support, set video.src directly.
+- Video: autoPlay muted loop playsInline, absolutely positioned and centered with min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2.
+- Dark overlay: bg-black/20
+- Bottom fade: h-48 bg-gradient-to-t from-bg to-transparent
+
+### Navbar (fixed, floats at top center)
+fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4.
+
+Inner pill: inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2. Gets shadow-md shadow-black/10 when scrollY > 100.
+
+Contents (left to right):
+1. Logo: 9×9 circle with accent gradient border (reverses direction on hover). Inner bg-bg circle with "JA" in font-display italic text-[13px]. Scales 110% on hover.
+2. Divider: w-px h-5 bg-stroke mx-1 (hidden on mobile)
+3. Nav links: ["Home", "Work", "Resume"] — text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2. Active: text-text-primary bg-stroke/50. Inactive: text-muted hover:text-text-primary hover:bg-stroke/50.
+4. Divider
+5. "Say hi" button: Same size as nav links. On hover, shows accent gradient border behind (using absolute span with inset: -2px). Inner content wrapped in bg-surface rounded-full backdrop-blur-md. Includes "↗" arrow.
+
+### Hero Content (centered, z-10)
+- Eyebrow: text-xs text-muted uppercase tracking-[0.3em] mb-8 — "COLLECTION '26". Class blur-in.
+- Name: text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6 — "Michael Smith". Class name-reveal.
+- Role line: "A {role} lives in Chicago." — roles cycle every 2s through ["Creative", "Fullstack", "Founder", "Scholar"]. Role word uses font-display italic text-text-primary animate-role-fade-in inline-block with key={roleIndex} for re-triggering animation.
+- Description: text-sm md:text-base text-muted max-w-md mb-12 — "Designing seamless digital interactions by focusing on the unique nuances which bring systems to life."
+- CTA Buttons (inline-flex gap-4):
+  - "See Works": Solid button. Default: bg-text-primary text-bg. Hover: bg-bg text-text-primary with accent gradient border ring.
+  - "Reach out...": Outlined button. Default: border-2 border-stroke bg-bg text-text-primary. Hover: border-transparent with accent gradient border ring.
+  - Both: rounded-full text-sm px-7 py-3.5 hover:scale-105.
+
+### GSAP Entrance
+Timeline with ease: "power3.out":
+- .name-reveal: opacity 0→1, y 50→0, duration 1.2s, delay 0.1s
+- .blur-in: opacity 0→1, filter blur(10px)→blur(0px), y 20→0, duration 1s, stagger 0.1, delay 0.3s
+
+### Scroll Indicator
+Bottom-center, text-xs text-muted uppercase tracking-[0.2em] "SCROLL" label above a w-px h-10 bg-stroke line with animated highlight using .animate-scroll-down.
+
+---
+
+## Section 3: Selected Works
+
+bg-bg py-12 md:py-16. Inner: max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16.
+
+### Header
+Framer Motion whileInView — opacity 0→1, y 30→0, duration 1s, ease [0.25,0.1,0.25,1], viewport once margin "-100px".
+- Eyebrow: w-8 h-px bg-stroke + "Selected Work" text-xs text-muted uppercase tracking-[0.3em]
+- Heading: "Featured *projects*" — italic word in font-display italic
+- Subtext: "A selection of projects I've worked on, from concept to launch."
+- "View all work" button (desktop only, hidden md:inline-flex) — rounded-full with gradient hover border ring + right arrow
+
+### Bento Grid
+grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6. Column spans alternate: 7/5/5/7.
+
+4 project cards with titles: Automotive Motion, Urban Architecture, Human Perspective, Brand Identity.
+
+Each card: bg-surface border border-stroke rounded-3xl with aspect ratios. Contains:
+- Background image with object-cover group-hover:scale-105
+- Halftone overlay: radial-gradient(circle, #000 1px, transparent 1px) at 4×4px, opacity-20 mix-blend-multiply
+- Hover: bg-bg/70 opacity-0→1 + backdrop-blur-lg
+- Hover label: pill with animated gradient border, white bg, "View — *Title*" (title in font-display italic)
+
+---
+
+## Section 4: Journal
+
+bg-bg py-16 md:py-24. Same header pattern (eyebrow + "Recent *thoughts*" + subtext + "View all" button).
+
+4 journal entries displayed as horizontal pills (rounded-[40px] sm:rounded-full) with titles, images, read times, and dates.
+
+Each entry: flex items-center gap-6 p-4 bg-surface/30 hover:bg-surface border border-stroke.
+
+---
+
+## Section 5: Explorations (Parallax Gallery)
+
+min-h-[300vh] section for scroll-driven parallax.
+
+### Layer 1: Pinned Center (z-10)
+h-screen div pinned with GSAP ScrollTrigger.create({ pin: contentRef, pinSpacing: false }).
+- Eyebrow: "Explorations"
+- Heading: "Visual *playground*"
+- Subtext + Dribbble button
+
+### Layer 2: Parallax Columns (z-20, absolute)
+grid grid-cols-2 gap-12 md:gap-40 inside max-w-[1400px].
+
+6 items split into 2 columns with GSAP scroll-driven parallax movement.
+Cards: aspect-square max-w-[320px], with rotation and lightbox on click.
+
+---
+
+## Section 6: Stats
+
+bg-bg py-16 md:py-24. 3-column grid with stats: 20+ Years Experience, 95+ Projects Done, 200% Satisfied Clients.
+
+---
+
+## Section 7: Contact / Footer
+
+bg-bg pt-16 md:pt-20 pb-8 md:pb-12 overflow-hidden.
+
+### Background Video
+Same HLS source as hero, but flipped vertically (scale-y-[-1]). Heavier overlay: bg-black/60.
+
+### GSAP Marquee
+"BUILDING THE FUTURE • " repeated 10×. GSAP xPercent: -50, duration 40, ease "none", repeat -1.
+
+### CTA
+Email button: mailto:hello@michaelsmith.com with gradient hover border ring.
+
+### Footer Bar
+Social links [Twitter, LinkedIn, Dribbble, GitHub] + Green pulsing dot + "Available for projects"
+
+---
+
+## Dependencies
+gsap, framer-motion, hls.js, react-router-dom, tailwindcss-animate
+
+Add smooth scroll nav and page transitions.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

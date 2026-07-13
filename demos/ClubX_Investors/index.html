@@ -3,121 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClubX | Private Tech Investor Club</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Instrument Serif', 'serif'],
-                    },
-                    colors: {
-                        background: 'hsl(201 100% 13%)',
-                    },
-                    keyframes: {
-                        'fade-rise': {
-                            'from': { opacity: '0', transform: 'translateY(24px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        'fade-rise': 'fade-rise 0.8s ease-out both',
-                        'fade-rise-delay': 'fade-rise 0.8s ease-out 0.2s both',
-                        'fade-rise-delay-2': 'fade-rise 0.8s ease-out 0.4s both',
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .glass-pill {
-                @apply bg-white/20 backdrop-blur-sm border border-gray-900/10 rounded-full;
-            }
-            .glass-card {
-                @apply bg-white/10 backdrop-blur-sm border border-gray-900/10 rounded-3xl;
-            }
-        }
+    <title>ClubX Investors — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-background text-gray-900 font-sans overflow-hidden">
-    <!-- Full-screen Background Video -->
-    <video 
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260323_071151_38c3924f-c312-48af-a196-3fbb80e4226f.mp4"
-        class="fixed inset-0 w-full h-full object-cover -z-10"
-        autoPlay loop muted playsInline
-    ></video>
-
-    <!-- Navigation -->
-    <nav class="relative z-50 px-8 py-8 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="flex items-center space-x-2">
-            <div class="h-10 w-10 bg-[#FF4500] rounded-full flex items-center justify-center text-white font-serif text-2xl font-bold">C</div>
-            <span class="text-xl font-bold tracking-tight">ClubX</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-            {['Home', 'Studio', 'About', 'Journal', 'Reach Us'].map((link, i) => (
-                <a key={link} href="#" class={`text-sm font-medium transition-colors ${i === 0 ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
-                    {link}
-                </a>
-            ))}
-        </div>
-        <button class="bg-gray-900 text-white rounded-full px-6 py-2.5 text-sm font-medium transition-transform hover:scale-[1.03] active:scale-[0.97]">
-            Begin Journey
-        </button>
-    </nav>
-
-    <!-- Hero Content -->
-    <main class="relative z-10 flex flex-col items-center text-center pt-32 pb-12 px-6">
-        <!-- Social Proof Badge -->
-        <div class="glass-pill px-4 py-2 flex items-center space-x-3 mb-8 animate-fade-rise">
-            <div class="flex -space-x-2.5">
-                {[12, 13, 14, 15, 16].map(id => (
-                    <img key={id} src={`https://i.pravatar.cc/100?img=${id}`} class="w-8 h-8 rounded-full border-2 border-white/30" />
-                ))}
-            </div>
-            <span class="text-sm font-medium text-gray-800">400+ tech investors join the club. Join us!</span>
-        </div>
-
-        <h1 class="text-5xl sm:text-6xl md:text-[4.9rem] font-bold leading-[0.95] tracking-[-1.5px] max-w-5xl animate-fade-rise">
-            Finance. Freedom. Fellows.
-        </h1>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
         
-        <p class="text-base sm:text-lg text-gray-800 max-w-2xl mt-6 leading-relaxed animate-fade-rise-delay">
-            Private club of top tech investors.
-        </p>
-        
-        <button class="bg-gray-900 text-white rounded-full px-12 py-4 text-sm font-medium mt-9 transition-transform hover:scale-[1.03] active:scale-[0.97] animate-fade-rise-delay-2 shadow-2xl">
-            Begin Journey
-        </button>
-    </main>
+        <div class="badge">Templates </div>
+        <h1>ClubX Investors</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">clubx_investors.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a full-screen hero landing page for "ClubX" — a private tech investor club. The page should have:
 
-    <!-- Stats Bar -->
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-4xl px-6 animate-fade-rise-delay-2">
-        <div class="glass-card px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="flex flex-col">
-                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">410+</span>
-                <span class="text-white/70 text-sm">Tech professionals</span>
-            </div>
-            <div class="flex flex-col border-l border-white/10 md:pl-8">
-                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">€11M</span>
-                <span class="text-white/70 text-sm">Invested</span>
-            </div>
-            <div class="flex flex-col border-l border-white/10 md:pl-8">
-                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">14</span>
-                <span class="text-white/70 text-sm">Deals made</span>
-            </div>
-            <div class="flex flex-col border-l border-white/10 md:pl-8">
-                <span class="text-3xl sm:text-4xl font-light tracking-tight text-white">2.5</span>
-                <span class="text-white/70 text-sm">Years on market</span>
-            </div>
+Background: A looping, muted, autoplaying video covering the entire viewport using object-cover, sourced from https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260323_071151_38c3924f-c312-48af-a196-3fbb80e4226f.mp4. All content layers above it with z-10.
+
+Fonts: Import Inter (400, 500) and Instrumental Serif via Google Fonts. Body uses Inter.
+
+Navigation: Horizontally centered max-width container (max-w-7xl). Left: a small circular logo icon (10×10 / h-10 w-10). Center (hidden on mobile): links — Home (active/dark), Studio, About, Journal, Reach Us — in text-sm text-gray-600, hover to text-gray-900. Right: a black (bg-gray-900) pill button with white text saying "Begin Journey", px-6 py-2.5 text-sm, with hover:scale-[1.03] and active:scale-[0.97].
+
+Hero content (centered, pt-32 pb-12):
+
+Social proof badge: A pill (rounded-full) with bg-white/20 backdrop-blur-sm border border-gray-900/10. Contains 5 overlapping circular avatars (w-8 h-8 rounded-full, -space-x-2.5) followed by text: "400+ tech investors join the club. Join us!" in text-sm text-gray-800. Margin bottom mb-8.
+
+Headline: "Finance. Freedom. Fellows." in Inter bold, text-5xl sm:text-6xl md:text-[4.9rem], leading-[0.95] tracking-[-1.5px], text-gray-900, max-w-5xl.
+
+Subtext: "Private club of top tech investors." in text-base sm:text-lg text-gray-800, max-w-2xl mt-6 leading-relaxed.
+
+CTA button: "Begin Journey" — black pill, px-12 py-4 text-sm text-white bg-gray-900 mt-9, hover:scale-[1.03], rounded-full.
+
+Stats bar: Absolutely positioned at bottom-8, centered via left-1/2 -translate-x-1/2, max-w-4xl. A rounded-3xl container with bg-white/10 backdrop-blur-sm border border-gray-900/10, px-8 py-6. Four evenly spaced stat columns, each with a large white number (text-3xl sm:text-4xl font-light tracking-tight) and a label (text-white/70 text-sm):
+
+410+ / Tech professionals
+€11M / Invested
+14 / Deals made
+2.5 / Years on the market
+
+Animations: Three staggered fade-rise keyframe animations (translate 24px up + fade in, 0.8s ease-out): badge at 0s delay, headline at 0s, description at 0.2s, button at 0.4s. Define in CSS:
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise { animation: fade-rise 0.8s ease-out both; }
+.animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both; }
+.animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both; }
+
+Overall: min-h-screen, overflow-hidden, dark-blue background fallback (--background: 201 100% 13%). All interactive buttons have cursor-pointer and transition-transform. Generate 5 diverse professional avatar images and a circular orange-red logo icon with a white stylized letter.</pre>
         </div>
-    </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

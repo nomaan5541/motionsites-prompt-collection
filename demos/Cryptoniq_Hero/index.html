@@ -14,7 +14,7 @@
         .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
         .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
         .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
-        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
         h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
         .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
@@ -37,7 +37,7 @@
         <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781623543589-Cryptoniq _Hero.webp" alt="Cryptoniq Hero preview" onerror="this.style.display='none'">
         <div class="badge">Hero • Premium</div>
         <h1>Cryptoniq Hero</h1>
-        <p class="desc">Cryptoniq — A premium, dark-themed crypto investment platform landing page featuring products, markets, portfolio tracking, and insights sections.</p>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
         <div class="editor">
             <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">cryptoniq_hero.prompt</div><div style="width:42px"></div></div>
             <pre id="pc"># Premium React + Tailwind CSS Website Generation Prompt
@@ -122,55 +122,7 @@ You are an award-winning elite designer and expert web developer. Your objective
 - **Footer:** 2-column split. Left side: About text. Right side: Links grid (Company, Legal). Bottom border separator with copyright and social links.
 
 ## UI Components and Styling Details (Glassmorphism)
-Create a \`.glass-panel\` utility class in CSS:
-\`\`\`css
-.glass-panel {
-  @apply bg-white/5 backdrop-blur-md border border-white/10;
-}
-\`\`\`
-
-Create a \`.card-bg\` utility class for specific textured cards:
-\`\`\`css
-.card-bg {
-  background-image: url('https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/crypto_bg_img.png');
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-  @apply bg-black/80;
-}
-\`\`\`
-
-## Animations and Micro-interactions
-- **Scroll Reveal (Framer Motion):** Wrap section elements in \`<motion.div>\`.
-  - Properties: \`initial={{ opacity: 0, y: 30 }}\`, \`whileInView={{ opacity: 1, y: 0 }}\`, \`viewport={{ once: true }}\`.
-  - Apply staggered delays (\`transition={{ delay: index * 0.1 }}\`) for grid items.
-- **Hover States:** 
-  - Buttons: Slight scale up or background color shift.
-  - Links: Arrow icons translate slightly to the right (\`group-hover:translate-x-1\`).
-  - Cards: \`hover:bg-white/10 transition-colors\`.
-
-## Responsive Behavior
-- **Mobile First:** All default classes must be for mobile (e.g., \`flex-col\`, \`grid-cols-1\`, \`text-4xl\`).
-- **Tablet/Desktop:** Use \`md:\` and \`lg:\` to convert layouts (e.g., \`md:flex-row\`, \`md:grid-cols-3\`, \`text-6xl\`).
-- **Critical Fix:** Ensure the "Company" stats banner uses a true CSS grid (\`grid-cols-2\`) on mobile instead of \`flex-wrap\` to prevent awkward alignment. Ensure the "Markets" table has a horizontal scroll wrapper.
-
-## Technical Implementation Details
-- **Framework:** React (functional components, hooks).
-- **Build Tool:** Vite.
-- **Styling:** Tailwind CSS (v4 compatible, using \`@theme\` block or standard config for extending colors/fonts).
-- **Icons:** \`lucide-react\`.
-- **Animations:** \`framer-motion\`.
-- **Structure:** Break the application down into modular components (\`Navbar.jsx\`, \`Hero.jsx\`, \`Products.jsx\`, etc.) and assemble them in \`App.jsx\`.
-- **Smooth Scrolling:** Add \`html { scroll-behavior: smooth; }\` to global CSS.
-
-## Performance Optimization & SEO
-- Add proper \`<title>\` and \`<meta name="description">\` tags in \`index.html\`.
-- Ensure structural semantic HTML (\`<section>\`, \`<nav>\`, \`<header>\`, \`<footer>\`).
-- Videos should be \`muted\` and \`playsInline\` to ensure autoplay on iOS/mobile devices.
-
-## Final Directive
-Generate the complete code structure required to run this application locally using \`npm run dev\`. Ensure absolute fidelity to the visual specs, including all provided URLs, gradients, animation timings, and layout rules.
-</pre>
+Create a \`.glass-panel\` utility class in CSS:</pre>
         </div>
         <div class="actions">
             <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>

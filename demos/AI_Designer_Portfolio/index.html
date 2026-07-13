@@ -3,350 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V Vortex | Sarah Vortex Portfolio</title>
+    <title>AI Designer Portfolio — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'PP Neue Montreal';
-            src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'PP Neue Montreal';
-            src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
-            font-weight: 500;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primaryDark: '#051A24',
-                        dark: '#0D212C',
-                        mutedDark: '#273C46',
-                        lightText: '#F6FCFF',
-                        lightMuted: '#E0EBF0',
-                    },
-                    fontFamily: {
-                        body: ["'PP Neue Montreal'", '-apple-system', 'BlinkMacSystemFont', "'Segoe UI'", 'sans-serif'],
-                        mondwest: ["'Libre Baskerville'", 'serif'],
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        marquee: 'marquee 30s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .mondwest { font-family: 'Libre Baskerville', serif; font-style: italic; }
-            .animate-delay-100 { animation-delay: 100ms; }
-            .animate-delay-200 { animation-delay: 200ms; }
-            .animate-delay-300 { animation-delay: 300ms; }
-            .animate-delay-400 { animation-delay: 400ms; }
-        }
-        @media (max-width: 767px) {
-            .marquee-track { animation-duration: 10s !important; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-white text-primaryDark font-body overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>AI Designer Portfolio</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">ai_designer_portfolio.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a single-page creative studio portfolio landing page for "V Vortex" -- the studio of Sarah Vortex, a former Apple designer. Use React + TypeScript + Vite + Tailwind CSS. Use lucide-react for icons. No other UI libraries.
 
-    <script type="text/babel">
-        const { motion, useInView, useScroll, useTransform } = window.Motion;
-        const { useState, useEffect, useRef } = React;
+FONTS:
 
-        /* ── Reusable Button ── */
-        const Button = ({ children, variant = 'primary', href }) => {
-            const base = "px-7 py-3 rounded-full font-medium text-sm transition-all whitespace-nowrap inline-block cursor-pointer";
-            const v = {
-                primary: "bg-[#051A24] text-white hover:bg-[#0D212C] shadow-[0_10px_20px_rgba(5,26,36,0.15),0_4px_6px_rgba(5,26,36,0.1)]",
-                secondary: "bg-white text-[#051A24] border border-[#E0EBF0] shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-lg",
-                tertiary: "bg-white text-[#051A24] shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)]"
-            };
-            const cls = `${base} ${v[variant]}`;
-            if (href) return <a href={href} className={cls}>{children}</a>;
-            return <button className={cls}>{children}</button>;
-        };
+Body: "PP Neue Montreal" loaded via @font-face from these URLs:
+Book (400): https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf
+Medium (500): https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf
+Display/Serif accent: "PP Mondwest" loaded from a local /PPMondwest-Regular.woff2 file. Applied inline via style={{ fontFamily: "'PP Mondwest', serif" }} on accent words like "next wave", "bold way", "builders", etc.
+Set body font-family to: 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 
-        /* ── useInViewAnimation hook ── */
-        const useInViewAnimation = () => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true, amount: 0.1 });
-            return { ref, isInView };
-        };
+COLOR PALETTE:
 
-        /* ── 1. HERO ── */
-        const Hero = () => {
-            const { ref, isInView } = useInViewAnimation();
-            return (
-                <section ref={ref} className="max-w-[440px] mx-auto px-6 pt-12 md:pt-16 text-center">
-                    <h1 className={`text-[32px] md:text-[40px] lg:text-[44px] font-semibold mb-2 mondwest opacity-0 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        V Vortex
-                    </h1>
-                    <p className={`font-mono text-xs md:text-sm text-primaryDark mb-12 opacity-0 animate-delay-100 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        The creative studio of Sarah Vortex
-                    </p>
-                    <h2 className={`text-4xl md:text-5xl font-medium tracking-tight mb-8 leading-tight opacity-0 animate-delay-200 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        Build the <span className="mondwest">next wave</span>,<br /> the <span className="mondwest">bold way.</span>
-                    </h2>
-                    <div className={`space-y-6 text-sm md:text-base text-mutedDark mb-12 opacity-0 animate-delay-300 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        <p>After a decade at Apple designing the interfaces you use every day, I started V Vortex to bring that same level of craft to the world's most ambitious builders.</p>
-                        <p>I partner with founders to transform abstract ideas into category-defining digital products.</p>
-                        <p className="font-semibold text-primaryDark">Partnerships start at $25,000/month.</p>
-                    </div>
-                    <div className={`flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-delay-400 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        <Button variant="primary">Start a chat</Button>
-                        <Button variant="secondary">View projects</Button>
-                    </div>
-                </section>
-            );
-        };
+Primary dark: #051A24
+Dark: #0D212C
+Muted dark: #273C46
+Light text: #F6FCFF
+Light muted: #E0EBF0
+Background: white
+No purple, indigo, or violet hues anywhere.
 
-        /* ── 2. INFINITE IMAGE MARQUEE ── */
-        const Marquee = () => {
-            const images = [
-                "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif",
-                "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-                "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-                "https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif",
-                "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif",
-                "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-                "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-                "https://motionsites.ai/assets/hero-neuralyn-preview-Br4FRDQA.gif"
-            ];
-            return (
-                <div className="w-full overflow-hidden mt-16 md:mt-20 mb-16">
-                    <div className="flex w-max animate-marquee marquee-track">
-                        {[...images, ...images].map((src, i) => (
-                            <img key={i} src={src} className="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg" />
-                        ))}
-                    </div>
-                </div>
-            );
-        };
+GLOBAL ANIMATIONS (in index.css):
 
-        /* ── 3. TESTIMONIAL QUOTE ── */
-        const TestimonialQuote = () => {
-            const { ref, isInView } = useInViewAnimation();
-            const containerRef = useRef(null);
-            const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-            const imgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-            return (
-                <section ref={ref} className="max-w-2xl mx-auto px-6 py-24 text-center">
-                    <blockquote className={`text-3xl md:text-4xl font-medium leading-tight mb-8 opacity-0 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        "Sarah's ability to translate complex systems into human experiences is rare. She brings the <span className="mondwest">Apple standard</span> to startups."
-                    </blockquote>
-                    <cite className={`block mondwest text-xl not-italic opacity-0 animate-delay-100 ${isInView ? 'animate-fade-in-up' : ''}`}>— Sarah Vortex</cite>
-                    <div className="flex justify-center gap-12 mt-16 text-mutedDark opacity-60">
-                        {['Apple', 'Stripe', 'Vercel'].map(b => (
-                            <span key={b} className="text-lg font-medium tracking-wide">{b}</span>
-                        ))}
-                    </div>
-                    <div ref={containerRef} className="mt-12 overflow-hidden rounded-2xl max-w-md mx-auto">
-                        <motion.img
-                            src="https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif"
-                            className="w-full h-64 object-cover"
-                            style={{ y: imgY }}
-                        />
-                    </div>
-                </section>
-            );
-        };
+marquee keyframe: translateX(0) to translateX(-50%), 30s linear infinite on desktop, 10s on mobile (max-width: 767px).
+fadeInUp keyframe: from opacity: 0; translateY(30px) to opacity: 1; translateY(0), 0.8s ease-out forwards. Class: .animate-fade-in-up with initial opacity: 0.
 
-        /* ── 4. PRICING ── */
-        const Pricing = () => {
-            const { ref, isInView } = useInViewAnimation();
-            return (
-                <section ref={ref} className="max-w-7xl mx-auto px-6 py-24">
-                    <div className={`flex flex-col md:flex-row justify-end gap-6 opacity-0 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        <div className="bg-primaryDark text-white p-12 rounded-3xl max-w-md w-full">
-                            <h3 className="text-2xl font-medium mb-4">Monthly Partnership</h3>
-                            <p className="text-lightMuted mb-8">One dedicated design partner. Unlimited requests. 48hr delivery.</p>
-                            <div className="text-4xl font-semibold mb-8">$25,000<span className="text-lg font-normal text-lightMuted">/mo</span></div>
-                            <Button variant="secondary">Get Started</Button>
-                        </div>
-                        <div className="bg-white border border-[#E0EBF0] p-12 rounded-3xl max-w-md w-full">
-                            <h3 className="text-2xl font-medium mb-4">Custom Project</h3>
-                            <p className="text-mutedDark mb-8">Fixed-scope projects for new products, rebrands, or complex systems.</p>
-                            <div className="text-4xl font-semibold mb-8">$25,000<span className="text-lg font-normal text-mutedDark">+</span></div>
-                            <Button variant="primary">Inquire</Button>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+CUSTOM HOOK: useInViewAnimation
 
-        /* ── 5. TESTIMONIAL CAROUSEL ── */
-        const TestimonialCarousel = () => {
-            const [active, setActive] = useState(0);
-            const testimonials = [
-                { name: "Alex Rivera", role: "CEO, Luminary", quote: "Sarah transformed our entire digital presence. The attention to detail is unmatched.", avatar: "https://i.pravatar.cc/100?img=32" },
-                { name: "Maria Chen", role: "Founder, Arc", quote: "Working with V Vortex felt like having an Apple-level design team on call.", avatar: "https://i.pravatar.cc/100?img=25" },
-                { name: "James Park", role: "CTO, Helix", quote: "The product went from concept to a fully functional prototype in two weeks.", avatar: "https://i.pravatar.cc/100?img=33" },
-                { name: "Elena Voss", role: "CMO, Drift", quote: "Our conversion rate tripled after the redesign. The ROI was immediate.", avatar: "https://i.pravatar.cc/100?img=44" },
-                { name: "Sam Wright", role: "CPO, Nova", quote: "Every pixel is intentional. This is design craftsmanship at its finest.", avatar: "https://i.pravatar.cc/100?img=51" }
-            ];
-            useEffect(() => {
-                const interval = setInterval(() => setActive(p => (p + 1) % testimonials.length), 3000);
-                return () => clearInterval(interval);
-            }, []);
+IntersectionObserver-based hook. Returns { ref, isInView }. isInView flips to true once when the element enters viewport (threshold 0.1). Never resets. Used on every section for staggered animate-fade-in-up entrance animations with incremental animationDelay (0.1s, 0.2s, 0.3s, etc.).
 
-            return (
-                <section className="max-w-7xl mx-auto px-6 py-24 overflow-hidden">
-                    <h2 className="text-3xl font-medium mb-12 text-center">What <span className="mondwest">clients</span> say</h2>
-                    <div className="relative">
-                        <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${active * 100}%)` }}>
-                            {testimonials.map((t, i) => (
-                                <div key={i} className="min-w-full flex justify-center px-4">
-                                    <div className="max-w-lg text-center">
-                                        <img src={t.avatar} className="w-16 h-16 rounded-full mx-auto mb-6 border-2 border-lightMuted" />
-                                        <p className="text-xl md:text-2xl font-medium leading-relaxed mb-6">"{t.quote}"</p>
-                                        <div className="font-semibold">{t.name}</div>
-                                        <div className="text-sm text-mutedDark">{t.role}</div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex justify-center gap-4 mt-8">
-                            <button onClick={() => setActive(p => (p - 1 + testimonials.length) % testimonials.length)} className="w-10 h-10 rounded-full border border-[#E0EBF0] flex items-center justify-center hover:bg-primaryDark hover:text-white transition-colors">
-                                <i data-lucide="chevron-left" className="w-4 h-4"></i>
-                            </button>
-                            <button onClick={() => setActive(p => (p + 1) % testimonials.length)} className="w-10 h-10 rounded-full border border-[#E0EBF0] flex items-center justify-center hover:bg-primaryDark hover:text-white transition-colors">
-                                <i data-lucide="chevron-right" className="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+REUSABLE BUTTON COMPONENT:
 
-        /* ── 6. PROJECTS ── */
-        const Projects = () => {
-            const projects = [
-                { title: "Linear Redesign", img: "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif" },
-                { title: "Raycast Website", img: "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" },
-                { title: "Mux Dashboard", img: "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" }
-            ];
-            return (
-                <section className="max-w-[1200px] mx-auto px-6 py-24">
-                    <h2 className="text-3xl font-medium mb-12">Selected <span className="mondwest">Projects</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {projects.map((p, i) => (
-                            <motion.div key={i} className="group cursor-pointer"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.15 }}
-                            >
-                                <div className="aspect-video rounded-2xl overflow-hidden mb-4 bg-gray-100">
-                                    <img src={p.img} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                                </div>
-                                <h4 className="text-lg font-medium">{p.title}</h4>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
+Three variants -- primary, secondary, tertiary. All use: px-7 py-3 rounded-full font-medium text-sm transition-colors whitespace-nowrap.
 
-        /* ── 7. PARTNER CTA ── */
-        const PartnerCTA = () => {
-            const { ref, isInView } = useInViewAnimation();
-            return (
-                <section ref={ref} className="bg-primaryDark text-white py-32 px-6 text-center">
-                    <div className={`max-w-3xl mx-auto opacity-0 ${isInView ? 'animate-fade-in-up' : ''}`}>
-                        <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">
-                            Let's build <span className="mondwest">something</span> great.
-                        </h2>
-                        <p className="text-lightMuted text-lg mb-10">Book a free intro call and see if we're a fit.</p>
-                        <Button variant="secondary">Start a chat</Button>
-                    </div>
-                </section>
-            );
-        };
+primary: bg-[#051A24] text-white hover:bg-[#0D212C] with multi-layer shadow
+secondary: bg-white text-[#051A24] with shadow
+tertiary: Same as secondary but adds inset shadow
+Renders as <a> if href is provided, otherwise <button>.
 
-        /* ── 8. FOOTER ── */
-        const Footer = () => (
-            <footer className="max-w-7xl mx-auto px-6 py-24 border-t border-[#E0EBF0]">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                    <div>
-                        <div className="mondwest text-2xl font-semibold mb-4">V Vortex</div>
-                        <p className="text-sm text-mutedDark">The creative studio of Sarah Vortex. Apple-level craft for ambitious builders.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-medium mb-4">Studio</h4>
-                        <ul className="space-y-3 text-sm text-mutedDark">
-                            {['Projects', 'Services', 'Process', 'Pricing'].map(l => <li key={l}><a href="#" className="hover:text-primaryDark transition-colors">{l}</a></li>)}
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-medium mb-4">Connect</h4>
-                        <ul className="space-y-3 text-sm text-mutedDark">
-                            {['Twitter', 'LinkedIn', 'Instagram', 'Dribbble'].map(l => <li key={l}><a href="#" className="hover:text-primaryDark transition-colors">{l}</a></li>)}
-                        </ul>
-                    </div>
-                </div>
-                <div className="flex flex-col md:flex-row justify-between items-center text-sm text-mutedDark border-t border-[#E0EBF0] pt-8">
-                    <p>© 2026 V Vortex Studio. All rights reserved.</p>
-                    <div className="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-primaryDark transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-primaryDark transition-colors">Terms</a>
-                    </div>
-                </div>
-            </footer>
-        );
+PAGE SECTIONS (top to bottom):
 
-        /* ── 9. FIXED BOTTOM NAV ── */
-        const FixedNav = () => (
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-                <div className="bg-white/80 backdrop-blur-xl border border-[#E0EBF0] rounded-full px-4 py-2 flex items-center gap-4 shadow-xl">
-                    <div className="mondwest font-bold text-xl px-2">V</div>
-                    <Button variant="primary">Start a chat</Button>
-                </div>
-            </div>
-        );
+1. HERO SECTION (max-width 440px, centered, px-6, pt-12 md:pt-16)
+Logo: "V Vortex" in PP Mondwest, text-[32px] md:text-[40px] lg:text-[44px], font-semibold, color #051A24
+Tagline: "The creative studio of Sarah Vortex" -- font-mono, text-xs md:text-sm, color #051A24
+Heading: "Build the next wave, the bold way." with "next wave" and "bold way." in PP Mondwest serif.
+Description: Three paragraphs about Apple background, studio philosophy, and "\$25,000/month" pricing.
+Two buttons: "Start a chat" (primary) and "View projects" (secondary).
 
-        /* ── APP ── */
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <div className="pt-20">
-                    <Hero />
-                    <Marquee />
-                    <TestimonialQuote />
-                    <Pricing />
-                    <TestimonialCarousel />
-                    <Projects />
-                    <PartnerCTA />
-                    <Footer />
-                    <FixedNav />
-                </div>
-            );
-        };
+2. INFINITE IMAGE MARQUEE (full width, mt-16 md:mt-20, mb-16)
+Uses 8 GIF URLs from motionsites.ai, duplicated for seamless looping.
+Each image: h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+3. TESTIMONIAL QUOTE SECTION (centered, max-w-2xl)
+Large quote with "Apple" in PP Mondwest serif.
+Author: "Sarah Vortex" in italic.
+Three brand names and a parallax-scrolling image.
+
+4. PRICING SECTION (max-w-7xl, cards right-aligned)
+Two cards: Monthly Partnership (dark) and Custom Project (white), both \$25,000.
+
+5. TESTIMONIAL CAROUSEL (max-w-7xl, auto-scrolling every 3s)
+5 testimonial cards with avatars from Pexels.
+Navigation arrows below carousel.
+
+6. PROJECTS SECTION (max-w-[1200px])
+3 project cards with GIF previews from motionsites.ai.
+
+7. PARTNER CTA SECTION with mouse trail effect spawning preview images.
+
+8. FOOTER with links and copyright bar.
+
+9. FIXED BOTTOM NAV floating pill with "V" logo and "Start a chat" button.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

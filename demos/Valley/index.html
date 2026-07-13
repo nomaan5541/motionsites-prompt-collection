@@ -4,270 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valley — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #00cec9 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #00cec9;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #00cec9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #00cec9;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782932520058-valley_website.webp" alt="Valley preview" onerror="this.style.display='none'">
+        <div class="badge">Agency • Premium</div>
+        <h1>Valley</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">valley.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">You are an award-winning UI/UX designer and elite frontend web developer. Your task is to build a state-of-the-art, hyper-premium, and highly interactive marketing agency website named "Valley". You must faithfully recreate the design, layout, animations, and technical architecture exactly as specified below. The resulting code should be production-ready, performant, and flawless.
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">Agency Template</div>
-            <h1>Valley</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">valley.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+## 1. Technical Architecture \\u0026 Stack
+- **Framework:** React 18+ (Functional Components, Hooks)
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS (v4 or v3 with JIT) + Custom CSS for complex effects.
+- **Animations:** GSAP (GreenSock) + ScrollTrigger for scroll-based animations, Framer Motion for UI micro-interactions (e.g., mobile menu).
+- **Smooth Scrolling:** Lenis (Studio Freight).
+- **Icons:** Inline SVG or Lucide React.
+- **File Structure:**
+  - \`src/App.tsx\` (Main layout and component composition)
+  - \`src/index.css\` (Global styles, variables, keyframes)
+  - \`src/hooks/useLenis.ts\` (Smooth scroll hook)
+  - \`src/components/Navbar.tsx\`
+  - \`src/components/CinematicIntro.tsx\` (Complex canvas video player)
+  - \`src/components/sections/HeroSection.tsx\`
+  - \`src/components/sections/ServicesSection.tsx\`
+  - \`src/components/sections/WorkSection.tsx\`
+  - \`src/components/sections/ProcessSection.tsx\`
+  - \`src/components/sections/ContactSection.tsx\`
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+## 2. Visual Design System
+
+### Color Palette
+- **Primary Background:** \`#0a0a0a\` (Deep dark, near black)
+- **Primary Text:** \`#ffffff\` (Pure white)
+- **Subdued Text:** \`rgba(255, 255, 255, 0.4)\` to \`rgba(255, 255, 255, 0.7)\`
+- **Glass/Fog Backgrounds:** \`rgba(10, 10, 10, 0.45)\`, \`rgba(255, 255, 255, 0.02)\` to \`rgba(255, 255, 255, 0.05)\`
+- **Borders:** \`rgba(255, 255, 255, 0.06)\` to \`rgba(255, 255, 255, 0.2)\`
+- **Gradients/Vignette:** \`radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)\`
+
+### Typography
+- **Display Font:** "Playfair Display", Georgia, serif. Used for large headings, elegantly styled with \`font-light\` and \`italic\` accents.
+- **Body Font:** "Inter", system-ui, sans-serif. Used for paragraphs, buttons, tags, and small utility text.
+- **Micro-copy / Tags:** \`font-body text-[10px] to text-[11px] tracking-[0.2em] to tracking-[0.35em] uppercase\`.
+- **Headings:** Responsive clamps, e.g., \`clamp(2.5rem, 8vw, 7rem)\`.
+
+### Global Effects \\u0026 Styling Details
+- **Film Grain:** A static noise overlay applied globally using a CSS pseudo-element mix-blend-mode to give a cinematic texture.
+- **Glassmorphism:** Heavy use of \`backdrop-filter: blur(24px) saturate(1.5)\` combined with semi-transparent backgrounds and subtle white borders to create floating, frosted glass cards.
+- **God Rays:** CSS animated gradients rotating slowly to create volumetric light effects from the top of the page.
+- **GPU Acceleration:** Heavy animation layers must use \`transform: translateZ(0)\` and \`backface-visibility: hidden\`.
+
+## 3. Global Layout \\u0026 Spacing
+- Main content sections are wrapped in \`<main>\` which has \`display: flex; flex-direction: column; gap: 150px;\`.
+- Max-width containers generally use \`w-[92%] md:w-[85%] max-w-4xl mx-auto\`.
+- Standard padding for glass cards: \`p-6 md:p-14\`.
+- Border-radius: \`rounded-[1.5rem] md:rounded-[2rem]\` for main containers, \`rounded-2xl\` for internal grid cards, \`rounded-full\` for badges and buttons.
+
+## 4. Components \\u0026 Sections Specification
+
+### 4.1 Navbar (\`Navbar.tsx\`)
+- **State:** Fixed at top, initially hidden (\`opacity: 0, visibility: 'hidden'\`). Revealed via GSAP at the end of the Cinematic Intro.
+- **Style:** Pill-shaped (\`rounded-full\` on desktop, \`rounded-[2rem]\` on mobile). \`backdrop-blur-24px\`. Background shifts from ultra-sheer \`rgba(255,255,255,0.05)\` to a darker \`rgba(10,10,10,0.6)\` when scrolled.
+- **Content:** Logo (left), links (center, hidden on mobile), CTA + Hamburger Menu (right).
+- **Mobile Menu:** Full-screen Framer Motion overlay (\`bg-black/80 backdrop-blur-xl\`). Links stagger animate in. Body scroll is locked when open.
+
+### 4.2 Cinematic Video Intro (\`CinematicIntro.tsx\`)
+- **Core Concept:** A scroll-scrubbed video experience. The user scrolls to advance video frames before hitting the main website content.
+- **Implementation:** 
+  - Hidden \`<video>\` element loading: \`https://res.cloudinary.com/dprydfxok/video/upload/v1782932129/hero-video_ponm8n.mp4\`
+  - A \`<canvas>\` element draws \`ImageBitmap\` frames extracted from the video.
+  - GSAP ScrollTrigger maps scroll progress to frame index.
+  - Sizing: Canvas uses \`cover\` object-fit equivalent calculation on all devices to ensure no black bars.
+- **Overlays:**
+  - Radial vignette overlay.
+  - Loading spinner overlay while frames extract.
+  - Text: "VALLEY" (huge display text), fades and scales out on scroll.
+  - Scroll indicator: "Scroll to Explore The Experience". Fades out immediately upon scrolling.
+- **Transition:** At the end of the scroll trigger (0.9 progress), the canvas fades to 0 opacity, revealing the static global background, and the \`Navbar\` fades in.
+
+### 4.3 Background Layer
+- Behind everything, fixed to the viewport:
+  - \`<div className="fixed inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-[-1]" style={{ backgroundImage: "url('https://res.cloudinary.com/dprydfxok/image/upload/v1782932143/last-frame-bg-website_wiotlm.png')" }} />\`
+
+### 4.4 Hero Section (\`HeroSection.tsx\`)
+- **Layout:** Negative top margin (\`-mt-[100vh]\`) so it sits directly under the fading cinematic intro.
+- **Visuals:** Large glassmorphism card floating in the center.
+- **Content:** 
+  - Award badge pill.
+  - Headline: "We craft digital *experiences* that transform brands into *movements.*" (Using \`<br className="hidden md:block" />\` for responsive wrapping).
+  - Paragraph text and "Start a Project" pill button.
+  - Stats bar at the bottom: 4 columns on desktop, 2 on mobile (e.g., "280% Avg. ROI").
+- **Animation:** GSAP ScrollTrigger \`stagger\` fades and moves (\`y: 50\`) elements up as they enter viewport, removing blur.
+
+### 4.5 Services Section (\`ServicesSection.tsx\`)
+- **Grid:** 1 column mobile, 2 columns desktop.
+- **Cards:** Dark, sheer glass cards. Hover state applies a subtle \`radial-gradient\` glow at the top center of the card.
+- **Content:** Icon (SVG), large metric (e.g., "4.8x"), title, description, and an animated "Learn more" arrow link that appears and slides right on hover.
+- **Animation:** Header fades in, cards stagger in from bottom.
+
+### 4.6 Selected Work (\`WorkSection.tsx\`)
+- **Grid:** Perfect 2x2 grid (\`grid-cols-1 md:grid-cols-2\`). 
+- **Assets:**
+  - \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781526573377-Bali_travel.webp\`
+  - \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781535135765-WorldView_website.webp\`
+  - \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781598113945-Eathan_Portfolio.webp\`
+  - \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781612917716-Ninjas_Website.webp\`
+- **Interactions:** Aspect ratio 4/3. Image scales up slightly on container hover (\`group-hover:scale-105\`). Bottom gradient darkens on hover. Text overlay translates up slightly on hover.
+
+### 4.7 Process Section (\`ProcessSection.tsx\`)
+- **Grid:** \`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4\`.
+- **Visuals:** A horizontal timeline line (\`hidden lg:block\`) connects the steps. GSAP animates this line \`scaleX: 1\` from origin-left on scroll.
+- **Steps:** 01 to 04. Large faded numbers behind crisp titles and descriptions.
+
+### 4.8 Contact Section (\`ContactSection.tsx\`)
+- **Layout:** Centralized glass card.
+- **Content:** Headline "LET'S BUILD Something Extraordinary", CTA button, email link, and social links footer.
+- **Footer line:** A subtle separator at the bottom of the section with copyright info.
+
+## 5. Interactions \\u0026 Motion Specs
+- **GSAP Defaults:** \`ease: "power3.out"\`, typical duration \`0.8\` to \`1.0\` seconds.
+- **Reveal Pattern:** Elements start at \`opacity: 0, y: 40, filter: blur(8px)\` and animate to \`opacity: 1, y: 0, filter: blur(0px)\`.
+- **Hover States:** Buttons expand padding, borders brighten, gaps increase. Icons translate on X-axis. \`transition-all duration-500\`.
+
+## 6. Responsiveness
+- 100% responsive across mobile (\`< 768px\`), tablet (\`768px - 1024px\`), and desktop.
+- Typography scales via CSS \`clamp()\` functions.
+- Mobile grids collapse to 1 column gracefully.
+- Padding on glass cards reduces on mobile (e.g., \`p-6\` mobile vs \`p-14\` desktop).
+- Video extraction strictly uses \`cover\` logic to avoid black bars on vertical mobile screens.
+
+## 7. SEO \\u0026 Accessibility Requirements
+- Use semantic HTML (\`<nav>\`, \`<main>\`, \`<section>\`, \`<article>\`).
+- Maintain logical heading hierarchy (\`<h1>\` in intro, \`<h2>\` for section titles).
+- Ensure \`aria-label\` attributes on icon buttons (like the mobile menu toggle).
+- Images must have descriptive \`alt\` tags.
+
+## 8. Performance Optimization
+- Video must use \`preload="auto"\` and \`playsInline\`. Extracting frames to canvas saves massive repaints compared to scroll-scrubbing a raw \`<video>\` element on iOS.
+- Downscale canvas rendering logic to a max width (e.g., \`1280px\`) to cap memory usage on high-DPI displays.
+- Use \`will-change: transform, opacity\` and hardware acceleration on heavily animated elements.
+- Lazy load images where appropriate.</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

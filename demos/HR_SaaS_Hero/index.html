@@ -3,63 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR SaaS | Simple Management for Remote Teams</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>HR SaaS Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-white text-black antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        const { motion } = window.Motion;
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <section className="relative min-h-screen overflow-hidden">
-                    {/* Video BG - flipped */}
-                    <div className="absolute inset-0 z-0">
-                        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260302_085640_276ea93b-d7da-4418-a09b-2aa5b490e838.mp4" className="w-full h-full object-cover" style={{ transform: 'scaleY(-1)' }} autoPlay loop muted playsInline />
-                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0) 26.416%, white 66.943%)' }}></div>
-                    </div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>HR SaaS Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">hr_saas_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a minimalist, high-end React hero section using Tailwind CSS v4 and the Motion library.
 
-                    <div className="relative z-10 max-w-[1200px] mx-auto px-6" style={{ paddingTop: '290px' }}>
-                        <div className="flex flex-col gap-8">
-                            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-                                className="font-medium" style={{ fontSize: '80px', letterSpacing: '-0.04em', fontFamily: "'Inter',sans-serif", lineHeight: 1 }}>
-                                Simple <span style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: '100px' }}>management</span> for your remote team
-                            </motion.h1>
+Layout & Spacing:
 
-                            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-                                className="text-lg max-w-[554px]" style={{ opacity: 0.8, color: '#373a46' }}>
-                                Streamline your remote workforce with intuitive tools designed for modern teams. Manage schedules, track progress, and collaborate seamlessly from anywhere.
-                            </motion.p>
+The section should have a min-h-screen height and be centered.
 
-                            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-                                <div className="flex items-center rounded-[40px] border border-gray-200 p-1.5 max-w-lg" style={{ background: '#fcfcfc', boxShadow: '0px 10px 40px 5px rgba(194,194,194,0.25)' }}>
-                                    <input type="email" placeholder="Enter your email" className="flex-1 px-5 py-3 bg-transparent outline-none text-base" />
-                                    <button className="text-white rounded-full px-6 py-3 text-sm font-medium" style={{ background: 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%)', boxShadow: 'inset -4px -6px 25px 0px rgba(201,201,201,0.08), inset 4px 4px 10px 0px rgba(29,29,29,0.24)' }}>
-                                        Create Free Account
-                                    </button>
-                                </div>
-                                <div className="flex items-center gap-3 mt-4 pl-2">
-                                    <div className="flex -space-x-1">
-                                        {['⭐','⭐','⭐','⭐','⭐'].map((s,i) => <span key={i} className="text-xs">{s}</span>)}
-                                    </div>
-                                    <span className="text-sm text-gray-500">1,020+ Reviews</span>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Apply a heavy top padding of exactly 290px to the main content container to create an editorial, spacious feel.
+
+The content container should have a max-w-[1200px] and a vertical gap of 32px between elements.
+
+Background:
+
+Use this background video: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260302_085640_276ea93b-d7da-4418-a09b-2aa5b490e838.mp4.
+
+Critical: The video must be vertically flipped using scaleY(-1) and set to object-cover.
+
+Apply a white gradient overlay on top of the video: from-[26.416%] from-[rgba(255,255,255,0)] to-[66.943%] to-white to seamlessly blend the video into the background.
+
+Typography (Geist & Instrument Serif):
+
+Main Heading: Use the 'Geist' font, medium weight, tracking -0.04em.
+
+Text Content: 'Simple [management] for your remote team'.
+
+Sizes: The main heading should be 80px (desktop), while the word 'management' should be in 'Instrument Serif' italic at 100px.
+
+Description: Geist font, 18px, 80% opacity, slate color (#373a46), max-width 554px.
+
+Interactive Components:
+
+Email Navbar: Create a rounded (40px) input container with bg-[#fcfcfc], a thin border, and a soft shadow (0px 10px 40px 5px rgba(194,194,194,0.25)).
+
+CTA Button: A dark, multi-layered gradient button ('Create Free Account') with a complex inner shadow for a high-gloss tactile effect: shadow-[inset_-4px_-6px_25px_0px_rgba(201,201,201,0.08),inset_4px_4px_10px_0px_rgba(29,29,29,0.24)].
+
+Social Proof: Below the input, add a '1,020+ Reviews' badge with a row of star/brand icons.
+
+Animations:
+
+Use Motion to staggered 'fade and slide up' the heading, description, and the email input block for a smooth entrance.
+
+Key Technical Specs for Implementation:
+
+Video Class: className="w-full h-full object-cover [transform:scaleY(-1)]"
+
+Gradient Class: className="absolute inset-0 bg-gradient-to-b from-[26.416%] from-[rgba(255,255,255,0)] to-[66.943%] to-white"
+
+Button Shadow: shadow-[inset_-4px_-6px_25px_0px_rgba(201,201,201,0.08),inset_4px_4px_10px_0px_rgba(29,29,29,0.24)]</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

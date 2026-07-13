@@ -3,94 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planet Orbit | Accelerate Revenue Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = { theme: { extend: { colors: { background: 'hsl(260 87% 3%)', foreground: 'hsl(40 6% 95%)', primary: '#87FB89', 'primary-fg': 'hsl(0 0% 5%)', 'hero-sub': 'hsl(40 6% 82%)', secondary: 'hsl(240 4% 16%)' },
-            keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-            animation: { marquee: 'marquee 20s linear infinite' } } } }
-    </script>
-    <style type="text/tailwindcss">
-        @layer components {
-            .liquid-glass { background: rgba(255,255,255,0.01); background-blend-mode: luminosity; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-            .liquid-glass::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-        }
+    <title>Planet Orbit — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-background text-foreground antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        const logos = ['Vortex','Nimbus','Prysma','Cirrus','Kynder','Halcyn'];
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <div className="relative min-h-screen bg-background overflow-hidden">
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260309_042944_4a2205b7-b061-490a-852b-92d9e9955ce9.mp4" className="absolute inset-0 w-full h-full object-cover z-0" autoPlay loop muted playsInline />
-                    <div className="relative z-10 min-h-screen flex flex-col items-center">
-                        {/* Navbar Pill */}
-                        <nav className="liquid-glass rounded-3xl max-w-[850px] mx-auto mt-4 px-4 py-2.5 flex items-center justify-between w-full">
-                            <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #87FB89, #4ade80)' }}>
-                                    <i data-lucide="crosshair" className="w-4 h-4 text-black"></i>
-                                </div>
-                                <span className="text-xl font-semibold text-foreground">APEX</span>
-                            </div>
-                            <div className="hidden md:flex items-center gap-1">
-                                {['Features','Solutions','Plans','Learning'].map((l,i) => (
-                                    <button key={l} className="text-base text-foreground/90 px-3 py-1.5 rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1">
-                                        {l} {(i===0||i===3) && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
-                                    </button>
-                                ))}
-                            </div>
-                            <button className="bg-primary text-primary-fg rounded-xl px-4 py-2 text-sm font-medium">Sign Up</button>
-                        </nav>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Planet Orbit</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">planet_orbit.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a dark SaaS landing page hero section with the following exact specifications:
 
-                        {/* Badge */}
-                        <div className="liquid-glass rounded-full px-3 py-1.5 flex items-center gap-2 mt-12">
-                            <span className="text-foreground text-sm">Nova+ Launched!</span>
-                            <span className="bg-white/5 rounded-full px-3 py-1 text-foreground text-xs flex items-center gap-1">Explore <i data-lucide="chevron-right" className="w-3 h-3"></i></span>
-                        </div>
+Font: Geist Sans (400, 500, 600, 700 weights) via @fontsource/geist-sans
 
-                        {/* Heading */}
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] max-w-5xl text-center mt-8 px-4" style={{ color: 'hsl(40 10% 96%)' }}>
-                            Accelerate Your<br />Revenue Growth Now
-                        </h1>
-                        <p className="text-lg max-w-md text-center mt-6 opacity-80" style={{ color: 'hsl(40 6% 82%)' }}>
-                            Drive your funnel forward with clever workflows, analytics, and seamless lead management.
-                        </p>
+Color System (HSL):
 
-                        {/* CTAs */}
-                        <div className="flex items-center gap-4 mt-8">
-                            <button className="bg-primary text-primary-fg rounded-full px-6 py-3 text-base font-medium hover:bg-primary/90 transition-colors">Start Free Right Now</button>
-                            <button className="liquid-glass text-foreground rounded-full px-6 py-3 text-base hover:bg-white/5 transition-colors">Schedule a Consult</button>
-                        </div>
+Background: 260 87% 3% (near-black with slight purple)
+Foreground: 40 6% 95% (warm off-white)
+Primary/Accent: 121 95% 76% (#87FB89 green)
+Primary foreground: 0 0% 5% (dark text on green buttons)
+Hero heading: 40 10% 96%
+Hero sub: 40 6% 82%
+Secondary/Muted: 240 4% 16%
+Border: 240 4% 20%
 
-                        {/* Marquee */}
-                        <div className="mt-auto pb-8 w-full max-w-5xl mx-auto flex items-center gap-12 px-4">
-                            <p className="text-foreground/50 text-sm shrink-0">Relied on by brands<br />across the globe</p>
-                            <div className="overflow-hidden flex-1">
-                                <div className="flex w-max animate-marquee gap-16 items-center">
-                                    {[...logos,...logos].map((n,i) => (
-                                        <div key={i} className="shrink-0 flex items-center gap-2">
-                                            <div className="liquid-glass w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold text-foreground/70">{n[0]}</div>
-                                            <span className="text-base font-semibold whitespace-nowrap text-foreground">{n}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Background Video: Full-screen background video covering the entire section (navbar through social proof). URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260309_042944_4a2205b7-b061-490a-852b-92d9e9955ce9.mp4 Set to autoPlay, loop, muted, playsInline with object-cover and absolute inset-0.
+
+Liquid Glass Effect (reusable utility class .liquid-glass):
+
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+overflow: hidden;
+Plus a ::before pseudo-element with a vertical gradient border using mask-composite:
+
+padding: 1.4px;
+background: linear-gradient(180deg,
+  rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+  rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+  rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+
+Layout (top to bottom, all centered over the video):
+
+Navbar — Centered liquid-glass pill (rounded-3xl, max-w-[850px]) containing:
+
+Logo: Small rounded-lg gradient square with a crosshair SVG icon + "APEX" text (xl, semibold)
+Nav items: "Features" (with chevron-down), "Solutions", "Plans", "Learning" (with chevron-down) — text-base, foreground/90 opacity
+CTA button: "Sign Up" — green primary, rounded-xl, small size
+
+Announcement Badge — liquid-glass rounded-full pill: "Nova+ Launched!" text + "Explore" chip with ChevronRight icon, nested pill with bg-white/5
+
+Heading — text-4xl sm:text-6xl lg:text-7xl, font-semibold, tracking-tight, leading-[1.05], max-w-5xl:
+
+Accelerate Your
+Revenue Growth Now
+
+Subheading — text-lg, max-w-md, opacity-80, hero-sub color: "Drive your funnel forward with clever workflows, analytics, and seamless lead management."
+
+Two CTA Buttons side by side:
+
+"Start Free Right Now" — green primary, rounded-full, px-6 py-3
+"Schedule a Consult" — liquid-glass, rounded-full, px-6 py-3, hover:bg-white/5
+
+Social Proof Marquee at the bottom — "Relied on by brands across the globe" label (foreground/50, text-sm) on the left, then a horizontally scrolling marquee of brand names: Vortex, Nimbus, Prysma, Cirrus, Kynder, Halcyn. Each has a small liquid-glass rounded-lg icon square with the first letter + the brand name (text-base, font-semibold). Duplicated array for seamless loop. Animation: translateX(0%) → translateX(-50%) over 20s linear infinite.
+
+Button Variants (class-variance-authority):
+
+hero: bg-primary text-primary-foreground rounded-full px-6 py-3 text-base font-medium hover:bg-primary/90
+heroSecondary: liquid-glass text-foreground rounded-full px-6 py-3 text-base font-normal hover:bg-white/5</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

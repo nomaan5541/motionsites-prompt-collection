@@ -3,91 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digitwist | Build Faster with AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Digitwist AI Builder — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Instrument Sans',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
-        const { motion } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Digitwist AI Builder</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">digitwist_ai_builder.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a dark mode hero section for an AI website builder with the following exact specifications:
 
-        const App = () => {
-            const videoRef = useRef(null);
-            useEffect(() => {
-                lucide.createIcons();
-                const v = videoRef.current;
-                const url = 'https://stream.mux.com/T6oQJQ02cQ6N01TR6iHwZkKFkbepS34dkkIc9iukgy400g.m3u8';
-                if (Hls.isSupported()) { const h = new Hls(); h.loadSource(url); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = url; v.play().catch(() => {}); }
-            }, []);
+## Technical Setup
 
-            return (
-                <div className="relative w-full min-h-screen overflow-hidden">
-                    {/* Video BG */}
-                    <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover opacity-60 z-0" muted loop playsInline poster="https://images.unsplash.com/photo-1647356191320-d7a1f80ca777?w=1080&fit=crop" />
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] z-[1]"></div>
-                    
-                    {/* Decorative gradients */}
-                    <div className="absolute z-[2] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] mix-blend-screen" style={{ top: '-20%', left: '20%' }}></div>
-                    <div className="absolute z-[2] w-[500px] h-[500px] bg-indigo-900/20 rounded-full blur-[120px] mix-blend-screen" style={{ bottom: '-10%', right: '20%' }}></div>
+### Required Packages
+Install these packages:
+- \`motion\` (version 12.23.24 or later) - for animations
+- \`hls.js\` (version 1.6.15 or later) - for video streaming
+- \`lucide-react\` (version 0.487.0 or later) - for icons
 
-                    {/* Navbar */}
-                    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent flex items-center justify-between px-6 py-4">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="white" strokeWidth="1.5"/><line x1="12" y1="2" x2="12" y2="22" stroke="white" strokeWidth="1.5"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" strokeWidth="1.5"/></svg>
-                        <div className="hidden md:flex items-center gap-8">
-                            {['Products', 'Customer Stories', 'Resources', 'Pricing'].map((l, i) => (
-                                <button key={l} className="text-sm font-medium text-white/80 hover:text-white transition-colors flex items-center gap-1">
-                                    {l} {i === 0 && <i data-lucide="chevron-down" className="w-3 h-3"></i>}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <a href="#" className="hidden sm:block text-sm text-white/80 hover:text-white">Book A Demo</a>
-                            <button className="bg-white text-black rounded-full px-5 py-2.5 text-sm font-semibold">Get Started</button>
-                        </div>
-                    </nav>
-
-                    {/* Hero Content */}
-                    <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center mt-20 space-y-12 px-4 min-h-screen justify-center">
-                        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-                            className="text-3xl sm:text-5xl lg:text-[48px] leading-[1.1]" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                            Design at the speed of thought
-                        </motion.h2>
-                        <motion.h1 initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}
-                            className="text-6xl sm:text-8xl lg:text-[136px] font-semibold leading-[0.9] tracking-tighter bg-gradient-to-b from-white via-white to-[#b4c0ff] bg-clip-text text-transparent">
-                            Build Faster
-                        </motion.h1>
-                        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.7 }} transition={{ delay: 0.4, duration: 0.6 }}
-                            className="text-lg sm:text-[20px] leading-[1.65] max-w-xl">
-                            Create fully functional, SEO-optimized websites in seconds with our advanced AI engine.
-                        </motion.p>
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}
-                            className="flex flex-col sm:flex-row items-center gap-6">
-                            <button className="bg-white rounded-full pl-6 pr-2 py-2 flex items-center gap-3 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105 transition-all">
-                                <span className="text-lg font-medium" style={{ color: '#0a0400' }}>Start Building Free</span>
-                                <span className="w-10 h-10 rounded-full bg-[#3054ff] flex items-center justify-center">
-                                    <i data-lucide="arrow-right" className="w-5 h-5 text-white"></i>
-                                </span>
-                            </button>
-                            <button className="group flex items-center gap-2 text-white/70 hover:text-white backdrop-blur-sm hover:bg-white/5 px-4 py-2 rounded-lg transition-colors">
-                                See Examples <i data-lucide="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </motion.div>
-                    </div>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+### Fonts
+Import these Google Fonts:</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

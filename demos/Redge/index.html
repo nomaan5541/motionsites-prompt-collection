@@ -4,270 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redge — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #fdcb6e 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #fdcb6e;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #fdcb6e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #fdcb6e;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782874980226-redge_website.webp" alt="Redge preview" onerror="this.style.display='none'">
+        <div class="badge">Portfolio • Premium</div>
+        <h1>Redge</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">redge.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># AI System Prompt: Redge Studio - Premium Portfolio \\u0026 Agency Website Specification
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">Portfolio  Template</div>
-            <h1>Redge</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">redge.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+**Role Context:** You are an award-winning web designer and elite frontend developer. You have been tasked with building "Redge," a state-of-the-art, immersive, and highly animated portfolio and agency website. Your goal is to recreate this website with pixel-perfect accuracy, maximum responsiveness, and buttery-smooth 60fps animations.
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+You must rigorously follow this comprehensive technical and design specification document.
+
+---
+
+## 1. Complete Visual Design System
+
+### 1.1 Color Palette
+*   **Primary Background:** Pure Black (\`#000000\`) for the fixed hero space.
+*   **Secondary Background:** Deep Charcoal (\`#050505\`) for the content section background.
+*   **Text/Typography:**
+    *   Primary text: Pure White (\`#FFFFFF\`) with \`drop-shadow-2xl\` on headings.
+    *   Secondary text: Light Gray (\`text-gray-300\`, \`text-white/80\`, \`text-white/50\`).
+*   **Accents (used for icons, pills, hover states):**
+    *   Cyan: \`text-cyan-300\`, \`text-cyan-400\`
+    *   Rose: \`text-rose-300\`, \`text-rose-400\`
+    *   Indigo: \`text-indigo-300\`, \`text-indigo-400\`
+    *   Orange/Amber: \`text-orange-400\`, \`text-amber-400\`
+*   **Glassmorphism Tokens (Liquid Glass):**
+    *   Background: \`bg-transparent\` or \`bg-white/5\` (on hover).
+    *   Borders: \`border-white/20\`, \`border-white/30\`, \`border-white/40\`.
+
+### 1.2 Typography
+*   **Font Family:** Modern Sans-Serif (System fonts / Inter / Roboto).
+*   **Headings (\`h1\`, \`h2\`, \`h3\`):**
+    *   Weight: Black (\`font-black\`).
+    *   Transformation: Uppercase (\`uppercase\`).
+    *   Letter Spacing: Tighter (\`tracking-tighter\`).
+    *   Size Scale: 
+        *   Hero H1: \`text-4xl sm:text-6xl md:text-7xl\`
+        *   Section H2: \`text-3xl sm:text-5xl lg:text-7xl\`
+*   **Body Copy (\`p\`):**
+    *   Weight: Light/Medium (\`font-light\`, \`font-medium\`).
+    *   Size Scale: \`text-lg md:text-xl\` with \`leading-relaxed\`.
+*   **Labels/Tags:**
+    *   Weight: Bold (\`font-bold\`).
+    *   Letter Spacing: Widest (\`tracking-widest\`).
+    *   Transformation: Uppercase (\`uppercase\`).
+    *   Size: \`text-sm\` or \`text-xs\`.
+
+---
+
+## 2. Layout Structure \\u0026 Grid System
+
+### 2.1 Core Architecture
+The site utilizes a dual-layer architecture:
+1.  **Layer 1 (Z-0):** A fixed, sticky hero background spanning \`100vh\`. It acts as the viewport for a deep parallax scroll animation.
+2.  **Layer 2 (Z-40):** A relative, scrollable content layer (\`bg-[#050505]\`) that slides up *over* the hero section as the user scrolls past a \`400vh\` scroll-track div.
+
+### 2.2 Global Navigation
+*   **Desktop:** Fixed at top, centered (\`top-6 left-1/2 -translate-x-1/2\`), width \`90%\`, max-width \`5xl\`. Glass pill shape (\`rounded-full\`, \`backdrop-blur-[40px]\`, \`backdrop-saturate-[1.5]\`, \`border-white/20\`). Links: Studio, Services, Work, Contact.
+*   **Mobile:** Uses a Lucide \`Menu\` icon. When active, opens a glass-frosted dropdown panel (\`fixed top-28\`, \`max-w-sm\`, \`bg-black/40\`, \`rounded-[2rem]\`) containing uppercase, heavily tracked links.
+*   **Interaction:** Smooth scrolling via HTML IDs (\`href="#studio"\`, etc.).
+
+---
+
+## 3. Section-by-Section Content \\u0026 Hierarchy
+
+### 3.1 Hero Section (Scroll-Driven Parallax)
+*   **Background Image:** Cityscape with slight parallax (\`y\` maps \`0%\` to \`-15%\`).
+*   **Text Sequence:** Three massive titles appear sequentially as the user scrolls down, moving from \`-20vh\` to \`15vh\` and scaling from \`0.5\` to \`1.4\`. 
+    1. "Start Your Journey" (Fades in/out)
+    2. "Accelerate Growth" (Fades in/out)
+    3. "Arrive in Style" (Fades in, stays visible at the end of scroll).
+*   **Car Foreground:** An aggressive car PNG anchored to the bottom. It scales drastically (\`0.05\` to \`0.5\`) and moves up (\`-50vh\` to \`5vh\`), giving the illusion of driving towards the screen out of the city.
+
+### 3.2 Studio Section (\`#studio\`)
+*   **Layout:** Liquid Glass Card, flexbox (\`flex-col md:flex-row-reverse\`), gaps (\`gap-8 md:gap-12\`).
+*   **Left (Text):** Camera icon pill (Rose accent), Title "Where Magic Happens", body text, "Meet the Team" button with Users icon.
+*   **Right (Stats Grid):** 2x2 Grid (\`grid-cols-1 sm:grid-cols-2\`). 4 glass tiles featuring numbers (12+, 150, 24, 100%) that highlight on hover with respective accent colors.
+
+### 3.3 Services Section (\`#services\`)
+*   **Layout:** Liquid Glass Card, flexbox (\`flex-col md:flex-row\`).
+*   **Left (Text):** Code icon pill (Indigo accent), Title "Engineering The Future", body text.
+*   **Right (Features Grid):** 2x2 Grid. 4 glass tiles featuring icons (Web Dev, App Dev, Global Scale, SEO \\u0026 Growth) that scale up \`scale-110\` on hover.
+
+### 3.4 Works Section (\`#work\`)
+*   **Layout:** Liquid Glass Card, strict vertical stack (\`flex-col gap-0 md:gap-4\`).
+*   **Top (Text):** Briefcase icon pill (Cyan accent), Title "Crafting Digital Masterpieces", body text.
+*   **Bottom (Gallery):** A highly interactive, 3D coverflow-style React component (\`WorksGallery\`).
+
+### 3.5 Contact Section (\`#contact\`)
+*   **Visual Transition:** Fades into the previous \`#050505\` background using a top gradient mask, accompanied by a heavily obscured background image of the city (\`opacity-60\`, dark radial gradient overlay).
+*   **Layout:** Liquid Glass Card (\`flex-col md:flex-row-reverse\`).
+*   **Left (Form):** Input fields and textarea with glass styling (\`bg-transparent\`, \`border-white/20\`, focus states). White solid submit button.
+*   **Right (Info Grid):** 3 vertical glass tiles with icons (Email, Call, Visit) matching accent colors.
+
+---
+
+## 4. UI Components \\u0026 Styling Details
+
+### 4.1 The "Liquid Glass" Card Specification
+The defining container of the site. Every main section is wrapped in this styling:
+*   **Base:** \`w-full max-w-6xl relative z-20\`.
+*   **Glassmorphism:** \`bg-transparent backdrop-blur-[40px] backdrop-saturate-[2]\`.
+*   **Borders \\u0026 Shadows:** \`border border-transparent\` (or implied by shadows), \`shadow-[0_8px_32px_rgba(0,0,0,0.4)]\`. Inner children grid items use \`border-white/20\` and \`shadow-inner\`.
+*   **Border Radius:** Highly rounded corners (\`rounded-3xl md:rounded-[2.5rem]\`).
+*   **Padding:** Highly responsive interior spacing (\`p-6 sm:p-8 md:p-16\`).
+
+---
+
+## 5. Animations \\u0026 Micro-Interactions
+
+### 5.1 Scroll-Based Interactions (Framer Motion)
+*   Must utilize \`useScroll\` tracking a \`400vh\` empty spacer \`div\`.
+*   **Interpolations (\`useTransform\`):** 
+    *   Text 1 Opacity: \`[0.05, 0.15, 0.20, 0.28]\` -> \`[0, 1, 1, 0]\`
+    *   Text 2 Opacity: \`[0.35, 0.45, 0.50, 0.58]\` -> \`[0, 1, 1, 0]\`
+    *   Text 3 Opacity: \`[0.65, 0.75]\` -> \`[0, 1]\` (Does NOT fade out).
+*   All texts use \`drop-shadow-2xl\` to ensure legibility when passing over the car.
+
+### 5.2 The Works Gallery (Coverflow Carousel)
+*   **Mechanics:** Maps an array of 6 items. Tracks \`activeIndex\`.
+*   **Mathematics:** Uses circular array logic to position inactive cards to the left (\`offset < 0\`) and right (\`offset > 0\`). 
+*   **Framer Motion Animate Styles:**
+    *   Center (Active): \`scale: 1\`, \`x: 0\`, \`rotateY: 0\`, \`opacity: 1\`, \`zIndex: 30\`, \`shadow-[0_20px_50px_rgba(0,0,0,0.5)]\`.
+    *   Sides (Inactive, distance 1): \`scale: 0.8\`, \`x: ±105%\`, \`rotateY: ±15deg\` (tilting inwards), \`opacity: 1\`, \`zIndex: 20\`. Contains a black overlay at \`0.5\` opacity.
+    *   Hidden (distance > 1): \`opacity: 0\`, pointer events disabled.
+*   **Transition:** Spring physics (\`type: "spring", stiffness: 300, damping: 30\`).
+*   **Card Aspect Ratio:** Landscape (\`aspect-[3/2]\`).
+*   **Info Bar:** Slide-up motion on the active card. Displays project Title and Description on the left, download/arrow icon on the right.
+
+### 5.3 Hover States
+*   Glass buttons and tiles: \`hover:bg-white/5 hover:border-white/40 transition-all duration-300\`.
+*   Icons inside tiles: \`group-hover:scale-110 transition-transform\`.
+
+---
+
+## 6. Responsive Behavior (100% Mobile Ready)
+*   **Car Scaling:** The hero car must use viewport units on mobile (\`w-[200vw] sm:w-[150vw] md:w-[1200px]\`). This forces the car to perfectly fill the horizontal screen space when scaled down, preventing layout breaks.
+*   **Grid Collapse:** All side-by-side flex layouts (\`flex-row\`) MUST collapse to \`flex-col\` on mobile devices.
+*   **Padding:** Section padding scales intelligently (\`p-6\` on mobile up to \`p-16\` on desktop) to maximize reading real estate on small screens.
+
+---
+
+## 7. Required Source Assets (URLs)
+*   **Hero City Background:** \`https://res.cloudinary.com/dprydfxok/image/upload/v1782873289/city_pkzyte.jpg\`
+*   **Hero Car Foreground:** \`https://res.cloudinary.com/dprydfxok/image/upload/v1782873324/car_hh3bui.png\`
+*   **Contact Section Background:** Uses the City Background image again with \`opacity-60\`.
+*   **Works Gallery Images:**
+    1. EcoNexa: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823787/EcoNexa_w4kl4w.webp\`
+    2. Naturally: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823785/Naturally_Website_h5aq5g.webp\`
+    3. Basilico: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823783/basilico_restaurant_ycdzct.webp\`
+    4. Wander: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823783/Wander_Hero_yvqcsi.webp\`
+    5. Hublot: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823725/hublot-watches_gmf6wu.webp\`
+    6. Crush: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782823712/crush_website_1_ls4lc7.webp\`
+
+---
+
+## 8. Technical Implementation \\u0026 Architecture
+
+### 8.1 Tech Stack
+*   **Framework:** React 19 + Vite.
+*   **Language:** TypeScript (TSX).
+*   **Styling:** Tailwind CSS 4.
+*   **Animation Library:** Framer Motion (\`framer-motion\`).
+*   **Icons:** Lucide React (\`lucide-react\`).
+
+### 8.2 File Structure
+*   \`src/App.tsx\`: The main monolithic layout, scroll tracking, and structural wrapper.
+*   \`src/WorksGallery.tsx\`: The standalone isolated carousel component to keep \`App.tsx\` clean.
+*   \`src/App.css\` / \`index.css\`: Tailwind imports and global resets (must include \`html { scroll-behavior: smooth; }\` for nav links to work).
+
+### 8.3 Performance \\u0026 SEO
+*   **Images:** All images must include robust \`alt\` tags and \`onError\` fallback handlers (\`e.currentTarget.style.display = 'none'\`).
+*   **Semantic HTML:** Use proper \`<nav>\`, \`<footer>\`, \`<form>\`, \`<h1>\`, \`<h2>\`, and \`<p>\` tags.
+*   **Accessibility:** Buttons must have clear tap targets, text contrasts must meet standards (shadows used on white text over complex backgrounds), and active elements must be accessible via keyboard navigation.
+
+---
+**End of Specification.**</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

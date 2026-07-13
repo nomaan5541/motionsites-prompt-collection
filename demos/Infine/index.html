@@ -4,270 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infine — AI Design Prompt Preview</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: #030305;
-            color: #f5f5f7;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Ambient Glow Background */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .glow-orb {
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.1;
-            background: radial-gradient(circle, #00cec9 0%, transparent 70%);
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.1); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Card Wrapper */
-        .glass-card {
-            background: rgba(20, 20, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 48px;
-            backdrop-filter: blur(24px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.05);
-        }
-
-        /* Header info */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 100px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #00cec9;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #fff 60%, #00cec9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.desc {
-            font-size: 18px;
-            color: #8e8e93;
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 700px;
-        }
-
-        /* Code block editor representation */
-        .editor-container {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-            background: #050508;
-            margin-bottom: 32px;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .editor-header {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .editor-dots {
-            display: flex;
-            gap: 6px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-        }
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
-        
-        .editor-title {
-            font-size: 12px;
-            color: #8e8e93;
-            font-family: 'Fira Code', monospace;
-            font-weight: 500;
-        }
-
-        pre {
-            padding: 24px;
-            overflow-x: auto;
-            max-height: 380px;
-            font-family: 'Fira Code', monospace;
-            font-size: 13.5px;
-            line-height: 1.8;
-            color: #d1d1d6;
-            text-align: left;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* Actions */
-        .actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 28px;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            font-family: inherit;
-        }
-        .btn-primary {
-            background: white;
-            color: black;
-            box-shadow: 0 10px 25px rgba(255,255,255,0.15);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: #f5f5f7;
-            box-shadow: 0 15px 30px rgba(255,255,255,0.25);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: #00cec9;
-            color: black;
-            padding: 14px 28px;
-            border-radius: 100px;
-            font-size: 14px;
-            font-weight: 700;
-            z-index: 100;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        @media (max-width: 640px) {
-            .glass-card { padding: 32px 24px; }
-            .btn { width: 100%; }
-        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
 <body>
-    <div class="ambient-bg">
-        <div class="glow-orb"></div>
-    </div>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781633570000-Infine_Website.webp" alt="Infine preview" onerror="this.style.display='none'">
+        <div class="badge">Agency • Premium</div>
+        <h1>Infine</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">infine.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># Infine - Premium Creative Agency Website Specification
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="badge">Agency Template</div>
-            <h1>Infine</h1>
-            <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy this prompt and paste it into Bolt.new, v0, or GPT-Engineer to build the complete, pixel-perfect application in seconds.</p>
-            
-            <div class="editor-container">
-                <div class="editor-header">
-                    <div class="editor-dots">
-                        <div class="dot dot-red"></div>
-                        <div class="dot dot-yellow"></div>
-                        <div class="dot dot-green"></div>
-                    </div>
-                    <div class="editor-title">infine.prompt</div>
-                    <div style="width: 42px;"></div>
-                </div>
-                <pre id="promptCode">// Prompt text loading...</pre>
-            </div>
+**System Prompt / Instructions**
+Act as an award-winning elite designer and expert frontend web developer. Your objective is to build a highly interactive, premium, luxury-tier creative agency portfolio website named "Infine". The website must be pixel-perfect, completely responsive, and heavily feature sophisticated micro-interactions, scroll-driven animations, and cinematic aesthetics. It must replicate the exact visual design system, structure, and animations specified below.
 
-            <div class="actions">
-                <button class="btn btn-primary" onclick="copyPrompt()">📋 Copy Prompt Code</button>
-                <a href="/" class="btn btn-secondary">🏠 Back to Prompt Library</a>
-            </div>
+---
+
+## 1. Complete Visual Design System
+
+### 1.1 Exact Color Palette
+- **Primary Background**: \`#050505\` (Deep luxury black)
+- **Primary Foreground / Text**: \`#FAFAFA\` (Soft white)
+- **Secondary Text / Muted**: \`#9CA3AF\` (Tailwind gray-400) and \`#6B7280\` (Tailwind gray-500)
+- **Accent Color**: \`#3B82F6\` (Tailwind blue-500) and \`#2563EB\` (Tailwind blue-600)
+- **Glassmorphism / Borders**: \`rgba(255, 255, 255, 0.1)\` (white/10) to \`rgba(255, 255, 255, 0.2)\` (white/20)
+- **Stroke Color**: \`rgba(255, 255, 255, 0.692)\`
+
+### 1.2 Typography
+- **Primary Sans-Serif**: \`Inter\` (Google Fonts) - Used for body copy, UI elements, navigation, small caps tags.
+- **Primary Serif**: \`Playfair Display\` (Google Fonts) - Used for massive headings, cinematic hero text, and artistic contrasts.
+- **Font Sizes**:
+  - Hero Display: \`12vw\` to \`15vw\` (Fluid typography)
+  - Section Headers: \`text-5xl md:text-7xl\` (\`3rem\` to \`4.5rem\`)
+  - Subheaders/Cards: \`text-3xl md:text-4xl\`
+  - Body Text: \`text-lg md:text-xl\`
+  - Mono Tags: \`text-sm uppercase tracking-widest\`
+
+### 1.3 Layout Structure \\u0026 Grid System
+- **Maximum Width Container**: \`max-w-[100rem]\` (\`1600px\`) centered \`mx-auto\`.
+- **Global Padding**: Horizontal \`px-6 md:px-12\` for edges. Vertical section spacing \`py-32 md:py-48\` for luxurious white-space (negative space).
+- **Grid Layout**: 12-column foundation logic, specifically implemented in the About section (7/5 split) and the Services section (Asymmetrical Bento Box Grid).
+
+---
+
+## 2. Section-by-Section Hierarchy \\u0026 Content
+
+### 2.1 Navigation (Navbar)
+- **Structure**: Fixed at top, transparent on load, applying \`bg-black/40\` with \`backdrop-blur-md\` and \`border-b border-white/10\` when scrolled past 50px.
+- **Content**: Logo "INFINE" (serif) with a blue dot. Desktop links (Work, Services, About, Contact). Mobile Hamburger menu.
+- **Animation**: Hides on scroll down, reveals on scroll up using Framer Motion \`useMotionValueEvent\`.
+
+### 2.2 Hero Section
+- **Visuals**: Fullscreen edge-to-edge layout (\`h-screen\`). 
+- **Media**: Background video looping (\`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/beyond_imagination_video.mp4\`). Dark gradient overlay \`bg-black/40\`.
+- **Content**: Massive centered serif text "CRAFTING DIGITAL VISIONS". The word "VISIONS" is outlined using \`-webkit-text-stroke: 1px rgba(255, 255, 255, 0.692)\` and \`color: transparent\`. 
+- **Animation**: Scroll-driven transition using GSAP ScrollTrigger. The hero section is pinned, and the video container scales down from \`scale(1)\` to \`scale(0.8)\` while gaining a \`border-radius: 2rem\` as the user scrolls down, revealing the black background underneath.
+
+### 2.3 Showcase (Selected Works)
+- **Layout**: "Horizontal Accordion" Flex Layout (\`h-[80vh]\`). 
+- **Mechanics**: 3 vertical panels side-by-side. 
+  - **Active Panel**: Takes up \`80%\` width, revealing the image, a dark gradient overlay, and absolute positioned project details (Title, Category, Description).
+  - **Inactive Panels**: Take up \`10%\` width, displaying the title rotated \`-90deg\` vertically.
+- **Images**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_01_jfacyd.jpg\`, \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_02_shonag.jpg\`, \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_03_jasmg8.jpg\`.
+- **Transitions**: Smooth width/height animation using \`duration-[800ms] ease-[cubic-bezier(0.76,0,0.24,1)]\`.
+- **Responsive**: Falls back to a vertical accordion (\`h-[60%] active\` vs \`h-[20%] inactive\`) on mobile devices.
+
+### 2.4 Services (Bento Grid Capabilities)
+- **Layout**: Asymmetrical Bento Box Grid (\`grid-cols-1 md:grid-cols-3 auto-rows-[22rem]\`).
+- **Cards**: 4 cards. Sizes span differently (\`col-span-2\`, \`row-span-2\`, etc.).
+- **Visuals**: \`bg-zinc-900\` with \`border-white/5\`. Background images (\`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_01_jfacyd.jpg\`, \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_02_shonag.jpg\`, \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_03_jasmg8.jpg\`, \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/showcase_project_wq9efl.jpg\`) set to \`opacity-20\` and \`mix-blend-luminosity\`.
+- **Interactions**: On hover, background image scales up (\`scale-105\`) and increases opacity (\`opacity-40\`). Glassmorphism arrow icon slides in from the left \`translate-x\`.
+
+### 2.5 FAQ (Frequently Asked Questions)
+- **Layout**: 2-column layout (Left: Header, Right: Vertical List of Accordions).
+- **Mechanics**: Framer Motion \`AnimatePresence\` expanding accordion.
+- **Visuals**: \`border-b border-white/10\`. Plus/Minus Lucide icons.
+
+### 2.6 About (Scroll Reveal Typography)
+- **Layout**: Split grid (Left: 7 cols text/stats, Right: 5 cols image).
+- **Core Interaction**: A massive paragraph of text where every single word is wrapped in a \`motion.span\`. Using Framer Motion's \`useScroll\` and \`useTransform\`, the opacity of each word transitions from \`0.15\` to \`1\` sequentially as the user scrolls through the section.
+- **Stats**: "12+ Years Exp", "150+ Awards" fade up smoothly.
+- **Image**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/about_us_gcyr2b.jpg\` inside a tall cinematic container \`aspect-[4/5]\` with \`border-radius: 2.5rem\`.
+
+### 2.7 Contact (Let's Talk)
+- **Layout**: Centered, full-screen minimum height (\`min-h-screen\`).
+- **Visuals**: Background image (\`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/showcase_project_wq9efl.jpg\`) covered by a perfect vignette radial gradient overlay \`bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.4)_0%,rgba(0,0,0,1)_80%)]\`.
+- **Typography**: Massive \`text-[12vw]\` serif text.
+- **Interactive Button**: A white pill button. On hover, a blue circle background translates up from the bottom (\`translate-y-full\` to \`translate-y-0\`) filling the button, and text turns white.
+
+---
+
+## 3. Global Interactions \\u0026 UI Components
+
+### 3.1 Custom Cursor
+- **Visuals**: A small white dot that perfectly tracks the mouse, followed by a slightly larger translucent circle that drags behind using spring physics (\`damping: 20\`, \`stiffness: 300\`).
+- **Implementation**: Framer Motion \`useMotionValue\` and \`useSpring\` tracking global \`mousemove\` events. Hidden on touch devices.
+
+### 3.2 Smooth Scrolling
+- **Implementation**: Lenis (Studio Freight). Wraps the entire application. Provides buttery smooth inertia scrolling.
+
+### 3.3 Micro-Interactions (Hover States)
+- All interactive links and buttons must utilize \`group\` and \`group-hover\` in Tailwind.
+- Images scale up \`scale-105\` inside \`overflow-hidden\` containers on hover.
+- Timing: Use sophisticated easing curves, specifically \`ease-[cubic-bezier(0.76,0,0.24,1)]\` and \`duration-700\` or \`duration-1000\` for premium weight and inertia.
+
+---
+
+## 4. Technical Implementation Details
+
+### 4.1 Frontend Architecture
+- **Framework**: Next.js 15 (App Router).
+- **Language**: TypeScript.
+- **Styling**: Tailwind CSS v4.
+- **Component Structure**:
+  - \`src/app/page.tsx\` (Main compiler)
+  - \`src/app/globals.css\` (Tailwind imports, custom font CSS variables)
+  - \`src/components/navigation/Navbar.tsx\`
+  - \`src/components/ui/CustomCursor.tsx\`
+  - \`src/components/sections/Hero.tsx\`, \`Showcase.tsx\`, \`Services.tsx\`, \`Faq.tsx\`, \`About.tsx\`, \`Contact.tsx\`.
+
+### 4.2 Required Dependencies
+- \`framer-motion\` (Declarative animations, Scroll text reveal, Layout animations, Custom Cursor).
+- \`gsap\` (Complex scroll-timeline pinning in the Hero section).
+- \`lenis\` (Smooth scrolling wrapper).
+- \`lucide-react\` (SVG Icons: ArrowUpRight, Plus, Minus, Menu, ArrowRight).
+- \`clsx\` \\u0026 \`tailwind-merge\` (Utility class merging).
+
+### 4.3 Responsive Requirements (100% Adaptability)
+- **Mobile (\`< 768px\`)**: Stack grid layouts into single columns. Convert horizontal accordions to vertical stacking accordions. Reduce massive typography to fit screen bounds without horizontal overflow. Adjust padding to \`px-6\`.
+- **Tablet (\`768px - 1024px\`)**: Utilize 2-column grids. Adjust padding to \`px-12\`.
+- **Desktop (\`> 1024px\`)**: Full Awwwards-style layout. Enable complex hover states (disabled on coarse pointer devices). Enable custom cursor.
+
+### 4.4 SEO \\u0026 Performance Optimization
+- Native Next.js \`<Image />\` component used for all assets with \`fill\`, \`object-cover\`, and proper aspect ratios.
+- Semantic HTML tags (\`<section>\`, \`<main>\`, \`<footer>\`, \`<nav>\`).
+- Will-change transform optimizations applied to heavily animated elements (like the Hero video container \`will-change-transform\`).
+- Lazy loading for components outside the initial viewport.
+
+---
+
+## 5. Media Assets Summary
+- **Hero Video**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/beyond_imagination_video.mp4\`
+- **Showcase Image 1**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_01_jfacyd.jpg\`
+- **Showcase Image 2**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_02_shonag.jpg\`
+- **Showcase Image 3**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/portfolio_03_jasmg8.jpg\`
+- **Showcase Image 4 (Services)**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/showcase_project_wq9efl.jpg\`
+- **About Image**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/about_us_gcyr2b.jpg\`
+- **Contact Image**: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781633036/showcase_project_wq9efl.jpg\`</pre>
         </div>
-    </div>
-
-    <div class="toast" id="toast">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Copied prompt to clipboard! Ready to paste.
-    </div>
-
-    <script>
-    function copyPrompt() {
-        const text = document.getElementById('promptCode').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        });
-    }
-    </script>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

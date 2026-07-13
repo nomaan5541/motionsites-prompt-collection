@@ -3,125 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethera® Studio | Beyond Silence</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Instrument Serif', 'serif'],
-                        body: ['Inter', 'sans-serif'],
-                    },
-                    keyframes: {
-                        'fade-rise': {
-                            from: { opacity: '0', transform: 'translateY(20px)' },
-                            to: { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    },
-                    animation: {
-                        'fade-rise': 'fade-rise 0.8s ease-out both',
-                        'fade-rise-delay': 'fade-rise 0.8s ease-out 0.2s both',
-                        'fade-rise-delay-2': 'fade-rise 0.8s ease-out 0.4s both',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Aethera Studio — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-white text-black font-body antialiased overflow-x-hidden">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Aethera Studio</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">aethera_studio.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Prompt: Cinematic Hero Section with Looping Video Background
 
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
+Create a fullscreen single-page hero section using React + Vite + Tailwind CSS + TypeScript with the following specifications:
 
-        const App = () => {
-            const videoRef = useRef(null);
+Fonts:
+Display text (headings, logo): Instrument Serif
+Body text (navigation, descriptions): Inter
+Import both fonts in /src/styles/fonts.css
 
-            useEffect(() => {
-                const video = videoRef.current;
-                if (!video) return;
+Video Background:
+URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4
+Position: top: '300px' with inset: 'auto 0 0 0'
+Implement custom fade-in/fade-out loop logic using React useEffect and useRef:
+Use requestAnimationFrame to continuously monitor currentTime and duration
+Fade in over 0.5s at the start (opacity 0 to 1)
+Fade out over 0.5s before the end (opacity 1 to 0)
+On ended event: set opacity to 0, wait 100ms, reset currentTime = 0, then play() again
+This creates a seamless manual loop with smooth fade transitions
+Add gradient overlays: absolute inset-0 bg-gradient-to-b from-background via-transparent to-background positioned over the video
 
-                let rafId;
-                const fade = () => {
-                    if (!video.duration) { rafId = requestAnimationFrame(fade); return; }
-                    const t = video.currentTime;
-                    const d = video.duration;
-                    if (t < 0.5) video.style.opacity = t / 0.5;
-                    else if (t > d - 0.5) video.style.opacity = (d - t) / 0.5;
-                    else video.style.opacity = 1;
-                    rafId = requestAnimationFrame(fade);
-                };
+Navigation Bar:
+Logo: "Aethera®" (with registered trademark symbol as superscript)
+Logo styling: text-3xl, tracking-tight, Instrument Serif, color #000000
+Menu items: Home (color #000000), Studio, About, Journal, Reach Us (all others #6F6F6F)
+Menu items: text-sm with transition-colors
+CTA button: "Begin Journey", rounded-full, px-6 py-2.5, text-sm, black background (#000000), white text, hover scale 1.03
+Layout: flex justify-between, px-8 py-6, max-w-7xl mx-auto
 
-                video.addEventListener('ended', () => {
-                    video.style.opacity = 0;
-                    setTimeout(() => { video.currentTime = 0; video.play(); }, 100);
-                });
-                video.play();
-                rafId = requestAnimationFrame(fade);
-                return () => cancelAnimationFrame(rafId);
-            }, []);
+Hero Section:
+Positioning: paddingTop: 'calc(8rem - 75px)', pb-40
+Layout: centered (flex flex-col items-center justify-center text-center), px-6
+Headline:
+Text: "Beyond silence, we build the eternal."
+Styling: text-5xl sm:text-7xl md:text-8xl, max-w-7xl, font-normal
+Font: Instrument Serif
+Line height: 0.95
+Letter spacing: -2.46px
+Color: #000000 for main text, #6F6F6F for italic emphasized words ("silence," and "the eternal.")
+Animation: animate-fade-rise
 
-            return (
-                <div className="relative min-h-screen w-full overflow-hidden">
-                    {/* Video Background */}
-                    <video 
-                        ref={videoRef}
-                        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4"
-                        className="absolute w-full h-auto object-cover"
-                        style={{ top: '300px', inset: 'auto 0 0 0', opacity: 0 }}
-                        muted playsInline
-                    />
-                    {/* Gradient Overlay on video */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none"></div>
-                    
-                    {/* Navigation z-10 */}
-                    <nav className="relative z-10 flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
-                        <div className="font-display text-3xl tracking-tight">
-                            Aethera<sup className="text-xs">®</sup>
-                        </div>
-                        <div className="hidden md:flex items-center space-x-8">
-                            {[
-                                { name: 'Home', color: '#000000' },
-                                { name: 'Studio', color: '#6F6F6F' },
-                                { name: 'About', color: '#6F6F6F' },
-                                { name: 'Journal', color: '#6F6F6F' },
-                                { name: 'Reach Us', color: '#6F6F6F' }
-                            ].map(link => (
-                                <a key={link.name} href="#" className="text-sm transition-colors hover:text-black" style={{ color: link.color }}>
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
-                        <button className="bg-black text-white rounded-full px-6 py-2.5 text-sm font-medium hover:scale-[1.03] active:scale-[0.97] transition-transform">
-                            Begin Journey
-                        </button>
-                    </nav>
+Description:
+Text: "Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows."
+Styling: text-base sm:text-lg, max-w-2xl, mt-8, leading-relaxed
+Color: #6F6F6F
+Animation: animate-fade-rise-delay
 
-                    {/* Hero Section z-10 */}
-                    <section className="relative z-10 flex flex-col items-center justify-center text-center px-6" style={{ paddingTop: 'calc(8rem - 75px)', paddingBottom: '10rem' }}>
-                        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl max-w-7xl font-normal animate-fade-rise" style={{ lineHeight: 0.95, letterSpacing: '-2.46px' }}>
-                            Beyond <span className="italic" style={{ color: '#6F6F6F' }}>silence,</span> we build <span className="italic" style={{ color: '#6F6F6F' }}>the eternal.</span>
-                        </h1>
-                        <p className="text-base sm:text-lg max-w-2xl mt-8 leading-relaxed animate-fade-rise-delay" style={{ color: '#6F6F6F' }}>
-                            Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows.
-                        </p>
-                        <button className="bg-black text-white rounded-full px-14 py-5 text-base mt-12 hover:scale-[1.03] active:scale-[0.97] transition-transform animate-fade-rise-delay-2">
-                            Begin Journey
-                        </button>
-                    </section>
-                </div>
-            );
-        };
+Hero CTA Button:
+Text: "Begin Journey"
+Styling: rounded-full, px-14 py-5, text-base, mt-12
+Colors: black background (#000000), white text (#FFFFFF)
+Hover: scale 1.03
+Animation: animate-fade-rise-delay-2
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Colors:
+Background: white (#FFFFFF)
+Headlines/logos/buttons: black (#000000)
+Descriptions/menu items: gray (#6F6F6F)
+Button text: white (#FFFFFF)
+
+Animations (in /src/styles/theme.css):
+fade-rise: opacity 0 to 1, translateY 20px to 0, duration 0.8s, ease-out
+fade-rise-delay: same as fade-rise but with 0.2s delay
+fade-rise-delay-2: same as fade-rise but with 0.4s delay
+
+Layout Structure:
+Container: relative min-h-screen w-full overflow-hidden
+Background video layer (z-0)
+Gradient overlay on video
+Navigation bar (z-10)
+Hero section (z-10)
+All elements should be responsive and maintain the glassmorphic aesthetic with the specified padding, positioning, and smooth animations.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

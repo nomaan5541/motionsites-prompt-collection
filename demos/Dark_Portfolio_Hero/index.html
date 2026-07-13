@@ -1,150 +1,131 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Smith | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { bg: '#0a0a0a', surface: '#141414', 'text-primary': '#f5f5f5', muted: '#888888', accent: '#f5f5f5', stroke: '#1f1f1f' },
-                    fontFamily: { display: ['Instrument Serif', 'serif'], body: ['Inter', 'sans-serif'] },
-                }
-            }
-        }
-    </script>
+    <title>Dark Portfolio Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f5f5f5; }
-        .accent-gradient { background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%); }
-        @keyframes scrollDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
-        @keyframes roleFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-scroll-down { animation: scrollDown 1.5s ease-in-out infinite; }
-        .animate-role-fade { animation: roleFade 0.4s ease-out; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, AnimatePresence } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Dark Portfolio Hero</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">dark_portfolio_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a Next.js 14 portfolio landing page with a full-screen hero section and an animated loading screen. The entire site uses a dark theme. Here is the exact specification:
 
-        const LoadingScreen = ({ onComplete }) => {
-            const [count, setCount] = useState(0);
-            const [wordIdx, setWordIdx] = useState(0);
-            const words = ['Design', 'Create', 'Inspire'];
-            useEffect(() => {
-                const start = Date.now();
-                const tick = () => {
-                    const elapsed = Date.now() - start;
-                    const pct = Math.min(100, Math.floor((elapsed / 2700) * 100));
-                    setCount(pct);
-                    if (pct < 100) requestAnimationFrame(tick);
-                    else setTimeout(onComplete, 400);
-                };
-                requestAnimationFrame(tick);
-                const wi = setInterval(() => setWordIdx(p => (p + 1) % 3), 900);
-                return () => clearInterval(wi);
-            }, []);
-            return (
-                <motion.div exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between">
-                    <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-xs md:text-sm text-muted uppercase tracking-[0.3em] absolute top-8 left-8 md:top-12 md:left-12">Portfolio</motion.div>
-                    <div className="flex-1 flex items-center justify-center">
-                        <AnimatePresence mode="wait">
-                            <motion.span key={wordIdx} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80">{words[wordIdx]}</motion.span>
-                        </AnimatePresence>
-                    </div>
-                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-6xl md:text-8xl lg:text-9xl font-display text-text-primary tabular-nums absolute bottom-8 right-8 md:bottom-12 md:right-12">{String(count).padStart(3, '0')}</motion.div>
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
-                        <div className="h-full accent-gradient origin-left transition-transform" style={{ transform: `scaleX(${count / 100})`, boxShadow: '0 0 8px rgba(137,170,204,0.35)' }}></div>
-                    </div>
-                </motion.div>
-            );
-        };
+Tech Stack
+Next.js 14 (App Router) + TypeScript
+Tailwind CSS v3 with CSS custom properties for theming
+GSAP for hero entrance animations
+Framer Motion (AnimatePresence, motion) for the loading screen
+Google Fonts: Inter (body, variable --font-body) and Instrument Serif (display/headings, variable --font-display, weight 400, italic)
 
-        const Hero = () => {
-            const videoRef = useRef(null);
-            const [roleIdx, setRoleIdx] = useState(0);
-            const roles = ['Creative', 'Fullstack', 'Founder', 'Scholar'];
-            useEffect(() => {
-                const v = videoRef.current;
-                const url = 'https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8';
-                if (Hls.isSupported()) { const hls = new Hls(); hls.loadSource(url); hls.attachMedia(v); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) v.src = url;
-                const ri = setInterval(() => setRoleIdx(p => (p + 1) % 4), 2000);
-                return () => clearInterval(ri);
-            }, []);
+Dark Theme — CSS Variables
+Set on [data-theme="dark"] (force dark mode, no toggle):
 
-            return (
-                <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-                    <video ref={videoRef} className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0" autoPlay muted loop playsInline />
-                    <div className="absolute inset-0 bg-black/20 z-[1]"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent z-[2]"></div>
+--bg: #0a0a0a
+--surface: #141414
+--text: #f5f5f5
+--muted: #888888
+--accent: #f5f5f5
+--stroke: #1f1f1f
 
-                    {/* Navbar */}
-                    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
-                        <div className="inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2">
-                            <div className="w-9 h-9 rounded-full p-[2px] accent-gradient">
-                                <div className="w-full h-full rounded-full bg-bg flex items-center justify-center text-[13px] font-display italic tracking-tighter">JA</div>
-                            </div>
-                            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
-                            {['Home', 'Work', 'Resume'].map((l, i) => (
-                                <a key={l} href="#" className={`text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors ${i === 0 ? 'text-text-primary bg-stroke/50' : 'text-muted hover:text-text-primary hover:bg-stroke/50'}`}>{l}</a>
-                            ))}
-                            <div className="w-px h-5 bg-stroke mx-1 hidden sm:block"></div>
-                            <a href="#" className="text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-text-primary transition-colors">Say hi ↗</a>
-                        </div>
-                    </nav>
+Map these in Tailwind config as bg, surface, text, muted, accent, stroke color tokens. Font families: font-display → var(--font-display), font-body → var(--font-body).
 
-                    {/* Hero Content */}
-                    <div className="relative z-10 text-center px-4">
-                        <p className="text-xs text-muted uppercase tracking-[0.3em] mb-8">COLLECTION '26</p>
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight mb-6">Michael Smith</h1>
-                        <p className="text-lg md:text-xl lg:text-2xl text-muted mb-10">
-                            A <span key={roleIdx} className="font-display italic text-text-primary animate-role-fade inline-block">{roles[roleIdx]}</span> lives in Chicago.
-                        </p>
-                        <p className="text-sm md:text-base text-muted leading-relaxed max-w-md mx-auto mb-12">
-                            Designing seamless digital interactions by focusing on the unique nuances which bring systems to life.
-                        </p>
-                        <div className="inline-flex gap-4">
-                            <button className="px-7 py-3.5 bg-text-primary text-bg text-sm rounded-full hover:scale-105 transition-transform">See Works</button>
-                            <button className="px-7 py-3.5 bg-bg text-text-primary text-sm rounded-full border-2 border-stroke hover:scale-105 transition-transform">Reach out...</button>
-                        </div>
-                    </div>
+Accent Gradient (used everywhere)
+linear-gradient(90deg, #89AACC 0%, #4E85BF 100%)
+This blue gradient is used for: the navbar logo ring, button hover borders, the "Say hi" hover ring, and the loading screen progress bar.
 
-                    {/* Scroll Indicator */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-                        <span className="text-xs text-muted uppercase tracking-[0.2em]">SCROLL</span>
-                        <div className="w-px h-10 bg-stroke relative overflow-hidden">
-                            <div className="w-full h-2 bg-text-primary animate-scroll-down"></div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+Component 1: Loading Screen
+A full-screen loader (fixed inset-0 z-[9999]) with solid bg-bg background. It runs for 2.7 seconds, then fades out with Framer Motion exit={{ opacity: 0 }} over 0.6s.
 
-        const App = () => {
-            const [loading, setLoading] = useState(true);
-            return (
-                <AnimatePresence>
-                    {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-                    {!loading && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}><Hero /></motion.div>}
-                </AnimatePresence>
-            );
-        };
+Layout (3 elements):
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Top-left: The word "Portfolio" — text-xs md:text-sm, text-muted, uppercase, tracking-[0.3em]. Positioned top-8 left-8 md:top-12 md:left-12. Animates in: y: -20 → 0, opacity: 0 → 1, duration 0.6s, delay 0.1s.
+Center: Three words rotate in sequence — "Design" → "Create" → "Inspire" — one every 900ms. Styled text-4xl md:text-6xl lg:text-7xl font-display italic text-text/80. Uses AnimatePresence mode="wait", each word enters from y: 20, exits to y: -20, duration 0.4s, easing [0.4, 0, 0.2, 1].
+Bottom-right: A counter that counts from 000 → 100 over 2.7s using requestAnimationFrame. Styled text-6xl md:text-8xl lg:text-9xl font-display text-text tabular-nums. Positioned bottom-8 right-8 md:bottom-12 md:right-12. Animates in from y: 20.
+Progress bar: A thin 3px line at the very bottom. Background track is bg-stroke/50. The fill uses the accent gradient (#89AACC → #4E85BF) with a subtle glow (box-shadow: 0 0 8px rgba(137, 170, 204, 0.35)). Scales from scaleX(0) to scaleX(1) using transform-origin: left.
+
+Behavior: After the counter hits 100, wait 400ms, then call onComplete(). The parent AppWrapper toggles isLoading to false, which fades the loader out and fades the page content in (opacity 0 → 1, transition 0.5s ease-out).
+
+Component 2: Navbar (inside Hero, fixed)
+A floating pill navbar, fixed top-0 left-0 right-0, centered with flex justify-center, z-50.
+
+Pill container: inline-flex, rounded-full, backdrop-blur-md, border border-white/10, bg-surface, px-2 py-2. On scroll past 100px, adds shadow-md shadow-black/10.
+
+Contents (left to right):
+
+Logo — a 36x36px circle (w-9 h-9) with the accent gradient as a 2px ring (p-[2px]). The inside is bg-bg with the letters "JA" centered in text-[13px] font-display italic tracking-tighter. On hover the gradient rotates (from/to colors swap) and the text scales 110%.
+Divider — w-px h-5 bg-stroke mx-1 (hidden on mobile)
+Nav links: "Home", "Work", "Resume" — text-xs sm:text-sm, rounded-full, px-3 sm:px-4 py-1.5 sm:py-2. Active state: text-text bg-stroke/50. Hover: text-text bg-stroke/50.
+Divider
+"Say hi ↗" button — same pill styling, with a gradient border ring on hover.
+Divider
+
+Component 3: Hero Section
+Full viewport height (min-h-screen), flex column, centered content.
+
+Background video layer (absolute inset-0 z-0):
+Video URL: https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8
+An <video> element: autoPlay muted loop playsInline, with a .avif poster image as fallback.
+The video is centered and covers the area: absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover.
+A subtle overlay: absolute inset-0 bg-black/20.
+A bottom fade gradient: absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent.
+
+Content (centered, z-10, text-center):
+
+Eyebrow label: "COLLECTION '26" — text-xs text-muted uppercase tracking-[0.3em] mb-8. Class blur-in.
+Name: "Michael Smith" — text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text mb-6. Class name-reveal.
+Role line: A [Role] lives in Chicago. — text-lg md:text-xl lg:text-2xl text-muted mb-10. The [Role] cycles through "Creative" → "Fullstack" → "Founder" → "Scholar" every 2 seconds, styled as font-display italic text-text with a CSS animate-fade-in animation.
+Bio: "Designing seamless digital interactions by focusing on the unique nuances which bring systems to life." — text-sm md:text-base text-muted leading-relaxed max-w-md mb-12.
+CTA buttons (side by side):
+"See Works": px-7 py-3.5 bg-text text-bg text-sm rounded-full. On hover: scale-105, gradient border ring appears.
+"Reach out...": px-7 py-3.5 bg-bg text-text text-sm rounded-full border-2 border-stroke. Same gradient hover border technique.
+
+Scroll indicator (bottom center, absolute bottom-8):
+The word "SCROLL" — text-xs text-muted uppercase tracking-[0.2em].
+Below it, a thin vertical line (w-px h-10 bg-stroke) with an animated dot sliding down on a 1.5s infinite loop.
+
+GSAP Entrance Animations (Hero)
+On mount, a GSAP timeline (power3.out ease):
+.name-reveal: opacity 0→1, y 50→0, duration 1.2s, starting at 0.1s.
+.blur-in: opacity 0→1, filter blur(10px)→blur(0px), y 20→0, duration 1s, stagger 0.1s, starting at 0.3s.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

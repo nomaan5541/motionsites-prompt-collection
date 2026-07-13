@@ -3,79 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Framelix 3D | Cinematic Motion Studios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script>
-        tailwind.config = { theme: { extend: { keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } }, animation: { marquee: 'marquee 20s linear infinite' } } } }
-    </script>
+    <title>Framelix 3D Studios — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-x-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { motion } = window.Motion;
-        const App = () => (
-            <div className="bg-black">
-                {/* Navbar */}
-                <nav className="flex items-center justify-between bg-black" style={{ padding: '32px 36px 20px' }}>
-                    <div className="text-white font-semibold text-xl brightness-0 invert" style={{ height: '36px', display: 'flex', alignItems: 'center' }}>Framelix<sup className="text-sm">3D</sup></div>
-                    <div className="hidden md:grid grid-cols-3 gap-16 text-center">
-                        {[['Reels','Services'],['Projects','Pipeline'],['Careers','Get In Touch']].map((col,i) => (
-                            <div key={i} className="flex flex-col gap-1">{col.map(l => <a key={l} href="#" className="text-white/80 hover:text-white text-sm transition-colors">{l}</a>)}</div>
-                        ))}
-                    </div>
-                    <div className="relative w-7 h-7 flex items-center justify-center">
-                        <svg width="27" height="30" viewBox="0 0 27 30" fill="none"><rect x="1" y="1" width="25" height="28" rx="4" stroke="white" strokeWidth="1.5"/></svg>
-                        <span className="absolute text-xs text-white font-bold">0</span>
-                    </div>
-                </nav>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Framelix 3D Studios</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">framelix_3d_studios.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a dark-themed landing page for "Framelix 3D" — a cinematic motion studio brand. The entire site uses a pure black background (#000) with white text. Use the Inter font (import from Google Fonts). The project uses React, Tailwind CSS, TypeScript, and framer-motion.
 
-                {/* Hero */}
-                <section className="relative min-h-screen overflow-hidden">
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_060517_9feec9ab-18e4-477a-b034-de5903a67e91.mp4" className="w-full h-auto object-cover" autoPlay loop muted playsInline />
-                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-                        className="absolute top-[50px] left-1/2 -translate-x-1/2 text-center z-10">
-                        <div className="text-white text-base font-medium">Framelix<sup className="text-[26px] font-medium">3D</sup></div>
-                        <h2 className="text-white font-medium" style={{ fontSize: 'clamp(2rem, 5vw, 68px)' }}>Cinematic Motion Studios</h2>
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-                        className="absolute bottom-[12%] left-1/2 -translate-x-1/2 text-center z-10">
-                        <button className="bg-white text-black text-[22px] font-medium rounded-full px-14 py-4 mb-3 hover:scale-105 transition-transform">Explore Reel</button>
-                        <p className="text-white/50 text-sm">Ready in 24-48 hours</p>
-                    </motion.div>
-                </section>
+Global Theme (CSS variables):
 
-                {/* Marquee */}
-                <div className="py-[14px] overflow-hidden" style={{ background: '#A6A4FF' }}>
-                    <div className="flex w-max animate-marquee">
-                        {Array(12).fill(null).map((_, i) => (
-                            <span key={i} className="text-black text-base font-medium mx-[30px] whitespace-nowrap">New! 3D^OS V1.2.1 out now!</span>
-                        ))}
-                    </div>
-                </div>
+Background: black (0 0% 0%), Foreground: white (0 0% 100%), Primary: white, Primary-foreground: black. Border radius: 9999px (fully rounded). No light mode — dark only.
 
-                {/* Shipping Section */}
-                <div style={{ background: '#EAEAEA', borderBottomLeftRadius: '40px', borderBottomRightRadius: '40px' }}>
-                    <div className="text-center pt-16">
-                        <div className="text-black text-base font-medium">Framelix<sup className="text-[20px] font-medium">3D</sup></div>
-                        <h2 className="text-black font-medium" style={{ fontSize: 'clamp(2rem, 4vw, 52px)' }}>Shipping Now</h2>
-                    </div>
-                    <div className="flex justify-center -my-24">
-                        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_063954_03a5f7ec-5f10-4acb-ba8d-dce4815217db.mp4" className="w-[800px] h-[800px] object-contain rounded-2xl" autoPlay loop muted playsInline />
-                    </div>
-                    <div className="text-center pb-32">
-                        <button className="bg-black text-white text-[18px] font-medium rounded-full px-[184px] py-3 mb-3 hover:scale-105 transition-transform">Buy Now</button>
-                        <p className="text-black text-[20px]" style={{ fontWeight: 450 }}>Explore now</p>
-                    </div>
-                </div>
-            </div>
-        );
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+1. Navbar:
+
+Black background, horizontal padding 36px, top padding 32px, bottom padding 20px.
+
+Left: Logo image (apply brightness-0 invert so it appears white), height 36px.
+
+Center: 3 columns of nav links (hidden on mobile), each column has 2 stacked links: [Reels, Services], [Projects, Pipeline], [Careers, Get In Touch]. Gap between columns: 64px.
+
+Right: A custom ticket/coupon-shaped SVG cart icon (27x30 viewBox with scalloped edges) with a "0" count overlaid centered on the icon.
+
+2. Hero Section:
+
+Full-width section, relative positioned, min-height screen, overflow hidden.
+
+Background: an auto-playing, looped, muted, inline video taking full width (w-full h-auto object-cover). Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_060517_9feec9ab-18e4-477a-b034-de5903a67e91.mp4
+
+Overlay text at top (absolute, top 50px, centered): "Framelix" with superscript "3D" (26px, medium weight), below it "Cinematic Motion Studios" heading (clamp 2rem–68px, medium weight). Animate in with framer-motion fade+slide down (0.8s).
+
+Overlay CTA at bottom (absolute, bottom 12%, centered): "Explore Reel" button (white bg, black text, 22px, rounded-full, px-14 py-4). Below it "Ready in 24-48 hours" muted text. Animate in with framer-motion fade+slide up (0.8s, 0.3s delay).
+
+3. Marquee Banner:
+
+Background color: #A6A4FF (lavender/purple). Black text, 16px, medium weight.
+
+Infinitely scrolling marquee text: "New! 3D^OS V1.2.1 out now!" repeated 6 times in a row, duplicated for seamless loop. Use CSS animation translateX(0) to translateX(-50%) over 20s linear infinite. Vertical padding 14px, gap 60px between items.
+
+4. Shipping Section:
+
+Background: #EAEAEA (light gray), with rounded bottom corners (40px radius). All text is black.
+
+Top: Centered text — "Framelix" with superscript "3D" (20px) and "Shipping Now" heading (clamp 2rem–52px). Top padding 64px.
+
+Center: Auto-playing, looped, muted video, 800x800px, object-contain, rounded-2xl, with -my-24 negative vertical margin to reduce whitespace. Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260223_063954_03a5f7ec-5f10-4acb-ba8d-dce4815217db.mp4
+
+Bottom: Centered "Buy Now" button (black bg, white text, 18px, rounded-full, px-46 py-3), below it "Explore now" text (20px, font-weight 450). Bottom padding 128px on the wrapper.
+
+Tailwind config: Add a marquee keyframe and animation (translateX 0 to -50%, 20s linear infinite). Use tailwindcss-animate plugin.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

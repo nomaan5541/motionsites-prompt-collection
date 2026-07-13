@@ -3,160 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grow | AI Talent Acquisition</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        background: 'hsl(260 87% 3%)',
-                        foreground: 'hsl(40 6% 95%)',
-                        card: 'hsl(240 6% 9%)',
-                        primary: 'hsl(262 83% 58%)',
-                        'primary-foreground': 'hsl(0 0% 100%)',
-                        secondary: 'hsl(240 4% 16%)',
-                        muted: 'hsl(240 4% 16%)',
-                        'muted-foreground': 'hsl(240 5% 65%)',
-                        accent: 'hsl(262 83% 58%)',
-                        border: 'hsl(240 4% 20%)',
-                        'hero-heading': 'hsl(40 10% 96%)',
-                        'hero-sub': 'hsl(40 6% 82%)',
-                    },
-                    fontFamily: { body: ['Inter', 'system-ui', 'sans-serif'] },
-                    keyframes: { marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } } },
-                    animation: { marquee: 'marquee 20s linear infinite' },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .liquid-glass {
-                background: rgba(255,255,255,0.01); background-blend-mode: luminosity;
-                backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-                border: none; box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
-                position: relative; overflow: hidden;
-            }
-            .liquid-glass::before {
-                content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1.4px;
-                background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, transparent 40%, transparent 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-            }
-        }
+    <title>Grow AI Talent Platform — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-background text-foreground font-body antialiased overflow-x-hidden">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect, useRef } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Grow AI Talent Platform</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">grow_ai_talent_platform.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a dark-themed landing page hero section with a navbar, headline, CTA button, background video with fade-in/out loop, and a logo marquee. Use React + Vite + Tailwind CSS + TypeScript with shadcn/ui. Install @fontsource/geist-sans.
 
-        const Navbar = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <React.Fragment>
-                    <nav className="flex items-center justify-between py-5 px-8">
-                        <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">G</div>
-                        </div>
-                        <div className="hidden md:flex items-center gap-1">
-                            {['Features', 'Solutions', 'Plans', 'Learning'].map((l, i) => (
-                                <button key={l} className="text-foreground/90 text-base px-4 py-2 flex items-center gap-1 hover:text-foreground transition-colors">
-                                    {l} {(i === 0 || i === 3) && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
-                                </button>
-                            ))}
-                        </div>
-                        <button className="liquid-glass text-foreground rounded-full px-4 py-2 text-sm">Sign Up</button>
-                    </nav>
-                    <div className="mt-[3px] w-full h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent"></div>
-                </React.Fragment>
-            );
-        };
+1. Theme & Design Tokens (index.css)
+Set up a single dark theme (no light mode toggle). All colors in HSL:
+:root {
+  --background: 260 87% 3%;
+  --foreground: 40 6% 95%;
+  --card: 240 6% 9%;
+  --card-foreground: 40 6% 95%;
+  --popover: 240 6% 9%;
+  --popover-foreground: 40 6% 95%;
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 40 6% 95%;
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 262 83% 58%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 4% 20%;
+  --input: 240 4% 20%;
+  --ring: 262 83% 58%;
+  --radius: 0.75rem;
+  --hero-heading: 40 10% 96%;
+  --hero-sub: 40 6% 82%;
+}
 
-        const HeroSection = () => (
-            <section className="bg-background relative overflow-hidden">
-                <Navbar />
-                <div className="pt-20 px-4 flex flex-col items-center text-center">
-                    <h1 className="font-normal leading-[1.02] tracking-[-0.024em] bg-clip-text text-transparent" 
-                        style={{ fontSize: '230px', backgroundImage: 'linear-gradient(223deg, #E8E8E9 0%, #3A7BBF 104.15%)', fontFamily: "'General Sans', sans-serif" }}>
-                        Grow
-                    </h1>
-                    <p className="text-hero-sub text-center text-lg leading-8 max-w-md mt-4 opacity-80">
-                        The most powerful AI ever deployed<br />in talent acquisition
-                    </p>
-                    <div className="mt-8 mb-[66px]">
-                        <button className="liquid-glass text-foreground rounded-full text-base font-normal" style={{ padding: '24px 29px' }}>
-                            Schedule a Consult
-                        </button>
-                    </div>
-                </div>
-            </section>
-        );
+Body font: 'Geist Sans', 'Inter', system-ui, sans-serif
+Import these font weights:
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
 
-        const SocialProofSection = () => {
-            const videoRef = useRef(null);
-            const logos = ['Vortex', 'Nimbus', 'Prysma', 'Cirrus', 'Kynder', 'Halcyn'];
+2. Liquid Glass Utility (index.css)
+Add a .liquid-glass utility class in @layer utilities:
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-            useEffect(() => {
-                const video = videoRef.current;
-                if (!video) return;
-                let rafId;
-                const fade = () => {
-                    if (!video.duration) { rafId = requestAnimationFrame(fade); return; }
-                    const t = video.currentTime, d = video.duration;
-                    if (t < 0.5) video.style.opacity = t / 0.5;
-                    else if (t > d - 0.5) video.style.opacity = (d - t) / 0.5;
-                    else video.style.opacity = 1;
-                    rafId = requestAnimationFrame(fade);
-                };
-                video.addEventListener('ended', () => {
-                    video.style.opacity = 0;
-                    setTimeout(() => { video.currentTime = 0; video.play(); }, 100);
-                });
-                video.play();
-                rafId = requestAnimationFrame(fade);
-                return () => cancelAnimationFrame(rafId);
-            }, []);
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
-            return (
-                <section className="relative w-full overflow-hidden">
-                    <video ref={videoRef} src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260308_114720_3dabeb9e-2c39-4907-b747-bc3544e2d5b7.mp4"
-                        className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0 }} muted playsInline />
-                    <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none"></div>
-                    
-                    <div className="relative z-10 flex flex-col items-center pt-16 pb-24 px-4 gap-20">
-                        <div className="h-40"></div>
-                        <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-8">
-                            <p className="text-foreground/50 text-sm shrink-0 whitespace-nowrap">
-                                Relied on by brands<br />across the globe
-                            </p>
-                            <div className="overflow-hidden flex-1">
-                                <div className="flex w-max animate-marquee">
-                                    {[...logos, ...logos].map((name, i) => (
-                                        <div key={i} className="flex items-center gap-3 mx-8">
-                                            <div className="liquid-glass w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold text-foreground">{name[0]}</div>
-                                            <span className="text-base font-semibold text-foreground">{name}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            );
-        };
+3. Tailwind Config
+Add these to tailwind.config.ts:
+All the semantic color tokens mapped to hsl(var(--token))
+A hero color group: hero.heading and hero.sub
+A marquee keyframe: 0% { transform: translateX(0%) } → 100% { transform: translateX(-50%) }
+Animation: marquee: "marquee 20s linear infinite"
 
-        const App = () => (<div><HeroSection /><SocialProofSection /></div>);
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+4. Button Variants
+In the shadcn button.tsx, add two custom variants:
+hero: "bg-primary text-primary-foreground rounded-full px-6 py-3 text-base font-medium hover:bg-primary/90"
+heroSecondary: "liquid-glass text-foreground rounded-full px-6 py-3 text-base font-normal hover:bg-white/5"
+
+5. Navbar Component
+Full-width, py-5 px-8, flex row, justify-between
+Left: A logo image (32px height). Use a logo.png from src/assets/logo.png
+Center: Nav items as plain buttons: "Features" (with ChevronDown icon), "Solutions", "Plans", "Learning" (with ChevronDown icon). Text is text-foreground/90 text-base, gap-1 between items
+Right: "Sign Up" button using heroSecondary variant, size="sm", rounded-full px-4 py-2
+Below the navbar, add a full-width 1px gradient divider: mt-[3px] w-full h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent
+
+6. Hero Section
+Section with bg-background relative overflow-hidden
+Contains the Navbar at the top
+Below navbar + divider, centered content with pt-20 px-4
+Headline "Grow": text-[230px] font-normal leading-[1.02] tracking-[-0.024em], font-family 'General Sans', sans-serif, bg-clip-text text-transparent with background-image: linear-gradient(223deg, #E8E8E9 0%, #3A7BBF 104.15%)
+Subtext: text-hero-sub text-center text-lg leading-8 max-w-md mt-4 opacity-80, two lines: "The most powerful AI ever deployed" / "in talent acquisition" (split with <br/>)
+CTA Button: heroSecondary variant, text "Schedule a Consult", px-[29px] py-[24px], wrapped in a div with mt-8 mb-[66px]
+
+7. Social Proof / Video Section
+Immediately below the hero, a separate <section> with relative w-full overflow-hidden.
+Background Video: <video> element: autoPlay muted playsInline, absolute inset-0 w-full h-full object-cover, initial style={{ opacity: 0 }}
+Source URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260308_114720_3dabeb9e-2c39-4907-b747-bc3544e2d5b7.mp4
+Fade logic (JavaScript): Use requestAnimationFrame to continuously read currentTime and duration. Fade in over 0.5s at the start, fade out over 0.5s at the end. On ended, set opacity to 0, wait 100ms, reset currentTime = 0, and play() again. This creates a seamless manual loop with fade transitions.
+Gradient overlays: absolute inset-0 bg-gradient-to-b from-background via-transparent to-background
+Content (z-10): flex flex-col items-center pt-16 pb-24 px-4 gap-20
+A h-40 spacer div for video visibility
+
+Logo Marquee at max-w-5xl:
+Left side: text "Relied on by brands / across the globe" in text-foreground/50 text-sm, with <br/>, whitespace-nowrap shrink-0
+Right side: horizontally scrolling marquee using animate-marquee (the 20s infinite animation)
+Logos are placeholder brands: Vortex, Nimbus, Prysma, Cirrus, Kynder, Halcyn — duplicated for seamless loop
+Each logo: a small liquid-glass w-6 h-6 rounded-lg square with the first letter, plus the brand name in text-base font-semibold text-foreground
+Gap between logos: gap-16
+
+8. Page Composition
+The Index page simply renders <HeroSection /> then <SocialProofSection /> sequentially with no wrapper styling.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

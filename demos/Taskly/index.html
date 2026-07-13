@@ -3,75 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskly | Work Smarter, Achieve Faster</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Taskly — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-white text-black antialiased" style="font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useEffect } = React;
-        const App = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            const brands = ['Dropbox','Notion','Stripe','Vercel','Linear'];
-            return (
-                <div className="relative min-h-screen overflow-hidden bg-white">
-                    {/* BG Glow */}
-                    <div className="absolute top-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full opacity-30 pointer-events-none" style={{ background: '#60B1FF', filter: 'blur(120px)' }}></div>
-                    <div className="absolute top-[50px] left-[50px] w-[300px] h-[300px] rounded-full opacity-20 pointer-events-none" style={{ background: '#319AFF', filter: 'blur(80px)' }}></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Taskly</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">taskly.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">System Prompt: High-Fidelity "Liquid Glass" Hero Section
 
-                    {/* Navbar */}
-                    <div className="sticky top-[30px] z-20 flex justify-center px-4">
-                        <nav className="w-fit rounded-[16px] px-6 py-3 flex items-center gap-8" style={{ backdropFilter: 'blur(50px)', background: 'rgba(255,255,255,0.3)', border: '1px solid rgba(0,0,0,0.1)', boxShadow: 'inset 0px 4px 4px 0px rgba(255,255,255,0.25)' }}>
-                            <span className="text-lg font-bold">Taskly</span>
-                            <div className="hidden md:flex items-center gap-6">
-                                {['Home','Features','Company','Pricing'].map(l => <a key={l} href="#" className="text-sm font-medium text-black/70 hover:text-black transition-colors">{l}</a>)}
-                            </div>
-                            <button className="text-sm font-medium px-4 py-2 rounded-[12px] flex items-center gap-2" style={{ backdropFilter: 'blur(50px)', background: 'rgba(255,255,255,0.3)', border: '1px solid rgba(0,0,0,0.1)', boxShadow: 'inset 0px 4px 4px 0px rgba(255,255,255,0.25)' }}>
-                                SignUp <i data-lucide="arrow-right" className="w-4 h-4"></i>
-                            </button>
-                        </nav>
-                    </div>
+Core Layout: Create a 1600px max-width landing page hero section. The background should be pure white with a subtle, layered gradient glow in the top-left (using blurred ellipses in light blue #60B1FF and #319AFF). The design must be fully responsive, transitioning from a single-column mobile view to a dual-column desktop layout.
 
-                    {/* Hero */}
-                    <div className="relative z-10 max-w-[1600px] mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <div className="flex items-center gap-2 mb-6">
-                                <div className="flex gap-0.5">{[1,2,3,4,5].map(i => <span key={i} style={{ color: '#FF801E' }}>★</span>)}</div>
-                                <span className="text-sm text-black/60">Rated 4.9/5 by 2700+ customers</span>
-                            </div>
-                            <h1 className="text-5xl md:text-6xl lg:text-[75px] font-bold leading-[1.05] tracking-[-2px] mb-6">
-                                Work smarter, achieve faster
-                            </h1>
-                            <p className="text-lg text-black/60 max-w-lg mb-8 tracking-[-1px]">
-                                Effortlessly manage your projects, collaborate with your team, and achieve your goals with our intuitive task management tool.
-                            </p>
-                            <button className="flex items-center gap-3 px-6 py-3.5 rounded-[16px] text-white font-medium hover:scale-[1.02] transition-transform" style={{ background: 'rgba(0,132,255,0.8)', backdropFilter: 'blur(2px)', boxShadow: 'inset 0px 4px 4px 0px rgba(255,255,255,0.35)' }}>
-                                Get Started Now
-                                <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center"><i data-lucide="arrow-right" className="w-4 h-4 text-black"></i></span>
-                            </button>
-                        </div>
-                        <div className="hidden lg:flex justify-center">
-                            <video src="https://future.co/images/homepage/glassy-orb/orb-purple.webm" className="scale-125" style={{ mixBlendMode: 'screen', filter: 'hue-rotate(-55deg) saturate(250%) brightness(1.2) contrast(1.1)' }} autoPlay loop muted playsInline />
-                        </div>
-                    </div>
+Typography:
 
-                    {/* Logos */}
-                    <div className="relative z-10 max-w-[1600px] mx-auto px-6 pb-12">
-                        <p className="text-sm text-black/40 mb-4">Trusted by Top-tier product companies</p>
-                        <div className="flex flex-wrap items-center gap-[100px]">
-                            {brands.map(b => <span key={b} className="text-xl font-semibold text-black/30">{b}</span>)}
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Headlines & Brand: Use Fustat (Bold).
+Body & UI: Use Inter (Normal/Medium).
+Hero Headline: "Work smarter, achieve faster" (75px, 1.05 line-height, -2px tracking).
+
+The "Strong Liquid Glass" Navbar:
+
+Position: Sticky at top-[30px], centered, w-fit.
+Visuals: backdrop-blur-[50px], background rgba(255,255,255,0.3), rounded-[16px].
+Fidelity Details:
+Outer Stroke: 1px solid rgba(0,0,0,0.1).
+Inner Highlight Shadow: inset 0px 4px 4px 0px rgba(255,255,255,0.25).
+Items: Logo "Taskly" (Fustat), Nav links (Home, Features, Company, Pricing), and a glassy "SignUp" button with an arrow icon.
+
+The Glassy Orb (Hero Right):
+
+Source URL: https://future.co/images/homepage/glassy-orb/orb-purple.webm
+Blending Mode: Must use mix-blend-screen to filter the black background.
+Scaling: scale-125 to make it massive and bleed slightly off-center.
+Exact Color Grade (CSS Filter): hue-rotate(-55deg) saturate(250%) brightness(1.2) contrast(1.1). This transforms the purple asset into a vibrant, high-end "Electric Brand Blue" that matches the primary CTA.
+
+Hero Content (Hero Left):
+
+Social Proof: A "Rated 4.9/5 by 2700+ customers" badge with five orange #FF801E stars.
+Subheadline: "Effortlessly manage your projects, collaborate with your team, and achieve your goals with our intuitive task management tool." (18px, Inter, -1px tracking).
+Primary CTA: "Get Started Now" button.
+Color: rgba(0,132,255,0.8) with backdrop-blur-[2px].
+Details: rounded-[16px], white text, inner highlight shadow inset 0px 4px 4px 0px rgba(255,255,255,0.35), and a white circular arrow icon.
+Animation: Scale 1.02 on hover with a smooth transition.
+
+Footer Logos: Include a "Trusted by Top-tier product companies" section at the bottom with 5 grayscale SVG logos (e.g., placeholder logos for tech companies) spaced at gap-[100px].
+
+Key Technical Specs for the Developer:
+
+Video Tag: autoPlay loop muted playsInline.
+Container: Use a relative wrapper for the background glow and a z-10 main container for the content.
+Smoothing: Apply -webkit-font-smoothing: antialiased for the sharpest typography.</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

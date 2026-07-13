@@ -3,206 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar.ai | Work Smarter. Move Faster.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Stellar AI — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInDialog { from { opacity: 0; } to { opacity: 1; } }
-        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-        .animate-fade-in-overlay { animation: fadeInOverlay 0.4s ease-out forwards; }
-        .animate-slide-up-overlay { animation: fadeInDialog 0.5s ease-out forwards; transform: translate(-50%, -50%); }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-white text-black antialiased">
-    <div id="root"></div>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Stellar AI</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">stellar_ai.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a "Stellar.ai" landing page hero section using React, Tailwind CSS, and Lucide React icons. Use the Inter font (imported from Google Fonts). The page has a white background (bg-white), max-width max-w-7xl, and is centered with mx-auto.
 
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+Font: Import Inter (weights 400, 500, 600, 700) from Google Fonts. Set font-family: 'Inter', sans-serif on the body.
 
-        const Navbar = () => {
-            useEffect(() => { lucide.createIcons(); }, []);
-            return (
-                <nav className="px-6 py-4 flex items-center justify-between max-w-7xl mx-auto animate-fade-in-up" style={{ opacity: 0, animationDelay: '0.1s' }}>
-                    <div className="flex items-center gap-2">
-                        <i data-lucide="star" className="w-5 h-5 fill-black stroke-black"></i>
-                        <span className="text-lg font-semibold">Stellar.ai</span>
-                    </div>
-                    <div className="hidden md:flex items-center gap-8">
-                        {['Solutions', 'For Teams', 'About Us', 'Learn Hub'].map((link, i) => (
-                            <a key={link} href="#" className="text-sm text-gray-700 hover:text-black transition-colors flex items-center gap-1">
-                                {link}
-                                {i < 2 && <i data-lucide="chevron-down" className="w-3 h-3"></i>}
-                            </a>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <a href="#" className="text-sm text-gray-700 hidden md:block">Login</a>
-                        <button className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
-                            Get started free
-                        </button>
-                    </div>
-                </nav>
-            );
-        };
+Custom CSS animations (in index.css):
 
-        const Hero = () => {
-            const [activeTab, setActiveTab] = useState('analyse');
-            const tabs = [
-                { id: 'analyse', label: 'Analyse', icon: 'bar-chart-3' },
-                { id: 'train', label: 'Train', icon: 'book-open' },
-                { id: 'testing', label: 'Testing', icon: 'users' },
-                { id: 'deploy', label: 'Deploy', icon: 'rocket' }
-            ];
+@keyframes fadeInUp -- from opacity: 0; transform: translateY(30px) to opacity: 1; transform: translateY(0). Class .animate-fade-in-up uses this with 0.6s ease-out forwards.
+@keyframes fadeInOverlay -- from opacity: 0 to opacity: 1. Class .animate-fade-in-overlay uses this with 0.4s ease-out forwards.
+@keyframes fadeInDialog -- from opacity: 0 to opacity: 1. Class .animate-slide-up-overlay uses this with 0.5s ease-out forwards and has transform: translate(-50%, -50%).
+Every major section uses .animate-fade-in-up with staggered animationDelay inline styles (starting at 0.1s and incrementing by 0.1s). Each element starts with opacity: 0 inline so the animation fills it to visible.
 
-            useEffect(() => {
-                const interval = setInterval(() => {
-                    setActiveTab(prev => {
-                        const idx = tabs.findIndex(t => t.id === prev);
-                        return tabs[(idx + 1) % tabs.length].id;
-                    });
-                }, 4000);
-                return () => clearInterval(interval);
-            }, []);
+Tailwind config: Default config with no custom theme extensions. Uses standard content paths.
 
-            useEffect(() => { lucide.createIcons(); });
+NAVIGATION (animationDelay: 0.1s):
+px-6 py-4 flex items-center justify-between max-w-7xl mx-auto
+Left: Lucide Star icon (w-5 h-5, fill-black) + "Stellar.ai" text (text-lg font-semibold)
+Center (hidden on mobile, hidden md:flex items-center gap-8): "Solutions" with ChevronDown, "For Teams" with ChevronDown, "About Us", "Learn Hub" -- all text-sm text-gray-700 hover:text-black
+Right: "Login" link (text-sm text-gray-700) + "Get started free" button (bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors)
 
-            const overlays = {
-                analyse: (
-                    <div key="analyse" className="animate-fade-in-overlay absolute inset-0 bg-black/40 flex items-center justify-center z-20">
-                        <div className="animate-slide-up-overlay absolute left-1/2 top-1/2 bg-white rounded-2xl p-8 w-[90%] max-w-sm shadow-2xl">
-                            <h3 className="text-lg font-semibold mb-4">Set Up Your AI Workspace</h3>
-                            <div className="w-full bg-gray-100 rounded-full h-2 mb-4"><div className="bg-purple-500 h-2 rounded-full" style={{width:'25%'}}></div></div>
-                            <div className="space-y-3">
-                                {['Connect Data Source', 'Select Model', 'Configure Pipeline', 'Review & Launch'].map((s, i) => (
-                                    <div key={i} className={`flex items-center gap-3 text-sm ${i === 0 ? 'text-black font-medium' : 'text-gray-400'}`}>
-                                        <span className={`w-6 h-6 rounded-full ${i === 0 ? 'bg-purple-500 text-white' : 'bg-gray-100 text-gray-400'} flex items-center justify-center text-xs font-bold`}>{i+1}</span>
-                                        {s}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ),
-                train: (
-                    <div key="train" className="animate-fade-in-overlay absolute inset-0 bg-black/40 flex items-center justify-center z-20">
-                        <div className="animate-slide-up-overlay absolute left-1/2 top-1/2 bg-white rounded-2xl p-8 w-[90%] max-w-sm shadow-2xl">
-                            <h3 className="text-lg font-semibold mb-4">AI Model Training</h3>
-                            <div className="w-full bg-gray-100 rounded-full h-2 mb-6"><div className="bg-orange-500 h-2 rounded-full" style={{width:'67%'}}></div></div>
-                            <div className="grid grid-cols-2 gap-4">
-                                {[{l:'Accuracy',v:'94.2%'},{l:'Loss',v:'0.031'},{l:'Epochs',v:'67/100'},{l:'ETA',v:'12 min'}].map(m => (
-                                    <div key={m.l} className="bg-gray-50 rounded-lg p-3"><div className="text-xs text-gray-500">{m.l}</div><div className="text-lg font-semibold">{m.v}</div></div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ),
-                testing: (
-                    <div key="testing" className="animate-fade-in-overlay absolute inset-0 bg-black/40 flex items-center justify-center z-20">
-                        <div className="animate-slide-up-overlay absolute left-1/2 top-1/2 bg-white rounded-2xl p-8 w-[90%] max-w-sm shadow-2xl">
-                            <h3 className="text-lg font-semibold mb-2">Test Suite Results</h3>
-                            <div className="flex items-center gap-2 mb-6"><span className="w-3 h-3 rounded-full bg-green-500"></span><span className="text-sm text-green-600 font-medium">All Tests Passed</span></div>
-                            <div className="text-5xl font-bold text-center mb-2">127/127</div>
-                            <div className="text-sm text-gray-500 text-center">tests passed successfully</div>
-                        </div>
-                    </div>
-                ),
-                deploy: (
-                    <div key="deploy" className="animate-fade-in-overlay absolute inset-0 bg-black/40 flex items-center justify-center z-20">
-                        <div className="animate-slide-up-overlay absolute left-1/2 top-1/2 bg-white rounded-2xl p-8 w-[90%] max-w-sm shadow-2xl">
-                            <h3 className="text-lg font-semibold mb-4">Deploy to Production</h3>
-                            <div className="space-y-3 mb-6">
-                                {['Build optimized', 'Tests passed', 'Security scanned', 'CDN configured'].map(s => (
-                                    <div key={s} className="flex items-center gap-3 text-sm"><i data-lucide="check-circle-2" className="w-4 h-4 text-green-500"></i>{s}</div>
-                                ))}
-                            </div>
-                            <button className="w-full bg-black text-white py-3 rounded-lg text-sm font-medium">Deploy Now</button>
-                        </div>
-                    </div>
-                )
-            };
+HERO SECTION (px-6 pt-24 pb-32 max-w-7xl mx-auto text-center):
+Reviews Badge (delay: 0.2s): inline-flex items-center gap-2 mb-8. Contains a bordered square (w-6 h-6 border border-gray-300 rounded) with a filled Star icon inside, plus "4.9 rating from 18.3K+ users" (text-sm font-medium text-black).
 
-            return (
-                <section className="px-6 pt-24 pb-32 max-w-7xl mx-auto text-center">
-                    {/* Reviews Badge */}
-                    <div className="animate-fade-in-up inline-flex items-center gap-2 mb-8" style={{ opacity: 0, animationDelay: '0.2s' }}>
-                        <span className="w-6 h-6 border border-gray-300 rounded flex items-center justify-center">
-                            <i data-lucide="star" className="w-3.5 h-3.5 fill-black stroke-black"></i>
-                        </span>
-                        <span className="text-sm font-medium">4.9 rating from 18.3K+ users</span>
-                    </div>
+Main Heading (delay: 0.3s): text-6xl md:text-7xl lg:text-[80px] font-normal leading-[1.1] tracking-tight mb-5. First line: "Work Smarter. Move Faster." Second line: "AI Powers You Up." with gradient text (bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text text-transparent).
 
-                    {/* Main Heading */}
-                    <h1 className="animate-fade-in-up text-6xl md:text-7xl lg:text-[80px] font-normal leading-[1.1] tracking-tight mb-5" style={{ opacity: 0, animationDelay: '0.3s' }}>
-                        Work Smarter. Move Faster.<br />
-                        <span className="bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text text-transparent">AI Powers You Up.</span>
-                    </h1>
+Subheading (delay: 0.4s): text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto. Text: "Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time."
 
-                    {/* Subheading */}
-                    <p className="animate-fade-in-up text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto" style={{ opacity: 0, animationDelay: '0.4s' }}>
-                        Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time.
-                    </p>
+CTA Button (delay: 0.5s): bg-black text-white px-8 py-3 rounded-full text-base font-medium hover:bg-gray-800 transition-colors mb-12. Text: "Begin Free Trial".
 
-                    {/* CTA */}
-                    <button className="animate-fade-in-up bg-black text-white px-8 py-3 rounded-full text-base font-medium hover:bg-gray-800 transition-colors mb-12" style={{ opacity: 0, animationDelay: '0.5s' }}>
-                        Begin Free Trial
-                    </button>
+Tab Bar (delay: 0.6s): Centered bg-gray-100 rounded-lg p-1 container.
+Mobile (md:hidden): 2x2 grid with 4 buttons: Analyse (BarChart3), Train (BookOpen), Testing (Users), Deploy (Rocket). Active: bg-white text-black shadow-sm. Inactive: text-gray-600.
+Desktop (hidden md:flex): Same 4 buttons in row with vertical dividers (w-px h-5 bg-gray-300).
+Tabs auto-cycle every 4s using setInterval. State: useState('analyse').
 
-                    {/* Tab Bar */}
-                    <div className="animate-fade-in-up flex justify-center mb-12" style={{ opacity: 0, animationDelay: '0.6s' }}>
-                        <div className="bg-gray-100 rounded-lg p-1 inline-flex items-center">
-                            {tabs.map((tab, i) => (
-                                <React.Fragment key={tab.id}>
-                                    <button 
-                                        onClick={() => setActiveTab(tab.id)}
-                                        className={`px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-all ${activeTab === tab.id ? 'bg-white text-black shadow-sm' : 'text-gray-600'}`}
-                                    >
-                                        <i data-lucide={tab.icon} className="w-4 h-4"></i>
-                                        <span className="hidden md:inline">{tab.label}</span>
-                                    </button>
-                                    {i < tabs.length - 1 && <div className="w-px h-5 bg-gray-300 mx-1 hidden md:block"></div>}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
+Video + Overlay Section (delay: 0.7s):
+Container: relative rounded-3xl overflow-hidden h-[400px] md:h-[500px]
+Video: src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_165750_358b1e72-c921-48b7-aaac-f200994f32fb.mp4", autoPlay, loop, muted, playsInline, w-full h-full object-cover.
 
-                    {/* Video + Overlay */}
-                    <div className="animate-fade-in-up relative rounded-3xl overflow-hidden h-[400px] md:h-[500px]" style={{ opacity: 0, animationDelay: '0.7s' }}>
-                        <video 
-                            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_165750_358b1e72-c921-48b7-aaac-f200994f32fb.mp4"
-                            className="w-full h-full object-cover"
-                            autoPlay loop muted playsInline
-                        />
-                        {overlays[activeTab]}
-                    </div>
+4 Conditional Overlays per tab with animate-fade-in-overlay outer and animate-slide-up-overlay inner card:
+a. Analyse: "Set Up Your AI Workspace" wizard with purple progress bar at 25%, 4 steps
+b. Train: "AI Model Training" with orange progress at 67%, 4 metrics
+c. Testing: "Test Suite Results" with green success, 127/127 tests
+d. Deploy: "Deploy to Production" with 4 checklist items, Deploy Now button
 
-                    {/* Company Logos */}
-                    <div className="animate-fade-in-up flex flex-wrap justify-center items-center gap-12 mt-24 opacity-40" style={{ opacity: 0, animationDelay: '0.8s' }}>
-                        {['INTERSCOPE', 'SPOTIFY', 'Nexera', 'M3', 'LAURA COLE', 'vertex'].map(logo => (
-                            <span key={logo} className={`text-lg font-semibold tracking-wider ${logo === 'M3' ? 'font-serif italic' : ''}`}>{logo}</span>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
-
-        const App = () => (
-            <div>
-                <Navbar />
-                <Hero />
-            </div>
-        );
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Company Logos (delay: 0.8s): mt-24 flex with INTERSCOPE, SPOTIFY, Nexera (dot grid), M3 (serif italic), LAURA COLE (LC circle), vertex (dots)</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

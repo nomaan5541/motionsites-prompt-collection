@@ -3,122 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stellar.ai | Work Smarter. Move Faster.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Sync AI — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
-        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-        .animate-fade-in-overlay { animation: fadeInOverlay 0.4s ease-out forwards; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
     </style>
 </head>
-<body class="bg-white text-black antialiased">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect } = React;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>Sync AI</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">sync_ai.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a full-viewport hero section for a SaaS landing page called "Stellar.ai" using React, TypeScript, Tailwind CSS, and Lucide React icons. The design uses the Inter font (weights 400, 500, 600, 700) imported from Google Fonts. No other dependencies beyond lucide-react, react, and react-dom.
 
-        const App = () => {
-            const [menuOpen, setMenuOpen] = useState(false);
-            useEffect(() => { lucide.createIcons(); }, [menuOpen]);
+OVERALL STRUCTURE
 
-            return (
-                <div className="relative h-screen bg-white overflow-hidden">
-                    {/* Background Video */}
-                    <video src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260330_153826_e9005cf7-a1c7-4c7d-886f-fea22d644a9c.mp4" className="absolute inset-0 w-full h-full object-cover pt-[120px] md:pt-[200px]" autoPlay loop muted playsInline />
-                    
-                    {/* Gradient overlays */}
-                    <div className="absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '120px', height: '200px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
-                    <div className="hidden md:block absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '200px', height: '300px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
-                    <div className="md:hidden absolute z-10 left-0 right-0 pointer-events-none" style={{ top: '120px', height: '200px', background: 'linear-gradient(to bottom, white, transparent)' }}></div>
+The page is a full-screen (h-screen) white background container with overflow-hidden. Everything is contained in a single viewport. There is no scrolling. The layout stacks vertically: navbar at top, hero content in upper-center, and a partner logo bar pinned to the bottom.
 
-                    {/* Navbar */}
-                    <nav className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between animate-fade-in-up" style={{ opacity: 0, animationDelay: '0.1s' }}>
-                        <div className="flex items-center gap-2">
-                            <i data-lucide="star" className="w-5 h-5 fill-black stroke-black"></i>
-                            <span className="text-lg font-semibold">Stellar.ai</span>
-                        </div>
-                        <div className="hidden md:flex items-center gap-8">
-                            {['Solutions', 'For Teams', 'About Us', 'Learn Hub'].map((l, i) => (
-                                <button key={l} className="text-sm text-gray-700 hover:text-black transition-colors flex items-center gap-1">
-                                    {l} {i < 2 && <i data-lucide="chevron-down" className="w-4 h-4"></i>}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="hidden sm:flex items-center gap-4">
-                            <a href="#" className="text-sm text-gray-700 hover:text-black">Login</a>
-                            <button className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Get started free</button>
-                        </div>
-                        <button onClick={() => setMenuOpen(!menuOpen)} className="sm:hidden">
-                            <i data-lucide={menuOpen ? 'x' : 'menu'} className="w-6 h-6"></i>
-                        </button>
-                    </nav>
+BACKGROUND VIDEO
 
-                    {/* Mobile Menu */}
-                    {menuOpen && (
-                        <div className="absolute top-[60px] left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 px-6 py-4 flex flex-col gap-4 animate-fade-in-overlay">
-                            {['Solutions', 'For Teams', 'About Us', 'Learn Hub'].map(l => (
-                                <button key={l} className="text-sm text-gray-700 text-left">{l}</button>
-                            ))}
-                            <div className="border-t border-gray-200 pt-4 flex flex-col gap-3">
-                                <a href="#" className="text-sm text-gray-700">Login</a>
-                                <button className="w-full bg-black text-white py-2.5 rounded-full text-sm font-medium">Get started free</button>
-                            </div>
-                        </div>
-                    )}
+A looping, muted, autoplaying, inline video fills the entire viewport as an absolute-positioned background
+Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260330_153826_e9005cf7-a1c7-4c7d-886f-fea22d644a9c.mp4
+CSS: absolute inset-0 w-full h-full object-cover
+The video has top padding to push it down below the hero text: pt-[120px] on mobile, md:pt-[200px] on desktop
+This creates the effect where the video content appears below the text area
 
-                    {/* Hero Content */}
-                    <div className="relative z-20 px-4 sm:px-6 pt-6 sm:pt-12 pb-16 sm:pb-32 max-w-7xl mx-auto text-center">
-                        {/* Rating */}
-                        <div className="animate-fade-in-up inline-flex items-center gap-2 mb-5 sm:mb-8" style={{ opacity: 0, animationDelay: '0.2s' }}>
-                            <span className="w-6 h-6 border border-gray-300 rounded flex items-center justify-center">
-                                <i data-lucide="star" className="w-4 h-4 fill-black stroke-black"></i>
-                            </span>
-                            <span className="text-xs sm:text-sm font-medium">4.9 rating from 18.3K+ users</span>
-                        </div>
+VIDEO FADE-OUT OVERLAYS (White gradient masks)
 
-                        {/* Heading */}
-                        <h1 className="animate-fade-in-up font-normal leading-[1.1] tracking-tight mb-4 sm:mb-5 text-[38px] sm:text-6xl md:text-7xl lg:text-[80px]" style={{ opacity: 0, animationDelay: '0.3s' }}>
-                            <span className="sm:hidden">Work Smarter.<br />Move Faster.<br /></span>
-                            <span className="hidden sm:inline">Work Smarter. Move Faster.<br /></span>
-                            <span className="bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text text-transparent">AI Powers You Up.</span>
-                        </h1>
+Three absolute-positioned gradient overlays sit on top of the video (z-10) to fade the video into the white background at the top:
 
-                        {/* Subheading */}
-                        <p className="animate-fade-in-up text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2" style={{ opacity: 0, animationDelay: '0.4s' }}>
-                            Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time.
-                        </p>
+General overlay: top: 120px, height: 200px, gradient from white to transparent
+Desktop-only overlay (hidden on mobile, hidden md:block): top: 200px, height: 300px, gradient from white to transparent
+Mobile-only overlay (md:hidden): top: 120px, height: 200px, gradient from white to transparent
+All overlays use pointer-events-none so they don't block interaction.
 
-                        {/* CTA */}
-                        <button className="animate-fade-in-up bg-black text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-gray-800 transition-colors" style={{ opacity: 0, animationDelay: '0.5s' }}>
-                            Begin Free Trial
-                        </button>
-                    </div>
+NAVBAR (z-20, relative)
 
-                    {/* Partner Bar */}
-                    <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-center gap-3 sm:gap-4 pb-4 sm:pb-8 px-4 animate-fade-in-up" style={{ opacity: 0, animationDelay: '0.6s' }}>
-                        <div className="rounded-full px-3 sm:px-3.5 py-1 text-[10px] sm:text-xs font-medium text-white backdrop-blur-md bg-white/15 border border-white/20">
-                            Collaborating with top aerospace pioneers globally
-                        </div>
-                        <div className="flex gap-5 sm:gap-12 md:gap-16 flex-wrap justify-center">
-                            {['Aeon', 'Vela', 'Apex', 'Orbit', 'Zeno'].map(name => (
-                                <span key={name} className="text-lg sm:text-2xl md:text-3xl italic text-white tracking-tight" style={{ fontFamily: 'Georgia, serif' }}>{name}</span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Max width max-w-7xl, centered, horizontal padding px-4 sm:px-6, vertical padding py-4
+Flex row, items-center justify-between
+Animated with animate-fade-in-up at animationDelay: 0.1s, initial opacity: 0
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+Left side (logo):
+Lucide Star icon, w-5 h-5 fill-black
+Text "Stellar.ai", text-lg font-semibold
+
+Center nav (hidden on mobile, hidden md:flex, gap-8):
+"Solutions" button with ChevronDown icon (w-4 h-4), text-sm text-gray-700 hover:text-black
+"For Teams" button with ChevronDown icon, same styling
+"About Us" button, text-sm text-gray-700 hover:text-black
+"Learn Hub" button, same styling
+
+Right side (hidden on mobile hidden sm:flex, gap-4):
+"Login" text button, text-sm text-gray-700 hover:text-black
+"Get started free" button: bg-black text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors
+
+Mobile hamburger (sm:hidden):
+Toggles between Menu and X icons from Lucide (w-6 h-6)
+
+MOBILE MENU (conditionally rendered when open)
+
+Positioned absolute top-[60px] left-0 right-0 z-30
+Background: bg-white/95 backdrop-blur-md border-b border-gray-200
+Animated with animate-fade-in-overlay
+Contains same nav items as desktop, stacked vertically with px-6 py-4 gap-4
+Login and "Get started free" buttons separated by a border-t border-gray-200 pt-4
+The CTA button is full width in mobile menu
+
+HERO CONTENT (z-20, relative)
+
+Container: px-4 sm:px-6 pt-6 sm:pt-12 pb-16 sm:pb-32 max-w-7xl mx-auto text-center
+
+Rating badge (animationDelay: 0.2s):
+inline-flex items-center gap-2 mb-5 sm:mb-8
+Small box: w-6 h-6 border border-gray-300 rounded flex items-center justify-center containing a filled Star icon (w-4 h-4 fill-black)
+Text: "4.9 rating from 18.3K+ users", text-xs sm:text-sm font-medium text-black
+
+Heading (animationDelay: 0.3s):
+Font sizes: text-[38px] sm:text-6xl md:text-7xl lg:text-[80px]
+font-normal leading-[1.1] tracking-tight mb-4 sm:mb-5
+Mobile layout (sm:hidden): Three lines -- "Work Smarter." / "Move Faster." / "AI Powers You Up."
+Desktop layout (hidden sm:inline): Two lines -- "Work Smarter. Move Faster." / "AI Powers You Up."
+"AI Powers You Up." uses a gradient text effect: bg-gradient-to-r from-black via-gray-500 to-gray-400 bg-clip-text text-transparent
+
+Subheading (animationDelay: 0.4s):
+text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-2
+Text: "Intelligent automation syncs with the tools you love to streamline tasks, boost output, and save time."
+
+CTA button (animationDelay: 0.5s):
+bg-black text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-gray-800 transition-colors
+Text: "Begin Free Trial"
+
+BOTTOM PARTNER BAR (z-20, absolute bottom-0)
+
+Container: absolute bottom-0 left-0 right-0 z-20 flex flex-col items-center gap-3 sm:gap-4 pb-4 sm:pb-8 px-4
+Animated: animate-fade-in-up at animationDelay: 0.6s, initial opacity: 0
+
+Glass pill badge:
+rounded-full px-3 sm:px-3.5 py-1
+text-[10px] sm:text-xs font-medium text-white
+Frosted glass effect: backdrop-blur-md bg-white/15 border border-white/20
+Text: "Collaborating with top aerospace pioneers globally"
+
+Partner logos (text-based, no images):
+Flex row: gap-5 sm:gap-12 md:gap-16 flex-wrap justify-center
+Five names: "Aeon", "Vela", "Apex", "Orbit", "Zeno"
+Each: text-lg sm:text-2xl md:text-3xl italic text-white tracking-tight with inline style fontFamily: 'Georgia, serif'
+
+ANIMATIONS (defined in index.css)
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-overlay { animation: fadeInOverlay 0.4s ease-out forwards; }
+
+Each element uses staggered delays (0.1s through 0.6s) applied via inline style={{ animationDelay: 'X.Xs', opacity: 0 }}.
+
+FONT
+Google Fonts import: @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+Applied globally: body { font-family: 'Inter', sans-serif; }
+
+KEY DESIGN NOTES
+The "liquid glass" effect comes from the frosted-glass partner badge using backdrop-blur-md bg-white/15 border border-white/20
+The mobile menu also uses glass: bg-white/95 backdrop-blur-md
+No purple/indigo colors -- entire palette is black, white, and grays
+The heading gradient goes from pure black through gray-500 to gray-400
+The video is visible primarily in the lower half, with white gradients dissolving it into the clean white upper section
+Color palette: strictly monochrome</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>

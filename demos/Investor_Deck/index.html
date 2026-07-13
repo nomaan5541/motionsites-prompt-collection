@@ -3,202 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investor Deck | Innovation and Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <title>BlurReveal delay={0.15}, text-[#80838e], fontSize: clamp(12px, 1.2vw, 18px), text "Problem Statement — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fdcb6e 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fdcb6e;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fdcb6e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fdcb6e;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
 </head>
-<body class="bg-black text-white antialiased overflow-hidden" style="font-family:'Inter',sans-serif">
-    <div id="root"></div>
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
-        const { motion, AnimatePresence } = window.Motion;
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        
+        <div class="badge">Templates </div>
+        <h1>BlurReveal delay={0.15}, text-[#80838e], fontSize: clamp(12px, 1.2vw, 18px), text "Problem Statement</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">investor_deck.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Build a presentation-style slide deck web app with 5 slides using React, Tailwind CSS, hls.js for Mux HLS video playback, and motion (from motion/react) for animations. The font is Aeonik, sans-serif. The entire deck has a black background (bg-black) so transitions fade through black, never white.
 
-        const ease = [0.25, 0.1, 0.25, 1];
-        const Logo = () => <div className="text-white font-semibold text-lg tracking-tight" style={{ width: '116px' }}>VIKTORY</div>;
+Global Architecture
 
-        const SlideUpLine = ({ children, delay = 0, duration = 0.7 }) => (
-            <span className="overflow-hidden inline-block"><motion.span className="inline-block" initial={{ y: '100%' }} animate={{ y: '0%' }} transition={{ duration, delay, ease }}>{children}</motion.span></span>
-        );
-        const WordByWordReveal = ({ text, baseDelay = 0.25, stagger = 0.035, duration = 0.55, className }) => (
-            <span className={className}>{text.split(' ').map((w,i) => (
-                <span key={i} className="overflow-hidden inline-block mr-[0.27em]"><motion.span className="inline-block" initial={{ y: '100%' }} animate={{ y: '0%' }} transition={{ duration, delay: baseDelay + i*stagger, ease }}>{w}</motion.span></span>
-            ))}</span>
-        );
-        const BlurReveal = ({ children, delay = 0, duration = 0.9, className }) => (
-            <motion.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration, delay, ease }} className={className}>{children}</motion.div>
-        );
+App container: Full-width/full-height, overflow-hidden, font-['Aeonik',sans-serif], bg-black.
 
-        const HlsVideo = ({ src, className, style }) => {
-            const ref = useRef(null);
-            useEffect(() => {
-                const v = ref.current; if (!v) return;
-                if (Hls.isSupported()) { const h = new Hls({ autoStartLoad: true }); h.loadSource(src); h.attachMedia(v); h.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(() => {})); return () => h.destroy(); }
-                else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; v.addEventListener('loadedmetadata', () => v.play().catch(() => {})); }
-            }, [src]);
-            return <video ref={ref} className={className} style={style} autoPlay muted loop playsInline />;
-        };
+All 5 slides are always mounted simultaneously (not conditionally rendered) so HLS videos preload in the background. Only opacity changes via Motion's animate={{ opacity: isActive ? 1 : 0 }} with duration: 0.35, ease: "easeInOut". The active slide gets zIndex: 10, inactive slides get zIndex: 0 and pointerEvents: "none".
 
-        const slides = [
-            { url: 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8', num: '01', vStyle: {} },
-            { url: 'https://stream.mux.com/s8pMcOvMQXc4GD6AX4e1o01xFogFxipmuKltNfSYza0200.m3u8', num: '02', vStyle: {} },
-            { url: 'https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8', num: '03', vStyle: { transform: 'scale(-1,-1)', opacity: 0.5 } },
-            { url: 'https://stream.mux.com/PkFsoKeakRLgL01gjf02CRcSbsJ600Z00NvLr9eRZ92pLbA.m3u8', num: '04', vStyle: { left: '400px' } },
-            { url: 'https://stream.mux.com/BuGGTsiXq1T00WUb8qfURrHkTCbhrkfFLSv4uAOZzdhw.m3u8', num: '05', vStyle: { width: '200%', height: '200%', bottom: 0, left: 0, top: 'auto' } },
-        ];
+Keyboard navigation: ArrowRight/ArrowDown/Spacebar = next slide, ArrowLeft/ArrowUp = previous slide.
 
-        const Slide1 = ({ active }) => {
-            const [ac, setAc] = useState(0);
-            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
-            return (
-                <div className="w-full h-full flex flex-col relative overflow-hidden">
-                    <HlsVideo src={slides[0].url} className="absolute inset-0 w-full h-full object-cover" />
-                    <div key={ac} className="relative z-10 flex flex-col h-full">
-                        <BlurReveal delay={0.1} className="flex items-center justify-between px-[5%] pt-[3.5%]">
-                            <Logo />
-                            <div className="hidden md:flex gap-8">{[{l:'Type',v:'Investor Deck'},{l:'Investor',v:'BlackRock'},{l:'Date',v:'February 2026'},{l:'Industry',v:'Artificial Intelligence'}].map(m => <div key={m.l} className="flex flex-col gap-[2px]"><span className="text-[#80838e] text-[13px]">{m.l}</span><span className="text-white text-[13px]">{m.v}</span></div>)}</div>
-                        </BlurReveal>
-                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
-                        <div className="flex-1 flex items-end px-[5%] pb-[8%]">
-                            <h1 className="text-white leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(48px, 10vw, 140px)' }}>
-                                <SlideUpLine delay={0.3}>Innovation</SlideUpLine><br /><SlideUpLine delay={0.4}>and Growth</SlideUpLine>
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Navigation dots: Centered at bottom (bottom-5, left-1/2, -translate-x-1/2, z-20), a row of clickable dots with gap-2. Active dot: bg-white w-6 h-2 rounded-full. Inactive dot: bg-white/40 w-2 h-2 rounded-full. All dots have transition-all duration-300.
 
-        const Slide2 = ({ active }) => {
-            const [ac, setAc] = useState(0);
-            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
-            const stats = [{v:'80%',l:'Face data complexity'},{v:'63%',l:'Struggle with AI integration'},{v:'47%',l:'Delay decisions due to bottlenecks'}];
-            return (
-                <div className="w-full h-full flex flex-col relative overflow-hidden">
-                    <HlsVideo src={slides[1].url} className="absolute inset-0 w-full h-full object-cover" />
-                    <div key={ac} className="relative z-10 flex flex-col h-full">
-                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">02</span></BlurReveal>
-                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
-                        <div className="flex flex-col flex-1 justify-between pt-[4%] pb-[5%] px-[5%]">
-                            <div className="max-w-[85%]">
-                                <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 18px)' }}>Problem Statement</p></BlurReveal>
-                                <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(22px, 3.5vw, 56px)' }}>
-                                    <WordByWordReveal text="In the realm of AI, businesses face challenges in data analysis, decision-making bottlenecks, and seamless integration of AI solutions" baseDelay={0.25} />
-                                </h2>
-                            </div>
-                            <div className="flex gap-4 w-full">
-                                {stats.map((s,i) => (
-                                    <motion.div key={i} className="flex-1 flex flex-col gap-3" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.6+i*0.1, ease }}>
-                                        <div className="text-white leading-[0.96] tracking-tight" style={{ fontSize: 'clamp(32px, 6vw, 96px)' }}>{s.v}</div>
-                                        <div className="text-white" style={{ fontSize: 'clamp(13px, 1.2vw, 20px)' }}>{s.l}</div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Each slide receives an isActive prop. Internally tracks activationCount state that increments each time isActive becomes true. The content wrapper uses key={activationCount} to re-mount and re-trigger all animations fresh each time the slide becomes active, while the video stays persistently mounted outside this keyed wrapper.
 
-        const Slide3 = ({ active }) => {
-            const [ac, setAc] = useState(0);
-            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
-            return (
-                <div className="w-full h-full flex flex-col relative overflow-hidden">
-                    <HlsVideo src={slides[2].url} className="absolute inset-0 w-full h-full object-cover" style={slides[2].vStyle} />
-                    <div key={ac} className="relative z-10 flex flex-col h-full">
-                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">03</span></BlurReveal>
-                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
-                        <div className="max-w-[55%] px-[5%] pt-[3%]">
-                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 18px)' }}>Market Opportunity</p></BlurReveal>
-                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 3.2vw, 52px)' }}>
-                                <WordByWordReveal text="At Viktory, we target a growing market for AI innovation, especially in cybersecurity and web3" baseDelay={0.25} />
-                            </h2>
-                            <BlurReveal delay={0.8}><p className="text-[#80838e] max-w-[90%] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 18px)' }}>We strategically focus on AI innovation at the intersection of cybersecurity and web3, meeting the growing demand for advanced solutions.</p></BlurReveal>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Shared Components
 
-        const Slide4 = ({ active }) => {
-            const [ac, setAc] = useState(0);
-            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
-            return (
-                <div className="w-full h-full flex flex-col relative overflow-hidden">
-                    <HlsVideo src={slides[3].url} className="absolute top-0 bottom-0 right-0 h-full object-cover" style={{ left: '400px' }} />
-                    <div className="absolute top-0 left-0 right-0 pt-[3.5%] z-20">
-                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%]"><Logo /><span className="text-[#80838e] text-[20px]">04</span></BlurReveal>
-                        <div className="absolute" style={{ top: 'calc(3.5% + 52px)', left: 0, right: 0 }}><div className="bg-white/15 h-px w-full px-[5%]"></div></div>
-                    </div>
-                    <div key={ac} className="flex flex-col w-full h-full justify-center relative z-10">
-                        <div className="max-w-[65%] px-[5%]">
-                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 26px)' }}>Sales and Distribution Channels</p></BlurReveal>
-                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 4vw, 80px)' }}>
-                                <WordByWordReveal text="Our direct sales team engages with enterprises, while online platforms and strategic partnerships expand our outreach" baseDelay={0.25} />
-                            </h2>
-                            <BlurReveal delay={1.2}><p className="text-[#80838e] max-w-[784px] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 26px)' }}>Our direct engagement ensures tailored solutions through consultations.</p></BlurReveal>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+Logo: A white SVG logo, 116px wide × 36px tall, rendered from imported SVG path data. Appears in the top-left of every slide.
 
-        const Slide5 = ({ active }) => {
-            const [ac, setAc] = useState(0);
-            useEffect(() => { if (active) setAc(p => p+1); }, [active]);
-            return (
-                <div className="w-full h-full flex flex-col relative overflow-hidden" style={{ background: '#131318' }}>
-                    <HlsVideo src={slides[4].url} className="absolute object-cover" style={slides[4].vStyle} />
-                    <div key={ac} className="relative z-10 flex flex-col h-full">
-                        <BlurReveal delay={0.05} className="flex items-center justify-between px-[5%] pt-[3.5%]"><Logo /><span className="text-[#80838e] text-[20px]">05</span></BlurReveal>
-                        <div className="mt-6 px-[5%]"><div className="bg-white/15 h-px w-full"></div></div>
-                        <div className="flex-1"></div>
-                        <div className="max-w-[55%] px-[5%] pb-[5%]">
-                            <BlurReveal delay={0.15}><p className="text-[#80838e]" style={{ fontSize: 'clamp(12px, 1.2vw, 26px)' }}>Global Expansion</p></BlurReveal>
-                            <h2 className="text-white leading-[1.04] mt-3" style={{ fontSize: 'clamp(20px, 4vw, 80px)' }}>
-                                <WordByWordReveal text="Opportunities across continents" baseDelay={0.25} />
-                            </h2>
-                            <BlurReveal delay={0.6}><p className="text-[#80838e] max-w-[680px] mt-4" style={{ fontSize: 'clamp(12px, 1.1vw, 26px)' }}>Our global break-even journey aligns revenue with expenses worldwide. We target break-even within 18 months.</p></BlurReveal>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
+AnimatedText components (reusable across all slides):
 
-        const App = () => {
-            const [current, setCurrent] = useState(0);
-            const comps = [Slide1, Slide2, Slide3, Slide4, Slide5];
-            useEffect(() => {
-                const handler = (e) => {
-                    if (['ArrowRight','ArrowDown','Space',' '].includes(e.key)) { e.preventDefault(); setCurrent(p => Math.min(4, p+1)); }
-                    if (['ArrowLeft','ArrowUp'].includes(e.key)) { e.preventDefault(); setCurrent(p => Math.max(0, p-1)); }
-                };
-                window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler);
-            }, []);
-            return (
-                <div className="w-screen h-screen overflow-hidden bg-black relative" style={{ fontFamily: "'Inter', sans-serif" }}>
-                    {comps.map((Comp, i) => (
-                        <motion.div key={i} className="absolute inset-0" animate={{ opacity: current === i ? 1 : 0 }} transition={{ duration: 0.35, ease: 'easeInOut' }}
-                            style={{ zIndex: current === i ? 10 : 0, pointerEvents: current === i ? 'auto' : 'none' }}>
-                            <Comp active={current === i} />
-                        </motion.div>
-                    ))}
-                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-                        {[0,1,2,3,4].map(i => (
-                            <button key={i} onClick={() => setCurrent(i)}
-                                className={`rounded-full transition-all duration-300 ${current===i ? 'bg-white w-6 h-2' : 'bg-white/40 w-2 h-2'}`}></button>
-                        ))}
-                    </div>
-                </div>
-            );
-        };
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+SlideUpLine: Clip-reveal slide-up for headings. Wraps children in overflow-hidden inline-block span. Inner motion.span animates from y: "100%" to y: "0%". Default duration 0.7s. Easing: [0.25, 0.1, 0.25, 1].
+
+WordByWordReveal: Splits text by spaces. Each word is in an overflow-hidden inline-block span with mr-[0.27em]. Inner motion.span animates from y: "100%" to y: "0%" with stagger. Default stagger: 0.035s, duration: 0.55s. Same easing curve.
+
+BlurReveal: motion.div animates from opacity: 0, filter: "blur(8px)" to opacity: 1, filter: "blur(0px)". Default duration: 0.9s. Same easing curve. Used for metadata, labels, and description paragraphs.
+
+Common Slide Layout Pattern
+
+Every slide follows this structure:
+
+Full-size container (w-full h-full flex flex-col relative overflow-hidden)
+
+Background video (absolutely positioned, persistently mounted outside the keyed wrapper)
+
+relative z-10 content wrapper (keyed by activationCount)
+
+Top bar: Logo (left) + slide number or metadata (right), wrapped in BlurReveal, with px-[5%] pt-[3.5%]
+
+Divider: mt-6 px-[5%] container with a bg-white/15 h-px w-full line
+
+Content area below
+
+HLS Video Setup Pattern
+
+Each background video uses hls.js:
+
+Create a <video> element with autoPlay muted loop playsInline
+
+In useEffect: if Hls.isSupported(), create new Hls({ autoStartLoad: true }), load source, attach media, play on MANIFEST_PARSED. Cleanup destroys HLS instance. Fallback for Safari: set video.src directly and play on loadedmetadata.
+
+Slide 1 — Title Slide "Innovation and Growth"
+
+Background: bg-black
+
+Video URL: https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8
+
+Video styling: absolute inset-0 w-full h-full object-cover (full opacity, no transform)
+
+Top bar (in BlurReveal delay={0.1}):
+
+Left: Logo
+
+Right: 4 metadata items in a flex gap-8 row. Each item is a flex-col with gap-[2px]: label in text-[#80838e] text-[13px], value in text-white text-[13px]. Items: Type→"Investor Deck", Investor→"BlackRock", Date→"February 2026", Industry→"Artificial Intelligence"
+
+Divider: px-[5%] mt-6, bg-white/15 h-px w-full
+
+Title text: Positioned at bottom-left using flex-1 flex items-end px-[5%] pb-[8%]. <h1> with text-white leading-[0.9] tracking-tight, fontSize: clamp(48px, 10vw, 140px). Two lines using SlideUpLine:
+
+Line 1: "Innovation" with delay={0.3} duration={0.7}
+
+<br />
+
+Line 2: "and Growth" with delay={0.4} duration={0.7}
+
+Slide 2 — Problem Statement with Stat Cards
+
+Background: bg-black
+
+Video URL: https://stream.mux.com/s8pMcOvMQXc4GD6AX4e1o01xFogFxipmuKltNfSYza0200.m3u8
+
+Video styling: absolute inset-0 w-full h-full object-cover (full opacity, no transform)
+
+Top bar (in BlurReveal delay={0.05}):
+
+Left: Logo
+
+Right: text-[#80838e] text-[20px] leading-[1.4] showing "02"
+
+Content area: flex flex-col flex-1 justify-between pt-[4%] pb-[5%] inside px-[5%] wrapper
+
+Upper section (max-w-[85%]):
+
+Subtitle: BlurReveal delay={0.15}, text-[#80838e], fontSize: clamp(12px, 1.2vw, 18px), text "Problem Statement"
+
+Heading: WordByWordReveal with text-white leading-[1.04], fontSize: clamp(22px, 3.5vw, 56px), text "In the realm of AI, businesses face challenges in data analysis, decision-making bottlenecks, and seamless integration of AI solutions", baseDelay={0.25} stagger={0.035} duration={0.55}
+
+Stat cards (bottom, flex gap-4 w-full): 3 StatCard components, each flex flex-1 flex-col gap-3 min-w-0. Each card is a motion.div animating from y: 30, opacity: 0 to y: 0, opacity: 1 with duration: 0.6, delay: 0.6 + index * 0.1, ease: [0.25, 0.1, 0.25, 1].
+
+Card 1: value "80%" / label "Face data complexity"
+
+Card 2: value "63%" / label "Struggle with AI integration"
+
+Card 3: value "47%" / label "Delay decisions due to bottlenecks"
+
+Value styling: text-white leading-[0.96] tracking-tight, fontSize: clamp(32px, 6vw, 96px)
+
+Label styling: text-white leading-[1.4], fontSize: clamp(13px, 1.2vw, 20px)
+
+Slide 3 — Market Opportunity with Growth Chart
+
+Background: bg-black
+
+Video URL: https://stream.mux.com/Gs3wZfrtz6ZfqZqQ02c02Z7lugV00FGZvRpcqFTel66r3g.m3u8
+
+Video styling: absolute inset-0 w-full h-full object-cover with transform: scale(-1, -1) (flipped both vertically and horizontally) and opacity: 0.5
+
+Top bar (in BlurReveal delay={0.05}):
+
+Left: Logo
+
+Right: "03" in text-[#80838e] text-[20px] leading-[1.4]
+
+Text content (max-w-[55%] px-[5%] pt-[3%]):
+
+Subtitle: BlurReveal delay={0.15}, text "Market Opportunity", text-[#80838e], fontSize: clamp(12px, 1.2vw, 18px)
+
+Heading: WordByWordReveal, text "At Viktory, we target a growing market for AI innovation, especially in cybersecurity and web3", text-white leading-[1.04], fontSize: clamp(20px, 3.2vw, 52px), baseDelay={0.25} stagger={0.035} duration={0.55}
+
+Description: BlurReveal delay={0.8}, text "We strategically focus on AI innovation at the intersection of cybersecurity and web3, meeting the growing demand for advanced solutions. Positioned at the forefront, we drive transformative technology in the evolving digital landscape.", text-[#80838e] max-w-[90%], fontSize: clamp(12px, 1.1vw, 18px)
+
+Chart: motion.div positioned absolute bottom-[3%] left-0 right-0 top-[40%], animates from opacity: 0, y: 30 to opacity: 1, y: 0 with duration: 0.8, delay: 0.7, ease: [0.25, 0.1, 0.25, 1]. Contains:
+
+ChartArea (absolute bottom-0 right-0 w-[55%] h-[70%]): A purple-to-pink gradient growth curve composed of:
+
+Gradient area fill image (imported PNG)
+
+Opacity line: SVG path with strokeWidth: 24, gradient stroke from white/0.15 to white/0
+
+Main gradient line: SVG path with strokeWidth: 4, linear gradient from #8238DC to #F75CB7
+
+SectorMarker (absolute bottom-[22%] left-[44%]): Shows "32%" value, a 2px white vertical line (40px), and a 100x100px sector circle with white/0.08 fill and a centered gradient dot (#7FBAFF to #536EFB with white stroke)
+
+TopValue (absolute top-[2%] right-[5%]): Shows "127%" in fontSize: clamp(32px, 4vw, 64px), a 2px white vertical line (50px), and a small gradient dot
+
+MidDot (absolute top-[40%] right-[35%]): Small gradient dot only
+
+XAxis (absolute bottom-0 left-0 right-0): Horizontal line in bg-[#1a2035], 8 tick marks, and year labels 2017-2024 in text-[#80838e], fontSize: clamp(11px, 1vw, 18px)
+
+No teal arrow callout
+
+Slide 4 — Sales and Distribution Channels
+
+Background: bg-black
+
+Video URL: https://stream.mux.com/PkFsoKeakRLgL01gjf02CRcSbsJ600Z00NvLr9eRZ92pLbA.m3u8
+
+Video styling: absolute top-0 bottom-0 right-0 h-full object-cover with left: 400px (400px left padding offset)
+
+Top bar: Absolutely positioned (absolute top-0 left-0 right-0 pt-[3.5%]), BlurReveal delay={0.05}:
+
+Left: Logo
+
+Right: "04" in text-[#80838e] text-[20px] leading-[1.4]
+
+Divider: Absolutely positioned at top-[calc(3.5%+52px)], bg-white/15 h-px w-full
+
+Content wrapper: flex flex-col w-full h-full justify-center (vertically centered)
+
+Text content (max-w-[65%] px-[5%]):
+
+Subtitle: BlurReveal delay={0.15}, text "Sales and Distribution Channels", text-[#80838e], fontSize: clamp(12px, 1.2vw, 26px)
+
+Heading: WordByWordReveal, text "Our direct sales team engages with enterprises, while online platforms and strategic partnerships expand our outreach", text-white leading-[1.04], fontSize: clamp(20px, 4vw, 80px), baseDelay={0.25} stagger={0.035} duration={0.55}
+
+Description: BlurReveal delay={1.2}, text "Our direct engagement with enterprises ensures tailored solutions through consultations. Meanwhile, the strategic utilization of online platforms and partnerships significantly broadens our reach, ensuring impactful and diverse distribution.", text-[#80838e] max-w-[784px], fontSize: clamp(12px, 1.1vw, 26px)
+
+Slide 5 — Global Expansion
+
+Background: bg-[#131318]
+
+Video URL: https://stream.mux.com/BuGGTsiXq1T00WUb8qfURrHkTCbhrkfFLSv4uAOZzdhw.m3u8
+
+Video styling: absolute object-cover with inline styles: width: "200%", height: "200%", bottom: 0, left: 0. This makes the video 200% of the slide size with its focal point anchored to the bottom-left corner.
+
+Top bar (in BlurReveal delay={0.05}):
+
+Left: Logo
+
+Right: "05" in text-[#80838e] text-[20px] leading-[1.4]
+
+Divider: mt-6 px-[5%], bg-white/15 h-px w-full
+
+Spacer: flex-1 div pushes text content to the bottom
+
+Text content (at bottom, max-w-[55%] px-[5%] pb-[5%]):
+
+Subtitle: BlurReveal delay={0.15}, text "Global Expansion", text-[#80838e], fontSize: clamp(12px, 1.2vw, 26px)
+
+Heading: WordByWordReveal, text "Opportunities across continents", text-white leading-[1.04], fontSize: clamp(20px, 4vw, 80px), baseDelay={0.25} stagger={0.035} duration={0.55}
+
+Description: BlurReveal delay={0.6}, text "Our global break-even journey aligns revenue with expenses worldwide. Through strategic cost management and international growth initiatives, we target break-even within 18 months, fortifying a strong global financial foundation for success.", text-[#80838e] max-w-[680px], fontSize: clamp(12px, 1.1vw, 26px)
+
+Dependencies
+
+hls.js — HLS video streaming
+
+motion — animations (import from motion/react)
+
+Tailwind CSS v4
+
+Color Palette
+
+Backgrounds: black (slides 1-4), #131318 (slide 5)
+
+Primary text: white
+
+Secondary/muted text: #80838e
+
+Dividers: white/15 (15% opacity white)
+
+Chart gradient: #8238DC → #F75CB7 (purple to pink)
+
+Chart dots gradient: #7FBAFF → #536EFB
+
+X-axis elements: #1a2035</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
 </body>
 </html>
