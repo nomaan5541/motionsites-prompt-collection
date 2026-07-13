@@ -1,8 +1,8 @@
 <div align="center">
 
-# ⚡ MotionSites.ai — AI Prompt Library
+# ⚡ MotionSites.ai — Premium AI Prompt Library & Design System
 
-### The largest open-source collection of production-ready AI web design prompts
+### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
@@ -18,85 +18,80 @@
 
 ---
 
-## 🚀 Overview
-
-**MotionSites.ai** is a curated prompt collection designed for modern AI developer platforms (such as **Bolt.new**, **v0.dev**, **GPT-Engineer**, and **Lovable.dev**). Standard AI models often struggle to generate premium web interfaces with advanced motion design. This library solves this problem by providing highly detailed, pre-engineered layout and animation blueprints.
-
-Each prompt in this library acts as an elite frontend specification, guiding AI generators to build stunning web interfaces utilizing modern typography, HSL tailored colors, responsive structures, and advanced motion libraries (Framer Motion and GSAP).
-
----
-
-## ✨ Key Features
-
-- 🎨 **166+ Unique Designs**: Browse through a curated catalog of landing pages, hero sections, custom cards, SaaS dashboards, portfolios, and more.
-- 🖼️ **Vibrant Visual Previews**: The web gallery uses actual `.webp` screenshots fetched dynamically from DigitalOcean Spaces CDN to show you the expected design output.
-- 📋 **One-Click Instant Copy**: Click **"📋 Copy Prompt"** on the website to immediately copy the entire system prompt code.
-- 🎥 **Hover Video Autoplay**: Hovering over card visuals plays preview video loops instantly. Mouseleave events immediately pause playback to optimize CPU usage.
-- 🤖 **AI-Ready Layouts**: Prompts are optimized to work out-of-the-box with **v0**, **Bolt.new**, **Claude 3.5 Sonnet**, and **Lovable**.
-- 🆓 **100% Free & Open Source**: Released under the MIT license, available for commercial and personal usage.
+## 📖 Table of Contents
+1. [🚀 Overview & Vision](#-overview--vision)
+2. [✨ Key Features & Capabilities](#-key-features--capabilities)
+3. [📂 Repository Architecture](#-repository-architecture)
+4. [🧑‍💻 Under the Hood: Prompt Engineering Anatomy](#-under-the-hood-prompt-engineering-anatomy)
+5. [🖥️ Interactive Gallery Design System](#-interactive-gallery-design-system)
+6. [🛠️ Technical Stack Generated](#-technical-stack-generated)
+7. [🎯 Step-by-Step AI Generation Playbook](#-step-by-step-ai-generation-playbook)
+8. [🎛️ Local CLI Tool Reference](#-local-cli-tool-reference)
+9. [📚 Exhaustive Categories Directory](#-exhaustive-categories-directory)
+10. [📝 Detailed Prompt Catalog](#-detailed-prompt-catalog)
+11. [🤝 Contribution Guidelines & Style Guide](#-contribution-guidelines--style-guide)
+12. [⚖️ Legal, Licensing & Fictional Disclaimer](#-legal-licensing--fictional-disclaimer)
+13. [🔗 Connection & Community](#-connection--community)
 
 ---
 
-## 📂 Detailed Categories Directory
+## 🚀 Overview & Vision
 
-The library covers a wide range of categories, from full page templates to specific high-fidelity UI sections:
+Modern AI code generation tools (such as **Bolt.new**, **v0.dev**, **GPT-Engineer**, and **Lovable.dev**) are extremely powerful, but they share a common limitation: **they generate standard, generic, and uninspired layouts unless explicitly fed detailed layout instructions.** Without high-fidelity styling specifications, AI models fallback to vanilla Tailwind cards, plain grids, basic system fonts, and generic spacing.
 
-### Full Templates
-- 💼 **SaaS** (25+ items): Modern software-as-a-service layouts, dashboard designs, and feature matrices.
-- 🏢 **Agency** (10+ items): Creative agency pages, studio portfolios, and interactive showrooms.
-- 🖼️ **Portfolio** (6+ items): Elegant, minimalist personal sites for designers, developers, and writers.
-- 💰 **Fintech** (5+ items): High-contrast finance platforms, currency dashboards, and transaction grids.
-- 🌐 **Web3** (3+ items): Immersive DeFi interfaces, NFT galleries, and blockchain dashboards.
-- 🛒 **E-commerce** (2+ items): Modern digital storefronts, clean product showcase pages, and grids.
+**MotionSites.ai** solves this limitation by acting as a **layout compiler and design system specification layer**. It provides **166+ highly structured design system prompts** written in Markdown, which enforce precise spacing, advanced typography scales, customized color variables, and interactive physics-based animation hooks (Framer Motion and GSAP).
 
-### UI Sections & Components
-- ⚡ **Hero Sections**: Stunning landing folds featuring cinematic backgrounds, animated badges, and glowing typography.
-- 🏷️ **Pricing Tables**: Brutalist, glassmorphism, and neon pricing cards with monthly/yearly toggles.
-- ⚙️ **Features Sections**: Grid layouts, horizontal scroll timelines, dynamic sliders, and hover-triggered details.
-- 🗣️ **Testimonials**: Dual marquee carousels, swing layouts, and star-rating grids.
-- 📑 **Footers**: Creative parallax footers, orbit menus, and glassmorphic quick-link maps.
-- ❓ **FAQ Accordions**: Clean dark-mode accordions with smooth spring transitions.
+Our mission is to democratize elite frontend design. By translating premium Awwwards-level layouts into structured text instructions, anyone can generate beautiful motion-intensive websites in a single prompt run.
 
 ---
 
-## 🛠️ The Tech Stack Generated
+## ✨ Key Features & Capabilities
 
-Each prompt is engineered to enforce code generation on a high-fidelity stack:
-
-1. **React.js**: Directs the AI to build reusable component structures, responsive state hooks, and optimized layout loops.
-2. **Tailwind CSS**: Commands precise utility classes, CSS grid structures, flex layouts, border overlays, glassmorphic filters, and tailored HSL color tokens.
-3. **Framer Motion**: Enforces physics-based spring animations, layout transitions, exit animations, click gestures, drag items, and scroll-linked fade-in triggers.
-4. **GSAP & ScrollTrigger**: Guides complex timeline orchestration, text split effects, and horizontal scroll layouts.
-5. **Lucide React**: Integrates clean, modern iconography automatically.
+- **166+ Curated Designs**: The library contains templates and component sections covering all major web design trends (Neo-brutalism, Glassmorphism, Space minimalism, Dark Editorial, etc.).
+- **Vivid Screenshot Previews**: The live gallery cards dynamically fetch web screenshots via DigitalOcean Spaces CDN, giving you an immediate visual representation of what the prompt produces.
+- **Autoplay Hover Previews**: Card visual containers are hooked into a custom mouseover playback manager that starts video loops on hover and immediately pauses them on mouseleave to avoid rendering threads blocking.
+- **Physics-Based Card Tilt**: Interactive grid cards feature a responsive 3D card tilt effect calculated dynamically using cursor page coordinates and spring-back transitions.
+- **Full Text Prompts in the Repository**: Unlike libraries that only host metadata, every prompt's raw, un-truncated markdown code is stored in the repository.
+- **Bonus Premium Prompts Extracted**: Includes 26 premium template configurations extracted from Next.js RSC streams and fully mapped to markdown files.
 
 ---
 
-## 🎯 How to Use
+## 📂 Repository Architecture
 
-### Option 1: Live Interactive Library (Recommended)
-1. Navigate to **[motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)**.
-2. Filter by category (e.g., *SaaS, Portfolio, Fintech*) or search for designs.
-3. Click the **"Code"** button to view the prompt description.
-4. Click **"📋 Copy Prompt"** to copy the full specification.
-5. Paste it directly into your AI generator (e.g., Bolt.new or v0.dev) and run the generation.
+Here is the folder structure of the MotionSites.ai workspace:
 
-### Option 2: Local CLI Tool
-To browse and retrieve prompt names directly from your local terminal workspace:
-
-```bash
-# List all Pro and Free prompts available in the project
-npx templateprompts list
-
-# Display helper information
-npx templateprompts help
+```
+motionsites-prompt-collection/
+├── .github/                   # GitHub issues templates & workflows
+├── assets/                    # Static preview assets
+│   ├── images/                # GIF previews
+│   └── videos/                # Autoplay webm/mp4 preview video loops
+├── bin/                       # Local CLI executable scripts
+│   └── index.js               # CLI interface router code
+├── demos/                     # Local interactive preview stubs
+│   ├── Aethera_Studio/        # Preview stubs for each design name
+│   │   └── index.html         # Glassmorphic prompt viewer & copy tool
+│   └── ...                    # 159+ additional design folders
+├── Pro prompts/               # 66 Premium system prompts
+│   └── ...
+├── prompts/                   # 100 Free system prompts
+│   └── ...
+├── index.html                 # Main library interactive interface
+├── vercel.json                # Vercel configuration & redirect headers
+├── package.json               # Node dependency mappings and CLI bindings
+├── README.md                  # Comprehensive documentation
+├── LICENSE                    # MIT license agreement
+├── DISCLAIMER.md              # Fictional assets notice
+└── SECURITY.md                # Responsible vulnerability disclosure
 ```
 
 ---
 
-## 🧑‍💻 How the Prompts Are Engineered
+## 🧑‍💻 Under the Hood: Prompt Engineering Anatomy
 
-Every `.md` file inside the [prompts/](file:///f:/motionsites.ai-main/prompts/) directory is structured with YAML frontmatter metadata at the top:
+Every prompt file inside `prompts/` and `Pro prompts/` is formatted with metadata parameters followed by a heavily structured system instruction sheet.
 
+### Markdown Schema
 ```markdown
 ---
 title: "Luxury Real Estate"
@@ -109,25 +104,181 @@ imageUrl: https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/17808269496
 # Luxury Real Estate
 ```
 
-The system prompt follows a strict schema to prevent AI models from generating basic, unstyled pages:
-- **Role Definition**: e.g., *"Act as an award-winning Creative Director and Elite Frontend Architect..."*
-- **Visual Design Rules**: Specifying a dark-mode background (`bg-[#030305]`), specific HSL typography contrast values, neon highlights, and absolute border variables.
-- **Interactions & Motion**: Demanding exact Framer Motion animation properties (e.g., `transition: { type: "spring", stiffness: 100, damping: 20 }`).
-- **Dummy Data & Copywriting**: Enforcing premium, realistic mock copywriting instead of lazy `Lorem Ipsum` placeholders.
+### The System Prompt Engineering Structure
+Our prompts are built around a strict engineering structure to guarantee consistency across different AI models:
+
+1. **Role Definition**: Establishing the persona (e.g. *"Act as an award-winning UI/UX designer and elite React Frontend Developer..."*).
+2. **Typography Constraints**: Forcing serif headlines (e.g., `Playfair Display`, `Cormorant Garamond`) combined with clean sans-serif bodies (e.g., `Plus Jakarta Sans`, `Inter`).
+3. **HSL Color Tokens**: Forcing consistent custom colors using Tailwind variables (e.g., primary `bg-[#030305]`, glowing gold accent `text-[#d4af37]`).
+4. **Spacing & Layouts**: Enforcing wide padding, clean flex/grid headers, overlapping visual sections, and custom borders.
+5. **Animation Physics (Framer Motion)**:
+   - Defining spring constants: `transition: { type: "spring", stiffness: 100, damping: 20 }`
+   - Defining orchestrators: `staggerChildren: 0.1`
+6. **GSAP Timelines**: Custom setup guides for ScrollTrigger to pin hero elements and trigger horizontal page translations.
 
 ---
 
-## 🤝 Contributing
+## 🖥️ Interactive Gallery Design System
 
-We love contributions! If you have a beautiful design prompt or want to submit an improvement:
+The library's web interface [index.html](file:///f:/motionsites.ai-main/index.html) is built as a dark space-themed gallery using a custom design system:
 
-1. **Fork** the repository.
-2. Create a new design prompt file under `/prompts/` (or `/Pro prompts/`) with the appropriate metadata.
-3. Register your new card in the `demos` list array inside `index.html`.
-4. Create a stub folder under `/demos/<Your_Design_Name>/index.html` referencing your prompt.
-5. Open a **Pull Request** explaining your prompt design style.
+### 1. The Space Canvas Starfield
+An interactive starfield background renders animated, floating star grids combined with glowing blur orbs. The radial gradients rotate slowly across the screen, simulating a nebula.
 
-Please review our [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
+### 2. 3D Card Hover Tilt Algorithm
+Cards react to mouse movements using local coordinates:
+```javascript
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+const rotateX = -(y - centerY) / 15;
+const rotateY = (x - centerX) / 15;
+card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+```
+This produces a smooth tilt rotation that tracks the user's cursor.
+
+### 3. Autoplay Hover Previews
+Card previews use a combination of lazy-loaded `.webp` screenshot images and dynamic `.mp4`/`.webm` preview loops:
+- The preview image covers the card initially.
+- On hover, the `preview-video` plays and rises above the screenshot layer.
+- On mouseleave, the video immediately pauses to release processor cycles.
+
+---
+
+## 🛠️ Technical Stack Generated
+
+Prompts instruct the generator to output code strictly targeting the following frontend libraries:
+
+```mermaid
+graph TD
+    A[AI Code Generator] --> B[React Components]
+    A --> C[Tailwind CSS Grid & Flex]
+    A --> D[Framer Motion Physics]
+    A --> E[GSAP ScrollTrigger]
+    A --> F[Lucide React Icons]
+```
+
+- **Framer Motion Constants**:
+  - Fade-up: `{ opacity: 0, y: 30 }` to `{ opacity: 1, y: 0 }`
+  - Scale spring: `{ scale: 0.95 }` to `{ scale: 1 }`
+- **GSAP Scroll Pins**:
+  - For sections requiring deep scroll interactions, animations are bound directly to `scrollY` coordinates.
+
+---
+
+## 🎯 Step-by-Step AI Generation Playbook
+
+Follow these steps to generate high-fidelity interfaces using the library:
+
+1. **Select a Design**: Go to the web app gallery and select a template or section that matches your project requirements.
+2. **Copy the Prompt**: Click the `Code` button to open the preview modal and copy the text.
+3. **Open AI Developer Environment**:
+   - **Bolt.new**: Excellent for complete, operational React/Vite development.
+   - **v0.dev**: Ideal for visual React component blocks.
+   - **GPT-Engineer / Lovable**: Great for database-backed web applications.
+4. **Input the Prompt**: Paste the prompt. Add your custom branding instructions if needed (e.g. *"Modify this layout to use blue branding colors instead of gold"*).
+5. **Generate & Iterate**: Let the AI compile the design framework, then perform visual modifications as needed.
+
+---
+
+## 🎛️ Local CLI Tool Reference
+
+The CLI utility allows developers to inspect all available prompt names locally from their terminal:
+
+### Installation
+```bash
+# Link the CLI locally
+npm link
+```
+
+### Usage Commands
+```bash
+# List all prompts in both 'prompts/' and 'Pro prompts/'
+npx templateprompts list
+
+# Display helper documentation
+npx templateprompts help
+```
+
+---
+
+## 📚 Exhaustive Categories Directory
+
+We partition our designs into 19 categories representing specific web page layout needs:
+
+- 💻 **SaaS**: High-converting homepages, app dashboards, feature cards, metrics charts, and table views.
+- 🎨 **Agency**: High-end typography, horizontal layouts, floating image grids, and creative project cases.
+- 👤 **Portfolio**: Designer grids, neon resumes, interactive project timelines, and contact pages.
+- 💳 **Fintech**: Sleek tables, dark glass transaction panels, and crypto exchange grids.
+- 🌐 **Web3**: Futuristic cyber-themes, NFT galleries, neon borders, and decentralized app states.
+- 🛍️ **E-commerce**: Clean digital storefront grids, product detail previews, and minimal carts.
+- 🚙 **Automotive**: Dynamic vehicle galleries, full-screen slider folds, and specifications tables.
+- 🏔️ **Resort**: Eco-lodge showcases, serene earthy HSL colors, room slider templates, and booking cards.
+- 🍽️ **Restaurant**: Premium food menus, dark reservation overlays, and glowing culinary showcases.
+- 🎒 **Courses**: Online learning homepages, chapter accordions, and interactive syllabus grids.
+- 🛋️ **Interiors**: Interior design slideshows, large architectural grids, and project portfolios.
+- 🏛️ **Corporate**: Classic, clean corporate layouts with strict structural headers and grid metrics.
+- 🎯 **Hero Sections**: High-fidelity landing folds featuring complex scroll-tied animations.
+- 💸 **Pricing Tables**: Grid card systems with neon headers and active option indicators.
+- ⚙️ **Features Sections**: Dynamic hover tabs, hover details, and interactive grids.
+- 💬 **Testimonial Slider**: Auto-marquee columns and card carousels.
+- 📑 **Footers**: Creative custom footer menus and social grids.
+- ❓ **FAQ Accordions**: Expandable card components utilizing clean spring motion.
+
+---
+
+## 📝 Detailed Prompt Catalog
+
+Below is a highlight of key prompts contained in the library:
+
+### 1. templates/Kintaro.md
+- **Title**: Kintaro Restaurant Website
+- **Category**: Restaurant / Templates
+- **Style**: Dark luxury, gold accents (`#d4af37`), high contrast serif text, full-screen vertical menu overlays, smooth Lenis scrolling.
+
+### 2. prompts/Zedian.md
+- **Title**: Zedian Creative Portfolio
+- **Category**: Portfolio / Templates
+- **Style**: Cyber-minimalism, neon green variables (`#00ff66`), pixelated borders, hover terminal logs, terminal shell interface commands.
+
+### 3. prompts/Car_Shine.md
+- **Title**: Car Shine Detailing Landing Page
+- **Category**: Auto / Templates
+- **Style**: Deep neon blue glassmorphism cards, wet-effect gradients, vehicle pricing sliders, interactive before/after image sliders.
+
+### 4. prompts/Naturally.md
+- **Title**: Naturally Skincare Store
+- **Category**: E-commerce / Templates
+- **Style**: Serene minimal layout, soft sage green theme (`#8fbc8f`), large botanical background images, clean grid tables.
+
+### 5. prompts/Infine.md
+- **Title**: Infine Digital Agency
+- **Category**: Agency / Templates
+- **Style**: Brutalist design, oversized font scales, infinite marquee tracks, raw container grids.
+
+---
+
+## 🤝 Contribution Guidelines & Style Guide
+
+We love prompt contributions! If you have optimized a system prompt for v0 or Bolt.new, help expand this collection:
+
+### File Format Guidelines
+Ensure new prompts have correct frontmatter configurations:
+```yaml
+---
+title: "My Design Name"
+category: "Templates or Sections"
+subCategory: "SaaS, Hero, Pricing, etc."
+premium: false
+imageUrl: "DigitalOcean Spaces screenshot URL"
+---
+```
+
+### Writing the Prompt Text
+- Enclose the prompt body inside a ` ```text ` markdown block.
+- Keep instructions highly detailed. Avoid generic terms; specify layout alignments, color palettes, and motion attributes.
 
 ---
 
@@ -150,6 +301,6 @@ Please review our [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CO
 
 ### Designed and Built by [Nomaan Khan](https://github.com/nomaan5541)
 
-If you find this project useful, please consider giving it a ⭐ star!
+If you find this repository useful, please consider giving it a ⭐ star!
 
 </div>
