@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781667701353-Futuristic_Hero.webp" alt="Futuristic Hero preview" onerror="this.style.display='none'">
+        <div class="badge">Hero • Premium</div>
+        <h1>Futuristic Hero</h1>
+        <p class="desc">A dark, cinematic AI platform hero section with a futuristic video background, gradient-blended text headline, dual CTAs, and stat counters on a deep navy-black backdrop.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">futuristic_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Act as an award-winning elite designer and expert frontend web developer. Your objective is to build a premium, highly interactive, and visually stunning hero section for a website using React and Tailwind CSS. The design must be a pixel-perfect execution of the following specifications, prioritizing modern aesthetics, rich micro-interactions, and pristine responsive behavior.
+
+## 1. Visual Design System
+
+### 1.1 Color Palette
+- **Background**: Deep space dark blue/black (\`#040714\`)
+- **Primary Text**: Pure white (\`#FFFFFF\`)
+- **Secondary Text (Subheadings/Descriptions)**: Slate gray (\`#9CA3AF\`, Tailwind \`gray-400\`)
+- **Muted Elements/Borders**: Dark slate (\`#374151\`, Tailwind \`gray-700\` with varying opacity)
+- **Gradient Accents (For 'what's next.' text)**:
+  - Start: Vibrant Orange (\`#FF5C35\`)
+  - Middle: Hot Pink (\`#E93B81\`)
+  - End: Deep Purple (\`#8C3A9F\`)
+- **Action/Highlight Color**: Vibrant Orange (\`#FF5C35\`) for notification dots and selections.
+
+### 1.2 Typography
+- **Primary Font Family**: 'Inter', sans-serif (or system-ui fallback).
+- **Hero Heading (H1)**:
+  - Font Size: Desktop \`4.5rem\` (72px), Tablet \`3.75rem\` (60px), Mobile \`3rem\` (48px).
+  - Font Weight: Medium (500).
+  - Line Height: Tight (\`1.1\`).
+  - Letter Spacing: Tight (\`-0.02em\`).
+- **Subheading (Paragraph)**:
+  - Font Size: \`1.125rem\` (18px).
+  - Font Weight: Regular (400).
+  - Line Height: Relaxed (\`1.625\`).
+- **UI Elements (Nav Links, Buttons, Badges)**:
+  - Font Size: \`0.875rem\` (14px).
+  - Font Weight: Medium (500).
+- **Stats Metrics**:
+  - Font Size: \`2.25rem\` (36px) to \`2.5rem\` (40px).
+  - Font Weight: Semi-bold (600).
+
+## 2. Layout Structure & Grid System
+- **Container**: Max-width of \`80rem\` (\`1280px\` / \`max-w-7xl\`) centered on the page using \`mx-auto\`.
+- **Global Padding**: \`1.5rem\` (\`px-6\`) on the x-axis.
+- **Hero Height**: Minimum height of \`calc(100vh - 88px)\` to account for the navbar and ensure a full-screen feel.
+- **Section Alignment**: The layout is split asymmetrically. The left side (approx 50-60% width) contains the content block, while the right side is dominated by the background video.
+
+## 3. Section-by-Section Content & Hierarchy
+
+### 3.1 Navigation Bar (Navbar)
+- **Logo**: Abstract geometric icon (rotate-45 square with contrasting inner dot) paired with uppercase, widely-spaced text (\`tracking-widest\` text "FUTURASITC").
+- **Links (Desktop only)**: Product, Solutions, Pricing, Resources, Company.
+- **CTA**: "Get Started" button with an \`ArrowUpRight\` icon.
+- **Spacing**: \`py-6\` (24px vertical padding), \`flex items-center justify-between\`.
+
+### 3.2 Hero Content
+- **Badge**: "Next-Gen AI Platform" with a pulsing orange indicator dot.
+- **Headline**: "Intelligent technology<br />for <span className="gradient-text">what's next.</span>"
+- **Description**: "Design, automate, and scale your business operations with the power of AI."
+- **CTAs**:
+  - Primary: "Get Started" with \`ArrowRight\`.
+  - Secondary: "Learn More" with \`ArrowRight\` and subtle underline.
+- **Stats Block**: Three metrics ("500K+ Active Users", "99.99% Uptime", "120+ Countries") separated by vertical 1px divider lines.
+
+## 4. UI Components & Styling Details
+
+### 4.1 Buttons
+- **Primary Button (Get Started)**:
+  - Background: Semi-transparent dark slate (\`bg-[#0A0D1A]/50\`) with backdrop blur (\`backdrop-blur-sm\`).
+  - Border: 1px solid \`border-gray-700\`, hover state changes to \`border-gray-500\`.
+  - Padding: \`px-6 py-3\`, fully rounded (\`rounded-full\`).
+- **Secondary Button (Learn More)**:
+  - Background: Transparent.
+  - Text: \`text-gray-300\` changing to \`text-white\` on hover.
+  - Hover effect: A subtle expanding horizontal line beneath the text.
+
+### 4.2 Badge
+- Glassmorphism effect: \`bg-gray-900/30\`, \`backdrop-blur-md\`, \`border border-gray-700/50\`, \`rounded-full\`, \`px-4 py-2\`.
+
+## 5. Visual Treatments, Effects & Video Assets
+
+### 5.1 Background Video Integration
+- **Source**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/futurasitic.mp4\`
+- **Positioning**: Absolute positioned to the top right (\`absolute right-0 top-0\`), covering approximately 65% of the width on desktop (\`lg:w-[65%]\`).
+- **Properties**: \`autoPlay\`, \`loop\`, \`muted\`, \`playsInline\`, \`object-cover\`.
+- **Dissolve / Edge Blending (CRITICAL)**:
+  - The video must seamlessly blend into the dark background to avoid hard edges.
+  - **Left Edge**: A linear gradient overlay from \`#040714\` to transparent (\`bg-gradient-to-r\`).
+  - **Top Edge**: A linear gradient from \`#040714\` to transparent (\`bg-gradient-to-b\`, height 40px/10rem).
+  - **Bottom Edge**: A linear gradient from \`#040714\` to transparent (\`bg-gradient-to-t\`, height 40px/10rem).
+
+### 5.2 Text Gradient
+- Apply \`text-transparent bg-clip-text\` with a linear gradient spanning from \`#FF5C35\` to \`#E93B81\` to \`#8C3A9F\` for the specific phrase "what's next."
+
+## 6. Animations & Micro-Interactions
+- **Indicator Dot**: \`animate-pulse\` on the orange dot inside the badge.
+- **Button Hover states**:
+  - The \`ArrowRight\` icon inside both buttons should translate slightly to the right (\`group-hover:translate-x-1\`) over \`150ms\` to \`300ms\` with ease-out.
+  - Link hover colors smoothly transition over \`150ms\`.
+- **Scroll Transitions**: Elements should gently fade and slide up sequentially on initial load (optional enhancement).
+
+## 7. Responsive Behavior
+- **Mobile (< 768px)**:
+  - Navbar links hide, replaced by a hamburger menu icon.
+  - Video background covers the full width (\`w-full\`) but is heavily faded (using overlays) to ensure text readability.
+  - Headline sizes scale down significantly (\`text-5xl\`).
+  - Stats block vertical dividers are hidden; items wrap gracefully.
+- **Tablet (768px - 1024px)**:
+  - Navbar links become visible.
+  - Hero content takes up a larger proportion of the screen width.
+- **Desktop (> 1024px)**:
+  - Split layout is distinct: Left side content, right side video.
+  - Vertical dividers in stats block are visible.
+
+## 8. Accessibility Considerations
+- High contrast text against the dark background.
+- Meaningful \`alt\` attributes or \`aria-labels\` for icons.
+- Ensure the video is explicitly \`muted\` and contains no sudden flashes.
+- Focus states should be clearly visible for keyboard navigation.
+
+## 9. Technical Implementation Details
+
+### 9.1 Architecture & Stack
+- **Framework**: React 18+ (Functional Components & Hooks).
+- **Styling**: Tailwind CSS v3 (using \`tailwind.config.js\` for custom colors).
+- **Icons**: \`lucide-react\` (specifically \`ArrowRight\`, \`ArrowUpRight\`).
+- **Build Tool**: Vite.
+
+### 9.2 File Structure
+\\\`\\\`\\\`
+src/
+├── App.tsx             // Main layout wrapper
+├── index.css           // Tailwind directives & base styles
+├── components/
+│   ├── Navbar.tsx      // Navigation component
+│   └── Hero.tsx        // Hero section containing video and content
+tailwind.config.js      // Custom theme definitions
+\\\`\\\`\\\`
+
+### 9.3 Performance & SEO Optimization
+- Include \`preload\` for the critical font (Inter).
+- The video tag must include \`playsInline\` and \`muted\` to ensure autoplay works on iOS/Android.
+- Provide semantic HTML elements (\`<nav>\`, \`<main>\`, \`<h1>\`).
+
+Deliver the complete, production-ready code that matches these specifications flawlessly.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

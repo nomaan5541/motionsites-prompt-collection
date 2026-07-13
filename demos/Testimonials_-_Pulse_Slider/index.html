@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Pulse Slider — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#fd79a8 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fd79a8;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#fd79a8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#fd79a8;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783662672303-Testimonials-Pulse-Slider.webp" alt="Testimonials - Pulse Slider preview" onerror="this.style.display='none'">
+        <div class="badge">Testimonials • Premium</div>
+        <h1>Testimonials - Pulse Slider</h1>
+        <p class="desc">A dynamic, drag-to-scroll review carousel with a fluid UI and a gently drifting geometric backdrop.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">testimonials_-_pulse_slider.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Act like an award-winning designer and elite frontend web developer. I need you to build a highly polished, production-ready, ultra-premium single-page application (SPA) for an elite digital marketing agency known as "MARKETING NINJAS". The application must be technically flawless, 100% responsive, and utilize advanced motion design to create a breathtaking user experience.
+
+## 1. Core Technology Stack
+- **Framework:** React 18+ (with Vite)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (v4)
+- **Animation:** Framer Motion (\`motion/react\`)
+- **Icons:** \`lucide-react\`
+
+## 2. Complete Visual Design System
+
+### 2.1 Exact Color Palette
+- **Global Backgrounds:** Deep midnight purple tones \`#14072e\` and \`#070f34\`.
+- **Vignettes & Deep Shadows:** Cosmic black \`#04010a\`.
+- **Accents (Gradients & Highlights):**
+  - **Teal:** \`#5eead4\` (Teal 300), \`#2dd4bf\` (Teal 400), \`#14b8a6\` (Teal 500)
+  - **Emerald:** \`#34d399\` (Emerald 400), \`#10b981\` (Emerald 500), \`#059669\` (Emerald 600)
+  - **Alerts/Critical:** \`#ef4444\` (Red 500), \`#f87171\` (Red 400)
+- **Text:** White (\`#ffffff\`), Slate 400 (\`#94a3b8\`), Slate 500 (\`#64748b\`).
+
+### 2.2 Typography
+- **Primary Font (Headings & Body):** \`Inter\` (Weights: 300, 400, 600, 800, 900)
+- **Secondary Font (Labels, Metadata, Terminal):** \`JetBrains Mono\` (Weights: 400, 600)
+- **Styling Specs:**
+  - **Hero Headings:** Font weight \`900\` (Black), tight tracking (\`tracking-tight\`), tight line-height (\`leading-[1.1]\`).
+  - **Labels:** Uppercase, wide tracking (\`tracking-widest\`), mono font.
+
+## 3. Section-by-Section Implementation Details
+
+### 3.1 Global Header
+- **Layout:** Fixed at top, blurred glassmorphism pill (\`backdrop-blur-md\`, \`bg-[#0a0518]/60\`).
+- **Brand:** "NINJAS" gradient text (\`from-white via-slate-100 to-teal-400\`). Clicking it triggers a custom \`resetHero\` event to reset animations.
+- **Navigation:** Links with a sliding pill background effect using Framer Motion's \`layoutId\`.
+
+### 3.2 Immersive Hero Section (Parallax & Fake Scroll)
+- **Scroll Hijacking:** The section traps the scroll for a duration of \`1350\` "fake scroll" units (approx. 9 scroll wheel strokes).
+- **Background Atmosphere:** \`#070f34\` base color.
+- **Parallax Image Layers (Cloudinary URLs):**
+  1. **Layer 1 (Deepest):** \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600236/layer-1_i1fcvs.png\`
+  2. **Layer 2 (Mid-ground):** \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600250/layer-2_1_kkzgdz.png\`. Must have a CSS mask applied (\`radial-gradient(ellipse 100% 100% at 50% 50%, black 60%, transparent 100%)\`) to beautifully blur and feather its edges.
+  3. **Layer 3 (Foreground):** \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600241/layer-3_js1ywg.png\`
+- **Mouse & Scroll Reactivity:**
+  - Layers pan horizontally slightly opposite to mouse movement (using \`springX\`).
+  - Layers scale up and translate Y downwards as the user scrolls through the 1350 threshold.
+- **Vignette Overlays:** Gradients fading from \`#14072e]/70\` to transparent to frame the edges softly.
+- **Two-Phase Content Animation:**
+  - **Phase 1 (Scroll 0 - 600):** Shows Content 1 ("We Strike Faster Than Competition."). Scales down to 0.95 and fades to 0 opacity.
+  - **Phase 2 (Scroll 600 - 1200):** Fades in Content 2 ("Dominate with Unseen Precision.") and a CTA button.
+  - Both texts use \`font-black\`.
+
+### 3.3 Strategy Cards (\`#tactics\`)
+- **Layout:** Split-grid layout. Left side contains a list of clickable tactics, right side contains a floating visual.
+- **Interaction:** Clicking a tactic updates the right side. Active items have a teal left-border highlight and slightly lighter background.
+- **Assets for tactics:**
+  - SEO: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600232/img_1_qxnqpl.png\`
+  - PPC: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600244/img_2_qxnqpl.png\`
+  - CRO: \`https://res.cloudinary.com/dprydfxok/image/upload/q_auto/f_auto/v1781600230/img_3_qxnqpl.png\`
+- **Animation:** The right-side visual continuously floats (\`y: [20, -10, 20]\`, \`rotate: [-5, 0, -5]\`).
+
+### 3.4 Campaign Auditor (\`#audit\`)
+- **Layout:** Dark atmosphere container (\`bg-slate-950/40\`) with an abstract background image (\`v1781600230/img_3_qxnqpl.png\` set to low opacity \`0.1\`).
+- **Interactive Terminal UI:**
+  - Form fields for Target URL, Objective, and Budget.
+  - "Run Simulation" button initiates a progress bar (0% to 100% over a few seconds).
+  - A stream of technical terminal logs (e.g., "Analyzing DOM structure", "Executing heuristic scoring") appear sequentially.
+- **Result State:** When simulation hits 100%, reveal a highly visible "Critical Vulnerabilities Found" red-accented alert box with an \`AlertCircle\` icon.
+
+### 3.5 Case Study Slider (\`#wins\`)
+- **Layout:** Horizontal overflow container with \`flex-nowrap\` layout or grid for cards.
+- **Cards:** Each card features immense metric numbers (e.g., "+340%"), an objective label, and a specific ROAS multiplier in a small pill.
+- **Controls:** Arrow buttons (Left/Right) that trigger \`scrollBy\` on the hidden-scrollbar container.
+
+### 3.6 Contact Portal (\`#contact\`)
+- **Layout:** 2-column grid.
+- **Left Column:** High-impact "Ready to Deploy the Ninjas?" copy.
+- **Right Column:** Glassmorphic form card (\`backdrop-blur-xl\`, \`bg-[#0a0518]/60\`) featuring inputs with floating labels or sleek minimal borders. A teal/emerald gradient submit button.
+
+### 3.7 Global Footer
+- **Styling:** Minimalist bottom bar. \`border-white/5 bg-[#14072e]\`. Centered mono text for copyright.
+
+## 4. Performance & Technical Optimization
+- **Asset Loading:** Use Cloudinary URLs with \`q_auto\` and \`f_auto\` to ensure WebP/AVIF delivery.
+- **100% Responsiveness:** Must fluidly adapt from 320px mobile up to ultrawide 4K. Use \`md:\` and \`lg:\` tailwind breakpoints effectively. Hide complex animations or reduce parallax depth on mobile devices if necessary.
+- **SEO/A11y:** Ensure high-contrast ratios. Include aria-labels for slider controls and inputs. Use proper heading hierarchy (\`h1\` through \`h3\`).
+
+Follow these specifications precisely. Write the cleanest, most scalable code possible utilizing standard modern React paradigms and advanced Framer Motion declarative animation structures.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

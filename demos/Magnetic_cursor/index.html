@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetic cursor — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780796678491-fluxo-hero.webp" alt="Magnetic cursor preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Magnetic cursor</h1>
+        <p class="desc">A high-performance design prompt engineered for modern AI tools. Copy and paste into Bolt.new, v0, or GPT-Engineer.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">magnetic_cursor.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create an award-winning, premium dark-mode SaaS hero section using vanilla HTML, CSS, and JavaScript. The page must be 100% responsive (Desktop, Tablet, Mobile) and feature a 3D animated background with a liquid glass navigation bar.
+
+### Tech Stack
+- HTML5
+- Vanilla CSS3 (with CSS variables, flexbox, and CSS Grid)
+- JavaScript (ES Modules)
+
+### Visual Assets & Dependencies
+- **Font**: Google Fonts \`Inter\` (Weights: 400, 500, 600, 700).
+- **Icons/Logos**: Use high-quality inline SVGs for the logo, chevron dropdowns, checkmarks, company logos (Linear, loom, Remix, raycast, tailwindcss), and star review icons.
+- **3D Background**: Import \`TubesCursor\` from \`https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js\`.
+
+### Color Palette (CSS Variables)
+- **Background**: \`#030303\` (deep dark)
+- **Text Primary**: \`#ffffff\`
+- **Text Secondary**: \`#a1a1aa\`
+- **Text Muted**: \`#71717a\`
+- **Brand Primary**: \`#7c3aed\`
+- **Brand Secondary**: \`#3b82f6\`
+- **Gradient Primary Button**: \`linear-gradient(135deg, #8b5cf6, #3b82f6)\`
+- **Gradient Text Highlights**: \`linear-gradient(135deg, #60a5fa, #c084fc, #f472b6)\`
+- **Glass Borders**: \`rgba(255, 255, 255, 0.08)\`
+- **Glass Background**: \`rgba(255, 255, 255, 0.02)\`
+
+### 3D Background Configuration (TubesCursor)
+- Render the animation on a full-screen \`<canvas id="canvas">\` placed \`position: fixed\` with \`z-index: -1\` and \`pointer-events: none\`.
+- Do NOT randomize colors on click. Use a static premium palette.
+- **Colors & Lights**: Pink (\`#ff008a\`), Purple (\`#8b5cf6\`), Blue (\`#3b82f6\`), White (\`#ffffff\`).
+- **Light Intensity**: \`50\`.
+
+### Layout & Content Requirements
+
+#### 1. Liquid Glass Navbar (Sticky Floating Pill)
+- **Positioning**: \`position: sticky; top: 24px; margin-top: 24px; z-index: 100;\`
+- **Dimensions**: \`height: 80px; padding: 0 24px; border-radius: 100px; max-width: 1200px; margin: 24px auto 0;\`
+- **Glassmorphism Style**: \`background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(16px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);\`
+- **Content**:
+  - **Left**: "Fluxo" Logo (SVG icon of purple stacked squares + text).
+  - **Center**: Links (Features, Solutions [with chevron], Pricing, Resources [with chevron], Changelog).
+  - **Right**: "Log in" (text link) and "Start for free" (Primary gradient button, pill-shaped).
+  - **Mobile**: Hide links/actions and show a hamburger icon (SVG).
+
+#### 2. Mobile Menu Drawer
+- Create an absolute positioned dropdown (\`top: calc(80px + 24px); width: 100%;\`).
+- Apply the same liquid glass styling (\`blur(16px) saturate(180%)\`).
+- Include JS to toggle an \`.open\` class on click of the hamburger icon.
+
+#### 3. Hero Section
+- **Spacing**: \`padding: 80px 0 60px; display: flex; flex-direction: column; align-items: center; text-align: center;\`
+- **Badge**: A small pill badge \`background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1)\`. Inside, a primary purple tag "New", followed by text "AI Assistant is now live ->".
+- **Headline (H1)**: "The all-in-one platform \\
+ to scale your SaaS". 
+  - \`font-size: 4.5rem; line-height: 1.1; font-weight: 700;\`
+  - The word "SaaS" must use the Gradient Text Highlights color.
+- **Subheadline (P)**: "Build, launch, and grow your SaaS faster with powerful tools, \\
+ beautiful analytics, and AI that works for you." (\`font-size: 1.25rem; max-width: 600px; color: #a1a1aa;\`)
+- **CTA Buttons**: 
+  - "Start for free ->" (Primary gradient button).
+  - "Book a demo" (Glass button: \`background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1)\`).
+
+#### 4. Social Proof Section
+- **Spacing**: \`border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 0 80px; margin-top: 40px;\`
+- **Text**: "Trusted by 10,000+ teams worldwide" (\`color: #71717a;\`).
+- **Logos**: Flex row with 48px gap containing logos for Linear, loom, Remix, raycast, tailwindcss. Opacity should be \`0.6\`, transitioning to \`1\` on hover.
+- **Reviews**: 5 yellow SVG stars (\`fill: #EAB308\`) alongside text "5.0/5 from 1,200+ reviews".
+
+### Responsive Breakpoints
+- **1024px**: Scale down hero title to \`3.8rem\` and logos gap to \`32px\`.
+- **768px (Tablet)**: Hide desktop nav links, show hamburger menu. Adjust navbar side padding to \`20px\`. Stack CTA buttons vertically (100% width, max 320px). Title size \`3rem\`.
+- **480px (Mobile)**: Page padding \`16px\`. Hide "Log in" text. Shrink badge text, buttons, and logos. Title size \`2.2rem\`. Stack review stars and text vertically.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

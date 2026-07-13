@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Cascade — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#6c5ce7 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6c5ce7;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#6c5ce7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#6c5ce7;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783739606843-Services-Cascade.webp" alt="Services - Cascade preview" onerror="this.style.display='none'">
+        <div class="badge">Features • Premium</div>
+        <h1>Services - Cascade</h1>
+        <p class="desc">A highly interactive, dark-themed horizontal accordion featuring sleek video backgrounds, custom staggered entrance animations, and a smooth horizontal expansion.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">services_-_cascade.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Act as an award-winning designer and web developer. Your task is to build a premium, highly interactive, and visually stunning restaurant website called "Lobstreet". You must build this exactly according to the comprehensive specifications below, maintaining maximum accuracy in visual design, layout, spacing, animations, and technical implementation.
+
+## 1. Visual Design System
+
+### Exact Color Palette
+- **Marble White (Background/Base)**: \`#FAFAF8\`
+- **Warm Gray (Secondary Base/Sections)**: \`#EAE7E2\`
+- **Premium Orange (Accents/Buttons)**: \`#F7931E\` (also use deep orange \`#cd5a12\` for primary buttons and \`#a8470e\` for button hover)
+- **Forest Green (Secondary Accents)**: \`#567D46\`
+- **Charcoal (Primary Text/Headings)**: \`#222222\`
+- **Cream (Glassmorphism/Cards)**: \`#FDFBF8\`
+
+### Typography
+Include Google Fonts: \`Cormorant Garamond\` (Weights: 300, 400, 500, 600, 700, Italic) and \`Inter\` (Weights: 300, 400, 500).
+- **Headings (h1, h2, h3, h4, h5, h6)**: \`Cormorant Garamond\`, serif, font-weight 400 (or 500 for massive headers), letter-spacing: -0.02em.
+- **Body/Paragraphs**: \`Inter\`, sans-serif, font-weight 300 or 400, line-height 1.6.
+- **Subtitles/Labels**: \`Inter\`, font-weight 600, uppercase, letter-spacing 0.1em to 0.2em.
+
+### Global Styles & Layout
+- Background of the entire \`body\` should have a fixed marble texture (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782907867/marble-bg_xhb9ns.png\`) set to \`background-size: cover; background-position: center;\`.
+- Include a fixed pseudo-element on the body serving as an ambient light sweep. It should be a large radial gradient \`rgba(255,255,255,0.4)\` animating slowly (\`scale\` and \`translate\` over 30s infinite alternate ease-in-out).
+- Use Lenis for smooth scrolling (\`duration: 1.2\`, easing curve \`(t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))\`).
+- Hardware accelerate animated elements: \`will-change: transform, opacity; transform: translateZ(0);\`.
+
+---
+
+## 2. Section-by-Section Content and Hierarchy
+
+### Navbar
+- Clean, transparent glassmorphism header (\`backdrop-filter: blur(12px)\`, \`rgba(253, 251, 248, 0.6)\`).
+- Left: Logo "Lobstreet" (Serif) with a small Premium Orange dot at the end.
+- Right: Navigation links (Menu, Chef, Tasting, Reserve).
+
+### Hero Section (\`#hero\`)
+- **Layout**: 100vw, min-height 100vh. Flex split layout (Left Content, Right Image).
+- **Left Content** (flex: 1, padding-left 8%, padding-right 5%, z-index 20):
+  - Subtitle: "GOOD FOOD &bull; GOOD HEALTH" (Premium Orange, sans-serif, uppercase, small).
+  - Main Title: "Tasty food.<br/>Come enjoy<span class="dot">...</span>" (Serif, clamp(3.5rem, 6vw, 6rem), Charcoal).
+  - Decorative Divider: A thin horizontal line \`#d1cbc0\` split by a tiny circular orange ornament.
+  - Description: "Small Bites. Big Flavor." (Serif italic). Followed by paragraph text (Sans-serif, 300 weight, #666 color).
+  - Button: "Explore Now" + an arrow inside a white circle. Button background \`#cd5a12\`, border-radius 50px.
+- **Right Image** (flex: 1.2, relative):
+  - Container (\`width: 85%; max-width: 720px; aspect-ratio: 1; top: 50%; right: -5%; transform: translateY(-50%)\`).
+  - Contains \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-salmon_tdheo8.png\` and a nested absolute overlay containing \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907862/wooden-chopsticks_vmdyq2.png\` rotated at -20deg.
+- **Animations**:
+  - Initial 1.5s delay.
+  - Left content staggers in from left (\`x: -30\`, \`opacity: 0\`).
+  - Right plate scales up from 0.5 and rotates 360deg into place. 
+  - Utensils drop in from top (\`y: -20vh\`, rotation).
+  - Continuous floating: Plate animates \`y\` and \`rotation\`; chopsticks animate \`y\`.
+  - Mouse move interaction: Both plate and chopsticks translate slightly opposite to cursor position.
+  - Scroll scrub out: When scrolling past the hero, elements translate Y/X and fade out.
+
+### Global Floating Ingredients
+- A fixed container (\`z-index: 50\`, \`pointer-events: none\`, \`width: 100vw\`, \`height: 100vh\`).
+- Contains images: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907865/lobster_n0r91b.png\` (bottom left), \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907870/spice-bowl_tgoaiv.png\` (top left, near plate), \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907869/sauce-bowl_kbxipb.png\` (right), \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907862/basil_ui5u8j.png\` (bottom right).
+- **Interactions**:
+  - Slow, infinite GSAP floating (\`yoyo: true\`, \`repeat: -1\`).
+  - Mouse proximity magnetic effect: If cursor is within 250px, images gently shift towards the cursor (max 5px).
+  - Fade out on scroll: Linked to scrollTrigger so it fades and translates up as user scrolls down 500px.
+- **Responsiveness**: Resize dimensions and positions in media queries (Max-width 1550px, 1024px, 768px).
+
+### Ingredient Story (\`#menu\`)
+- **Header**: "What's on our Plate" (Serif) + description + Tabs (Appetizers, Main Dish (active), Dessert).
+- **Grid Layout**: 3-column flex layout holding plates.
+- **Content**: 
+  - Column 1: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-vegetable_rtc0jb.png\` + "Roasted Vegetables" text.
+  - Column 2: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-salmon_tdheo8.png\` with chopsticks + "Wild Salmon" text.
+  - Column 3: \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907872/plate-pork_az3zkq.png\` + "Sweet Pork Chops" text.
+- **Animations**: ScrollTrigger timeline. Plates scale from 0.5 and rotate from -180deg with \`ease: 'back.out(1.2)'\`. Text below fades and translates Y.
+
+### Chef Experience (\`#chef\`)
+- **Layout**: Dark section (\`background: var(--charcoal)\`), 100vw, 120vh, overflow hidden.
+- **Background**: Massive photo (\`https://res.cloudinary.com/dprydfxok/image/upload/v1782907865/lobster_n0r91b.png\`, \`opacity: 0.4\`, \`height: 130%\`, \`object-fit: cover\`).
+  - **Parallax**: GSAP \`fromTo\` \`yPercent: -20\` to \`yPercent: 0\` tied to ScrollTrigger scrub, ensuring no top gaps are exposed.
+- **Content**: A centered Quote "Cooking is an art of patience, a dance of fire and ice, a symphony of natural flavors." (Serif, italic, massive size).
+- **Parallax Elements**: Small floating ingredients (basil, black-pepper, garlic) that scrub rotate and translate Y inversely to scroll.
+
+### Menu Showcase / Tasting Menu (\`#tasting\`)
+- **Layout**: Horizontal Scrolling Gallery. 
+- **Header**: Centered at the top "Tasting Menu".
+- **Gallery**: A wide \`display: flex\` container (\`gap: 4rem\`, \`padding: 0 30vw 0 10vw\`).
+- **Cards**: Fixed width (400px), min-height 550px, white background, 24px border-radius, soft box-shadow. Contains image and text.
+- **Animations**:
+  - The section is pinned via GSAP ScrollTrigger (\`pin: true\`, \`scrub: 1\`).
+  - The gallery flex container translates \`x\` by exactly \`-(scrollWidth - window.innerWidth)\` as the user scrolls.
+  - Hovering a card lifts it (\`translateY(-10px)\`), scales the image (\`scale(1.08)\`), and adds a \`5deg\` rotation.
+
+### Reservation CTA (\`#reserve\`)
+- **Layout**: Final section, tall padding-bottom.
+- **Animations**: Background color transitions from \`--warm-gray\` to \`--marble-white\` via ScrollTrigger.
+- **Content**: "Reserve a Table" heading, subtitle.
+- **Button**: A premium "liquid fill" button. Dark rounded border. On hover, a solid color pseudo-element scales up from the bottom to fill the button.
+- A massive \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-salmon_tdheo8.png\` peeks in from the bottom of the section (\`bottom: -58%\`, \`width: 413px\`), partially cut off by the end of the page.
+
+---
+
+## 3. Spacing, Margins, and Padding
+- Use CSS clamp for fluid typography and spacing.
+- Provide immense breathing room between sections (e.g., \`padding: 120px 0;\`).
+- Maintain a clean, minimalist approach. Use margins generously (e.g., \`margin-bottom: 4rem\` between headers and content).
+
+---
+
+## 4. Technical Implementation Details
+- **Framework**: React (Vite).
+- **Styling**: Vanilla CSS. Rely heavily on CSS variables for thematic consistency. Use Flexbox and precise absolute positioning. DO NOT use TailwindCSS.
+- **Animations**: GSAP (GreenSock) + ScrollTrigger. All animations must be synchronized and performant. Use \`gsap.context()\` for cleanup in React. Wrap elements properly to avoid conflicting GSAP tweens on the same object (e.g., scrolling vs floating vs mousemove).
+- **Smooth Scrolling**: Lenis.
+- **Performance**: Use \`will-change: transform\` and \`hardware-accelerated\` classes for all images/items animated by GSAP. Make sure image assets are optimized. 
+- **Responsiveness**: 
+  - Standard desktop: > 1550px (massive layout, elements well spaced).
+  - Laptop: 1024px - 1550px (scale down absolute positions, adjust grid columns, shrink plates).
+  - Mobile: < 768px (stack elements, reduce font sizes dramatically, remove complex hover states and horizontal scrolling).
+- **SEO & Accessibility**: Use semantic HTML (\`<section>\`, \`<main>\`, \`<blockquote>\`, \`<h1>\` to \`<h3>\`). Provide \`alt\` text for all images. Maintain high contrast.
+
+## 5. Assets Checklist
+You will need the following image assets to execute this build:
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907867/marble-bg_xhb9ns.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-salmon_tdheo8.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907862/wooden-chopsticks_vmdyq2.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907865/lobster_n0r91b.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907870/spice-bowl_tgoaiv.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907869/sauce-bowl_kbxipb.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907862/basil_ui5u8j.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907868/plate-vegetable_rtc0jb.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907872/plate-pork_az3zkq.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907862/black-pepper_eh11tj.png\`
+- \`https://res.cloudinary.com/dprydfxok/image/upload/v1782907863/garlic_lnyfb9.png\`
+
+Build this with a relentless focus on aesthetics, ensuring the final product feels expensive, dynamic, and breathtaking.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

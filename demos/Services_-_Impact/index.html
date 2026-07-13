@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Impact — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#6c5ce7 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6c5ce7;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#6c5ce7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#6c5ce7;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783670976502-Services-Impact.webp" alt="Services - Impact preview" onerror="this.style.display='none'">
+        <div class="badge">Features • Premium</div>
+        <h1>Services - Impact</h1>
+        <p class="desc">Transforming ambitious ideas into impactful digital realities through design, marketing, and media.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">services_-_impact.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># Premium Real Estate Landing Page Generation Prompt
+
+You are an award-winning elite designer and expert web developer. Your objective is to build a premium, highly responsive, and visually stunning React + Tailwind CSS landing page from scratch for a high-end commercial real estate firm named "NORTHLINE COMMERCIAL". Your code must be production-ready, perfectly pixel-matched to premium aesthetics, and fully responsive across all devices.
+
+## 1. Core Technology Stack
+- **Framework**: React 18+ (using Vite)
+- **Styling**: Tailwind CSS v4 (using \`@tailwindcss/vite\`)
+- **Icons**: \`lucide-react\`
+- **Animations**: \`framer-motion\`
+- **Architecture**: Modular component-based architecture under \`src/components/\` and integrated via \`src/App.jsx\`.
+
+## 2. Design System & Aesthetics
+
+### Color Palette
+- **Primary Brand (Gold)**: \`#d4af37\` (used for accents, buttons, and hover states)
+- **Primary Dark (Navy/Black)**: \`#0B0E14\` (used for dark section backgrounds)
+- **Deep Black**: \`#000000\` (used for absolute contrast)
+- **Light Theme Backgrounds**: \`#ffffff\` and \`#f9fafb\` (Tailwind \`gray-50\`)
+- **Text Colors**: 
+  - Light mode: \`text-gray-900\` (headings), \`text-gray-600\` (body)
+  - Dark mode: \`text-white\` (headings), \`text-gray-400\` and \`text-gray-300\` (body)
+
+### Typography
+- **Primary Font Family**: 'Inter', sans-serif (or system sans-serif)
+- **Headings**: Bold (\`font-bold\`, 700 weight), tight tracking (\`tracking-tight\`), tight line-heights (\`leading-[1]\` or \`leading-tight\`).
+- **Subheadings/Kickers**: Uppercase, small text (\`text-sm\` or \`text-xs\`), bold (\`font-semibold\`), widely spaced (\`tracking-widest\`), colored in brand gold.
+- **Body Text**: Relaxed line-heights (\`leading-relaxed\`), regular/medium weights.
+
+## 3. Section-By-Section Implementation
+
+The page features an alternating dark and light theme rhythm to create visual interest. 
+
+### 3.1 Global Navbar (Dark/Transparent)
+- **Position**: \`absolute top-0 left-0 w-full z-50\`
+- **Brand Logo**: Left-aligned, featuring three vertical gold bars of varying heights (using \`w-1.5\` and \`h-6/8/10\`) with a hover effect that scales their height. Brand text: "NORTHLINE" (large) and "COMMERCIAL" (small, heavily tracked).
+- **Desktop Links**: Hidden on mobile. Centered text links with hover effect turning text to gold.
+- **Desktop CTA**: "Get In Touch" button with transparent background, gold border, turning gold background on hover.
+- **Mobile Menu**: Hamburger icon (\`Menu\` from lucide-react) on the right. When clicked, it opens a \`framer-motion\` sliding dropdown menu with a glassmorphism background (\`bg-[#0B0E14]/95 backdrop-blur-md\`).
+
+### 3.2 Hero Section (Dark)
+- **Layout**: \`min-h-screen\` relative container with an absolute video background.
+- **Video Asset**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/real_estate_bg_hero_1.mp4\` (Must have \`autoPlay\`, \`loop\`, \`muted\`, \`playsInline\`, \`opacity-80\` and \`object-cover\`).
+- **Overlays**: Two gradient overlays. One left-to-right (\`from-black/80 to-transparent\`) and one top-to-bottom (\`from-black/50 to-black/90\`).
+- **Content Block**: Left-aligned max-width container. 
+  - Kicker: "PREMIUM SPACES. PRIME LOCATIONS."
+  - H1: "Spaces That Inspire Success" (\`text-5xl md:text-7xl lg:text-7xl leading-[1]\`).
+  - Paragraph: Mid-sized gray text describing the firm.
+  - Buttons: A flex row (column on mobile) with a solid gold "Explore Properties" button (with a hovering \`ArrowRight\` icon) and a "Watch Video" text link with a \`PlayCircle\` icon.
+
+### 3.3 Features Grid (Glassmorphism overlap)
+- **Layout**: Rendered right below the Hero in the DOM, but on desktop uses a negative margin (\`lg:-mt-24\`) and \`z-20\` to visually overlap the bottom of the hero video.
+- **Style**: Glass effect (\`backdrop-blur-md bg-white/5\` or similar) with a top white border.
+- **Grid**: 4 columns on desktop, 2 columns on tablet (\`sm:grid-cols-2\`), 1 column on mobile. Use \`divide-x\` and \`divide-y\` with \`border-white/10\`.
+- **Content**: 4 features using lucide icons (\`Building2\`, \`Gem\`, \`User\`, \`TrendingUp\`) colored gold, with white titles and gray descriptions. Include group hover scaling on icons.
+
+### 3.4 Trusted Companies Banner (Light)
+- **Background**: Solid white with a bottom border.
+- **Content**: Small uppercase kicker text centered. Below it, a flex-wrap container with 6 logos using lucide-react icons (\`Hexagon\`, \`Target\`, \`Triangle\`, \`Mountain\`, \`Shield\`, \`Zap\`) next to uppercase text names (e.g. "VORTEX", "HORIZON").
+- **Effect**: The entire row starts with \`opacity-60 grayscale\`. On hover, the row transitions to \`grayscale-0\` and individual icons turn gold on hover.
+
+### 3.5 About Section (Dark)
+- **Background**: \`bg-[#0B0E14]\` (var(--color-dark)).
+- **Layout**: 2-column CSS Grid (\`grid-cols-1 lg:grid-cols-2\`) with \`gap-16\`. Left is text content, right is an image.
+- **Content (Left)**: Gold kicker, bold H2, descriptive paragraph. Below paragraph, a 3-column stats grid separated by top/bottom borders (\`20+ Years of Experience\`, \`150+ Successful Projects\`, \`5M+ Sq. Ft. Managed\`). Below stats, a solid gold CTA button.
+- **Content (Right)**: Image container \`relative h-80 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden\`.
+  - Image URL: \`https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop\`
+  - Effect: Dark overlay \`bg-black/20\` that fades to transparent on group hover, plus slow image zoom \`scale-105\` on hover.
+
+### 3.6 Services Section (Light)
+- **Background**: \`bg-gray-50\`.
+- **Layout**: Centered header text on top. Below, a 4-column grid (\`grid-cols-1 md:grid-cols-2 lg:grid-cols-4\`).
+- **Cards**: White background, \`p-8\`, very subtle border. 
+- **Card Hover**: On hover, the card border turns gold, the card elevates (\`-translate-y-1\`), and casts a shadow (\`shadow-xl\`).
+- **Card Content**: Circular light-orange/gold icon background (\`w-16 h-16 rounded-full\`), bold title, gray text, and a "Learn More" link with \`ArrowRight\` that translates right on hover. Use lucide icons (\`Key\`, \`FileSignature\`, \`Briefcase\`, \`HardHat\`).
+
+### 3.7 Featured Properties Section (Dark)
+- **Background**: \`bg-[#0B0E14]\`.
+- **Header**: Flex container (\`flex-col md:flex-row\`). Left side has gold kicker and H2. Right side has a transparent button with gray border.
+- **Grid**: 3 columns (\`grid-cols-1 md:grid-cols-3\`).
+- **Cards**: 
+  - Image block: \`h-64 md:h-72\` with an image overlapping dark overlay, zooming on hover. 
+  - Info block: \`bg-[#162032] p-6\`. Features title, location (gray), and a heavily tracked spec string ("250,000 SQ. FT. • OFFICE") with a bottom border. "View Details" link at the bottom.
+  - Images to use:
+    1. \`https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop\`
+    2. \`https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop\`
+    3. \`https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072&auto=format&fit=crop\`
+
+### 3.8 Insights & News Section (Light)
+- **Background**: Solid white.
+- **Header**: Similar layout to Properties, but light themed with a "View All Insights" button.
+- **Grid**: 3 columns.
+- **Cards**: Flex-col container to make cards equal height (\`h-full\`). 
+  - Image block: \`h-56\`. 
+  - Info block: \`bg-gray-50 flex-grow border border-t-0 border-gray-100 p-6\`. Date, title (turns gold on hover), excerpt, and "Read More" link at bottom.
+  - Images to use:
+    1. \`https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2070&auto=format&fit=crop\`
+    2. \`https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop\`
+    3. \`https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop\`
+
+### 3.9 Call To Action Section (Dark Overlay)
+- **Background**: Absolute image background with a heavy dark gradient overlay \`from-black/90 to-black/40\`.
+  - Image URL: \`https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop\`
+- **Layout**: Content centered inside \`max-w-7xl px-8 flex flex-col md:flex-row justify-between items-center\`.
+- **Content**: Bold H2 text "Ready to Find Your Next Space?" on the left. Gold "Get In Touch" button on the right.
+
+### 3.10 Footer (Dark)
+- **Background**: \`bg-[#0B0E14]\` with a top border.
+- **Grid**: 5 columns (\`grid-cols-1 md:grid-cols-2 lg:grid-cols-5\`).
+- **Brand Column (col-span-2)**: Brand logo, short paragraph, and 3 social icons (\`Link\`, \`MessageCircle\`, \`Mail\`).
+- **Links Columns**: 3 columns ("Properties", "Services", "Company") with gold kickers and a list of gray links that turn white on hover.
+- **Bottom Bar**: Flex container with copyright text and legal links (Privacy Policy, Terms of Service).
+
+## 4. Animations & Micro-Interactions
+- **Entrance Animations**: Use \`framer-motion\` extensively. 
+  - Wrap every major section's content (or the \`<section>\` itself) in a \`<motion.div>\`.
+  - Trigger animations on scroll using \`whileInView={{ opacity: 1, y: 0 }}\` and \`initial={{ opacity: 0, y: 30 }}\` with \`viewport={{ once: true, margin: "-50px" }}\`.
+  - Stagger lists (like the Services grid and Properties grid) by applying \`delay: index * 0.1\` or \`0.15\` to mapped items.
+- **Hero Load**: Animate the hero text sliding UP (\`y: 30\` to \`y: 0\`) and the Navbar sliding DOWN (\`y: -20\` to \`y: 0\`) on initial page load.
+- **Hover Effects**:
+  - Almost all images zoom slowly (\`scale-105\` or \`scale-110\`, \`duration-700\`) on parent group hover.
+  - Icons inside buttons or links (\`ArrowRight\`) translate on the X-axis (\`translate-x-1\`) on hover.
+  - Dark overlays over images fade out on hover (\`group-hover:bg-transparent\`).
+
+## 5. Technical & Optimization Requirements
+- **100% Responsiveness**: Ensure flawless rendering on mobile devices. Use mobile-first Tailwind classes. Utilize \`flex-col\` for mobile and \`md:flex-row\` for desktop. Ensure grid systems gracefully fallback to \`grid-cols-1\` on mobile. Ensure padding is balanced (\`px-6 md:px-8\`, \`py-16 md:py-24\`).
+- **Structure**: Break all sections out into individual functional React components inside \`src/components/\` and import them cleanly into \`src/App.jsx\`.
+- **Accessibility**: Use semantic HTML (\`<nav>\`, \`<section>\`, \`<main>\`, \`<footer>\`), descriptive \`alt\` tags on all images, and adequate color contrast ratios.
+- **SEO Elements**: Include descriptive titles and header hierarchy (\`<h1>\` for Hero, \`<h2>\` for section titles, \`<h3>\` for kickers).
+
+By following these specifications precisely, you will output a pixel-perfect, premium commercial real estate landing page with top-tier aesthetics, layout, and motion design.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

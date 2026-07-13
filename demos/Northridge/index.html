@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northridge — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781629894749-Northridge_Hero.webp" alt="Northridge preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Northridge</h1>
+        <p class="desc">A cinematic, dark-themed consulting hero section for "Northridge Consulting" featuring a looping video background, bold serif typography, and a vibrant purple accent—built with React, Tailwind CSS, and Vite.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">northridge.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">You are an award-winning elite designer and expert web developer. Your objective is to build a premium, highly responsive, and visually stunning React + Tailwind CSS landing page from scratch. The output must be production-ready and flawlessly execute the following comprehensive specifications.
+
+## 1. Visual Design System
+
+### Color Palette
+- **Background (Deep Space):** \`#0B0A1A\`
+- **Primary Accent (Vibrant Purple):** \`#6B4CDE\`
+- **Primary Hover:** \`#7F64E6\`
+- **Text Main (Pure White):** \`#FFFFFF\`
+- **Text Muted (Cool Gray):** \`#A0A0C0\`
+- **Overlay Masks:** Linear CSS gradients utilizing \`#0B0A1A\` (from 100% opacity to transparent) for text readability over the video.
+
+### Typography
+- **Primary Font (Headings):** \`Lora\` (Serif)
+  - Usage: Main hero title ("Clarity Today. Stronger Tomorrow.")
+  - Weights: Medium (500)
+  - Line Height: 1.1 (leading-[1.1])
+- **Secondary Font (Body & UI):** \`Inter\` (Sans-serif)
+  - Usage: Navigation, subtitles, paragraphs, buttons
+  - Weights: Light (300), Regular (400), Medium (500), SemiBold (600)
+  - Special Styling: Subtitles and tiny labels utilize uppercase with extreme tracking (\`tracking-[0.2em]\`, \`tracking-widest\`).
+
+## 2. Layout Structure & Grid System
+- **Maximum Width Constraint:** \`max-w-7xl\` (1280px) centered horizontally (\`mx-auto\`).
+- **Global Padding:** \`px-6\` on mobile, \`lg:px-8\` on desktop.
+- **Hero Layout:** Full viewport height (\`min-h-screen\`) utilizing Flexbox (\`flex flex-col justify-end\`), forcing the content block towards the lower-middle half.
+
+## 3. Section-by-Section Content & Hierarchy
+
+### A. Navigation Bar (\`Navbar.jsx\`)
+- **Positioning:** Fixed to the top (\`fixed top-0 left-0 w-full z-50\`).
+- **Logo:** Custom SVG consisting of two triangles (one filled purple, one empty forming an upward arrow), alongside the text "NORTHRIDGE" (uppercase, tracking-widest, semibold) and "CONSULTING" (uppercase, tiny, muted text).
+- **Desktop Links:** Hidden on mobile (\`hidden md:flex\`), spaced evenly (\`gap-8\`), text size \`text-sm\`.
+- **CTA Button ("Let's Talk"):** Rounded pill (\`rounded-full\`), border (\`border-white/20\`), transparent background.
+- **Mobile Menu:** Hamburger icon (\`md:hidden\`) that triggers a full-screen, glassmorphic overlay (\`backdrop-blur-xl bg-[#0B0A1A]/95\`) containing large serif vertical links and a primary button.
+
+### B. Hero Section (\`Hero.jsx\`)
+- **Video Background:** Absolute positioned covering the screen (\`absolute inset-0 w-full h-full object-cover -z-10\`).
+- **Video Source URL:** \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/night_light_hero_bg.mp4\`
+- **Readability Overlays:** 
+  - Left Gradient: \`bg-gradient-to-r from-[#0B0A1A] via-[#0B0A1A]/20 to-transparent\` covering the entire screen.
+- **Typography Hierarchy:**
+  - Kicker: "STRATEGY. INSIGHT. IMPACT." (uppercase, \`text-primary\`, \`tracking-[0.2em]\`, text-sm).
+  - Title: "Clarity Today. Stronger Tomorrow." (\`text-4xl md:text-6xl\`, serif, white).
+  - Paragraph: "We partner with leaders to solve complex challenges..." (\`text-lg md:text-xl\`, sans-serif, light weight, gray text).
+- **Primary CTA ("Explore How We Help"):** Purple background (\`bg-primary\`), moderate border radius (\`rounded-md\`), shadow glow (\`shadow-lg shadow-primary/20\`), flex-aligned with an ArrowRight icon.
+
+## 4. UI Components, Styling, & Micro-Interactions
+
+### Hover, Focus & Active States
+- **Nav Links:** Fade to pure white on hover (\`text-gray-300 hover:text-white transition-colors\`).
+- **Buttons:** 
+  - Primary CTA background shifts to \`#7F64E6\` on hover.
+  - Secondary CTA (Nav) background changes to \`bg-white/10\` on hover.
+  - Icons inside buttons feature an interactive translation: The right arrow translates right by 4px (\`group-hover:translate-x-1 transition-transform\`).
+
+### Scroll-Based Interactions
+- **Dynamic Navbar:** Begins completely transparent with massive vertical padding (\`py-6\`). When the user scrolls past 50px, the padding shrinks (\`py-4\`) and the background adopts a dark glassmorphism effect (\`bg-[#0B0A1A]/30 backdrop-blur-md border-b border-white/5\`). Transition duration is 300ms.
+
+## 5. Responsive Behavior (100% Accuracy)
+- **Mobile (< 768px):** Navbar desktop links vanish, replaced by a responsive Hamburger menu. Heading sizes scale down (\`text-4xl\` from \`text-6xl\`), and horizontal padding shrinks to \`px-6\`.
+- **Tablet (768px - 1024px):** Navbar links appear, Hero spacing utilizes medium breakpoints.
+- **Desktop (> 1024px):** Max-width constraints apply, padding expands to \`lg:px-8\`, typography reaches maximum scale. 
+
+## 6. Accessibility & Performance
+- **Accessibility:** Ensure all \`a\` tags and buttons have \`aria-label\` attributes where text is not explicit. Use semantic HTML5 (\`<nav>\`, \`<main>\`, \`<section>\`). SVG icons must have \`aria-hidden="true"\`.
+- **Performance:** Ensure the video has \`autoPlay\`, \`loop\`, \`muted\`, and \`playsInline\` attributes to function identically on iOS without pausing execution. Provide a solid fallback background color (\`#0B0A1A\`) before the video loads.
+- **SEO Requirements:** Proper hierarchical heading structure (one \`<h1>\` for the Hero, \`<h2>\` for subheadings).
+
+## 7. Technical Implementation Details
+
+### Architecture & Libraries
+- **Framework:** React.js (via Vite)
+- **Styling:** Tailwind CSS
+- **Icons:** \`lucide-react\` (specifically \`ArrowRight\`, \`Menu\`, \`X\` icons).
+- **File Structure:**
+  - \`src/App.jsx\` (Orchestrates layouts)
+  - \`src/index.css\` (Handles \`@tailwind\` imports, base Google Fonts, and custom utilities)
+  - \`src/components/Navbar.jsx\` (Stateful component for scroll/mobile menu)
+  - \`src/components/Hero.jsx\` (Stateless layout containing video and typography)
+
+Execute these instructions precisely to generate the complete codebase.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmask Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780928810916-Unmask_hero.webp" alt="Unmask Hero preview" onerror="this.style.display='none'">
+        <div class="badge">Hero • Premium</div>
+        <h1>Unmask Hero</h1>
+        <p class="desc">A premium, interactive futuristic fashion hero layout showcasing bold cinematic typography and dynamic cursor-reveal image effects.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">unmask_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># Luxury Futuristic Fashion Hero Section Specification
+
+## AI System Instructions & Objective
+**Role:** You are an expert front-end developer and UI/UX engineer specializing in React, Tailwind CSS, and Framer Motion.
+**Objective:** Your task is to implement the "ASTERION" luxury futuristic fashion website hero banner and navigation exactly as specified in this document.
+**Instructions:** 
+1. Read through this entire specification carefully to understand the design system and motion requirements.
+2. Build the layout, styling, and complex interactive animations step-by-step according to the provided requirements.
+3. Ensure the code is production-ready, fully responsive, and strictly adheres to the technical stack defined below.
+
+
+## 1. Technical Architecture & Setup
+
+### Stack Requirements
+- **Build Tool:** Vite
+- **Framework:** React 19+
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4 (using \`@tailwindcss/vite\` plugin)
+- **Animation Library:** Framer Motion (\`framer-motion\`)
+- **Icons:** Lucide React (\`lucide-react\`)
+
+### Configuration & Global Styles (\`index.css\`)
+Tailwind v4 requires configuring custom theme tokens directly via the \`@theme\` directive in the main CSS file.
+
+\`\`\`css
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+@theme {
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-luxury-black: #050505;
+  --color-luxury-white: #fafafa;
+  --color-luxury-gray: #a3a3a3;
+}
+
+body {
+  @apply bg-luxury-black text-luxury-white font-sans antialiased overflow-x-hidden;
+  margin: 0;
+  padding: 0;
+}
+\`\`\`
+
+---
+
+## 2. Visual Design System
+
+### Color Palette
+- **Primary Background (Luxury Black):** \`#050505\` (RGB: 5, 5, 5)
+- **Primary Text (Luxury White):** \`#fafafa\` (RGB: 250, 250, 250)
+- **Secondary Text/Accents (Luxury Gray):** \`#a3a3a3\` (RGB: 163, 163, 163)
+- **Overlay Tints:** \`rgba(0,0,0,0.4)\` (Desktop overlay), \`rgba(0,0,0,0.6)\` (Mobile overlay), \`rgba(0,0,0,0.95)\` (Mobile Menu background)
+
+### Typography
+- **Primary Display Font:** \`Cinzel\` (Serif)
+  - Used for: Logo, Main Headline ("BEYOND VISION"), Slide Indicators.
+  - Weights: Light (300) to Bold (700).
+- **Secondary UI Font:** \`Inter\` (Sans-serif)
+  - Used for: Navigation links, Subheadlines, Descriptions, Buttons.
+  - Weights: Light (300) to Medium (500).
+
+---
+
+## 3. Layout Structure & Grid System
+
+- **Hero Container:** \`100vh\` full screen, relative positioning, hidden overflow, flex column layout.
+- **Content Wrapper:** Absolute \`z-10\`, \`max-w-7xl\` centered with \`mx-auto\`, padded horizontally (\`px-6 lg:px-12\`).
+- **Main Grid:** A 2-column grid (\`grid-cols-1 lg:grid-cols-2\`). The left column contains the typography; the right column is conceptually left empty for the image, though the images are positioned absolutely in the background layers.
+- **Images Container Alignment:** Images are constrained to the right 50% of the screen on desktop (\`lg:w-1/2 lg:ml-auto lg:pr-15\`) and scaled using \`object-contain object-right\` to ensure the "full head" is visible and appropriately padded. On mobile, images take up full width (\`w-full\`).
+
+---
+
+## 4. Section-by-Section Component Specifications
+
+### A. Navigation Bar (\`<nav>\`)
+- **Placement:** Top of the screen, transparent, padding \`py-6 md:py-8\`.
+- **Logo (Left):** "ASTERION", \`Cinzel\` font, \`text-xl md:text-2xl\`, \`font-bold\`, \`tracking-widest\`.
+- **Desktop Links (Center):** Hidden on mobile (\`hidden md:flex\`), spaced by \`space-x-8 lg:space-x-12\`. Links: HOME, SHOP, COLLECTIONS, ABOUT, CONTACT. Text is \`luxury-gray\`, \`text-xs lg:text-sm\`, \`tracking-widest\`.
+- **Icons (Right):** Lucide \`Search\`, \`User\`, \`ShoppingBag\` (size 20). \`luxury-gray\` transitioning to white on hover. Hidden on mobile.
+- **Mobile Toggle:** Hamburger \`Menu\` and \`X\` toggle (Lucide, size 24), visible only on mobile.
+
+### B. Mobile Navigation Overlay
+- **Trigger:** Toggled via the hamburger menu.
+- **Layout:** Fixed full screen (\`inset-0\`), \`bg-luxury-black/95\`, with \`backdrop-blur-md\`.
+- **Items:** Large, stacked links using \`Cinzel\`, \`text-2xl\`, \`tracking-widest\`.
+
+### C. Left Column: Typography & Content
+- **Label:** "NEW COLLECTION" (\`text-[10px] md:text-xs\`, \`uppercase\`, \`tracking-[0.3em]\`, \`text-luxury-gray\`, \`mb-4 md:mb-6\`).
+- **Main Headline:** "BEYOND VISION" 
+  - Size: \`text-6xl md:text-7xl lg:text-9xl\`. 
+  - Font: \`Cinzel\`, \`font-light\`.
+  - Leading: \`leading-[0.9]\`.
+  - Tracking: \`tracking-tight\`.
+- **Subheadline:** "WEAR THE FUTURE" (\`text-lg md:text-xl lg:text-2xl\`, \`Inter\`, \`font-light\`, \`tracking-widest\`, \`text-luxury-gray\`, \`mb-6 md:mb-8\`).
+- **Description:** "Sculpted in silver. Inspired by tomorrow. Futuristic eyewear and accessories for those who lead the future." (\`text-xs md:text-sm lg:text-base\`, \`leading-relaxed\`, \`text-luxury-gray\`, \`max-w-sm\`).
+- **CTA Button:** "EXPLORE COLLECTION" (\`text-[10px] md:text-xs\`, \`uppercase\`, \`tracking-[0.2em]\`, \`font-medium\`). Contains a right-pointing arrow (\`ArrowRight\` from Lucide, size 16).
+
+### D. Right Slide Indicators (Desktop Only)
+- **Position:** Absolute right center (\`top-1/2 -translate-y-1/2\`, \`right-6 lg:right-12\`), flex column.
+- **Elements:** "01" (white), an animated vertical white line segment spanning a \`h-16 bg-white/20\` track, "02" (gray), "03" (gray). Font: \`Cinzel text-xs\`.
+
+### E. Background & Interactive Images
+- **Base Image:** Default foreground fashion shot (\`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/foreground_hover.png\`).
+  - Overlay: \`bg-black/60\` on mobile, \`bg-black/40\` on desktop.
+- **Hover Reveal Image:** Hidden futuristic eye shot (\`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/background_eye.png\`). Masked by the cursor tracking element.
+
+---
+
+## 5. Motion Design & Micro-Interactions
+
+### Easing Curve
+- **Luxury Easing Signature:** \`ease: [0.16, 1, 0.3, 1]\`. All major layout transitions should use this cinematic cubic bezier.
+
+### Cursor Reveal Mask Effect (CRITICAL)
+- **Mechanic:** A cinematic "flashlight/scratch" effect revealing the second image.
+- **Tracking:** Use Framer Motion's \`useMotionValue\` attached to the container's \`onMouseMove\` event to calculate cursor \`clientX/clientY\` minus container bounds.
+- **Spring Physics:** Apply \`useSpring\` to the mouse coordinates with \`stiffness: 250, damping: 30\` to guarantee 60 FPS, silky smooth latency-free trailing.
+- **Mask Property:** Bind \`WebkitMaskImage\` and \`maskImage\` to a \`useMotionTemplate\`. The radial gradient should be:
+  \`radial-gradient(circle 220px at \${springX}px \${springY}px, black 0%, black 60%, transparent 100%)\`
+
+### Split-Text Reveal Animation
+- **Target:** "BEYOND" and "VISION" headline text.
+- **Structure:** Words must be wrapped in \`overflow-hidden\` containers with \`pb-1 md:pb-2\`.
+- **Animation:** The string is split into an array of individual letters. Each letter animates from \`y: "120%", opacity: 0\` to \`y: "0%", opacity: 1\` over \`1.2s\` using the luxury easing.
+- **Stagger:** Letters stagger in sequentially with \`staggerChildren: 0.08\`.
+
+### Staggered Entrance
+- **Target:** The main left-column content blocks (Label -> Headline -> Subhead -> Paragraph -> Button).
+- **Animation:** Start \`opacity: 0, y: 30\`, animate to \`opacity: 1, y: 0\`.
+- **Timing:** Duration \`0.8s\`, staggered by \`0.2s\` increments with an initial delay of \`0.3s\`.
+
+### Ambient Particles
+- Generate 20 floating white circles (\`opacity-30\`, variable sizes 1-3px) scattered randomly via absolute positioning.
+- Animate \`y: [0, -20, 0]\` and \`opacity: [0.1, 0.5, 0.1]\` on an infinite loop with random durations between \`3s\` and \`5s\`.
+
+### Hover States
+- **Nav Links:** Color transition from \`text-luxury-gray\` to \`text-white\`.
+- **CTA Button:** On hover, scale to \`1.05\`, apply text shadow \`0px 0px 8px rgba(255,255,255,0.8)\`. The decorative line beneath the text transitions from \`bg-white/30\` to \`bg-white\`, and the right arrow translates \`4px\` to the right.
+
+### Mobile Navigation Animation
+- Wrap the overlay in Framer Motion's \`<AnimatePresence>\`.
+- Overlay fades in/out (\`opacity: 0\` -> \`1\`).
+- Individual mobile links slide up (\`y: 20\` -> \`0\`) staggered using \`transition={{ delay: 0.1, 0.2, ... }}\`.
+
+---
+
+## 6. Performance Optimization Requirements
+
+1. **React State & Render Isolation:** The heavy mouse tracking logic relies purely on Framer Motion's \`useMotionValue\`, bypassing React state re-renders entirely to ensure a buttery smooth 60fps frame rate without re-rendering the component tree.
+2. **GPU Acceleration:** The mask tracking and scale animations use \`transform\` and CSS mask properties natively optimized by the browser compositor.
+3. **Responsive Images:** The image \`opacity\` and \`object-contain\` rules dynamically shift based on CSS breakpoints without needing JS recalculations.
+
+---
+
+## 7. Expected Final Result
+The final output should be a highly polished, responsive hero banner that feels like an interactive editorial campaign for a brand like Balenciaga or Gentle Monster. The implementation must meticulously copy the split-text timing, the exact cursor flashlight mechanics, and the dark, luxurious typography hierarchies described above.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

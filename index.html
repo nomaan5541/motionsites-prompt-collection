@@ -512,6 +512,23 @@
         .card-visual .deco-2 { width: 90px; height: 90px; bottom: 10%; left: 10%; }
         .card-visual .deco-3 { width: 50px; height: 50px; top: 30%; left: 60%; opacity: 0.2; }
 
+
+        /* Preview Image in Card */
+        .card-visual .preview-img-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.85;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+        }
+        .card:hover .card-visual .preview-img-bg {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
         .card-visual .hover-play {
             position: absolute;
             inset: 0;
@@ -1095,7 +1112,13 @@
         'SaaS': 'cat-saas', 'Agency': 'cat-agency', 'Portfolio': 'cat-portfolio',
         'Fintech': 'cat-fintech', 'Web3': 'cat-web3', 'Landing Page': 'cat-landing',
         'E-commerce': 'cat-ecommerce', 'Component': 'cat-component',
-        'Automotive': 'cat-automotive', 'Premium': 'cat-premium'
+        'Automotive': 'cat-automotive', 'Premium': 'cat-premium',
+        'Hero': 'cat-saas', 'Pricing': 'cat-fintech', 'Features': 'cat-landing',
+        'Testimonials': 'cat-portfolio', 'Footer': 'cat-component', 'FAQ': 'cat-web3',
+        'Resort': 'cat-landing', 'Real-estate': 'cat-automotive', 'Restaurant': 'cat-ecommerce',
+        'Travel': 'cat-agency', 'Finance': 'cat-fintech', 'Ecommerce': 'cat-ecommerce',
+        'Product': 'cat-landing', 'Auto': 'cat-automotive', 'Corporate': 'cat-saas',
+        'Courses': 'cat-component',
     };
 
     const demos = [
@@ -1166,41 +1189,102 @@
         { name: "Weblex_Dark_Hero", title: "Weblex Dark Hero", cat: "Landing Page", type: "Hero Section" },
         { name: "xPortfolio_Hero", title: "xPortfolio Hero", cat: "Portfolio", type: "Hero Section" },
         { name: "MotionZ_Premium", title: "MotionZ Premium", cat: "Premium", type: "Landing Page", premium: true },
-        { name: "Zenith", title: "Zenith", cat: "E-commerce", type: "Landing Page", premium: true },
-        { name: "Intelligence", title: "Intelligence", cat: "Agency", type: "Landing Page", premium: true },
-        { name: "Prism", title: "Prism", cat: "Corporate", type: "Landing Page", premium: true },
-        { name: "Valley", title: "Valley", cat: "Agency", type: "Landing Page", premium: true },
-        { name: "Vinzo", title: "Vinzo", cat: "E-commerce", type: "Landing Page", premium: true },
-        { name: "Lobstreet", title: "Lobstreet", cat: "Restaurant", type: "Landing Page", premium: true },
-        { name: "Digistudio", title: "Digistudio", cat: "Agency", type: "Landing Page" },
-        { name: "Spaceup", title: "Spaceup", cat: "Agency", type: "Landing Page", premium: true },
-        { name: "Redge", title: "Redge", cat: "Portfolio ", type: "Landing Page", premium: true },
-        { name: "Kintaro", title: "Kintaro", cat: "Restaurant", type: "Landing Page", premium: true },
-        { name: "Outbox", title: "Outbox", cat: "SaaS", type: "Landing Page" },
-        { name: "Crush", title: "Crush", cat: "E-commerce", type: "Landing Page", premium: true },
-        { name: "Hublot_Watches", title: "Hublot Watches", cat: "E-commerce", type: "Landing Page", premium: true },
-        { name: "CodeYoung", title: "CodeYoung", cat: "Courses", type: "Landing Page", premium: true },
-        { name: "Oynta", title: "Oynta", cat: "Agency", type: "Landing Page" },
-        { name: "Skyway", title: "Skyway", cat: "Travel", type: "Landing Page", premium: true },
-        { name: "Zedian", title: "Zedian", cat: "Portfolio", type: "Landing Page" },
-        { name: "Infine", title: "Infine", cat: "Agency", type: "Landing Page", premium: true },
-        { name: "Northline", title: "Northline", cat: "Real-estate", type: "Landing Page" },
-        { name: "Pinehaven", title: "Pinehaven", cat: "Resort", type: "Landing Page" },
-        { name: "Naturally", title: "Naturally", cat: "Ecommerce", type: "Landing Page" },
-        { name: "Arise", title: "Arise", cat: "Finance", type: "Landing Page" },
-        { name: "Ninjas", title: "Ninjas", cat: "Agency", type: "Landing Page", premium: true },
-        { name: "Eathan_Portfolio", title: "Eathan Portfolio", cat: "Portfolio", type: "Landing Page" },
-        { name: "Ashley", title: "Ashley", cat: "Portfolio ", type: "Landing Page", premium: true },
-        { name: "WorldView_SaaS", title: "WorldView SaaS", cat: "SaaS", type: "Landing Page", premium: true },
-        { name: "Bali", title: "Bali", cat: "Travel", type: "Landing Page", premium: true },
-        { name: "Pixzen", title: "Pixzen", cat: "SaaS", type: "Landing Page" },
-        { name: "Basilico_Restaurant", title: "Basilico Restaurant", cat: "Restaurant", type: "Landing Page" },
-        { name: "Wnderly_Travel", title: "Wnderly Travel", cat: "Travel", type: "Landing Page" },
-        { name: "luxury_watch", title: "luxury watch", cat: "Product", type: "Landing Page" },
-        { name: "Elevate", title: "Elevate", cat: "Travel", type: "Landing Page", premium: true },
-        { name: "EvvyDigital", title: "EvvyDigital", cat: "SaaS", type: "Landing Page", premium: true },
-        { name: "Car_Shine", title: "Car Shine", cat: "Auto", type: "Landing Page" },
-        { name: "Luxury_Real_Estate", title: "Luxury Real Estate", cat: "Real-estate", type: "Landing Page" },
+        { name: "Zenith", title: "Zenith", cat: "E-commerce", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783020930590-zenith_website.webp" },
+        { name: "Intelligence", title: "Intelligence", cat: "Agency", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782987911035-Intelligence_website.webp" },
+        { name: "Prism", title: "Prism", cat: "Corporate", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782970892447-prism_website.webp" },
+        { name: "Valley", title: "Valley", cat: "Agency", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782932520058-valley_website.webp" },
+        { name: "Vinzo", title: "Vinzo", cat: "E-commerce", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782910410654-vinzo_website.webp" },
+        { name: "Lobstreet", title: "Lobstreet", cat: "Restaurant", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782908328641-lobstreet_website.webp" },
+        { name: "Digistudio", title: "Digistudio", cat: "Agency", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782890465994-Digistudio_website.webp" },
+        { name: "Spaceup", title: "Spaceup", cat: "Agency", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782880936906-spaceup_website.webp" },
+        { name: "Redge", title: "Redge", cat: "Portfolio ", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782874980226-redge_website.webp" },
+        { name: "Kintaro", title: "Kintaro", cat: "Restaurant", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782830319669-kintaro_website.webp" },
+        { name: "Outbox", title: "Outbox", cat: "SaaS", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782827948269-outbox_website.webp" },
+        { name: "Crush", title: "Crush", cat: "E-commerce", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782817157435-crush_website_1.webp" },
+        { name: "Hublot_Watches", title: "Hublot Watches", cat: "E-commerce", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782788815855-hublot-watches.webp" },
+        { name: "CodeYoung", title: "CodeYoung", cat: "Courses", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781673039780-CodeYoung_Website.webp" },
+        { name: "Oynta", title: "Oynta", cat: "Agency", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781667226626-Oynta_Website.webp" },
+        { name: "Skyway", title: "Skyway", cat: "Travel", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781661103945-Skyway_Website.webp" },
+        { name: "Zedian", title: "Zedian", cat: "Portfolio", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781658431047-Zedian_Website.webp" },
+        { name: "Infine", title: "Infine", cat: "Agency", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781633570000-Infine_Website.webp" },
+        { name: "Northline", title: "Northline", cat: "Real-estate", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781622767208-Northline_Website.webp" },
+        { name: "Pinehaven", title: "Pinehaven", cat: "Resort", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781621414423-pinehaven_resort.webp" },
+        { name: "Naturally", title: "Naturally", cat: "Ecommerce", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781615010671-Naturally_Website.webp" },
+        { name: "Arise", title: "Arise", cat: "Finance", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781614242892-Araise_Website.webp" },
+        { name: "Ninjas", title: "Ninjas", cat: "Agency", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781612917716-Ninjas_Website.webp" },
+        { name: "Eathan_Portfolio", title: "Eathan Portfolio", cat: "Portfolio", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781598113945-Eathan_Portfolio.webp" },
+        { name: "Ashley", title: "Ashley", cat: "Portfolio ", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781540812042-Ashley_Portfolio.webp" },
+        { name: "WorldView_SaaS", title: "WorldView SaaS", cat: "SaaS", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781535135765-WorldView_website.webp" },
+        { name: "Bali", title: "Bali", cat: "Travel", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781526573377-Bali_travel.webp" },
+        { name: "Pixzen", title: "Pixzen", cat: "SaaS", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781522720269-Pixzen.webp" },
+        { name: "Basilico_Restaurant", title: "Basilico Restaurant", cat: "Restaurant", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781521132099-basilico_restaurant.webp" },
+        { name: "Wnderly_Travel", title: "Wnderly Travel", cat: "Travel", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780921512948-Wanderly-hero.webp" },
+        { name: "luxury_watch", title: "luxury watch", cat: "Product", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780917018587-Maison-watch.webp" },
+        { name: "Elevate", title: "Elevate", cat: "Travel", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780913749537-elevate.webp" },
+        { name: "EvvyDigital", title: "EvvyDigital", cat: "SaaS", type: "Landing Page", premium: true , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780908978678-evvydigital.webp" },
+        { name: "Car_Shine", title: "Car Shine", cat: "Auto", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780888756615-car-shine.webp" },
+        { name: "Luxury_Real_Estate", title: "Luxury Real Estate", cat: "Real-estate", type: "Landing Page" , img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780826949672-Luxonn.webp" },
+        { name: "Footer_-_Orbit", title: "Footer - Orbit", cat: "Footer", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783748002872-Footer-Orbit.webp" },
+        { name: "Features_-_Analytics", title: "Features - Analytics", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783744512448-Features-Analytics.webp" },
+        { name: "Pricing_-_Radiant", title: "Pricing - Radiant", cat: "Pricing", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783742630534-Pricing-Radiant.webp" },
+        { name: "Services_-_Lumina", title: "Services - Lumina", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783741514473-Services-Lumina.webp" },
+        { name: "Services_-_Cascade", title: "Services - Cascade", cat: "Features", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783739606843-Services-Cascade.webp" },
+        { name: "Pricing_-_Stacked", title: "Pricing - Stacked", cat: "Pricing", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783709659555-Pricing-Stack.webp" },
+        { name: "Services_-_Corporate_Edge", title: "Services - Corporate Edge", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783707494811-Services-Corporate.webp" },
+        { name: "Testimonials_-_Swing", title: "Testimonials - Swing", cat: "Footer", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783699715835-Testimonials-Swing.webp" },
+        { name: "Footer_-_Nexus_Parallax", title: "Footer - Nexus Parallax", cat: "Footer", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783698069093-Footer - Nexus Parallax.webp" },
+        { name: "Pricing_-_Predictable", title: "Pricing - Predictable", cat: "Pricing", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783681301421-Pricing-Predictable.webp" },
+        { name: "Services_-_Elegant", title: "Services - Elegant", cat: "Features", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783679225294-Services-Elegant.webp" },
+        { name: "Features_-_Kinetic", title: "Features - Kinetic", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783678415195-Features-Kinetic.webp" },
+        { name: "Testimonials_-_Dual_Marquee", title: "Testimonials - Dual Marquee", cat: "Testimonials", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783675302935-Testimonials-Dual Marquee.webp" },
+        { name: "Pricing_-_Luxury", title: "Pricing - Luxury", cat: "Pricing", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783673349001-Pricing-Luxury.webp" },
+        { name: "Services_-_Empower", title: "Services - Empower", cat: "Features", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783672648295-Services-Empower.webp" },
+        { name: "Footer_-_Elevated", title: "Footer - Elevated", cat: "Footer", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783672107224-Footer-Elevated.webp" },
+        { name: "Testimonials_-_Showcase", title: "Testimonials - Showcase", cat: "Testimonials", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783671552101-Testimonials-Showcase.webp" },
+        { name: "Services_-_Impact", title: "Services - Impact", cat: "Features", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783670976502-Services-Impact.webp" },
+        { name: "Pricing_-_Cosmic", title: "Pricing - Cosmic", cat: "Pricing", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783667561277-Pricing-Cosmic.webp" },
+        { name: "Features_-_Flow", title: "Features - Flow", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783666315897-Features-Flow.webp" },
+        { name: "FAQ_-_Insights", title: "FAQ - Insights", cat: "FAQ", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783665330293-FAQ-Insights.webp" },
+        { name: "Testimonials_-_Pulse_Slider", title: "Testimonials - Pulse Slider", cat: "Testimonials", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783662672303-Testimonials-Pulse-Slider.webp" },
+        { name: "Services_-_Horizontal", title: "Services - Horizontal", cat: "Features", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783649088673-Services-Horizontal.webp" },
+        { name: "Pricing_-_Brutalist", title: "Pricing - Brutalist", cat: "Pricing", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783646816439-Pricing-Bold-Flora.webp" },
+        { name: "Footer_-_Zenith", title: "Footer - Zenith", cat: "Footer", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783646185592-Zenith - Footer.webp" },
+        { name: "FAQ_–_Dark_Accordion", title: "FAQ – Dark Accordion", cat: "FAQ", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783644543120-FAQ – Dark Accordion.webp" },
+        { name: "Features_-_Vision", title: "Features - Vision", cat: "Features", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783623249428-features-section-02.webp" },
+        { name: "Rootara_Hero", title: "Rootara Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783042628872-rootara_hero.webp" },
+        { name: "Coinwise_Hero", title: "Coinwise Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783041696081-coinwise_hero.webp" },
+        { name: "Livarta_Interiors", title: "Livarta Interiors", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782997120033-livarta_hero.webp" },
+        { name: "Bloomora_Hero", title: "Bloomora Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782993525050-bloomora_hero.webp" },
+        { name: "My_portfolio", title: "My portfolio", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782992185168-my_portfolio_hero.webp" },
+        { name: "Callisto_Hero", title: "Callisto Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782980821296-callisto_hero.webp" },
+        { name: "Alto_Hero", title: "Alto Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782978903647-alto_hero.webp" },
+        { name: "Nextgen", title: "Nextgen", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782837239492-nextgen_hero.webp" },
+        { name: "Future_Carousel", title: "Future Carousel", cat: "Component", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781679053418-Future_Carousel.webp" },
+        { name: "Agentify_Hero", title: "Agentify Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781671943344-Agentify_Hero.webp" },
+        { name: "Genova_Hero", title: "Genova Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781670271708-Genova_Hero.webp" },
+        { name: "Lumina_Hero", title: "Lumina Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781668285105-Lumina Hero.webp" },
+        { name: "Futuristic_Hero", title: "Futuristic Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781667701353-Futuristic_Hero.webp" },
+        { name: "Wander_Hero", title: "Wander Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781631791578-Wander_Hero.webp" },
+        { name: "Aura_Hero", title: "Aura Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781631002825-Aura-Hero.webp" },
+        { name: "Northridge", title: "Northridge", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781629894749-Northridge_Hero.webp" },
+        { name: "EcoNexa", title: "EcoNexa", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781629150606-EcoNexa.webp" },
+        { name: "Cryptoniq_Hero", title: "Cryptoniq Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781623543589-Cryptoniq _Hero.webp" },
+        { name: "Green_Hero", title: "Green Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781576722868-Green_Hero.webp" },
+        { name: "Calm_Hero", title: "Calm Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781572621702-Calm_Hero.webp" },
+        { name: "Élysian_Hero", title: "Élysian Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781543033714-Élysian_Hero.webp" },
+        { name: "DeepDive_Hero", title: "DeepDive Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781539059359-DeepDive_Hero.webp" },
+        { name: "Assist_Hero", title: "Assist Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1781511492557-Assist_hero.webp" },
+        { name: "Aura_Hero", title: "Aura Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780942784023-Aura_Hero_2.webp" },
+        { name: "Adeora_Hero", title: "Adeora Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780938721997-Adeora_Hero.webp" },
+        { name: "Unmask_Hero", title: "Unmask Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780928810916-Unmask_hero.webp" },
+        { name: "Interactive_Hero", title: "Interactive Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780926743475-Quantum_hero.webp" },
+        { name: "3d_Animation_Hero", title: "3d Animation Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780924736414-exon_hero.webp" },
+        { name: "Luxury_chocolate", title: "Luxury chocolate", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780923122638-CHÂTEAU.webp" },
+        { name: "Nature_Immersive_Hero", title: "Nature Immersive Hero", cat: "Hero", type: "Section", premium: true, img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780915056003-Nature-hero.webp" },
+        { name: "Matrix_Cyberpunk_Animation", title: "Matrix Cyberpunk Animation", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780905700490-matrix.webp" },
+        { name: "Magnetic_cursor", title: "Magnetic cursor", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780796678491-fluxo-hero.webp" },
+        { name: "Interactive_3D_Hero", title: "Interactive 3D Hero", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780770873683-cripton-hero.webp" },
+        { name: "Gridline", title: "Gridline", cat: "Hero", type: "Section", img: "https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780758016415-gridline-hero.webp" },
 
     ];
 
@@ -1239,6 +1323,7 @@
         grid.innerHTML = filtered.map((d, i) => `
             <div class="card ${d.premium ? 'premium' : ''}" style="animation-delay: ${Math.min(i * 0.05, 0.6)}s">
                 <a href="/demos/${d.name}/" target="_blank" class="card-visual ${getCatClass(d.cat)}" data-letter="${d.title.charAt(0)}">
+                    ${d.img ? `<img class="preview-img-bg" src="${d.img}" alt="${d.title}" loading="lazy" onerror="this.style.display='none'">` : ''}
                     <div class="deco deco-1"></div>
                     <div class="deco deco-2"></div>
                     <div class="deco deco-3"></div>

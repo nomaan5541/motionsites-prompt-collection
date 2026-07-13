@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780942784023-Aura_Hero_2.webp" alt="Aura Hero preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Aura Hero</h1>
+        <p class="desc">This is a premium, luxury-minimalist hero section for Aura, an advanced AI clinical copilot designed with a sophisticated, Apple-inspired editorial aesthetic.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">aura_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># MASTER IMPLEMENTATION PROMPT — AI HEALTHCARE SaaS HERO SECTION (LUXURY MINIMAL EDITORIAL STYLE)
+
+Create a premium AI healthcare SaaS hero section. The design should feel elegant, intelligent, trustworthy, futuristic, and minimal while maintaining a luxury editorial aesthetic.
+
+The final experience should feel like a combination of Apple, OpenAI, Stripe, Linear, and a high-end luxury editorial publication.
+
+---
+
+## 1. TECH STACK (MANDATORY)
+
+Build using:
+* Vite
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* React Icons
+
+**Core Requirements:**
+* Ensure perfect responsive design across mobile, tablet, and desktop (\`sm\`, \`md\`, \`lg\`, \`xl\` breakpoints).
+* Use semantic HTML.
+* Organize into reusable React components (Navbar, HeroBadge, HeroHeading, HeroVideo, TrustIndicators, CTAButton).
+
+---
+
+## 2. DESIGN SYSTEM & AESTHETICS
+
+### Color Palette (Precise Hex Codes)
+* **Main Background:** \`#F5F5F7\` (Light, Apple-esque gray)
+* **Primary Typography:** \`#0A0A0A\` (Near black for stark contrast)
+* **Secondary Typography:** \`#5B5B65\` (Sophisticated muted gray)
+* **Primary Brand Accent:** \`#4F46E5\` (Deep Indigo, used sparingly on the logo mark)
+* **Borders & Dividers:** \`rgba(0, 0, 0, 0.08)\`
+* **Primary Button Background:** \`#111111\` or \`#0A0A0A\` (Text: \`#FFFFFF\`)
+* **Badge/Tag Background:** \`rgba(229, 231, 235, 0.5)\` with \`backdrop-blur-sm\`
+
+### Typography
+* **Headings:** \`Cormorant Garamond\` (or similar luxury serif like \`Playfair Display\`).
+  * Weight: \`500\` (Medium)
+  * Line Height: \`1.05\`
+  * Tracking/Letter Spacing: \`-0.04em\` (Tight, editorial feel)
+  * Sizing: \`text-[44px]\` (Mobile) -> \`sm:text-[56px]\` -> \`md:text-[72px]\` -> \`lg:text-[96px]\` (Desktop).
+* **Body/UI:** \`Inter\` (Clean, geometric sans-serif).
+  * Weight: \`400\` (Regular) and \`500\` (Medium for UI elements like buttons/nav).
+  * Letter Spacing: Tight tracking on UI elements.
+
+---
+
+## 3. LAYOUT & HIERARCHY
+
+### 3.1. Navigation Bar
+* **Position:** Fixed to top (\`z-50\`), full width.
+* **Background:** \`#F5F5F7/80\` with \`backdrop-blur-md\` and a 1px border bottom \`border-[rgba(0,0,0,0.08)]\`.
+* **Logo Area:** Left-aligned. Text "Aura" (Font: Inter, Medium, \`text-xl\`). Include an SVG "spark" or modern geometric star icon colored in \`#4F46E5\`.
+* **Desktop Links:** Centered (\`hidden md:flex\`). Links: "Product", "Story", "Use Cases". \`text-sm\`, \`font-medium\`, text \`#5B5B65\`. Add a 1px black underline that expands on hover (\`group-hover:w-full\`).
+* **Desktop Actions:** Right-aligned. "Sign In" link (hover: opacity 70%) and a solid white "Book a Demo" button with a light black border.
+* **Mobile Nav:** Hamburger menu toggle (\`react-icons\` or SVG). When clicked, slides down a full-screen overlay (\`bg-[#F5F5F7]\`) powered by \`framer-motion\` (\`AnimatePresence\`) displaying the links and a large black CTA button.
+
+### 3.2. Hero Section
+* **Spacing:** Padding top \`pt-36\` or \`pt-40\` to clear the navbar, \`px-6\` for mobile padding.
+* **Content Alignment:** Center-aligned text and elements. Max-width container to prevent stretching.
+
+### 3.3. Hero Components Top-to-Bottom
+1. **Hero Badge:** 
+   * Pill shape, inline-flex.
+   * Text: "The future of AI in behavioral health" (\`text-xs font-medium text-[#5B5B65]\`).
+   * Styling: \`bg-[#E5E7EB]/50\`, \`backdrop-blur-sm\`, \`border-[rgba(0,0,0,0.08)]\`, rounded full.
+2. **Hero Heading:**
+   * Text: "Smarter clinical notes.<br />Meet Aura."
+   * Styling: Uses the editorial serif font, centered, extremely tight letter spacing.
+3. **Hero Subtitle:**
+   * Text: "Aura is the advanced AI copilot for healthcare professionals. Streamline your clinical workflows and dedicate more time to delivering exceptional patient care."
+   * Styling: \`text-lg md:text-xl text-[#5B5B65] leading-relaxed max-w-[700px] mt-8\`.
+4. **Primary CTA:**
+   * Text: "Book a Demo"
+   * Styling: Solid black (\`#111111\`), rounded-xl, padding \`px-8 py-4\`, \`text-white font-medium\`.
+5. **Hero Video (The Centerpiece):**
+   * Video URL: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_video_head.mp4?utm_source=chatgpt.com\`
+   * Container Sizing: \`max-w-[640px]\` wide with an exact aspect ratio of \`aspect-[640/594]\`.
+   * Margins: Negative top margin \`mt-6 md:mt-10\` to sit tightly under the CTA.
+   * **Critical Video Effects:** 
+     * Apply \`mix-blend-darken\` to the \`<video>\` element so its white background perfectly blends into the \`#F5F5F7\` page background.
+     * Apply a CSS mask to the wrapper: \`maskImage: 'radial-gradient(ellipse at center, black 65%, transparent 100%)'\` to seamlessly fade out the extreme outer edges.
+   * **Background Glow:** Place an absolute positioned \`600x600px\` white circle with \`blur-[100px]\` and \`opacity-40\` directly behind the video to give it a soft, ethereal backglow.
+6. **Trust Indicators:**
+   * 4 items: HIPAA Compliant, Secure Infrastructure, AI Assisted Documentation, Trusted by Clinics.
+   * Icons: React Icons (\`BsShieldCheck\`, \`BsLock\`, \`BsRobot\`, \`BsBuildings\`).
+   * Layout: Flex row, wrap on mobile, gap 8.
+   * Styling: \`text-sm text-[#5B5B65] font-medium\`, centered beneath the video.
+
+---
+
+## 4. ANIMATIONS & MICRO-INTERACTIONS (Framer Motion)
+
+* **Initial Page Load:**
+  * Navbar: Slides down (\`y: -20\` to \`0\`), \`opacity: 0\` to \`1\` over \`0.8s\` easeOut.
+  * Hero Content: Use \`staggerChildren: 0.1\` on a parent container. Each child (Badge, Heading, Subtitle, CTA, Video, Trust Indicators) fades up (\`y: 20\` to \`0\`, \`opacity: 0\` to \`1\`) over \`0.8s\` easeOut.
+* **Continuous Floating Effect:**
+  * The entire Hero Video container should gently float infinitely using Framer Motion: \`animate={{ y: [0, -10, 0] }}\`, \`transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}\`.
+* **Hover States:**
+  * Nav links: Underline expands from 0 to 100% width.
+  * Buttons: Hover scales down slightly (\`scale: 0.98\`) or changes opacity/background color gently.
+
+---
+
+## 5. TECHNICAL DETAILS
+
+* **SEO & Accessibility:**
+  * Use proper \`<nav>\`, \`<header>\`, \`<main>\`, and \`<h1>\` tags.
+  * Ensure buttons have \`aria-label\` where text isn't descriptive.
+  * Video must have \`autoPlay\`, \`muted\`, \`loop\`, and \`playsInline\` attributes.
+* **Performance:** 
+  * Ensure the video is the only heavy asset. No heavy CSS frameworks outside of Tailwind.
+* **Tailwind Config:** 
+  * Add the custom fonts (\`editorial\`, \`inter\`) to the tailwind configuration extending the theme.
+
+**Execution:** Provide all code in modular files (\`Navbar.tsx\`, \`Hero.tsx\`, \`HeroVideo.tsx\`, etc.), combining them in \`App.tsx\` or \`index.tsx\`. Ensure it looks pixel-perfect out of the box with zero additional configuration.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

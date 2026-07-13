@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloomora Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1782993525050-bloomora_hero.webp" alt="Bloomora Hero preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Bloomora Hero</h1>
+        <p class="desc">A visually immersive hero section featuring a full-screen video background, elegantly centered typography, and an animated circular badge accent.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">bloomora_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc">Create a world-class, premium luxury travel landing page named "Elevate". The website must be a cinematic, highly interactive, and immersive experience that blends the aesthetics of Apple, Awwwards-winning sites, and ultra-luxury brands. It must feel boundless, aspirational, and meticulously crafted.
+
+## Technology Stack
+- **Framework**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS (v3.4+)
+- **Animation Engines**: 
+  - Framer Motion (v12) for layout transitions, scroll reveals, and shared layout modal expansions.
+  - GSAP (v3.15) for high-performance mouse parallax effects and continuous background looping animations.
+- **Scrolling**: Lenis (v1.3) for buttery-smooth native scroll hijacking.
+- **Icons**: React Icons (\`react-icons/pi\` for Phosphor thin/fill icons, \`react-icons/hi\` for Heroicons).
+
+---
+
+## Design System
+
+### Color Palette
+- **Primary Backgrounds**: Deep blacks and charcoal.
+  - \`#000000\` (Pure Black) for main sections.
+  - \`#0a0a0a\` and \`#0c0c0c\` for subtle depth and modal backgrounds.
+- **Text & Foreground**: 
+  - Pure White (\`#ffffff\`) for primary headings.
+  - Translucent Whites (\`rgba(255,255,255, 0.4)\` to \`0.8\`) for body text, subtitles, and borders.
+- **Glassmorphism Theme**: 
+  - Core utility class structure used across UI: \`bg-white/5 backdrop-blur-xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.2)]\`.
+
+### Typography
+- **Primary Serif (Headings, Quotes, Logo)**: \`Playfair Display\`
+  - Weights: Light (300), Regular (400), Medium (500).
+- **Secondary Sans-Serif (Body, UI, Metadata)**: \`Inter\`
+  - Weights: Light (300), Medium (500).
+- **Key Sizing**:
+  - Hero Headline: \`text-[clamp(3rem,8vw,112px)]\` with \`leading-[0.9]\` and \`font-medium\`.
+  - Eyebrows: \`text-sm uppercase tracking-[0.25em] font-medium\`.
+  - Footer Massive Text: \`text-[15vw] leading-none tracking-tighter\`.
+
+---
+
+## Layout & Content Architecture
+
+### 1. Global Navigation (\`Navigation.tsx\`)
+- **Desktop Layout**: 
+  - Fixed at \`top-6\`, perfectly centered using Framer Motion (\`x: "-50%"\`). Width \`90%\`, max \`1400px\`.
+  - Fully frosted glassmorphism pill shape (\`rounded-3xl\`).
+  - **Left**: Logo "Elevate." (Playfair) alongside an airplane icon (\`PiAirplaneTiltFill\`).
+  - **Center**: Absolute centered links ("Home", "Destinations", "Experiences", "Stories", "About").
+  - **Right**: "Start Your Journey" glass button with hover arrow translation.
+- **Mobile Navigation**:
+  - Replaces desktop links with a hamburger menu.
+  - **Interaction**: Clicking triggers a full-screen, deep black glassmorphism overlay (\`AnimatePresence\`). Menu links stagger-fade in from the left. Body scroll is locked.
+  - Clicking any link smoothly scrolls to the anchor ID and closes the menu.
+
+### 2. Cinematic Hero Section (\`Hero.tsx\`)
+- **Container**: \`100vh min-h-[700px]\`, relative, overflow hidden.
+- **Video Background (\`VideoBackground.tsx\`)**:
+  - URL: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_bg_clouds.mp4\`
+  - Overlays: A 25% black layer, a vertical gradient (dark top to clear to dark bottom), and a radial warm glow (\`rgba(255,220,180,0.35)\`) mimicking a sun bloom.
+  - GSAP Animation: Infinite slow zoom (\`scale: 1.05\` to \`1.15\`) over 40s with \`yoyo: true\`.
+- **Flight Image Overlay**:
+  - URL: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_flight.png\`
+  - GSAP Animation: Subtle floating \`x: 50, y: -20\` over 8s with \`yoyo: true\`. Drop shadow added for depth.
+- **Typography (\`AnimatedHeadline.tsx\`)**:
+  - Headline: "Rise Above Ordinary". 
+  - Framer Motion spring animation: Each character staggers in from \`y: 100\` with \`type: 'spring', damping: 20, stiffness: 100\`.
+- **Mouse Parallax**:
+  - Uses \`gsap.quickTo\` mapped to \`window.addEventListener('mousemove')\`.
+  - Headline translates inversely to mouse (-30%). Video translates with mouse (50%). Buttons translate inversely (-20%).
+- **Scroll Indicator**: Bouncing mouse icon at the bottom center.
+
+### 3. Curated Destinations (\`Destinations.tsx\`)
+- **Layout**: Horizontal snap-scrolling gallery (\`flex overflow-x-auto snap-x\`). 
+- **Cards**: Large cinematic portrait cards (\`h-[600px] min-w-[400px]\`). Dark gradient overlay at the bottom.
+- **Hover State**: Image scales slowly (\`duration-1000\`), gradient darkens, text translates up slightly.
+- **Expanding Modal Interaction**:
+  - Powered by Framer Motion \`layoutId\` (shared layout).
+  - Clicking a card seamlessly morphs it into a massive, centered modal (\`max-w-6xl h-[850px]\`) wrapped in a React \`createPortal\` with \`z-[9999]\`.
+  - The image anchors to the left half, content fades into the right half.
+  - A detached close button (\`PiXThin\`) fades in at \`fixed top-12 right-12\`.
+- **Images (Unsplash)**:
+  - Santorini: \`https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=1200&q=80\`
+  - Swiss Alps: \`https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1200&q=80\`
+  - Maldives: \`https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80\`
+  - Kyoto: \`https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80\`
+
+### 4. The Elevate Difference (\`Experiences.tsx\`)
+- **Layout**: Sticky Parallax Split-Screen.
+- **Desktop**: Left side \`lg:sticky lg:top-0 h-screen\` containing massive serif headings ("Redefining Luxury Travel"). Right side scrolls vertically through large, staggered images.
+- **Mobile**: Breaks down to a standard vertically stacked layout.
+- **Images (Unsplash)**:
+  - Private Aviation: \`https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&q=80\`
+  - Exclusive Retreats: \`https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80\`
+  - Curated Itineraries: \`https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80\`
+
+### 5. Member Stories (\`Stories.tsx\`)
+- **Layout**: Minimalist typography carousel. No cards or borders.
+- **Visuals**: A massive background quotation mark (\`text-8xl md:text-[150px] text-white/30\`).
+- **Interaction**: Quotes fade up and out automatically every 6 seconds using \`AnimatePresence\`. Small dot indicators at the bottom to switch quotes manually.
+
+### 6. Our Philosophy (\`About.tsx\`)
+- **Layout**: 2-column flexbox (image left, text right).
+- **Features**: A high-end Unsplash image (\`https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1200&q=80\`), elegant manifesto text, and a bottom border stats row (15+ Years, 200 Partners, 24/7 Concierge).
+
+### 7. Start Your Journey (\`StartJourney.tsx\`)
+- **Layout**: Massive, centered glassmorphism block (\`rounded-[3rem] p-24\`).
+- **Visuals**: A pure white glowing bloom placed absolutely behind the text using \`bg-white/20 blur-[120px]\`.
+- **Button**: A primary CTA button featuring a hover fill effect (a pseudo-element scaling in from the left).
+
+### 8. Footer (\`Footer.tsx\`)
+- **Layout**: Minimalist 4-column top grid (Brand, Newsletter, Destinations Links, Company Links).
+- **Newsletter**: Sleek glassmorphism input field with a solid white subscribe button.
+- **Footer Text**: The absolute bottom of the page features the word "ELEVATE." stretched to full width (\`text-[15vw]\`).
+
+---
+
+## Technical & Motion Specifications
+
+### Scroll Animations
+- Every major section and text block must utilize \`framer-motion\`'s \`whileInView\` prop to trigger a smooth fade-up entrance (\`y: 40\`, \`duration: 1\`, \`ease: [0.16, 1, 0.3, 1]\`) as the user scrolls down the page.
+
+### Global CSS (\`index.css\`)
+- Hide all native scrollbars visually globally to maintain a native-app feel:
+  \`\`\`css
+  ::-webkit-scrollbar { display: none; }
+  * { -ms-overflow-style: none; scrollbar-width: none; }
+  \`\`\`
+- Import fonts:
+  \`\`\`css
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Playfair+Display:wght@300;400;500&display=swap');
+  \`\`\`
+
+### Responsive Requirements (Mobile First)
+- Mobile breakpoints must ensure paddings are reduced (e.g., \`px-6\` vs \`px-24\`).
+- All flex containers that are side-by-side on desktop (\`md:flex-row\`) must stack gracefully (\`flex-col\`) on mobile.
+- Massive typography must use \`clamp()\` or \`vw\` units to prevent horizontal overflow and breaking on narrow iPhone screens.
+- Mobile Navigation overlay is strictly required; do not rely on standard inline drop-downs.
+
+### SEO & Accessibility
+- Ensure semantic HTML (\`<main>\`, \`<section>\`, \`<nav>\`, \`<footer>\`, \`<header>\`).
+- Image \`alt\` tags must be descriptive.
+- Ensure minimum contrast ratios on text sitting over images (utilize CSS gradients behind text overlays).
+- Navigation links must use actual \`<a href="#id">\` tags for proper semantic routing, even if intercepted by JavaScript for smooth scrolling.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

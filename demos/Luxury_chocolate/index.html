@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury chocolate — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780923122638-CHÂTEAU.webp" alt="Luxury chocolate preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Luxury chocolate</h1>
+        <p class="desc">A cinematic, premium scroll-based React showcase for luxury artisan chocolate collections.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">luxury_chocolate.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># Complete Technical & Design Specification: CHÂTEAU Luxury Website
+
+**Description:** A cinematic, premium scroll-based React showcase for luxury artisan chocolate collections.
+
+This is a comprehensive, production-ready prompt designed to recreate the award-winning "CHÂTEAU" luxury scroll-based website experience. This specification contains everything needed for an AI developer to rebuild the site with maximum accuracy.
+
+---
+
+## 1. Project Overview & Tech Stack
+- **Framework:** React 18+ via Vite (Single Page Application)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (v3 compatible with standard \`tailwind.config.js\` and \`postcss.config.js\`)
+- **Animation Engine:** Framer Motion
+- **Icons:** \`lucide-react\`
+- **Scroll Detection:** \`react-intersection-observer\`
+- **Architecture:** Full-screen scroll-snap experience without 3rd-party scroll hijackers (pure CSS \`scroll-snap-type: y mandatory\`).
+- **Goal:** A cinematic, premium showcase for luxury chocolate collections with fluid transitions.
+
+---
+
+## 2. Visual Design System
+
+### 2.1 Brand Identity
+- **Brand Name:** CHÂTEAU
+- **Style:** Luxury, editorial, minimal, premium product showcase.
+
+### 2.2 Color Palette (Dynamic Worlds)
+The application background transitions instantly (0.2s) between four distinct radial gradients based on the currently active scroll section. 
+
+**Section Gradients:**
+1. **White Chocolate:** \`radial-gradient(circle at center, #FFF8EC 0%, #F4E8D0 45%, #B89D6A 100%)\`
+2. **Dark Chocolate:** \`radial-gradient(circle at center, #6B4423 0%, #2A1810 50%, #080403 100%)\`
+3. **Silk (Milk) Chocolate:** \`radial-gradient(circle at center, #3B82F6 0%, #172554 45%, #020617 100%)\`
+4. **Pistachio Chocolate:** \`radial-gradient(circle at center, #CDE8B5 0%, #567A36 45%, #13200B 100%)\`
+
+**Typography Colors (Theme Context):**
+- **Light Themes** (White, Pistachio): Text, buttons, and navbar must switch to Dark Brown (\`#2A1810\`).
+- **Dark Themes** (Dark, Silk): Text, buttons, and navbar remain White (\`#FFFFFF\`).
+
+### 2.3 Typography
+- **Heading/Brand Font (Serif):** \`Playfair Display\` (Google Fonts, weights 400-900).
+- **Body Font (Sans-Serif):** \`Inter\` (Google Fonts, weights 100-900).
+- **Hierarchy:**
+  - **Navbar Brand:** \`font-serif font-bold text-xl md:text-2xl tracking-[0.2em]\`
+  - **Section Subtitle (Hero):** \`font-serif text-4xl md:text-6xl font-black tracking-tight leading-tight drop-shadow-lg\`
+  - **Massive Watermark Text (Background):** \`font-serif font-black text-[35vw] md:text-[25vw] leading-none tracking-[-0.08em] uppercase\`
+  - **Body Description:** \`font-light text-base md:text-lg leading-relaxed drop-shadow-md\`
+
+---
+
+## 3. Layout Structure & Grid System
+
+### 3.1 Global Scroll Mechanics
+- Disable 3rd-party smooth scrollers (like Lenis).
+- The \`html\` tag must have \`scroll-snap-type: y mandatory; scroll-behavior: smooth;\`.
+- Hide native scrollbars for a clean look (\`::-webkit-scrollbar { display: none; }\`).
+- Every major \`section\` must have \`h-[100dvh]\` and \`snap-start\`.
+
+### 3.2 Global Background Layer
+- Rendered in \`App.tsx\` as a \`fixed inset-0 z-[-1]\` container.
+- Uses \`AnimatePresence\` with \`mode="wait"\` to swap gradient styles instantly on section change (\`transition={{ duration: 0.2, ease: 'easeInOut' }}\`).
+
+### 3.3 Section Layout (\`ChocolateSection.tsx\`)
+Every collection section follows a rigid, premium split layout:
+- **Left Side:** Chocolate Product Image.
+- **Right Side:** Typography Content Block.
+- **Wrapper:** \`flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0 max-w-[1400px] w-full h-full mx-auto px-6 md:px-12\`.
+
+---
+
+## 4. Section-by-Section Content Hierarchy
+
+The array mapping in \`App.tsx\` must be rendered in this exact order:
+
+1. **White** (id: 'white', type: 'white')
+   - Subtitle: "Velvet Sweetness.\\
+Pure Indulgence."
+   - Description: "Creamy white chocolate crafted with\\
+Madagascar vanilla and silky cocoa butter.\\
+\\
+Smooth, delicate, and irresistibly luxurious."
+2. **Dark** (id: 'dark', type: 'dark')
+   - Subtitle: "Bold. Intense.\\
+Unforgettable."
+   - Description: "Rich cocoa notes unfold into layers\\
+of depth and sophistication.\\
+\\
+Crafted for true chocolate connoisseurs."
+3. **Silk** (id: 'silk', type: 'silk')
+   - Subtitle: "Wrapped In Elegance.\\
+Crafted For Desire."
+   - Description: "A luxurious milk chocolate experience\\
+with velvety texture and unforgettable richness.\\
+\\
+The definition of modern indulgence."
+4. **Pista** (id: 'pista', type: 'pista')
+   - Subtitle: "A Taste Of Luxury Nature."
+   - Description: "Premium roasted pistachios meet\\
+smooth artisan chocolate in perfect harmony.\\
+\\
+Nutty, creamy, and remarkably refined."
+
+*(Note: There is no Call to Action button rendered in the sections.)*
+
+---
+
+## 5. UI Components & Micro-Interactions
+
+### 5.1 Navbar
+- **Position:** \`fixed top-0 left-0 w-full z-50\`.
+- **Scroll Behavior:** Transparent by default. When scrolled > 50px, it maintains transparency but reduces padding (\`py-5\` instead of \`py-8\`). *No backdrop blur or bottom borders.*
+- **Dynamic Theming:** Receives the current active section theme as a prop. Adjusts its text color to \`#2A1810\` for White/Pistachio sections, and \`white\` for Dark/Silk.
+
+### 5.2 Product Images (Scale & Positioning)
+- Images are massively scaled to provide an immersive experience.
+- **Size:** \`h-[70vh] md:h-[100vh] w-auto max-w-none object-contain drop-shadow-2xl\`.
+- **Positioning:** The image flex container must use \`items-end\` to anchor the image exactly to the bottom of the viewport.
+- **Push Down:** Use \`translate-y-12 md:translate-y-28\` to push the image down below the visual bottom bounds of the screen.
+
+### 5.3 Animations & Motion (Framer Motion)
+All entrance animations wait for the 0.2s global background gradient snap to finish before triggering.
+
+1. **Layer 1 (Massive Background Text Watermark):**
+   - Initial: \`scale: 0.9, opacity: 0, y: 50\`
+   - InView: \`scale: 1, opacity: 0.08, y: 0\`
+   - Transition: \`duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1]\`
+2. **Layer 2 (Chocolate Image):**
+   - Entrance: \`opacity: 0, x: -100\` to \`opacity: 1, x: 0\`
+   - Transition: \`duration: 1.5, delay: 0.4\`
+   - **Floating Effect:** Nested \`motion.div\` driving an infinite float: \`animate={{ y: [0, -12, 0] }}\`, \`transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}\`
+   - **3D Mouse Parallax:** Track mouse X/Y coordinates using \`useMotionValue\` and \`useSpring\` (stiffness: 150, damping: 25). Map to \`rotateX\` (15 to -15) and \`rotateY\` (-15 to 15). Apply \`transformStyle: "preserve-3d"\` to the image wrapper.
+3. **Layer 3 (Text Content Block):**
+   - Entrance: \`opacity: 0, x: 60\` to \`opacity: 1, x: 0\`
+   - Transition: \`duration: 1.5, delay: 0.6\`
+
+### 5.4 Particle System Component
+A custom floating particle system running in the background of each section.
+- **Logic:** Generate 25 floating particles randomized in \`size\` (2px-6px), \`x/y\` coordinates, \`duration\` (15s-30s), and \`delay\`.
+- **Colors:** Map colors to match the section themes (e.g., gold/cream for White, deep brown for Dark, blue/silver for Silk, light green for Pista).
+
+---
+
+## 6. Frontend Architecture & Implementation Details
+
+### 6.1 State Management
+- Lift \`currentTheme\` up to \`App.tsx\` (\`useState\`).
+- Use \`react-intersection-observer\` (\`useInView\`, threshold: 0.5) inside \`ChocolateSection.tsx\` to detect when a section is active and trigger \`setCurrentTheme\` via a prop.
+
+### 6.2 Styling Configuration
+- **Tailwind \`index.css\`:**
+  \`\`\`css
+  @layer base {
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+    body {
+      @apply bg-black text-white antialiased overflow-x-hidden;
+    }
+  }
+  \`\`\`
+
+### 6.3 Performance Optimization Requirements
+- Ensure images are optimized (WebP).
+- Leverage Framer Motion's \`whileInView\` with \`viewport={{ once: false, amount: 0.1 }}\` to re-trigger animations cleanly as users scroll up and down.
+- Heavy reliance on CSS transforms (translate, rotate, scale) for all animations to ensure hardware acceleration and 60fps performance during rapid scroll snapping.
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Hero — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#00cec9 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#00cec9;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#00cec9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#00cec9;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780926743475-Quantum_hero.webp" alt="Interactive Hero preview" onerror="this.style.display='none'">
+        <div class="badge">Hero </div>
+        <h1>Interactive Hero</h1>
+        <p class="desc">A premium, AI-themed hero section featuring an interactive 3D particle network background, glassmorphic UI elements, and sleek, modern typography.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">interactive_hero.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># Comprehensive Website Recreation Specification: Quantum Neural Network Hero Template
+
+## 1. Overview
+This prompt provides a highly detailed, production-ready specification for recreating a premium, highly interactive Hero section website. The website is an AI/Tech-themed landing page featuring a stunning, interactive 3D particle network background, a glassmorphic navigation menu, and a meticulously crafted centered typography layout.
+
+**Core Stack:**
+- **Framework**: React (v19) via Vite
+- **Styling**: Tailwind CSS (v4)
+- **3D Rendering**: Three.js (@0.184.0) with custom GLSL shaders and post-processing (EffectComposer, UnrealBloomPass)
+
+---
+
+## 2. Visual Design System
+
+### 2.1 Color Palette
+- **Background Root**: \`#050508\` (Deep void black/blue)
+- **Primary Accent Gradient**: \`from-[#667eea] to-[#764ba2]\`
+- **Text Gradient Highlight**: \`from-white via-white to-[#a5b4fc]\`
+- **Pill Accent Background**: \`#667eea\` at 10% opacity, bordered by \`#667eea\` at 30% opacity.
+- **Glassmorphism Base**: White at 5% opacity (\`bg-white/5\`) with borders at 10% opacity (\`border-white/10\`).
+
+### 2.2 Typography
+- **Font Family**: 'Outfit' (Google Fonts)
+- **Weights Used**: \`200\` (Extra Light), \`300\` (Light), \`400\` (Regular), \`500\` (Medium), \`600\` (Semi-Bold), \`700\` (Bold).
+- **Hierarchy**:
+  - **H1 (Main Headline)**: 5xl (mobile), 6xl (tablet), 7xl (desktop). Bold (700), leading tight.
+  - **Subtitle/Paragraph**: lg (mobile) to xl (desktop). Light (300) to Regular (400) weight, relaxed line height.
+  - **Labels/Overheads**: text-xs, uppercase, tracking-wider, semibold.
+
+---
+
+## 3. Layout Structure & Grid System
+
+The overall layout operates in a single, fullscreen, non-scrollable viewport (\`w-full h-screen overflow-hidden\`).
+The layering utilizes absolute positioning (\`inset-0\`) and explicit z-indexes.
+
+1. **Background Layer (\`z-0\`)**: The Three.js canvas. It has \`opacity-85\` to subtly blend into the dark background.
+2. **Gradient Overlay (\`z-0\`)**: An absolute full-screen \`div\` over the canvas with \`bg-gradient-to-r from-[#050508] via-[#050508]/60 to-transparent\`. It ensures readability of the text on the left while revealing the 3D scene fully on the right.
+3. **Content Layer (\`z-10\`)**: A flex container holding the navigation and the main centered text payload.
+
+---
+
+## 4. UI Components and Styling Details
+
+### 4.1 Liquid Menu (Navigation)
+- **Positioning**: Fixed top, full width, \`z-50\`.
+- **Scroll Behavior**: Dynamic padding (\`py-6\` when at top, shrinking to \`py-4\` when scrolled).
+- **Glass Container**: A wrapper inside the nav \`max-w-7xl mx-auto px-6\`. It uses an absolute inset background: \`bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]\`.
+- **Logo**: 
+  - Visual: A 32x32px circle with a gradient (\`from-indigo-500 to-purple-500\`), containing a 12x12px white dot pulsing (\`animate-pulse\`).
+  - Text: "Quantum" (text-lg, font-semibold, tracking-wide).
+- **Links (Desktop only)**: "Platform", "Solutions", "Resources", "Pricing" styled as \`text-white/70 hover:text-white transition-colors text-sm font-medium\`.
+- **CTA Button**: "Sign In" with \`bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-2 rounded-xl backdrop-blur-sm text-sm font-medium transition-all duration-300\`.
+
+### 4.2 Hero Content
+- **Positioning**: Centered in the screen using \`flex flex-col items-center justify-center text-center\`.
+- **Version Pill**: "Version 3.0" styled with \`inline-block px-4 py-1.5 mb-6 rounded-full bg-[#667eea]/10 border border-[#667eea]/30 text-[#a5b4fc] text-xs font-semibold tracking-wider uppercase\`.
+- **Headline**: "Worldwide Experts" mapped with \`bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-[#a5b4fc] drop-shadow-lg mb-6\`.
+- **Subheadline**: "Simplify and automate your IT environment by working with Quantum’s worldwide experts and service offerings." constrained by \`max-w-2xl\`, styled \`text-white/60 mb-10 leading-relaxed font-light\`.
+- **Action Buttons Container**: \`flex flex-col sm:flex-row justify-center gap-4\`.
+  - **Primary Button**: "Get Started" - \`px-8 py-4 rounded-full bg-gradient-to-r from-[#667eea] to-[#764ba2] font-medium shadow-[0_10px_20px_rgba(102,126,234,0.3)]\`. Hover state: \`hover:shadow-[0_15px_30px_rgba(102,126,234,0.4)] hover:-translate-y-0.5\`.
+  - **Secondary Button**: "Our Products" - \`px-8 py-4 rounded-full bg-white/5 border border-white/10 font-medium backdrop-blur-md\`. Hover state: \`hover:bg-white/10 hover:border-white/30\`.
+
+---
+
+## 5. 3D Elements, Effects & Animations (Three.js)
+
+The interactive background is a heavily customized node-and-connection visualizer built with Three.js.
+
+### 5.1 Scene & Camera Setup
+- **Scene Fog**: \`FogExp2(0x000000, 0.002)\`.
+- **Camera Zoom**: Positioned at \`(0, 2.66, 9.33)\` to provide a deeply zoomed-in (300% scale) perspective. 
+- **Camera Offset**: Using \`camera.setViewOffset(w, h, w * -0.5, 0, w, h)\` on viewports wider than 768px. This forces the 3D scene to center itself on the absolute right edge of the screen, creating an asymmetrical "half-hidden" layout.
+- **Post-Processing**: \`EffectComposer\` utilizing a \`RenderPass\` and an \`UnrealBloomPass\` (threshold: 0, strength: 1.2, radius: 0.6) for a glowing, neon aesthetic.
+- **Controls**: \`OrbitControls\` with \`enableDamping = true\`, \`autoRotate = true\` (speed: 0.2), \`minDistance = 8\`, \`maxDistance = 80\`.
+
+### 5.2 Geometry Generation
+- **Nodes & Paths**: Dynamically calculated geometry creating crystalline spheres, helix lattices, or fractal webs (custom algorithms to map arrays of Vector3 points with interconnected strengths and depths).
+- **Points/Lines**: Rendered via \`THREE.Points\` (Nodes) and \`THREE.LineSegments\` (Connections).
+
+### 5.3 Custom GLSL Shaders
+- **Vertex Shaders**: Includes Perlin/Simplex noise to organically displace node coordinates based on \`uTime\` and depth from the root node. 
+- **Fragment Shaders**: Renders spherical soft glowing points, discarding fragments outside radius 1.0. Applies distance fading to points far from the camera. Calculates alpha blending for connection lines.
+- **Pulse Uniforms**: The shaders accept \`uPulsePositions\`, \`uPulseTimes\`, and \`uPulseColors\` arrays to generate ripple/wave effects through the 3D geometry.
+
+### 5.4 Interactions
+- **Click/Touch Ripples**: Attaching \`click\` and \`touchstart\` events to the renderer's DOM element. Uses a \`Raycaster\` against a virtual geometric plane to find the intersection point in 3D space. It assigns this point to the \`uPulsePositions\` uniform, which sends a visual shockwave (color shift and scale pop) through the nodes and lines originating from the click location.
+
+---
+
+## 6. Technical Implementation Details
+
+### 6.1 Frontend Architecture & Dependencies
+- \`package.json\` configurations:
+  - \`react\`, \`react-dom\` (v19)
+  - \`three\` (v0.184.0)
+  - \`vite\` (v5.4), \`@vitejs/plugin-react\`
+  - \`tailwindcss\` (v4), \`@tailwindcss/postcss\`, \`postcss\`
+- \`postcss.config.js\`:
+  \`\`\`javascript
+  module.exports = {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      autoprefixer: {},
+    },
+  }
+  \`\`\`
+
+### 6.2 CSS Architecture
+- Standard Tailwind v4 import: \`@import "tailwindcss";\` inside \`src/index.css\`.
+- Global styles appended to HTML/Body via \`@layer base { body { @apply bg-[#050508] text-white; font-family: 'Outfit', sans-serif; } }\`.
+
+### 6.3 Code Splitting
+- \`src/App.jsx\`: Root component importing \`LiquidMenu\` and \`Hero\`.
+- \`src/components/LiquidMenu.jsx\`: Contains the navigation bar state and layout.
+- \`src/components/Hero.jsx\`: Contains the DOM overlay and the entire \`useEffect\` hook handling the mounting and rendering loop of the Three.js scene.
+
+### 6.4 Responsiveness
+- Employs Tailwind breakpoints (\`md\`, \`lg\`, \`sm\`).
+- Font sizing dynamically scales from \`text-5xl\` up to \`text-7xl\`.
+- The Three.js view offset only triggers dynamically if \`window.innerWidth > 768\`, meaning the 3D element sits naturally in the center behind the text on mobile, and shifts right on desktop.
+- Linear gradient overlay guarantees contrast for text on all viewport sizes.
+
+---
+
+## 7. Performance & Optimization
+- Three.js WebGLRenderer explicitly requests \`powerPreference: "high-performance"\` and \`antialias: true\`.
+- \`pixelRatio\` is clamped to \`Math.min(window.devicePixelRatio, 2)\` to save processing on ultra-high-density mobile displays.
+- The \`requestAnimationFrame\` loop correctly disposes of \`nodesMesh\`, \`connectionsMesh\`, \`geometry\`, and \`material\` upon the React component's unmount to prevent memory leaks in Single Page Applications.
+
+## 8. SEO Requirements
+- Include descriptive \`<title>Quantum Neural Network</title>\` in \`index.html\`.
+- Incorporate meta description tags detailing "Quantum IT worldwide experts and network automation".
+- Maintain strict heading hierarchy (single \`<h1>\` for the Hero headline).
+</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>

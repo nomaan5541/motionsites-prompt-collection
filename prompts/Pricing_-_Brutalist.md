@@ -1,0 +1,171 @@
+---
+title: "Pricing - Brutalist"
+category: Sections
+subCategory: Pricing
+premium: false
+imageUrl: https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783646816439-Pricing-Bold-Flora.webp
+---
+
+# Pricing - Brutalist
+
+```text
+Act like an award-winning designer and web developer. Create a premium, highly interactive portfolio website for a "Digital Architect" named Ashley. The site must be built with React, TypeScript, Tailwind CSS, Framer Motion, Lenis for smooth scrolling, and Three.js/WebGL for background effects. 
+
+The implementation must achieve a 100% responsive, high-fidelity replication of the following design system, structure, and technical specifications.
+
+### 1. Complete Visual Design System
+
+#### Color Palette
+- **Primary Background**: Pure Black (`#000000`)
+- **Secondary Background (Cards/Panels)**: Dark Gray (`#111111`)
+- **Accent Color**: Vibrant Orange (`#ff4d00`)
+- **Text Colors**: 
+  - Primary Text: White (`#ffffff`)
+  - Secondary Text: Light Gray (`#9ca3af` / Tailwind `gray-400`)
+  - Muted Text: Darker Gray (`#6b7280` / Tailwind `gray-500`)
+- **Borders**: Subtle White transparency (`rgba(255, 255, 255, 0.05)` or `white/5`)
+
+#### Typography
+- **Primary Font**: 'Inter', sans-serif (used globally)
+- **Secondary Font (Hero Heading)**: A Serif font, italicized (e.g., Playfair Display or similar system serif).
+- **Sizes & Weights**:
+  - Hero Heading: 5xl (mobile) to 8xl (desktop), font-serif, italic, leading-[1.1], tracking-tight.
+  - Section Titles: 5xl, font-bold, leading-[1.1], tracking-tight.
+  - Subheadings/Eyebrows: text-sm, tracking-[0.2em] or tracking-[2px], uppercase, font-bold.
+  - Body Text: text-lg to text-xl, leading-relaxed.
+  - Small Text: text-sm, font-medium.
+
+#### Layout Structure & Grid
+- **Max Width**: 1440px max-width container (`max-w-[1440px]`) centered via `mx-auto`.
+- **Padding**: Horizontal padding of `px-6` on mobile, `md:px-20` on desktop.
+- **Section Spacing**: Gap of `gap-40` between major sections, with `pb-20` at the bottom.
+- **Z-Index Strategy**:
+  - Background WebGL Canvas: `z-50` (or underneath content layers).
+  - Main Layout Wrapper: `z-[60]` with `pointer-events-none`, while making actionable elements (`a`, `button`, `input`, `textarea`) `pointer-events-auto`.
+
+---
+
+### 2. Section-by-Section Content & Hierarchy
+
+#### A. Global Background (WebGL Canvas)
+- An absolute positioned container taking up `w-[60vw]` and `h-screen` anchored to the top left.
+- Runs a vanilla Three.js script to generate a fluid, noise-based abstract visualization. 
+
+#### B. Hero Section (`#home`)
+- **Layout**: Full viewport height (`h-screen`), flex column.
+- **Left Column**: Absolute positioning (`left-6 md:left-20`), flex column.
+  - **Logo**: "Ashley" with an orange dot (`<span class="text-orange-500">.</span>`), text-2xl/3xl, font-bold.
+  - **Role**: "Digital Architect", orange-500, tracking-[0.2em], uppercase, preceded by a 24px/40px orange horizontal line.
+  - **Navigation**: Links for 'About', 'Projects', 'Contact' (text-sm, text-gray-500 hover:text-orange-500).
+- **Right Column**: Absolute positioning (`bottom-0 right-6 md:right-20`), aligned right, `w-[calc(100%-3rem)] md:w-[800px]`.
+  - **Main Heading**: "Crafting [transparent text with white stroke] Avant-Garde." 
+    - Styling for transparent text: `WebkitTextStroke: '2px rgba(255, 255, 255, 0.55)'`.
+  - **Subtext**: "Shattering the grid to craft high-end..." max-w-xl text-gray-400.
+
+#### C. Brands Section
+- **Container**: `bg-[#111111]`, border `white/5`, `rounded-[2rem]`, padding 8 to 12. Flex row layout.
+- **Eyebrow**: "TRUSTED BY BRANDS I'VE HELPED SHAPE" (text-gray-500, text-sm, leading-relaxed).
+- **Logos**: Supa Blox, Hype Blox, Frame Blox, Ultra Blox represented by Lucide React icons (Layers, Hexagon, Circle, Disc) + text.
+
+#### D. About Section (`#about`)
+- **Layout**: CSS Grid, `grid-cols-1 lg:grid-cols-[1.2fr_0.8fr]`, gap 10-16.
+- **Left Side**: 
+  - Eyebrow: "BEHIND THE DESIGNS" + horizontal orange line.
+  - Heading: "Shaping experiences that make life [simpler in orange]."
+  - Stats: 3 columns (8+ Years, 60+ Projects, 25+ Clients) with orange Lucide icons (Sparkles, Users, Award) and 4xl numbers.
+- **Right Side**: 
+  - `pl-16`, left border `white/10`.
+  - Paragraphs of text-gray-400, text-xl.
+  - CTA Button: "Let's Talk →", pill shape, border orange/50, hover:bg-orange/10.
+
+#### E. Projects Section (`#projects`)
+- **Layout**: Full width relative container.
+- **Interactive 3D Carousel**:
+  - Container height: 600px, `perspective: 1200px`.
+  - A central `preserve-3d` container that rotates slightly on X and Y axes based on mouse position.
+  - 5 project cards (images from Unsplash). 
+  - The active card is centered, scaled to 1, z-index 10.
+  - Adjacent cards are offset horizontally (`x: ±450px`, `z: -100px`, `rotateY: ±25deg`), scaled to 0.8, opacity 0.8, brightness-50, grayscale.
+  - Outer cards offset further.
+  - Clicking a card makes it active.
+  - Active card reveals a dark information panel sliding out to the right containing Title, Description, and a "Visit Site →" button.
+
+#### F. Contact Section (`#contact`)
+- **Layout**: CSS Grid `grid-cols-1 lg:grid-cols-[1fr_1.2fr]`, gap 10-20.
+- **Left Side**: Contact info (Email, Phone, Location) using Lucide icons inside 48x48 rounded-full borders that hover to orange.
+- **Right Side (Form)**:
+  - Container: `bg-[#111111]`, border `white/5`, `rounded-3xl`, padding 10.
+  - Background effect: An absolute top-right `w-64 h-64 bg-orange-500/5` blurred `80px`, transitioning to `orange-500/10` on hover.
+  - Inputs: Transparent backgrounds, border-bottom `white/10`, focus `border-orange-500`.
+  - Submit Button: Full width, orange background, "Send Message" with an ArrowRight icon that translates X on hover.
+
+#### G. Footer
+- Top border `white/5`, flex row between.
+- Left: Logo text and copyright.
+- Center/Right: Links (Twitter, LinkedIn, Dribbble) with `ArrowUpRight` icons.
+- Far Right: "Back to Top" pill button with smooth scroll fallback.
+
+---
+
+### 3. Animations & Micro-Interactions
+
+- **Hero Entrance**:
+  - Left column: Fade in and slide right (`x: -30` to `0`), duration 1s, delay 0.2s.
+  - Navigation links: Staggered fade in and scale up (`scale: 0.9` to `1`), duration 0.5s, delay starting at 0.8s.
+  - Right heading: Slide up (`y: 50` to `0`), duration 1.2s, delay 0.5s, custom easing `[0.16, 1, 0.3, 1]`.
+- **Scroll Animations (Framer Motion `whileInView`)**:
+  - Sections slide up (`y: 30` to `0`) and fade in.
+  - Viewport trigger: `once: true`, `margin: "-100px"`.
+  - Duration: ~0.6s to 0.8s.
+- **3D Carousel (Projects)**:
+  - Built using Framer Motion's `useMotionValue`, `useSpring`, and `useTransform`.
+  - Mouse movement over the container maps to `rotateX` (-15 to 15 deg) and `rotateY` (-15 to 15 deg).
+  - Spring config: `stiffness: 100, damping: 30`.
+  - Card transitions use `type: "spring", stiffness: 100, damping: 20`.
+- **Hover States**:
+  - Text links transition to `text-orange-500`.
+  - Project active state toggles `brightness-100 grayscale-0` from `brightness-50 grayscale`.
+  - Contact icons trigger container `border-orange-500` and `bg-orange-500/10`.
+  - Input fields focus transitions `border-b` to orange.
+
+---
+
+### 4. Technical Implementation Details
+
+#### Architecture & File Structure
+- `src/App.tsx`: Layout wrapper, Lenis initialization.
+- `src/components/WebGLCanvas.tsx`: React wrapper for Three.js.
+- `src/components/Hero.tsx`, `Brands.tsx`, `About.tsx`, `Projects.tsx`, `Contact.tsx`, `Footer.tsx`: Modular UI components.
+- `src/index.css`: Tailwind directives + custom utility classes:
+  ```css
+  .preserve-3d { transform-style: preserve-3d; }
+  .perspective-1200 { perspective: 1200px; }
+  ```
+- `tailwind.config.js`: Setup custom colors (`orange: { 500: '#ff4d00' }`, `dark: '#111111'`), and font family (`sans: ['Inter', 'sans-serif']`).
+
+#### Required Libraries & Dependencies
+- `react`, `react-dom`
+- `vite`
+- `tailwindcss`, `postcss`, `autoprefixer`
+- `framer-motion` (for all UI animations and 3D transforms)
+- `@studio-freight/lenis` or `lenis` (for smooth wheel/touch scrolling)
+- `lucide-react` (for iconography)
+- `three` (for WebGL background effects)
+
+#### Performance & SEO
+- **SEO**: Semantic HTML tags (`<main>`, `<section>`, `<nav>`, `<footer>`), descriptive alt text for project images, distinct `<h1>` hierarchy (implied by Hero).
+- **Performance**: 
+  - WebGL canvas unmount logic handles renderer disposal and `cancelAnimationFrame` to prevent memory leaks.
+  - Images should use optimized formats (Unsplash URLs with `&q=80&w=600`).
+  - Pointer events are managed strictly (`pointer-events-none` on wrappers, `pointer-events-auto` on interactables) to prevent scrolling jank over the canvas.
+
+#### Images & Assets
+- Use Unsplash placeholders for the projects carousel:
+  - `https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80`
+  - `https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80`
+  - `https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=80`
+  - `https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80`
+  - `https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80`
+
+Ensure the final build perfectly merges the vanilla WebGL background with the Framer Motion-driven DOM layers while maintaining buttery smooth 60FPS scrolling via Lenis.
+```

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Horizontal — AI Design Prompt Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{background:#030305;color:#f5f5f7;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+        .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .glow{position:absolute;width:50vw;height:50vw;border-radius:50%;filter:blur(120px);opacity:.1;background:radial-gradient(circle,#6c5ce7 0%,transparent 70%);animation:fl 20s infinite alternate ease-in-out}
+        @keyframes fl{0%{transform:translate(0,0) scale(1)}100%{transform:translate(10%,10%) scale(1.1)}}
+        .container{max-width:1000px;width:100%;margin:0 auto;padding:40px 24px;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center}
+        .glass{background:rgba(20,20,25,.7);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:48px;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05)}
+        .preview-img{width:100%;border-radius:16px;margin-bottom:28px;border:1px solid rgba(255,255,255,.06);object-fit:cover;max-height:400px}
+        .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#6c5ce7;margin-bottom:24px}
+        h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#fff 60%,#6c5ce7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        p.desc{font-size:18px;color:#8e8e93;line-height:1.6;margin-bottom:36px;max-width:700px}
+        .editor{border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;background:#050508;margin-bottom:32px}
+        .editor-h{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+        .dots{display:flex;gap:6px}.dot{width:10px;height:10px;border-radius:50%}.dr{background:#ff5f56}.dy{background:#ffbd2e}.dg{background:#27c93f}
+        .et{font-size:12px;color:#8e8e93;font-family:'Fira Code',monospace;font-weight:500}
+        pre{padding:24px;overflow-x:auto;max-height:380px;font-family:'Fira Code',monospace;font-size:13.5px;line-height:1.8;color:#d1d1d6;white-space:pre-wrap;word-wrap:break-word}
+        .actions{display:flex;gap:16px;flex-wrap:wrap}
+        .btn{padding:16px 28px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.16,1,.3,1);display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;font-family:inherit}
+        .bp{background:#fff;color:#000;box-shadow:0 10px 25px rgba(255,255,255,.15)}.bp:hover{transform:translateY(-2px);background:#f5f5f7}
+        .bs{background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.08)}.bs:hover{background:rgba(255,255,255,.1)}
+        .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(150px);background:#6c5ce7;color:#000;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:700;z-index:100;transition:transform .4s cubic-bezier(.175,.885,.32,1.275);pointer-events:none;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:640px){.glass{padding:32px 24px}.btn{width:100%}}
+    </style>
+</head>
+<body>
+    <div class="ambient"><div class="glow"></div></div>
+    <div class="container"><div class="glass">
+        <img class="preview-img" src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1783649088673-Services-Horizontal.webp" alt="Services - Horizontal preview" onerror="this.style.display='none'">
+        <div class="badge">Features • Premium</div>
+        <h1>Services - Horizontal</h1>
+        <p class="desc">A responsive card slider featuring smooth drag-to-scroll mechanics and expanding service descriptions on hover.</p>
+        <div class="editor">
+            <div class="editor-h"><div class="dots"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div></div><div class="et">services_-_horizontal.prompt</div><div style="width:42px"></div></div>
+            <pre id="pc"># AI Code Generation Blueprint: High-Contrast Creative Director Portfolio
+
+Act as an award-winning UI/UX designer and elite frontend web developer. Create a highly detailed and comprehensive web application mimicking the digital portfolio of "Eathan".
+
+Follow this precise blueprint to construct a fully responsive, pixel-perfect, interactive portfolio web application in React (Vite + TypeScript + Tailwind CSS + Framer Motion + Three.js).
+
+================================================================================
+1. DESIGN SYSTEM & AESTHETICS
+================================================================================
+
+### Color Palette (Hex/RGB)
+*   **Primary Background (Deep Space Blue)**: \`#030014\`
+*   **Secondary Drawer Background**: \`#333333\`
+*   **Highlight / Accent (Electric Acid Lime Green)**: \`#CCFF00\`
+*   **Primary Text**: \`#FFFFFF\`
+*   **Secondary Text / Meta**: \`rgba(255, 255, 255, 0.5)\` or \`white/50\`
+*   **Line / Energy Elements**: \`#88AAFF\` (opacity 0.2)
+
+### Typography
+Define the following CSS custom properties via Tailwind \`@theme\`:
+*   **Display Font (\`font-display\`)**: \`"Anton", "Impact", "Arial Black", sans-serif\`
+*   **Sans Font (\`font-sans\`)**: \`"Space Grotesk", "Inter", system-ui, sans-serif\`
+*   **Mono Font (\`font-mono\`)**: \`"IBM Plex Mono", "SFMono-Regular", Consolas, monospace\`
+
+**Selection Style**: 
+Background: \`#CCFF00\`, Text: \`#000000\`.
+
+================================================================================
+2. LAYOUT & HIERARCHY
+================================================================================
+
+The application relies on a single-view React \`App.tsx\` utilizing a layered z-index strategy. The root wrapper uses \`min-h-screen\`, \`overflow-hidden\`, \`flex-col\`, and \`bg-[#030014]\`.
+
+### Z-Index Layers:
+*   \`z-0\`: \`ParticleBackground\` (Three.js WebGL canvas).
+*   \`z-10\`: \`HeroImage\` (Large, absolute-positioned cut-out character at the bottom).
+*   \`z-20\`: \`HeroContent\` (Typography and bio text, centered and responsive).
+*   \`z-30\`: \`Header\` and \`FooterMarquee\` (Sticky overlays).
+*   \`z-50\`: \`InfoDrawer\` (Sliding side panel).
+
+================================================================================
+3. COMPONENT SPECIFICATIONS
+================================================================================
+
+### 3.1. ParticleBackground (Three.js WebGL)
+*   **Setup**: Full-screen fixed canvas (\`z-0\`), \`pointer-events-none\`.
+*   **Particles**: \`15,000\` points using \`PointsMaterial\`. Additive blending, base color \`0x001f3f\`, size \`0.5\`, opacity \`0.2\`.
+*   **Lines**: \`530\` energy lines moving forward in Z-space, using \`LineMaterial\`, color \`0x88aaff\`, linewidth \`0.005\`, opacity \`0.20\`, dashed \`true\`.
+*   **Post-processing**: \`EffectComposer\` with \`RenderPass\` and \`UnrealBloomPass\` (threshold 1.0, strength 0.8, radius 0.1).
+*   **Interaction**: On mouse move, calculate 3D pointer intersection. 
+    *   **Effect**: Particles within a distance of \`20\` are repulsed (force multiplier \`0.04\`) and their color interpolates towards \`#CCFF00\` (max mix multiplier \`0.4\`).
+    *   Spring force returns them to original positions.
+
+### 3.2. Header
+*   **Logo**: Left-aligned, "EATHAN" (\`font-display\`, uppercase, tracking-widest). Next to it is a circle (\`bg-[#CCFF00]\`, text black, \`w-10 h-10\`) containing "✦" that rotates 180 degrees on group hover.
+*   **Links**: "ARCHIVE", "PROCESS", "LABS" (hidden on mobile, font-mono, text-xs).
+*   **Action Button**: "COMMISSION" button triggering the drawer.
+
+### 3.3. Hero Content (Typography & Bio)
+*   **Position**: Flex-1 container, centered, relative \`z-20\`.
+*   **Mammoth Headline**: 
+    *   Top line: "DESIGN WITH" - Transparent text with a white stroke (\`-webkit-text-stroke: 1px white\`, thicker on larger breakpoints). Sizes range from \`17px\` to \`70px\`.
+    *   Bottom line: Rotates between "PURPOSE", "IMPACT", "INTENT" every 4 seconds. Solid \`#CCFF00\` text, extremely large sizes (\`50px\` to \`180px\`). Uses a custom React \`ScrambleText\` effect cycling random uppercase characters before settling on the target word.
+*   **Typewriter Bio**: 
+    *   Text: \`"I'm Eathan — a freelance UI/UX designer crafting bold, high-contrast digital experiences that are intuitive, impactful, and built to stand out."\`
+    *   Animation: Framer Motion staggering effect (\`delay: index * 0.02\`, \`duration: 0.05\` per character). The entire bio remounts and re-animates on a loop every 7 seconds via a shifting React \`key\`.
+
+### 3.4. Hero Image (Subject Cut-out)
+*   **Asset**: \`https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_main_1.png.png\`
+*   **Position**: Absolute bottom, centered horizontally (\`left-1/2 -translate-x-1/2\`). \`z-10\`.
+*   **Sizing**: Responsive height taking up maximum available vertical space (\`85%\` mobile to \`110%\` desktop), ensuring prominent presence.
+*   **Filters**: \`brightness-95\`, \`grayscale\`, \`contrast-125\`, and a large drop shadow (\`drop-shadow-[0_25px_50px_rgba(0,0,0,0.5)]\`).
+*   **Animation**: Subtle scale up (\`scale-[1.04]\`) with a 700ms ease-out transition on hover.
+
+### 3.5. Footer Marquee
+*   **Content**: "EATHAN ROY // CREATIVE DIRECTOR // EATHAN ROY // CREATIVE DIRECTOR //"
+*   **Style**: Ultra-large transparent text with a thin white stroke (\`-webkit-text-stroke: 1px rgba(255,255,255,0.15)\`). Positioned absolutely at the bottom edge. Infinite CSS translate keyframe animation.
+
+### 3.6. InfoDrawer (Side Menu)
+*   **Animation**: Slides in from the right using Framer Motion (\`x: '100%'\` to \`0\`, spring physics).
+*   **Design**: Width \`sm:max-w-xl md:max-w-2xl\`. Background \`bg-[#333333]\`. Border left \`border-white/5\`.
+*   **Structure**: 
+    *   Sticky header (\`bg-[#333333]/90\` backdrop blur) with a close button and dynamic back/menu button.
+    *   Main menu lists: 'PROJECTS', 'BLOG', 'ABOUT', 'RESUME', "LET'S WORK".
+    *   **Contact Form ("LET'S WORK")**:
+        *   Input fields and textareas have transparent backgrounds, bottom white borders, and focus states that change border to \`#CCFF00\`.
+        *   Custom Select element with options having \`bg-[#333333]\`.
+        *   Solid \`#CCFF00\` submit button.
+
+================================================================================
+4. TECHNICAL & ARCHITECTURE REQUIREMENTS
+================================================================================
+
+*   **Dependencies**: \`react\`, \`framer-motion\`, \`lucide-react\`, \`three\`, \`tailwindcss\`.
+*   **Responsiveness**: 100% fluid scaling across mobile, tablet, and desktop breakpoints. Rely on Tailwind's arbitrary values and percentage heights for absolute scaling without scrollbars.
+*   **Performance**: Avoid memory leaks in Three.js by properly disposing of geometry, materials, and renderer in the component cleanup function (\`useEffect\` return).
+*   **Accessibility**: Ensure button elements have proper roles, images contain descriptive \`alt\` tags (\`alt="Eathan"\`), and the color contrast on text meets WCAG standards (using high-opacity whites against the \`#030014\` backdrop).
+*   **SEO**: Maintain semantic HTML (proper \`<main>\`, \`<h1>\`, \`<h2>\` tag hierarchies).</pre>
+        </div>
+        <div class="actions">
+            <button class="btn bp" onclick="copyPrompt()">📋 Copy Prompt</button>
+            <a href="/" class="btn bs">🏠 Back to Library</a>
+        </div>
+    </div></div>
+    <div class="toast" id="toast">✓ Copied to clipboard!</div>
+    <script>function copyPrompt(){navigator.clipboard.writeText(document.getElementById('pc').innerText).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)})}</script>
+</body>
+</html>
