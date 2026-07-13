@@ -12,7 +12,7 @@
 
 **67+ free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
 
-[🌐 **Browse the Library**](https://motionsites-ai.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+[🌐 **Browse the Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
@@ -38,7 +38,7 @@
 ## 🎯 How to Use
 
 ### Option 1: Browse the Website (Recommended)
-1. Visit **[motionsites-ai.vercel.app](https://motionsites-ai.vercel.app/)**
+1. Visit **[motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)**
 2. Browse or search through the design gallery
 3. Click **"📋 Copy Prompt"** on any design you like
 4. Paste into your favorite AI tool (Bolt.new, v0, GPT-Engineer, etc.)
@@ -114,7 +114,7 @@ Every star helps this project grow and reach more developers who can benefit fro
 
 ## 🔗 Connect
 
-- **Website**: [motionsites-ai.vercel.app](https://motionsites-ai.vercel.app/)
+- **Website**: [motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)
 - **GitHub**: [@nomaan5541](https://github.com/nomaan5541)
 - **Instagram**: [@Virus_boss](https://instagram.com/Virus_boss)
 

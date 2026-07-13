@@ -31,7 +31,7 @@ Usage:
   templateprompts list       - List all available Pro and free prompts
   templateprompts help       - Show this help menu
 
-Browse the full library at: https://motionsites-ai.vercel.app/
+Browse the full library at: https://motionsitesai-main.vercel.app/
 `);
 }
 
