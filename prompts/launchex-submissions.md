@@ -1,0 +1,78 @@
+**Prompt to recreate the Submissions section:**
+
+> Build a full-viewport "Submissions" section using React with Tailwind CSS (no extra UI libraries). This is a single `<section>` with the following exact specifications:
+>
+> **Section container:**
+> - `id="nominations"`
+> - Background color: `#F0F0F0`
+> - `min-height: 100vh`
+> - Overflow hidden, position relative
+> - Padding: `py-20 sm:py-28 px-6 sm:px-10`
+> - Uses `flex flex-col justify-center` to vertically center content
+>
+> **Inner layout:**
+> - A single flex container: `flex flex-col lg:flex-row`, `items-start lg:items-stretch`, `justify-center`, `gap-10 lg:gap-12`, `max-w-5xl mx-auto`, position relative
+> - Three columns: left nomination cards, center video + heading, right nomination cards
+> - On mobile, the center column appears first (`order-1 lg:order-2`), left cards second (`order-2 lg:order-1`), right cards third (`order-3`)
+>
+> **Center column** (flex-1, flex-col, items-center, justify-start):
+> - A heading block with `uppercase`, color `#154359`, flex-col items-center gap-2:
+>   - Small label: `<span>` with text `[submissions]`, font-size `12px`, letter-spacing `0.24em`
+>   - Large heading: `<h2>` with text `submissions`, uses custom font class `.font-firs` (font-family: `'TT Firs Neue', 'Inter', system-ui, sans-serif`), font-size `44px sm:54px`, `font-semibold`, `tracking-tight`
+> - Below heading, a video container with `mt-6 sm:mt-8`, sized `w-[220px] sm:w-[380px] lg:w-[460px]` and `h-[220px] sm:h-[380px] lg:h-[460px]`:
+>   - `<video>` element, `object-cover`, `w-full h-full`, autoPlay, loop, muted, playsInline
+>   - Video source URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_154120_b89bfedd-530d-4ebb-9eb7-42eeafe08667.mp4`
+>
+> **Left nomination cards column:**
+> - `flex flex-col gap-4 items-center lg:items-start lg:mt-36`
+> - Contains 3 NominationCard components with these exact titles/subtitles:
+>   1. title: `"Lead"`, subtitle: `"AI venture for commerce"`
+>   2. title: `"Emerging innovations"`, subtitle: `"in food commerce"`
+>   3. title: `"The finest innovations"`, subtitle: `"for learners and young students"`
+>
+> **Right nomination cards column:**
+> - `flex flex-col gap-4 items-center lg:items-end lg:mt-36`
+> - Contains 3 NominationCard components:
+>   1. title: `"Innovations for advanced"`, subtitle: `"career training"`
+>   2. title: `"The finest innovations"`, subtitle: `"in finance"`
+>   3. title: `"Categories"`, subtitle: `"coming soon"`
+>
+> **NominationCard component** (each card):
+> - An `<a href="#">` tag, `group relative block w-full max-w-[20em] h-[5em]`, with `transition-transform hover:-translate-y-0.5`
+> - Inside, an SVG positioned `absolute inset-0 w-full h-full`, with `preserveAspectRatio="none"` and `viewBox="0 0 100 100"`:
+>   - A single `<polygon>` with `points="14,0 100,0 100,86 86,100 0,100 0,14"` -- this creates a hexagonal/chamfered-corner shape
+>   - `fill="none"`, `stroke="rgba(6, 99, 119, 0.25)"` (teal at 25% opacity), `strokeWidth="1"`, `vectorEffect="non-scaling-stroke"`
+> - Over the SVG, a `relative` div with `flex items-center justify-center w-full h-full`:
+>   - Inner `text-center px-4` div, color `#154359`:
+>     - Title line: `text-[13px] font-semibold leading-tight`
+>     - Subtitle line: `text-[12px] font-normal leading-tight opacity-80`
+>
+> **Bottom fade overlay:**
+> - `pointer-events-none absolute inset-x-0 bottom-0 h-40 sm:h-56 z-10`
+> - Background: `linear-gradient(to bottom, rgba(240, 245, 247, 0) 0%, rgba(240, 245, 247, 0.7) 60%, #F0F5F7 100%)` -- fades from transparent to the next section's background color
+>
+> **Fonts required in CSS:**
+> ```css
+> html, body {
+>   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+>   -webkit-font-smoothing: antialiased;
+> }
+> .font-firs {
+>   font-family: 'TT Firs Neue', 'Inter', system-ui, sans-serif;
+> }
+> ```
+>
+> **Color palette used:**
+> - Section background: `#F0F0F0`
+> - Text color: `#154359` (dark teal/navy)
+> - Card border stroke: `rgba(6, 99, 119, 0.25)` (muted teal)
+> - Bottom gradient target: `#F0F5F7`
+>
+> **Key design details:**
+> - The nomination cards use an SVG polygon border (not CSS border) to create chamfered/cut corners -- top-left and bottom-right corners are clipped at 14% of the viewBox
+> - The left and right card columns are pushed down with `lg:mt-36` so they sit roughly mid-way beside the taller center video, creating a staggered visual hierarchy
+> - The video has no border-radius and plays inline with no controls
+> - The entire section is responsive: stacks vertically on mobile (center first, then left cards, then right cards) and goes to a 3-column layout on `lg:` breakpoint
+> - No animations beyond the hover lift (`hover:-translate-y-0.5`) on the nomination cards
+
+---

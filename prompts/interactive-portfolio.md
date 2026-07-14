@@ -1,0 +1,100 @@
+Build a full-viewport photography portfolio hero section in React (Vite + TypeScript + Tailwind). Use only inline styles (no Tailwind utility classes in JSX). Import the font `Inter` (weights 400, 500, 600) via Google Fonts in `index.css`:
+
+```
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Display:wght@500;600&display=swap');
+```
+
+Set `body { margin:0; padding:0; font-family:'Inter',sans-serif; background:white; overflow:hidden; }` and `* { box-sizing: border-box; }`.
+
+---
+
+**LAYOUT (App component):**
+
+The root container is `width:100%; height:100vh; overflow:hidden; position:relative; background:white`.
+
+Inside it, layer these elements (all `position:absolute`):
+
+1. **Background image** -- `inset:0`, uses `backgroundImage` with this URL:
+   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_151236_784929aa-a992-4292-9938-1dd9b5296a29.png&w=1920&q=85`
+   `backgroundSize:'cover'`, `backgroundPosition:'center'`.
+
+2. **Gradient overlay** -- `inset:0`, `background:'linear-gradient(180deg, rgba(84,84,84,0) 0%, rgb(0,0,0) 100%)'`, `opacity:0.4`.
+
+3. **Bottom blur layer** -- `bottom:0; left:50%; transform:translateX(-50%); width:100%; height:47.375%`, with `backdropFilter:'blur(10px)'`, `WebkitBackdropFilter:'blur(10px)'`, masked with `maskImage:'linear-gradient(to bottom, transparent 0%, black 40%)'` (also `-webkit-mask-image`). `zIndex:1; pointerEvents:'none'`.
+
+4. **6 draggable ProjectCard components** positioned absolutely at specific anchor percentages.
+
+5. **Dock bar** at `bottom:64px; left:50%; transform:translateX(-50%); zIndex:4`. Flex row, `gap:16px; padding:12px; borderRadius:24px; background:'rgba(255,255,255,0.1)'; border:'1px solid rgba(255,255,255,0.2)'; backdropFilter:'blur(5px)'`.
+
+---
+
+**PROJECT CARDS:**
+
+Each project has `anchorX` and `anchorY` (percentage positions). The card is `position:absolute; left: calc(anchorX% - 52px); top: calc(anchorY% - 64px)`. Uses a custom `useDraggable()` hook to allow drag-repositioning via `transform: translate(pos.x, pos.y)`. `zIndex:2; cursor:pointer; userSelect:none`.
+
+Card structure (flex column, center-aligned, gap 8px):
+- **Image wrapper**: `padding:12px; borderRadius:8px`. On hover: `border: 2px solid rgba(255,255,255,0.2)` and `background: rgba(0,0,0,0.16)`. Otherwise transparent border and background. `transition: background 0.18s ease, border-color 0.18s ease`.
+  - **Thumbnail image**: `width:80px; height:auto; borderRadius:8px; border: 1px solid rgba(255,255,255,0.2); boxShadow: 0px 1px 6px 0px rgba(0,0,0,0.08)`.
+- **Title label**: On hover, `background: rgb(0,102,221); padding: 4px 8px; borderRadius:4px`. Otherwise transparent with `padding: 4px 0`. `transition: background 0.18s ease, padding 0.18s ease`.
+  - Text: `fontFamily:"'Inter',sans-serif"; fontWeight:400; fontSize:16px; lineHeight:1.4em; letterSpacing:-0.04em; color:rgb(247,247,247); whiteSpace:nowrap`.
+
+Clicking a card (only if drag distance < 5px) opens that project in a modal window.
+
+**6 Projects data:**
+
+| # | title | anchorX | anchorY | thumbnail |
+|---|-------|---------|---------|-----------|
+| 1 | "La ou dort l'eau" | 42.75 | 48.5 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260606_153138_ef8b2e9b-3d18-4b75-8df7-5bc6f0f84fca.png&w=1920&q=85` |
+| 2 | "Champ Silencieux" | 26 | 29.5 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_092743_5be19a2a-e188-4bca-9ed6-74049aa3d83b.png&w=1920&q=85` |
+| 3 | "Lisiere" | 23.33 | 60.88 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260530_012333_aca09e65-227f-4185-a25f-85191cfac44d.png&w=1920&q=85` |
+| 4 | "Elan Brut" | 68 | 62.13 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260527_084631_63ecf071-0fd9-42e3-989a-144728ce8ddb.png&w=1920&q=85` |
+| 5 | "Les Silences Miroirs" | 66.08 | 19.63 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260525_053312_b4d2b145-7bb2-4755-b7a0-79a8e81b1265.png&w=1920&q=85` |
+| 6 | "Revolte douce" | 73.92 | 40.75 | `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260512_012043_9764f2d0-5c6e-4faa-94a6-a8253df08c5e.png&w=1920&q=85` |
+
+---
+
+**useDraggable() HOOK:**
+
+Tracks drag state in a `useRef` (`dragging, sx, sy, ox, oy, cx, cy`). On `mousedown`: records start position and current offset. Attaches `mousemove` and `mouseup` listeners to `window`. On move: calculates delta from start, updates position state. On up: removes listeners. Returns `{ pos: {x, y}, onMouseDown, isDraggingRef }`.
+
+---
+
+**DOCK BAR (5 icons + 1 divider):**
+
+Each DockIcon is a flex column (centered). On hover: shows a tooltip above and scales the icon to 1.12x.
+
+- **Tooltip**: `position:absolute; bottom: calc(100% + 12px); left:50%; transform:translateX(-50%)`. Fades in with `opacity` transition (0.15s). White pill background (`padding:6px 12px; borderRadius:64px; boxShadow:0 4px 16px rgba(0,0,0,0.12)`). Text: Inter 500, 12px, letterSpacing -0.04em, black. Below pill: a white CSS triangle (border trick, 8px).
+
+- **Icon button**: `width:48px; height:48px; borderRadius:28%; overflow:hidden`. On hover: `transform:scale(1.12)` with `transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1)`. Image fills the button with `objectFit:cover`.
+
+Dock contents (left to right):
+1. "About Me" icon: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_151824_5f47765e-d133-4a38-b8bc-d968a07881a3.png&w=1920&q=85` -- opens About overlay
+2. "Notes" icon: `https://framerusercontent.com/images/4ar8CL6aUtjymV8jTsXrcPzXCM.svg` -- opens Notes overlay
+3. **Vertical divider**: `width:1px; height:48px; background:rgba(255,255,255,0.2); borderRadius:64px`
+4. "Instagram" icon: `https://framerusercontent.com/images/Q0Z0p8LOZhN2hJ2arLjEtkqQD0.png` -- links to `https://www.instagram.com/`
+5. "X" icon: `https://framerusercontent.com/images/vjmmhizcqEgw5ZT5SNFQMpxD00.png` -- links to `https://www.x.com/`
+6. "Behance" icon: `https://framerusercontent.com/images/edJkRGfjqjPajyxmEgsUCKVgjE.png` -- links to `https://www.behance.com/`
+
+---
+
+**WINDOW SHELL (shared modal component):**
+
+Centered fixed overlay (`inset:0; display:flex; alignItems:center; justifyContent:center; zIndex:50; pointerEvents:none`). Inner panel: `width:60vw (or 70vw if "wide"); maxWidth:720px (or 840px); maxHeight:70vh; borderRadius:24px; background:white; boxShadow:0 32px 80px rgba(0,0,0,0.28); pointerEvents:all`.
+
+**Spring-in animation**: On mount, transitions from `scale(0.8) opacity:0` to `scale(1) opacity:1` using `transition: transform 0.4s cubic-bezier(0.34,1.28,0.64,1), opacity 0.3s ease`. Uses `requestAnimationFrame` + state toggle.
+
+**Title bar** (draggable): `height:40px; padding:0 16px; borderBottom:1px solid rgb(229,229,234); cursor:grab`. Contains 3 macOS-style traffic light circles (12px diameter, colors: `rgb(253,93,92)`, `rgb(250,201,0)`, `rgb(52,199,90)`) that close the window on click. Title text: Inter 400, 16px, color `rgb(134,134,139)`, letterSpacing -0.04em.
+
+**Scrollable body**: `flex:1; overflowY:auto; padding:16px; gap:16px; flex column`.
+
+---
+
+**CSS in index.css (also include):**
+
+```css
+@keyframes springIn {
+  0% { opacity:0; transform:scale(0.8); }
+  100% { opacity:1; transform:scale(1); }
+}
+.spring-in { animation: springIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+```
