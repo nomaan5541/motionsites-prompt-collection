@@ -2,7 +2,7 @@
 
 ## Content Originality
 
-All prompts, designs, and demos in the **MotionSites.ai Prompt Library** are:
+All prompts, designs, and demos in the **VibeFlow UI Prompt Library** are:
 
 - **100% original works** created by the author
 - **Entirely fictional** — all brand names, company names, logos, and designs are made up
