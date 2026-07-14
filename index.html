@@ -948,7 +948,201 @@
             .hero { padding: 80px 20px 40px; }
             .badge { display: none; }
         }
-    </style>
+    
+        /* Akkikumar72 Ported Styles */
+        .motion-card {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            border-radius: 16px;
+            background-color: #262626;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .motion-card:hover {
+            transform: translateY(-2px);
+        }
+        .motion-card-sheen {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            pointer-events: none;
+            background: radial-gradient(
+                800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 255, 255, 0.08),
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .motion-card:hover .motion-card-sheen {
+            opacity: 1;
+        }
+
+        .media-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1.58 / 1;
+            overflow: hidden;
+            background-color: #202020;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        .media-frame .bg-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .media-frame .img-drift {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            z-index: 10;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .motion-card:hover .media-frame .img-drift {
+            transform: scale(1.03) translateY(-1%);
+        }
+        
+        .media-frame .overlay-fade {
+            position: absolute;
+            inset: 0;
+            z-index: 30;
+            background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+        }
+
+        /* Abstract UI elements */
+        .thumb-float {
+            position: absolute;
+            left: 9%;
+            top: 9%;
+            display: flex;
+            gap: 6px;
+            z-index: 5;
+        }
+        .thumb-float span {
+            display: block;
+            height: 6px;
+            border-radius: 999px;
+        }
+        .thumb-panel {
+            position: absolute;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 5;
+        }
+        .thumb-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(4px);
+            z-index: 5;
+        }
+
+        /* Card Content */
+        .m-card-body {
+            position: relative;
+            z-index: 20;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .m-card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #f5f5f5;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .m-card-cat {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #ababab;
+            margin-top: 4px;
+        }
+        .m-card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .m-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        .m-btn-copy {
+            background: transparent;
+            color: #ababab;
+            width: 40px;
+        }
+        .m-btn-copy:hover {
+            background: #3a3a3a;
+            color: white;
+        }
+        .m-btn-live {
+            background: white;
+            color: #171717;
+            padding: 0 12px;
+        }
+        .m-btn-live:hover {
+            transform: translateY(-2px);
+        }
+        .m-btn-view {
+            background: #303030;
+            color: #ababab;
+            width: 40px;
+        }
+        .m-btn-view:hover {
+            background: #3a3a3a;
+            color: white;
+        }
+
+        /* Compact Generated Thumb logic from Akkikumar72 */
+        
+        .variant-0 > div, .variant-1 > div, .variant-2 > div, .variant-3 > div {
+            position: absolute;
+            z-index: 5;
+        }
+        .variant-0 .p1 { left: 9%; top: 28%; height: 9%; width: 54%; border-radius: 99px; background: rgba(255,255,255,0.9); }
+        .variant-0 .p2 { left: 9%; top: 42%; height: 4%; width: 39%; border-radius: 99px; background: rgba(255,255,255,0.3); }
+        .variant-0 .p3 { left: 9%; top: 51%; height: 4%; width: 26%; border-radius: 99px; background: rgba(255,255,255,0.18); }
+        .variant-0 .p4 { bottom: 13%; right: 8%; height: 54%; width: 34%; border-radius: 18%; background: rgba(255,255,255,0.07); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .variant-0 .o1 { bottom: 18%; right: 12%; height: 38%; width: 26%; }
+
+        .variant-1 .g1 { left: 8%; top: 24%; width: 84%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; z-index: 5; position: absolute; }
+        .variant-1 .g1 span { height: 32px; border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: block; }
+        .variant-1 .p1 { bottom: 14%; left: 9%; height: 7%; width: 34%; border-radius: 99px; background: rgba(255,255,255,0.85); position: absolute; z-index: 5; }
+        .variant-1 .o1 { bottom: 15%; right: 10%; height: 6%; width: 18%; border-radius: 99px; position: absolute; z-index: 5; }
+
+        .variant-2 .p1 { left: 10%; top: 25%; height: 44%; width: 36%; border-radius: 12px; background: rgba(0,0,0,0.2); }
+        .variant-2 .p2 { right: 9%; top: 20%; height: 52%; width: 42%; border-radius: 12px; background: rgba(255,255,255,0.06); }
+        .variant-2 .o1 { right: 14%; top: 31%; height: 18%; width: 26%; }
+        .variant-2 .p3 { bottom: 18%; left: 12%; height: 5%; width: 58%; border-radius: 99px; background: rgba(255,255,255,0.24); position: absolute; z-index: 5; }
+
+        .variant-3 .p1 { left: 8%; top: 22%; height: 18%; width: 84%; border-radius: 16px; background: rgba(255,255,255,0.08); }
+        .variant-3 .p2 { left: 12%; top: 47%; height: 7%; width: 44%; border-radius: 99px; background: rgba(255,255,255,0.86); position: absolute; z-index: 5; }
+        .variant-3 .p3 { left: 12%; top: 59%; height: 4%; width: 66%; border-radius: 99px; background: rgba(255,255,255,0.2); position: absolute; z-index: 5; }
+        .variant-3 .o1 { bottom: 13%; left: 12%; height: 8%; width: 24%; border-radius: 99px; position: absolute; z-index: 5; }
+</style>
 </head>
 <body>
     <div class="background-container">
@@ -1653,27 +1847,67 @@
             return;
         }
 
-        grid.innerHTML = filtered.map((d, i) => `
-            <div class="card ${d.premium ? 'premium' : ''}" style="animation-delay: ${Math.min(i * 0.05, 0.6)}s">
-                <a href="/demos/${d.name}/" target="_blank" class="card-visual ${getCatClass(d.cat)}" data-letter="${d.title.charAt(0)}">
-                    ${d.img ? `<img class="preview-img-bg" src="${d.img}" alt="${d.title}" loading="lazy" onerror="this.style.display='none'">` : ''}
-                    <div class="deco deco-1"></div>
-                    <div class="deco deco-2"></div>
-                    <div class="deco deco-3"></div>
-                    <video class="preview-video" src="${getPreviewSrc(d.name)}" loop muted playsinline preload="none" onerror="this.style.display='none'"></video>
-                    <div class="hover-play"><span>▶</span></div>
-                </a>
-                <div class="card-body">
-                    <div class="card-cat">${d.cat}</div>
-                    <div class="card-title">${d.title}</div>
-                    <div class="card-type">${d.type}</div>
-                    <div class="card-actions">
-                        ${d.hasDemo ? `<a href="/demos/${d.name}/" class="btn btn-demo" target="_blank">▶ Live Demo</a>` : ''}
-                        <button class="btn btn-prompt" onclick="showPrompt('${d.name}', '${d.title.replace(/'/g, "\\'")}')">📋 Code</button>
+        
+        grid.innerHTML = filtered.map((d, i) => {
+            const fallbackGradients = [
+                "radial-gradient(circle at 20% 15%, rgba(255,101,137,.68), transparent 26%), linear-gradient(135deg, #272727, #141414 64%, #421017)",
+                "radial-gradient(circle at 78% 20%, rgba(255,183,74,.44), transparent 24%), linear-gradient(145deg, #161616, #2b2020 58%, #ff0432 140%)",
+                "radial-gradient(circle at 28% 80%, rgba(255,47,95,.54), transparent 28%), linear-gradient(160deg, #202020, #151515)",
+                "linear-gradient(135deg, #242424, #171717 46%, #3d111b), radial-gradient(circle at 70% 18%, rgba(255,101,137,.48), transparent 25%)"
+            ];
+            const fallbackAccents = ["#f43f5e", "#f59e0b", "#a78bfa", "#22d3ee", "#f97316", "#e879f9"];
+            
+            const variant = i % 4;
+            const bgGradient = fallbackGradients[i % fallbackGradients.length];
+            const accent = fallbackAccents[i % fallbackAccents.length];
+
+            let thumbHTML = '';
+            if (variant === 0) {
+                thumbHTML = `<div class="thumb-panel p1"></div><div class="thumb-panel p2" style="background:rgba(255,255,255,0.3); border:none"></div><div class="thumb-panel p3" style="background:rgba(255,255,255,0.18); border:none"></div><div class="thumb-panel p4"></div><div class="thumb-orb o1" style="background: ${accent}"></div>`;
+            } else if (variant === 1) {
+                thumbHTML = `<div class="g1"><span></span><span style="background:${accent}; opacity:0.55"></span><span></span><span style="background:${accent}; opacity:0.55"></span><span></span><span></span></div><div class="p1"></div><div class="o1" style="background: ${accent}"></div>`;
+            } else if (variant === 2) {
+                thumbHTML = `<div class="thumb-panel p1"></div><div class="thumb-panel p2"></div><div class="thumb-orb o1" style="background: ${accent}"></div><div class="p3"></div>`;
+            } else {
+                thumbHTML = `<div class="thumb-panel p1"></div><div class="p2"></div><div class="p3"></div><div class="o1" style="background: ${accent}"></div>`;
+            }
+
+            return `
+            <article class="motion-card group" style="animation-delay: ${Math.min(i * 0.05, 0.6)}s" onclick="showPrompt('${d.name}', '${d.title.replace(/'/g, "\'")}', ${d.pro || false})">
+                <div class="motion-card-sheen"></div>
+                <div class="media-frame">
+                    <div class="bg-gradient" style="background: ${bgGradient}"></div>
+                    <div class="variant-${variant}">
+                        <div style="position:absolute; inset-x:9%; top:12%; height:1px; background:rgba(255,255,255,0.12); z-index:5"></div>
+                        <div class="thumb-float">
+                            <span style="width: 24px; background-color: ${accent}"></span>
+                            <span style="width: 12px; background: rgba(255,255,255,0.2)"></span>
+                            <span style="width: 12px; background: rgba(255,255,255,0.12)"></span>
+                        </div>
+                        ${thumbHTML}
+                    </div>
+                    ${d.img ? `<img src="${d.img}" class="img-drift" loading="lazy" onerror="this.style.display='none'">` : ''}
+                    <div class="overlay-fade"></div>
+                </div>
+                <div class="m-card-body">
+                    <div>
+                        <div class="m-card-title">${d.title}</div>
+                        <div class="m-card-cat">${d.cat}</div>
+                    </div>
+                    <div class="m-card-actions">
+                        <button class="m-btn m-btn-copy" onclick="event.stopPropagation(); copyPromptText('${d.name}', ${d.pro || false})" aria-label="Copy Prompt">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        </button>
+                        ${d.hasDemo ? `<a href="/demos/${d.name}/" class="m-btn m-btn-live" target="_blank" onclick="event.stopPropagation();">Live Preview</a>` : ''}
+                        <button class="m-btn m-btn-view" aria-label="Open preview">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            </article>
+            `;
+        }).join('');
+
     }
 
     // Initialize stats
@@ -1696,25 +1930,32 @@
 
     // 3D Card tilt effect on mousemove
     document.addEventListener('mousemove', e => {
-        const cards = document.querySelectorAll('.card');
+        const cards = document.querySelectorAll('.motion-card');
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
-            // Check if mouse is inside this card
-            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = -(y - centerY) / 15;
-                const rotateY = (x - centerX) / 15;
-                
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-            } else {
-                card.style.transform = '';
-            }
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+    
+    // Add missing function to copy directly from card
+    async function copyPromptText(name, isPro) {
+        try {
+            const folder = isPro ? 'Pro prompts' : 'prompts';
+            const resp = await fetch(`/${folder}/${name}.md`);
+            if (!resp.ok) throw new Error('Not found');
+            const text = await resp.text();
+            const match = text.match(/```text\n([\s\S]*?)```/);
+            const prompt = match ? match[1].trim() : text;
+            await navigator.clipboard.writeText(prompt);
+            showToast();
+        } catch (e) {
+            console.error('Failed to copy', e);
+        }
+    }
+
 
     // Play video on hover, pause on leave
     document.addEventListener('mouseover', e => {
