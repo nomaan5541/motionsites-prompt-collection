@@ -2,7 +2,7 @@
 
 ## Our Commitment to Intellectual Property
 
-The **VibeFlow UI Prompt Library** is committed to respecting intellectual property rights. All content in this repository consists of original, fictional designs created by the project author.
+The **MotionSites Prompts Collection** is committed to respecting intellectual property rights. All content in this repository consists of original, fictional designs created by the project author.
 
 ## If You Believe Your Rights Are Being Infringed
 

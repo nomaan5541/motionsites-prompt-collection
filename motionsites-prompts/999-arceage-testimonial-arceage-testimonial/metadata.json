@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "arceage-testimonial",
+    "title": "Arceage Testimonial",
+    "category": "Testimonials",
+    "sort_order": 999,
+    "type": "testimonials",
+    "types": null,
+    "created_at": "2026-06-06T12:03:21.963922+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": false,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/PHDFVXZBtSFWVqfrsKvKpatUj9yUseRws02tI0143G7zU.m3u8"
+  },
+  "result": {
+    "error": "Paid prompt",
+    "code": "paid_only",
+    "prompt_text": null,
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "reconstructed",
+    "generatedAt": "2026-06-11T21:33:20.025Z",
+    "file": "working-prompt.md",
+    "note": "Reconstructed from public metadata and preview asset references; not the original paid prompt."
+  }
+}

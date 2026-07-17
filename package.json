@@ -1,45 +1,40 @@
 {
-  "name": "motionsites-ai-prompt-library",
-  "version": "2.0.0",
-  "description": "The largest open-source collection of AI web design prompts. 163+ free, production-ready prompts for generating stunning landing pages.",
-  "main": "index.js",
-  "bin": {
-    "templateprompts": "bin/index.js"
-  },
+  "name": "motionsites-free-library",
+  "private": false,
+  "description": "A free MotionSites-inspired prompt catalog with animated cards, copy actions, and prompt-driven live previews.",
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "start": "npx serve .",
-    "test": "echo \"Tests passed\" && exit 0"
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run generate:catalog && tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "generate:catalog": "node scripts/build-catalog.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nomaan5541/motionsites-prompt-collection.git"
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.1"
   },
-  "homepage": "https://motionsitesai-main.vercel.app/",
-  "bugs": {
-    "url": "https://github.com/nomaan5541/motionsites-prompt-collection/issues"
-  },
-  "keywords": [
-    "ai",
-    "prompts",
-    "web-design",
-    "landing-page",
-    "templates",
-    "react",
-    "tailwind",
-    "framer-motion",
-    "bolt-new",
-    "v0",
-    "gpt-engineer",
-    "saas",
-    "portfolio",
-    "hero-section",
-    "glassmorphism",
-    "ui-design",
-    "prompt-engineering",
-    "ai-tools",
-    "open-source",
-    "free-templates"
-  ],
-  "author": "Nomaan Khan",
-  "license": "MIT"
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  }
 }

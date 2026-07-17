@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "acreage-farming-hero",
+    "title": "Acreage Farming",
+    "category": "Landing Page",
+    "sort_order": 370,
+    "type": "hero",
+    "types": null,
+    "created_at": "2026-04-15T06:20:29.699514+00:00",
+    "page_type": "landing",
+    "row_span": 2,
+    "is_free": false,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": "Paid prompt",
+    "code": "paid_only",
+    "prompt_text": null,
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "reconstructed",
+    "generatedAt": "2026-06-11T21:33:19.986Z",
+    "file": "working-prompt.md",
+    "note": "Reconstructed from public metadata and preview asset references; not the original paid prompt."
+  }
+}

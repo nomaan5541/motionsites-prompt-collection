@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "neovision-landing",
+    "title": "NeoVision",
+    "category": "Landing Page",
+    "sort_order": 610,
+    "type": "hero",
+    "types": null,
+    "created_at": "2026-03-18T07:28:13.706233+00:00",
+    "page_type": "landing",
+    "row_span": 2,
+    "is_free": false,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": "Paid prompt",
+    "code": "paid_only",
+    "prompt_text": null,
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "reconstructed",
+    "generatedAt": "2026-06-11T21:33:19.997Z",
+    "file": "working-prompt.md",
+    "note": "Reconstructed from public metadata and preview asset references; not the original paid prompt."
+  }
+}

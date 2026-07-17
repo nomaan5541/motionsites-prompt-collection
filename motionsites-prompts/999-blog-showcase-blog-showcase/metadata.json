@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "blog-showcase",
+    "title": "Blog Showcase",
+    "category": "Blog",
+    "sort_order": 999,
+    "type": "Blog",
+    "types": null,
+    "created_at": "2026-04-21T08:20:00+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/tmh8pemc00LzWJuVgyll9RahISoCELfuCC4W4Gp8yBJs.m3u8"
+  },
+  "result": {
+    "prompt_text": "Build a \"Behind the Lens\" photography blog section with the following exact specifications:\n\n**Layout and Structure:**\n- White background page, max-width 1200px, centered, 60px vertical padding, 20px horizontal padding\n- Header with: a small grey \"Blog\" badge (bg #f4f4f4, 8px border-radius), a large heading \"Behind the lens\" (64px, Outfit font, weight 500, letter-spacing -2.5px), a subtitle paragraph and a \"View all posts\" button side by side\n- Subtitle: \"Thoughts, insights, and stories from my photography journey. Take a peek into my creative process and recent projects.\" (max-width 480px, #666 color, 18px, weight 500, opacity 0.8)\n- \"View all posts\" button: black bg, white text, 40px border-radius pill shape, 14px font, weight 600, scales 1.02 on hover\n\n**Featured Post (full-width card):**\n- 2-column grid (1fr 1fr), 20px border-radius, 1px solid #f0f0f0 border, min-height 520px, bg #fcfcfc\n- Left side: autoplaying looped muted video, object-fit cover, fills the entire area\n- Right side: 60px padding, contains a black \"Must Read\" pill badge (12px font, 20px border-radius), title in Outfit font 48px weight 500 (letter-spacing -1.5px), description in #666 at 17px, and a footer with author name and colored category badge pushed to the bottom via margin-top auto\n- Featured post data: title \"Full-Frame vs. Crop Sensor: Which for Photography?\", description \"An honest look at the real-world differences between these camera systems to help you choose what's actually right for your photography needs.\", author \"By August Renner (c)\", category \"Gear\" with color #7d1a4a\n- Featured video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260507_155500_808e6fdd-761f-4acd-b3be-cb7e6e700def.mp4`\n\n**Blog Grid (3 standard cards):**\n- 3-column grid, 25px gap, below the featured post\n- Each card: video with 16/10 aspect ratio, 20px border-radius, title below (Outfit 17px weight 600) with a colored category badge aligned right\n- Card 1: \"Finding Natural Light in Unexpected Places\", category \"Lighting\" (#2c4c34), video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260506_030111_a9e15665-d379-4a7f-8116-695bbe452ad1.mp4`\n- Card 2: \"My Approach to Editing: Creating a Consistent Photography Style\", category \"Editing\" (#a63e2d), video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4`\n- Card 3: \"Pricing Your Photography: Strategies That Work\", category \"Business\" (#1a2b8c), video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260507_154232_f8809bd2-a6c3-4a38-908d-2005e5b3cb3e.mp4`\n\n**Hover Interactions (on all video containers):**\n- Videos scale to 1.08 on hover with cubic-bezier(0.33, 1, 0.68, 1) over 0.5s\n- A dark overlay (rgba(0,0,0,0.25)) fades in over 0.4s on hover\n- A centered \"+\" icon inside a 70px circle (rgba(255,255,255,0.2) bg) scales from 0.7 to 1.0 on hover over 0.3s\n- White \"L-shaped\" corner brackets (12px, 1.5px border) in all 4 corners of each video, 15px inset from edges\n\n**Category Badges:**\n- Pill shape (20px border-radius), white text, 11px font, weight 600, 4px 12px padding, capitalized, background color matches each post's assigned color\n\n**Fonts:**\n- Google Fonts: Inter (400, 500, 600) for body text, Outfit (500, 600, 700) for headings and titles\n\n**Responsive:**\n- At 1024px: featured post becomes single column, grid becomes 2 columns, featured content padding 40px\n- At 768px: heading drops to 48px, header-bottom stacks vertically, grid becomes 1 column, featured title drops to 32px\n\n**Data Source:**\n- Store all blog post data (type, badge, title, description, author, category, category_color, image/video URL, display_order) in a Supabase `blog_posts` table\n- Fetch and render dynamically, ordered by display_order ascending\n- Enable RLS with public read access for anon and authenticated users\n\n**Tech Stack:**\n- React + TypeScript + Vite + Tailwind CSS (for base resets only, use custom CSS for the blog styles)\n- Supabase JS client for data fetching\n- All videos use autoPlay, loop, muted, playsInline attributes",
+    "sections": []
+  },
+  "workingPrompt": {
+    "mode": "original",
+    "generatedAt": "2026-06-11T21:33:20.016Z",
+    "file": "working-prompt.md",
+    "note": "Original prompt fetched from get-prompt endpoint."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "arceage-services",
+    "title": "Arceage Services",
+    "category": "Services",
+    "sort_order": 999,
+    "type": "features",
+    "types": null,
+    "created_at": "2026-06-06T12:01:48.857738+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": false,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/oVVxj9JXkp54Y7HcbZ2A5UDSD38iH15fkLV02FKyqB38.m3u8"
+  },
+  "result": {
+    "error": "Paid prompt",
+    "code": "paid_only",
+    "prompt_text": null,
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "reconstructed",
+    "generatedAt": "2026-06-11T21:33:20.045Z",
+    "file": "working-prompt.md",
+    "note": "Reconstructed from public metadata and preview asset references; not the original paid prompt."
+  }
+}

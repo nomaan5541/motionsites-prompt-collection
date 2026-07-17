@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "cognitra-feature",
+    "title": "Cognitra Feature",
+    "category": "Feature",
+    "sort_order": 999,
+    "type": "features",
+    "types": null,
+    "created_at": "2026-06-05T14:33:41.049884+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/igmM9BPtlqovfCVSuPd4H016J6KsAos8TfxEe00pm01AQ00.m3u8"
+  },
+  "result": {
+    "prompt_text": "---\n\n**Prompt:**\n\nCreate a full-viewport section (100vh) that sits over a fixed background video. The section has no background color of its own -- it is fully transparent so the fixed video behind it shows through.\n\n**Background video (fixed, behind everything):**\nA `<video>` element fixed to the viewport (`position: fixed; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; z-index: 0`), using this source:\n```\nhttps://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4\n```\nIt should `autoPlay`, be `muted`, `loop`, and `playsInline`.\n\n**Section layout:**\n- `position: relative; z-index: 1`\n- `display: flex; flex-direction: column; justify-content: center` (centers content vertically)\n- `height: 100vh`\n- Padding: `70px 32px 32px 32px`\n\n**Content block** (inside the section):\n- A wrapper `div` with `display: flex; flex-direction: column; align-items: flex-start; max-width: 720px`\n- **Heading (`<h2>`):**\n  - Text: `\"WE BUILD END-TO-END AI AUTOMATION SYSTEMS.\"`\n  - Each word is wrapped in an individual `<span>` element, displayed using `display: flex; flex-wrap: wrap; gap: 0.25em`\n  - Each word animates in with a staggered fade-up animation: starts at `opacity: 0, y: 32px`, animates to `opacity: 1, y: 0` using Framer Motion `whileInView` with `viewport: { once: true, amount: 0.2 }`\n  - Stagger: first word at `delay: 0.15`, each subsequent word adds `0.08s` (so word 2 = 0.23, word 3 = 0.31, etc.)\n  - Animation easing: `[0.22, 1, 0.36, 1]`, duration: `0.7s`\n  - Typography: `font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; margin: 0`\n\n- **Subtext (`<p>`):**\n  - Text: `\"We provide all-in-one AI automation services in one place.\"`\n  - `margin-top: 24px; font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 260px`\n  - Same fade-up animation as the words but with `delay: 0.9` and default `y: 24px`\n\n**Font:**\n```css\n@import url('https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var');\n* { font-family: 'Helvetica Now Var', 'Helvetica Neue', Helvetica, Arial, sans-serif; }\n```\n\n**FadeUp component (reusable, Framer Motion):**\n```tsx\nimport { motion } from 'framer-motion';\nimport { CSSProperties, ReactNode } from 'react';\n\ntype FadeUpProps = {\n  children: ReactNode;\n  delay?: number;\n  duration?: number;\n  y?: number;\n  className?: string;\n  style?: CSSProperties;\n  as?: 'div' | 'section' | 'span' | 'h1' | 'h2' | 'h3' | 'p' | 'nav';\n  once?: boolean;\n};\n\nexport function FadeUp({\n  children, delay = 0, duration = 0.7, y = 24,\n  className, style, as = 'div', once = true,\n}: FadeUpProps) {\n  const Tag = motion[as];\n  return (\n    <Tag\n      className={className}\n      style={style}\n      initial={{ opacity: 0, y }}\n      whileInView={{ opacity: 1, y: 0 }}\n      viewport={{ once, amount: 0.2 }}\n      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}\n    >\n      {children}\n    </Tag>\n  );\n}\n```\n\n**Mobile responsive (max-width: 900px):**\n- Section padding changes to `90px 18px 32px 18px`\n\n**Tech stack:** React 18, TypeScript, Vite, Tailwind CSS 3, Framer Motion 12.\n\n---",
+    "sections": []
+  },
+  "workingPrompt": {
+    "mode": "original",
+    "generatedAt": "2026-06-11T21:33:20.044Z",
+    "file": "working-prompt.md",
+    "note": "Original prompt fetched from get-prompt endpoint."
+  }
+}

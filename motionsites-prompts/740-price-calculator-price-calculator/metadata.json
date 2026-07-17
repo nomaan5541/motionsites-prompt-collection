@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "price-calculator",
+    "title": "Price Calculator",
+    "category": "SaaS",
+    "sort_order": 740,
+    "type": "pricing",
+    "types": null,
+    "created_at": "2026-03-18T07:40:44.262774+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "prompt_text": "Recreate Project Estimation Calculator Section\n\nCreate a full-width dark calculator section with id calculator-section. Background: bg-background, padding py-16 md:py-28 px-4 md:px-16, max-width max-w-7xl centered.\n\nHeader: Centered. Small mono uppercase tracking-widest label \"Try project estimation calculator\" in text-muted-foreground. Below it, an h2: \"Get premium website within your budget\" — text-3xl md:text-4xl lg:text-5xl font-normal.\n\nLayout: 2-column grid (grid-cols-1 lg:grid-cols-2), rounded-2xl overflow-hidden, no gap.\n\nLEFT COLUMN (Calculator Form): Background #0D0D0D, padding p-8 lg:p-12, sections divided by divide-y divide-[#1E1E1E].\n\n4 sections separated by horizontal dividers:\n\nService Type (radio buttons): h3 \"What kind of service do you need?\" — 3 options: \"Only Design\" (design), \"Only Development\" (development), \"Design + Development\" (both, default). Custom radio circles: w-5 h-5 rounded-full border-2, active = border-[#FF5656] with inner w-2 h-2 rounded-full bg-[#FF5656].\n\nNumber of Pages (slider): h3 with current value in #FF5656. Shadcn <Slider> min=1, max=30, step=1, default=5. Labels \"1\" and \"30\" below.\n\nAdd-ons (checkboxes): Two checkboxes with price labels on the right in #FF5656:\n\n\"I will need help with content\" → +$50/pages\n\n\"I want to optimize my website for SEO\" → +$50/pages Custom checkboxes: w-5 h-5 border-2 rounded, checked = border-[#FF5656] bg-[#FF5656] with white SVG checkmark.\n\nTimeline (radio buttons): h3 \"How fast do you need this?\" — 3 options with prices:\n\n\"Within 7 Days\" → +$100/pages\n\n\"Within 14 Days\" → +$25/pages\n\n\"Regular Speed (Based on discussion)\" → no extra cost (default)\n\nRIGHT COLUMN (Cost Estimation): Padding p-8 lg:p-12, border border-white/10 rounded-r-2xl, min-height 717.98px.\n\nh3 \"Estimated Cost\" + description paragraph.\n\n3 stacked cards (rounded-2xl p-6 space-y-3):\n\nAgency card: bg-muted/50. Title \"Typical Agency charges minimum\". Large price text-4xl font-bold. Subtitle: \"+ Too much extra time & additional cost\".\n\nFreelancer card: bg-muted/50. Title \"Regular Freelancer charges minimum\". Large price text-4xl font-bold. Subtitle: \"+ Too much headache & back-and-forth\".\n\nYour price card: bg-gradient-to-r from-pink-500 to-orange-500 text-white. Title \"With Webfluin Studio\". Price text-5xl font-bold. Subtitle: \"Save your money, time & headache\".\n\nPRICING LOGIC:\n\ncalculatePrice():\n  Base prices by service:\n    design: base=399, perPage=100\n    development: base=199, perPage=100\n    both: base=499, perPage=200\n  \n  total = max(base, base + (pages - 1) * perPage)\n  if needContent: total += pages * 50\n  if needSEO: total += pages * 50\n  if rush: total += pages * 100\n  if fast: total += pages * 25\n\ncalculateAgencyCost():\n  perPage = (both ? 1000 : 400)\n  return 8000 + (pages - 1) * perPage\n\ncalculateFreelancerCost():\n  perPage = (both ? 500 : 200)\n  return 3000 + (pages - 1) * perPage\n\nAll prices displayed with .toLocaleString() and $ prefix.\n\nState: serviceType (design|development|both, default both), pages (number, default 5), needContent (bool), needSEO (bool), timeline (regular|fast|rush, default regular).\n\nDependencies: Shadcn Slider component, useToast hook.",
+    "sections": []
+  },
+  "workingPrompt": {
+    "mode": "original",
+    "generatedAt": "2026-06-11T21:33:20.002Z",
+    "file": "working-prompt.md",
+    "note": "Original prompt fetched from get-prompt endpoint."
+  }
+}

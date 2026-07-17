@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "skyelite-hero",
+    "title": "SkyElite Private Jets",
+    "category": "Landing Page",
+    "sort_order": 85,
+    "type": "hero",
+    "types": null,
+    "created_at": "2026-03-30T11:30:40.87574+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "prompt_text": "Create a premium private jet landing page hero section with the following specifications:\n\nVideo Background:\nUse this exact CloudFront video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4\nVideo should autoplay, be muted, loop continuously, and include playsInline attribute\nVideo covers entire viewport (100vh) using object-cover\n\nNavigation Bar:\nBrand name \"SkyElite\" on the left (text-2xl, font-semibold, text-gray-900)\nDesktop menu items (hidden on mobile, visible md:flex): Start, Story, Rates, Benefits, FAQ\nNavigation links in gray-900 with hover:text-gray-700 transition\nMobile hamburger menu button using Lucide React icons (Menu/X)\nMobile menu appears as dropdown with white/95 opacity background, backdrop blur, rounded corners, shadow\nMax width 7xl, centered with px-8 py-6\n\nHero Content (centered, -mt-80 to pull up):\nSmall uppercase label: \"PRIVATE JETS\" (text-sm, font-semibold, gray-600, tracking-wider, mb-4)\nLarge two-line heading with overlapping effect:\nLine 1: \"Premium.\" (text-6xl md:text-7xl lg:text-8xl, font-normal, text-gray-500, leading-none, tracking-tighter)\nLine 2: \"Accessible.\" (same size, color: #202A36, negative margin-top: -12px for overlap)\nSubtitle: \"Your dedication deserves recognition.\" (text-lg md:text-xl, gray-600, mb-6, max-w-2xl)\nTwo call-to-action buttons (gap-4, centered):\n\"Discover\" button: px-4 py-2, rounded-full, bg-gray-300, text-gray-800, font-medium, hover:bg-gray-400\n\"Book Now\" button: px-4 py-2, rounded-full, white text, bg-color #202A36, hover color #1a2229 with smooth transitions\n\nTypography:\nUse Inter font (import from Google Fonts: 400, 500, 600, 700 weights)\nApply to entire body via CSS\n\nTechnical Setup:\nReact with TypeScript\nTailwind CSS for styling\nLucide React for icons\nuseState hook for mobile menu toggle\nFull screen height container (h-screen)\nResponsive breakpoints: mobile-first, md, lg\nAll transitions use transition-colors class\n\nLayout Structure:\nOuter container: min-h-screen, bg-gray-50\nHero section: relative, h-screen, overflow-hidden\nContent wrapper: relative, h-full, flex flex-col\nMain content area: flex-1, flex items-center justify-center\n\nMake it clean, modern, and premium-looking with smooth interactions.",
+    "sections": []
+  },
+  "workingPrompt": {
+    "mode": "original",
+    "generatedAt": "2026-06-11T21:33:19.961Z",
+    "file": "working-prompt.md",
+    "note": "Original prompt fetched from get-prompt endpoint."
+  }
+}

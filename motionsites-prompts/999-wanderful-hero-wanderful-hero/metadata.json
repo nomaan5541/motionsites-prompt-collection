@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "wanderful-hero",
+    "title": "Wanderful Hero",
+    "category": "Travel",
+    "sort_order": 999,
+    "type": "hero",
+    "types": null,
+    "created_at": "2026-05-10T06:25:03.919772+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/loU9GqELzagaHuXwR2ucJx02Fpy00LnEAsr4TAHnTriho.m3u8"
+  },
+  "result": {
+    "prompt_text": "Build a full-viewport cinematic hero section for a travel brand called \"Wanderful\" using React + TypeScript + Vite + Tailwind CSS. Use GSAP for animation and `lucide-react` for icons.\n\n**Fonts (load via Google Fonts in `src/index.css`):**\n```css\n@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');\n```\nAlso load a custom display font:\n```css\n@font-face {\n  font-family: 'Dirtyline';\n  src: url('https://fonts.cdnfonts.com/s/15011/Dirtyline36DaysofType.woff') format('woff');\n  font-weight: normal; font-style: normal; font-display: swap;\n}\n```\nBody font: `Barlow`. Hero headings: `Inter`. Body background: `#000`.\n\n**Video background (fixed, full screen, z-0):**\n- Use this exact CloudFront URL as the `<video>` src:\n  `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260510_060007_60275ce7-030c-4668-a160-8f364ec537d3.mp4`\n- Attributes: `autoPlay muted loop playsInline`, `object-cover`, wrapper scaled `scale-[1.08]` with `origin-center`.\n- On `onLoadedMetadata`, set `playbackRate = 1.25`.\n- Add GSAP-driven mouse parallax: listen to `mousemove`, compute `targetX/Y = ((clientX - cx)/cx) * 20`, lerp `currentX/Y += (target - current) * 0.06` inside `requestAnimationFrame`, and apply via `gsap.set(videoBg, { x, y })`.\n\n**Liquid-glass utility (add to `index.css`):**\n```css\n.liquid-glass {\n  background: rgba(255,255,255,0.01);\n  background-blend-mode: luminosity;\n  backdrop-filter: blur(4px);\n  -webkit-backdrop-filter: blur(4px);\n  border: none;\n  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);\n  position: relative;\n  overflow: hidden;\n}\n.liquid-glass::before {\n  content: \"\";\n  position: absolute; inset: 0;\n  border-radius: inherit;\n  padding: 1.4px;\n  background: linear-gradient(180deg,\n    rgba(255,255,255,0.45) 0%,\n    rgba(255,255,255,0.15) 20%,\n    rgba(255,255,255,0) 40%,\n    rgba(255,255,255,0) 60%,\n    rgba(255,255,255,0.15) 80%,\n    rgba(255,255,255,0.45) 100%);\n  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\n  -webkit-mask-composite: xor;\n  mask-composite: exclude;\n  pointer-events: none;\n}\n```\n\n**Header (fixed top, z-50, `px-10 py-8`, flex justify-between items-center):**\n- Left: wordmark `Wanderful` followed by `<sup>TM</sup>`, `text-[17px] font-semibold tracking-tight`.\n- Center: `<nav>` using `.liquid-glass rounded-full px-2 py-2 flex items-center gap-1`. Links: `JOURNEY`, `BENEFITS`, `JOURNAL`, `GUIDEBOOK`. Each link: `text-[11px] font-medium tracking-[0.12em] text-white/90 hover:text-white px-4 py-1.5 rounded-full transition-colors duration-200`.\n- Right: \"GET ROAMING\" anchor with same `.liquid-glass rounded-full px-5 py-2.5 text-[11px] font-medium tracking-[0.12em] text-white/90 hover:text-white`.\n\n**Hero headline (fixed, `top: 120px`, centered, z-20):**\nTwo lines, both centered, `Inter` 400, `font-size: clamp(40px, 5.4vw, 72px)`, `line-height: 1.1`, `letter-spacing: -0.02em`:\n- Line 1 (white): `Venture without edges.`\n- Line 2 (`rgba(255,255,255,0.55)`): `Uncover with keen instinct.`\n\nFade-in on mount: `opacity 0 → 100` and `translate-y-6 → 0` with `transition-all duration-1000`.\n\n**Bottom block (fixed `bottom-14`, z-20, flex-col items-center gap-6), fade-in with `delay-300`:**\n1. Paragraph, `max-w-[620px] text-[15px] leading-relaxed` centered:\n   - White: \"Our smart itineraries shape around you — your rhythm, your vibe, your hunger for adventure.\"\n   - `text-white/55`: \" Each getaway is tailored, seamless, and wholly yours.\"\n2. Button: white bg, black text, `text-[15px] font-medium rounded-full px-8 py-3.5`, hover `scale-[1.03]` + `shadow-[0_0_32px_4px_rgba(255,255,255,0.2)]`, active `scale-[0.97]`. Label: `Plan my escape today`.\n3. Row: `Lock` icon from lucide-react (`size={13} strokeWidth={1.5}`) + `text-[11px] font-medium tracking-[0.14em] text-white/70`, text: `SECURE BY DESIGN. ZERO DATA LEAKS.`\n\n**Root container:** `min-h-screen bg-black text-white overflow-x-hidden` with inline `fontFamily: \"'Inter', sans-serif\"`.\n\nDependencies: `gsap`, `lucide-react`, `react`, `react-dom`, tailwind configured with content globs `./index.html` and `./src/**/*.{js,ts,jsx,tsx}`.",
+    "sections": []
+  },
+  "workingPrompt": {
+    "mode": "original",
+    "generatedAt": "2026-06-11T21:33:20.039Z",
+    "file": "working-prompt.md",
+    "note": "Original prompt fetched from get-prompt endpoint."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "apex-program-accordion",
+    "title": "Apex Program Accordion",
+    "category": "Accordion",
+    "sort_order": 999,
+    "type": "faq",
+    "types": null,
+    "created_at": "2026-06-04T07:31:26.024602+00:00",
+    "page_type": "hero",
+    "row_span": 1,
+    "is_free": false,
+    "image_preview_url": null,
+    "video_preview_url": "https://stream.mux.com/it9ofSYkTd02WOaeqGcfUnX8rM2iu1hiiJnAHGwM00IKg.m3u8https://stream.mux.com/l4j5umKb3D7jEMjS02Vyd006WATOw8Hu02WUB10195Cpd7A.m3u8"
+  },
+  "result": {
+    "error": "Paid prompt",
+    "code": "paid_only",
+    "prompt_text": null,
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "reconstructed",
+    "generatedAt": "2026-06-11T21:33:20.035Z",
+    "file": "working-prompt.md",
+    "note": "Reconstructed from public metadata and preview asset references; not the original paid prompt."
+  }
+}

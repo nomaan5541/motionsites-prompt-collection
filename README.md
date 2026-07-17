@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ VibeFlow UI — Premium AI Prompt Library & Design System
+# ⚡ MotionSites Prompts Collection
 
 ### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **339 prompts and growing.**
 
@@ -12,7 +12,7 @@
 
 **339 free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
 
-[🌐 **Browse the Live Library**](https://vibeflowui.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+[🌐 **Browse the Live Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
@@ -39,7 +39,7 @@
 
 Modern AI code generation tools (such as **Bolt.new**, **v0.dev**, **GPT-Engineer**, and **Lovable.dev**) are extremely powerful, but they share a common limitation: **they generate standard, generic, and uninspired layouts unless explicitly fed detailed layout instructions.** Without high-fidelity styling specifications, AI models fallback to vanilla Tailwind cards, plain grids, basic system fonts, and generic spacing.
 
-**VibeFlow UI** solves this limitation by acting as a **layout compiler and design system specification layer**. It provides **339 highly structured design system prompts** written in Markdown, which enforce precise spacing, advanced typography scales, customized color variables, and interactive physics-based animation hooks (Framer Motion and GSAP).
+**MotionSites Prompts Collection** solves this limitation by acting as a **layout compiler and design system specification layer**. It provides **339 highly structured design system prompts** written in Markdown, which enforce precise spacing, advanced typography scales, customized color variables, and interactive physics-based animation hooks (Framer Motion and GSAP).
 
 Our mission is to democratize elite frontend design. By translating premium Awwwards-level layouts into structured text instructions, anyone can generate beautiful motion-intensive websites in a single prompt run.
 
@@ -59,30 +59,26 @@ Our mission is to democratize elite frontend design. By translating premium Awww
 
 ## 📂 Repository Architecture
 
-Here is the folder structure of the VibeFlow UI workspace:
+Here is the folder structure of the MotionSites Prompts Collection workspace:
 
-```
+```text
 motionsites-prompt-collection/
 ├── .github/                   # GitHub issues templates & workflows
-├── assets/                    # Static preview assets
-│   ├── images/                # GIF previews
-│   └── videos/                # Autoplay webm/mp4 preview video loops
+├── assets/                    # Static preview assets (images and videos)
 ├── bin/                       # Local CLI executable scripts
-│   └── index.js               # CLI interface router code
 ├── demos/                     # Local interactive preview stubs
-│   ├── Aethera_Studio/        # Preview stubs for each design name
-│   │   └── index.html         # Glassmorphic prompt viewer & copy tool
-│   └── ...                    # 159+ additional design folders
-├── Pro prompts/               # 66 Premium system prompts
-│   └── ...
-├── prompts/                   # 273 Free system prompts
-│   └── ...
+├── Pro prompts/               # Premium system prompts
+├── prompts/                   # Free system prompts
+├── scripts/                   # Utility scripts for downloading and mapping assets
 ├── index.html                 # Main library interactive interface
 ├── vercel.json                # Vercel configuration & redirect headers
 ├── package.json               # Node dependency mappings and CLI bindings
 ├── README.md                  # Comprehensive documentation
+├── CODE_OF_CONDUCT.md         # Community guidelines
+├── CONTRIBUTING.md            # Guidelines for contributing to the repository
 ├── LICENSE                    # MIT license agreement
 ├── DISCLAIMER.md              # Fictional assets notice
+├── DMCA.md                    # DMCA policy and procedures
 └── SECURITY.md                # Responsible vulnerability disclosure
 ```
 
@@ -121,7 +117,7 @@ Our prompts are built around a strict engineering structure to guarantee consist
 
 ## 🖥️ Interactive Gallery Design System
 
-The library's web interface [index.html](file:///f:/vibeflowui.com-main/index.html) is built as a dark space-themed gallery using a custom design system:
+The library's web interface [index.html](index.html) is built as a dark space-themed gallery using a custom design system:
 
 ### 1. The Space Canvas Starfield
 An interactive starfield background renders animated, floating star grids combined with glowing blur orbs. The radial gradients rotate slowly across the screen, simulating a nebula.
@@ -582,7 +578,7 @@ imageUrl: "DigitalOcean Spaces screenshot URL"
 
 ## 🔗 Connect
 
-- **Live Website**: [vibeflowui.vercel.app](https://vibeflowui.vercel.app/)
+- **Live Website**: [motionsitesai-main.vercel.app](https://motionsitesai-main.vercel.app/)
 - **GitHub profile**: [@nomaan5541](https://github.com/nomaan5541)
 - **Instagram Direct**: [@Virus_boss](https://instagram.com/Virus_boss)
 
