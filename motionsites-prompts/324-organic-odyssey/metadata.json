@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "organic-odyssey",
+    "title": "organic odyssey",
+    "category": "Premium",
+    "sort_order": 324,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.387Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a full-screen cinematic hero section using React, Tailwind CSS, and Framer Motion. Use Vite with TypeScript. The dependencies required are: `react`, `react-dom`, `framer-motion`, `lucide-react`, and `tailwindcss`.\r\n\r\n**VIDEO BACKGROUND:**\r\n- Full-screen looping background video, absolutely positioned to fill the viewport\r\n- Video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260619_191346_9d19d66e-86a4-47f7-8dc6-712c1788c3b2.mp4`\r\n- Properties: autoPlay, muted, loop, playsInline, object-cover, object-center\r\n- Page background: `#010101`, full viewport height, overflow hidden\r\n\r\n**FONTS (load via index.html link tags):**\r\n- Garamond from: `https://db.onlinewebfonts.com/c/2bf40ab72ea4897a3fd9b6e48b233a19?family=Garamond`\r\n- Geist from Google Fonts: weights 300, 400, 500\r\n- Body font: `'Geist', -apple-system, BlinkMacSystemFont, sans-serif`\r\n- Heading font class `.font-garamond`: `'Garamond', 'Times New Roman', serif`\r\n\r\n**NAVIGATION:**\r\n- Relative positioned, z-20, flexbox centered on desktop, space-between on mobile\r\n- Brand name \"Organic Visions\" -- white, uppercase, letter-spacing 0.25em (mobile) / 0.3em (desktop), font-light\r\n- Desktop nav links: \"Wander\", \"Archive\", \"Story\", \"Connect\" -- white/80, uppercase, 0.2em tracking, hover to white, 300ms transition\r\n- Mobile: hamburger toggle using lucide-react `Menu` and `X` icons (size 22)\r\n\r\n**MOBILE MENU (hamburger dropdown):**\r\n- Fixed position, top-16, left-4, right-4, z-50, hidden on md+\r\n- Uses `AnimatePresence` from framer-motion for mount/unmount animation\r\n- Animation: fade in from y:-10 to y:0, duration 0.3s, ease 'easeOut'; reverse on exit\r\n- Each link staggers in with opacity 0 to 1, y:-8 to 0, delay 0.05 + index*0.06\r\n- Links: white/90, 0.25em tracking, uppercase, font-light, hover to white\r\n- Custom glass class `.mobile-menu-glass`:\r\n  ```css\r\n  background: rgba(10, 10, 10, 0.7);\r\n  backdrop-filter: blur(20px);\r\n  -webkit-backdrop-filter: blur(20px);\r\n  border: 1px solid rgba(255, 255, 255, 0.08);\r\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);\r\n  ```\r\n- Rounded-2xl, py-8, gap-5, flex-col centered\r\n\r\n**HERO CONTENT:**\r\n- Relative z-10, flex-col centered, text-center\r\n- Padding: px-5 (sm:px-8), pt-12 (sm:pt-16, md:pt-24)\r\n- Heading: Two lines -- \"WITNESS THE\" and \"HIDDEN REALM\"\r\n- Font: Garamond, sizes 4xl/6xl/8xl/9xl responsive, font-normal, white, line-height 1.08, tracking-tight, mb-6 (sm:mb-8)\r\n- Each line uses a `StaggeredFade` component that splits text into individual characters and animates each with 0.07s stagger delay (opacity 0 to 1), triggered once when in view\r\n\r\n**STAGGERED FADE COMPONENT:**\r\n- Accepts `text` string prop\r\n- Splits into individual `<motion.span>` characters\r\n- Uses `useInView` hook (once: true) to trigger animation\r\n- Variants: hidden = opacity 0; show = opacity 1, y:0, with delay `i * 0.07` per character\r\n\r\n**SUBTITLE:**\r\n- Framer Motion animated paragraph, initial opacity:0 y:20, animate opacity:1 y:0, duration 0.8s, delay 1.6s\r\n- Text: \"An odyssey through delicate living forms,\" (line break hidden on mobile, visible sm+) \"revealed by lens and curiosity.\"\r\n- White/70, font-light, leading-relaxed, max-w-xs (sm:max-w-md), mb-8 (sm:mb-10)\r\n- Responsive sizes: text-sm / text-base / text-lg\r\n\r\n**CTA BUTTON:**\r\n- Framer Motion animated, initial opacity:0 y:20, animate opacity:1 y:0, duration 0.8s, delay 2.0s\r\n- Text: \"Begin the Experience\"\r\n- Uses `.liquid-glass` class, rounded-full, responsive padding px-7/px-10 py-3.5/py-4\r\n- White/90, uppercase, tracking 0.18em/0.2em responsive\r\n\r\n**LIQUID GLASS CSS (.liquid-glass):**\r\n```css\r\n.liquid-glass {\r\n  background: rgba(255, 255, 255, 0.01);\r\n  background-blend-mode: luminosity;\r\n  backdrop-filter: blur(4px);\r\n  -webkit-backdrop-filter: blur(4px);\r\n  border: none;\r\n  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.liquid-glass::before {\r\n  content: '';\r\n  position: absolute;\r\n  inset: 0;\r\n  border-radius: inherit;\r\n  padding: 1.4px;\r\n  background: linear-gradient(180deg,\r\n    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,\r\n    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,\r\n    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);\r\n  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\r\n  -webkit-mask-composite: xor;\r\n  mask-composite: exclude;\r\n  pointer-events: none;\r\n}\r\n\r\n.liquid-glass:hover {\r\n  background: rgba(255, 255, 255, 0.04);\r\n  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);\r\n}\r\n\r\n.liquid-glass:active {\r\n  transform: scale(0.98);\r\n}\r\n```\r\n\r\n**GLOBAL CSS:**\r\n- Reset: margin 0, padding 0, box-sizing border-box on all elements\r\n- Body: antialiased font smoothing, white text, #010101 background\r\n- Uses Tailwind directives: @tailwind base/components/utilities\r\n\r\n**PAGE TITLE:** \"Synthetic Nature\"",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.387Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

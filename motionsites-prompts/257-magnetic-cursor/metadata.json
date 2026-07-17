@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "magnetic-cursor",
+    "title": "Magnetic cursor",
+    "category": "Premium",
+    "sort_order": 257,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.333Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\ntitle: \"Magnetic cursor\"\ncategory: Sections\nsubCategory: Hero\npremium: false\nimageUrl: https://strvid.nyc3.cdn.digitaloceanspaces.com/motionitems/1780796678491-fluxo-hero.webp\n---\n\n# Magnetic cursor\n\n```text\nCreate an award-winning, premium dark-mode SaaS hero section using vanilla HTML, CSS, and JavaScript. The page must be 100% responsive (Desktop, Tablet, Mobile) and feature a 3D animated background with a liquid glass navigation bar.\n\n### Tech Stack\n- HTML5\n- Vanilla CSS3 (with CSS variables, flexbox, and CSS Grid)\n- JavaScript (ES Modules)\n\n### Visual Assets & Dependencies\n- **Font**: Google Fonts `Inter` (Weights: 400, 500, 600, 700).\n- **Icons/Logos**: Use high-quality inline SVGs for the logo, chevron dropdowns, checkmarks, company logos (Linear, loom, Remix, raycast, tailwindcss), and star review icons.\n- **3D Background**: Import `TubesCursor` from `https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js`.\n\n### Color Palette (CSS Variables)\n- **Background**: `#030303` (deep dark)\n- **Text Primary**: `#ffffff`\n- **Text Secondary**: `#a1a1aa`\n- **Text Muted**: `#71717a`\n- **Brand Primary**: `#7c3aed`\n- **Brand Secondary**: `#3b82f6`\n- **Gradient Primary Button**: `linear-gradient(135deg, #8b5cf6, #3b82f6)`\n- **Gradient Text Highlights**: `linear-gradient(135deg, #60a5fa, #c084fc, #f472b6)`\n- **Glass Borders**: `rgba(255, 255, 255, 0.08)`\n- **Glass Background**: `rgba(255, 255, 255, 0.02)`\n\n### 3D Background Configuration (TubesCursor)\n- Render the animation on a full-screen `<canvas id=\"canvas\">` placed `position: fixed` with `z-index: -1` and `pointer-events: none`.\n- Do NOT randomize colors on click. Use a static premium palette.\n- **Colors & Lights**: Pink (`#ff008a`), Purple (`#8b5cf6`), Blue (`#3b82f6`), White (`#ffffff`).\n- **Light Intensity**: `50`.\n\n### Layout & Content Requirements\n\n#### 1. Liquid Glass Navbar (Sticky Floating Pill)\n- **Positioning**: `position: sticky; top: 24px; margin-top: 24px; z-index: 100;`\n- **Dimensions**: `height: 80px; padding: 0 24px; border-radius: 100px; max-width: 1200px; margin: 24px auto 0;`\n- **Glassmorphism Style**: `background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(16px) saturate(180%); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.05);`\n- **Content**:\n  - **Left**: \"Fluxo\" Logo (SVG icon of purple stacked squares + text).\n  - **Center**: Links (Features, Solutions [with chevron], Pricing, Resources [with chevron], Changelog).\n  - **Right**: \"Log in\" (text link) and \"Start for free\" (Primary gradient button, pill-shaped).\n  - **Mobile**: Hide links/actions and show a hamburger icon (SVG).\n\n#### 2. Mobile Menu Drawer\n- Create an absolute positioned dropdown (`top: calc(80px + 24px); width: 100%;`).\n- Apply the same liquid glass styling (`blur(16px) saturate(180%)`).\n- Include JS to toggle an `.open` class on click of the hamburger icon.\n\n#### 3. Hero Section\n- **Spacing**: `padding: 80px 0 60px; display: flex; flex-direction: column; align-items: center; text-align: center;`\n- **Badge**: A small pill badge `background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1)`. Inside, a primary purple tag \"New\", followed by text \"AI Assistant is now live ->\".\n- **Headline (H1)**: \"The all-in-one platform \\\n to scale your SaaS\". \n  - `font-size: 4.5rem; line-height: 1.1; font-weight: 700;`\n  - The word \"SaaS\" must use the Gradient Text Highlights color.\n- **Subheadline (P)**: \"Build, launch, and grow your SaaS faster with powerful tools, \\\n beautiful analytics, and AI that works for you.\" (`font-size: 1.25rem; max-width: 600px; color: #a1a1aa;`)\n- **CTA Buttons**: \n  - \"Start for free ->\" (Primary gradient button).\n  - \"Book a demo\" (Glass button: `background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1)`).\n\n#### 4. Social Proof Section\n- **Spacing**: `border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 0 80px; margin-top: 40px;`\n- **Text**: \"Trusted by 10,000+ teams worldwide\" (`color: #71717a;`).\n- **Logos**: Flex row with 48px gap containing logos for Linear, loom, Remix, raycast, tailwindcss. Opacity should be `0.6`, transitioning to `1` on hover.\n- **Reviews**: 5 yellow SVG stars (`fill: #EAB308`) alongside text \"5.0/5 from 1,200+ reviews\".\n\n### Responsive Breakpoints\n- **1024px**: Scale down hero title to `3.8rem` and logos gap to `32px`.\n- **768px (Tablet)**: Hide desktop nav links, show hamburger menu. Adjust navbar side padding to `20px`. Stack CTA buttons vertically (100% width, max 320px). Title size `3rem`.\n- **480px (Mobile)**: Page padding `16px`. Hide \"Log in\" text. Shrink badge text, buttons, and logos. Title size `2.2rem`. Stack review stars and text vertically.\n\n```\n",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.333Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

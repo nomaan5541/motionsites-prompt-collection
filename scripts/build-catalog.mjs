@@ -94,7 +94,9 @@ function readJson(file) {
 }
 
 function readPrompt(folderPath) {
-  const file = path.join(folderPath, "working-prompt.md");
+  const workingFile = path.join(folderPath, "working-prompt.md");
+  const promptFile = path.join(folderPath, "prompt.md");
+  const file = fs.existsSync(workingFile) ? workingFile : promptFile;
   const prompt = fs.readFileSync(file, "utf8").trim();
   if (!prompt) {
     throw new Error(`Empty prompt: ${file}`);

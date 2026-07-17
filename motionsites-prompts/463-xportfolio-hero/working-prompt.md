@@ -1,0 +1,53 @@
+# xPortfolio Hero
+
+**ID:** xportfolio-hero  
+**Category:** Hero Section  
+**Type:** hero  
+
+---
+
+Build a single-page hero section for a brand design agency called "Brandly" using React, Tailwind CSS, and Lucide React icons. The entire page is one viewport-height screen with no scrolling. It uses a fullscreen background video with all content layered on top.
+
+Fonts (loaded via Google Fonts in index.html):
+Inter (weights: 300, 400, 500, 600, 700) -- used as the base font for the entire page
+Anton (regular 400) -- used for all large uppercase headings
+
+Page Container:
+Full viewport height (h-screen), overflow-hidden, flex flex-col
+Background color: #F5F3EE (warm off-white/cream)
+Base font-family set via inline style: fontFamily: 'Inter, sans-serif'
+
+Background Video:
+A video element with autoPlay, loop, muted, playsInline
+Positioned fixed top-0 left-0 w-full h-full object-cover pointer-events-none with zIndex: 0
+Video source URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_102305_3a7cab3b-7a86-46e8-a0f9-6937f035b087.mp4
+Type: video/mp4
+
+Header (zIndex: 10):
+relative, padding px-6 lg:px-12 py-4 lg:py-6, flex-shrink-0
+Nav: flex items-center justify-between
+Left: Logo text "Brandly" -- text-2xl lg:text-3xl font-bold text-black
+Center (hidden on mobile, shown md+): Navigation links "About", "Features", "Pricing", "FAQ", "Help" -- flex items-center gap-8 text-base lg:text-lg, color #080808
+Right: Two buttons side by side (flex items-center gap-3):
+"Sign Up" -- px-4 lg:px-6 py-2 text-base lg:text-lg hover:text-black transition, color #080808
+"Log In" -- px-4 lg:px-6 py-2 bg-black text-white text-base lg:text-lg hover:bg-gray-800 transition
+
+Main Content Area (zIndex: 10):
+relative, padding px-6 lg:px-12 py-6 lg:py-8, flex-1 flex flex-col justify-between
+
+Top Row -- 2 column grid (grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12):
+Left column: Main heading (h1): "BUILDING / BRANDS THAT / RESONATE" in Anton font. text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-normal text-black leading-[0.80] tracking-tight mb-4 lg:mb-5.
+Subheading: "Thoughtful design that captivates, empowers, and creates lasting impact." text-lg lg:text-xl mb-4 lg:mb-5 max-w-md color #080808
+CTA button: "Start today" with ArrowRight icon in white circle. flex items-center gap-3 pl-8 pr-1.5 py-1.5 bg-black text-white rounded-full hover:bg-gray-800
+
+Right column (text-right): "50+ BRANDS LAUNCHED" heading in Anton, with description paragraph below.
+
+Middle Row -- 2 column grid:
+Left: Brand designer bio paragraph with social icons (Facebook filled, Instagram, Youtube)
+Right: "5+ YEARS IN THE INDUSTRY" heading in Anton with description
+
+Bottom Row -- Brand Logo Bar:
+6 brand cards in grid-cols-6: Frame Blox, Supa Blox, Hype Blox, Hype Blox, Ultra Blox, Ship Blox
+Each with unique abstract icon and white bg rounded-lg card style
+
+Key: No animations, all text black/#080808, default Tailwind config, justify-between layout distribution.

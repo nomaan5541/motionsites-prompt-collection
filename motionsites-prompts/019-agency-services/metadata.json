@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "agency-services",
+    "title": "agency services",
+    "category": "Premium",
+    "sort_order": 19,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.173Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "**Prompt:**\r\n\r\nCreate a \"Services\" section using React, Tailwind CSS, and **framer-motion**. The site uses **Google Font \"Kanit\"** (weights 300-900) and a dark page background `#0C0C0C`.\r\n\r\n**Section layout:**\r\n- This section sits on top of the dark background below it, using a white card-like appearance with rounded top corners\r\n- `display: flex, flex-direction: column`\r\n- Padding: `px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32`\r\n- Top border radius: `rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px]`\r\n- Background color: `#FFFFFF` (white)\r\n\r\n**Heading \"Services\":**\r\n- `font-black uppercase leading-none tracking-tight text-center w-full`\r\n- Font size: `clamp(3rem, 12vw, 160px)`\r\n- Color: `#0C0C0C`\r\n- Margin bottom: `mb-16 sm:mb-20 md:mb-28`\r\n- Fade-in animation: `delay: 0, y: 40`\r\n\r\n**Services list (5 items, vertically stacked, centered, max-w-5xl):**\r\n\r\nEach service has a number, name, and description. The services are:\r\n\r\n```\r\n01 — 3D Modeling\r\n\"Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.\"\r\n\r\n02 — Rendering\r\n\"High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.\"\r\n\r\n03 — Motion Design\r\n\"Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.\"\r\n\r\n04 — Branding\r\n\"Crafting cohesive visual identities — from logos to full brand systems — that communicate a clear and memorable presence.\"\r\n\r\n05 — Web Design\r\n\"Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.\"\r\n```\r\n\r\n**Service item layout:**\r\n\r\nEach item is wrapped in a FadeIn with staggered delay (`i * 0.1`) and `y: 30`.\r\n\r\n- **Divider line** between items (not above the first): `border-top: 1px solid rgba(12, 12, 12, 0.15)`, full width\r\n- **Row layout**: `display: flex, align-items: start, gap-6 sm:gap-8 md:gap-10, py-8 sm:py-10 md:py-12, w-full`\r\n- **Left side -- Number**:\r\n  - `font-black uppercase leading-none flex-shrink-0`\r\n  - Font size: `clamp(3rem, 10vw, 140px)`\r\n  - Color: `#0C0C0C`\r\n  - Displays the zero-padded number (01, 02, etc.)\r\n- **Right side -- Name + Description** (flex column, `gap-2 sm:gap-4 md:gap-5, pt-1`):\r\n  - **Name**: `font-medium uppercase`, size `clamp(1rem, 2.2vw, 2.1rem)`, color `#0C0C0C`\r\n  - **Description**: `font-light leading-relaxed max-w-2xl`, size `clamp(0.85rem, 1.6vw, 1.25rem)`, color `#0C0C0C` with `opacity: 0.6`\r\n\r\n**FadeIn component (reusable, framer-motion):**\r\n- Props: `delay`, `duration` (default 0.7), `x` (default 0), `y` (default 30), `className`, `style`, `as` (HTML element tag, default `div`)\r\n- Uses `motion.create()` to make any HTML element animatable\r\n- Variants: `hidden` state sets `opacity: 0` + the x/y offsets; `visible` animates to `opacity: 1, x: 0, y: 0`\r\n- Easing: cubic bezier `[0.25, 0.1, 0.25, 1]`\r\n- Viewport trigger: `{ once: true, margin: \"50px\", amount: 0 }`\r\n\r\n**Font (loaded in HTML head):**\r\n```html\r\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\r\n<link href=\"https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap\" rel=\"stylesheet\" />\r\n```\r\n\r\nCSS base: `font-family: 'Kanit', sans-serif` on html/body.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.173Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

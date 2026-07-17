@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "book-hero",
+    "title": "Book Hero",
+    "category": "Premium",
+    "sort_order": 72,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.209Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "1",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.209Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

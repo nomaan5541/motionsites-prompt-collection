@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "luminara",
+    "title": "luminara",
+    "category": "Premium",
+    "sort_order": 246,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.326Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a full-screen hero section using React + Tailwind CSS + Vite. It must be fully mobile-responsive.\r\n\r\n**Fonts:**\r\nLoad these Google Fonts in `index.html`:\r\n```\r\nInter (weights: 400, 500, 600) — used as the body/primary font\r\nInstrument Serif (italic) — used for the italic accent word in the heading\r\n```\r\nGoogle Fonts link: `https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap`\r\n\r\n**CSS (index.css):**\r\n```css\r\n@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  font-family: 'Inter', sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\n.font-serif-italic {\r\n  font-family: 'Instrument Serif', serif;\r\n  font-style: italic;\r\n}\r\n```\r\n\r\n**Layout structure (single full-viewport section):**\r\n\r\n1. **Background video** — absolute positioned, covers the entire viewport using `object-cover`. Autoplays, muted, loops, playsInline.\r\n   - Video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260624_052448_43259007-b7c4-4269-90bd-e3ab14e80075.mp4`\r\n\r\n2. **Navbar** — absolute top, z-10, flex row with `justify-between`, padded `px-4 sm:px-6 lg:px-8 py-4`. Contains two pill-shaped groups:\r\n\r\n   - **Left pill** (logo + nav links): `bg-black/40 backdrop-blur-xl rounded-full px-5 py-2.5 border border-white/10`. Contains:\r\n     - A custom SVG logo (20x20, white fill) with this path: `M 256 192 C 256 227.346 227.346 256 192 256 L 0 256 L 0 64 C 0 28.654 28.654 0 64 0 L 256 0 Z M 128 192 L 192 192 L 192 128 L 128 128 L 128 64 L 64 64 L 64 128 L 128 128 Z`\r\n     - Nav links (hidden on mobile, `hidden sm:flex`): \"Work\", \"Gallery\", \"Plans\", \"Story\" — white text-sm font-medium with hover:text-white/80 transition\r\n\r\n   - **Right pill** (buttons): `bg-black/40 backdrop-blur-xl rounded-full px-2 py-1.5 border border-white/10`. Contains:\r\n     - Ghost button: \"Get Free\" — white text, rounded-full, hover:bg-white/10\r\n     - Solid button: \"Get a quote\" — bg-white text-black, rounded-full, hover:bg-white/90\r\n\r\n3. **Bottom gradient overlay** — absolutely positioned at bottom, `h-[60%]`, z-[5], pointer-events-none. Gradient: `bg-gradient-to-t from-black/80 via-black/40 to-transparent`. This provides text contrast.\r\n\r\n4. **Bottom content area** — absolute bottom, z-10, padded `px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 lg:pb-16`. Flex layout: column on mobile, row on lg+ with items-end and justify-between.\r\n\r\n   - **Left column** (max-w-3xl):\r\n     - Badge pill: `bg-black/40 backdrop-blur-xl rounded-full px-3 py-1 mb-4 border border-white/10` containing: \"Luminara * Creative Showcase\" (the asterisk is a separate span in text-white/60)\r\n     - Heading (h1): `text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium leading-[1.05] tracking-tight text-white`\r\n       - Text: \"Make ordinary ideas into captivating \"\r\n       - Last word \"narratives.\" is wrapped in a span with class `font-serif-italic font-normal` (renders in Instrument Serif italic)\r\n\r\n   - **Right column** (lg:max-w-sm lg:text-right):\r\n     - Paragraph: \"Design your ideal online presence, grow your client base while crafting pieces with love and soul.\" — `text-white/80 text-sm sm:text-base leading-relaxed`\r\n\r\n**Key design details:**\r\n- All pill elements use `bg-black/40 backdrop-blur-xl border border-white/10 rounded-full`\r\n- The gradient overlay covers the bottom 60% of the viewport and fades from solid black/80 upward to transparent\r\n- The section is `relative w-full h-screen overflow-hidden`\r\n- No other pages or routing needed — single section only\r\n- Tailwind config is default with no extensions",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.326Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

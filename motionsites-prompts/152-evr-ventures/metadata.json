@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "evr-ventures",
+    "title": "EVR Ventures",
+    "category": "Premium",
+    "sort_order": 152,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.263Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# EVR Ventures\n\n> **Category:** Hero Section  \n> **Type:** hero  \n> **License:** free\n\n---\n\n## 🎬 Video Preview\n\n![Video Preview 0](../assets/videos/EVR_Ventures_0.mp4)\n## 📋 Prompt\n\n```text\nCreate a hero section with the following exact specifications:\n\nFonts:\n\nBody/Sans: 'Geist', sans-serif\n\nDisplay: 'Gilda Display', serif\n\nColor Scheme (dark theme — black background, white foreground):\n\n--background: 0 0% 0% (pure black)\n\n--foreground: 0 0% 100% (pure white)\n\nVideo Background:\n\nFull-screen looping muted video with autoPlay, muted, loop, playsInline\n\nURL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_024928_1efd0b0d-6c02-45a8-8847-1030900c4f63.mp4\n\nobject-cover with horizontal offset object-[37%_center] — no dark overlay\n\nPositioned absolute inset-0 with z-0\n\nNavigation Bar (z-10, relative):\n\nLeft: A \"Menu\" button — rounded-full pill with a border (border-foreground/30), uppercase tracking-widest text, and two horizontal lines (hamburger icon made of two <span> bars, w-7 h-[2px] bg-foreground, gap 4px)\n\nCenter: Logo text \"EVR\" — absolute left-1/2 -translate-x-1/2, text-2xl font-bold tracking-wider text-foreground\n\nRight (hidden on mobile, visible md:flex): Two pill buttons (\"About Us\", \"Services\") with border border-foreground/30 rounded-full styling, plus a \"Get Started\" CTA button with bg-gradient-to-r from-[hsl(220,70%,78%)] to-[hsl(40,80%,82%)], black text, rounded-full, uppercase\n\nFull-Screen Menu Overlay (AnimatePresence + framer-motion):\n\nTriggered by Menu button, uses useState for menuOpen\n\nAnimated with clipPath: \"circle(0% at 80px 40px)\" → \"circle(150% at 80px 40px)\" on open, reverse on close\n\nDuration 0.7s, ease [0.76, 0, 0.24, 1]\n\nBackground: bg-foreground (white), fixed inset-0 z-50\n\nClose button: same pill style as Menu but with X icon, text-background (black text)\n\nCenter logo \"EVR\" in text-background\n\nMenu links: Home, About Us, Services, Projects, Contact — each animated with opacity: 0, x: -60 → opacity: 1, x: 0, staggered delay 0.15 + i * 0.08, ease [0.25, 1, 0.5, 1]\n\nEach link: text-[clamp(2rem,5vw,4.5rem)] font-light -tracking-[0.06em], with ArrowRight icon on right, separated by border-b border-background/10\n\nHover: text shifts right 4px, arrow shifts right 2px\n\nBottom: \"Evolve Responsible Ventures\" left, \"© 2026\" right, both text-background/40 text-xs tracking-[0.2em] uppercase\n\nBody scroll locked when menu is open\n\nMain Content Area (z-10, relative):\n\nContainer: flex-1 flex flex-col with justify-start pt-6 px-6 pb-2 on mobile, justify-end pt-0 px-10 pb-16 on md:\n\nSubheading row: ArrowRight icon (w-4 h-4) + \"Evolve Responsible Ventures\" in text-xs font-medium tracking-[0.25em] uppercase\n\nBelow that, a flex container: column on mobile (heading top, stats bottom), row on lg: (side by side at bottom)\n\nHeading:\n\nNavigating the\nroute to impactful\nregeneration\n\nEach line: text-[clamp(2rem,6vw,5rem)], first two lines font-light, third line font-display (Gilda Display serif)\n\nleading-[0.9] -tracking-[0.2em] on the <h1>\n\nStats/Progress Circle (right side on desktop, bottom on mobile):\n\nlg:max-w-xs lg:pb-4, with mt-8 on mobile, mt-0 on md:\n\nSVG circular progress: 120x120 viewBox, radius 54, strokeWidth 3\n\nBackground circle: stroke=\"hsl(var(--foreground) / 0.15)\"\n\nProgress circle: stroke=\"hsl(var(--foreground))\", animated to 75% on mount (500ms delay), strokeLinecap=\"round\", transition-all duration-1000 ease-out\n\nCenter text: \"75%\" in text-foreground text-lg font-medium\n\nBelow circle: paragraph text-foreground/70 text-sm leading-relaxed: \"Guiding organizations toward lasting environmental performance through actionable strategy and measurable outcomes\"\n\nClients/Partners Marquee Bar (bottom, z-10):\n\nTop row: \"Our Partners\" left, \"Backed by 30+ global brands\" right (hidden on mobile)\n\nBoth text-xs font-medium tracking-[0.2em] uppercase text-foreground\n\nBelow: border-t border-foreground/10, overflow-hidden py-5\n\nMarquee: CSS animate-marquee (keyframe translateX(0) → translateX(-50%), 20s linear infinite)\n\nBrand names: Opensense, DKNY, Under Armour, LIU·JO, ATOM, ECCO, ORUM — duplicated twice for seamless loop\n\nEach name: text-foreground/50 text-lg font-medium tracking-wide, gap-16\n\nResponsive Layout Summary:\n\nMobile: heading at top of content area, stats/progress at bottom, nav right buttons hidden\n\nTablet/Desktop (md:+): content aligned to bottom, nav right buttons visible\n\nLarge (lg:): heading and stats side by side at bottom\n```\n\n---\n\n*Generated by MotionSites Export Tool*\n",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.263Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

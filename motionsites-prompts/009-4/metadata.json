@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "4",
+    "title": "4",
+    "category": "Premium",
+    "sort_order": 9,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.167Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a high-fidelity, production-ready Hero section for a SaaS product called \"Datacore\" using React, Tailwind CSS, and Lucide Icons.\r\n\r\n### Design Style\r\n- **Theme:** Dark mode, modern, clean, \"Linear-style\" aesthetic.\r\n- **Background:** Full-screen background video with a black overlay (`bg-black/60`) for text readability.\r\n- **Responsiveness:** Fully responsive for mobile (with a hamburger menu) and desktop.\r\n\r\n### Tech Stack Requirements\r\n- Use **React** with **Tailwind CSS**.\r\n- Use **lucide-react** for icons.\r\n- Use **hls.js** to handle the background video streaming (.m3u8) to ensure it works on Chrome/Firefox, while using native HLS for Safari.\r\n- Import these Google Fonts via CSS: 'Inter', 'Manrope', 'Cabin', and 'Instrument Serif'.\r\n\r\n### Assets\r\n- **Video Source:** `https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8`\r\n- **Video Poster/Thumbnail:** `https://customer-cbeadsgr09pnsezs.cloudflarestream.com/257c7359efd4b4aaebcc03aa8fc78a36/thumbnails/thumbnail.jpg`\r\n\r\n### Typography & Colors\r\n- **Global Font:** 'Manrope'\r\n- **Headings:** 'Inter'\r\n- **Buttons/Badges:** 'Cabin'\r\n- **Italic Accent:** 'Instrument Serif'\r\n- **Colors:**\r\n  - Primary Purple: `#7b39fc` (Hover: `#6a2ce0`)\r\n  - Secondary Dark: `#2b2344` (Hover: `#352b54`)\r\n  - Accent Orange: `#f87b52`\r\n  - Glass Border: `rgba(164,132,215,0.5)`\r\n  - Glass Background: `rgba(85,80,110,0.4)`\r\n\r\n### Layout & Components\r\n\r\n1. **Background Video Component:**\r\n   - Create a robust component that handles HLS streams.\r\n   - It must auto-play, loop, mute, and play inline.\r\n   - It must handle the poster image fading out once the video actually starts playing to prevent black flashes.\r\n\r\n2. **Navbar:**\r\n   - **Left:** Logo (Use a white square container with the `Command` icon inside).\r\n   - **Center (Desktop):** Links for \"Home\", \"Services\" (with a `ChevronDown` icon), \"Reviews\", \"Contact us\".\r\n   - **Right (Desktop):** \"Sign In\" (Glass effect button) and \"Get Started\" (Purple button).\r\n   - **Mobile:** Show a Menu toggle button that opens a full-screen black overlay with vertical links.\r\n\r\n3. **Hero Content (Centered):**\r\n   - **Badge:** A glassmorphism pill shape containing:\r\n     - A small orange tag: \"New\"\r\n     - Text: \"Say Hello to Datacore v3.2\"\r\n   - **Headline (Large, ~76px on desktop):**\r\n     - Line 1: \"Your Networks.\"\r\n     - Line 2: \"One Rapid [Italic Serif Font: Interface].\"\r\n   - **Subtext:** \"Platform helps admins control access, logs, and servers with purpose.\"\r\n   - **CTA Buttons:**\r\n     - Primary: \"Book a Free Demo\" (Purple)\r\n     - Secondary: \"Get Started Now\" (Dark Navy)\r\n\r\nPlease ensure the code is production-ready, clean, and handles the video loading state gracefully.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.167Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

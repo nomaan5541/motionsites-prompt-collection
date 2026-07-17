@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "vitara-hero",
+    "title": "vitara hero",
+    "category": "Premium",
+    "sort_order": 445,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.478Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Vitara\n\n**ID:** vitara-hero  \n**Category:** Landing Page  \n**Type:** hero  \n\n---\n\nCreate a modern healthcare AI landing page with a full-screen video background hero section with the following exact specifications:\n\nVIDEO BACKGROUND:\n\nUse this exact CloudFront video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260402_134434_5de46cb4-38e7-42a6-a8bc-6e62b2fd6c7b.mp4\nVideo should autoplay, loop, be muted, and play inline\nPosition: absolute, full width/height, object-fit: cover with object-position: bottom\nAdd a 32px high gradient overlay at the bottom that fades from transparent to #2B3534\nFONTS:\n\nImport Inria Serif (weights: 300, 400, 700) from Google Fonts in the HTML head\nBody text: 'Helvetica Neue', Helvetica, Arial, sans-serif\nAll headings: 'Inria Serif' serif with letter-spacing: -0.07em\nNAVIGATION BAR:\n\nWhite background with padding\nLogo: \"Vitara\" in 2xl font, semibold, gray-900\nMenu items (desktop only, hidden on mobile): Home, Services, Team, Membership, Resources in gray-600 with hover:gray-900\nRight side: \"Login\" text button and \"Sign up\" button (gray-800 bg, white text, rounded-lg)\nHERO CONTENT:\n\nMain heading (4xl on mobile, 6xl on tablet, 7xl on desktop): \"Smart Care Begins with Data + Insight\"\nSubheading (lg to xl): \"Turn medical insights into personalized wellness plans.\"\nBoth text elements use a custom AnimatedText component that:\nSplits text into words\nEach word animates with fadeUp animation (opacity 0 to 1, translateY 20px to 0, 0.6s ease-out)\nStaggered delay of 0.1s per word\nAnimation fill mode: forwards\nINTERACTIVE INPUT BOX:\n\nMax width 36rem, centered\nBackground color: #2B3534\nRounded 2xl corners with 2xl shadow\nContains:\nTextarea with placeholder: \"Welcome to Vitara — your care intelligence hub!\"\nTransparent background, white text, gray-400 placeholder, min-height: 60px\nThree action buttons with Lucide React icons:\n\"Start Wellness Check\" (Zap icon)\n\"Chat with MedAI\" (Stethoscope icon)\n\"View Insights\" (BarChart3 icon)\nButtons: white border (15% opacity), rounded-full, hover effect (white bg 10% opacity)\nHorizontal scroll with hidden scrollbar and right-side fade gradient\nSend button: white background, gray-800 text, rounded-lg, with Send icon from Lucide React\nSECOND SECTION:\n\nFull-width background: #2B3534\nTwo-column grid (single column on mobile)\nLeft: Large heading \"Your proactive shield against disease\" (3xl to 6xl, white, Inria Serif font)\nRight: Body text \"We blend smart technology & clinical wisdom to provide tailored, preventive, & insight-rich medicine for tomorrow.\" (gray-300, max-width sm, right-aligned)\nBoth use the same AnimatedText component with word-by-word fade-up animation\nCSS UTILITIES NEEDED:\n\n\n.scrollbar-hide::-webkit-scrollbar { display: none; }\n.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }\n\n@keyframes fadeUp {\n  from { opacity: 0; transform: translateY(20px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.animate-fadeUp { animation: fadeUp 0.6s ease-out; }\nTECH STACK:\n\nReact with TypeScript\nTailwind CSS\nLucide React for icons (Send, Zap, Stethoscope, BarChart3)\nVite build tool\nRESPONSIVE DESIGN:\n\nMobile-first approach\nNavigation menu hidden on mobile (md:flex)\nFont sizes scale from mobile (text-4xl) to desktop (text-7xl)\nPadding adjusts: px-6 on mobile, px-12 on tablet, px-20 on desktop\nGrid becomes single column on mobile\nKEY COLORS:\n\nPrimary dark: #2B3534\nText dark: gray-900\nText medium: gray-600\nText light on dark: white and gray-300\nButton primary: gray-800\nThis creates a premium, sophisticated healthcare AI landing page with smooth animations, a cinematic video background, and clean typography using Inria Serif for headlines.\n\n\n",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.478Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

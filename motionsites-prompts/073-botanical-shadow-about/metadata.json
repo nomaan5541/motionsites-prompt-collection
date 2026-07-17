@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "botanical-shadow-about",
+    "title": "botanical shadow about",
+    "category": "Premium",
+    "sort_order": 73,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.210Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a React + TypeScript + Vite project with Tailwind CSS. Build a full-viewport hero section called `about.tsx` with the following exact specifications.\r\n\r\n### Fonts (load in `index.html` `<head>`)\r\n\r\n```html\r\n<link href=\"https://db.onlinewebfonts.com/c/076f8c5b3b67616658dd1e4e9bac62ec?family=Zimula+Trial+Med\" rel=\"stylesheet\">\r\n<link href=\"https://db.onlinewebfonts.com/c/08d8ca53f66ab5b48659912fa0136b78?family=Zimula+Trial+Bd\" rel=\"stylesheet\">\r\n```\r\n\r\nAnd in `index.css`:\r\n```css\r\n@import url('https://db.onlinewebfonts.com/c/46024824a3dd3309c3a7f46f4f1283ba?family=Zimula+Trial+Reg');\r\n```\r\n\r\n### Global CSS (`index.css`)\r\n\r\n- Reset: `*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }`\r\n- `html { scroll-behavior: smooth; }`\r\n- `body { font-family: 'Zimula Trial Med', sans-serif; background: #0e0c0a; overflow-x: hidden; }`\r\n- Custom scrollbar: 6px wide, track `#0e0c0a`, thumb `rgba(255,255,255,0.15)` with 3px radius.\r\n\r\n### Section Container\r\n\r\nA `<section>` with: `position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; fontFamily: \"'Zimula Trial Med', sans-serif\"`.\r\n\r\n### Layer 1 — Background Video (z-index 0)\r\n\r\nA `<video>` element with `autoPlay muted loop playsInline`, absolutely positioned to fill the section (`inset: 0; width: 100%; height: 100%; objectFit: cover`).\r\n\r\n**Exact video URL (Cloudinary, not CloudFront):**\r\n```\r\nhttps://res.cloudinary.com/dy5er7kv5/video/upload/q_auto/f_auto/v1779835701/bg-2-video_sgbpqt.mp4\r\n```\r\n\r\n### Layer 2 — Warm Overlay (z-index 1)\r\n\r\nAbsolutely positioned div, `inset: 0`, `background: rgba(242, 238, 230, 0.38)`, `pointerEvents: none`. This warm off-white tint sits over the video for text legibility.\r\n\r\n### Layer 3 — Centered Headline (z-index 2)\r\n\r\nAbsolutely positioned flex container (`inset: 0`), centered both axes, `pointerEvents: none`, `textAlign: center`, `padding: 0 24px`.\r\n\r\nInside, a `<p>` with:\r\n- `fontSize: clamp(32px, 5.5vw, 80px)`\r\n- `lineHeight: 1.18`\r\n- `color: #2a2420` (warm dark brown)\r\n- `maxWidth: 780px`\r\n- `letterSpacing: -0.025em`\r\n- `fontWeight: 400`\r\n- `margin: 0`\r\n\r\nText content with explicit `<br />` line breaks:\r\n```\r\nWhat stands the\r\ntest of time is all\r\nthat guides the\r\nwork.\r\n```\r\n\r\n### Layer 4 — Bottom Element (z-index 2)\r\n\r\nAbsolutely positioned at `bottom: clamp(24px, 4vh, 48px)`, `left: 0`, `right: 0`. Flex column, items centered, `textAlign: center`, `padding: 0 24px`.\r\n\r\nChildren, in order:\r\n\r\n**1. Vertical divider line:**\r\n- `width: 1px; height: 56px; background: rgba(42,36,32,0.25)`\r\n\r\n**2. Wrapper** with `marginTop: 22px`, flex column centered, `gap: 14px`, containing:\r\n\r\n**a) Inline SVG map-pin icon** (24×28, viewBox `0 0 26 30`, fill none):\r\n```jsx\r\n<path\r\n  d=\"M13 1C6.373 1 1 6.373 1 13c0 5.52 3.55 10.23 8.52 11.94l3.26 3.76a.75.75 0 001.14 0l3.26-3.76C22.45 23.23 25 18.52 25 13 25 6.373 19.627 1 13 1z\"\r\n  stroke=\"#2a2420\"\r\n  strokeWidth=\"1.4\"\r\n  fill=\"none\"\r\n/>\r\n```\r\n\r\n**b) Subtext `<p>`:**\r\n- `fontSize: clamp(11px, 1.4vw, 13px)`\r\n- `color: #2a2420`\r\n- `letterSpacing: 0.04em`\r\n- `lineHeight: 1.6`\r\n- `maxWidth: 340px`\r\n- `opacity: 0.75`\r\n- Content: `Civic bodies and private clients trust us to shape resilient communities and purposeful places.`\r\n\r\n### Notes\r\n\r\n- **No animations, no scroll listeners, no parallax.** Section 2 is intentionally static. The only motion is the looping background video.\r\n- All styling is inline (no CSS classes, no Tailwind utility classes inside the component) to keep the file self-contained.\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.210Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "acreage-farming",
+    "title": "Acreage Farming",
+    "category": "Premium",
+    "sort_order": 14,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.170Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Precision farming landing page with dark/light sections, hero video background, stats grid, logo marquee, and service cards.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.170Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

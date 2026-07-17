@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "beauty-categories",
+    "title": "beauty categories",
+    "category": "Premium",
+    "sort_order": 56,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.198Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\r\n\r\n**Prompt to recreate the \"Categories\" section:**\r\n\r\n> Build a \"Categories\" section in React + Tailwind CSS with the following exact specifications:\r\n>\r\n> **Section Container:**\r\n> - Full-width `<section>` with `bg-white`, `text-white`, `min-h-screen`.\r\n> - Flexbox column layout with `justify-center` to vertically center the grid content.\r\n> - No horizontal or vertical padding on the section itself.\r\n>\r\n> **Grid Layout:**\r\n> - A CSS grid: `grid-cols-1` on mobile, `md:grid-cols-3` on medium+.\r\n> - The entire grid uses an IntersectionObserver-based reveal animation (threshold `0.1`): transitions from `opacity-0 translate-y-12` to `opacity-100 translate-y-0` over `duration-1000 ease-out`.\r\n>\r\n> **3 Category Cards with exact data:**\r\n> 1. Name: `\"face\"` | Video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203023_87a26602-2898-4acc-a396-c7a2b5ad84fd.mp4`\r\n> 2. Name: `\"beauty tools\"` | Video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203415_b86e3f19-2aec-46cd-9a86-b64c40118e38.mp4`\r\n> 3. Name: `\"body\"` | Video: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260518_203051_85fee398-ea01-4aa0-972b-137a74213be5.mp4`\r\n>\r\n> **Card Layout (each card):**\r\n> - `position: relative`, flexbox column with `justify-between`, `items-start`.\r\n> - Padding: `p-6` mobile, `sm:p-8`, `md:p-12`.\r\n> - Heights: `min-h-[400px]` mobile, `sm:min-h-[500px]`, `md:min-h-[750px]`.\r\n> - `overflow-hidden`.\r\n> - Each card has a staggered `transitionDelay` of `index * 150ms`.\r\n> - Uses `group` for hover interactions.\r\n>\r\n> **Background Video:**\r\n> - `<video>` element with attributes: `autoPlay`, `loop`, `muted`, `playsInline`.\r\n> - Positioned absolutely: `absolute inset-0 w-full h-full object-cover`.\r\n> - Hover effect: `scale-105` over `duration-700` via `transition-transform group-hover:scale-105`.\r\n> - The `src` attribute is set directly from the video URL (no `<source>` tag).\r\n>\r\n> **Dark Overlay:**\r\n> - A `<div>` absolutely positioned over the video: `absolute inset-0`.\r\n> - Default: `bg-black/10`. On hover: `group-hover:bg-black/20`.\r\n> - `transition-colors duration-500`.\r\n>\r\n> **Category Name (vertical text):**\r\n> - `<h2>` tag, positioned above overlay: `relative z-10`.\r\n> - Font sizes: `text-5xl` mobile, `sm:text-6xl`, `md:text-7xl`, `lg:text-8xl`. Weight: `font-medium`.\r\n> - **Vertical text**: achieved with inline style `writingMode: 'vertical-lr'` combined with `transform: 'rotate(180deg)'` (this makes text read bottom-to-top).\r\n> - Hover: `group-hover:-translate-y-2` over `duration-500`.\r\n> - Text is lowercase (rendered as-is from the data: \"face\", \"beauty tools\", \"body\").\r\n>\r\n> **Shop Button:**\r\n> - `<button>` with class `btn-primary` (see CSS below) plus `relative z-10 mt-auto px-8 py-3 bg-white text-black rounded-full text-sm`.\r\n> - Text: `\"shop {category name}\"` in lowercase (e.g., \"shop face\", \"shop beauty tools\", \"shop body\").\r\n> - `mt-auto` pushes the button to the bottom of the card.\r\n>\r\n> **Required CSS for `btn-primary` (in global stylesheet):**\r\n> ```css\r\n> .btn-primary {\r\n>   position: relative;\r\n>   overflow: hidden;\r\n>   transition: transform 0.3s ease, box-shadow 0.3s ease;\r\n> }\r\n> .btn-primary::before {\r\n>   content: '';\r\n>   position: absolute;\r\n>   inset: 0;\r\n>   background: linear-gradient(120deg, transparent 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);\r\n>   transform: translateX(-100%);\r\n>   transition: transform 0.5s ease;\r\n> }\r\n> .btn-primary:hover {\r\n>   transform: translateY(-2px);\r\n>   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);\r\n> }\r\n> .btn-primary:hover::before {\r\n>   transform: translateX(100%);\r\n> }\r\n> .btn-primary:active {\r\n>   transform: translateY(0);\r\n>   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\r\n> }\r\n> ```\r\n>\r\n> **IntersectionObserver hook (`useInView`):**\r\n> - Accepts a `threshold` parameter (default `0.15`), uses a ref.\r\n> - Observes the element; once `isIntersecting` is true, sets `isVisible = true` and unobserves (one-shot animation).\r\n> - Returns `{ ref, isVisible }`.\r\n> - This section calls it with threshold `0.1`.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.198Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

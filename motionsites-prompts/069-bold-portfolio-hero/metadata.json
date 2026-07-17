@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "bold-portfolio-hero",
+    "title": "Bold Portfolio Hero",
+    "category": "Premium",
+    "sort_order": 69,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.208Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Bold Portfolio Hero\n\n**ID:** 6  \n**Category:** Portfolio  \n**Type:** hero  \n\n---\n\nBuild a high-end, responsive Hero Section for a personal portfolio website using React and Tailwind CSS. The design should feel bold, modern, and energetic.\n\n1. Global Styles & Theme:\n\nBackground: A vertical gradient from a vibrant red-orange [#fd2601] at the top to a lighter orange [#f37e1c] at the bottom.\n\nTypography:\nHeadlines: Use the font \"Anton\" (or a similar heavy, condensed sans-serif). Text should be massive, uppercase, and tracking wide.\n\nBody/UI: Use \"Inter\" or a clean sans-serif. Minimalist, uppercase, and legible.\n\nColors: All text and icons should be White.\n\nSelection State: When user selects text, make the background White and text Orange [#fd2601].\n\n2. Ambient Background Elements:\n\nPlace a large, faint SVG text or pattern (like the name \"OLIVIA\") in the absolute background. It should be centered, white, very low opacity (0.08), and blurred (4px).\n\nAdd glowing \"blobs\" behind the main content:\n\nOne bottom-right (300x300px, #F4791B, blur 80px).\n\nOne bottom-left (600x300px, #F4791B, blur 80px).\n\nUse mix-blend-screen and opacity-60 for these blobs to make them blend beautifully.\n\n3. Navigation Bar (Floating Top):\n\nPosition: Absolute top, full width, transparent background.\n\nLeft: Text logo \"✱ VIKTORODDY\" (Sans-serif, tracking wide).\n\nCenter (Desktop only): Links [PROJECTS, BLOG, ABOUT, RESUME]. Hover effect: opacity-80.\n\nRight: A \"HIRE ME\" CTA.\n\nFormat: Text // HIRE ME followed by a circular button (white border) containing a diagonal arrow icon.\n\nHover: The circle fills white, icon turns orange.\n\n4. Main Hero Content (Centered):\n\nHeadline: The text \"NEW DESIGN ERA\".\n\nDesktop: Display on one line (or slightly wrapped), font size ~12vw (max 180px), z-index: 10.\n\nMobile: Stack vertically: \"NEW\" / \"DESIGN\" / \"ERA\".\n\nCentral Image: Place a portrait image of a person absolutely centered over the headline. CRITICAL: Apply a CSS Mask (paint brush stroke shape) to the image so it looks like a rough cutout, not a rectangle. The image should overlap the text, creating depth (z-index: 20).\n\nFloating Elements (Desktop):\n\nBottom-Left: Intro text: \"// I'm Olivia — a freelance UI/UX designer...\" indented with a clean hierarchy.\n\nRight-Middle: Tagline: \"// DESIGN THAT [newline] SPEAKS YOUR BRAND\". Text aligned right.\n\nMobile Layout: Move the floating elements below the main image/text stack so they don't overlap.\n\n5. Footer / Brand Strip:\n\nA row of white, semi-transparent (opacity-90) logos at the bottom (e.g., Gucci, Zara, Vogue, Sony, Zalora).\n\nDesktop: Spread evenly across the width.\n\nMobile: Wrap them nicely in the center.\n\nTechnical Requirements:\n\nUse flexbox for layout alignment.\n\nEnsure the image is pointer-events-none so it doesn't block text selection.\n\nMake it fully responsive: The massive text must scale down on mobile, and the layout must shift from absolute positioning (Desktop) to stacked block layout (Mobile).",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.208Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

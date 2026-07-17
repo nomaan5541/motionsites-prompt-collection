@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "speakup-venture-hero",
+    "title": "SpeakUp Venture Hero",
+    "category": "Premium",
+    "sort_order": 399,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.446Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a full-screen hero section (100vh, min-height 600px) for a creative agency site called **Speakup**. Build it in React + TypeScript with Tailwind CSS and use `lucide-react` for icons.\r\n\r\n**Fonts**\r\n- Load `Recoleta Regular` from: `<link href=\"https://db.onlinewebfonts.com/c/67415ab41a7350f81536b69763e6d031?family=Recoleta+Regular\" rel=\"stylesheet\">`\r\n- Load `Inter` (weights 400, 500, 600, 700) from Google Fonts.\r\n- Use `Recoleta Regular` only for the H1 heading. Use `Inter` for all other text (body, nav, buttons, logo wordmark).\r\n- Extend Tailwind with `fontFamily: { recoleta: ['\"Recoleta Regular\"', 'serif'], inter: ['Inter', 'sans-serif'] }`.\r\n- In `index.css`, set `html, body` to `font-family: 'Inter', sans-serif` with antialiased smoothing, and add a `.font-recoleta` utility.\r\n\r\n**Colors (extend Tailwind)**\r\n- `brand.green = #0E7824` (heading only)\r\n- `brand.dark = #2D2D2F` (logo, nav text, buttons)\r\n\r\n**Background video (no overlay, full cover)**\r\n- URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_150921_27df94bd-d1e3-4440-9f55-314c4611902b.mp4`\r\n- Attributes: `autoPlay muted loop playsInline`\r\n- Positioned `absolute inset-0 w-full h-full object-cover`.\r\n\r\n**Logo component** (`Logo.tsx`) — accepts `className` and `color` props; renders this SVG with `fill={color}`:\r\n```\r\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" fill=\"none\">\r\n  <path d=\"M 128.005 191.173 C 128.448 156.208 156.93 128 192 128 L 192 64 L 128 64 C 128 99.346 99.346 128 64 128 L 64 192 L 128 192 Z M 192 256 L 64 256 C 28.654 256 0 227.346 0 192 L 0 64 L 64 64 L 64 0 L 192 0 C 227.346 0 256 28.654 256 64 L 256 192 L 192 192 Z\" />\r\n</svg>\r\n```\r\nDefault color `#2D2D2F`.\r\n\r\n**Navbar** (z-20, padding `px-6 md:px-12 lg:px-16 pt-6 md:pt-8`, flex between):\r\n- Left: Logo (`w-8 h-8 md:w-9 md:h-9`) + wordmark `SPEAK` (bold) + `UP` (black weight), color `#2D2D2F`, tracking-tight, `text-lg md:text-xl`.\r\n- Center (hidden below lg, gap-8 xl:gap-10): links — `Projects`, `The Team`, `Products`, `Our Story`, `Say Hello!` — text-sm, font-medium, `#2D2D2F`, hover turns `#0E7824` via `transition-colors`.\r\n- Right (hidden below lg): pill button \"Begin a venture\", `rounded-full bg-[#2D2D2F] text-white text-sm font-medium px-7 py-3.5 shadow-sm hover:bg-black transition-colors`.\r\n- Mobile: hamburger (`Menu` icon from lucide) toggles a full-screen white overlay (`fixed inset-0 z-50`) with `X` close button, stacked links `text-2xl`, and the same pill CTA.\r\n\r\n**Hero content** (z-10, `px-6 md:px-12 lg:px-16 mt-8 md:mt-16 lg:mt-24 max-w-7xl`):\r\n- H1 using `font-recoleta` color `#0E7824`, `leading-[1.05] tracking-tight`, sizes `text-[56px] sm:text-7xl md:text-8xl lg:text-[128px]`, content: `Crafting the` / line break / `improbable`.\r\n- Paragraph: `mt-6 md:mt-8 text-[#2D2D2F] font-inter text-base md:text-lg max-w-md leading-[1.5]`, text: `We bring your boldest digital visions to reality.` / `<br class=\"hidden sm:block\">` / `Because it cannot be done is where we all begin now`.\r\n- CTA below (`mt-8 md:mt-10`): pill `rounded-full bg-[#2D2D2F] text-white text-base font-medium px-10 py-4 shadow-md hover:bg-black transition-colors`, label `Begin a venture`.\r\n\r\n**Animations / interactions**\r\n- Color transitions on all links and buttons via `transition-colors`.\r\n- Hamburger state via `useState`; no overlay/tint on the video.\r\n\r\n**Responsiveness**\r\n- Mobile: smaller heading (56px), stacked layout, hamburger menu.\r\n- Tablet (md): larger heading, increased spacing.\r\n- Desktop (lg+): nav + right CTA visible, heading 128px.\r\n\r\n**File layout**\r\n- `index.html` with font links and `<title>Speakup</title>`.\r\n- `tailwind.config.js` with the font and color extensions.\r\n- `src/index.css` with Tailwind directives + body font + `.font-recoleta`.\r\n- `src/components/Logo.tsx`, `src/components/Hero.tsx`, and `src/App.tsx` rendering `<Hero />` inside `<main>`.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.446Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

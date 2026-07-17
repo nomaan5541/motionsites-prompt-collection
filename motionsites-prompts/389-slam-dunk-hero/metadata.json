@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "slam-dunk-hero",
+    "title": "slam dunk hero",
+    "category": "Premium",
+    "sort_order": 389,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.440Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Slam Dunk\n\n**ID:** slam-dunk-hero  \n**Category:** Hero Section  \n**Type:** hero  \n\n---\n\nBuilt with Google AI Studio. Open the live app via the Google AI Studio link to remix.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.440Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

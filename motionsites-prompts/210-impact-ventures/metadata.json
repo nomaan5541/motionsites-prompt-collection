@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "impact-ventures",
+    "title": "impact ventures",
+    "category": "Premium",
+    "sort_order": 210,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.304Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a fullscreen hero landing page section for a design agency called \"Atelier\" using React, Tailwind CSS, and Lucide React icons. The section must be fully mobile responsive with an animated hamburger mobile menu. Here are the exact specifications:\r\n\r\n**Fonts (Google Fonts):**\r\n- \"Instrument Serif\" (regular + italic) for headings and mobile menu links\r\n- \"Inter\" (weights 300, 400, 500, 600) as the sans-serif body font\r\n\r\nLoad them in index.html:\r\n```html\r\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\r\n<link href=\"https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap\" rel=\"stylesheet\" />\r\n```\r\n\r\n**Tailwind Config** - extend fontFamily:\r\n```js\r\nfontFamily: {\r\n  'instrument-serif': ['\"Instrument Serif\"', 'serif'],\r\n  sans: ['Inter', 'system-ui', 'sans-serif'],\r\n}\r\n```\r\n\r\n**Background:**\r\nA fullscreen looping autoplay muted video covering the entire viewport with `object-cover`. Video URL:\r\n```\r\nhttps://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204103_f607742e-09da-4cf5-bb06-4e67b0a531de.mp4\r\n```\r\n\r\n**Layout:** The entire section is `w-full h-screen overflow-hidden` with the video absolutely positioned behind a `relative z-10` content layer that is `flex flex-col h-full`.\r\n\r\n**Navbar:**\r\n- Horizontal flex bar with padding `px-6 md:px-12 lg:px-16 py-5 md:py-6`\r\n- Left side: Logo text \"Atelier\" (white, font-semibold, text-lg, tracking-tight, font-sans) followed by desktop nav links (hidden on mobile, shown md+): \"Projects\", \"Expertise\", \"Studio\", \"Insights\" - styled as `text-white/80 hover:text-white text-sm font-light transition-colors duration-200`\r\n- Right side: \"Reach Out\" text link (hidden mobile) + \"Let's Talk\" button (white bg, black text, rounded-full, px-5 py-2, hidden mobile) + hamburger button (shown only on mobile, md:hidden)\r\n- Hamburger: 3 lines (2px height, white, rounded-full) with the middle line shorter (w-4 vs w-6). On open, top/bottom lines rotate 45/-45 degrees and translate, middle fades out. Uses `cubic-bezier(0.76,0,0.24,1)` easing with 500ms duration.\r\n\r\n**Mobile Menu Overlay (fixed inset-0 z-50, md:hidden):**\r\n- Backdrop: `bg-black/90 backdrop-blur-xl` fading in with 700ms transition\r\n- Content fades in with same 700ms cubic-bezier easing\r\n- Header: matches navbar layout with logo + close button (X formed by rotated lines)\r\n- Nav links: Stacked vertically, centered, `text-4xl sm:text-5xl font-instrument-serif`, white text, each with `border-b border-white/10`, `py-4`. On open they animate in with staggered delays (150ms + index*80ms), translating from `translate-y-8` to `translate-y-0`. Hover shifts text right with `hover:pl-4`\r\n- Items: \"Projects\", \"Expertise\", \"Studio\", \"Insights\", \"Reach Out\"\r\n- Footer: Full-width \"Let's Talk\" button (white bg, black text, rounded-full, py-4) with 550ms delay fade-in\r\n\r\n**Hero Content (centered below navbar):**\r\n- Container: `flex-1 flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-8 lg:pt-10 px-6 text-center`\r\n- Heading (h1): `font-instrument-serif text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] max-w-5xl`\r\n  - Text content (with line breaks):\r\n    ```\r\n    UX <italic>and</italic> APP\r\n    DESIGN <italic>for</italic> BOLD\r\n    VENTURES\r\n    ```\r\n  - The italic words \"and\" and \"for\" use `italic font-instrument-serif` spans\r\n- Subtext (p): `mt-4 md:mt-5 text-white/70 text-sm md:text-base font-light max-w-md leading-relaxed`\r\n  - \"We shape digital products that define brands\" + line break (hidden sm:block) + \"and unlock exponential growth.\"\r\n- Buttons row: `mt-5 md:mt-6 flex flex-col sm:flex-row items-center gap-4`\r\n  - Primary: \"See Cases\" with ArrowRight icon (lucide-react), white bg, black text, rounded-full, px-7 py-3, text-sm font-medium. On hover the arrow translates 0.5 right.\r\n  - Secondary: \"Watch Reel\" with Play icon (lucide-react), transparent with `border border-white/40`, white text, rounded-full, px-7 py-3. On hover: `bg-white/10 border-white/60`\r\n\r\n**Global CSS (index.css):**\r\n```css\r\n@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml, body, #root {\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow-x: hidden;\r\n}\r\n```\r\n\r\n**Dependencies:** React, lucide-react (for ArrowRight and Play icons), Tailwind CSS. No other UI libraries.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.304Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

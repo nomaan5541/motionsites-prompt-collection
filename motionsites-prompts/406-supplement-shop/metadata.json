@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "supplement-shop",
+    "title": "supplement shop",
+    "category": "Premium",
+    "sort_order": 406,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.450Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a mobile supplement e-commerce product screen displayed inside a realistic iPhone mockup frame. Use React with Tailwind CSS and lucide-react icons. Load Google Fonts: **DM Sans** (400, 500) and **Inter** (400, 500, 600).\r\n\r\n## Phone Frame\r\n- Centered on page with `bg-neutral-100` background\r\n- Frame: `w-[375px] h-[812px]`, white bg, `border-[8px] border-neutral-900 rounded-[50px]`, box-shadow `0 25px 50px -12px rgba(0,0,0,0.25)`\r\n- Dynamic Island: `w-[120px] h-[32px]` black pill centered at top\r\n- Home indicator at bottom: `w-[134px] h-[5px]` black rounded-full bar\r\n\r\n## Status Bar\r\n- Left: \"9:41\" (Inter 600)\r\n- Right: SVG signal bars, WiFi icon, battery icon (all black)\r\n\r\n## Header\r\n- Left: hamburger Menu icon (lucide, size 22, strokeWidth 1.5)\r\n- Center: \"TerraElix\" (DM Sans 500, letter-spacing -0.03em)\r\n- Right: ShoppingBag icon with \"10\" badge (18x18 black circle, white 9px text)\r\n\r\n## Slide-out Menu\r\n- Overlay: `bg-black/40`, slides from left, `w-[260px]` white panel\r\n- Logo + X close button at top\r\n- Nav items: \"About\", \"Products\", \"Promotions\", \"Contact\" (Inter 400, hover:bg-neutral-100 rounded-lg)\r\n\r\n## Title Section\r\n- \"Supplements\" in DM Sans 400, `text-[42px] leading-[1]`\r\n\r\n## Category Tabs\r\n- Items: \"All\", \"Capsules\", \"Tablets\", \"Functional Powders\"\r\n- Active tab (index 1 \"Capsules\"): black text, font-semibold, border-b-2 border-black\r\n- Inactive: text-neutral-400, no border\r\n- Font: Inter, letter-spacing -0.01em, text-sm\r\n\r\n## Product Carousel (auto-plays every 3s, loops infinitely)\r\n- 5 visible slots: farLeft, left, **center**, right, farRight\r\n- Constants: `ITEM_WIDTH = 105`, `CENTER_WIDTH = 160`, `GAP = 12`\r\n- Center item: 160x260px, opacity 1, z-10\r\n- Adjacent items: 105x200px, opacity 0.7, z-0, clickable (go left/right)\r\n- Far items: 105x200px, opacity 0.3\r\n- Animation: All properties (width, height, transform, opacity) transition simultaneously with `0.45s cubic-bezier(0.25, 0.1, 0.25, 1)` -- items smoothly scale up/down as they move to/from center\r\n- On transition end: update active product, reset quantity to 1\r\n\r\n### Products data:\r\n```\r\n[\r\n  { id: 1, name: 'Herbix 60', subtitle: 'Vitamin Complex', dosage: '250 mg', price: 30.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_182445_93ebd4ab-c1d7-447d-a033-c817f33efcd0.png&w=1280&q=85' },\r\n  { id: 2, name: 'Herbix 30', subtitle: 'Immunity Boost', dosage: '500 mg', price: 25.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184200_daae953b-540b-48d5-8a1f-70323e53af56.png&w=1280&q=85' },\r\n  { id: 3, name: 'Herbix 90', subtitle: 'Joint Support', dosage: '300 mg', price: 35.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184122_8a7d693e-37da-417d-804a-807ea67916af.png&w=1280&q=85' },\r\n]\r\n```\r\n\r\n## Product Info (below carousel, centered)\r\n- Name: DM Sans 400, text-2xl, fades out during animation (opacity 0)\r\n- Subtitle: Inter 400, text-sm, text-neutral-500\r\n- Dosage: Inter 400, text-xs, text-neutral-400\r\n\r\n## Price + Quantity + Buy\r\n- Price: DM Sans 500, text-2xl, letter-spacing -0.02em, shows `price * quantity`, fades during animation\r\n- Quantity selector: two round bordered buttons (w-9 h-9, rounded-full, border-neutral-300) with Minus/Plus icons, number in center (Inter 500, text-lg)\r\n- \"Buy Now\" button: full-width, `h-14 bg-black text-white rounded-xl`, Inter 500, hover:bg-neutral-800, active:scale-[0.97]\r\n\r\n## Mount Animation (staggered on page load)\r\n- Each section fades/slides in with `duration-700` and increasing delays (0ms, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms)\r\n- Carousel section uses `scale-95 -> scale-100` entrance\r\n\r\n## CSS Requirements\r\n- Tailwind CSS\r\n- Custom `.scrollbar-hide` utility class to hide scrollbars\r\n- Body: margin 0, font-smoothing antialiased",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.450Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

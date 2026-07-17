@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "wisa-space",
+    "title": "WISA Space",
+    "category": "Premium",
+    "sort_order": 460,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.488Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Google AI Studio app – no prompt text",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.488Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

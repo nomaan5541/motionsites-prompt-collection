@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "wisa-space-hero",
+    "title": "wisa space hero",
+    "category": "Premium",
+    "sort_order": 459,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.487Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# WISA Space\n\n**ID:** wisa-space-hero  \n**Category:** Hero Section  \n**Type:** hero  \n\n---\n\nGoogle AI Studio app – no prompt text",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.487Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "integration-saas",
+    "title": "integration saas",
+    "category": "Premium",
+    "sort_order": 216,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.307Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a full-screen hero section landing page for a data platform called \"DataVio\" using React, Tailwind CSS, and Vite. Use the Geist font (from Google Fonts: `https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap`). Add the font-family to the Tailwind config under `fontFamily.geist`.\r\n\r\n**Background:**\r\n- Full-screen (`h-screen`) background video, auto-playing, muted, looped, with `playsInline`. Use this video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_151414_1020688d-fcb3-4b2a-9bc2-cd1dae8853dd.mp4`\r\n- The video uses `object-cover` and on mobile the object-position is `70% center`, on `md:` and up it's `center`.\r\n\r\n**Gradient Overlay (color: #B69198):**\r\n- On mobile (`md:hidden`): a gradient from bottom to top -- solid `#B69198` from 0% to 30%, then fading to transparent at 55%.\r\n- On desktop (`hidden md:block`): a gradient from left to right -- solid `#B69198` from 0% to 30%, then fading to transparent at 55%.\r\n- Both overlays sit at `z-[1]` between the video and content.\r\n\r\n**Navigation:**\r\n- Flexbox row, justify-between. Padding: `px-5 sm:px-6 md:px-12 lg:px-16 py-4 md:py-5`.\r\n- Left side: Brand name \"DataVio\" in white, `text-lg sm:text-xl md:text-2xl`, `font-semibold`, `tracking-tight`.\r\n- Next to the brand (hidden on mobile, visible `md:flex`): links \"Platform\", \"Pricing\", \"Solutions\", \"Connectors\" in `text-white/80 hover:text-white text-sm font-medium` with `transition-colors duration-200`, spaced with `gap-6 lg:gap-8`.\r\n- Right side (hidden on mobile): \"Sign In\" link, same text style as nav links.\r\n- Mobile: A hamburger menu icon (Lucide `Menu`, size 24) that opens a slide-in panel from the right.\r\n\r\n**Mobile Menu:**\r\n- Overlay: fixed `inset-0`, `bg-black/60 backdrop-blur-sm z-40`, fades in/out with `transition-opacity duration-300`.\r\n- Panel: fixed `top-0 right-0 h-full w-[280px] sm:w-[320px]`, white background, `z-50`, slides in from right using `translate-x-0` / `translate-x-full` with `duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]`, `shadow-2xl`.\r\n- Inside: close button (Lucide `X`, size 24) top-right, then nav links as stacked list items (`text-gray-800 text-lg font-medium py-3 border-b border-gray-100`), each staggered with `transitionDelay: (i+1)*60ms` on open. A \"Sign In\" CTA button at the bottom (`bg-gray-900 text-white rounded-lg px-6 py-3`) with `transitionDelay: 320ms`.\r\n- Lock body scroll when menu is open (`document.body.style.overflow = 'hidden'`).\r\n\r\n**Hero Content (z-10, flex-col, full height):**\r\n- Layout: `flex-1 flex flex-col justify-between`, padding `px-5 sm:px-6 md:px-12 lg:px-16 py-4 sm:py-6 md:py-10`.\r\n- **Heading** (top): `max-w-3xl`, padding-top `pt-2 sm:pt-4 md:pt-8`. Text: \"One Central Hub\" / \"for Every Source\" (line break between). Style: `text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.1] tracking-tight`.\r\n- **Bottom content** (`max-w-3xl pb-2 sm:pb-4 md:pb-6`):\r\n  - Paragraph: `text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl`. Starts with bold white span: \"End fragmented pipelines.\" then regular text. Another bold white span: \"transparency, governance, and scalable systems\".\r\n  - CTA Buttons (`mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-3 sm:gap-4`):\r\n    - Primary: \"Start Integration\" -- `bg-white text-gray-900 text-sm font-medium rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 hover:bg-white/90`.\r\n    - Secondary: \"Schedule Call\" -- `text-white/80 text-sm font-medium hover:text-white`.\r\n  - Social proof pill (`mt-6 sm:mt-8 md:mt-10`): `inline-flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5`.\r\n    - 3 overlapping avatar images (Pexels URLs: `774909`, `1222271`, `91227` with `?auto=compress&cs=tinysrgb&w=100`), each `w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white/30 object-cover`, stacked with `-space-x-2.5`.\r\n    - Text: `text-white/80 text-xs sm:text-sm leading-snug max-w-[220px] sm:max-w-xs`. Bold white span: \"Adopted by 2,000+ companies and dev teams\" followed by \"who ship quicker, iterate safely, and keep full ownership of their pipelines.\"\r\n\r\n**CSS (index.css):**\r\n```css\r\n@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml, body {\r\n  font-family: 'Geist', system-ui, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n}\r\n```\r\n\r\n**Tailwind Config:**\r\nExtend `fontFamily` with `geist: ['Geist', 'system-ui', 'sans-serif']`.\r\n\r\n**Key details:**\r\n- No other sections -- just this single full-screen hero.\r\n- Fully responsive from mobile to desktop.\r\n- Uses only `lucide-react` for icons (Menu, X).\r\n- All content is at `z-10`, overlays at `z-[1]`, video at default layer.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.307Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

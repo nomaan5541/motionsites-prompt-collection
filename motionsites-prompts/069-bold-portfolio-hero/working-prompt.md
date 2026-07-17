@@ -1,0 +1,82 @@
+# Bold Portfolio Hero
+
+**ID:** 6  
+**Category:** Portfolio  
+**Type:** hero  
+
+---
+
+Build a high-end, responsive Hero Section for a personal portfolio website using React and Tailwind CSS. The design should feel bold, modern, and energetic.
+
+1. Global Styles & Theme:
+
+Background: A vertical gradient from a vibrant red-orange [#fd2601] at the top to a lighter orange [#f37e1c] at the bottom.
+
+Typography:
+Headlines: Use the font "Anton" (or a similar heavy, condensed sans-serif). Text should be massive, uppercase, and tracking wide.
+
+Body/UI: Use "Inter" or a clean sans-serif. Minimalist, uppercase, and legible.
+
+Colors: All text and icons should be White.
+
+Selection State: When user selects text, make the background White and text Orange [#fd2601].
+
+2. Ambient Background Elements:
+
+Place a large, faint SVG text or pattern (like the name "OLIVIA") in the absolute background. It should be centered, white, very low opacity (0.08), and blurred (4px).
+
+Add glowing "blobs" behind the main content:
+
+One bottom-right (300x300px, #F4791B, blur 80px).
+
+One bottom-left (600x300px, #F4791B, blur 80px).
+
+Use mix-blend-screen and opacity-60 for these blobs to make them blend beautifully.
+
+3. Navigation Bar (Floating Top):
+
+Position: Absolute top, full width, transparent background.
+
+Left: Text logo "✱ VIKTORODDY" (Sans-serif, tracking wide).
+
+Center (Desktop only): Links [PROJECTS, BLOG, ABOUT, RESUME]. Hover effect: opacity-80.
+
+Right: A "HIRE ME" CTA.
+
+Format: Text // HIRE ME followed by a circular button (white border) containing a diagonal arrow icon.
+
+Hover: The circle fills white, icon turns orange.
+
+4. Main Hero Content (Centered):
+
+Headline: The text "NEW DESIGN ERA".
+
+Desktop: Display on one line (or slightly wrapped), font size ~12vw (max 180px), z-index: 10.
+
+Mobile: Stack vertically: "NEW" / "DESIGN" / "ERA".
+
+Central Image: Place a portrait image of a person absolutely centered over the headline. CRITICAL: Apply a CSS Mask (paint brush stroke shape) to the image so it looks like a rough cutout, not a rectangle. The image should overlap the text, creating depth (z-index: 20).
+
+Floating Elements (Desktop):
+
+Bottom-Left: Intro text: "// I'm Olivia — a freelance UI/UX designer..." indented with a clean hierarchy.
+
+Right-Middle: Tagline: "// DESIGN THAT [newline] SPEAKS YOUR BRAND". Text aligned right.
+
+Mobile Layout: Move the floating elements below the main image/text stack so they don't overlap.
+
+5. Footer / Brand Strip:
+
+A row of white, semi-transparent (opacity-90) logos at the bottom (e.g., Gucci, Zara, Vogue, Sony, Zalora).
+
+Desktop: Spread evenly across the width.
+
+Mobile: Wrap them nicely in the center.
+
+Technical Requirements:
+
+Use flexbox for layout alignment.
+
+Ensure the image is pointer-events-none so it doesn't block text selection.
+
+Make it fully responsive: The massive text must scale down on mobile, and the layout must shift from absolute positioning (Desktop) to stacked block layout (Mobile).

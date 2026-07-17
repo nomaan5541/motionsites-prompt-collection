@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "tech-noir-about",
+    "title": "tech noir about",
+    "category": "Premium",
+    "sort_order": 414,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.456Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\r\n\r\n## Prompt\r\n\r\nCreate a single full-page section with a solid `#FF0000` red background using React 19, TypeScript, Vite, Tailwind CSS v4 (`@tailwindcss/vite`), and `motion` (from `motion/react`).\r\n\r\n### Fonts (index.css)\r\n\r\n```css\r\n@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;600&family=Marck+Script&display=swap');\r\n@import \"tailwindcss\";\r\n\r\n@theme {\r\n  --font-manrope: \"Manrope\", sans-serif;\r\n  --font-italiana: \"Italiana\", serif;\r\n  --font-marck: \"Marck Script\", cursive;\r\n}\r\n```\r\n\r\n### Section Container\r\n\r\n```\r\n<section className=\"relative min-h-screen w-full bg-[#FF0000] flex flex-col z-10\">\r\n```\r\n\r\n---\r\n\r\n### 1. Centered Content\r\n\r\n**Outer wrapper:**\r\n```\r\n<div className=\"flex-1 flex flex-col items-center w-full pt-[100px] md:pt-[400px]\">\r\n```\r\n\r\n**Inner container:**\r\n```\r\n<div className=\"flex flex-col items-center w-full px-8 text-center z-20 relative max-w-[900px] h-auto md:h-[620px] mx-auto\">\r\n```\r\n\r\n**a) Logo SVG** -- white fill, 80x80, `mb-12`:\r\n```tsx\r\n<svg width=\"80\" height=\"80\" viewBox=\"0 0 120 120\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n  <path fillRule=\"evenodd\" clipRule=\"evenodd\" d=\"M60 120C26.8629 120 0 93.1371 0 60V0C22.5654 0 42.2213 12.4569 52.4662 30.8691C38.4788 34.2089 28.0787 46.7902 28.0787 61.8006V63.1443C28.0787 79.9648 41.7146 93.6006 58.5353 93.6006H59.8789L59.8785 61.8006C59.8785 79.3633 74.1159 93.6006 91.6787 93.6006L91.6787 61.8006C91.6787 44.2783 77.5071 30.0661 60 30.0008L60 0H62.5352C94.2722 0 120 25.7279 120 57.4648V60C120 93.1371 93.1371 120 60 120Z\" fill=\"white\"/>\r\n</svg>\r\n```\r\n\r\n**b) Mission statement:**\r\n```tsx\r\n<p className=\"text-white text-[16px] h-[100px] w-full max-w-[400px] leading-[1.6] mb-[40px] uppercase tracking-wider mx-auto\">\r\n  We built this platform with a single purpose to eliminate operational chaos and restore balance to your daily business routine\r\n</p>\r\n```\r\n\r\n**c) Cursive signature:**\r\n```tsx\r\n<div className=\"font-marck text-white text-[120px] leading-none mb-[32px]\">\r\n  S.P.D\r\n</div>\r\n```\r\n\r\n**d) Two paragraphs** (Title Case, font-light):\r\n```tsx\r\n<div className=\"text-white leading-[1.6] mb-[100px] md:mb-24 w-full flex flex-col items-center font-light\">\r\n  <p className=\"mb-[24px] text-[16px] w-[400px] max-w-full text-center\">\r\n    I Was Exhausted By Software That Demanded More Effort Than It Actually Saved. That Is Why We Engineered An Autonomous Architecture That Operates Silently In The Background.\r\n  </p>\r\n  <p className=\"text-[16px] w-[400px] max-w-full text-center\">\r\n    Your Business Should Serve Your Life, Not Consume It. Let Our Algorithms Handle The Heavy Lifting, So You Can Focus On The Vision.\r\n  </p>\r\n</div>\r\n```\r\n\r\n---\r\n\r\n### 2. Bottom Video with Red Gradient Blend\r\n\r\n```tsx\r\n<div className=\"relative w-full shrink-0\">\r\n  <div className=\"absolute top-0 left-0 w-full h-[100px] bg-gradient-to-b from-[#FF0000] to-transparent z-10 pointer-events-none\" />\r\n  <video autoPlay loop muted playsInline className=\"w-full h-auto block object-contain\">\r\n    <source\r\n      src=\"https://res.cloudinary.com/daklr2whx/video/upload/v1778602552/track-video_2_s9lp53.mp4\"\r\n      type=\"video/mp4\"\r\n    />\r\n  </video>\r\n</div>\r\n```\r\n\r\nA 100px gradient overlay at the top of the video fades from `#FF0000` to transparent, seamlessly blending the red background into the video. The video uses `object-contain` -- native aspect ratio, full width, no cropping. `shrink-0` prevents flexbox from compressing it.\r\n\r\n---\r\n\r\n### Asset URL\r\n\r\n| Asset | URL |\r\n|---|---|\r\n| Bottom video | `https://res.cloudinary.com/daklr2whx/video/upload/v1778602552/track-video_2_s9lp53.mp4` |\r\n\r\nHosted on **Cloudinary**.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.456Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

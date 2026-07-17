@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "ecovolta-v2",
+    "title": "EcoVolta V2",
+    "category": "Premium",
+    "sort_order": 142,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.257Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a full-screen landing page hero section with the following exact specifications:\r\n\r\nVideo Background\r\nHLS streaming video from Mux: https://stream.mux.com/02gzwandixH4J534bd00JsCvlFfw6ha101WQ00C9b3sGibM.m3u8\r\nVideo must autoplay, loop, be muted, and play inline\r\nUse hls.js library for cross-browser compatibility with the following config:\r\ncapLevelToPlayerSize: false (allow quality higher than player size)\r\nmaxMaxBufferLength: 30, maxBufferLength: 20, maxBufferSize: 60MB\r\nSwitch to highest quality level once manifest loads\r\nNative HLS support detection for Safari/iOS\r\nVideo positioned absolutely, covering full viewport with object-cover\r\nFonts\r\nImport from Google Fonts:\r\n\r\nInstrument Serif (Regular 400, Italic 400)\r\nManrope (Regular 400, Medium 500, SemiBold 600)\r\nInstrument Sans (Regular 400, Medium 500, SemiBold 600)\r\nSF Pro Display Medium for main heading\r\nLayout & Positioning\r\nFull viewport height container with overflow-hidden\r\nMain content centered absolutely: left: 50%, top: calc(50% - 136.5px), transform translate(-50%, -50%)\r\nMax width 984px with 24px horizontal padding\r\nNavigation bar: absolute position at top, 20px from top, max-width 1110px, horizontally centered\r\nHero Content (Center)\r\nMain Headline:\r\n\r\nText: \"An AI that does your outbound while you \" (regular) + \"close deals.\" (gradient italic)\r\nRegular portion: Instrument Serif Regular, #212121, 48px mobile / 70px desktop\r\n\"close deals\" portion: Instrument Serif Italic with radial gradient text effect\r\nGradient: Radial from blue (#368CFB at 0%, #5CAEFE at 30%, #85BDE0 at 47.5%, #AECDC2 at 65%, #D6DCA3 at 82.5%, #FFEB85 at 100%)\r\nSVG gradient transform: matrix(35.22 -11.4 433.41 134.85 369.8 114)\r\nLeading: 1.1 mobile, 64px desktop\r\nMax width: 722px\r\nOpacity: 0.9\r\nSubheadline:\r\n\r\nText: \"AI sales agent that finds leads, personalizes outreach, follows up, and books meetings — automatically.\"\r\nFont: Manrope Regular, 18px mobile / 20px desktop\r\nGradient text: from rgba(37,44,50,0.7) to rgba(55,65,74,0.7)\r\nLetter spacing: -0.4px\r\nOpacity: 0.7\r\nMax width: 510px\r\nGap above: 24px mobile / 32px desktop\r\nCTA Button:\r\n\r\nText: \"Get started\" (Instrument Sans Medium, 16px, white)\r\nSize: 152px × 52px, rounded 12px\r\nBackground: Linear gradient from #444 to #292929\r\nBorder: 1px solid black\r\nShadows:\r\nOuter: 0px 4px 4px rgba(0,0,0,0.25), 0px 1px 2px rgba(0,0,0,0.31)\r\nInner: inset 0px 2px 1px rgba(255,255,255,0.51), inset 1px 1px 0.25px rgba(255,255,255,0.3)\r\nHover: opacity 90%, smooth transition\r\nGap above: 32px mobile / 48px desktop\r\nNavigation Bar (Top)\r\nLogo (Left):\r\n\r\nIcon: 23×23px SVG with radial gradient (blue to yellow: #368CFB → #5CAEFE → #FFEB85)\r\nText: \"closer\" in Instrument Serif Regular, 26px, #212121\r\nGap between icon and text: 6px\r\nNav Links (Center, hidden on mobile):\r\n\r\nLinks: \"Product\", \"How it works\", \"Pricing\", \"Customers\", \"Docs\"\r\nFont: Manrope Medium, 18px\r\nGradient text: from rgba(37,44,50,0.7) to rgba(55,65,74,0.7)\r\nGap between links: 16px mobile / 26px large screens\r\nHidden below md breakpoint\r\nLogin Button (Right):\r\n\r\nText: \"Login\" (Instrument Sans Medium, 18px, #212121)\r\nSize: 108px × 46px, rounded 12px\r\nBackground: white with 1px border #dde2e4\r\nHover: slight gray background, smooth transition\r\nResponsive Behavior\r\nMobile: Single column, 48px headline, 18px body, tighter gaps (24px/32px)\r\nDesktop: 70px headline, 20px body, wider gaps (32px/48px)\r\nNavigation collapses on mobile (hide center nav)\r\nPercentage-based widths with max-width constraints\r\nLeading adjustments: tighter on mobile (1.1), fixed on desktop (64px for headline)\r\nTechnical Requirements\r\nReact + TypeScript + Tailwind CSS v4\r\nInstall: hls.js package\r\nAll elements fully responsive\r\nSmooth hover transitions (opacity, colors)\r\nProper z-indexing (video behind, nav on top)\r\nCross-browser video compatibility with error recovery",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.257Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

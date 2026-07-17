@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "xportfolio-hero",
+    "title": "xportfolio hero",
+    "category": "Premium",
+    "sort_order": 463,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.490Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# xPortfolio Hero\n\n**ID:** xportfolio-hero  \n**Category:** Hero Section  \n**Type:** hero  \n\n---\n\nBuild a single-page hero section for a brand design agency called \"Brandly\" using React, Tailwind CSS, and Lucide React icons. The entire page is one viewport-height screen with no scrolling. It uses a fullscreen background video with all content layered on top.\n\nFonts (loaded via Google Fonts in index.html):\nInter (weights: 300, 400, 500, 600, 700) -- used as the base font for the entire page\nAnton (regular 400) -- used for all large uppercase headings\n\nPage Container:\nFull viewport height (h-screen), overflow-hidden, flex flex-col\nBackground color: #F5F3EE (warm off-white/cream)\nBase font-family set via inline style: fontFamily: 'Inter, sans-serif'\n\nBackground Video:\nA video element with autoPlay, loop, muted, playsInline\nPositioned fixed top-0 left-0 w-full h-full object-cover pointer-events-none with zIndex: 0\nVideo source URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_102305_3a7cab3b-7a86-46e8-a0f9-6937f035b087.mp4\nType: video/mp4\n\nHeader (zIndex: 10):\nrelative, padding px-6 lg:px-12 py-4 lg:py-6, flex-shrink-0\nNav: flex items-center justify-between\nLeft: Logo text \"Brandly\" -- text-2xl lg:text-3xl font-bold text-black\nCenter (hidden on mobile, shown md+): Navigation links \"About\", \"Features\", \"Pricing\", \"FAQ\", \"Help\" -- flex items-center gap-8 text-base lg:text-lg, color #080808\nRight: Two buttons side by side (flex items-center gap-3):\n\"Sign Up\" -- px-4 lg:px-6 py-2 text-base lg:text-lg hover:text-black transition, color #080808\n\"Log In\" -- px-4 lg:px-6 py-2 bg-black text-white text-base lg:text-lg hover:bg-gray-800 transition\n\nMain Content Area (zIndex: 10):\nrelative, padding px-6 lg:px-12 py-6 lg:py-8, flex-1 flex flex-col justify-between\n\nTop Row -- 2 column grid (grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12):\nLeft column: Main heading (h1): \"BUILDING / BRANDS THAT / RESONATE\" in Anton font. text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-normal text-black leading-[0.80] tracking-tight mb-4 lg:mb-5.\nSubheading: \"Thoughtful design that captivates, empowers, and creates lasting impact.\" text-lg lg:text-xl mb-4 lg:mb-5 max-w-md color #080808\nCTA button: \"Start today\" with ArrowRight icon in white circle. flex items-center gap-3 pl-8 pr-1.5 py-1.5 bg-black text-white rounded-full hover:bg-gray-800\n\nRight column (text-right): \"50+ BRANDS LAUNCHED\" heading in Anton, with description paragraph below.\n\nMiddle Row -- 2 column grid:\nLeft: Brand designer bio paragraph with social icons (Facebook filled, Instagram, Youtube)\nRight: \"5+ YEARS IN THE INDUSTRY\" heading in Anton with description\n\nBottom Row -- Brand Logo Bar:\n6 brand cards in grid-cols-6: Frame Blox, Supa Blox, Hype Blox, Hype Blox, Ultra Blox, Ship Blox\nEach with unique abstract icon and white bg rounded-lg card style\n\nKey: No animations, all text black/#080808, default Tailwind config, justify-between layout distribution.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.490Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

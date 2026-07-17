@@ -4,6 +4,7 @@ import type { CatalogItem } from "../data/prompts.generated";
 import { cardMotionStyle, resetCardPointer, updateCardPointer } from "../lib/cardMotion";
 import { canLivePreview } from "../lib/catalog";
 import { CopyButton } from "./CopyButton";
+import { DownloadButton } from "./DownloadButton";
 import { MediaFrame } from "./MediaFrame";
 
 export function PromptCard({ item, onPreview }: { item: CatalogItem; onPreview: (item: CatalogItem) => void }) {
@@ -35,7 +36,10 @@ export function PromptCard({ item, onPreview }: { item: CatalogItem; onPreview: 
           </div>
         </div>
         <div className="flex items-center justify-between gap-2">
-          <CopyButton text={item.prompt} label="Copy" />
+          <div className="flex gap-2">
+            <CopyButton text={item.prompt} label="Copy" />
+            <DownloadButton text={item.prompt} filename={`${item.slug}.md`} label="" />
+          </div>
           {livePreview ? (
             <Link
               to={`/preview/${item.slug}`}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "logoisum-video-agency",
+    "title": "Logoisum Video Agency",
+    "category": "Premium",
+    "sort_order": 244,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.325Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Logoisum Video Agency\n\n**ID:** 14  \n**Category:** Agency  \n**Type:** hero  \n\n---\n\nBuild a premium, high-end hero section for a video editing agency named 'Logoisum' with the following specifications:\n\nBackground: Implement a full-screen, looping video background using this URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260228_065522_522e2295-ba22-457e-8fdb-fbcd68109c73.mp4. The video must be muted, autoplaying, and set to object-cover to fill the section without any color overlays.\n\nNavigation Bar: A floating white navigation bar with rounded-[16px] and a subtle shadow.\n\nLeft: The agency logo.\n\nCenter: A menu with links for 'About', 'Works', 'Services', and 'Testimonial' using 14px Barlow Medium font.\n\nRight: A dark (#222) primary CTA button labeled 'Book A Free Meeting' featuring a unique 45-degree arrow icon in a circular housing.\n\nTypography & Hero Content:\n\nPrimary Headline: Centered layout. The first line 'Agency that makes your' should use a bold/medium Barlow font with tight tracking (tracking-[-4px]). The second line 'videos & reels viral' must use a large, elegant 'Instrument Serif' italic font (text-[84px]).\n\nSubtext: Below the headline, add the text 'Short-form video editing for Influencers, Creators and Brands' in Barlow Medium, 18px, centered.\n\nSecondary CTA: A large white pill-shaped button below the subtext labeled 'See Our Workreel' with a small play icon on the left.\n\nOverall Aesthetic: The design should be minimal, ultra-modern, and responsive. Ensure all text and buttons are layered on top of the video background with clear visibility and proper spacing (min-h-[90vh]).",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.325Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

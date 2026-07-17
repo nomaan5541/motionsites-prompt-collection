@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import type { CatalogItem } from "../data/prompts.generated";
 import { canLivePreview } from "../lib/catalog";
 import { CopyButton } from "./CopyButton";
+import { DownloadButton } from "./DownloadButton";
 import { MediaFrame } from "./MediaFrame";
 
 export function PromptModal({ item, onClose }: { item: CatalogItem | null; onClose: () => void }) {
@@ -61,6 +62,7 @@ export function PromptModal({ item, onClose }: { item: CatalogItem | null; onClo
                   </Link>
                 ) : null}
                 <CopyButton text={item.prompt} variant="gradient" />
+                <DownloadButton text={item.prompt} filename={`${item.slug}.md`} variant="gradient" label="Download" />
               </div>
             </div>
             <pre className="min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-[13px] leading-6 text-white/72 [overflow-wrap:anywhere] sm:text-sm">

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "cognitra-offer",
+    "title": "cognitra offer",
+    "category": "Premium",
+    "sort_order": 96,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.225Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\r\n\r\n**Prompt:**\r\n\r\nCreate a full-viewport services section (100vh) with a solid gray background (`#C5C5C5`), vertically centered content, containing a counter label, a heading/subtext row, and a 3-column card grid with video thumbnails.\r\n\r\n**Section layout:**\r\n- `position: relative; z-index: 2; background-color: #C5C5C5`\r\n- `display: flex; flex-direction: column; justify-content: center`\r\n- `height: 100vh`\r\n- Padding: `70px 32px 80px 32px`\r\n\r\n**Content (top to bottom):**\r\n\r\n**1. Counter label:**\r\n- Text: `\"003 / 005\"`\r\n- `font-size: 11px; letter-spacing: 0.08em; color: #666; margin-bottom: 20px`\r\n- Fade-up animation with `delay: 0`\r\n\r\n**2. Heading + subtext row:**\r\n- A flex row (`display: flex; gap: 48px; align-items: flex-start; margin-bottom: 32px`)\r\n- **Left column** (heading): `flex-shrink: 0; width: 32%`\r\n  - `<h2>` with text: `\"EXPLORE WHAT WE OFFER\"`\r\n  - Each word is an individual `<span>`, displayed via `display: flex; flex-wrap: wrap; gap: 0.25em`\r\n  - Word-by-word staggered fade-up: first word at `delay: 0.1`, each adds `0.1s`, with `y: 28px`\r\n  - Typography: `font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.05; letter-spacing: -0.01em; text-transform: uppercase; color: #1a1a1a; margin: 0; max-width: 320px`\r\n- **Right column** (subtext): `flex: 1; padding-top: 8px`\r\n  - `<p>` text: `\"We provide all-in-one AI automation services in one place.\"`\r\n  - `font-size: 14px; line-height: 1.65; color: #3a3a3a; max-width: 320px; margin: 0`\r\n  - Fade-up with `delay: 0.25`\r\n\r\n**3. Cards grid:**\r\n- `display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 20px; align-items: stretch`\r\n- 3 cards, each with staggered fade-up: `delay: 0.4`, `0.55`, `0.70`\r\n\r\n**Card data:**\r\n\r\n| # | Video URL | Title | Description |\r\n|---|-----------|-------|-------------|\r\n| 1 | `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_220333_48163edc-995f-4513-9f44-48dbb07a7329.mp4` | Process Streamlining | We automate your processes by linking together the daily tools you rely upon. Lifting throughput and improving overall output. |\r\n| 2 | `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_221040_e6ba7c5a-864e-46e9-871e-341a176a7e3e.mp4` | Strategic advisory | We craft intelligent assistants that are adaptive, grasp context, and are skilled enough to handle highly intricate customer requests. |\r\n| 3 | `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260513_221104_fb538584-5b87-495f-952e-09ddd5a1792a.mp4` | Assistant engineering | Through our knowledge, we explore deep into your business and advise you on how AI powered automations may transform your operations. |\r\n\r\n**Card structure (each card):**\r\n- Container: `background: transparent; border: 1px solid rgba(0,0,0,0.18); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; min-height: 0; padding-top: 16px`\r\n- **Video area:** `width: 100%; aspect-ratio: 4/3; position: relative; overflow: hidden`\r\n  - `<video>` with `autoPlay muted loop playsInline`, styled `position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block`\r\n- **Text area:** `padding: 24px 28px 28px 28px`\r\n  - Title `<h3>`: `font-size: 18px; font-weight: 600; color: #1a1a1a; margin: 0; margin-bottom: 14px`\r\n  - Description `<p>`: `font-size: 13px; line-height: 1.6; color: #3a3a3a; margin: 0`\r\n\r\n**Animation (FadeUp component -- same as section 2):**\r\nAll animated elements use Framer Motion `whileInView` with `viewport: { once: true, amount: 0.2 }`, easing `[0.22, 1, 0.36, 1]`, duration `0.7s`, default `y: 24px` unless overridden.\r\n\r\n**Font:**\r\n```css\r\n@import url('https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var');\r\n* { font-family: 'Helvetica Now Var', 'Helvetica Neue', Helvetica, Arial, sans-serif; }\r\n```\r\n\r\n**Mobile responsive (max-width: 900px):**\r\n- Section padding: `90px 18px 60px 18px`\r\n- Section becomes `height: auto; min-height: 100vh` (so cards aren't crushed)\r\n- Heading + subtext row stacks vertically: `flex-direction: column; gap: 16px; margin-bottom: 24px`\r\n- Heading column becomes `width: 100%`\r\n- Cards grid becomes single column: `grid-template-columns: 1fr; gap: 16px`\r\n\r\n**Tech stack:** React 18, TypeScript, Vite, Tailwind CSS 3, Framer Motion 12.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.225Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

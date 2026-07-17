@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "celestia",
+    "title": "Celestia",
+    "category": "Premium",
+    "sort_order": 81,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.215Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a full-screen dark hero section with a cinematic, premium aesthetic.Background Video:\r\nhttps://res.cloudinary.com/dfonotyfb/video/upload/v1775585556/dds3_1_rqhg7x.mp4\r\nImplement as: <video autoPlay loop muted playsInline className=\"absolute inset-0 w-full h-full object-cover z-0\"><source src=\"https://res.cloudinary.com/dfonotyfb/video/upload/v1775585556/dds3_1_rqhg7x.mp4\" type=\"video/mp4\" /> </video>",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.215Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

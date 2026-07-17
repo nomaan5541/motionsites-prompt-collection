@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "haul-footer",
+    "title": "haul footer",
+    "category": "Premium",
+    "sort_order": 204,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.300Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a React functional component using Tailwind CSS, `motion/react` for animations, and `lucide-react` for icons.\r\n\r\n**1. Typography & Setup:**\r\n- Import the \"Inter\" font from Google Fonts (weights 400, 500, 600, 700) and set it as the default sans-serif font in the Tailwind config/CSS.\r\n- The overall background of the page should be `#f8f9fa`.\r\n\r\n**2. Top Spacer Section (View Below):**\r\n- Create a section at the top of the page. Height should be `50vh` (on mobile/lg) and `30vh` (on md screens).\r\n- Background color: `#FDFDFD`.\r\n- Center a text element that says \"View Below\". The text should be `text-gray-300`, small font, bold, uppercase, with wide `tracking-[0.5em]`.\r\n- Animate this text with Framer Motion to fade in from `opacity: 0` to `opacity: 1`.\r\n\r\n**3. Main Parallax Container:**\r\n- Below the spacer, create a main full-viewport-height (`h-screen`) section.\r\n- Set its background image to: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260430_115327_3f256636-9e63-4885-8d0b-09317dc2b0a5.png&w=1280&q=85`\r\n- Make sure the background covers the container (`bg-cover bg-center`) and set `overflow-hidden` with `relative` positioning.\r\n- Set up a Framer Motion `useScroll` target on this container. Map the `scrollYProgress` from `[0, 1]` to `[-50, 150]` using `useTransform`. Apply this transformed y-value to the foreground truck image layer (described below).\r\n\r\n**4. The Top-Aligned Footer Card:**\r\n- Position a container `absolute top-0 w-full` inside the main parallax section. Give it top padding (`pt-12` mobile/lg, `pt-24` tablet).\r\n- Inside, create a card constrained to `max-w-7xl mx-auto`.\r\n- Card Styling: `bg-white/95`, `backdrop-blur-sm`, `shadow-xl`, rounded corners (`rounded-2xl` mobile, `rounded-3xl` desktop), `overflow-hidden`.\r\n- Animation: The card should slide down and fade in (`initial={{ opacity: 0, y: -20 }}`, `animate={{ opacity: 1, y: 0 }}`, duration 0.8s easeOut).\r\n- **Footer Content (Top Half):**\r\n  - Use a flex row layout (flex-col on mobile, flex-row on md+) with spread space.\r\n  - **Logo Area**: Include an orange square (`bg-orange-500`, 40x40px mobile, 48x48px desktop, rounded-lg, shadow-inner, p-2). Inside the square, place an SVG with viewBox \"0 0 256 256\" and this exact white path: `d=\"M 228 0 C 172.772 0 128 44.772 128 100 L 128 0 L 0 0 L 0 28 C 0 83.228 44.772 128 100 128 L 0 128 L 0 256 L 28 256 C 83.228 256 128 211.228 128 156 L 128 256 L 256 256 L 256 228 C 256 172.772 211.228 128 156 128 L 256 128 L 256 0 Z\"`. Next to the logo block, add the text \"HAUL!\" (`text-gray-900`, 2xl/3xl, font-bold, tracking-tighter).\r\n  - **Links Area**: Display 3 columns of links using flex. Layout: `Company` (Founding, Platform, Testify), `Mobile` (Get Apple App, Get Google App), `Contracts` (Private Data, User Consent). Section headers should be uppercase, tracking-widest, text-sm, bold. Link items should be gray-500, font-medium, and hover to `orange-600` with transition.\r\n- **Footer Content (Bottom Bar):**\r\n  - Add a top border (`border-gray-100`) and use a solid white background (`bg-white`).\r\n  - Layout: flex, space between, aligning text to the left and social icons to the right. \r\n  - Text: \"© 2026 HAUL! All Rights Reserved\" (text-sm, gray-500, medium).\r\n  - **Social Icons**: Map through an array of icons imported from `lucide-react`: Facebook, Twitter, Instagram, Linkedin (w-5 h-5). Wrap them in `a` tags shaped as 40x40px circles with `border-gray-100`. On hover, they should turn `bg-orange-500` with white text and an `orange-500` border (transition all duration-300).\r\n\r\n**5. Background Truck Parallax Layer:**\r\n- Add a `motion.div` placed absolutely at the bottom of the container (`absolute inset-x-0 bottom-0 h-full`).\r\n- Add standard pointer-events-none and z-20.\r\n- Ensure the `y` axis style is tied to the `useTransform` created in step 3 so it scrolls at a different speed than the background.\r\n- Inside, place an image with `src=\"https://roof-wish-40038865.figma.site/_components/v2/f31fd17907ce60745d45e83a61d44fd3810d5f25/truck_1.8c4bff83.png\"`.\r\n- Image styling: `w-full h-full object-contain object-bottom origin-bottom`. Add scale responsive classes (`scale-[1.5]` mobile, `scale-110` sm, `scale-[2.0]` md, `scale-105` lg) to ensure the truck fits properly on various screen widths.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.300Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

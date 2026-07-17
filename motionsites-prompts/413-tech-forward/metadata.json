@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "tech-forward",
+    "title": "tech forward",
+    "category": "Premium",
+    "sort_order": 413,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.455Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a full-screen hero section landing page using React, Vite, and Framer Motion (`motion` package). Use plain CSS (no Tailwind). The font is Inter (weights 300, 400, 500, 600) from Google Fonts. The design is minimal black-and-white with a full-viewport background video.\r\n\r\n**Stack:** React 19, Vite, `motion` (framer-motion), `lucide-react` (for the Plus icon).\r\n\r\n**Layout:**\r\n- Full viewport height (`min-height: 100vh`), white background, flex column with `justify-content: space-between`\r\n- Fixed navbar at top (z-index 50, pointer-events none on the nav itself, auto on children)\r\n- Absolutely positioned full-screen video behind everything (z-index 0)\r\n- Footer content pinned to bottom (z-index 30) with a white gradient fade-up background\r\n\r\n**Navbar (fixed, top):**\r\n- Left side contains:\r\n  1. Logo: custom SVG icon (two rotated rounded rectangles at -35deg, black fill) + brand text \"NeuralKinetics\" (hidden on mobile, shown on desktop 768px+)\r\n  2. Menu button: black pill with white circle containing a Plus icon (lucide, size 12, strokeWidth 3) + \"Menu\" text (11px, white)\r\n  3. Tags pill: light gray (#F4F4F6) rounded-full container with two text labels \"Advanced Bionics\" and \"Cognitive AI\" (hidden on mobile, shown on desktop)\r\n- Right side contains:\r\n  - A light gray pill with a black circle button (containing a 4-dot grid SVG icon) + label \"Adaptive Systems\" (hidden on mobile)\r\n\r\n**Background Video:**\r\n- URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_215831_c6a8989c-d716-4d8d-8745-e972a2eec711.mp4`\r\n- autoPlay, muted, playsInline, object-fit: cover\r\n- On mobile: video wrapper is 80% width and 80% height (centered)\r\n- On desktop (768px+): video wrapper is 100% width and 100% height\r\n\r\n**Footer content (bottom, over gradient):**\r\n- Background: `linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.8) 50%, transparent 100%)`\r\n- On mobile: stacks vertically. On desktop: row layout, items aligned to bottom.\r\n- Left block:\r\n  1. Subtitle line: small black dot (8px circle) + \"Best digital banking card 2026\" (13px, 55% opacity black)\r\n  2. Heading: \"One Card, Zero / Limits. Worldwide.\" on two lines. Font-weight 300, clamp(2rem, 8vw, 4.5rem) on mobile, clamp(2.5rem, 5.5vw, 4.5rem) on desktop, letter-spacing -0.03em, line-height 1\r\n  3. Two buttons: \"See Features\" (black pill, white text, 13px) and \"How It Works\" (transparent with dark border rgba(0,0,0,0.35), 13px)\r\n- Right block: Three tag pills \"Neuromorphic\", \"AGI\", \"Cybernetics\" (white bg, light border rgba(0,0,0,0.12), 11px, rounded-full)\r\n\r\n**Animations (using `motion` from 'motion/react'):**\r\n- Navbar: slides down from y:-16, opacity 0 to visible. Duration 0.8s, ease [0.16, 1, 0.3, 1]\r\n- Video: fades in from opacity 0 + scale 1.05 to opacity 1 + scale 1. Duration 1.8s\r\n- Footer wrapper: slides up from y:20, delay 0.5s, duration 1s\r\n- Subtitle: slides up from y:16, delay 0.6s, duration 0.8s\r\n- Heading: slides up from y:20, delay 0.8s, duration 0.8s\r\n- Buttons: slides up from y:16, delay 1.0s, duration 0.8s\r\n- All use ease: [0.16, 1, 0.3, 1]\r\n\r\n**Responsive (mobile-first, breakpoint at 768px):**\r\n- Mobile: navbar padding 16px, smaller buttons (28px circles), brand text hidden, tags hidden, right label hidden, footer stacks vertically, video at 80% size\r\n- Desktop (768px+): navbar padding 24px 32px, larger buttons (32px circles), all text/tags visible, footer is row layout, video fills 100%",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.455Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

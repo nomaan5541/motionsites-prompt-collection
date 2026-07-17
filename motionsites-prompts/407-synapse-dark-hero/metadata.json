@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "synapse-dark-hero",
+    "title": "Synapse Dark Hero",
+    "category": "Premium",
+    "sort_order": 407,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.451Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Synapse Dark Hero\n\n**ID:** 7  \n**Category:** SaaS  \n**Type:** hero  \n\n---\n\nBuild a high-fidelity, dark-themed Hero Section using React, Tailwind CSS, and Framer Motion. The background should be solid black (#000000).\n\n1. Structure & Layout:\n\nNavbar: Fixed at the top with a blurred glass effect.\n\nLogo: Text \"Synapse\" (font-medium, tracking-tight, white).\n\nLinks: Features (active state with gradient border), Insights, About, Case Studies (strikethrough style), Contact.\n\nCTA: \"Get Started for Free\" (White/Gray gradient button).\n\nHero Content: Centered text container (z-10, relative).\n\nBadges: Row of 3 glass-effect badges \"Integrated with\" + Icon.\n\nHeadline: \"Where Innovation Meets Execution\" (Large ~80px font, tight tracking, fade-in animation).\n\nSubtext: 2-line description about testing and deployment.\n\nButtons:\n\n\"Get Started for Free\" (Solid Black background, White border).\n\n\"Let's Get Connected\" (Transparent glass style).\n\nLogo Marquee: A static row of grayscale, 40% opacity logos (use placeholder SVGs) at the bottom.\n\n2. Background Video (Crucial):\n\nSource: https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8\n\nImplementation: Create a memoized VideoPlayer component using hls.js to handle the .m3u8 stream. Ensure proper cleanup on unmount.\n\nStyling: 100% Opacity (no dark overlays), playing in loop/muted/autoplay.\n\nPositioning: The video container should have a height of 80vh and be positioned absolute bottom-[35vh], sitting effectively \"floating\" behind the text content but pushed up from the bottom edge.\n\n3. Animations:\n\nUse motion/react to apply staggered fade-in-up animations to the badges, headline, subtitle, and buttons on load.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.451Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

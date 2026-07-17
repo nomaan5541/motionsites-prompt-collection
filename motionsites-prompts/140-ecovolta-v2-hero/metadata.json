@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "ecovolta-v2-hero",
+    "title": "ecovolta v2 hero",
+    "category": "Premium",
+    "sort_order": 140,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.256Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# EcoVolta V2\n\n**ID:** ecovolta-v2-hero  \n**Category:** Hero Section  \n**Type:** hero  \n\n---\n\nCreate a full-screen landing page hero section with the following exact specifications:\n\nVideo Background\nHLS streaming video from Mux: https://stream.mux.com/02gzwandixH4J534bd00JsCvlFfw6ha101WQ00C9b3sGibM.m3u8\nVideo must autoplay, loop, be muted, and play inline\nUse hls.js library for cross-browser compatibility with the following config:\ncapLevelToPlayerSize: false (allow quality higher than player size)\nmaxMaxBufferLength: 30, maxBufferLength: 20, maxBufferSize: 60MB\nSwitch to highest quality level once manifest loads\nNative HLS support detection for Safari/iOS\nVideo positioned absolutely, covering full viewport with object-cover\nFonts\nImport from Google Fonts:\n\nInstrument Serif (Regular 400, Italic 400)\nManrope (Regular 400, Medium 500, SemiBold 600)\nInstrument Sans (Regular 400, Medium 500, SemiBold 600)\nSF Pro Display Medium for main heading\nLayout & Positioning\nFull viewport height container with overflow-hidden\nMain content centered absolutely: left: 50%, top: calc(50% - 136.5px), transform translate(-50%, -50%)\nMax width 984px with 24px horizontal padding\nNavigation bar: absolute position at top, 20px from top, max-width 1110px, horizontally centered\nHero Content (Center)\nMain Headline:\n\nText: \"An AI that does your outbound while you \" (regular) + \"close deals.\" (gradient italic)\nRegular portion: Instrument Serif Regular, #212121, 48px mobile / 70px desktop\n\"close deals\" portion: Instrument Serif Italic with radial gradient text effect\nGradient: Radial from blue (#368CFB at 0%, #5CAEFE at 30%, #85BDE0 at 47.5%, #AECDC2 at 65%, #D6DCA3 at 82.5%, #FFEB85 at 100%)\nSVG gradient transform: matrix(35.22 -11.4 433.41 134.85 369.8 114)\nLeading: 1.1 mobile, 64px desktop\nMax width: 722px\nOpacity: 0.9\nSubheadline:\n\nText: \"AI sales agent that finds leads, personalizes outreach, follows up, and books meetings — automatically.\"\nFont: Manrope Regular, 18px mobile / 20px desktop\nGradient text: from rgba(37,44,50,0.7) to rgba(55,65,74,0.7)\nLetter spacing: -0.4px\nOpacity: 0.7\nMax width: 510px\nGap above: 24px mobile / 32px desktop\nCTA Button:\n\nText: \"Get started\" (Instrument Sans Medium, 16px, white)\nSize: 152px × 52px, rounded 12px\nBackground: Linear gradient from #444 to #292929\nBorder: 1px solid black\nShadows:\nOuter: 0px 4px 4px rgba(0,0,0,0.25), 0px 1px 2px rgba(0,0,0,0.31)\nInner: inset 0px 2px 1px rgba(255,255,255,0.51), inset 1px 1px 0.25px rgba(255,255,255,0.3)\nHover: opacity 90%, smooth transition\nGap above: 32px mobile / 48px desktop\nNavigation Bar (Top)\nLogo (Left):\n\nIcon: 23×23px SVG with radial gradient (blue to yellow: #368CFB → #5CAEFE → #FFEB85)\nText: \"closer\" in Instrument Serif Regular, 26px, #212121\nGap between icon and text: 6px\nNav Links (Center, hidden on mobile):\n\nLinks: \"Product\", \"How it works\", \"Pricing\", \"Customers\", \"Docs\"\nFont: Manrope Medium, 18px\nGradient text: from rgba(37,44,50,0.7) to rgba(55,65,74,0.7)\nGap between links: 16px mobile / 26px large screens\nHidden below md breakpoint\nLogin Button (Right):\n\nText: \"Login\" (Instrument Sans Medium, 18px, #212121)\nSize: 108px × 46px, rounded 12px\nBackground: white with 1px border #dde2e4\nHover: slight gray background, smooth transition\nResponsive Behavior\nMobile: Single column, 48px headline, 18px body, tighter gaps (24px/32px)\nDesktop: 70px headline, 20px body, wider gaps (32px/48px)\nNavigation collapses on mobile (hide center nav)\nPercentage-based widths with max-width constraints\nLeading adjustments: tighter on mobile (1.1), fixed on desktop (64px for headline)\nTechnical Requirements\nReact + TypeScript + Tailwind CSS v4\nInstall: hls.js package\nAll elements fully responsive\nSmooth hover transitions (opacity, colors)\nProper z-indexing (video behind, nav on top)\nCross-browser video compatibility with error recovery",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.256Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "motionz-premium",
+    "title": "MotionZ Premium",
+    "category": "Premium",
+    "sort_order": 268,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.339Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# MotionZ Premium Landing Page\n\nCreate a high-fidelity, premium landing page inspired by gaming universes and advanced design layers. The design should feel immersive, dynamic, and state-of-the-art.\n\n## Design Aesthetic\n- **Color Palette**: Sleek dark modes (Black, Deep Violet, Charcoal) contrasted with vibrant accents (Electric Blue, Radiant Yellow, Soft Lavender).\n- **Typography**: Modern, bold sans-serif for headings (e.g., General Sans, MotionZ Custom) and clean, readable fonts for body text (e.g., Circular Web, Robert).\n- **Visual Elements**: \n  - Video backgrounds with smooth transitions.\n  - Glassmorphism effects (blurred backgrounds, subtle borders).\n  - Bento-style grids for feature showcases.\n  - Floating 3D-like elements and interactive scroll-driven animations.\n- **Micro-animations**: Hover effects with radial gradients, tilting cards, and smooth GSAP-powered transitions.\n\n## Key Sections\n1. **Hero**: A cinematic entrance with a video-switching interaction. Clicking a preview mini-video should transition to the next full-screen video with a scale and clip-path animation.\n2. **About**: A scroll-triggered clip-path animation that expands an image/video to full screen as the user scrolls, introducing the \"Design Layer\".\n3. **Features (Bento Grid)**: A collection of interactive cards with tilting effects and radial gradient hover states. Each card showcases a unique product or feature in the ecosystem.\n4. **Story**: A floating image section with a magnetic mouse-follow effect, creating a sense of depth and mystery.\n5. **The Symbiotic World**: An accordion-style section showcasing governance, opportunity, and value sharing within the ecosystem, accompanied by a rotating 3D token visualization.\n6. **Metrics & Backers**: High-impact statistics displayed in a modern grid, followed by a list of world-class partners and backers.\n7. **Contact & Footer**: A final call to action with a \"sword-man\" clip-path design and a comprehensive footer with social links.\n\n## Technical Requirements\n- Use **React** for component-based structure.\n- Use **GSAP** (GreenSock) for all complex animations and scroll-triggered effects.\n- Use **Tailwind CSS** for responsive styling and layout.\n- Ensure all videos are muted, looped, and optimized for web performance.\n- Implement a floating navbar that transitions from transparent to solid on scroll.\n\n## Tone & Voice\nThe copy should be epic, visionary, and forward-looking. Use terms like \"The Future of Design\", \"Design Economy\", \"Universal Design Layer\", and \"Symbiotic World\".\n",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.339Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

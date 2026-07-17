@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "intelligentx",
+    "title": "intelligentx",
+    "category": "Premium",
+    "sort_order": 218,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.309Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Prompt:\r\nBuild a modern React landing page using Vite, Tailwind CSS, and motion/react for elegant animations. The application must feature a highly polished, aesthetic hero section and a glassmorphic navigation bar.\r\n1. Typography & Global CSS (src/index.css)\r\nImport the fonts \"Inter\" and \"Outfit\" from Google Fonts.\r\nSet --font-sans to Inter and --font-display to Outfit.\r\nSet --color-brand-green to #9fff00 and --color-bg-base strictly to #EDEEF5.\r\nEnsure the body uses @apply bg-bg-base text-zinc-900 font-sans antialiased; to carry the #EDEEF5 background throughout the entire page.\r\n2. Component Structure (src/App.tsx)\r\nImport Navbar and Hero.\r\nReturn a div containing the <Navbar /> and <main><Hero /></main>.\r\nSet the wrapper container classes to min-h-screen bg-bg-base selection:bg-brand-green selection:text-black.\r\n3. Navbar Component (src/components/Navbar.tsx)\r\nGive it fixed styling: fixed top-0 left-0 w-full z-50 py-6 md:py-10 bg-gradient-to-b from-[#f1f1f1]/80 to-transparent backdrop-blur-[2px].\r\nContainer layout: A 12-column grid (grid-cols-12 max-w-7xl mx-auto).\r\nLeft (Cols 1-3): A geometric flower/clover SVG icon (fill: #1a1a1a) beside the brand name \"mėntality\" using the display font.\r\nCenter (Cols 4-9): Desktop-only hidden nav links: \"service\", \"patient resources\", \"about us\", \"education center\". Styled small and lowercase.\r\nRight (Cols 10-12): \"find help\" anchor link, a black rounded button reading \"get started →\", and an elegant animated hamburger toggle icon for mobile.\r\nInclude an AnimatePresence and motion.div drawer that slides down for mobile with the navigation links.\r\n4. Hero Component (src/components/Hero.tsx)\r\nMain styling: <section className=\"relative min-h-[110vh] sm:min-h-[140vh] w-full flex flex-col items-center justify-start overflow-hidden bg-bg-base\">\r\nBackground Video Container:\r\nAbsolute wrapper: <div className=\"absolute top-[15vh] sm:top-[20vh] left-0 w-full h-[95vh] sm:h-[120vh] z-0 pointer-events-none\">\r\nThe video itself should be <video autoPlay loop muted playsInline className=\"w-full h-full object-cover opacity-100\" />\r\nExact CloudFront URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260603_132049_036591b8-6e92-4760-b94c-a7ea6eef315c.mp4\r\nGradient Mask: Below the video in the wrapper, add <div className=\"absolute top-0 left-0 w-full h-24 sm:h-32 bg-gradient-to-b from-bg-base to-transparent\"></div> to smoothly blend the video into the #EDEEF5 background.\r\nHero Content Alignment: Use <div className=\"max-w-7xl w-full mx-auto px-8 md:px-16 lg:px-20 relative z-10 grid grid-cols-12 gap-x-4 md:gap-x-8\">. Place the text in col-span-12 md:col-span-10 md:col-start-2.\r\nHero Header (motion.h1): Needs a slide-up fade (initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}).\r\nExact text formatting:\r\n[#1a1a1a] Remix: Mentality offers\r\n[#8e8e8e] information\r\n(line break)\r\n[#8e8e8e] and resources to help you manage\r\n(line break)\r\n[#8e8e8e] your [Eye Icon Puipl UI Element] mental wellbeing.\r\nFor the Eye Icon Element between \"your\" and \"mental\", create an inline pill-shaped visual: w-[16px] md:w-[42px] lg:w-[62px] border-[2px] border-[#1a1a1a] rounded-full inline-flex items-center justify-center containing a tiny solid black dot (w-2 h-2).\r\nSearch Pill Component:\r\nAdd a delayed slide-up animation (delay: 0.15) under the header text.\r\nMake a custom capsule <div className=\"bg-white rounded-[6px] border border-black/[0.05] p-1 pl-4 flex items-center shadow-sm\">.\r\nInclude an <input placeholder=\"Ask me anything...\"> with transparent background so it looks integrated.\r\nTrailing action button: <button className=\"bg-[#1a1a1a] text-white w-9 h-9 rounded-full relative\"> containing an SVG chevron/arrow icon.\r\nArchitectural Edge Anchors:\r\nAbsolute middle right edge: Create a glassmorphic pill button for language switching (pl — en).\r\nAbsolute bottom left corner: Place \"2024\" in small neat text.\r\nAbsolute bottom right corner: Place \"mental health tools\" in small neat text.\r\nEnsure there are no artificial margins/padding below the video to make sure the video takes exactly 100% of the Hero viewport, while allowing the #EDEEF5 background base to anchor the entire page cleanly.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.309Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "5",
+    "title": "5",
+    "category": "Premium",
+    "sort_order": 11,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.168Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a production-ready, responsive landing page using React, Tailwind CSS v4, and Vite. The design should feature a high-end, dark-mode \"glassmorphism\" aesthetic with specific purple/pink gradients.\r\n\r\n1. Tech Stack & Libraries:\r\nUse hls.js for video streaming.\r\nUse motion/react (formerly Framer Motion) for animations.\r\nUse react-use-measure for sizing logic.\r\nUse clsx and tailwind-merge for class management.\r\nUse lucide-react for standard icons (if needed), but I will provide custom SVG paths for specific UI elements.\r\n\r\n2. Global Styling:\r\nBackground: Dark/Black (#010101).\r\nPrimary Gradient: A diagonal gradient used for accents: from-[#FA93FA] via-[#C967E8] to-[#983AD6].\r\nTypography: Modern sans-serif, center-aligned hero text.\r\n\r\n3. Hero Section Components:\r\nAnnouncement Pill:\r\nA pill-shaped top badge.\r\nBackground: Semi-transparent dark (bg-[rgba(28,27,36,0.15)]) with a subtle border.\r\nIcon: A \"Zap\" icon inside a gradient-filled box with a glow effect.\r\nText: \"Used by founders. Loved by devs.\" in light grey.\r\n\r\nMain Headline (H1):\r\nLarge text (responsive sizing: 48px mobile to 80px desktop).\r\nText: \"Your Vision\" on line 1, \"Our Digital Reality.\" on line 2.\r\nStyle: Text should have a gradient fill (White to Purple/Pink).\r\n\r\nSubheadline:\r\nText: \"We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.\"\r\nColor: text-white/80.\r\n\r\nCTA Button:\r\n\"Book a 15-min call\" text.\r\nRounded full button with a white background and black text.\r\nIncludes a circle icon with an arrow inside, styled with the primary purple gradient.\r\nOuter border wrapper with a glass effect.\r\n\r\n4. Hero Video Integration (Critical Details):\r\nSource: HLS Stream URL: https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8\r\nFallback: If HLS fails, fallback to this MP4: /_videos/v1/f0c78f536d5f21a047fb7792723a36f9d647daa1\r\nImplementation: Do NOT use react-player. Use a native <video> tag with a custom useEffect hook implementation of hls.js.\r\nStyling:\r\nBlend Mode: Use mix-blend-screen so the video black background blends into the page.\r\nPositioning: The video should be at the bottom of the hero. Apply a negative top margin (-mt-[150px]) so it overlaps behind the text.\r\nZ-Index: Ensure the text content is z-20 (above) and video is z-10 (below).\r\nLayout: The video must be 100% width (w-full), auto height, and stretch edge-to-edge without being cropped (do not use object-contain or fixed heights).\r\nOverlay: Add a gradient fade (from-[#010101] via-transparent to-[#010101]) over the video container.\r\n\r\n5. Logo Cloud Section (Animated):\r\nPlace this section immediately below the video.\r\nBackground: Semi-transparent glass (bg-black/20 backdrop-blur-sm) with a top border (border-white/5).\r\nLayout:\r\nDesktop: \"Powering the best teams\" text on the left, separated by a vertical divider. Animated logo slider on the right.\r\nMobile: Stacked vertically.\r\nAnimation: Create an InfiniteSlider component using motion/react that scrolls logos horizontally forever.\r\nLogos: Use these SVG URLs (OpenAI, Nvidia, GitHub, etc.) and apply brightness-0 invert to make them white.\r\nhttps://html.tailus.io/blocks/customers/openai.svg\r\nhttps://html.tailus.io/blocks/customers/nvidia.svg\r\n(Include others similarly)\r\n\r\nPlease assemble these into a cohesive Hero.tsx, App.tsx, and components/ui/infinite-slider.tsx structure.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.168Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

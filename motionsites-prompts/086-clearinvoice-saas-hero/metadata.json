@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "clearinvoice-saas-hero",
+    "title": "ClearInvoice SaaS Hero",
+    "category": "Premium",
+    "sort_order": 86,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.219Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# ClearInvoice SaaS Hero\n\n**ID:** 3  \n**Category:** SaaS  \n**Type:** hero  \n\n---\n\nCreate a high-fidelity, dark-mode Hero section for a SaaS product called \"ClearInvoice\" using React and Tailwind CSS.\n\nTech Stack:\nFramework: React (Vite)\nStyling: Tailwind CSS\nAnimation: motion/react (Framer Motion)\nIcons: lucide-react\nVideo: Native HTML5 <video> with hls.js for streaming (Do NOT use react-player).\n\n1. Background Video (Crucial):\nSource: https://stream.mux.com/hUT6X11m1Vkw1QMxPOLgI761x2cfpi9bHFbi5cNg4014.m3u8\nBehavior: Autoplay, Loop, Muted, PlaysInline.\nOpacity: 100% (No dark overlay).\nImplementation: Create a memoized BackgroundVideo component using hls.js to handle the .m3u8 stream natively. Ensure it cleans up properly on unmount to prevent \"AbortError\".\nZ-Index: It must sit behind all content (-z-10).\n\n2. Layout & Styling:\nFont Family:\nHeadings: \"Switzer\" (Medium weight, tight tracking).\nBody: \"Geist\" (Clean, legible).\n\nTop Bar: A 5px high gradient bar at the very top: from-[#ccf] via-[#e7d04c] to-[#31fb78].\nNavbar:\nLogo on left.\nLinks (Features, Pricing, Reviews) centered.\nAuth buttons (Sign In, Sign Up) on right.\nMobile: Hamburger menu that opens a full-width dropdown.\n\n3. Hero Content:\nHeadline: \"Manage your online store while save 3x operating cost\" (Large text: text-6xl, tight leading).\nSubhead: \"ClearInvoice takes the hassle out of billing with easy-to-use tools.\" (White/90).\nAnimations: Use motion/react to stagger the entrance of the Text, Buttons, and Social Proof (Fade Up + Slide).\n\n4. Button Styles (Exact Recreation):\nPrimary Button:\nBackground: Gradient from-[#FF3300] to-[#EE7926].\nGlow: An absolute positioned div behind the button with bg-orange-600 blur-lg opacity-20.\nInner Stroke: A 1.5px border overlay (border-white/20) inside the button for a \"glassy\" edge.\nHover: scale: 1.05, glow increases to opacity-60, and an Arrow icon slides in from the left.\n\nSecondary Button:\nBackground: bg-white/90 backdrop blur.\nInner Stroke: 1.5px border (border-black/5).\nHover: scale: 1.05, background becomes solid white.\n\n5. Social Proof:\nRow of 3 user avatars (overlapping borders).\nText: \"Trusted by 210k+ stores worldwide\".",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.219Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "codercrest",
+    "title": "CoderCrest",
+    "category": "Premium",
+    "sort_order": 92,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.223Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Create a React + TypeScript component named HeroSection in src/components/HeroSection.tsx using Tailwind CSS and the hls.js npm package (install it: npm install hls.js).\r\n\r\nLayout & Background:\r\n\r\nA <section> that is 100vh tall, position: relative, overflow: hidden, flex column centered, with background: #000.\r\nA fullscreen HLS video background using this Mux stream URL: \r\nhttps://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8\r\n\r\nThe video is <video autoPlay loop muted playsInline> with classes absolute inset-0 w-full h-full object-cover and zIndex: 0. Play it through hls.js: if Hls.isSupported(), create an Hls({ autoStartLoad: true }) instance, loadSource, attachMedia, and play on MANIFEST_PARSED. Else, fall back to native application/vnd.apple.mpegurl support. Clean up the Hls instance on unmount. No overlay over the video — full opacity.\r\nContent container:\r\n\r\nA div with classes relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto and inline style marginTop: 380 (pushes content down 380px).\r\nHeadline (<h1>):\r\n\r\nFont: 'YDYoonche L', 'YDYoonche M', sans-serif\r\nfontSize: clamp(2.2rem, 7vw, 6.5rem), color: #fff, fontWeight: 300, letterSpacing: -0.01em, lineHeight: 1.1, className=\"leading-tight\".\r\nThree lines:\r\n\"The vision\" — gradient text using background: linear-gradient(90deg, #666666 0%, #d0d0d0 50%, #666666 100%) with WebkitBackgroundClip: text, WebkitTextFillColor: transparent, backgroundClip: text, display: block, lineHeight: 1.1, marginBottom: -0.22em.\r\n\"of engineering\" — same gradient styling as line 1.\r\nA flex line flex items-center justify-center gap-3 flex-wrap with white text containing in order:\r\n<span style={{color:'#999'}}>is</span>\r\nA circular video icon (see below) playing the human clip\r\n<span>human</span>\r\n<span style={{color:'#999', position:'relative', top:'0.15em', marginLeft:'0.25em'}}>+</span>\r\nA circular video icon playing the AI clip\r\n<span>AI</span>\r\nVideoIcon component:\r\n\r\nOuter <span> with classes inline-block align-middle rounded-full overflow-hidden, sized via inline style width/height: clamp(48px, 10vw, ${size}px) (default size=72, but the hero passes size={110} for both icons), flexShrink: 0.\r\nInner <video autoPlay loop muted playsInline> with width: 100%, height: 100%, objectFit: cover, display: block. Call videoRef.current.play().catch(() => {}) in a useEffect.\r\nTwo CloudFront MP4 sources:\r\nVIDEO_HUMAN: \r\nhttps://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_090051_64ea5059-da6b-492b-a171-aa7ecc767dc3.mp4\r\n\r\nVIDEO_AI: \r\nhttps://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_093237_ff0ddc63-c068-4e29-96da-fdd0e40af133.mp4\r\n\r\nSubheading (<p>):\r\n\r\nClasses mt-4 max-w-xl text-center px-2.\r\nfontSize: clamp(0.95rem, 2.2vw, 1.2rem), color: #ccc, lineHeight: 1.4, fontWeight: 400.\r\nText: \"We help you map the talent you need, track the talent you have, and close your gaps to thrive in a GenAI world.\"\r\nCTA Button:\r\n\r\nClasses: mt-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0px_6px_32px_8px_rgba(39,243,169,0.22)] active:scale-[0.98]\r\nInline style: padding: '12px 28px', background: '#000', boxShadow: '0px 6px 24px 6px rgba(39, 243, 169, 0.15)', borderRadius: 8, outline: '1px solid #30463C', outlineOffset: -1, border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10.\r\nInner <span> with color: '#fff', fontSize: 14, fontWeight: 400, text: \"Join The Movement!\".\r\nAnimations / interactions:\r\n\r\nAll three videos auto-play, loop, muted, inline.\r\nButton has a 300ms transition: scales to 1.03 and gains a brighter green glow on hover, scales to 0.98 on active.\r\nFonts:\r\n\r\nThe headline expects 'YDYoonche L' / 'YDYoonche M' to be loaded globally (e.g., via index.css or an external font provider). It falls back to sans-serif.\r\n",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.223Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

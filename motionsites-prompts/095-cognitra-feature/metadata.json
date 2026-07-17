@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "cognitra-feature",
+    "title": "cognitra feature",
+    "category": "Premium",
+    "sort_order": 95,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.225Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\r\n\r\n**Prompt:**\r\n\r\nCreate a full-viewport section (100vh) that sits over a fixed background video. The section has no background color of its own -- it is fully transparent so the fixed video behind it shows through.\r\n\r\n**Background video (fixed, behind everything):**\r\nA `<video>` element fixed to the viewport (`position: fixed; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; z-index: 0`), using this source:\r\n```\r\nhttps://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4\r\n```\r\nIt should `autoPlay`, be `muted`, `loop`, and `playsInline`.\r\n\r\n**Section layout:**\r\n- `position: relative; z-index: 1`\r\n- `display: flex; flex-direction: column; justify-content: center` (centers content vertically)\r\n- `height: 100vh`\r\n- Padding: `70px 32px 32px 32px`\r\n\r\n**Content block** (inside the section):\r\n- A wrapper `div` with `display: flex; flex-direction: column; align-items: flex-start; max-width: 720px`\r\n- **Heading (`<h2>`):**\r\n  - Text: `\"WE BUILD END-TO-END AI AUTOMATION SYSTEMS.\"`\r\n  - Each word is wrapped in an individual `<span>` element, displayed using `display: flex; flex-wrap: wrap; gap: 0.25em`\r\n  - Each word animates in with a staggered fade-up animation: starts at `opacity: 0, y: 32px`, animates to `opacity: 1, y: 0` using Framer Motion `whileInView` with `viewport: { once: true, amount: 0.2 }`\r\n  - Stagger: first word at `delay: 0.15`, each subsequent word adds `0.08s` (so word 2 = 0.23, word 3 = 0.31, etc.)\r\n  - Animation easing: `[0.22, 1, 0.36, 1]`, duration: `0.7s`\r\n  - Typography: `font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; text-transform: uppercase; color: #fff; margin: 0`\r\n\r\n- **Subtext (`<p>`):**\r\n  - Text: `\"We provide all-in-one AI automation services in one place.\"`\r\n  - `margin-top: 24px; font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.85); max-width: 260px`\r\n  - Same fade-up animation as the words but with `delay: 0.9` and default `y: 24px`\r\n\r\n**Font:**\r\n```css\r\n@import url('https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var');\r\n* { font-family: 'Helvetica Now Var', 'Helvetica Neue', Helvetica, Arial, sans-serif; }\r\n```\r\n\r\n**FadeUp component (reusable, Framer Motion):**\r\n```tsx\r\nimport { motion } from 'framer-motion';\r\nimport { CSSProperties, ReactNode } from 'react';\r\n\r\ntype FadeUpProps = {\r\n  children: ReactNode;\r\n  delay?: number;\r\n  duration?: number;\r\n  y?: number;\r\n  className?: string;\r\n  style?: CSSProperties;\r\n  as?: 'div' | 'section' | 'span' | 'h1' | 'h2' | 'h3' | 'p' | 'nav';\r\n  once?: boolean;\r\n};\r\n\r\nexport function FadeUp({\r\n  children, delay = 0, duration = 0.7, y = 24,\r\n  className, style, as = 'div', once = true,\r\n}: FadeUpProps) {\r\n  const Tag = motion[as];\r\n  return (\r\n    <Tag\r\n      className={className}\r\n      style={style}\r\n      initial={{ opacity: 0, y }}\r\n      whileInView={{ opacity: 1, y: 0 }}\r\n      viewport={{ once, amount: 0.2 }}\r\n      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}\r\n    >\r\n      {children}\r\n    </Tag>\r\n  );\r\n}\r\n```\r\n\r\n**Mobile responsive (max-width: 900px):**\r\n- Section padding changes to `90px 18px 32px 18px`\r\n\r\n**Tech stack:** React 18, TypeScript, Vite, Tailwind CSS 3, Framer Motion 12.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.225Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

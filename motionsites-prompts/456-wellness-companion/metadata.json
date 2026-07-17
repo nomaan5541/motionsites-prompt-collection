@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "wellness-companion",
+    "title": "wellness companion",
+    "category": "Premium",
+    "sort_order": 456,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.486Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a mobile wellness quiz screen inside a realistic phone frame mockup, centered on a white page. Use React with Tailwind CSS and Lucide React icons.\r\n\r\n**Phone Frame:**\r\n- Dimensions: 375px wide x 780px tall\r\n- Border radius: 52px\r\n- Background color: `#8a9aaa`\r\n- Box shadow to simulate a real phone bezel: `inset 0 0 0 2px rgba(255,255,255,0.08), 0 0 0 1px rgba(0,0,0,0.6), 0 0 0 10px #1a1a1e, 0 0 0 11px rgba(255,255,255,0.06), 0 0 60px rgba(0,0,0,0.5)`\r\n- A black pill-shaped Dynamic Island at the top center: 120px wide, 32px tall, fully rounded, z-index 50\r\n\r\n**Background:**\r\n- Full-bleed background image using this exact URL: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_143500_a76b8e64-2c69-4683-80e7-2bb060a921d6.png&w=1280&q=85`\r\n- Apply `blur(12px)` and `scale(1.1)` to the background image\r\n- Semi-transparent overlay: `#8a9aaa` at 30% opacity on top\r\n\r\n**Font:**\r\n- Load \"Helvetica Now Var\" from: `https://db.onlinewebfonts.com/c/e66905e07608167a84e6ad52f638c3c6?family=Helvetica+Now+Var`\r\n- Fallback stack: 'Helvetica Neue', Helvetica, Arial, sans-serif\r\n- Apply globally to all elements\r\n\r\n**Content Layout (flex column, padding: 56px top, 24px sides, 24px bottom):**\r\n\r\n1. **Header Badge** (top, with 40px margin-bottom):\r\n   - Liquid glass pill with Timer icon (12px, white/80) + text \"Vitaforge Daily\" (12px, white/90, medium weight)\r\n   - Padding: 10px vertical, 12px horizontal\r\n\r\n2. **Title Section** (32px margin-bottom):\r\n   - Subtitle: \"Choose all that apply\" - white/60, 14px\r\n   - Heading: \"What aspects of your wellness would you like to boost?\" - white, 28px, normal weight, tight leading and tracking\r\n\r\n3. **Selection Grid** (2 columns, 12px gap, pushes to fill available space):\r\n   - 4 cards: \"Sleep quality\", \"Stress\", \"Weight\", \"Skin\"\r\n   - Each card: rounded-[32px], 100px height, padding 16px\r\n   - Shows a number label (01, 02, etc.) in white/50, 11px, medium weight\r\n   - Option text in white, 16px, medium weight\r\n   - \"Stress\" (id:2) and \"Skin\" (id:4) are pre-selected\r\n   - Cards are toggleable on click\r\n\r\n4. **Voice Button** (centered, 24px vertical margin):\r\n   - Yellow/gold radial glow behind: `radial-gradient(ellipse at center, rgba(220,200,80,0.5) 0%, rgba(180,160,40,0.2) 40%, transparent 70%)`\r\n   - 64px circular liquid glass button with a waveform SVG icon (white strokes, strokeWidth 2, strokeLinecap round) showing 5 vertical bars of varying heights\r\n   - \"voice\" label below in white/70, 12px\r\n\r\n5. **Slide-to-Confirm Button** (bottom, inside 24px horizontal padding):\r\n   - Full-width rounded-full track, 56px tall, liquid glass style\r\n   - White circular thumb (44px) on the left with ArrowRight icon (gray-800)\r\n   - \"Done\" text centered in white/60, 14px, medium weight\r\n   - 3 ChevronRight icons on the right (14px) at white/40, white/50, white/60 opacity\r\n   - Draggable thumb with pointer events: snaps back if not dragged past 85%, snaps to end if past 85%\r\n\r\n**Liquid Glass Effect (CSS classes):**\r\n\r\n`.liquid-glass`:\r\n- Background: `rgba(255,255,255,0.01)` with luminosity blend mode\r\n- Backdrop filter: `blur(4px)`\r\n- Box shadow: `inset 0 1px 1px rgba(255,255,255,0.1)`\r\n- `::before` pseudo-element for gradient border: `linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%)` with 1.4px padding and mask-composite exclude technique\r\n\r\n`.liquid-glass-selected`:\r\n- Same as above but background: `rgba(255,255,255,0.12)`, blur 8px, stronger box shadow (`inset 0 1px 2px rgba(255,255,255,0.2)`), and brighter gradient border (0.6 alpha at edges, 0.25 at 20%/80%)\r\n\r\n**Animations:**\r\n- Staggered fade-up animation on all elements\r\n- Keyframes: from `opacity:0, translateY(16px)` to `opacity:1, translateY(0)`\r\n- Duration: 0.5s, easing: `cubic-bezier(0.22, 1, 0.36, 1)`, fill: forwards\r\n- Delays: header 0.1s, title 0.25s, grid cards 0.4s/0.48s/0.56s/0.64s, voice 0.7s, slider 0.85s\r\n\r\n**Dependencies:**\r\n- React 18, Tailwind CSS 3, Lucide React, Vite, TypeScript",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.486Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

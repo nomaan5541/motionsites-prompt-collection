@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "new-era-bold-hero",
+    "title": "New Era Bold Hero",
+    "category": "Premium",
+    "sort_order": 284,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.352Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# New Era Bold Hero\n\n**ID:** New Era Bold Hero  \n**Category:** Agency  \n**Type:** hero  \n\n---\n\nCreate a responsive, full-screen Hero section using React and Tailwind CSS with the following specifications:\n\n1. Layout & Positioning:\n\nSet the container to at least screen height (min-h-screen) with a dark blue fallback background (#21346e).\nAlign the main content to the top of the page (not centered), adding significant top padding (approx pt-32 on mobile, pt-48 on desktop).\nUse a standard container with horizontal padding.\n\n2. Background Video:\n\nImplement a full-screen, absolute-positioned background video.\nThe video must be set to autoPlay, loop, muted, and playsInline.\nUse object-cover to ensure it fills the screen without distortion.\nVideo URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260206_044704_dd33cb15-c23f-4cfc-aa09-a0465d4dcb54.mp4\n\n3. Typography (Main Headline):\n\nFont Family: Rubik (sans-serif).\nStyle: Bold, Uppercase, White text.\nLayout: Display the text on three separate lines:\nLine 1: \"NEW ERA\"\nLine 2: \"OF DESIGN\"\nLine 3: \"STARTS NOW\"\nSizing: Large and responsive (text-6xl mobile, text-8xl tablet, text-[100px] desktop).\nSpacing: Very tight line height (0.98) and negative letter spacing (-2px to -4px).\n\n4. Custom CTA Button:\n\nPlace a button below the headline with a fixed size of 184px wide by 65px high.\nInteraction: Add a hover effect that slightly scales up (scale-105) and an active press effect (scale-95).\nBackground: Instead of a standard CSS background, use an SVG element that fills the button container (absolute inset-0). Use a custom path for the shape filled with white.\nText: Centered label \"GET STARTED\".\nText Style: Rubik, Bold, Uppercase, 20px size, dark text color (#161a20).",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.352Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

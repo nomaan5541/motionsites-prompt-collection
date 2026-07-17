@@ -1,63 +1,25 @@
 {
-  "total": 473,
+  "total": 470,
   "access": {
-    "free": 473
+    "free": 470
   },
   "sourceModes": {
-    "reconstructed": 164,
-    "original": 309
+    "original": 470
   },
   "media": {
-    "video": 298,
-    "image": 160,
-    "none": 15
+    "video": 214,
+    "image": 215,
+    "none": 41
   },
   "categories": {
-    "404": 1,
-    "Hero Sections": 63,
-    "Agency": 20,
-    "Landing Pages": 237,
-    "SaaS": 38,
-    "Ecommerce": 1,
-    "Features": 22,
-    "Component": 2,
-    "Footers": 12,
-    "Email Marketing": 1,
-    "Social Media": 3,
-    "Presentation": 1,
-    "Pricing": 12,
-    "AI": 1,
-    "Accordion": 1,
-    "CTA": 11,
-    "Services": 1,
-    "Stats": 1,
-    "Social Proof": 7,
-    "Signup": 2,
-    "About": 6,
-    "Categories": 1,
-    "Products": 1,
-    "Bento": 1,
-    "Blog": 1,
-    "Cards": 5,
-    "Product": 2,
-    "Slider": 2,
-    "Fintech": 1,
-    "Carousal": 1,
-    "Info": 1,
-    "Use Case": 1,
-    "Website": 1,
-    "Process": 1,
-    "Waitlist": 1,
-    "Case Studies": 1,
-    "Projects": 1,
-    "3D Website": 1,
-    "FAQ": 1,
-    "Marquee": 1,
-    "Sign In Form": 1,
-    "Tabs": 1,
-    "Investor Presentations": 1,
-    "Portfolio": 1,
-    "Web3": 1
+    "Landing Pages": 385,
+    "Pricing": 10,
+    "Agency": 17,
+    "SaaS": 17,
+    "CTA": 9,
+    "Social Proof": 6,
+    "Features": 16,
+    "Footers": 10
   },
-  "generatedAt": "2026-07-17T12:36:15.385Z"
+  "generatedAt": "2026-07-17T13:17:17.344Z"
 }

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "veloce-cards",
+    "title": "veloce cards",
+    "category": "Premium",
+    "sort_order": 432,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.468Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build an \"Insights\" stats section for a fintech landing page using React + TypeScript + Vite + Tailwind CSS + Framer Motion. This is a standalone section component. It must be fully mobile responsive.\r\n\r\n**Dependencies:** `framer-motion`\r\n\r\n**Tailwind config -- extend `fontFamily`:**\r\n```js\r\n'helvetica-neue': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],\r\n```\r\n\r\n**CSS (`index.css`) -- add globally:**\r\n```css\r\n@layer base {\r\n  * {\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n  }\r\n}\r\n```\r\n\r\n---\r\n\r\n**BlurIn utility component (`src/components/BlurIn.tsx`):**\r\n\r\nA reusable wrapper. Uses Framer Motion's `useInView` hook with `{ once: true }`. Wraps children in a `motion.div` that animates from `filter: blur(20px), opacity: 0` to `filter: blur(0px), opacity: 1` over `duration: 1.2` seconds when it enters the viewport. Named export `BlurIn`.\r\n\r\n---\r\n\r\n**InsightsSection component (`src/components/InsightsSection.tsx`):**\r\n\r\n**Outer container:** `<div>` with class `px-6 md:px-12 lg:px-[60px] flex flex-col gap-[90px] py-20 bg-white`.\r\n\r\n---\r\n\r\n**Top text block** (`max-w-[517px] flex flex-col gap-10`):\r\n\r\n1. Heading wrapped in `<BlurIn>`: Text `\"Instant payment clarity counts\"`. Class: `text-[#00041F] text-4xl md:text-5xl lg:text-6xl font-helvetica-neue font-medium leading-[1] lg:leading-[60px] tracking-[-0.03em]`.\r\n\r\n2. Paragraph (NOT wrapped in BlurIn): Text `\"Real-time data powers smarter spending choices every day\"`. Class: `text-[#49484F] text-base md:text-lg lg:text-xl font-helvetica-neue max-w-[361px]`.\r\n\r\n---\r\n\r\n**Cards row** -- a `motion.div` with class `flex flex-col lg:flex-row items-stretch lg:items-end gap-5`.\r\n\r\nFramer Motion config on the row container:\r\n- `variants`: `hidden: { opacity: 0 }`, `visible: { opacity: 1, transition: { staggerChildren: 0.2 } }`\r\n- `initial=\"hidden\"`\r\n- `whileInView=\"visible\"`\r\n- `viewport={{ once: true, amount: 0.2 }}`\r\n\r\nEach card is a `motion.div` with variants: `hidden: { opacity: 0, y: 30 }`, `visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }`.\r\n\r\nEach card has base class: `flex-1 p-10 rounded-[40px] relative overflow-hidden flex flex-col justify-end`.\r\n\r\nEach card contains (in order):\r\n1. A `<video autoPlay loop muted playsInline>` with class `absolute inset-0 w-full h-full object-cover` and a `<source>` with the specific CloudFront URL and `type=\"video/mp4\"`.\r\n2. A color overlay `<div>` with class `absolute inset-0` and a specific background color.\r\n3. A content block `<div>` with class `relative z-10 max-w-[388px] flex flex-col gap-5` containing the stat number and description.\r\n\r\nStat number style (all cards): `text-[#00041F] text-5xl md:text-[60px] font-helvetica-neue font-medium leading-[1] md:leading-[60px]`\r\n\r\nDescription style (all cards): `text-[#49484F] text-lg md:text-[22px] font-helvetica-neue opacity-80`\r\n\r\n---\r\n\r\n**Card 1:**\r\n- Min height: `min-h-[450px]`\r\n- Video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_143605_bc7bd6c0-9c68-49ff-a9d3-073a10759fa4.mp4`\r\n- Overlay color: `bg-[rgba(206,223,235,0.25)]`\r\n- Stat: `1.6M`\r\n- Description: `\"Active members rely on us for effortless payment experiences\"` with `max-w-[377px]`\r\n\r\n**Card 2:**\r\n- Min height: `min-h-[350px]` (shorter than the others -- this creates the staggered bottom alignment on desktop via `lg:items-end` on the parent)\r\n- Video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_145119_f4ec4d9f-3ecd-4116-baa3-26e8cf2df976.mp4`\r\n- Overlay color: `bg-[rgba(247,236,233,0.6)]`\r\n- Stat: `850K`\r\n- Description: `\"Transfers completed each day, quick and protected\"` with `max-w-[351px]`\r\n\r\n**Card 3:**\r\n- Min height: `min-h-[450px]`\r\n- Video URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_140728_ae719193-f10b-4105-82fc-c989610b3aa6.mp4`\r\n- Overlay color: `bg-[rgba(218,218,218,0.2)]`\r\n- Stat: `120+`\r\n- Description: `\"Nations enabled for instant checkouts and worldwide remittance\"` with `max-w-[351px]`\r\n\r\n---\r\n\r\n**Responsive behavior:**\r\n- On mobile/tablet (`< lg`): Cards stack vertically (`flex-col`), each stretching full width (`items-stretch`).\r\n- On desktop (`lg:`): Cards display in a horizontal row (`flex-row`) aligned to the bottom (`items-end`), so the shorter middle card (350px) sits higher at the bottom while the taller outer cards (450px) extend above it.\r\n- Horizontal padding scales: `px-6` on mobile, `md:px-12` on tablet, `lg:px-[60px]` on desktop.\r\n- Heading scales: `text-4xl` on mobile, `md:text-5xl` on tablet, `lg:text-6xl` on desktop.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.468Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

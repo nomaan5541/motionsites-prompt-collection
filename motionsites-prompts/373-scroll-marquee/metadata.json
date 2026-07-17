@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "scroll-marquee",
+    "title": "scroll marquee",
+    "category": "Premium",
+    "sort_order": 373,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.432Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "---\r\n\r\n**Prompt:**\r\n\r\nCreate a scroll-driven image marquee section using React, Tailwind CSS, and vanilla JS scroll events (no libraries needed for the marquee itself). The site uses the **Google Font \"Kanit\"** (weights 300-900) and a dark background color `#0C0C0C`. This section sits directly below a full-screen hero section.\r\n\r\n**Section layout:**\r\n- Full-width section with `overflow: hidden`, dark background `#0C0C0C`\r\n- Padding: `pt-24 sm:pt-32 md:pt-40 pb-10`\r\n- Contains two horizontal rows of images stacked vertically with a `gap-3` (12px) between them\r\n\r\n**Row 1 images (11 images), scrolls RIGHT as user scrolls down:**\r\n```\r\nhttps://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif\r\nhttps://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif\r\nhttps://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif\r\nhttps://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif\r\nhttps://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif\r\nhttps://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif\r\nhttps://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif\r\nhttps://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif\r\nhttps://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif\r\nhttps://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif\r\nhttps://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif\r\n```\r\n\r\n**Row 2 images (10 images), scrolls LEFT as user scrolls down (opposite direction):**\r\n```\r\nhttps://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif\r\nhttps://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif\r\nhttps://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif\r\nhttps://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif\r\nhttps://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif\r\nhttps://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif\r\nhttps://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif\r\nhttps://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif\r\nhttps://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif\r\nhttps://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif\r\n```\r\n\r\n**Image cards:**\r\n- Each image card is exactly `420px wide x 270px tall`\r\n- `flex-shrink-0` so they never collapse\r\n- `rounded-2xl` (16px border radius) with `overflow: hidden`\r\n- Images use `object-cover` to fill the container, with `loading=\"lazy\"`\r\n- `gap-3` (12px) between cards horizontally\r\n\r\n**Scroll-driven parallax animation (vanilla JS, not CSS animation):**\r\n- Each row's image array is tripled (`[...ROW, ...ROW, ...ROW]`) to create enough content for continuous scrolling appearance\r\n- On every scroll event (passive listener), calculate offset:\r\n  1. Get the section's bounding rect top relative to the document\r\n  2. `scrolled = window.scrollY - sectionTop + window.innerHeight`\r\n  3. `offset = scrolled * 0.3` (parallax factor of 0.3)\r\n- Row 1: `transform: translateX(${offset - 200}px)` -- moves right as user scrolls\r\n- Row 2: `transform: translateX(${-(offset - 200)}px)` -- moves left as user scrolls\r\n- Initial transform: Row 1 starts at `translateX(-200px)`, Row 2 starts at `translateX(200px)`\r\n- Use `willChange: 'transform'` for GPU acceleration\r\n- Apply transforms directly via refs (not state) for 60fps performance\r\n- Use `{ passive: true }` on the scroll listener\r\n- Run the handler once on mount to set initial position\r\n- Clean up the listener on unmount\r\n\r\n**Technical details:**\r\n- React functional component using `useRef` and `useEffect`\r\n- No framer-motion or animation library needed for this section\r\n- Rows are built with flexbox (`flex gap-3`)\r\n- Each row is wrapped in an `overflow-hidden w-full` container\r\n- The outer section also has `overflow-hidden` and `w-full`\r\n- All images have empty `alt=\"\"` since they are decorative\r\n\r\n**Font (loaded in HTML head):**\r\n```html\r\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\r\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\r\n<link href=\"https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap\" rel=\"stylesheet\" />\r\n```\r\n\r\nCSS base: `font-family: 'Kanit', sans-serif` on html/body.\r\n\r\n---",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.432Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

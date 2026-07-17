@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "nexora-features",
+    "title": "Nexora Features",
+    "category": "Premium",
+    "sort_order": 293,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.359Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "Build a full-width \"Features\" section on a pure black (#000) background using TanStack Start (route file src/routes/index.tsx) and Tailwind CSS v4 (tokens in src/styles.css). Match the following spec exactly.\r\n\r\nGlobal setup (src/styles.css)\r\n\r\nSet body background to #000, text color #fff, and font-family to \"Helvetica Neue\", Helvetica, Arial, sans-serif.\r\nAdd a .liquid-glass button class with this exact CSS:\r\n\r\n.liquid-glass {\r\n  background: rgba(255, 255, 255, 0.01);\r\n  background-blend-mode: luminosity;\r\n  backdrop-filter: blur(4px);\r\n  -webkit-backdrop-filter: blur(4px);\r\n  border: none;\r\n  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n.liquid-glass::before {\r\n  content: '';\r\n  position: absolute;\r\n  inset: 0;\r\n  border-radius: inherit;\r\n  padding: 1.4px;\r\n  background: linear-gradient(180deg,\r\n    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,\r\n    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,\r\n    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);\r\n  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\r\n  -webkit-mask-composite: xor;\r\n  mask-composite: exclude;\r\n  pointer-events: none;\r\n}\r\nAdd card classes (both same color, plain #252B4C, rounded 1.25rem, position: relative; overflow: hidden;):\r\n\r\n.feature-card,\r\n.feature-card-dark {\r\n  background: #252B4C;\r\n  border-radius: 1.25rem;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\nComponents\r\n\r\nLiquidButton: a <button> with classes liquid-glass rounded-xl px-5 py-2.5 text-sm text-white/90 transition-transform hover:scale-[1.02]. Hover animation = subtle scale-up to 1.02.\r\nCardVideo({ src }): an absolutely positioned <video> filling the card: className=\"absolute inset-0 h-full w-full object-cover\", attributes autoPlay muted loop playsInline, 100% opacity, no overlay.\r\nLayout\r\n\r\n<main> with min-h-screen bg-black px-6 py-16 md:px-12 lg:px-20.\r\n\r\nHeader (mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between):\r\nLeft: stacked headline with two lines, sizes text-2xl md:text-4xl lg:text-[2.75rem], font-normal tracking-tight. Text wraps naturally (no whitespace-nowrap).\r\nLine 1 (white): Curiosity-led tools for truth-seeking minds.\r\nLine 2 (text-white/40, mt-2): Ask with confidence. Powered by AI.\r\nRight (md:pt-3 shrink-0): <LiquidButton>Start Using Nexora</LiquidButton>.\r\nGrid: grid grid-cols-1 gap-5 md:grid-cols-3 md:grid-rows-2.\r\n\r\nAll cards use p-7 flex flex-col, contain a <CardVideo> as the first child, and all text wrappers use relative so they sit above the video.\r\n\r\nCard 01 — feature-card md:row-span-2 min-h-[28rem] (tall left column)\r\nVideo: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260427_104605_2700410c-4303-4d44-a368-e1b8c84eca8c.mp4\r\nTop row (flex justify-between text-sm text-white/60): 01/ left, Found in Curiosity right.\r\nSpacer (flex-1).\r\nBottom block:\r\n<h2 class=\"text-xl md:text-2xl font-medium text-white\">Great Questions Unearth<br/>Hidden Gems</h2>\r\nDivider: mt-4 h-px w-full bg-white/20.\r\nParagraph (mt-4 text-xs text-white/70): The best answers come from asking the right questions.<br/>Start your search with purpose today.\r\nCard 02 — feature-card-dark md:col-span-2 (wide top right)\r\nVideo: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260427_104731_bfd355f7-1f84-4f81-ad88-52c2bca70bad.mp4\r\nTop row (flex justify-between): heading left <h2 class=\"text-xl md:text-2xl font-medium text-white\">Where Knowledge Begins</h2>, 02/ right (text-sm text-white/60).\r\nSpacer: flex-1 min-h-48.\r\nCard 03 — feature-card\r\nVideo: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260427_104758_e7d78f06-3700-4862-8c9b-595ed447e81a.mp4\r\nTop row (text-sm text-white/60): In Real Time left, 03/ right.\r\nParagraph (mt-10 text-xs text-white/80): From complex topics to quick facts, trust what<br/>you learn from every search you perform.\r\nSpacer (flex-1).\r\nBottom (mt-6): <LiquidButton>Start Using Nexora</LiquidButton>.\r\nCard 04 — feature-card\r\nVideo: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260427_105007_f90de0f3-0f93-44d4-9b71-7446f78c4bd2.mp4\r\nTop row (text-sm text-white/60): Just Ask left, 04/ right.\r\nSpacer (flex-1).\r\nBottom paragraph (text-center text-xs text-white/80): Users Trust Our Search Models.\r\nAnimations / fonts\r\n\r\nOnly animation: liquid-glass button hover scale to 1.02 via Tailwind transition-transform hover:scale-[1.02].\r\nVideos auto-play looping at 100% opacity, no overlay/tint.\r\nFont: Helvetica Neue globally, weights font-normal for headline, font-medium for card titles.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.359Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "record": {
+    "id": "weblex-dark-hero",
+    "title": "Weblex Dark Hero",
+    "category": "Premium",
+    "sort_order": 453,
+    "type": "premium",
+    "types": null,
+    "created_at": "2026-07-17T13:17:16.483Z",
+    "page_type": "landing",
+    "row_span": 1,
+    "is_free": true,
+    "image_preview_url": null,
+    "video_preview_url": null
+  },
+  "result": {
+    "error": null,
+    "code": null,
+    "prompt_text": "# Weblex Dark Hero\n\n**ID:** 11  \n**Category:** Landing Page  \n**Type:** hero  \n\n---\n\nCreate a dark, full-screen hero section with a background video and a transparent navbar.\n\nNavbar:\n\nFixed at the top, fully transparent (no blur, no border, no background)\n\nLeft: Brand name \"Weblex.\" with a green dot accent using the primary color\n\nCenter (desktop): Navigation links — Home, Features, Pricing, About — in muted foreground color, small text\n\nRight (desktop): \"Get Started\" button — primary color background, dark text, rounded-full, small text\n\nMobile: Hamburger menu icon that toggles a dropdown with the same links and button\n\nHero Section:\n\nFull viewport height (h-screen)\n\nBackground video playing on autoplay, loop, muted, playsInline, covering the full section with object-cover\n\nVideo URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260221_085953_8463b46e-ba85-4bb7-912a-1feaf346e970.mp4\n\nVideo has a seamless loop transition: fades out to black starting 1.5 seconds before the end (reaching opacity 0 by 0.3s before the end), then fades back in over the first 1 second when the video restarts. Use requestAnimationFrame for smooth opacity updates.\n\nNo dark overlay on the video — full opacity\n\nContent is aligned to the bottom of the screen with 100px bottom padding, centered horizontally, max-width 603px\n\nHero Content (bottom-aligned, centered):\n\nBadge: A small pill/badge that says \"Introducing Smart Website Builder\" — styled with a border, rounded-full, small text, muted foreground color\n\nHeading: \"Turn your big idea into a stunning website\" — 62px font size, font-medium, centered, line-height 1.1. Responsive: 48px on medium, 36px on small screens\n\nParagraph: \"Fintech is its potential to promote financial inclusion. In many parts of the world, millions of people lack access to traditional banking services.\" — muted foreground color, centered, max-width 520px\n\nTwo buttons side by side:\n\n\"Get Started Now\" — primary color background, dark text, rounded-full, with an ArrowUpRight icon on the left, 18px text, hover brightness effect\n\n\"See Pricing\" — secondary (white) background, dark text, rounded-full, 18px text\n\nColor Theme (dark mode only, HSL values in CSS variables):\n\n--background: 240 67% 1% (near-black)\n\n--foreground: 0 0% 100% (white)\n\n--primary: 73 98% 57% (bright lime green)\n\n--primary-foreground: 240 67% 1% (dark)\n\n--secondary: 0 0% 100% (white)\n\n--secondary-foreground: 240 67% 1% (dark)\n\n--muted: 240 10% 12%\n\n--muted-foreground: 0 0% 82% / 0.8\n\n--border: 0 0% 100% / 0.1\n\nTech: React, TypeScript, Tailwind CSS, Lucide icons for ArrowUpRight and Menu/X icons.",
+    "sections": [],
+    "section_names": []
+  },
+  "workingPrompt": {
+    "mode": "premium",
+    "generatedAt": "2026-07-17T13:17:16.483Z",
+    "file": "working-prompt.md",
+    "note": "Unlocked prompt from archive."
+  }
+}
