@@ -1,0 +1,117 @@
+# EVR Ventures
+
+**ID:** evr-ventures-hero  
+**Category:** Hero Section  
+**Type:** hero  
+
+---
+
+Create a hero section with the following exact specifications:
+
+Fonts:
+
+Body/Sans: 'Geist', sans-serif
+
+Display: 'Gilda Display', serif
+
+Color Scheme (dark theme — black background, white foreground):
+
+--background: 0 0% 0% (pure black)
+
+--foreground: 0 0% 100% (pure white)
+
+Video Background:
+
+Full-screen looping muted video with autoPlay, muted, loop, playsInline
+
+URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_024928_1efd0b0d-6c02-45a8-8847-1030900c4f63.mp4
+
+object-cover with horizontal offset object-[37%_center] — no dark overlay
+
+Positioned absolute inset-0 with z-0
+
+Navigation Bar (z-10, relative):
+
+Left: A "Menu" button — rounded-full pill with a border (border-foreground/30), uppercase tracking-widest text, and two horizontal lines (hamburger icon made of two <span> bars, w-7 h-[2px] bg-foreground, gap 4px)
+
+Center: Logo text "EVR" — absolute left-1/2 -translate-x-1/2, text-2xl font-bold tracking-wider text-foreground
+
+Right (hidden on mobile, visible md:flex): Two pill buttons ("About Us", "Services") with border border-foreground/30 rounded-full styling, plus a "Get Started" CTA button with bg-gradient-to-r from-[hsl(220,70%,78%)] to-[hsl(40,80%,82%)], black text, rounded-full, uppercase
+
+Full-Screen Menu Overlay (AnimatePresence + framer-motion):
+
+Triggered by Menu button, uses useState for menuOpen
+
+Animated with clipPath: "circle(0% at 80px 40px)" → "circle(150% at 80px 40px)" on open, reverse on close
+
+Duration 0.7s, ease [0.76, 0, 0.24, 1]
+
+Background: bg-foreground (white), fixed inset-0 z-50
+
+Close button: same pill style as Menu but with X icon, text-background (black text)
+
+Center logo "EVR" in text-background
+
+Menu links: Home, About Us, Services, Projects, Contact — each animated with opacity: 0, x: -60 → opacity: 1, x: 0, staggered delay 0.15 + i * 0.08, ease [0.25, 1, 0.5, 1]
+
+Each link: text-[clamp(2rem,5vw,4.5rem)] font-light -tracking-[0.06em], with ArrowRight icon on right, separated by border-b border-background/10
+
+Hover: text shifts right 4px, arrow shifts right 2px
+
+Bottom: "Evolve Responsible Ventures" left, "© 2026" right, both text-background/40 text-xs tracking-[0.2em] uppercase
+
+Body scroll locked when menu is open
+
+Main Content Area (z-10, relative):
+
+Container: flex-1 flex flex-col with justify-start pt-6 px-6 pb-2 on mobile, justify-end pt-0 px-10 pb-16 on md:
+
+Subheading row: ArrowRight icon (w-4 h-4) + "Evolve Responsible Ventures" in text-xs font-medium tracking-[0.25em] uppercase
+
+Below that, a flex container: column on mobile (heading top, stats bottom), row on lg: (side by side at bottom)
+
+Heading:
+
+Navigating the
+route to impactful
+regeneration
+
+Each line: text-[clamp(2rem,6vw,5rem)], first two lines font-light, third line font-display (Gilda Display serif)
+
+leading-[0.9] -tracking-[0.2em] on the <h1>
+
+Stats/Progress Circle (right side on desktop, bottom on mobile):
+
+lg:max-w-xs lg:pb-4, with mt-8 on mobile, mt-0 on md:
+
+SVG circular progress: 120x120 viewBox, radius 54, strokeWidth 3
+
+Background circle: stroke="hsl(var(--foreground) / 0.15)"
+
+Progress circle: stroke="hsl(var(--foreground))", animated to 75% on mount (500ms delay), strokeLinecap="round", transition-all duration-1000 ease-out
+
+Center text: "75%" in text-foreground text-lg font-medium
+
+Below circle: paragraph text-foreground/70 text-sm leading-relaxed: "Guiding organizations toward lasting environmental performance through actionable strategy and measurable outcomes"
+
+Clients/Partners Marquee Bar (bottom, z-10):
+
+Top row: "Our Partners" left, "Backed by 30+ global brands" right (hidden on mobile)
+
+Both text-xs font-medium tracking-[0.2em] uppercase text-foreground
+
+Below: border-t border-foreground/10, overflow-hidden py-5
+
+Marquee: CSS animate-marquee (keyframe translateX(0) → translateX(-50%), 20s linear infinite)
+
+Brand names: Opensense, DKNY, Under Armour, LIU·JO, ATOM, ECCO, ORUM — duplicated twice for seamless loop
+
+Each name: text-foreground/50 text-lg font-medium tracking-wide, gap-16
+
+Responsive Layout Summary:
+
+Mobile: heading at top of content area, stats/progress at bottom, nav right buttons hidden
+
+Tablet/Desktop (md:+): content aligned to bottom, nav right buttons visible
+
+Large (lg:): heading and stats side by side at bottom

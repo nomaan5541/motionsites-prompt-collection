@@ -1,0 +1,44 @@
+# ClubX Investors
+
+**ID:** clubx-hero  
+**Category:** Landing Page  
+**Type:** landing-page  
+
+---
+
+Create a full-screen hero landing page for "ClubX" — a private tech investor club. The page should have:
+
+Background: A looping, muted, autoplaying video covering the entire viewport using object-cover, sourced from https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260323_071151_38c3924f-c312-48af-a196-3fbb80e4226f.mp4. All content layers above it with z-10.
+
+Fonts: Import Inter (400, 500) and Instrumental Serif via Google Fonts. Body uses Inter.
+
+Navigation: Horizontally centered max-width container (max-w-7xl). Left: a small circular logo icon (10×10 / h-10 w-10). Center (hidden on mobile): links — Home (active/dark), Studio, About, Journal, Reach Us — in text-sm text-gray-600, hover to text-gray-900. Right: a black (bg-gray-900) pill button with white text saying "Begin Journey", px-6 py-2.5 text-sm, with hover:scale-[1.03] and active:scale-[0.97].
+
+Hero content (centered, pt-32 pb-12):
+
+Social proof badge: A pill (rounded-full) with bg-white/20 backdrop-blur-sm border border-gray-900/10. Contains 5 overlapping circular avatars (w-8 h-8 rounded-full, -space-x-2.5) followed by text: "400+ tech investors join the club. Join us!" in text-sm text-gray-800. Margin bottom mb-8.
+
+Headline: "Finance. Freedom. Fellows." in Inter bold, text-5xl sm:text-6xl md:text-[4.9rem], leading-[0.95] tracking-[-1.5px], text-gray-900, max-w-5xl.
+
+Subtext: "Private club of top tech investors." in text-base sm:text-lg text-gray-800, max-w-2xl mt-6 leading-relaxed.
+
+CTA button: "Begin Journey" — black pill, px-12 py-4 text-sm text-white bg-gray-900 mt-9, hover:scale-[1.03], rounded-full.
+
+Stats bar: Absolutely positioned at bottom-8, centered via left-1/2 -translate-x-1/2, max-w-4xl. A rounded-3xl container with bg-white/10 backdrop-blur-sm border border-gray-900/10, px-8 py-6. Four evenly spaced stat columns, each with a large white number (text-3xl sm:text-4xl font-light tracking-tight) and a label (text-white/70 text-sm):
+
+410+ / Tech professionals
+€11M / Invested
+14 / Deals made
+2.5 / Years on the market
+
+Animations: Three staggered fade-rise keyframe animations (translate 24px up + fade in, 0.8s ease-out): badge at 0s delay, headline at 0s, description at 0.2s, button at 0.4s. Define in CSS:
+
+@keyframes fade-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise { animation: fade-rise 0.8s ease-out both; }
+.animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both; }
+.animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both; }
+
+Overall: min-h-screen, overflow-hidden, dark-blue background fallback (--background: 201 100% 13%). All interactive buttons have cursor-pointer and transition-transform. Generate 5 diverse professional avatar images and a circular orange-red logo icon with a white stylized letter.

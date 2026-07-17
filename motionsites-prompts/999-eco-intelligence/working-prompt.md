@@ -1,0 +1,76 @@
+Create a full-screen hero section for a brand called "TERRA NOVA" using React, Tailwind CSS, and Lucide React icons. It must be fully mobile responsive. Use Vite + React + TypeScript + Tailwind.
+
+**Fonts:**
+- Load "Bebas Neue" from Google Fonts for the large background text.
+- Load "Helvetica Neue Light" from: `https://db.onlinewebfonts.com/c/0e6de1ec911a2e267ff136bbdd384a44?family=Helvetica+Neue+Light`
+- Set body font-family to: `'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif` with antialiased rendering.
+
+**Background:**
+- Full-screen `<video>` element set to autoPlay, muted, loop, playsInline, covering the entire viewport with `object-cover`.
+- Video source URL: `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204426_c2ec12c0-3159-4601-8f8f-484c9a687833.mp4`
+- Fallback background color: `#f5f4f0`
+
+**Layout Structure (all content layered on top of the video with `relative z-10`):**
+
+1. **Navbar** - Flex row, space-between, padding `px-5 sm:px-6 md:px-12 py-5 md:py-6`. Always black text on all screen sizes.
+   - Left: A hamburger Menu icon (Lucide `Menu`, 20x20, strokeWidth 1.5) that opens a slide-in mobile menu. The word "Menu" is hidden below `sm` breakpoint.
+   - Right: A small black dot (8x8 rounded-full) + "Book a call" text (text-sm tracking-wide).
+   - Both sides have `hover:opacity-60 transition-opacity duration-300`.
+
+2. **Main Content Area** - Takes remaining height (`flex-1`), with horizontal margin `mx-5 sm:mx-6 md:mx-12`, position relative.
+
+   - **Vertical border lines (desktop only, hidden below md):** Two absolute-positioned columns (left edge and right edge), each containing: a thin 1px vertical line (bg-black/20) at 15% height, a "+" character (text-black/40, text-xs), a flex-1 line, another "+", and another 15% line.
+
+   - **Decorative glass rectangles (desktop only, hidden below md):** Centered absolutely (top-1/2 left-1/2 -translate). A 2-col 3-row grid (220x330px at md). Three squares placed at positions [row1-col1], [row2-col1], [row3-col2]. Each square is 110x110px at md, with `bg-white/10 border border-white/40` and this exact box-shadow: `inset 0 2px 20px rgba(255,255,255,0.5), inset 0 -2px 14px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.15), 0 0 40px rgba(255,255,255,0.05)`.
+
+   - **Large background text "TERRA NOVA":** Absolutely positioned at `top-[2%]`, centered horizontally, full viewport width, pointer-events-none, select-none, overflow-hidden. Font is `font-['Bebas_Neue']`, size `text-[18vw] sm:text-[22vw] md:text-[30vw]`, leading-[0.85], tracking-tighter, whitespace-nowrap. The text uses a radial-gradient fill to appear as a subtle ghost/transparent text: `radial-gradient(83.65% 627.96% at 7.96% 53.9%, #c8c8c8 0%, rgba(200, 200, 200, 0) 52.41%, #c8c8c8 100%)` with `background-clip: text` and `-webkit-text-fill-color: transparent`.
+
+   - **Bottom 2-column content (pinned to bottom with `mt-auto`):** Padding `pb-6 sm:pb-8 md:pb-12`, flex-col on mobile, flex-row on md+ with items-end and justify-between. Gap `gap-6 md:gap-12`, inner padding `px-2 sm:px-4 md:px-8`.
+
+     **Left Column** (max-w-sm, `text-white sm:text-black`):
+     - Heading: "Signals from" + line break + "the Deep Green". Sizes: `text-xl sm:text-2xl md:text-3xl lg:text-4xl`, font-light, leading-tight, tracking-tight.
+     - Paragraph below (mt-3 md:mt-4): "An open research collective mapping, decoding, and archiving the silent vibrations that bind our planet's ecological networks." Sizes: `text-xs sm:text-sm`, color `text-white/70 sm:text-black/60`, max-w-[280px].
+     - **Slanted/chamfered button** labeled "Start listening":
+       - Dimensions: `w-[220px] sm:w-[260px] h-[44px] sm:h-[48px]`
+       - Always black text.
+       - Shape is a hexagon-like polygon with 14px chamfer cut at top-left and bottom-right corners, drawn via SVG `<polygon>` with stroke="currentColor" strokeWidth="1.5" and fill-transparent.
+       - **On mobile only:** Has a white glass backdrop effect behind it: `bg-white/60 backdrop-blur-md border border-black/20` clipped to the same chamfer polygon shape using CSS `clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)`. On sm+ this glass effect is removed (`sm:bg-transparent sm:backdrop-blur-none sm:border-transparent`).
+       - Content inside: label text (text-xs sm:text-sm tracking-wide) on left, ArrowRight icon (16x16) on right, with px-5 sm:px-6.
+       - `hover:opacity-70 transition-opacity duration-300`.
+
+     **Right Column - Glass Card** (max-w-xs md:max-w-[320px]):
+     - `bg-white/60 backdrop-blur-md border border-white/80 p-5 sm:p-6 md:p-8 rounded-sm`
+     - Header row: "Latest findings" (text-base sm:text-lg md:text-xl font-medium tracking-tight) left-aligned, "//02" (text-xs text-black/40) right-aligned. Below is a border-b border-black/10 with pb-3 md:pb-4.
+     - Two content blocks (space-y-4 md:space-y-5, mt-4 md:mt-5):
+       1. Title: "Canopy Pulse Analysis 09.17" (text-sm md:text-base font-semibold tracking-tight). Description: "Identified harmonic oscillation links between root mycelia networks and surrounding atmospheric moisture." (text-xs md:text-sm text-black/50 mt-1 md:mt-1.5 leading-relaxed).
+       2. Title: "Watershed Harmonic Index 11.06". Description: "Forecasting framework for ecosystem regeneration spanning six continents using over 2,400 sensor arrays."
+     - **Waveform SVG decoration** at bottom (mt-5 md:mt-6, centered): An SVG (viewBox 0 0 220 50, w-full) with a single `<path>` drawing a smooth waveform curve. Stroke: black, strokeWidth: 1.8, fill: none, strokeLinecap: round. Path data: `M0 30 C10 30 12 45 18 45 C24 45 26 10 34 10 C42 10 44 40 52 40 C60 40 62 5 70 5 C78 5 80 42 88 42 C96 42 98 15 106 15 C114 15 116 38 124 38 C132 38 134 20 142 20 C150 20 152 35 160 35 C168 35 170 22 178 22 C186 22 188 32 196 32 C204 32 210 28 220 28`
+
+3. **Mobile Menu (slide-in overlay):**
+   - State-controlled open/close. When open, body overflow is hidden.
+   - **Backdrop:** Fixed full-screen, `bg-black/40 backdrop-blur-sm`, fades in/out with `transition-opacity duration-500`.
+   - **Panel:** Fixed, top-0 left-0, full height, `w-full sm:w-[380px]`, `bg-[#f5f4f0]`, slides in from left with `transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]`.
+   - Inside panel (px-8 sm:px-10 py-6, flex-col h-full):
+     - Close button at top: X icon (20x20, strokeWidth 1.5) + "Close" text, mb-12.
+     - Nav links: ['About', 'Research', 'Projects', 'Journal', 'Contact']. Each is a block `py-4 border-b border-black/10`. Text is `text-2xl sm:text-3xl font-light tracking-tight`. On hover, text slides right 8px and an ArrowRight icon (16x16) fades in from the right. Each link has a staggered entrance animation (opacity + translateY) with delays starting at 150ms, incrementing by 75ms.
+     - Bottom section (mt-auto pb-8): border-t border-black/10 pt-6, "Get in touch" label (text-xs text-black/40 uppercase tracking-wide mb-3), email link "hello@terranova.earth" (text-sm text-black/70 hover:text-black). Also has staggered entrance with 600ms delay.
+
+**CSS Reset (index.css):**
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+```
+
+**Key responsive behavior:**
+- Mobile (< 640px): White text for heading/paragraph, glass-backed button, no vertical lines, no glass rectangles, compact spacing.
+- Tablet (sm, 640px+): Text turns black, button loses glass backdrop, layout still single column.
+- Desktop (md, 768px+): Two-column bottom layout, vertical border lines appear, glass rectangles appear, larger font sizes and spacing throughout.

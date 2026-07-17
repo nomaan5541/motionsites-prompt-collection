@@ -1,0 +1,70 @@
+# Finlytic AI Agent
+
+**ID:** finlytic-hero  
+**Category:** SaaS  
+**Type:** hero  
+
+---
+
+Build a hero section with the following exact specifications:
+
+Overall Layout:
+
+Full-width section with background: #000000 (pure black)
+Overflow hidden
+Background video playing behind all content (details below)
+
+Background Video:
+
+Source: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260215_121759_424f8e9c-d8bd-4974-9567-52709dfb6842.mp4
+Autoplay, loop, muted, playsInline
+Scaled to 120% of the container (width and height both 120%)
+Horizontally centered, focal point anchored to the bottom
+Sits behind all content (lowest z-index)
+
+Blurred Background Element:
+
+Absolute positioned, horizontally centered, top offset ~215px
+Size: 801px wide × 384px tall, fully rounded (pill shape)
+Color: pure black #000000
+Blur: 77.5px
+z-index: 1 (above video, below content)
+
+All text and UI content sits at z-index: 2 (above everything)
+
+Navbar (top):
+
+Max width: 1440px, centered horizontally
+Horizontal padding: 120px, vertical padding: 16px, height: 102px
+Flexbox row, space-between alignment
+
+Left side: Logo + nav links with 80px gap between them
+Logo: "LOGOIPSUM" SVG mark, 134px × 25px, white fill
+Nav links in a row with 10px gap between items
+Each link: font Manrope, medium weight, 14px size, 22px line-height, white color, padding 10px horizontal / 4px vertical
+Items: "Home", "Services" (with a 24×24 white chevron-down icon to the right, 3px gap), "Reviews", "Contact us"
+
+Right side: Two buttons with 12px gap
+"Sign In" button: white background, 16px horizontal / 8px vertical padding, 8px border-radius, Manrope semibold 14px/22px, color #171717, with a 1px #d4d4d4 border overlay
+"Get Started" button: background #7b39fc (purple), 16px/8px padding, 8px border-radius, Manrope semibold 14px/22px, color #fafafa, subtle box-shadow 0px 4px 16px rgba(23,23,23,0.04)
+
+Hero Content (centered below navbar):
+
+Flex column, centered, max-width 871px, top margin 162px
+24px gap between heading block and buttons
+
+Heading block: flex column, 10px gap, center-aligned text
+Line 1: "Automate repetitive." — font Inter, medium weight, 76px, white, letter-spacing -2px, line-height 1.15
+Line 2: "Focus on growth." — font Instrument Serif, italic, 76px, white, letter-spacing -2px, line-height 1.15
+Subtitle: "The next-generation AI agent platform that handles lead generation, customer support, and data entry while you build." — font Manrope, regular weight, 18px, 26px line-height, color #f6f7f9, opacity 90%, max-width 613px
+
+CTA Buttons: flex row, 22px gap, vertically centered
+"Get Started Free": background #7b39fc, padding 24px horizontal / 14px vertical, 10px border-radius, font Cabin medium 16px, line-height 1.7, white text
+"Watch 2min Demo": background #2b2344 (dark purple), same padding/radius/font specs, color #f6f7f9
+
+Dashboard Image (below hero content):
+
+Centered, top margin 80px, bottom padding 40px
+Outer container: 1163px wide (max 90% of viewport), 24px border-radius, backdrop-blur 10px, background rgba(255,255,255,0.05) (glassmorphic), transparent border 1.5px
+Inner padding: 22.5px all sides
+Image inside: full width, auto height, 8px border-radius, object-fit cover

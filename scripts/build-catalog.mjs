@@ -244,9 +244,7 @@ const folders = fs
 
 const items = folders.map(buildItem).sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title));
 
-if (items.length !== 253) {
-  throw new Error(`Expected 253 prompt folders, found ${items.length}`);
-}
+// Check removed to allow dynamic amount of prompts
 
 const emptyPrompt = items.find((item) => !item.prompt.trim());
 if (emptyPrompt) {

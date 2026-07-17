@@ -37,47 +37,21 @@ export function HomePage() {
             </p>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
               <Link
-                to="/landing-pages"
+                to="/search"
                 className="inline-flex h-14 items-center gap-2 rounded-full bg-gradient-to-b from-white to-[#dbeafe] px-8 text-lg font-black text-[#09090b] shadow-[0_16px_45px_rgba(219,234,254,0.16)] transition-transform hover:-translate-y-0.5"
               >
-                Browse Free
+                Search Premium Prompts
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
             </div>
           </div>
 
           <p className="mt-8 text-center text-sm font-medium text-[#ababab]">
-            {catalogSummary.total} free prompts · {catalogSummary.media.video || 0} animated previews · no paid gates
+            {catalogSummary.total} Premium Prompts · {catalogSummary.media.video || 0} animated previews · no paid gates
           </p>
         </div>
       </section>
 
-      <section className="page-shell pb-7">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex gap-3 overflow-x-auto">
-            <Link
-              to="/landing-pages?category=Pricing"
-              className="inline-flex h-11 items-center rounded-full bg-[#202020] px-5 text-base font-semibold text-[#d4d4d4]"
-            >
-              Pricing
-            </Link>
-          </div>
-          <div className="flex gap-3">
-            <Link
-              to="/landing-pages"
-              className="inline-flex h-11 items-center rounded-full bg-[#202020] px-5 text-base font-semibold text-[#d4d4d4]"
-            >
-              Type
-            </Link>
-            <Link
-              to="/landing-pages?category=Landing%20Pages"
-              className="inline-flex h-11 items-center rounded-full bg-[#202020] px-5 text-base font-semibold text-[#d4d4d4]"
-            >
-              Mixed
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <section className="page-shell py-5">
         <SectionHeader
