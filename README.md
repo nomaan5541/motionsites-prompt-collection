@@ -36,43 +36,6 @@ Created 6 full, interactive, high-end React component demos accessible at `/exam
 5. **21st.dev Red In Black Neon Shader**: High-intensity dark mode hero section with crimson pulsing neon WebGL shader glow, author metadata (`ashish.indora`), and copyable `npx shadcn` CLI command bar.
 6. **21st.dev AI Agent Pipeline & Terminal**: Autonomous AI code build pipeline card (`Input Spec` ➔ `Code Generator` ➔ `AST Linter` ➔ `Deploy Sandbox`) with an interactive **"Run AI Pipeline"** button and live terminal stream.
 
-### 🎨 3. Added 3 Dedicated Website Sections
-* Dedicated Homepage visual sections for **HorizonX Library**, **21st.dev Registry**, and **Superdesign Canvas**.
-* Interactive category filter chips added to the Search page (`/search`) to filter by site source in 1-click.
-
-### 📢 4. Added Notice Modal Popup & Bottom Banner
-* **Notice Popup Modal**: Auto-opens on first visit informing users of prompt availability and search capabilities.
-* **Persistent Bottom Banner**: Sticky footer banner with search quick-links.
-
----
-
-## 📖 Table of Contents
-1. [🚀 Overview & Vision](#-overview--vision)
-2. [✨ Key Features & Capabilities](#-key-features--capabilities)
-3. [📂 Repository Architecture](#-repository-architecture)
-4. [🧑‍💻 Under the Hood: Prompt Engineering Anatomy](#-under-the-hood-prompt-engineering-anatomy)
-5. [🖥️ Interactive Gallery Design System](#-interactive-gallery-design-system)
-6. [🛠️ Technical Stack Generated](#-technical-stack-generated)
-7. [🎯 Step-by-Step AI Generation Playbook](#-step-by-step-ai-generation-playbook)
-8. [🎛️ Local CLI Tool Reference](#-local-cli-tool-reference)
-9. [📚 Exhaustive Categories Directory](#-exhaustive-categories-directory)
-10. [📝 Detailed Prompt Catalog](#-detailed-prompt-catalog)
-11. [🤝 Contribution Guidelines & Style Guide](#-contribution-guidelines--style-guide)
-12. [⚖️ Legal, Licensing & Fictional Disclaimer](#-legal-licensing--fictional-disclaimer)
-13. [🔗 Connection & Community](#-connection--community)
-
----
-
-## 🚀 Overview & Vision
-
-Modern AI code generation tools (such as **Bolt.new**, **v0.dev**, **GPT-Engineer**, and **Lovable.dev**) are extremely powerful, but they share a common limitation: **they generate standard, generic, and uninspired layouts unless explicitly fed detailed layout instructions.** Without high-fidelity styling specifications, AI models fallback to vanilla Tailwind cards, plain grids, basic system fonts, and generic spacing.
-
-**MotionSites Prompts Collection** solves this limitation by acting as a **layout compiler and design system specification layer**. It provides **339 highly structured design system prompts** written in Markdown, which enforce precise spacing, advanced typography scales, customized color variables, and interactive physics-based animation hooks (Framer Motion and GSAP).
-
-Our mission is to democratize elite frontend design. By translating premium Awwwards-level layouts into structured text instructions, anyone can generate beautiful motion-intensive websites in a single prompt run.
-
----
-
 ## ✨ Key Features & Capabilities
 
 - **339 Curated Designs**: The library contains templates and component sections covering all major web design trends (Neo-brutalism, Glassmorphism, Space minimalism, Dark Editorial, etc.).
