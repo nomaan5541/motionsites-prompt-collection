@@ -1,41 +1,70 @@
-# DMCA Policy
+# 📜 DMCA Takedown Policy & Content Removal Procedure
 
-## Our Commitment to Intellectual Property
+> **Our Commitment to Intellectual Property & Copyright Respect**  
+> The **MotionSites Prompts Collection** respects the intellectual property rights of all creators, designers, and software engineers. We take copyright concerns very seriously and provide a fast, transparent takedown process for any content, prompt, or media reference.
 
-The **MotionSites Prompts Collection** is committed to respecting intellectual property rights. All content in this repository consists of original, fictional designs created by the project author.
+---
 
-## If You Believe Your Rights Are Being Infringed
+## 1. Overview & Good Faith Statement
 
-If you are a copyright holder and believe that any content in this repository infringes on your copyright, please submit a DMCA takedown request by contacting us with the following information:
+All prompts, structural layout specifications, and component references in this repository are created for **educational, prompt-engineering, and research purposes**. 
 
-1. **Identification** of the copyrighted work you claim has been infringed
-2. **Identification** of the specific content in this repository that you claim is infringing
-3. **Your contact information** (name, address, phone number, email)
-4. **A statement** that you have a good faith belief that the use is not authorized by the copyright owner
-5. **A statement** that the information provided is accurate, under penalty of perjury
-6. **Your signature** (physical or electronic)
+If you are a copyright owner or an authorized agent thereof and believe that any content, prompt text, design pattern, or preview asset in this repository infringes upon your copyrighted work, you may submit a **DMCA Takedown Notice**.
 
-## How to Submit
+---
 
-- **GitHub Issues**: [Open an issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues) with the subject "DMCA Notice"
-- Please allow up to **48 hours** for a response
+## 2. Information Required in a DMCA Notice
 
-## Our Response Process
+To submit a valid DMCA Takedown Request, please provide a written notice containing the following details:
 
-Upon receiving a valid DMCA notice, we will:
+1. **Identification of Copyrighted Work**: A clear description of the copyrighted work you claim has been infringed (or a representative list if multiple works are involved).
+2. **Identification of Infringing Material**: The specific file, prompt ID, URL, or filepath in this repository that you claim is infringing, with sufficient detail so we can locate it immediately.
+3. **Your Contact Information**: Full name, organization/company (if applicable), mailing address, telephone number, and official email address.
+4. **Statement of Good Faith**:
+   > *"I have a good faith belief that the use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law."*
+5. **Statement of Accuracy & Perjury Penalty**:
+   > *"I swear, under penalty of perjury, that the information in this notification is accurate and that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed."*
+6. **Signature**: A physical or electronic signature of the copyright owner or authorized representative.
 
-1. **Acknowledge** receipt within 48 hours
-2. **Review** the claim carefully
-3. **Remove or disable** access to the allegedly infringing content if the claim is valid
-4. **Notify** the content contributor (if applicable)
+---
 
-## Counter-Notification
+## 3. Fast Takedown & Submission Channels
 
-If you believe your content was removed by mistake, you may submit a counter-notification. See [GitHub's DMCA Counter Notice Guide](https://docs.github.com/articles/guide-to-submitting-a-dmca-counter-notice) for details.
+We provide two direct channels for submitting DMCA Takedown Notices:
 
-## Good Faith
+* 🐙 **GitHub Issue**: [Open a DMCA Takedown Request Issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues/new?title=DMCA+Takedown+Request) with the subject `[DMCA Takedown] <Content Title/Path>`.
+* 📧 **Repository Maintainer Direct Contact**: Submit via GitHub Issue or pull request marked `DMCA NOTICE`.
 
-We operate in good faith and take all intellectual property concerns seriously. Our goal is to maintain a library of 100% original content that respects the rights of all creators.
+### ⏱️ Response Time Guarantee
+- **Acknowledgement**: Within **24 hours**.
+- **Content Removal / Action**: Within **24 to 48 hours** of receiving a valid notice.
+
+---
+
+## 4. Response & Removal Workflow
+
+Upon receiving a valid DMCA Takedown Notice:
+
+1. **Immediate Inspection**: We immediately verify the notice details and locate the target file or prompt.
+2. **Temporary or Permanent Removal**: Access to the prompt, code snippet, or preview reference will be **removed or disabled immediately**.
+3. **Log & Notification**: The action is logged in our public issue tracker, and the contributor is notified if applicable.
+
+---
+
+## 5. Counter-Notification Procedure
+
+If you believe your content was removed by mistake or due to misidentification, you may submit a counter-notification in accordance with 17 U.S.C. § 512(g)(3). 
+
+A valid counter-notification must include:
+- Your name, address, phone number, and signature.
+- Identification of the material that was removed and its location before removal.
+- A statement under penalty of perjury that you have a good faith belief that the material was removed as a result of mistake or misidentification.
+
+---
+
+## 6. Summary
+
+We operate in complete good faith to maintain a 100% compliant open-source research and educational prompt collection.
 
 ---
 
