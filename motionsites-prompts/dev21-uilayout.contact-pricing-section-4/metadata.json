@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-uilayout.contact-pricing-section-4",
+    "title": "[21st.dev] Pricing Section 4 (by uilayout.contact)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2074,
+    "image_preview_url": "https://cdn.21st.dev/uilayout.contact/pricing-section-4/default/preview.1756283776749.png",
+    "video_preview_url": "https://cdn.21st.dev/uilayout.contact/pricing-section-4/default/video.1756283776749.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "uilayout.contact",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-sshahaider-single-pricing-card",
+    "title": "[21st.dev] Single Pricing Card (by sshahaider)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2081,
+    "image_preview_url": "https://cdn.21st.dev/sshahaider/single-pricing-card/default/preview.1747467081300.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "sshahaider",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

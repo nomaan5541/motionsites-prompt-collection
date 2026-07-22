@@ -106,6 +106,9 @@ function readPrompt(folderPath) {
 
 function normalizeCategory(category, title, pageType) {
   const source = `${category || ""} ${title || ""}`.toLowerCase();
+  if (source.includes("horizonx")) return "HorizonX Library";
+  if (source.includes("21st.dev") || source.includes("21st")) return "21st.dev Registry";
+  if (source.includes("superdesign")) return "Superdesign Canvas";
   if (source.includes("pricing")) return "Pricing";
   if (source.includes("footer")) return "Footers";
   if (source.includes("feature") || source.includes("benefit")) return "Features";

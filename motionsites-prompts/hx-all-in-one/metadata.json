@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-all-in-one",
+    "title": "[HorizonX] All in one",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1008,
+    "image_preview_url": "https://cdn.horizonx.so/all-in-one/all-in-one-cover-v4.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

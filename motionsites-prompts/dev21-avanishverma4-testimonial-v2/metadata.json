@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-avanishverma4-testimonial-v2",
+    "title": "[21st.dev] Testimonial V2 (by avanishverma4)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2070,
+    "image_preview_url": "https://cdn.21st.dev/avanishverma4/testimonial-v2/default/preview.1766064108485.png",
+    "video_preview_url": "https://cdn.21st.dev/avanishverma4/testimonial-v2/default/video.1766064108485.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "avanishverma4",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-easemize-spotlight-card",
+    "title": "[21st.dev] Spotlight Card (by easemize)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2013,
+    "image_preview_url": "https://cdn.21st.dev/easemize/spotlight-card/default/preview.1749394917546.png",
+    "video_preview_url": "https://cdn.21st.dev/easemize/spotlight-card/default/video.1749394917547.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "easemize",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

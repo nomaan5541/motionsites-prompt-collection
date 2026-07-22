@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-beratberkayg-ai-loader",
+    "title": "[21st.dev] Ai Loader (by beratberkayg)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2051,
+    "image_preview_url": "https://cdn.21st.dev/beratberkayg/ai-loader/default/preview.1755292245488.png",
+    "video_preview_url": "https://cdn.21st.dev/beratberkayg/ai-loader/default/video.1755292245488.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "beratberkayg",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

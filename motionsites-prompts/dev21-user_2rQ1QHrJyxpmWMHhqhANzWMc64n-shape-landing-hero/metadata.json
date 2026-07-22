@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2rQ1QHrJyxpmWMHhqhANzWMc64n-shape-landing-hero",
+    "title": "[21st.dev] Shape Landing Hero (by user_2rQ1QHrJyxpmWMHhqhANzWMc64n)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2035,
+    "image_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/shape-landing-hero/default/preview.1737988084934.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/shape-landing-hero/default/video.1737988091272.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2rQ1QHrJyxpmWMHhqhANzWMc64n",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

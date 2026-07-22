@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-tolva-roasters",
+    "title": "[HorizonX] TOLVA Roasters",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1019,
+    "image_preview_url": "https://cdn.horizonx.so/tolva-roasters/cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/tolva-roasters/tolva-feature.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

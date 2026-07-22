@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-designali-in-shader-animation",
+    "title": "[21st.dev] Shader Animation (by designali-in)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2021,
+    "image_preview_url": "https://cdn.21st.dev/designali-in/shader-animation/default/preview.1755486352919.png",
+    "video_preview_url": "https://cdn.21st.dev/designali-in/shader-animation/default/video.1755486352919.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "designali-in",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

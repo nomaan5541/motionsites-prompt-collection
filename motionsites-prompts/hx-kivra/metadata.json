@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-kivra",
+    "title": "[HorizonX] KIVRA",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1049,
+    "image_preview_url": "https://cdn.horizonx.so/kivra/kivra-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/kivra/kivra-hero-16x9-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

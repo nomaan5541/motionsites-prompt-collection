@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "sup-anim-01",
+    "title": "[Superdesign] Interactive Canvas Motion & Micro-interactions",
+    "category": "Superdesign Canvas",
+    "page_type": "superdesign",
+    "sort_order": 3000,
+    "image_preview_url": "https://superdesign.dev/icons/apple-splash-2048-2732.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "Superdesign",
+      "AI",
+      "Canvas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

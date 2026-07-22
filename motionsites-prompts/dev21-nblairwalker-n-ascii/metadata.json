@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-nblairwalker-n-ascii",
+    "title": "[21st.dev] N Ascii (by nblairwalker)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2008,
+    "image_preview_url": "https://cdn.21st.dev/nblairwalker/n-ascii/default/preview.1784407861848-26571f2c-6998-44aa-bb31-98b5e16c6df9.webp",
+    "video_preview_url": "https://cdn.21st.dev/nblairwalker/n-ascii/default/video.1784407861848-26571f2c-6998-44aa-bb31-98b5e16c6df9.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "nblairwalker",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

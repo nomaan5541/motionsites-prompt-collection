@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-jatin-yadav05-vapour-text-effect",
+    "title": "[21st.dev] Vapour Text Effect (by jatin-yadav05)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2086,
+    "image_preview_url": "https://cdn.21st.dev/jatin-yadav05/vapour-text-effect/default/preview.1747562393196.png",
+    "video_preview_url": "https://cdn.21st.dev/jatin-yadav05/vapour-text-effect/default/video.1747562393196.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "jatin-yadav05",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

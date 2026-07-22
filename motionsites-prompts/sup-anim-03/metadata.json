@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "sup-anim-03",
+    "title": "[Superdesign] AI Prompt-to-Mockup Flow Generator",
+    "category": "Superdesign Canvas",
+    "page_type": "superdesign",
+    "sort_order": 3002,
+    "image_preview_url": "https://superdesign.dev/icons/icon-512x512.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "Superdesign",
+      "AI",
+      "Canvas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

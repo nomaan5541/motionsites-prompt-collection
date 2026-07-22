@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-bakery-packaging",
+    "title": "[HorizonX] Bakery Packaging",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1064,
+    "image_preview_url": "https://cdn.horizonx.so/bakery-packaging/cover-4x3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

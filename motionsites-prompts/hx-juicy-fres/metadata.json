@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-juicy-fres",
+    "title": "[HorizonX] Juicy Fres",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1091,
+    "image_preview_url": "https://cdn.horizonx.so/juicy-fres/juicy-fres-thumbnail-premium-laptop-20260706-2221.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

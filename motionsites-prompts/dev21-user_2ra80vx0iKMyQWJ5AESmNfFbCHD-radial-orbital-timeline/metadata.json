@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2ra80vx0iKMyQWJ5AESmNfFbCHD-radial-orbital-timeline",
+    "title": "[21st.dev] Radial Orbital Timeline (by user_2ra80vx0iKMyQWJ5AESmNfFbCHD)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2014,
+    "image_preview_url": "https://cdn.21st.dev/user_2ra80vx0iKMyQWJ5AESmNfFbCHD/radial-orbital-timeline/default/preview.1745917317806.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2ra80vx0iKMyQWJ5AESmNfFbCHD/radial-orbital-timeline/default/video.1745921764745.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2ra80vx0iKMyQWJ5AESmNfFbCHD",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-ravikatiyar162-animated-shader-hero",
+    "title": "[21st.dev] Animated Shader Hero (by ravikatiyar162)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2022,
+    "image_preview_url": "https://cdn.21st.dev/ravikatiyar162/animated-shader-hero/default/preview.1755360493434.png",
+    "video_preview_url": "https://cdn.21st.dev/ravikatiyar162/animated-shader-hero/default/video.1755360493434.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "ravikatiyar162",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

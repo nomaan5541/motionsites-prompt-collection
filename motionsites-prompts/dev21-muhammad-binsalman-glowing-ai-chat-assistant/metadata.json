@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-muhammad-binsalman-glowing-ai-chat-assistant",
+    "title": "[21st.dev] Glowing Ai Chat Assistant (by muhammad-binsalman)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2053,
+    "image_preview_url": "https://cdn.21st.dev/muhammad-binsalman/glowing-ai-chat-assistant/default/preview.1755449363194.png",
+    "video_preview_url": "https://cdn.21st.dev/muhammad-binsalman/glowing-ai-chat-assistant/default/video.1755449363194.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "muhammad-binsalman",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

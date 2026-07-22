@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-aurel-liquid-hero",
+    "title": "[HorizonX] Aurel Liquid Hero",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1001,
+    "image_preview_url": "https://cdn.horizonx.so/aurel-liquid-hero/aurel-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/aurel-liquid-hero/aurel-thumbnail-feature-v2-20260718.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

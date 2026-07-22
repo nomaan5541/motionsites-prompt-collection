@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-nblairwalker-m-ascii",
+    "title": "[21st.dev] M Ascii (by nblairwalker)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2007,
+    "image_preview_url": "https://cdn.21st.dev/nblairwalker/m-ascii/default/preview.1784407905435-6a191e5a-1813-4848-b651-845713524aab.webp",
+    "video_preview_url": "https://cdn.21st.dev/nblairwalker/m-ascii/default/video.1784407905435-6a191e5a-1813-4848-b651-845713524aab.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "nblairwalker",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

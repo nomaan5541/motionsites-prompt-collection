@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-nblairwalker-nm",
+    "title": "[21st.dev] Nm (by nblairwalker)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2006,
+    "image_preview_url": "https://cdn.21st.dev/nblairwalker/nm/default/preview.1784407954705-d96bade1-8911-4907-809c-bebc6b7b24f0.webp",
+    "video_preview_url": "https://cdn.21st.dev/nblairwalker/nm/default/video.1784407954705-d96bade1-8911-4907-809c-bebc6b7b24f0.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "nblairwalker",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "sup-anim-01",
+    "title": "Interactive Canvas Motion & Micro-interactions",
+    "type": "Animation",
+    "category": "Infinite Canvas",
+    "website": "Superdesign",
+    "previewUrl": "https://superdesign.dev/icons/apple-splash-2048-2732.png",
+    "localPreview": null,
+    "promptText": "Generate a dark-mode interactive infinite canvas UI with draggable node cards, subtle spring physics, hover glow effects, and smooth zoom pan controls.\n\n### Technical Details:\n- Feature: Interactive Canvas Motion & Micro-interactions (Infinite Canvas)\n- Workflow Focus: Fluid vector transformation, drag-and-drop node physics, and instant prompt-to-UI animated state transitions.\n- Stack: React, Tailwind CSS, Framer Motion / WebGL.\n- Key Elements: Vector canvas transforms, stateful loaders, theme switching, responsive container cards."
+  },
+  {
+    "id": "sup-anim-02",
+    "title": "Glassmorphism UI Component Suite",
+    "type": "UI Component",
+    "category": "Design System",
+    "website": "Superdesign",
+    "previewUrl": "https://superdesign.dev/superdesign_logo.svg",
+    "localPreview": "extractions/superdesign/previews/sup-anim-02_preview.svg",
+    "promptText": "Build a sleek glassmorphic dashboard section featuring backdrop blur, 1px white/10 border highlights, modern typography, and responsive grid layout.\n\n### Technical Details:\n- Feature: Glassmorphism UI Component Suite (Design System)\n- Workflow Focus: Translucent UI cards, backdrop-blur sidebars, neon accent borders, and dynamic multi-state form controls.\n- Stack: React, Tailwind CSS, Framer Motion / WebGL.\n- Key Elements: Vector canvas transforms, stateful loaders, theme switching, responsive container cards."
+  },
+  {
+    "id": "sup-anim-03",
+    "title": "AI Prompt-to-Mockup Flow Generator",
+    "type": "Animation",
+    "category": "AI Workflow",
+    "website": "Superdesign",
+    "previewUrl": "https://superdesign.dev/icons/icon-512x512.png",
+    "localPreview": "extractions/superdesign/previews/sup-anim-03_preview.png",
+    "promptText": "Create a live prompt input widget with animated shimmering gradient border, pill selector tags, and streaming preview card container.\n\n### Technical Details:\n- Feature: AI Prompt-to-Mockup Flow Generator (AI Workflow)\n- Workflow Focus: Real-time streaming UI generation preview animation with skeleton loaders, syntax highlighting, and visual component branching.\n- Stack: React, Tailwind CSS, Framer Motion / WebGL.\n- Key Elements: Vector canvas transforms, stateful loaders, theme switching, responsive container cards."
+  },
+  {
+    "id": "sup-anim-04",
+    "title": "SaaS Hero & Interactive Feature Showcase",
+    "type": "UI Component",
+    "category": "Landing Page",
+    "website": "Superdesign",
+    "previewUrl": "https://superdesign.dev/icons/apple-icon-180.png",
+    "localPreview": "extractions/superdesign/previews/sup-anim-04_preview.png",
+    "promptText": "Design a high-converting SaaS hero section with headline text, action buttons, integrated video/demo player frame, and subtle floating card animations.\n\n### Technical Details:\n- Feature: SaaS Hero & Interactive Feature Showcase (Landing Page)\n- Workflow Focus: Modern landing page hero section with animated floating UI mockup widgets, interactive tab switcher, and glow particle backdrop.\n- Stack: React, Tailwind CSS, Framer Motion / WebGL.\n- Key Elements: Vector canvas transforms, stateful loaders, theme switching, responsive container cards."
+  },
+  {
+    "id": "sup-anim-05",
+    "title": "Dark / Light Mode Theme Switching Engine",
+    "type": "UI Component",
+    "category": "Themeing & Controls",
+    "website": "Superdesign",
+    "previewUrl": "https://superdesign.dev/icons/icon-152x152.png",
+    "localPreview": "extractions/superdesign/previews/sup-anim-05_preview.png",
+    "promptText": "Implement a smooth theme switcher component supporting system preference, manual override, and zero-flash CSS variable color theme loading.\n\n### Technical Details:\n- Feature: Dark / Light Mode Theme Switching Engine (Themeing & Controls)\n- Workflow Focus: Seamless color token transitions, instant local storage persistence, and accessible contrast ratios for light (#FAFAFA) and dark (#0F0F0F) UI themes.\n- Stack: React, Tailwind CSS, Framer Motion / WebGL.\n- Key Elements: Vector canvas transforms, stateful loaders, theme switching, responsive container cards."
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-vortex",
+    "title": "[HorizonX] Vortex",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1010,
+    "image_preview_url": "https://cdn.horizonx.so/vortex/vortex-tablet-green-ridges-v6-20260718.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-purple-coral-waves",
+    "title": "[HorizonX] Purple Coral Waves",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1056,
+    "image_preview_url": "https://cdn.horizonx.so/purple-coral-waves/cover-4x3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

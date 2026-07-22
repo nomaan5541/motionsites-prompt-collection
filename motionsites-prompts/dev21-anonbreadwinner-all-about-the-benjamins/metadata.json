@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-anonbreadwinner-all-about-the-benjamins",
+    "title": "[21st.dev] All About The Benjamins (by anonbreadwinner)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2005,
+    "image_preview_url": "https://cdn.21st.dev/anonbreadwinner/all-about-the-benjamins/default/preview.1784487062045-ce3e7cdb-f26a-479b-8642-0ac43942b5b9.webp",
+    "video_preview_url": "https://cdn.21st.dev/anonbreadwinner/all-about-the-benjamins/default/video.1784487062045-ce3e7cdb-f26a-479b-8642-0ac43942b5b9.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "anonbreadwinner",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

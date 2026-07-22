@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-moazamtrade-animate-card-animation",
+    "title": "[21st.dev] Animate Card Animation (by moazamtrade)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2025,
+    "image_preview_url": "https://cdn.21st.dev/moazamtrade/animate-card-animation/default/preview.1765799713910.png",
+    "video_preview_url": "https://cdn.21st.dev/moazamtrade/animate-card-animation/default/video.1765799836849.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "moazamtrade",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

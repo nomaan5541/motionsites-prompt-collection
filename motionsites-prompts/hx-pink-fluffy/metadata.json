@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-pink-fluffy",
+    "title": "[HorizonX] Pink Fluffy",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1017,
+    "image_preview_url": "https://cdn.horizonx.so/pink-fluffy/cover-4x3-cloud-v2.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-aeron-neoshell-hero",
+    "title": "[HorizonX] AERON NeoShell Hero",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1031,
+    "image_preview_url": "https://cdn.horizonx.so/aeron-neoshell-hero/aeron-neoshell-hero-1920x1080-v2.webp",
+    "video_preview_url": "https://cdn.horizonx.so/aeron-neoshell-hero/aeron-neoshell-hero-thumbnail-v3.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

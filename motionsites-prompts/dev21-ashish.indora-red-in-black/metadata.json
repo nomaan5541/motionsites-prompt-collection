@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-ashish.indora-red-in-black",
+    "title": "[21st.dev] Red In Black (by ashish.indora)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2000,
+    "image_preview_url": "https://cdn.21st.dev/ashish.indora/red-in-black/default/preview.1784632592590-5d184727-75b7-410e-b249-1b5e19999609.webp",
+    "video_preview_url": "https://cdn.21st.dev/ashish.indora/red-in-black/default/video.1784632592590-5d184727-75b7-410e-b249-1b5e19999609.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "ashish.indora",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-nellycyberpro-maomao",
+    "title": "[21st.dev] Maomao (by nellycyberpro)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2001,
+    "image_preview_url": "https://cdn.21st.dev/nellycyberpro/maomao/default/preview.1784575257508-79d1648c-51b1-403a-a5e1-ded4b4e6f34e.webp",
+    "video_preview_url": "https://cdn.21st.dev/nellycyberpro/maomao/default/video.1784575257508-79d1648c-51b1-403a-a5e1-ded4b4e6f34e.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "nellycyberpro",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

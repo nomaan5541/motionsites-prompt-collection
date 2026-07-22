@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-digital-wave-field-hero",
+    "title": "[HorizonX] Digital Wave Field Hero",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1004,
+    "image_preview_url": "https://cdn.horizonx.so/digital-wave-field-hero/digital-wave-field-cover-v3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/digital-wave-field-hero/digital-wave-field-thumbnail-user-v1.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

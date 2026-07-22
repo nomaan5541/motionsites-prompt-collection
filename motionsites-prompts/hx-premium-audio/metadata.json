@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-premium-audio",
+    "title": "[HorizonX] Premium Audio",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1076,
+    "image_preview_url": "https://cdn.horizonx.so/premium-audio/cover-4x3-fill-v3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

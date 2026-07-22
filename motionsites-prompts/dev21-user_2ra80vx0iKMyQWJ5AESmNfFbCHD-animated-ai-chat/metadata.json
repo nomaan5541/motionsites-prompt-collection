@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2ra80vx0iKMyQWJ5AESmNfFbCHD-animated-ai-chat",
+    "title": "[21st.dev] Animated Ai Chat (by user_2ra80vx0iKMyQWJ5AESmNfFbCHD)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2049,
+    "image_preview_url": "https://cdn.21st.dev/user_2ra80vx0iKMyQWJ5AESmNfFbCHD/animated-ai-chat/default/preview.1746632407641.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2ra80vx0iKMyQWJ5AESmNfFbCHD/animated-ai-chat/default/video.1746632409722.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2ra80vx0iKMyQWJ5AESmNfFbCHD",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

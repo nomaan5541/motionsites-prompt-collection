@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-arc0050",
+    "title": "[HorizonX] ARC0050",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1011,
+    "image_preview_url": "https://cdn.horizonx.so/arc0050/arc0050-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/arc0050/arc0050-hero-16x9.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

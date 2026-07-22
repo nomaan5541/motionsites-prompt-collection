@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-medlio",
+    "title": "[HorizonX] Medlio",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1061,
+    "image_preview_url": "https://cdn.horizonx.so/medlio/medlio-cover-v2-20260715-1942.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

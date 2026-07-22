@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2tWTE0rCrloVAVylFPYfp10xU92-testimonials-columns-1",
+    "title": "[21st.dev] Testimonials Columns 1 (by user_2tWTE0rCrloVAVylFPYfp10xU92)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2015,
+    "image_preview_url": "https://cdn.21st.dev/user_2tWTE0rCrloVAVylFPYfp10xU92/testimonials-columns-1/default/preview.1746775320320.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2tWTE0rCrloVAVylFPYfp10xU92/testimonials-columns-1/default/video.1746775322980.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2tWTE0rCrloVAVylFPYfp10xU92",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

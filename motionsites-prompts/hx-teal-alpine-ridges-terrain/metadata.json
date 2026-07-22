@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-teal-alpine-ridges-terrain",
+    "title": "[HorizonX] Teal Alpine Ridges Terrain",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1092,
+    "image_preview_url": "https://cdn.horizonx.so/teal-alpine-ridges-terrain/cover-4x3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

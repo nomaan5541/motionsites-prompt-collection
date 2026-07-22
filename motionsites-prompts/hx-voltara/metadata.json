@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-voltara",
+    "title": "[HorizonX] VOLTARA",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1013,
+    "image_preview_url": "https://cdn.horizonx.so/voltara/voltara-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/voltara/voltara-hero-16x9-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_motion_primitives-text-effect",
+    "title": "[21st.dev] Text Effect (by user_motion_primitives)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2090,
+    "image_preview_url": "https://cdn.21st.dev/user_motion_primitives/text-effect/965/preview.png",
+    "video_preview_url": "https://cdn.21st.dev/user_motion_primitives/text-effect/965/video.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_motion_primitives",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

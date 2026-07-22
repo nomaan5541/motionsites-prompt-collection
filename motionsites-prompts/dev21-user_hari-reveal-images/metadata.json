@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_hari-reveal-images",
+    "title": "[21st.dev] Reveal Images (by user_hari)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2087,
+    "image_preview_url": "https://cdn.21st.dev/user_hari/reveal-images/default/preview.png",
+    "video_preview_url": "https://cdn.21st.dev/user_hari/reveal-images/default/video.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_hari",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

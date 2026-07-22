@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-card",
+    "title": "[HorizonX] Card",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1048,
+    "image_preview_url": "https://cdn.horizonx.so/card/card-thumbnail-dark-macbook-20260706-2104.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

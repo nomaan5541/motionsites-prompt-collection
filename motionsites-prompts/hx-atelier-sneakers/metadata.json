@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-atelier-sneakers",
+    "title": "[HorizonX] Atelier Sneakers",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1078,
+    "image_preview_url": "https://cdn.horizonx.so/atelier-sneakers/g02-macro.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

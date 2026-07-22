@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2wfnj4jcSPR8JWRk7tpzrihdDV8-scroll-expansion-hero",
+    "title": "[21st.dev] Scroll Expansion Hero (by user_2wfnj4jcSPR8JWRk7tpzrihdDV8)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2011,
+    "image_preview_url": "https://cdn.21st.dev/user_2wfnj4jcSPR8JWRk7tpzrihdDV8/scroll-expansion-hero/default/preview.1746632883284.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2wfnj4jcSPR8JWRk7tpzrihdDV8/scroll-expansion-hero/default/video.1746632889652.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2wfnj4jcSPR8JWRk7tpzrihdDV8",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

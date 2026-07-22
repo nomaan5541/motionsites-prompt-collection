@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-vibram",
+    "title": "[HorizonX] VIBRAM",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1016,
+    "image_preview_url": "https://cdn.horizonx.so/vibram/vibram-thumbnail-laptop-rocks-20260706-1946.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

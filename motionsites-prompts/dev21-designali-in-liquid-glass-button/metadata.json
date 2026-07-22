@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-designali-in-liquid-glass-button",
+    "title": "[21st.dev] Liquid Glass Button (by designali-in)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2056,
+    "image_preview_url": "https://cdn.21st.dev/designali-in/liquid-glass-button/default/preview.1750605472950.png",
+    "video_preview_url": "https://cdn.21st.dev/designali-in/liquid-glass-button/default/video.1750605472950.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "designali-in",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

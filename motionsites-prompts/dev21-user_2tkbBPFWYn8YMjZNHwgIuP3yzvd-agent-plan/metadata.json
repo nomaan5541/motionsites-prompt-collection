@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2tkbBPFWYn8YMjZNHwgIuP3yzvd-agent-plan",
+    "title": "[21st.dev] Agent Plan (by user_2tkbBPFWYn8YMjZNHwgIuP3yzvd)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2047,
+    "image_preview_url": "https://cdn.21st.dev/user_2tkbBPFWYn8YMjZNHwgIuP3yzvd/agent-plan/agent-plan/preview.png?v=1",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2tkbBPFWYn8YMjZNHwgIuP3yzvd",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

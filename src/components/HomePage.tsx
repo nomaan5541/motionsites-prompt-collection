@@ -13,6 +13,9 @@ import { SectionHeader } from "./SectionHeader";
 export function HomePage() {
   const [selected, setSelected] = useState<CatalogItem | null>(null);
   const featured = getFeaturedItems(catalogItems, 9);
+  const horizonxItems = catalogItems.filter((i) => i.category === "HorizonX Library").slice(0, 6);
+  const twentyFirstItems = catalogItems.filter((i) => i.category === "21st.dev Registry").slice(0, 6);
+  const superdesignItems = catalogItems.filter((i) => i.category === "Superdesign Canvas").slice(0, 6);
   const backgrounds = getBackgroundItems(catalogItems, 6);
 
   return (
@@ -52,10 +55,45 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* HorizonX Dedicated Section */}
+      {horizonxItems.length > 0 && (
+        <section className="page-shell py-8 border-t border-blue-500/20">
+          <SectionHeader
+            eyebrow="HorizonX Collection"
+            title="HorizonX 3D & Vibecoding Prompts"
+            copy="Extracted senior-grade React & WebGL particle hero prompts designed for v0, Lovable, Bolt, and Cursor."
+          />
+          <PromptGrid items={horizonxItems} onPreview={setSelected} />
+        </section>
+      )}
+
+      {/* 21st.dev Dedicated Section */}
+      {twentyFirstItems.length > 0 && (
+        <section className="page-shell py-8 border-t border-emerald-500/20">
+          <SectionHeader
+            eyebrow="21st.dev Registry"
+            title="21st.dev React & shadcn Component Prompts"
+            copy="Component prompts by community design engineers with npx shadcn installation anchors."
+          />
+          <PromptGrid items={twentyFirstItems} onPreview={setSelected} />
+        </section>
+      )}
+
+      {/* Superdesign Dedicated Section */}
+      {superdesignItems.length > 0 && (
+        <section className="page-shell py-8 border-t border-purple-500/20">
+          <SectionHeader
+            eyebrow="Superdesign Canvas"
+            title="Superdesign AI Canvas & Motion Prompts"
+            copy="Infinite canvas, vector transformation, and micro-interaction prompts for AI product design agents."
+          />
+          <PromptGrid items={superdesignItems} onPreview={setSelected} />
+        </section>
+      )}
 
       <section className="page-shell py-5">
         <SectionHeader
-          title="Landing page prompts"
+          title="Featured Landing Page Prompts"
           copy="Every card is free to inspect and copy. Original prompts and reconstructed working prompts are treated as usable launch material."
         />
         <PromptGrid items={featured} onPreview={setSelected} />

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2tUYFzCDCVfrMrVC3TfB9DUBAyx-features-8",
+    "title": "[21st.dev] Features 8 (by user_2tUYFzCDCVfrMrVC3TfB9DUBAyx)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2042,
+    "image_preview_url": "https://cdn.21st.dev/user_2tUYFzCDCVfrMrVC3TfB9DUBAyx/features-8/default/preview.png?v=1",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2tUYFzCDCVfrMrVC3TfB9DUBAyx",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

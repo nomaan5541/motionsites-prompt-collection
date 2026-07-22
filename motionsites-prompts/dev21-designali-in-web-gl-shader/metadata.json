@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-designali-in-web-gl-shader",
+    "title": "[21st.dev] Web Gl Shader (by designali-in)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2024,
+    "image_preview_url": "https://cdn.21st.dev/designali-in/web-gl-shader/default/preview.1755664380314.png",
+    "video_preview_url": "https://cdn.21st.dev/designali-in/web-gl-shader/default/video.1755664380314.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "designali-in",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

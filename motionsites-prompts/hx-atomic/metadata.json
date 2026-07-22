@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-atomic",
+    "title": "[HorizonX] Atomic",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1083,
+    "image_preview_url": "https://cdn.horizonx.so/atomic/atomic-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

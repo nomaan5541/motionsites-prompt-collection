@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-ricaelmenezes3-portfolio",
+    "title": "[21st.dev] Portfolio (by ricaelmenezes3)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2009,
+    "image_preview_url": "https://cdn.21st.dev/ricaelmenezes3/portfolio/default/preview.1784402187758-329cd6e6-f09a-4e77-89c3-95db9acc86e3.webp",
+    "video_preview_url": "https://cdn.21st.dev/ricaelmenezes3/portfolio/default/video.1784402187758-329cd6e6-f09a-4e77-89c3-95db9acc86e3.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "ricaelmenezes3",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

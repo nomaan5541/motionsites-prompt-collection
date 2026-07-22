@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-ecco",
+    "title": "[HorizonX] ECCO",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1069,
+    "image_preview_url": "https://cdn.horizonx.so/ecco/ecco-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

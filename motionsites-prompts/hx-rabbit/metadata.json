@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-rabbit",
+    "title": "[HorizonX] Rabbit",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1020,
+    "image_preview_url": "https://cdn.horizonx.so/rabbit/rabbit-thumbnail-orange-mockup-20260706-1938.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

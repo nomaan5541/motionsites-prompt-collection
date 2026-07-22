@@ -1,14 +1,14 @@
 {
-  "total": 470,
+  "total": 661,
   "access": {
-    "free": 470
+    "free": 661
   },
   "sourceModes": {
-    "original": 470
+    "original": 661
   },
   "media": {
-    "video": 214,
-    "image": 215,
+    "video": 376,
+    "image": 244,
     "none": 41
   },
   "categories": {
@@ -19,7 +19,10 @@
     "CTA": 9,
     "Social Proof": 6,
     "Features": 16,
-    "Footers": 10
+    "Footers": 10,
+    "HorizonX Library": 93,
+    "21st.dev Registry": 93,
+    "Superdesign Canvas": 5
   },
-  "generatedAt": "2026-07-17T13:17:17.344Z"
+  "generatedAt": "2026-07-22T09:27:16.502Z"
 }

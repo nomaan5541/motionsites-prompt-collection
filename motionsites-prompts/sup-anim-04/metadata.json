@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "sup-anim-04",
+    "title": "[Superdesign] SaaS Hero & Interactive Feature Showcase",
+    "category": "Superdesign Canvas",
+    "page_type": "superdesign",
+    "sort_order": 3003,
+    "image_preview_url": "https://superdesign.dev/icons/apple-icon-180.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "Superdesign",
+      "AI",
+      "Canvas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-sshahaider-zoom-parallax",
+    "title": "[21st.dev] Zoom Parallax (by sshahaider)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2036,
+    "image_preview_url": "https://cdn.21st.dev/sshahaider/zoom-parallax/default/preview.1756035247466.png",
+    "video_preview_url": "https://cdn.21st.dev/sshahaider/zoom-parallax/default/video.1756035247466.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "sshahaider",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

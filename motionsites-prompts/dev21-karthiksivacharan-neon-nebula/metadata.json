@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-karthiksivacharan-neon-nebula",
+    "title": "[21st.dev] Neon Nebula (by karthiksivacharan)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2004,
+    "image_preview_url": "https://cdn.21st.dev/karthiksivacharan/neon-nebula/default/preview.1784528460121-feecbe98-ea68-4078-b314-a0baa4076664.webp",
+    "video_preview_url": "https://cdn.21st.dev/karthiksivacharan/neon-nebula/default/video.1784528460121-feecbe98-ea68-4078-b314-a0baa4076664.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "karthiksivacharan",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

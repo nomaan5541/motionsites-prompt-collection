@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-epic-valley",
+    "title": "[HorizonX] Epic Valley",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1084,
+    "image_preview_url": "https://cdn.horizonx.so/epic-valley/cover-4x3-fill.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

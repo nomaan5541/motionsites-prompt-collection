@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-minhxthanh-shader-background",
+    "title": "[21st.dev] Shader Background (by minhxthanh)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2029,
+    "image_preview_url": "https://cdn.21st.dev/minhxthanh/shader-background/default/preview.1748699860662.png",
+    "video_preview_url": "https://cdn.21st.dev/minhxthanh/shader-background/default/video.1748699860662.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "minhxthanh",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

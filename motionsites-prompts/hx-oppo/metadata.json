@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-oppo",
+    "title": "[HorizonX] Oppo",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1065,
+    "image_preview_url": "https://cdn.horizonx.so/oppo/oppo-laptop-white-sand-1920x1080.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

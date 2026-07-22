@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2rQ1QHrJyxpmWMHhqhANzWMc64n-ai-voice-input",
+    "title": "[21st.dev] Ai Voice Input (by user_2rQ1QHrJyxpmWMHhqhANzWMc64n)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2048,
+    "image_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/ai-voice-input/default/preview.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/ai-voice-input/default/video.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2rQ1QHrJyxpmWMHhqhANzWMc64n",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

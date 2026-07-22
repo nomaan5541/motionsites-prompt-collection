@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2nElBLvklOKlAURm6W1PTu6yYFh-cpu-architecture",
+    "title": "[21st.dev] Cpu Architecture (by user_2nElBLvklOKlAURm6W1PTu6yYFh)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2041,
+    "image_preview_url": "https://cdn.21st.dev/user_2nElBLvklOKlAURm6W1PTu6yYFh/cpu-architecture/default/preview.png?v=1",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2nElBLvklOKlAURm6W1PTu6yYFh",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

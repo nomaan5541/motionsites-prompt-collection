@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-arifuzzamanmoin-heximage",
+    "title": "[21st.dev] Heximage (by arifuzzamanmoin)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2002,
+    "image_preview_url": "https://cdn.21st.dev/arifuzzamanmoin/heximage/default/preview.1784542877159-0bdabff8-0f8e-4477-aafc-2b77f22da531.webp",
+    "video_preview_url": "https://cdn.21st.dev/arifuzzamanmoin/heximage/default/video.1784542877159-0bdabff8-0f8e-4477-aafc-2b77f22da531.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "arifuzzamanmoin",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

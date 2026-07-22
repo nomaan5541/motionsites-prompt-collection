@@ -58,10 +58,37 @@ export function SearchPage() {
                 setQuery(event.target.value);
                 setPage(1);
               }}
-              placeholder="Search by name or keyword..."
+              placeholder="Search by name, keyword, or library (e.g. HorizonX, 21st.dev, Superdesign)..."
               className="w-full border-0 bg-transparent text-base text-white outline-none placeholder:text-white/40"
             />
           </label>
+        </div>
+
+        {/* Dedicated Section Filter Pills */}
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-2.5">
+          {[
+            { label: "All Prompts", value: "" },
+            { label: "HorizonX Library", value: "HorizonX" },
+            { label: "21st.dev Registry", value: "21st.dev" },
+            { label: "Superdesign Canvas", value: "Superdesign" },
+            { label: "Hero Sections", value: "Hero" },
+            { label: "SaaS", value: "SaaS" }
+          ].map((chip) => (
+            <button
+              key={chip.label}
+              onClick={() => {
+                setQuery(chip.value);
+                setPage(1);
+              }}
+              className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                query === chip.value
+                  ? "bg-white text-black border-white shadow-md scale-105"
+                  : "bg-white/5 text-gray-300 border-white/10 hover:border-white/30 hover:bg-white/10"
+              }`}
+            >
+              {chip.label}
+            </button>
+          ))}
         </div>
 
         <PromptGrid items={visible} onPreview={setSelected} />

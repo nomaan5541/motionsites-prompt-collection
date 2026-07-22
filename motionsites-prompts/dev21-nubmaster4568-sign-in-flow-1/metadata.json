@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-nubmaster4568-sign-in-flow-1",
+    "title": "[21st.dev] Sign In Flow 1 (by nubmaster4568)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2058,
+    "image_preview_url": "https://cdn.21st.dev/nubmaster4568/sign-in-flow-1/default/preview.1747131539764.png",
+    "video_preview_url": "https://cdn.21st.dev/nubmaster4568/sign-in-flow-1/default/video.1747132526510.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "nubmaster4568",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

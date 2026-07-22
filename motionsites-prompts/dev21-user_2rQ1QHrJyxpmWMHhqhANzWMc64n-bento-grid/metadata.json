@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2rQ1QHrJyxpmWMHhqhANzWMc64n-bento-grid",
+    "title": "[21st.dev] Bento Grid (by user_2rQ1QHrJyxpmWMHhqhANzWMc64n)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2040,
+    "image_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/bento-grid/default/preview.1738072374201.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/bento-grid/default/video.1738072376479.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2rQ1QHrJyxpmWMHhqhANzWMc64n",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

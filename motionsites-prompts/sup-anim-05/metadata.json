@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "sup-anim-05",
+    "title": "[Superdesign] Dark / Light Mode Theme Switching Engine",
+    "category": "Superdesign Canvas",
+    "page_type": "superdesign",
+    "sort_order": 3004,
+    "image_preview_url": "https://superdesign.dev/icons/icon-152x152.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "Superdesign",
+      "AI",
+      "Canvas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2rV0b4mwh6SKrMK7lUyQUkzEa92-dark-gradient-pricing",
+    "title": "[21st.dev] Dark Gradient Pricing (by user_2rV0b4mwh6SKrMK7lUyQUkzEa92)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2080,
+    "image_preview_url": "https://cdn.21st.dev/user_2rV0b4mwh6SKrMK7lUyQUkzEa92/dark-gradient-pricing/944/preview.png",
+    "video_preview_url": "https://cdn.21st.dev/user_2rV0b4mwh6SKrMK7lUyQUkzEa92/dark-gradient-pricing/944/video.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2rV0b4mwh6SKrMK7lUyQUkzEa92",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

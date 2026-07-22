@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_2xJxXqdwWohYrdd6fiMYrS9hbmO-cinematic-landing-hero",
+    "title": "[21st.dev] Cinematic Landing Hero (by user_2xJxXqdwWohYrdd6fiMYrS9hbmO)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2032,
+    "image_preview_url": null,
+    "video_preview_url": "https://cdn.21st.dev/user_2xJxXqdwWohYrdd6fiMYrS9hbmO/cinematic-landing-hero/default/video.1774169446543.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_2xJxXqdwWohYrdd6fiMYrS9hbmO",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-maxim.bort.devel-circular-testimonials",
+    "title": "[21st.dev] Circular Testimonials (by maxim.bort.devel)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2065,
+    "image_preview_url": "https://cdn.21st.dev/maxim.bort.devel/circular-testimonials/default/preview.1749048275501.png",
+    "video_preview_url": "https://cdn.21st.dev/maxim.bort.devel/circular-testimonials/default/video.1749317801478.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "maxim.bort.devel",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-future-2",
+    "title": "[HorizonX] Future 2.0",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1057,
+    "image_preview_url": "https://cdn.horizonx.so/future-2/future-2-cover.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "sup-anim-02",
+    "title": "[Superdesign] Glassmorphism UI Component Suite",
+    "category": "Superdesign Canvas",
+    "page_type": "superdesign",
+    "sort_order": 3001,
+    "image_preview_url": "https://superdesign.dev/superdesign_logo.svg",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "Superdesign",
+      "AI",
+      "Canvas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

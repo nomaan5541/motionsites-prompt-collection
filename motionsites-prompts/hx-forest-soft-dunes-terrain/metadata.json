@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hx-forest-soft-dunes-terrain",
+    "title": "[HorizonX] Forest Soft Dunes Terrain",
+    "category": "HorizonX Library",
+    "page_type": "horizonx",
+    "sort_order": 1088,
+    "image_preview_url": "https://cdn.horizonx.so/forest-soft-dunes-terrain/cover-4x3.webp",
+    "video_preview_url": "https://cdn.horizonx.so/morpho/preview-card-v2.mp4",
+    "is_free": true,
+    "types": [
+      "HorizonX",
+      "Vibecoding",
+      "React",
+      "Tailwind"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

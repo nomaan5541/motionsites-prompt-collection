@@ -1,0 +1,20 @@
+{
+  "record": {
+    "id": "21st-user_Codehagen-display-cards",
+    "title": "[21st.dev] Display Cards (by user_Codehagen)",
+    "category": "21st.dev Registry",
+    "page_type": "21st_dev",
+    "sort_order": 2018,
+    "image_preview_url": "https://cdn.21st.dev/user_Codehagen/display-cards/892/preview.png",
+    "video_preview_url": "https://cdn.21st.dev/user_Codehagen/display-cards/892/video.mp4",
+    "is_free": true,
+    "types": [
+      "21st.dev",
+      "user_Codehagen",
+      "shadcn"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}
