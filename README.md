@@ -9,12 +9,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/network/members)
 [![Total Prompts](https://img.shields.io/badge/Prompts-813%20Verified-blueviolet.svg)](#quick-navigation-index-jump-to-category)
-[![DMCA Compliant](https://img.shields.io/badge/DMCA-Compliant-success.svg)](DMCA.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 **813 free, hyper-fidelity prompts** that generate modern landing pages, interactive 3D WebGL canvases, bento grids, and high-conversion UI components. Copy a prompt → Paste into your AI coding tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Ship pixel-perfect websites.
 
-[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📜 **DMCA Takedown**](DMCA.md) · [📄 **License**](LICENSE)
+[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
@@ -949,7 +948,7 @@ The web application will be live at:
 
 ## 📂 <a id="repository-structure"></a>Comprehensive Repository Architecture & Directory Hierarchy
 
-The repository is structured into modular layers separating prompt storage, static media assets, automated ETL build pipelines, the React/Vite web application, and legal compliance frameworks:
+The repository is organized into clean, modular layers separating prompt storage, static media assets, automated build pipelines, and the React/Vite web application:
 
 ```text
 motionsites-prompt-collection/
@@ -958,7 +957,7 @@ motionsites-prompt-collection/
 │   ├── 📂 001-3d-boxes/          # Individual prompt bundle
 │   │   ├── 📄 metadata.json      # Structured record (ID, title, tags, color palette, preview URLs)
 │   │   ├── 📄 prompt.md          # Primary prompt text for AI coding tools (Claude Code, Cursor, v0)
-│   │   └── 📄 working-prompt.md  # Un-truncated raw working draft and component instructions
+│   │   └── 📄 working-prompt.md  # Raw working prompt and component instructions
 │   ├── 📂 sup-aura-audio-.../    # SuperDesign Canvas curated prompts with WebGL & 3D shaders
 │   ├── 📂 hx-ai-assistant-.../   # HorizonX Library WebGL & Three.js vibecoding prompts
 │   └── 📂 dev21-bento-grid-.../  # 21st.dev Registry modern React/Tailwind components
@@ -1008,27 +1007,6 @@ motionsites-prompt-collection/
 
 ---
 
-## ⚖️ <a id="legal-policies"></a>Legal Policies, Fair Use & DMCA Takedown Procedures
-
-This repository operates under strict compliance with open-source licensing, intellectual property standards, and statutory safe harbor provisions:
-
-| Policy Document | Description | Direct Link |
-| :--- | :--- | :--- |
-| 📜 **DMCA Takedown Policy** | Formal notice submission procedures, required statutory elements, SLA, and counter-notifications | [View DMCA.md](DMCA.md) |
-| ⚖️ **Fair Use Notice** | Four-factor fair use analysis under 17 U.S.C. § 107 for transformative prompt engineering | [View FAIR_USE_NOTICE.md](FAIR_USE_NOTICE.md) |
-| 🛡️ **Legal Disclaimer** | AS-IS warranty exclusions, AI model output disclaimers, and trademark notices | [View DISCLAIMER.md](DISCLAIMER.md) |
-| 📋 **Terms of Use** | Permitted open-source usage, commercial deployment guidelines, and acceptable use | [View TERMS_OF_USE.md](TERMS_OF_USE.md) |
-| 🔒 **Privacy Policy** | Data protection, telemetry disclosures, and local storage privacy standards | [View PRIVACY_POLICY.md](PRIVACY_POLICY.md) |
-| 📄 **MIT License** | Open-source permissive software license | [View LICENSE](LICENSE) |
-
-### ⚡ Rapid Takedown SLA & Channel
-If you are a copyright holder and believe that any prompt text or preview media infringes your copyright:
-1. Submit an issue: [Open a DMCA Takedown Request Issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues/new?title=DMCA+Takedown+Request).
-2. Specify the prompt ID or file path.
-3. **Guaranteed SLA**: The content will be removed within **24 to 48 hours** upon receiving a compliant notice.
-
----
-
 ## 📄 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for complete license terms.
+This repository is distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
