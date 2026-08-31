@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-saas-landing-page-for-developer-tool",
+    "title": "[Superdesign] SaaS Landing Page for Developer Tool",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3021,
+    "image_preview_url": "/assets/superdesign/saas-landing-page-for-developer-tool.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "style",
+      "page",
+      "blue accent",
+      "light mode"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

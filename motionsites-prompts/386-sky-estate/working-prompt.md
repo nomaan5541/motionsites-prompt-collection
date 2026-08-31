@@ -51,7 +51,7 @@ html { scroll-behavior: smooth; }
 
 **Layer 2 (z-10) - Title text:**
 - Positioned with `pt-[22vh] md:pt-32 lg:pt-36`, centered
-- Text: "Galaxy  Home" (with `&nbsp;&nbsp;` double space between words)
+- Text: "Galaxy Home" (with `&nbsp;&nbsp;` double space between words)
 - Font: `text-[clamp(3rem,14vw,14rem)] font-semibold leading-none whitespace-nowrap`
 - Gradient text: `bg-clip-text text-transparent`, `backgroundImage: 'linear-gradient(to bottom, #A8B4FF, #FFFFFF)'`
 - `mix-blend-lighten` to blend with layers
@@ -109,10 +109,10 @@ html { scroll-behavior: smooth; }
 - Heading: "Only the proven results here", `text-2xl md:text-[40px] md:leading-[44px] font-medium text-brand-navy text-center mb-10 sm:mb-16`
 - Stats grid: `grid-cols-2 md:flex`, `max-w-5xl` centered
 - Stats data:
-  - "500" / "Estates Delivered"
-  - "25" / "Exclusive Markets"
-  - "12" / "Years in the Field"
-  - "99%" / "Owner Satisfaction"
+- "500" / "Estates Delivered"
+- "25" / "Exclusive Markets"
+- "12" / "Years in the Field"
+- "99%" / "Owner Satisfaction"
 - Values: `text-4xl sm:text-5xl md:text-[64px] md:leading-[76px] font-semibold text-brand-navy`
 - Labels: `text-sm sm:text-base md:text-xl font-medium text-brand-navy/70 text-center`
 - Dividers between stats (desktop only): `h-[80px] w-px bg-brand-navy/20 mx-8 lg:mx-12`

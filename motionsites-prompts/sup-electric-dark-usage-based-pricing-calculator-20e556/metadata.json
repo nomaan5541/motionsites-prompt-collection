@@ -1,0 +1,34 @@
+{
+  "record": {
+    "id": "sup-electric-dark-usage-based-pricing-calculator-20e556",
+    "title": "[Superdesign] Electric Dark Usage-Based Pricing Calculator",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3072,
+    "image_preview_url": "/assets/superdesign/electric-dark-usage-based-pricing-calculator-20e556.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "pricing page",
+      "saas",
+      "dark",
+      "developer-tool",
+      "usage-based",
+      "pricing-calculator",
+      "interactive-slider",
+      "comparison-table",
+      "lime-accent",
+      "iris-violet",
+      "pricing-cards",
+      "faq-accordion",
+      "monospace-numerals"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

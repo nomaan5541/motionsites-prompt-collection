@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "package-fits-pricing",
+    "title": "What Package Fits You",
+    "category": "Pricing Page",
+    "page_type": "hero",
+    "sort_order": 857,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

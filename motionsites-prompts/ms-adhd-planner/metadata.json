@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "adhd-planner",
+    "title": "ADHD Planner",
+    "category": "Mobile App",
+    "page_type": "hero",
+    "sort_order": 806,
+    "image_preview_url": "/assets/previews/adhd-planner.webp",
+    "video_preview_url": "/assets/previews/adhd-planner.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

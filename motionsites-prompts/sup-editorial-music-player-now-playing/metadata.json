@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-editorial-music-player-now-playing",
+    "title": "[Superdesign] Editorial Music Player (Now Playing)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3076,
+    "image_preview_url": "/assets/superdesign/editorial-music-player-now-playing.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "music player",
+      "now playing",
+      "editorial",
+      "light ui"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

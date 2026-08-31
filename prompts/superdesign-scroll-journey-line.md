@@ -1,0 +1,1 @@
+Animate an SVG line (like a connector or 'journey' line) that draws itself forward based on the user's scroll percentage.

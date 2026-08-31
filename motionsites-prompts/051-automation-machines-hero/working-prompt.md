@@ -1,11 +1,3 @@
-# Automation Machines
-
-**ID:** automation-machines-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 PROMPT TO RECREATE THIS HERO SECTION
 
 Build a full-screen dark hero section for a futuristic "Automation Machines" landing page using React, Vite, Tailwind CSS v4, Motion (framer-motion), Lucide React icons, and Spline 3D. The page should be a single full-viewport section with a black background, white text, and a 3D Spline scene behind all content.
@@ -39,28 +31,28 @@ TAILWIND CSS v4 CONFIGURATION (in index.css)
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Orbitron", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-loader: "Instrument Serif", serif;
-  --color-brand-orange: #F27D26;
-  --color-bg: #0a0a0a;
-  --color-text: #f5f5f5;
-  --color-muted: #888888;
-  --color-stroke: #1f1f1f;
+--font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+--font-display: "Orbitron", sans-serif;
+--font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+--font-loader: "Instrument Serif", serif;
+--color-brand-orange: #F27D26;
+--color-bg: #0a0a0a;
+--color-text: #f5f5f5;
+--color-muted: #888888;
+--color-stroke: #1f1f1f;
 }
 
 @layer base {
-  body {
-    @apply bg-black text-white antialiased;
-    font-family: var(--font-sans);
-  }
+body {
+@apply bg-black text-white antialiased;
+font-family: var(--font-sans);
+}
 }
 
 @layer utilities {
-  .text-glow {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
+.text-glow {
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
 }
 
 VITE CONFIG: Use @tailwindcss/vite plugin alongside @vitejs/plugin-react.

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "wellness-device",
+    "title": "Wellness Devicex",
+    "category": "Healthcare",
+    "page_type": "hero",
+    "sort_order": 891,
+    "image_preview_url": "/assets/previews/wellness-device.webp",
+    "video_preview_url": "/assets/previews/wellness-device.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

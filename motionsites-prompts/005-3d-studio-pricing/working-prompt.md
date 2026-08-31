@@ -37,13 +37,13 @@ Create a full-screen hero section with a looping video background and a pricing 
 **Column 3 - Features + CTA:**
 - `flex flex-col justify-between py-3 sm:py-4 md:py-5`
 - 4 feature items with `CheckCircle2` icon (from lucide-react) in `text-[#B2D770] w-4 h-4 sm:w-5 sm:h-5` and label in `text-white/70 text-sm`:
-  1. "Boundless iterations"
-  2. "Cinema 8K mastergrade"
-  3. "Bespoke 3D materials"
-  4. "Dedicated render engineer 24/7"
+1. "Boundless iterations"
+2. "Cinema 8K mastergrade"
+3. "Bespoke 3D materials"
+4. "Dedicated render engineer 24/7"
 - CTA button: split into two segments with `gap-[3px]`, both `bg-[#B2D770] text-black rounded-lg py-2.5`
-  - Left: "Start a brief" with `text-sm font-medium px-4 sm:px-5`
-  - Right: `ArrowUpRight` icon (lucide-react), `w-10` square-ish
+- Left: "Start a brief" with `text-sm font-medium px-4 sm:px-5`
+- Right: `ArrowUpRight` icon (lucide-react), `w-10` square-ish
 
 **Accent Color:** `#B2D770` (lime green) used for toggle active state, checkmark icons, and CTA button.
 
@@ -55,11 +55,11 @@ Create a full-screen hero section with a looping video background and a pricing 
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Geist', sans-serif;
-  background: #000;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: 'Geist', sans-serif;
+background: #000;
+color: #fff;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 ```
 

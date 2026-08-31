@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "mind-body-healing",
+    "title": "Mind-Body Healing",
+    "category": "Healthcare",
+    "page_type": "hero",
+    "sort_order": 849,
+    "image_preview_url": "/assets/previews/mind-body-healing.webp",
+    "video_preview_url": "/assets/previews/mind-body-healing.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

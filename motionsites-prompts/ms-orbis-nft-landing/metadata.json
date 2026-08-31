@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "orbis-nft-landing",
+    "title": "Orbis NFT",
+    "category": "Landing Page",
+    "page_type": "hero",
+    "sort_order": 855,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

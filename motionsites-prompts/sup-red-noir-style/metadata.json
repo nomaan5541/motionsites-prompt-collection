@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-red-noir-style",
+    "title": "[Superdesign] Red Noir Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3003,
+    "image_preview_url": "/assets/superdesign/red-noir-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "style",
+      "landing page",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

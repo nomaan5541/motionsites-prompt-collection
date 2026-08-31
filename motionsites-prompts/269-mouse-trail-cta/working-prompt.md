@@ -4,25 +4,25 @@ Build a React + TypeScript + Tailwind CSS + Vite section called "Partner with us
 
 ```css
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Neue Montreal';
+src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Neue Montreal';
+src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+font-weight: 500;
+font-style: normal;
+font-display: swap;
 }
 @font-face {
-  font-family: 'PP Mondwest';
-  src: url('/PPMondwest-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Mondwest';
+src: url('/PPMondwest-Regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
 
 @tailwind base;
@@ -30,16 +30,16 @@ Build a React + TypeScript + Tailwind CSS + Vite section called "Partner with us
 @tailwind utilities;
 
 body {
-  font-family: 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+font-family: 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 @keyframes fadeInUp {
-  0%   { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+0% { opacity: 0; transform: translateY(30px); }
+100% { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
+animation: fadeInUp 0.8s ease-out forwards;
+opacity: 0;
 }
 ```
 
@@ -67,11 +67,11 @@ Place `PPMondwest-Regular.woff2` in `public/`. Also place a square portrait JPG 
 **Mouse trail behaviour**
 - `onMouseEnter` sets `isHovered = true`; `onMouseLeave` sets it false.
 - `onMouseMove`:
-  - Bail if `!isHovered` or `!sectionRef.current`.
-  - Throttle: ignore if `Date.now() - lastSpawnTime.current < 80` ms.
-  - Compute `(x, y)` relative to the section's `getBoundingClientRect()` (subtract `rect.left`, `rect.top`).
-  - Pick a random image from `images`. Compute `rotation = (Math.random() - 0.5) * 20` degrees.
-  - Push a new `TrailImage` with a fresh id, `timestamp = Date.now()`.
+- Bail if `!isHovered` or `!sectionRef.current`.
+- Throttle: ignore if `Date.now() - lastSpawnTime.current < 80` ms.
+- Compute `(x, y)` relative to the section's `getBoundingClientRect()` (subtract `rect.left`, `rect.top`).
+- Pick a random image from `images`. Compute `rotation = (Math.random() - 0.5) * 20` degrees.
+- Push a new `TrailImage` with a fresh id, `timestamp = Date.now()`.
 - Cleanup loop: `setInterval` every 50 ms removes any trail entry whose age `> 1000` ms.
 
 **Per-image fade math** (applied as inline style on the trail wrapper):
@@ -121,16 +121,16 @@ hover:bg-[#0D212C] transition-colors duration-200
 ```
 - Animation: `animate-fade-in-up` (or `opacity-0`) with `animationDelay: '0.2s'`.
 - Contents:
-  1. `` of the portrait: `w-10 h-10 rounded-full object-cover`, `src` = portrait JPG path, `alt="Viktor Oddy"`.
-  2. `Start chat with Viktor`.
+1. `` of the portrait: `w-10 h-10 rounded-full object-cover`, `src` = portrait JPG path, `alt="Viktor Oddy"`.
+2. `Start chat with Viktor`.
 
 After the centered content block, render the trail images list (still inside the card, not behind `z-10`):
 ```jsx
 {trailImages.map((img) => (
-  
 
 
-    
+
+
 
 
 ))}

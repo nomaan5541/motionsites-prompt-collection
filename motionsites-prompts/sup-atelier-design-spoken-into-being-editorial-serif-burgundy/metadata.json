@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-atelier-design-spoken-into-being-editorial-serif-burgundy",
+    "title": "[Superdesign] Atelier — Design, Spoken Into Being (editorial serif / burgundy)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3111,
+    "image_preview_url": "/assets/superdesign/atelier-design-spoken-into-being-editorial-serif-burgundy.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "cta",
+      "editorial",
+      "serif",
+      "fraunces",
+      "burgundy",
+      "cream",
+      "magazine",
+      "minimal",
+      "text-link",
+      "newsletter",
+      "luxury",
+      "landing-page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

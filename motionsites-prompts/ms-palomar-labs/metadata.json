@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "palomar-labs",
+    "title": "Palomar Labs",
+    "category": "AI",
+    "page_type": "hero",
+    "sort_order": 858,
+    "image_preview_url": "/assets/previews/palomar-labs.webp",
+    "video_preview_url": "/assets/previews/palomar-labs.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

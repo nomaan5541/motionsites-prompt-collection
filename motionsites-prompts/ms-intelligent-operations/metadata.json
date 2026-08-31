@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "intelligent-operations",
+    "title": "Intelligent Operations",
+    "category": "Agency",
+    "page_type": "hero",
+    "sort_order": 845,
+    "image_preview_url": "/assets/previews/intelligent-operations.webp",
+    "video_preview_url": "/assets/previews/intelligent-operations.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

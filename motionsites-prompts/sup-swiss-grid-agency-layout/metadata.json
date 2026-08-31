@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-swiss-grid-agency-layout",
+    "title": "[Superdesign] Swiss Grid Agency Layout",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Portfolios",
+    "page_type": "superdesign",
+    "sort_order": 3090,
+    "image_preview_url": "/assets/superdesign/swiss-grid-agency-layout.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "agency-website",
+      "swiss-grid",
+      "international-typographic-style",
+      "monochrome",
+      "cobalt",
+      "editorial",
+      "12-column-grid",
+      "inter",
+      "jetbrains-mono",
+      "minimal",
+      "high-contrast",
+      "sticky-nav",
+      "marquee",
+      "portfolio",
+      "studio",
+      "responsive",
+      "hairline",
+      "design-studio"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

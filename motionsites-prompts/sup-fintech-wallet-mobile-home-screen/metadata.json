@@ -1,0 +1,27 @@
+{
+  "record": {
+    "id": "sup-fintech-wallet-mobile-home-screen",
+    "title": "[Superdesign] Fintech Wallet — Mobile Home Screen",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3103,
+    "image_preview_url": "/assets/superdesign/fintech-wallet-mobile-home-screen.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "fintech",
+      "banking",
+      "wallet",
+      "finance",
+      "home screen"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

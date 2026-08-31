@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-hyper-speed-loading-state",
+    "title": "[Superdesign] Hyper-Speed Loading State",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3023,
+    "image_preview_url": "/assets/superdesign/hyper-speed-loading-state.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 3,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "loading"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

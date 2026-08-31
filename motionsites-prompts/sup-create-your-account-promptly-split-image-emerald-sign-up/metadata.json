@@ -1,0 +1,35 @@
+{
+  "record": {
+    "id": "sup-create-your-account-promptly-split-image-emerald-sign-up",
+    "title": "[Superdesign] Create your account · Promptly — split-image emerald sign-up",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3091,
+    "image_preview_url": "/assets/superdesign/create-your-account-promptly-split-image-emerald-sign-up.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "signup",
+      "sign-up",
+      "create-account",
+      "auth",
+      "split-screen",
+      "two-column",
+      "saas",
+      "emerald",
+      "form",
+      "social-login",
+      "testimonial",
+      "inter",
+      "desktop",
+      "onboarding"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-loam-warm-earthy-organic-agency-website",
+    "title": "[Superdesign] Loam — Warm Earthy Organic Agency Website",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Portfolios",
+    "page_type": "superdesign",
+    "sort_order": 3084,
+    "image_preview_url": "/assets/superdesign/loam-warm-earthy-organic-agency-website.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "agency-website",
+      "landing-page",
+      "organic",
+      "earthy",
+      "warm",
+      "terracotta",
+      "serif",
+      "studio",
+      "editorial",
+      "portfolio"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

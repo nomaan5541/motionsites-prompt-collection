@@ -28,19 +28,19 @@ Build a premium scroll-driven landing page for "Elias Norden — Health Capital"
 **Press logos strip (bottom-right of hero):**
 - Label "In the news:" — `text-right text-xs sm:text-sm text-white/70`
 - Right-aligned flex-wrap row, `gap-x-5 gap-y-3 sm:gap-x-8 sm:gap-y-4 md:gap-x-12`, each `text-sm sm:text-lg md:text-xl text-white/90 hover:opacity-60 transition-opacity duration-300`:
-  - Praxis — `font-instrument font-bold tracking-wide`
-  - VENTURE BULLETIN — `font-sans font-bold tracking-tight`
-  - Blockdispatch — `font-sans font-semibold italic`
-  - Healthspan.Quarterly — `font-mono font-medium tracking-tighter`
-  - Vetted / TJ — `font-instrument italic tracking-wide`
-  - biofuture.io — `font-sans font-light tracking-widest`
+- Praxis — `font-instrument font-bold tracking-wide`
+- VENTURE BULLETIN — `font-sans font-bold tracking-tight`
+- Blockdispatch — `font-sans font-semibold italic`
+- Healthspan.Quarterly — `font-mono font-medium tracking-tighter`
+- Vetted / TJ — `font-instrument italic tracking-wide`
+- biofuture.io — `font-sans font-light tracking-widest`
 - Container padding: `px-5 pb-10 sm:px-6 sm:pb-16 md:px-12 md:pb-24`
 
 **Navy reveal layer (fades in after scrub):**
 - `absolute inset-0 bg-[#000308]`, starts `opacity-0 pointer-events-none` (pointer-events enabled when fade > 0.5), centered `max-w-4xl space-y-6 sm:space-y-10 text-center`
 - Three paragraphs, each `text-lg sm:text-2xl md:text-3xl leading-relaxed md:leading-snug text-white transition-all duration-700 ease-out`, animating from `translate-y-8 opacity-0` to `translate-y-0 opacity-100` as visibleCount increments:
-  1. "Elias is committed to a tomorrow where people enjoy more vibrant, rewarding decades beside loved ones."
-  2. "In pursuit of this purpose, in 2021 he co-founded the Healthspan Research Alliance, a global nonprofit backing early-stage science on prolonging the healthy human lifespan."
-  3. "Elias is also a managing partner and co-founder of VitalVC, a venture capital firm backing bold pioneers in biotech and lifespans."
+1. "Elias is committed to a tomorrow where people enjoy more vibrant, rewarding decades beside loved ones."
+2. "In pursuit of this purpose, in 2021 he co-founded the Healthspan Research Alliance, a global nonprofit backing early-stage science on prolonging the healthy human lifespan."
+3. "Elias is also a managing partner and co-founder of VitalVC, a venture capital firm backing bold pioneers in biotech and lifespans."
 
 **App structure:** `<div className="bg-navy-950"><Navbar /><Hero /></div>`. Use lucide-react for any icons. No purple hues.

@@ -1,0 +1,22 @@
+{
+  "record": {
+    "id": "sup-counter",
+    "title": "[Superdesign] Counter",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3054,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/counter.mp4",
+    "is_free": true,
+    "deslop_score": 3,
+    "visual_score": 3,
+    "tags": [
+      "Superdesign",
+      "ui component"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

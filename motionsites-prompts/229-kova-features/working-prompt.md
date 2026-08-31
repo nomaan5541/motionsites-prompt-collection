@@ -21,11 +21,11 @@ Add these CSS utility classes in `index.css` (outside Tailwind layers, after the
 
 ```css
 .font-cooper {
-  font-family: 'Cooper BT W01 Light', 'Georgia', serif;
+font-family: 'Cooper BT W01 Light', 'Georgia', serif;
 }
 .font-cooper-medium {
-  font-family: 'Cooper BT W01 Medium', 'Cooper BT W01 Light', 'Georgia', serif;
-  font-weight: 500;
+font-family: 'Cooper BT W01 Medium', 'Cooper BT W01 Light', 'Georgia', serif;
+font-weight: 500;
 }
 ```
 
@@ -38,18 +38,18 @@ Create a reusable `FadeUp` component (`src/FadeUp.tsx`) using Framer Motion's `m
 **TypeScript interface:**
 ```ts
 interface FadeUpProps {
-  children: ReactNode;
-  delay?: number;       // default 0
-  className?: string;
-  immediate?: boolean;  // default false
+children: ReactNode;
+delay?: number; // default 0
+className?: string;
+immediate?: boolean; // default false
 }
 ```
 
 **Variants object:**
 ```ts
 const variants = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 };
 ```
 
@@ -85,10 +85,10 @@ Text colors: `text-white`, `text-white/80`, `text-stone-500`, `text-stone-700`, 
 
 ```html
 <section class="bg-[#FDF5EB] py-14 sm:py-20 px-5 sm:px-10 lg:px-20">
-  <div class="max-w-7xl mx-auto">
-    <!-- header row -->
-    <!-- cards grid -->
-  </div>
+<div class="max-w-7xl mx-auto">
+<!-- header row -->
+<!-- cards grid -->
+</div>
 </section>
 ```
 
@@ -102,7 +102,7 @@ Container: `flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 m
 
 ```html
 <h2 class="font-cooper-medium text-2xl sm:text-3xl md:text-4xl text-[#08150C] leading-snug">
-  Designed to sharpen every decision
+Designed to sharpen every decision
 </h2>
 ```
 
@@ -112,8 +112,8 @@ Font sizes: `text-2xl` (24px) on mobile, `sm:text-3xl` (30px) at 640px+, `md:tex
 
 ```html
 <button class="self-start sm:self-auto flex-shrink-0 flex items-center gap-2 bg-[#08150C] text-white text-sm font-medium px-5 py-2.5 rounded-xl hover:bg-[#1a2e1f] transition-colors">
-  Watch Demo
-  <Play size={13} className="fill-white" />
+Watch Demo
+<Play size={13} className="fill-white" />
 </button>
 ```
 
@@ -142,23 +142,23 @@ All four cards share `rounded-2xl overflow-hidden aspect-[3/4]` (16px border rad
 
 ```html
 <div class="relative rounded-2xl overflow-hidden bg-[#08150C] aspect-[3/4] flex flex-col justify-between">
-  <img
-    src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260517_061249_f20dfeda-1033-45ce-a3ee-070965599cbf.png&w=1280&q=85"
-    alt="Smart Budgeting"
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-  <div class="absolute inset-0 bg-gradient-to-t from-[#08150C]/80 via-[#08150C]/20 to-transparent"></div>
-  <div class="relative z-10 p-4">
-    <div class="inline-flex items-center gap-1.5 text-white text-sm font-medium px-2.5 py-1 rounded-full">
-      <Sparkles size={16} class="text-white" />
-      Smart Budgeting
-    </div>
-  </div>
-  <div class="relative z-10 p-4">
-    <p class="text-white/80 text-sm sm:text-base leading-relaxed">
-      Let AI reshape how you plan your spending. Kova adapts to your...
-    </p>
-  </div>
+<img
+src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260517_061249_f20dfeda-1033-45ce-a3ee-070965599cbf.png&w=1280&q=85"
+alt="Smart Budgeting"
+class="absolute inset-0 w-full h-full object-cover"
+/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#08150C]/80 via-[#08150C]/20 to-transparent"></div>
+<div class="relative z-10 p-4">
+<div class="inline-flex items-center gap-1.5 text-white text-sm font-medium px-2.5 py-1 rounded-full">
+<Sparkles size={16} class="text-white" />
+Smart Budgeting
+</div>
+</div>
+<div class="relative z-10 p-4">
+<p class="text-white/80 text-sm sm:text-base leading-relaxed">
+Let AI reshape how you plan your spending. Kova adapts to your...
+</p>
+</div>
 </div>
 ```
 
@@ -194,8 +194,8 @@ This card is structurally DIFFERENT from the other three. It has NO background i
 **Top label:**
 ```html
 <div class="inline-flex items-center gap-1.5 text-stone-700 text-sm font-medium px-2.5 py-1 rounded-full self-start mb-4">
-  <PieChart size={16} />
-  Spend Insights
+<PieChart size={16} />
+Spend Insights
 </div>
 ```
 - Text and icon are `text-stone-700` (NOT white like the other cards)
@@ -213,8 +213,8 @@ This card is structurally DIFFERENT from the other three. It has NO background i
 **Title block** (inside inner container):
 ```html
 <div class="text-center mb-1">
-  <p class="text-sm sm:text-base font-semibold text-stone-800">Monthly Spend</p>
-  <p class="text-xs sm:text-sm text-stone-500">1 Apr – 30 May 2026</p>
+<p class="text-sm sm:text-base font-semibold text-stone-800">Monthly Spend</p>
+<p class="text-xs sm:text-sm text-stone-500">1 Apr – 30 May 2026</p>
 </div>
 ```
 - "Monthly Spend": `text-sm` (14px) mobile, `sm:text-base` (16px), `font-semibold` (600), `text-stone-800`
@@ -253,8 +253,8 @@ Math explanation: each segment's `strokeDasharray` is `[arcLength] [circumferenc
 **Center text overlay:**
 ```html
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-  <span class="text-lg sm:text-xl font-bold text-[#08150C]">50%</span>
-  <span class="text-xs sm:text-sm text-stone-500">of budget</span>
+<span class="text-lg sm:text-xl font-bold text-[#08150C]">50%</span>
+<span class="text-xs sm:text-sm text-stone-500">of budget</span>
 </div>
 ```
 - "50%": `text-lg` (18px) mobile, `sm:text-xl` (20px), `font-bold` (700), dark green `#08150C`

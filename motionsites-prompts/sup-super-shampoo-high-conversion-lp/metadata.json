@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-super-shampoo-high-conversion-lp",
+    "title": "[Superdesign] Super Shampoo - High Conversion LP",
+    "category": "Superdesign Canvas",
+    "originalCategory": "E-commerce",
+    "page_type": "superdesign",
+    "sort_order": 3061,
+    "image_preview_url": "/assets/superdesign/super-shampoo-high-conversion-lp.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "ecommerce",
+      "shopify",
+      "landing page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

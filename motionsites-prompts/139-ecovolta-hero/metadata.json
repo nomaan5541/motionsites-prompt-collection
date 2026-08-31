@@ -21,9 +21,7 @@
     "section_names": []
   },
   "workingPrompt": {
-    "mode": "premium",
-    "generatedAt": "2026-07-17T13:17:16.255Z",
-    "file": "working-prompt.md",
-    "note": "Unlocked prompt from archive."
+    "mode": "original",
+    "recovered": true
   }
 }

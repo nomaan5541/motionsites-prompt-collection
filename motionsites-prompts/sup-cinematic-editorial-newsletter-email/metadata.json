@@ -1,0 +1,42 @@
+{
+  "record": {
+    "id": "sup-cinematic-editorial-newsletter-email",
+    "title": "[Superdesign] Cinematic Editorial Newsletter Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3131,
+    "image_preview_url": "/assets/superdesign/cinematic-editorial-newsletter-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "digest",
+      "editorial",
+      "magazine",
+      "media-newsletter",
+      "creator-newsletter",
+      "content-roundup",
+      "dark-mode",
+      "cinematic",
+      "serif-display",
+      "fraunces",
+      "archivo",
+      "cream",
+      "espresso",
+      "warm-neutral",
+      "pull-quote",
+      "product-grid",
+      "640px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "hr-saa-s-hero",
+    "title": "HR SaaS Hero",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 841,
+    "image_preview_url": "/assets/previews/hr-saa-s-hero.webp",
+    "video_preview_url": "/assets/previews/hr-saa-s-hero.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

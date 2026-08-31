@@ -37,29 +37,29 @@ Create a fullscreen hero landing page for a creative studio called "Foldcraft" u
 **Top Section (max-w-3xl):**
 - Badge: "Brand & Visual Storytelling" (`text-xs sm:text-sm text-white/90`), with `animate-[fadeSlideUp_0.8s_ease_0.2s_both]`, margin-bottom 4 (sm:6)
 - Heading h1: "Shaping visual / narratives, / one pixel at a time." with `<br/>` line breaks
-  - Sizing: `text-3xl sm:text-5xl md:text-6xl lg:text-7xl`
-  - Style: `font-medium leading-[1.1] tracking-tight text-white`
-  - Animation: `animate-[fadeSlideUp_0.8s_ease_0.4s_both]`
+- Sizing: `text-3xl sm:text-5xl md:text-6xl lg:text-7xl`
+- Style: `font-medium leading-[1.1] tracking-tight text-white`
+- Animation: `animate-[fadeSlideUp_0.8s_ease_0.4s_both]`
 
 **Bottom Section:**
 - Paragraph: "Turning vision into reality through craft, motion, and an endless pursuit of beauty."
-  - Style: `text-sm sm:text-base md:text-lg leading-relaxed text-white/60 max-w-sm sm:max-w-lg mb-5 sm:mb-6`
-  - Animation: `animate-[fadeSlideUp_0.8s_ease_0.7s_both]`
+- Style: `text-sm sm:text-base md:text-lg leading-relaxed text-white/60 max-w-sm sm:max-w-lg mb-5 sm:mb-6`
+- Animation: `animate-[fadeSlideUp_0.8s_ease_0.7s_both]`
 - CTA Button: "Explore Work" with ArrowRight icon (size 16)
-  - Style: `rounded-lg bg-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-medium text-black hover:scale-105 transition-transform inline-flex items-center gap-2`
-  - Animation: `animate-[fadeSlideUp_0.8s_ease_0.9s_both]`
+- Style: `rounded-lg bg-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-medium text-black hover:scale-105 transition-transform inline-flex items-center gap-2`
+- Animation: `animate-[fadeSlideUp_0.8s_ease_0.9s_both]`
 
 **CSS Animation (in index.css):**
 ```css
 @keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+from {
+opacity: 0;
+transform: translateY(24px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 ```
 

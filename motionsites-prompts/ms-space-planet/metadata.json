@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "space-planet",
+    "title": "Space planet",
+    "category": "3D",
+    "page_type": "hero",
+    "sort_order": 878,
+    "image_preview_url": "/assets/previews/space-planet.webp",
+    "video_preview_url": "/assets/previews/space-planet.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

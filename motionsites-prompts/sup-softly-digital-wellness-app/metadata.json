@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-softly-digital-wellness-app",
+    "title": "[Superdesign] Softly - Digital Wellness App",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3007,
+    "image_preview_url": "/assets/superdesign/softly-digital-wellness-app.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "sass landing",
+      "leads generation",
+      "waitlist",
+      "wellness product",
+      "lifestyle app",
+      "stone gray",
+      "peach blush",
+      "style",
+      "landing page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

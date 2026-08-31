@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-sign-in-to-verdant-classic-split-emerald",
+    "title": "[Superdesign] Sign in to Verdant — Classic Split (Emerald)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3120,
+    "image_preview_url": "/assets/superdesign/sign-in-to-verdant-classic-split-emerald.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "login",
+      "sign-in",
+      "auth",
+      "authentication",
+      "login-form",
+      "split-screen",
+      "two-column",
+      "emerald",
+      "saas",
+      "social-login",
+      "sticky-nav",
+      "inter"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

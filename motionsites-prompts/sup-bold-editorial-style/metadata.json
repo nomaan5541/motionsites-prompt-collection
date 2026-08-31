@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-bold-editorial-style",
+    "title": "[Superdesign] Bold Editorial Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3018,
+    "image_preview_url": "/assets/superdesign/bold-editorial-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "light mode",
+      "editorial",
+      "yellow",
+      "navy",
+      "sage",
+      "waitlist",
+      "landing page",
+      "saas landing",
+      "acid yellow accent",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

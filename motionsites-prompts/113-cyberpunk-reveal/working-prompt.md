@@ -34,16 +34,16 @@ Layers bottom to top:
 2. **Base image (z-10):** `bg-center bg-cover` div with BG_IMAGE_1, with a Ken Burns intro: `@keyframes kenBurns { from { transform: scale(1.12) } to { scale(1) } }`, 2.4s `cubic-bezier(0.22,1,0.36,1)` forwards.
 3. **Cursor spotlight reveal layer (z-30):** a second `bg-cover` div with BG_IMAGE_2, masked by a canvas-generated radial gradient that follows the smoothed cursor. Implementation: a hidden full-window canvas; every frame, clear it and fill a circle (radius 260px) at the cursor with a radial gradient (stops: 0→1 opacity, 0.4→1, 0.6→0.75, 0.75→0.4, 0.88→0.12, 1→0), export via `toDataURL()` and set as `mask-image`/`-webkit-mask-image` (`mask-size: 100% 100%`) on the image div. Cursor smoothing: rAF loop with lerp factor 0.1 toward real mouse position, starting offscreen at (−999,−999).
 4. **Stats on a fading circular arc (z-50, hidden below sm):** container `absolute inset-y-0 right-0 pointer-events-none`, SVG `viewBox="0 0 380 700"` `preserveAspectRatio="xMaxYMid meet"` `class="h-full w-auto"`. Concentric arcs centered at `(-110, 300)` (off-canvas left, so arcs sweep in from the subject). Data:
-   - r=330, arc from −92° to 16°, dot at −46°, stat "10+" / "YEARS REAL"
-   - r=395, arc −56° to 60°, dot at 2°, stat "40+" / "USE FORMS"
-   - r=460, arc −14° to 72°, dot at 44°, stat "95%" / "REPEAT MEMBERS"
+- r=330, arc from −92° to 16°, dot at −46°, stat "10+" / "YEARS REAL"
+- r=395, arc −56° to 60°, dot at 2°, stat "40+" / "USE FORMS"
+- r=460, arc −14° to 72°, dot at 44°, stat "95%" / "REPEAT MEMBERS"
 
-   Each arc is a path (`A r r 0 0 1`) stroked at 1.1 with a per-arc `userSpaceOnUse` linearGradient from arc start point to end point, white with stop-opacities 0 → 0.5 (22%) → 0.5 (55%) → 0.1 (85%) → 0 (100%) so both ends fade out. At each dot position (polar from center): a filled white circle r=3.4, a white ring r=7 at 35% stroke opacity, the number at dot+(16,4) in white 32px (suffix as `<tspan>` 19px raised `dy="-10"`, letter-spacing −1px), and the uppercase label at dot+(18,22), 8.5px, weight 600, letter-spacing 2px, 80% opacity.
+Each arc is a path (`A r r 0 0 1`) stroked at 1.1 with a per-arc `userSpaceOnUse` linearGradient from arc start point to end point, white with stop-opacities 0 → 0.5 (22%) → 0.5 (55%) → 0.1 (85%) → 0 (100%) so both ends fade out. At each dot position (polar from center): a filled white circle r=3.4, a white ring r=7 at 35% stroke opacity, the number at dot+(16,4) in white 32px (suffix as `<tspan>` 19px raised `dy="-10"`, letter-spacing −1px), and the uppercase label at dot+(18,22), 8.5px, weight 600, letter-spacing 2px, 80% opacity.
 5. **Hero text block (z-50):** `absolute bottom-12 sm:bottom-16 md:bottom-24 left-5 sm:left-8 md:left-12 max-w-[300px] sm:max-w-md`:
-   - Eyebrow: `Gateway to your *augmented self*` (italic span), `text-[11px] sm:text-xs font-semibold tracking-[0.12em] text-white/90`
-   - H1: `A window / of coming / enhancements` (manual `<br/>`), `text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-[-0.08em] text-white`
-   - Paragraph: "A future where carbon fiber, titanium, and human instinct align. Not machine. Not human. Something wonderfully poised between." `text-sm sm:text-base text-white/90 leading-relaxed`
-   - CTA "Reserve Now": white pill `px-7 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg shadow-black/20`, hover `scale-[1.04]`, active `scale-95`, plus a shine sweep: an absolutely-positioned gradient span (`from-transparent via-white/60 to-transparent`) translating from `-translate-x-full` to `translate-x-full` over 700ms on group hover.
+- Eyebrow: `Gateway to your *augmented self*` (italic span), `text-[11px] sm:text-xs font-semibold tracking-[0.12em] text-white/90`
+- H1: `A window / of coming / enhancements` (manual `<br/>`), `text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-[-0.08em] text-white`
+- Paragraph: "A future where carbon fiber, titanium, and human instinct align. Not machine. Not human. Something wonderfully poised between." `text-sm sm:text-base text-white/90 leading-relaxed`
+- CTA "Reserve Now": white pill `px-7 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg shadow-black/20`, hover `scale-[1.04]`, active `scale-95`, plus a shine sweep: an absolutely-positioned gradient span (`from-transparent via-white/60 to-transparent`) translating from `-translate-x-full` to `translate-x-full` over 700ms on group hover.
 
 ## Animations (CSS keyframes in index.css)
 

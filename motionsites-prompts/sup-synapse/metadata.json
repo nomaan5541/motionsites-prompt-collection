@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-synapse",
+    "title": "[Superdesign] Synapse",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3017,
+    "image_preview_url": "/assets/superdesign/synapse.png",
+    "video_preview_url": "/assets/superdesign/synapse.mp4",
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

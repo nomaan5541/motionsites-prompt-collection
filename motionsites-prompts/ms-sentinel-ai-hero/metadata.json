@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "sentinel-ai-hero",
+    "title": "Sentinel AI",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 874,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

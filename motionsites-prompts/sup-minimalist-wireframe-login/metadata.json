@@ -1,0 +1,25 @@
+{
+  "record": {
+    "id": "sup-minimalist-wireframe-login",
+    "title": "[Superdesign] Minimalist Wireframe Login",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3095,
+    "image_preview_url": "/assets/superdesign/minimalist-wireframe-login.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "login",
+      "auth",
+      "layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

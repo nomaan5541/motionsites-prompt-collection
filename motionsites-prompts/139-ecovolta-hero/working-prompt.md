@@ -1,11 +1,3 @@
-# EcoVolta
-
-**ID:** ecovolta-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 PROMPT:
 
 Build a single-page hero section for a renewable energy company called "EcoVolta" using React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Lucide React icons. The page should be a full-viewport height (h-screen) layout with no scrolling (overflow-hidden).
@@ -75,36 +67,36 @@ LIQUID GLASS CSS (custom utility class .liquid-glass):
 
 
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 SCROLL KEYFRAME:
 
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
 }
 ANIMATION COMPONENTS:
 

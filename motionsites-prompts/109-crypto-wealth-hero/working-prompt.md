@@ -1,11 +1,3 @@
-# Crypto Wealth
-
-**ID:** crypto-wealth-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 Recreation Prompt
 Build a React + TypeScript + Vite + Tailwind CSS landing page called "ContentFlow" with two scroll-linked fullscreen sections layered over a fixed video background. Use lucide-react for icons. Use the Inter font from Google Fonts (weights 300-900).
 

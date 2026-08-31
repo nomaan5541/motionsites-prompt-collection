@@ -1,0 +1,40 @@
+{
+  "record": {
+    "id": "sup-movie-poster-film-premiere-invite-email",
+    "title": "[Superdesign] Movie-Poster Film Premiere Invite Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3134,
+    "image_preview_url": "/assets/superdesign/movie-poster-film-premiere-invite-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "invitation-email",
+      "event-invite",
+      "premiere",
+      "film",
+      "cinema",
+      "entertainment",
+      "rsvp",
+      "dramatic",
+      "cinematic",
+      "crimson",
+      "bone",
+      "anton",
+      "duotone",
+      "billing-block",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

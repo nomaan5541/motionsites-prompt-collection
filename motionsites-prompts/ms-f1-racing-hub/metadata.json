@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "f1-racing-hub",
+    "title": "F1 Racing Hub",
+    "category": "Mobile App",
+    "page_type": "mobile",
+    "sort_order": 837,
+    "image_preview_url": "/assets/previews/f1-racing-hub.webp",
+    "video_preview_url": "/assets/previews/f1-racing-hub.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

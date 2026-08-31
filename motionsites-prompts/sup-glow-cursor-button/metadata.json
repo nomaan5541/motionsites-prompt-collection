@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-glow-cursor-button",
+    "title": "[Superdesign] Glow Cursor Button",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3052,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/glow-cursor-button.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "button",
+      "ui component"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

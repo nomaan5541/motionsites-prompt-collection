@@ -1,0 +1,22 @@
+{
+  "record": {
+    "id": "sup-hyper-saturated-fluid",
+    "title": "[Superdesign] Hyper-Saturated Fluid",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3020,
+    "image_preview_url": "/assets/superdesign/hyper-saturated-fluid.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

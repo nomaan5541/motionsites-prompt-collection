@@ -1,11 +1,3 @@
-# Nexar
-
-**ID:** nexar-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 PROMPT:
 
 Build a project management dashboard called "Nexar" using React, TypeScript, Tailwind CSS, Vite, and Lucide React icons. The design should have a fullscreen looping background video, a white pill-shaped header, a 3-column responsive grid layout, and task cards with staggered fade-up animations. Use Google Fonts "Instrument Serif" for display/serif text.

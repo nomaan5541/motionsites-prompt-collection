@@ -1,0 +1,25 @@
+{
+  "record": {
+    "id": "sup-card-grid-browse",
+    "title": "[Superdesign] Card Grid Browse",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3079,
+    "image_preview_url": "/assets/superdesign/card-grid-browse.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 4,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "index",
+      "browse",
+      "layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

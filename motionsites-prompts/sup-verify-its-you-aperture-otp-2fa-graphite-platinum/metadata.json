@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-verify-its-you-aperture-otp-2fa-graphite-platinum",
+    "title": "[Superdesign] Verify it's you · Aperture (OTP / 2FA, graphite-platinum)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3114,
+    "image_preview_url": "/assets/superdesign/verify-its-you-aperture-otp-2fa-graphite-platinum.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "login",
+      "otp",
+      "2fa",
+      "two-factor",
+      "verification",
+      "auth",
+      "security",
+      "graphite",
+      "platinum",
+      "light-mode",
+      "centered-card",
+      "saas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

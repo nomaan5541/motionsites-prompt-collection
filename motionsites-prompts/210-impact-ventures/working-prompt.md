@@ -14,8 +14,8 @@ Load them in index.html:
 **Tailwind Config** - extend fontFamily:
 ```js
 fontFamily: {
-  'instrument-serif': ['"Instrument Serif"', 'serif'],
-  sans: ['Inter', 'system-ui', 'sans-serif'],
+'instrument-serif': ['"Instrument Serif"', 'serif'],
+sans: ['Inter', 'system-ui', 'sans-serif'],
 }
 ```
 
@@ -44,18 +44,18 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026062
 **Hero Content (centered below navbar):**
 - Container: `flex-1 flex flex-col items-center justify-start pt-4 sm:pt-6 md:pt-8 lg:pt-10 px-6 text-center`
 - Heading (h1): `font-instrument-serif text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] max-w-5xl`
-  - Text content (with line breaks):
-    ```
-    UX <italic>and</italic> APP
-    DESIGN <italic>for</italic> BOLD
-    VENTURES
-    ```
-  - The italic words "and" and "for" use `italic font-instrument-serif` spans
+- Text content (with line breaks):
+```
+UX <italic>and</italic> APP
+DESIGN <italic>for</italic> BOLD
+VENTURES
+```
+- The italic words "and" and "for" use `italic font-instrument-serif` spans
 - Subtext (p): `mt-4 md:mt-5 text-white/70 text-sm md:text-base font-light max-w-md leading-relaxed`
-  - "We shape digital products that define brands" + line break (hidden sm:block) + "and unlock exponential growth."
+- "We shape digital products that define brands" + line break (hidden sm:block) + "and unlock exponential growth."
 - Buttons row: `mt-5 md:mt-6 flex flex-col sm:flex-row items-center gap-4`
-  - Primary: "See Cases" with ArrowRight icon (lucide-react), white bg, black text, rounded-full, px-7 py-3, text-sm font-medium. On hover the arrow translates 0.5 right.
-  - Secondary: "Watch Reel" with Play icon (lucide-react), transparent with `border border-white/40`, white text, rounded-full, px-7 py-3. On hover: `bg-white/10 border-white/60`
+- Primary: "See Cases" with ArrowRight icon (lucide-react), white bg, black text, rounded-full, px-7 py-3, text-sm font-medium. On hover the arrow translates 0.5 right.
+- Secondary: "Watch Reel" with Play icon (lucide-react), transparent with `border border-white/40`, white text, rounded-full, px-7 py-3. On hover: `bg-white/10 border-white/60`
 
 **Global CSS (index.css):**
 ```css
@@ -64,15 +64,15 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026062
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
+height: 100%;
+width: 100%;
+overflow-x: hidden;
 }
 ```
 

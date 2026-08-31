@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "convix-software-hero",
+    "title": "SAAS Software",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 823,
+    "image_preview_url": "/assets/previews/convix-software-hero.webp",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

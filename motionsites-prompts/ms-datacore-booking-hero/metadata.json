@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "datacore-booking-hero",
+    "title": "Datacore Booking",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 826,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

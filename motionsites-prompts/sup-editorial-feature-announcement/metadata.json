@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-editorial-feature-announcement",
+    "title": "[Superdesign] Editorial Feature Announcement",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Other",
+    "page_type": "superdesign",
+    "sort_order": 3096,
+    "image_preview_url": "/assets/superdesign/editorial-feature-announcement.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "feature announcement",
+      "sass",
+      "ai product",
+      "cream",
+      "low contrast",
+      "editorial",
+      "vertical scroll"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

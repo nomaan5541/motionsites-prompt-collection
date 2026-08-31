@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "data-signal",
+    "title": "Data Signal",
+    "category": "Analytics",
+    "page_type": "hero",
+    "sort_order": 825,
+    "image_preview_url": "/assets/previews/data-signal.webp",
+    "video_preview_url": "/assets/previews/data-signal.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

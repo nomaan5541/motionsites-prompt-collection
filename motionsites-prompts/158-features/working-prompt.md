@@ -19,9 +19,9 @@ Left intro (`.capabilities__intro`):
 
 - Max-width 860px.
 - H2: "Propulsion programs need a partner that can move from concept to certified hardware."
-  - Max-width 920px, margin 0, color `#111111`, `font-size: clamp(29px, 3.2vw, 54px)`, weight 300, letter-spacing 0, line-height 1.08.
+- Max-width 920px, margin 0, color `#111111`, `font-size: clamp(29px, 3.2vw, 54px)`, weight 300, letter-spacing 0, line-height 1.08.
 - P: "EngineTech combines precision manufacturing, hot-fire validation, materials engineering, and mission support for aircraft and spacecraft programs that cannot afford uncertainty."
-  - Max-width 760px, margin `18px 0 0`, color `#677070`, `font-size: clamp(14px, 1vw, 17px)`, weight 400, line-height 1.62.
+- Max-width 760px, margin `18px 0 0`, color `#677070`, `font-size: clamp(14px, 1vw, 17px)`, weight 400, line-height 1.62.
 
 Right CTA button (`.capabilities__button`):
 
@@ -95,8 +95,8 @@ Video: `` element, absolute inset 0, 100% w/h, `object-fit: cover`, `transform: 
 - Video: same absolute pattern. Source: `https://assets.mixkit.co/videos/23211/23211-720.mp4`. Autoplay, muted, loop, playsinline.
 - Dark shade overlay (same gradient as column 1 tall card).
 - Metric overlay (`.cap-cardmetric`): absolute inset 0, z-index 1, 100% w/h, text-align center, `text-shadow: 0 12px 32px rgb(0 0 0 / 0.3)`.
-  - ``: "2K" -- absolute `top: 50%; left: 50%; transform: translate(-50%, -50%)`, `font-size: clamp(82px, 7.4vw, 134px)`, weight 220, line-height 0.9.
-  - ``: "Highly Qualified Engineers" -- absolute `right: 24px; bottom: 24px; left: 24px`, color `rgb(255 255 255 / 0.82)`, `font-size: clamp(14px, 1.05vw, 18px)`, line-height 1.4.
+- ``: "2K" -- absolute `top: 50%; left: 50%; transform: translate(-50%, -50%)`, `font-size: clamp(82px, 7.4vw, 134px)`, weight 220, line-height 0.9.
+- ``: "Highly Qualified Engineers" -- absolute `right: 24px; bottom: 24px; left: 24px`, color `rgb(255 255 255 / 0.82)`, `font-size: clamp(14px, 1.05vw, 18px)`, line-height 1.4.
 
 ---
 
@@ -134,9 +134,9 @@ Marquee keyframes:
 - Border, border-radius same as other cards.
 
 - Left side:
-  - Label: "Reach Engineering" (left-aligned, `#758080`, 11px, weight 760, `letter-spacing: 0.18em`, uppercase).
-  - Email link: "programs@enginetech.com" -- `font-size: clamp(18px, 1.45vw, 24px)`, weight 360, color `#111111`, margin `14px 0 6px`.
-  - Phone: "+1 415 018 4270" -- color `#6b7676`, 14px, line-height 1.5.
+- Label: "Reach Engineering" (left-aligned, `#758080`, 11px, weight 760, `letter-spacing: 0.18em`, uppercase).
+- Email link: "programs@enginetech.com" -- `font-size: clamp(18px, 1.45vw, 24px)`, weight 360, color `#111111`, margin `14px 0 6px`.
+- Phone: "+1 415 018 4270" -- color `#6b7676`, 14px, line-height 1.5.
 - Right side: Circular icon button (`.cap-card__icon-button`), absolute `top: 50%; right: 16px; transform: translateY(-50%)`, 42px square, border-radius 50%, border `1px solid rgb(17 17 17 / 0.1)`, background `#111111`, color `#ffffff`. Contains Phosphor `ph-arrow-up-right` at 19px.
 
 ---

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "6",
+    "title": "Bold Portfolio Hero",
+    "category": "Portfolio",
+    "page_type": "hero",
+    "sort_order": 804,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

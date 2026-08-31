@@ -1,0 +1,69 @@
+Create a "WoodNest" luxury cabin booking showcase with 3 phone mockups displayed side-by-side on desktop (stacked on mobile). The design uses a liquid glass / iOS 26 frosted glass aesthetic with a dark background (#030508) and animated organic liquid blobs behind the phones.
+
+**Tech Stack:** React + TypeScript + Vite + Tailwind CSS + lucide-react (Leaf, Menu, Star, X, Calendar, ChevronDown, ChevronLeft, ChevronRight, Pencil icons).
+
+**Fonts:**
+- Body: Inter (weights 300, 400, 500, 600) from Google Fonts
+- Display headings: General Sans (weights 400, 500, 600, 700) from Fontshare: `https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap`
+
+**Background:**
+- Fixed full-screen layer with 4 animated liquid blobs (organic border-radius shapes, cyan/teal/emerald/white gradients at very low opacity 3-8%, blurred 60-90px, each with unique 18-25s looping morph animation changing position, rotation, scale, and border-radius).
+- 3 specular "caustic" highlights (tiny white/cyan circles with blur, animating position/opacity over 8-12s).
+- A glass-refraction layer (subtle diagonal gradient with white at 0.5-1% opacity + 0.5px backdrop blur).
+- A noise texture overlay (SVG feTurbulence fractalNoise) at 1.5% opacity.
+
+**Phone Frame:**
+- Desktop: 380px wide, 780px tall, border-radius 50px, border 8px solid #2a2a3a, outer 2px ring #1a1a2a, heavy box-shadow (40px/80px black shadows + inset 20px). Dynamic Island notch (::before pseudo-element): 120x28px, #1a1a2a, centered at top, border-radius 0 0 16px 16px. Inner .phone-content: 100% size, overflow hidden, border-radius 42px.
+- Mobile: `width: calc(100vw - 40px)`, `height: calc((100vw - 40px) * 2.05)`, border-radius 40px, border 6px. Notch shrinks to 100x24px. Inner content border-radius 34px.
+
+**Container layout:** `flex flex-col md:flex-row items-center gap-6 md:gap-[50px] justify-center`, outer wrapper has 20px padding (mobile), 32px padding (desktop).
+
+---
+
+**PHONE 1 (Left) - Featured Lodges listing:**
+
+- Background: looping video `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260620_140846_aef8cb19-5ec8-4b45-974b-020aed20f297.mp4`
+- Content overlay gradient: top rgba(30,60,80,0.4) -> mid rgba(30,60,80,0.2) -> lower rgba(10,30,40,0.6) -> bottom rgba(10,20,30,0.9)
+- Header: Leaf icon (amber-400) + "WoodNest" label + hamburger Menu toggle (opens fullscreen frosted nav with staggered fadeIn links: Locations, Rooms, Experiences, Contact)
+- Title: "Featured Lodges" (font-display, 2.5rem, font-light, white) + subtitle "This week's most loved retreats" (white/60, sm)
+- Card 1 (liquid-glass-dropdown background): video thumbnail `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260706_193839_c320d45f-58ff-4c65-b4dc-b6afd855f68f.mp4` (h-48, rounded-[16px], autoplay muted loop), title "Spruce Hill Lodge", price "$450/night" (3xl font-light) + "+$25.00 taxes", white "Reserve" button (rounded-[16px])
+- Card 2 (bg-blue-400/5 backdrop-blur-sm): video `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260706_193851_8f42b8d7-c4e2-480f-8c2e-4a8415e67774.mp4`, title "Cedar Valley Cabin", price "$320/night" + "+$18.00 taxes", same Reserve button
+
+---
+
+**PHONE 2 (Center) - Hero / Landing:**
+
+- Background: static image (as background-image on a div): `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260707_141501_77d33995-a443-4890-ad2a-afb0108874ea.png&w=1280&q=85`
+- Same header (Leaf + "WoodNest" + menu toggle)
+- Hero title: "Nature's Perfect Hideaways" (font-display, 3rem, font-light, "Perfect" is white/50)
+- Subtitle paragraph: "Discover handpicked luxury cabins in breathtaking locations. Unplug, unwind, and reconnect with what matters most." (white/70, sm, max-w-[260px])
+- Bottom section: Rating badge aligned right (Star icon filled amber-400 + "4.7" bold xl + "from 1,800+ stays"), and a full-width "Book Now" button with white/95 background, rounded-[16px], and an animated pulse-glow box-shadow (amber at 10-25% oscillating)
+
+---
+
+**PHONE 3 (Right) - Reservation / Booking form:**
+
+- Background: same video as Phone 1 (`hf_20260620_140846_...`)
+- Same overlay gradient + header + menu
+- Title: "Reserve Your Retreat" (font-display, 2.2rem, font-light)
+- Main card (liquid-glass-dropdown): static image `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260707_140711_d9bf3815-d23c-4737-9390-2eb93594839a.png&w=1280&q=85` (h-56, rounded-[16px])
+- Lodge name: "Evergreen Pine Family Lodge" (xl, font-light) with a pencil edit button (round frosted glass)
+- Interactive date pickers: two side-by-side pickers showing Calendar icon + formatted date (default: Feb 11 and Mar 25, 2026). Clicking opens a full inline calendar with: month navigation (ChevronLeft/Right), day headers (Su-Sa), day grid with selected dates highlighted white, in-range dates at white/15, others white/40 hover white/10.
+- Check-in/Check-out time selector: split row (border-r divider), showing "After 2:00 PM" / "Until 12:00 PM" by default. Clicking opens a scrollable time picker dropdown (liquid-glass-time-dropdown: rgba(10,18,35,0.95), 40px blur, border 1px white/8).
+- Price: "$359/night" (3xl font-light) + "2-5 guests" aligned right
+- Full-width white "Reserve" button
+
+---
+
+**Glass effects used throughout:**
+- `.liquid-glass-menu`: rgba(15,25,45,0.4), backdrop-filter blur(24px) saturate(1.4), inset top 1px white/6 border, shadow 20px 60px black/40
+- `.liquid-glass-dropdown`: rgba(15,25,45,0.4), backdrop-filter blur(20px) saturate(1.3), inset top 1px white/6 border, shadow 12px 40px black/40
+- `.liquid-glass-time-dropdown`: rgba(10,18,35,0.95), backdrop-filter blur(40px) saturate(1.5), border 1px white/8, shadow 16px 48px black/60
+
+**Animations:**
+- `.animate-fade-in-up`: translateY(24px)->0, 0.8s cubic-bezier(0.16,1,0.3,1)
+- `.animate-fade-in-scale`: scale(0.92)->1, 0.9s same easing
+- Staggered delays: 0.15s, 0.3s, 0.5s, 0.7s, 0.9s, 1.1s (elements start at opacity:0)
+- `.btn-hover`: scale(1.03) + white glow shadow on hover, scale(0.97) on active
+- `.card-hover`: translateY(-4px) + deeper shadow on hover
+- `.animate-pulse-glow`: 3s infinite amber glow oscillation on Book Now button

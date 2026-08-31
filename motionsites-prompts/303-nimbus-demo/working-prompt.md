@@ -9,19 +9,19 @@
 **CSS variables on `:root`:**
 ```css
 :root {
-  color-scheme: dark;
-  --bg: #17130d;
-  --ink: #fff4d5;
-  --muted: #dacaa1;
-  --line: rgba(255, 240, 199, 0.28);
-  --glass: rgba(255, 239, 199, 0.16);
-  --glass-strong: rgba(255, 239, 199, 0.24);
-  --accent: #ead09a;
-  --accent-2: #ffd879;
-  --deep: #4d3f24;
-  --radius: 8px;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+color-scheme: dark;
+--bg: #17130d;
+--ink: #fff4d5;
+--muted: #dacaa1;
+--line: rgba(255, 240, 199, 0.28);
+--glass: rgba(255, 239, 199, 0.16);
+--glass-strong: rgba(255, 239, 199, 0.24);
+--accent: #ead09a;
+--accent-2: #ffd879;
+--deep: #4d3f24;
+--radius: 8px;
+--font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+--font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
 }
 ```
 
@@ -30,23 +30,23 @@
 **Shared h2 base:**
 ```css
 h2 {
-  max-width: 920px;
-  margin-bottom: 0;
-  font-size: clamp(25px, 4vw, 52px);
-  line-height: 1.08;
-  letter-spacing: 0.005rem;
-  font-weight: 400;
+max-width: 920px;
+margin-bottom: 0;
+font-size: clamp(25px, 4vw, 52px);
+line-height: 1.08;
+letter-spacing: 0.005rem;
+font-weight: 400;
 }
 ```
 
 **Shared h3 base:**
 ```css
 h3 {
-  margin-bottom: 14px;
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: 0.0125rem;
-  font-weight: 400;
+margin-bottom: 14px;
+font-size: 24px;
+line-height: 1.2;
+letter-spacing: 0.0125rem;
+font-weight: 400;
 }
 ```
 
@@ -65,14 +65,14 @@ This section uses a **cool cyan/blue palette** (`#97d3eb`, `rgba(151, 211, 235, 
 **Outer container:**
 ```css
 .console-showcase {
-  position: relative;
-  min-height: 112svh;
-  padding: clamp(72px, 8vw, 120px) clamp(20px, 5vw, 72px);
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 240, 199, 0.1);
-  background:
-    radial-gradient(circle at 82% 34%, rgba(151, 211, 235, 0.12), transparent 24rem),
-    #070a0b;
+position: relative;
+min-height: 112svh;
+padding: clamp(72px, 8vw, 120px) clamp(20px, 5vw, 72px);
+overflow: hidden;
+border-top: 1px solid rgba(255, 240, 199, 0.1);
+background:
+radial-gradient(circle at 82% 34%, rgba(151, 211, 235, 0.12), transparent 24rem),
+#070a0b;
 }
 ```
 
@@ -81,17 +81,17 @@ Background is a very dark cool-black (`#070a0b`) with a subtle cyan radial glow 
 **Decorative ruled-lines block (`::after`):**
 ```css
 .console-showcase::after {
-  content: "";
-  position: absolute;
-  top: 19%;
-  right: 8%;
-  width: min(360px, 24vw);
-  height: 210px;
-  border-radius: 4px;
-  background:
-    linear-gradient(180deg, rgba(255, 247, 222, 0.04), rgba(255, 247, 222, 0.02)),
-    repeating-linear-gradient(180deg, rgba(255, 247, 222, 0.08) 0 48px, transparent 48px 70px);
-  opacity: 0.55;
+content: "";
+position: absolute;
+top: 19%;
+right: 8%;
+width: min(360px, 24vw);
+height: 210px;
+border-radius: 4px;
+background:
+linear-gradient(180deg, rgba(255, 247, 222, 0.04), rgba(255, 247, 222, 0.02)),
+repeating-linear-gradient(180deg, rgba(255, 247, 222, 0.08) 0 48px, transparent 48px 70px);
+opacity: 0.55;
 }
 ```
 
@@ -103,41 +103,41 @@ This creates a subtle decorative element in the top-right — faint horizontal r
 
 ```html
 <div class="console-showcase-heading">
-  <h2 id="console-title">The biggest forward leap in business cloud storage operations.</h2>
-  <p>
-    A single control plane for provisioning storage pools, reviewing policy, watching growth,
-    and shipping audit-ready reports without asking teams to change how they work.
-  </p>
+<h2 id="console-title">The biggest forward leap in business cloud storage operations.</h2>
+<p>
+A single control plane for provisioning storage pools, reviewing policy, watching growth,
+and shipping audit-ready reports without asking teams to change how they work.
+</p>
 </div>
 ```
 
 ```css
 .console-showcase-heading {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 720px) minmax(220px, 360px);
-  justify-content: space-between;
-  gap: clamp(32px, 6vw, 86px);
-  width: 100%;
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: minmax(0, 720px) minmax(220px, 360px);
+justify-content: space-between;
+gap: clamp(32px, 6vw, 86px);
+width: 100%;
 }
 
 .console-showcase-heading h2 {
-  max-width: 720px;
-  color: #dff5ff;
-  font-size: clamp(25px, 4vw, 52px);
-  line-height: 1.08;
-  letter-spacing: 0.005rem;
-  font-weight: 400;
+max-width: 720px;
+color: #dff5ff;
+font-size: clamp(25px, 4vw, 52px);
+line-height: 1.08;
+letter-spacing: 0.005rem;
+font-weight: 400;
 }
 
 .console-showcase-heading p {
-  align-self: end;
-  justify-self: end;
-  max-width: 360px;
-  color: rgba(223, 245, 255, 0.72);
-  font-size: 19px;
-  line-height: 1.55;
+align-self: end;
+justify-self: end;
+max-width: 360px;
+color: rgba(223, 245, 255, 0.72);
+font-size: 19px;
+line-height: 1.55;
 }
 ```
 
@@ -149,30 +149,30 @@ The h2 is in a light cyan-white (`#dff5ff`). The paragraph is a muted cyan, alig
 
 ```html
 <div class="console-figure-label">
-  <span>Fig. 2</span>
-  Nimbus Grid web console
+<span>Fig. 2</span>
+Nimbus Grid web console
 </div>
 ```
 
 ```css
 .console-figure-label {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  margin: clamp(42px, 6vw, 72px) 0 14px;
-  color: rgba(255, 247, 222, 0.42);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
+position: relative;
+z-index: 2;
+width: 100%;
+margin: clamp(42px, 6vw, 72px) 0 14px;
+color: rgba(255, 247, 222, 0.42);
+font-family: var(--font-mono);
+font-size: 12px;
+letter-spacing: 0.08rem;
+text-transform: uppercase;
 }
 
 .console-figure-label span {
-  display: inline-flex;
-  padding: 5px 8px;
-  margin-right: 10px;
-  border: 1px solid rgba(255, 247, 222, 0.18);
-  border-radius: 2px;
+display: inline-flex;
+padding: 5px 8px;
+margin-right: 10px;
+border: 1px solid rgba(255, 247, 222, 0.18);
+border-radius: 2px;
 }
 ```
 
@@ -186,75 +186,75 @@ This is the centerpiece — a complete faux web-app UI with hover effects.
 
 ```html
 <div class="dashboard-shell">
-  <div class="dashboard-topbar">
-    <span></span>
-    <span></span>
-    <span></span>
-    <strong></strong>
-  </div>
-  <div class="dashboard-body">
-    <aside class="dashboard-sidebar">
-      <strong>Client Vault</strong>
-      <nav aria-label="Console sections">
-        <span>Workspaces</span>
-        <span class="active">Storage Pools</span>
-        <span>Retention</span>
-        <span>Access</span>
-        <span>Transfers</span>
-        <span>Reports</span>
-      </nav>
-    </aside>
+<div class="dashboard-topbar">
+<span></span>
+<span></span>
+<span></span>
+<strong></strong>
+</div>
+<div class="dashboard-body">
+<aside class="dashboard-sidebar">
+<strong>Client Vault</strong>
+<nav aria-label="Console sections">
+<span>Workspaces</span>
+<span class="active">Storage Pools</span>
+<span>Retention</span>
+<span>Access</span>
+<span>Transfers</span>
+<span>Reports</span>
+</nav>
+</aside>
 
-    <div class="dashboard-main">
-      <div class="dashboard-title-row">
-        <h3>Storage Pools</h3>
-        <button type="button">New pool</button>
-      </div>
+<div class="dashboard-main">
+<div class="dashboard-title-row">
+<h3>Storage Pools</h3>
+<button type="button">New pool</button>
+</div>
 
-      <div class="dashboard-table" role="table" aria-label="Storage pool status">
-        <div class="dashboard-row header" role="row">
-          <span>Name</span>
-          <span>Region</span>
-          <span>Used</span>
-          <span>Policy</span>
-          <span>State</span>
-        </div>
-        <div class="dashboard-row" role="row">
-          <span>finance-vault</span>
-          <span>EU Central</span>
-          <span>18.4 TiB</span>
-          <span>7 years</span>
-          <strong>Healthy</strong>
-        </div>
-        <div class="dashboard-row" role="row">
-          <span>design-assets</span>
-          <span>US East</span>
-          <span>9.8 TiB</span>
-          <span>Versioned</span>
-          <strong>Syncing</strong>
-        </div>
-        <div class="dashboard-row" role="row">
-          <span>legal-archive</span>
-          <span>EU Central</span>
-          <span>42.1 TiB</span>
-          <span>Immutable</span>
-          <strong>Healthy</strong>
-        </div>
-        <div class="dashboard-row" role="row">
-          <span>migration-lane</span>
-          <span>AP South</span>
-          <span>6.2 TiB</span>
-          <span>Temporary</span>
-          <strong>Queued</strong>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="dashboard-table" role="table" aria-label="Storage pool status">
+<div class="dashboard-row header" role="row">
+<span>Name</span>
+<span>Region</span>
+<span>Used</span>
+<span>Policy</span>
+<span>State</span>
+</div>
+<div class="dashboard-row" role="row">
+<span>finance-vault</span>
+<span>EU Central</span>
+<span>18.4 TiB</span>
+<span>7 years</span>
+<strong>Healthy</strong>
+</div>
+<div class="dashboard-row" role="row">
+<span>design-assets</span>
+<span>US East</span>
+<span>9.8 TiB</span>
+<span>Versioned</span>
+<strong>Syncing</strong>
+</div>
+<div class="dashboard-row" role="row">
+<span>legal-archive</span>
+<span>EU Central</span>
+<span>42.1 TiB</span>
+<span>Immutable</span>
+<strong>Healthy</strong>
+</div>
+<div class="dashboard-row" role="row">
+<span>migration-lane</span>
+<span>AP South</span>
+<span>6.2 TiB</span>
+<span>Temporary</span>
+<strong>Queued</strong>
+</div>
+</div>
+</div>
+</div>
 
-  <div class="dashboard-toast">
-    <strong>Pool created</strong>
-    finance-vault ready
-  </div>
+<div class="dashboard-toast">
+<strong>Pool created</strong>
+finance-vault ready
+</div>
 </div>
 ```
 
@@ -262,51 +262,51 @@ This is the centerpiece — a complete faux web-app UI with hover effects.
 
 ```css
 .dashboard-shell {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-height: 620px;
-  border: 1px solid rgba(151, 211, 235, 0.18);
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(5, 8, 10, 0.9);
-  box-shadow: 0 36px 120px rgba(0, 0, 0, 0.44);
-  transform: perspective(1400px) rotateX(0) rotateY(0) translateY(0);
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+position: relative;
+z-index: 2;
+width: 100%;
+min-height: 620px;
+border: 1px solid rgba(151, 211, 235, 0.18);
+border-radius: 8px;
+overflow: hidden;
+background: rgba(5, 8, 10, 0.9);
+box-shadow: 0 36px 120px rgba(0, 0, 0, 0.44);
+transform: perspective(1400px) rotateX(0) rotateY(0) translateY(0);
+transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 ```
 
 **Specular shine overlay (`::before`):**
 ```css
 .dashboard-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    rgba(223, 245, 255, 0) 0%,
-    rgba(223, 245, 255, 0.08) 42%,
-    rgba(223, 245, 255, 0) 64%
-  );
-  opacity: 0;
-  transform: translateX(-34%);
-  transition: opacity 220ms ease, transform 520ms ease;
+content: "";
+position: absolute;
+inset: 0;
+z-index: 1;
+pointer-events: none;
+background: linear-gradient(
+115deg,
+rgba(223, 245, 255, 0) 0%,
+rgba(223, 245, 255, 0.08) 42%,
+rgba(223, 245, 255, 0) 64%
+);
+opacity: 0;
+transform: translateX(-34%);
+transition: opacity 220ms ease, transform 520ms ease;
 }
 ```
 
 **Hover state (3D tilt + shine sweep):**
 ```css
 .dashboard-shell:hover {
-  border-color: rgba(151, 211, 235, 0.34);
-  box-shadow: 0 44px 140px rgba(0, 0, 0, 0.52), 0 0 80px rgba(151, 211, 235, 0.08);
-  transform: perspective(1400px) rotateX(1deg) rotateY(-1.2deg) translateY(-8px);
+border-color: rgba(151, 211, 235, 0.34);
+box-shadow: 0 44px 140px rgba(0, 0, 0, 0.52), 0 0 80px rgba(151, 211, 235, 0.08);
+transform: perspective(1400px) rotateX(1deg) rotateY(-1.2deg) translateY(-8px);
 }
 
 .dashboard-shell:hover::before {
-  opacity: 1;
-  transform: translateX(34%);
+opacity: 1;
+transform: translateX(34%);
 }
 ```
 
@@ -316,27 +316,27 @@ On hover, the entire dashboard tilts slightly in 3D (1deg X, -1.2deg Y), lifts u
 
 ```css
 .dashboard-topbar {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  height: 58px;
-  padding: 0 18px;
-  border-bottom: 1px solid rgba(151, 211, 235, 0.14);
+display: flex;
+align-items: center;
+gap: 9px;
+height: 58px;
+padding: 0 18px;
+border-bottom: 1px solid rgba(151, 211, 235, 0.14);
 }
 
 .dashboard-topbar span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 247, 222, 0.14);
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: rgba(255, 247, 222, 0.14);
 }
 
 .dashboard-topbar strong {
-  width: 170px;
-  height: 13px;
-  margin-left: 72px;
-  border-radius: 2px;
-  background: rgba(255, 247, 222, 0.09);
+width: 170px;
+height: 13px;
+margin-left: 72px;
+border-radius: 2px;
+background: rgba(255, 247, 222, 0.09);
 }
 ```
 
@@ -346,11 +346,11 @@ On hover, the entire dashboard tilts slightly in 3D (1deg X, -1.2deg Y), lifts u
 
 ```css
 .dashboard-body {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  min-height: 560px;
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: 240px 1fr;
+min-height: 560px;
 }
 ```
 
@@ -358,31 +358,31 @@ On hover, the entire dashboard tilts slightly in 3D (1deg X, -1.2deg Y), lifts u
 
 ```css
 .dashboard-sidebar {
-  padding: 26px 18px;
-  border-right: 1px solid rgba(151, 211, 235, 0.12);
-  color: rgba(223, 245, 255, 0.44);
+padding: 26px 18px;
+border-right: 1px solid rgba(151, 211, 235, 0.12);
+color: rgba(223, 245, 255, 0.44);
 }
 
 .dashboard-sidebar strong {
-  display: block;
-  margin-bottom: 34px;
-  color: rgba(223, 245, 255, 0.7);
-  font-weight: 400;
+display: block;
+margin-bottom: 34px;
+color: rgba(223, 245, 255, 0.7);
+font-weight: 400;
 }
 
 .dashboard-sidebar nav {
-  display: grid;
-  gap: 12px;
+display: grid;
+gap: 12px;
 }
 
 .dashboard-sidebar span {
-  padding: 7px 10px;
-  border-radius: 3px;
+padding: 7px 10px;
+border-radius: 3px;
 }
 
 .dashboard-sidebar .active {
-  color: #97d3eb;
-  background: rgba(151, 211, 235, 0.13);
+color: #97d3eb;
+background: rgba(151, 211, 235, 0.13);
 }
 ```
 
@@ -392,34 +392,34 @@ Sidebar nav items: Workspaces, **Storage Pools** (active, highlighted cyan), Ret
 
 ```css
 .dashboard-main {
-  padding: clamp(34px, 5vw, 60px);
+padding: clamp(34px, 5vw, 60px);
 }
 
 .dashboard-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 34px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 18px;
+margin-bottom: 34px;
 }
 
 .dashboard-title-row h3 {
-  margin: 0;
-  color: #97d3eb;
-  font-size: clamp(28px, 2.8vw, 44px);
+margin: 0;
+color: #97d3eb;
+font-size: clamp(28px, 2.8vw, 44px);
 }
 
 .dashboard-title-row button {
-  min-height: 36px;
-  padding: 0 14px;
-  border: 1px solid rgba(151, 211, 235, 0.3);
-  border-radius: 3px;
-  color: #97d3eb;
-  background: rgba(151, 211, 235, 0.1);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.06rem;
-  text-transform: uppercase;
+min-height: 36px;
+padding: 0 14px;
+border: 1px solid rgba(151, 211, 235, 0.3);
+border-radius: 3px;
+color: #97d3eb;
+background: rgba(151, 211, 235, 0.1);
+font-family: var(--font-mono);
+font-size: 12px;
+letter-spacing: 0.06rem;
+text-transform: uppercase;
 }
 ```
 
@@ -427,49 +427,49 @@ Sidebar nav items: Workspaces, **Storage Pools** (active, highlighted cyan), Ret
 
 ```css
 .dashboard-table {
-  display: grid;
-  border: 1px solid rgba(255, 247, 222, 0.12);
-  border-radius: 4px;
-  overflow: hidden;
+display: grid;
+border: 1px solid rgba(255, 247, 222, 0.12);
+border-radius: 4px;
+overflow: hidden;
 }
 
 .dashboard-row {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 0.8fr 1fr 0.8fr;
-  min-height: 54px;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 247, 222, 0.08);
-  transition: background 160ms ease;
+display: grid;
+grid-template-columns: 1.3fr 1fr 0.8fr 1fr 0.8fr;
+min-height: 54px;
+align-items: center;
+border-bottom: 1px solid rgba(255, 247, 222, 0.08);
+transition: background 160ms ease;
 }
 
 .dashboard-row:not(.header):hover {
-  background: rgba(151, 211, 235, 0.06);
+background: rgba(151, 211, 235, 0.06);
 }
 
 .dashboard-row:last-child {
-  border-bottom: 0;
+border-bottom: 0;
 }
 
 .dashboard-row span,
 .dashboard-row strong {
-  padding: 0 16px;
-  color: rgba(223, 245, 255, 0.64);
-  font-weight: 400;
+padding: 0 16px;
+color: rgba(223, 245, 255, 0.64);
+font-weight: 400;
 }
 
 .dashboard-row.header span {
-  color: rgba(223, 245, 255, 0.42);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.09rem;
-  text-transform: uppercase;
+color: rgba(223, 245, 255, 0.42);
+font-family: var(--font-mono);
+font-size: 11px;
+letter-spacing: 0.09rem;
+text-transform: uppercase;
 }
 
 .dashboard-row strong {
-  color: #97d3eb;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  text-transform: uppercase;
+color: #97d3eb;
+font-family: var(--font-mono);
+font-size: 12px;
+text-transform: uppercase;
 }
 ```
 
@@ -488,22 +488,22 @@ Sidebar nav items: Workspaces, **Storage Pools** (active, highlighted cyan), Ret
 
 ```css
 .dashboard-toast {
-  position: absolute;
-  right: clamp(28px, 7vw, 90px);
-  bottom: 58px;
-  width: min(330px, 34vw);
-  padding: 18px 20px;
-  border: 1px solid rgba(151, 211, 235, 0.22);
-  border-radius: 4px;
-  color: #97d3eb;
-  background: rgba(8, 34, 42, 0.92);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+position: absolute;
+right: clamp(28px, 7vw, 90px);
+bottom: 58px;
+width: min(330px, 34vw);
+padding: 18px 20px;
+border: 1px solid rgba(151, 211, 235, 0.22);
+border-radius: 4px;
+color: #97d3eb;
+background: rgba(8, 34, 42, 0.92);
+box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
 }
 
 .dashboard-toast strong {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 400;
+display: block;
+margin-bottom: 6px;
+font-weight: 400;
 }
 ```
 
@@ -517,46 +517,46 @@ A floating notification card positioned bottom-right inside the shell. Dark teal
 
 ```css
 .console-showcase-heading {
-  grid-template-columns: 1fr;
+grid-template-columns: 1fr;
 }
 
 .console-showcase-heading h2 {
-  max-width: 760px;
-  font-size: clamp(25px, 6vw, 52px);
+max-width: 760px;
+font-size: clamp(25px, 6vw, 52px);
 }
 
 .console-showcase-heading p {
-  justify-self: start;
-  max-width: 420px;
+justify-self: start;
+max-width: 420px;
 }
 
 .dashboard-body {
-  grid-template-columns: 1fr;
+grid-template-columns: 1fr;
 }
 
 .dashboard-sidebar {
-  border-right: 0;
-  border-bottom: 1px solid rgba(151, 211, 235, 0.12);
+border-right: 0;
+border-bottom: 1px solid rgba(151, 211, 235, 0.12);
 }
 
 .dashboard-sidebar nav {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dashboard-row {
-  grid-template-columns: 1.2fr 0.9fr 0.8fr;
+grid-template-columns: 1.2fr 0.9fr 0.8fr;
 }
 
 .dashboard-row span:nth-child(4),
 .dashboard-row span:nth-child(5),
 .dashboard-row strong {
-  display: none;
+display: none;
 }
 
 .dashboard-toast {
-  position: static;
-  width: auto;
-  margin: 24px;
+position: static;
+width: auto;
+margin: 24px;
 }
 ```
 
@@ -566,24 +566,24 @@ At 820px: Heading stacks to single column. Dashboard sidebar moves to top with 2
 
 ```css
 .console-showcase {
-  padding-inline: 18px;
+padding-inline: 18px;
 }
 
 .console-showcase-heading h2 {
-  font-size: clamp(25px, 8vw, 44px);
+font-size: clamp(25px, 8vw, 44px);
 }
 
 .dashboard-shell {
-  min-height: 0;
+min-height: 0;
 }
 
 .dashboard-main {
-  padding: 24px 16px;
+padding: 24px 16px;
 }
 
 .dashboard-title-row {
-  align-items: flex-start;
-  flex-direction: column;
+align-items: flex-start;
+flex-direction: column;
 }
 ```
 
@@ -600,9 +600,9 @@ No JavaScript is required for this section. The only interactive behavior is the
 ## Project structure
 
 ```
-index.html       (section markup + font links)
-styles.css       (all styles + media queries)
-script.js        (empty — no JS needed)
-package.json     (vite ^5.4.2, "type": "module", scripts: dev/build/preview)
-vite.config.js   (default export)
+index.html (section markup + font links)
+styles.css (all styles + media queries)
+script.js (empty — no JS needed)
+package.json (vite ^5.4.2, "type": "module", scripts: dev/build/preview)
+vite.config.js (default export)
 ```

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "agent-grove",
+    "title": "Agent Grove",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 809,
+    "image_preview_url": "/assets/previews/agent-grove.webp",
+    "video_preview_url": "/assets/previews/agent-grove.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

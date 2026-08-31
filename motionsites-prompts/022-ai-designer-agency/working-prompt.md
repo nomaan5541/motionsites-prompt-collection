@@ -1,11 +1,3 @@
-# AI Designer Agency
-
-**ID:** ai-designer-agency  
-**Category:** Landing Page  
-**Type:** landing-page  
-
----
-
 Prompt to recreate this landing page:
 
 Build a dark-themed, single-page landing page for an AI web design agency called "VIRALMEDIA". The design uses a pure black background (#000) with white text, a signature "liquid glass" glassmorphism effect, and two Google Fonts: Barlow (body/UI) and Instrument Serif (italic accent text). Use React, Tailwind CSS, Framer Motion, and hls.js. All buttons are rounded-full.

@@ -1,11 +1,3 @@
-# NexaCore
-
-**ID:** nexacore-hero  
-**Category:** Landing Page  
-**Type:** hero  
-
----
-
 Build a React + TypeScript + Vite + Tailwind CSS landing page for "NexaCore" — an enterprise infrastructure operations platform. Use lucide-react for icons, hls.js for HLS video streaming, and @supabase/Bolt Database-js (available but not yet wired). No other UI libraries.
 
 Global Setup
@@ -18,16 +10,16 @@ Apply globally:
 
 
 @layer base {
-  html, body, * { font-family: 'Mazzard H', sans-serif; }
+html, body, * { font-family: 'Mazzard H', sans-serif; }
 }
 App Structure (src/App.tsx)
 
 <main>
-  <Navbar />
-  <Hero />
-  <TrustedSection />
-  <FreedomSection />
-  <PrecisionSection />
+<Navbar />
+<Hero />
+<TrustedSection />
+<FreedomSection />
+<PrecisionSection />
 </main>
 Brand Colors (use consistently)
 Deep navy text: rgb(26, 11, 84)
@@ -151,11 +143,11 @@ Wrapper max-width: 82.292vw. Relative block width: 82.292vw; height: 31.94vw, te
 
 Four pillars, each absolutely positioned via left: Xvw; bottom: Yvw:
 
-Label	left	bottom	Items
-Scopes	2.8vw	7vw	conditions, capacity, specs, timelines
-Integrates	22.4vw	9.08vw	civil, mechanical, electrical, controls
-Certifies	41.2vw	11.16vw	redundancy, testing, compliance, sign-offs
-Activates	61.1vw	13.24vw	cutover, runbooks, handoff, SLAs
+Label left bottom Items
+Scopes 2.8vw 7vw conditions, capacity, specs, timelines
+Integrates 22.4vw 9.08vw civil, mechanical, electrical, controls
+Certifies 41.2vw 11.16vw redundancy, testing, compliance, sign-offs
+Activates 61.1vw 13.24vw cutover, runbooks, handoff, SLAs
 Each pillar = column (align center):
 
 Chip: linear-gradient(135deg, rgb(255,255,255), rgba(255,255,255,0.6)), fontSize 18, weight 500, radius 20, padding 0.972vw 1.736vw, gap 8. Inside: logo image src https://cdn.prod.website-files.com/6720dd1ab6df0da205830ab1/6870f623cf3df417ce45df05_icon%20logo%20eternacloud.png width 1.111vw + label text.

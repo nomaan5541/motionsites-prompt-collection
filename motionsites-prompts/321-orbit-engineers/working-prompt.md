@@ -1,11 +1,3 @@
-# Orbit Engineers
-
-**ID:** orbit-engineers  
-**Category:** Agency  
-**Type:** landing-page  
-
----
-
 Create a single-page landing page for a fictional space engineering consultancy called "WE ARE ORBIT ENGINEERS". The page has 3 full-screen hero sections that the user navigates between using buttons (not scroll). Use React + Tailwind CSS + framer-motion + lucide-react icons (ChevronDown, ArrowRight).
 
 Font & Color System

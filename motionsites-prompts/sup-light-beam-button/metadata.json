@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-light-beam-button",
+    "title": "[Superdesign] Light Beam Button",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3038,
+    "image_preview_url": "/assets/superdesign/light-beam-button.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "button",
+      "ui component"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

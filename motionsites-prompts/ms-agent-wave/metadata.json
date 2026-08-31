@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "agent-wave",
+    "title": "Agent Wave",
+    "category": "AI",
+    "page_type": "hero",
+    "sort_order": 810,
+    "image_preview_url": "/assets/previews/agent-wave.webp",
+    "video_preview_url": "/assets/previews/agent-wave.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

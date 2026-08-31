@@ -18,15 +18,15 @@ const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
 ```ts
 function anim(visible: boolean, delay: number, opts: { y?: number; x?: number; duration?: number } = {}) {
-  const { y = 20, x = 0, duration = 1600 } = opts;
-  const translateFrom = y !== 0 ? `translateY(${y}px)` : x !== 0 ? `translateX(${x}px)` : 'none';
-  return {
-    style: {
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'translate(0,0)' : translateFrom,
-      transition: `opacity ${duration}ms ${EASE} ${delay}ms, transform ${duration}ms ${EASE} ${delay}ms`,
-    } as React.CSSProperties,
-  };
+const { y = 20, x = 0, duration = 1600 } = opts;
+const translateFrom = y !== 0 ? `translateY(${y}px)` : x !== 0 ? `translateX(${x}px)` : 'none';
+return {
+style: {
+opacity: visible ? 1 : 0,
+transform: visible ? 'translate(0,0)' : translateFrom,
+transition: `opacity ${duration}ms ${EASE} ${delay}ms, transform ${duration}ms ${EASE} ${delay}ms`,
+} as React.CSSProperties,
+};
 }
 ```
 
@@ -34,14 +34,14 @@ function anim(visible: boolean, delay: number, opts: { y?: number; x?: number; d
 
 ```ts
 const WILD_PRODUCT = {
-  name: 'Eau So Extra',
-  size: '100 ml / 3.3 oz',
-  image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260511_151621_4fba6892-ed21-4c2e-8cb3-0bd2ec2abefa.png&w=1280&q=85',
-  notes: [
-    { label: 'Top', ingredient: 'BANANA BLOSSOM ACCORD' },
-    { label: 'Heart', ingredient: 'CHOCOLATE DAISY ACCORD' },
-    { label: 'Base', ingredient: 'VETIVER OIL' },
-  ],
+name: 'Eau So Extra',
+size: '100 ml / 3.3 oz',
+image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260511_151621_4fba6892-ed21-4c2e-8cb3-0bd2ec2abefa.png&w=1280&q=85',
+notes: [
+{ label: 'Top', ingredient: 'BANANA BLOSSOM ACCORD' },
+{ label: 'Heart', ingredient: 'CHOCOLATE DAISY ACCORD' },
+{ label: 'Base', ingredient: 'VETIVER OIL' },
+],
 };
 ```
 
@@ -61,34 +61,34 @@ This is a reusable component shared with Section 2. For this section it is calle
 
 ```ts
 {
-  bg: string;
-  product: { name: string; size: string; image: string };
-  notes: { label: string; ingredient: string }[];
-  visible: boolean;
-  noteStyle?: 'normal' | 'bold';   // defaults to 'normal'
+bg: string;
+product: { name: string; size: string; image: string };
+notes: { label: string; ingredient: string }[];
+visible: boolean;
+noteStyle?: 'normal' | 'bold'; // defaults to 'normal'
 }
 ```
 
 ### Outer wrapper
 ```jsx
 <div
-  className="relative flex flex-col px-6 md:px-8 pt-6 md:pt-8 pb-8 md:pb-10"
-  style={{ backgroundColor: bg, minHeight: '100%' }}
+className="relative flex flex-col px-6 md:px-8 pt-6 md:pt-8 pb-8 md:pb-10"
+style={{ backgroundColor: bg, minHeight: '100%' }}
 >
 ```
 
 ### 1. Top labels row
 ```jsx
 <div
-  className="flex items-start justify-between mb-auto"
-  {...anim(visible, 0, { y: 12, duration: 1400 })}
+className="flex items-start justify-between mb-auto"
+{...anim(visible, 0, { y: 12, duration: 1400 })}
 >
-  <span className="text-xs font-normal" style={{ color: TEXT_COLOR }}>
-    {noteStyle === 'bold' ? 'Daisy wild' : 'Daisy love'}
-  </span>
-  <span className="text-xs font-normal" style={{ color: TEXT_COLOR }}>
-    {noteStyle === 'bold' ? 'Playful' : 'Sweet'}
-  </span>
+<span className="text-xs font-normal" style={{ color: TEXT_COLOR }}>
+{noteStyle === 'bold' ? 'Daisy wild' : 'Daisy love'}
+</span>
+<span className="text-xs font-normal" style={{ color: TEXT_COLOR }}>
+{noteStyle === 'bold' ? 'Playful' : 'Sweet'}
+</span>
 </div>
 ```
 
@@ -97,36 +97,36 @@ For this section (`noteStyle="bold"`), the labels read **"Daisy wild"** on the l
 ### 2. Product image block
 ```jsx
 <div
-  className="flex flex-col items-center py-8"
-  style={{ flex: 1, justifyContent: 'center', ...anim(visible, 300, { y: 40, duration: 1800 }).style }}
+className="flex flex-col items-center py-8"
+style={{ flex: 1, justifyContent: 'center', ...anim(visible, 300, { y: 40, duration: 1800 }).style }}
 >
 ```
 
 #### Image container
 ```jsx
 <div
-  className="overflow-hidden"
-  style={{
-    width: 'clamp(140px, 40%, 220px)',
-    aspectRatio: '220/340',
-    backgroundColor: '#D9D9D9',
-    borderRadius: '2px',
-    flexShrink: 0,
-  }}
+className="overflow-hidden"
+style={{
+width: 'clamp(140px, 40%, 220px)',
+aspectRatio: '220/340',
+backgroundColor: '#D9D9D9',
+borderRadius: '2px',
+flexShrink: 0,
+}}
 >
-  <img
-    src={product.image}
-    alt={product.name}
-    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-  />
+<img
+src={product.image}
+alt={product.name}
+style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+/>
 </div>
 ```
 
 #### Caption (below image)
 ```jsx
 <div className="text-center mt-4" {...anim(visible, 600, { y: 10, duration: 1400 })}>
-  <p className="text-sm font-normal" style={{ color: TEXT_COLOR }}>{product.name}</p>
-  <p className="text-xs font-normal mt-1" style={{ color: TEXT_COLOR }}>{product.size}</p>
+<p className="text-sm font-normal" style={{ color: TEXT_COLOR }}>{product.name}</p>
+<p className="text-xs font-normal mt-1" style={{ color: TEXT_COLOR }}>{product.size}</p>
 </div>
 ```
 
@@ -149,19 +149,19 @@ For this section (`noteStyle="bold"`), the note LABELS ("Top", "Heart", "Base") 
 #### SHOP NOW button (right side)
 ```jsx
 <button
-  className="text-xs font-bold tracking-widest uppercase border px-6 py-3 relative group shrink-0"
-  style={{
-    color: TEXT_COLOR,
-    borderColor: TEXT_COLOR,
-    backgroundColor: 'transparent',
-    ...anim(visible, 1150, { y: 16, duration: 1400 }).style,
-  }}
+className="text-xs font-bold tracking-widest uppercase border px-6 py-3 relative group shrink-0"
+style={{
+color: TEXT_COLOR,
+borderColor: TEXT_COLOR,
+backgroundColor: 'transparent',
+...anim(visible, 1150, { y: 16, duration: 1400 }).style,
+}}
 >
-  <span className="relative z-10 group-hover:text-black transition-colors duration-500">SHOP NOW</span>
-  <span
-    className="absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-    style={{ backgroundColor: '#ffffff' }}
-  />
+<span className="relative z-10 group-hover:text-black transition-colors duration-500">SHOP NOW</span>
+<span
+className="absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+style={{ backgroundColor: '#ffffff' }}
+/>
 </button>
 ```
 
@@ -177,12 +177,12 @@ const ref = useRef<HTMLDivElement>(null);
 const [visible, setVisible] = useState(false);
 
 useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-    { threshold: 0.15 }
-  );
-  if (ref.current) observer.observe(ref.current);
-  return () => observer.disconnect();
+const observer = new IntersectionObserver(
+([entry]) => { if (entry.isIntersecting) setVisible(true); },
+{ threshold: 0.15 }
+);
+if (ref.current) observer.observe(ref.current);
+return () => observer.disconnect();
 }, []);
 ```
 
@@ -192,7 +192,7 @@ One-shot: once 15% visible, `visible` becomes `true` permanently, triggering all
 
 ```jsx
 <section ref={ref} className="relative w-full">
-  <div className="flex flex-col-reverse md:grid md:min-h-screen" style={{ gridTemplateColumns: '1fr 1fr' }}>
+<div className="flex flex-col-reverse md:grid md:min-h-screen" style={{ gridTemplateColumns: '1fr 1fr' }}>
 ```
 
 **Critical difference from Section 2:** This uses `flex-col-reverse` (not `flex-col`). The DOM order is: video divs first, then ProductPanel. But on mobile, `flex-col-reverse` visually flips them so the product panel appears ABOVE the video.
@@ -202,29 +202,29 @@ One-shot: once 15% visible, `visible` becomes `true` permanently, triggering all
 #### Child 1: Desktop video panel (left half on desktop, hidden below `md`)
 ```jsx
 <div className="hidden md:block relative overflow-hidden" style={{ backgroundColor: '#111', minHeight: '100%' }}>
-  <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151818_65bb22c5-33ae-4e23-85ea-0a3dd89957c2.mp4" type="video/mp4" />
-  </video>
+<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151818_65bb22c5-33ae-4e23-85ea-0a3dd89957c2.mp4" type="video/mp4" />
+</video>
 </div>
 ```
 
 #### Child 2: Mobile video strip (hidden at `md` and above)
 ```jsx
 <div className="md:hidden relative overflow-hidden" style={{ height: '75vw', backgroundColor: '#111' }}>
-  <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151818_65bb22c5-33ae-4e23-85ea-0a3dd89957c2.mp4" type="video/mp4" />
-  </video>
+<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151818_65bb22c5-33ae-4e23-85ea-0a3dd89957c2.mp4" type="video/mp4" />
+</video>
 </div>
 ```
 
 #### Child 3: ProductPanel (right half on desktop, visually on top on mobile)
 ```jsx
 <ProductPanel
-  bg={BG_LIME}
-  product={WILD_PRODUCT}
-  notes={WILD_PRODUCT.notes}
-  visible={visible}
-  noteStyle="bold"
+bg={BG_LIME}
+product={WILD_PRODUCT}
+notes={WILD_PRODUCT.notes}
+visible={visible}
+noteStyle="bold"
 />
 ```
 

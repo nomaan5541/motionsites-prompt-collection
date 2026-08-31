@@ -58,8 +58,8 @@ Body background: `#000` (desktop), `#060707` (mobile). All text white.
 - **h1:** EB Garamond, 62px, line-height 1.06, weight 400, letter-spacing -.005em, text-wrap balance. Contains `<em>` for "actually" (italic)
 - **Subtitle (`.sub`):** EB Garamond, 22px, line-height 1.5, color `var(--muted)`, max-width 430px
 - **CTA buttons** (flex row, gap 14px, margin-top 38px):
-  - Primary: "Get started for free" -- `#f4f3f0` bg, `#121312` text, 999px radius, 54px height, 16px weight 600, box-shadow `0 8px 30px rgba(0,0,0,.35)`. Hover: translateY(-2px) + stronger shadow
-  - Ghost: "Watch demo" with Material Icons Round play_circle icon -- `rgba(12,13,13,.72)` bg, white text, border `rgba(255,255,255,.32)`, backdrop-filter blur(14px), gap 10px
+- Primary: "Get started for free" -- `#f4f3f0` bg, `#121312` text, 999px radius, 54px height, 16px weight 600, box-shadow `0 8px 30px rgba(0,0,0,.35)`. Hover: translateY(-2px) + stronger shadow
+- Ghost: "Watch demo" with Material Icons Round play_circle icon -- `rgba(12,13,13,.72)` bg, white text, border `rgba(255,255,255,.32)`, backdrop-filter blur(14px), gap 10px
 
 **Dashboard iframe** (`.dash`):
 - Positioned absolutely via CSS custom properties: `--dash-w: 670px`, `--dash-x: 59%`, `--dash-y: 55px`
@@ -99,11 +99,11 @@ Column 4 (`.fbrand`):
 - Brand logo (28x28) + "Highframe" (23px)
 - Description: "Skip the dev queue. Build internal workflows, smart forms, and automations without code." -- 17px, line-height 1.5, color `rgba(255,255,255,.7)`, max-width 330px
 - **Waitlist form** (pill shape): flex row, `rgba(255,255,255,.08)` bg, border `rgba(255,255,255,.16)`, border-radius 999px, padding 6px 6px 6px 20px, max-width 440px, backdrop-filter blur(8px), inset box-shadow
-  - Mail icon SVG (17x17) + email input (15.5px)
-  - Submit button: white bg, `#0c0d0d` text, 999px radius, padding 12px 20px, 15px weight 600
+- Mail icon SVG (17x17) + email input (15.5px)
+- Submit button: white bg, `#0c0d0d` text, 999px radius, padding 12px 20px, 15px weight 600
 
 **Bottom bar** (border-top `rgba(255,255,255,.12)`, flex space-between, padding 26px top 38px bottom):
-- Left: "(c) 2026  Highframe. All rights reserved." -- 14.5px, color `rgba(255,255,255,.55)`
+- Left: "(c) 2026 Highframe. All rights reserved." -- 14.5px, color `rgba(255,255,255,.55)`
 - Center: Social icons (X/Twitter, LinkedIn, GitHub) -- SVG 18x18, color `rgba(255,255,255,.6)`, gap 22px. Hover: color #fff, translateY(-2px)
 - Right: "Privacy Policy", "Terms of Use", "Cookie Policy" -- 14.5px, color `rgba(255,255,255,.6)`, gap 28px
 
@@ -129,8 +129,8 @@ Wrapped in `.phone` container (max-width 430px, centered, min-height 100dvh, bg 
 - **h1:** EB Garamond, `clamp(44px, 12vw, 58px)`, line-height 1, letter-spacing -.025em, max-width 9ch, text-shadow `0 10px 30px rgba(0,0,0,.35)`. `<em>` styled with `color: var(--lime)` and italic
 - **Subtitle:** 16px, line-height 1.62, color `rgba(255,255,255,.76)`, max-width 31ch
 - **CTA stack** (flex column, gap 11px, max-width 340px):
-  - Primary: "Start Free Trial" -- `var(--paper)` bg, `var(--ink)` text, 58px height, 18px radius, 15.5px weight 600. Active: scale(.975) opacity .9
-  - Ghost: "Watch Demo" with play circle SVG icon -- `rgba(12,13,13,.78)` bg, border `rgba(255,255,255,.30)`, backdrop-filter blur(14px)
+- Primary: "Start Free Trial" -- `var(--paper)` bg, `var(--ink)` text, 58px height, 18px radius, 15.5px weight 600. Active: scale(.975) opacity .9
+- Ghost: "Watch Demo" with play circle SVG icon -- `rgba(12,13,13,.78)` bg, border `rgba(255,255,255,.30)`, backdrop-filter blur(14px)
 
 **Dashboard preview** (`.hero-preview`):
 - Perspective 3D card: `perspective(1400px) rotateX(17deg) rotateY(-8deg) rotateZ(1deg) translateY(10px)`
@@ -165,19 +165,19 @@ Box-shadow: `0 1px 0 rgba(255,255,255,.10) inset, 0 -1px 0 rgba(0,0,0,.28) inset
 3. **Subtitle:** "Build internal workflows, smart forms, and automations without code." -- 15px, line-height 1.55, color `rgba(210,195,210,.72)`, centered
 
 4. **Email form:**
-   - Input: 52px height, `rgba(255,255,255,.06)` bg, border `rgba(255,255,255,.20)`, 14px radius, 15px font, backdrop-filter blur(10px). Focus: brighter border + glow ring
-   - Button: "Sign up for waitlist" + arrow SVG -- 52px height, `var(--paper)` bg, `var(--ink)` text, 14px radius, 15.5px weight 600, box-shadow `0 10px 36px -14px rgba(255,255,255,.38)`
+- Input: 52px height, `rgba(255,255,255,.06)` bg, border `rgba(255,255,255,.20)`, 14px radius, 15px font, backdrop-filter blur(10px). Focus: brighter border + glow ring
+- Button: "Sign up for waitlist" + arrow SVG -- 52px height, `var(--paper)` bg, `var(--ink)` text, 14px radius, 15.5px weight 600, box-shadow `0 10px 36px -14px rgba(255,255,255,.38)`
 
 5. **Accordion** (4 sections: Product, Resources, Company, Legal):
-   - Trigger: 16px, weight 500, color `rgba(235,220,230,.86)`, flex with chevron SVG
-   - Chevron rotates 180deg on open, .26s cubic-bezier(.4,0,.2,1)
-   - Body: max-height 0 -> 300px transition, links 15px color `rgba(255,255,255,.6)`
-   - Same link lists as desktop (Product: 5 items, Resources: 5 items, Company: 4 items, Legal: Privacy Policy, Terms of Use, Cookie Policy)
-   - Only one accordion open at a time (JS closes others on toggle)
+- Trigger: 16px, weight 500, color `rgba(235,220,230,.86)`, flex with chevron SVG
+- Chevron rotates 180deg on open, .26s cubic-bezier(.4,0,.2,1)
+- Body: max-height 0 -> 300px transition, links 15px color `rgba(255,255,255,.6)`
+- Same link lists as desktop (Product: 5 items, Resources: 5 items, Company: 4 items, Legal: Privacy Policy, Terms of Use, Cookie Policy)
+- Only one accordion open at a time (JS closes others on toggle)
 
 6. **Social buttons** (centered row, gap 10px):
-   - X/Twitter, LinkedIn, GitHub -- 46px circles, border `rgba(255,255,255,.18)`, bg `rgba(255,255,255,.04)`, color `rgba(215,190,210,.72)`, backdrop-filter blur(8px)
-   - Hover: brighter bg/border/color + glow shadow
+- X/Twitter, LinkedIn, GitHub -- 46px circles, border `rgba(255,255,255,.18)`, bg `rgba(255,255,255,.04)`, color `rgba(215,190,210,.72)`, backdrop-filter blur(8px)
+- Hover: brighter bg/border/color + glow shadow
 
 7. **Brand lockup card:** frosted glass card (18px radius, `rgba(255,255,255,.07)` bg, border `rgba(255,255,255,.16)`, backdrop-filter blur(14px)), logo (22x22) + "Highframe" (20px) + "(c) 2026 Highframe. All rights reserved." (13px, color `rgba(255,255,255,.38)`)
 

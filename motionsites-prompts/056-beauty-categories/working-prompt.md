@@ -52,28 +52,28 @@
 > **Required CSS for `btn-primary` (in global stylesheet):**
 > ```css
 > .btn-primary {
->   position: relative;
->   overflow: hidden;
->   transition: transform 0.3s ease, box-shadow 0.3s ease;
+> position: relative;
+> overflow: hidden;
+> transition: transform 0.3s ease, box-shadow 0.3s ease;
 > }
 > .btn-primary::before {
->   content: '';
->   position: absolute;
->   inset: 0;
->   background: linear-gradient(120deg, transparent 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);
->   transform: translateX(-100%);
->   transition: transform 0.5s ease;
+> content: '';
+> position: absolute;
+> inset: 0;
+> background: linear-gradient(120deg, transparent 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);
+> transform: translateX(-100%);
+> transition: transform 0.5s ease;
 > }
 > .btn-primary:hover {
->   transform: translateY(-2px);
->   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+> transform: translateY(-2px);
+> box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 > }
 > .btn-primary:hover::before {
->   transform: translateX(100%);
+> transform: translateX(100%);
 > }
 > .btn-primary:active {
->   transform: translateY(0);
->   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+> transform: translateY(0);
+> box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 > }
 > ```
 >

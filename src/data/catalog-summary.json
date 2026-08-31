@@ -1,28 +1,47 @@
 {
-  "total": 661,
+  "total": 895,
   "access": {
-    "free": 661
+    "free": 895
   },
   "sourceModes": {
-    "original": 661
+    "original": 895
   },
   "media": {
-    "video": 376,
-    "image": 244,
-    "none": 41
+    "video": 397,
+    "image": 471,
+    "none": 27
   },
   "categories": {
-    "Landing Pages": 385,
-    "Pricing": 10,
-    "Agency": 17,
-    "SaaS": 17,
+    "404": 1,
+    "Landing Pages": 399,
+    "Pricing": 11,
+    "Agency": 22,
+    "SaaS": 36,
     "CTA": 9,
     "Social Proof": 6,
     "Features": 16,
-    "Footers": 10,
+    "Footers": 11,
+    "Hero Sections": 25,
+    "Components": 1,
+    "Portfolio": 4,
+    "Mobile App": 2,
+    "AI": 4,
+    "Fintech": 1,
+    "Community": 1,
+    "Cybersecurity": 1,
+    "Analytics": 1,
+    "Email & Newsletter": 1,
+    "Social Media": 2,
+    "Education": 1,
+    "Technology": 2,
+    "Healthcare": 3,
+    "Travel": 1,
+    "Sign in": 1,
+    "3D": 1,
+    "Fashion": 1,
     "HorizonX Library": 93,
     "21st.dev Registry": 93,
-    "Superdesign Canvas": 5
+    "Superdesign Canvas": 145
   },
-  "generatedAt": "2026-07-22T09:33:39.969Z"
+  "generatedAt": "2026-08-31T10:37:21.997Z"
 }

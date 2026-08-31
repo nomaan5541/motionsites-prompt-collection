@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-editorial-saas-onboarding",
+    "title": "[Superdesign] Editorial SaaS Onboarding",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3088,
+    "image_preview_url": "/assets/superdesign/editorial-saas-onboarding.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "sass",
+      "onboarding",
+      "modern",
+      "editorial design system",
+      "light mode",
+      "warm colour",
+      "terracotta accent",
+      "workspace setup",
+      "configuration wizard",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

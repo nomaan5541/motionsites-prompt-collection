@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "7",
+    "title": "Synapse Dark Hero",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 805,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

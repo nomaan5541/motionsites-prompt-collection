@@ -1,11 +1,3 @@
-# Pro AI Deck
-
-**ID:** pro-ai-deck  
-**Category:** Presentation  
-**Type:** hero  
-
----
-
 PROMPT TO RECREATE STUDIO PITCH DECK SLIDES
 
 Create a full-screen slide deck presentation app using React, TypeScript, Vite, Tailwind CSS, Motion (framer-motion), hls.js, and Lucide React icons. The presentation has 7 slides with horizontal swipe/scroll/keyboard navigation and animated transitions.
@@ -58,9 +50,9 @@ CSS Variables (index.css :root):
 --glass-border: rgba(255, 255, 255, 0.25);
 --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
 --glass-blur: 16px;
-Glassmorphism CSS classes (defined in 
+Glassmorphism CSS classes (defined in
 @layer
- components in index.css):
+components in index.css):
 
 .liquid-glass:
 background: rgba(255, 255, 255, 0.01)
@@ -246,19 +238,19 @@ postcss.config.js
 vite.config.ts
 tsconfig.json / http://tsconfig.app.json / tsconfig.node.json
 src/
-  main.tsx
-  App.tsx
-  index.css
-  vite-env.d.ts
-  components/
-    BlurText.tsx
-    HlsVideo.tsx
-    SlideControls.tsx
-  slides/
-    TitleSlide.tsx
-    ProblemSlide.tsx
-    CapabilitiesSlide.tsx
-    WhyUsSlide.tsx
-    StatsSlide.tsx
-    TestimonialsSlide.tsx
-    CtaSlide.tsx
+main.tsx
+App.tsx
+index.css
+vite-env.d.ts
+components/
+BlurText.tsx
+HlsVideo.tsx
+SlideControls.tsx
+slides/
+TitleSlide.tsx
+ProblemSlide.tsx
+CapabilitiesSlide.tsx
+WhyUsSlide.tsx
+StatsSlide.tsx
+TestimonialsSlide.tsx
+CtaSlide.tsx

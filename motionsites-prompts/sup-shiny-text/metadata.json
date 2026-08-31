@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-shiny-text",
+    "title": "[Superdesign] Shiny Text",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3045,
+    "image_preview_url": "/assets/superdesign/shiny-text.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 3,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "text animation"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

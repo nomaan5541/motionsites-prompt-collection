@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-card-swap",
+    "title": "[Superdesign] Card Swap",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3027,
+    "image_preview_url": "/assets/superdesign/card-swap.png",
+    "video_preview_url": "/assets/superdesign/card-swap.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "ui component",
+      "animation",
+      "image gallery"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

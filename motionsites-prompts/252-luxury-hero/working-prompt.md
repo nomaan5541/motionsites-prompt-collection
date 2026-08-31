@@ -27,24 +27,24 @@ geist: ['Geist', 'sans-serif'],
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body {
-  font-family: 'Geist', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+font-family: 'Geist', sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+overflow-x: hidden;
 }
 
 .font-heading {
-  font-family: 'Magical Source Demo', serif;
+font-family: 'Magical Source Demo', serif;
 }
 
 .font-geist {
-  font-family: 'Geist', sans-serif;
+font-family: 'Geist', sans-serif;
 }
 ```
 
@@ -56,8 +56,8 @@ body {
 
 ```tsx
 <div className="bg-black">
-  <Navbar />
-  <Hero />
+<Navbar />
+<Hero />
 </div>
 ```
 
@@ -80,7 +80,7 @@ className="fixed top-0 left-0 right-0 z-50 px-5 md:px-12 py-4 md:py-5 flex items
 **Left - Logo SVG:**
 ```tsx
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" className={className}>
-  <path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z" fill="currentColor" />
+<path d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z" fill="currentColor" />
 </svg>
 ```
 Classes on the logo in the navbar: `w-7 h-7 md:w-10 md:h-10 text-white relative z-50`
@@ -130,9 +130,9 @@ className="block w-5 h-[1.5px] bg-white rounded-full transition-all duration-300
 - Outer: `fixed inset-0 z-40 md:hidden transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]`
 - Background: `absolute inset-0 bg-black/95 backdrop-blur-xl transition-opacity duration-500`
 - Content container: `relative h-full flex flex-col items-center justify-center px-8`
-  - `px-8` (32px) side padding on the centered content
+- `px-8` (32px) side padding on the centered content
 - Links list: `flex flex-col items-center gap-6`
-  - `gap-6` (24px) between each mobile nav link
+- `gap-6` (24px) between each mobile nav link
 - Each link: `text-white text-2xl font-heading tracking-wider uppercase hover:text-white/70 transition-colors`
 - Staggered animation: each item delays by 60ms starting at 100ms (`100 + i * 60`ms)
 - Animation: `opacity-0 translate-y-6` to `opacity-100 translate-y-0`, duration 500ms
@@ -162,7 +162,7 @@ className="sticky top-0 w-full h-[100dvh] overflow-hidden"
 **Video 2 (BEHIND, rendered first in DOM):**
 ```html
 <video ref={video2Ref} muted playsInline preload="auto" src={VIDEO_2}
-  className="absolute inset-0 w-full h-full object-cover" />
+className="absolute inset-0 w-full h-full object-cover" />
 ```
 - No autoPlay, no loop
 - Always in the DOM, always visible (it just sits behind Video 1)
@@ -170,10 +170,10 @@ className="sticky top-0 w-full h-[100dvh] overflow-hidden"
 **Video 1 (ON TOP, rendered second in DOM so it stacks above):**
 ```html
 <video autoPlay muted loop playsInline
-  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-    scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
-  }`}>
-  <source src={VIDEO_1} type="video/mp4" />
+className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+scrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
+}`}>
+<source src={VIDEO_1} type="video/mp4" />
 </video>
 ```
 - Loops forever, auto-plays on load
@@ -186,21 +186,21 @@ const video2Ref = useRef<HTMLVideoElement>(null);
 const wasScrolled = useRef(false);
 
 useEffect(() => {
-  const handleScroll = () => {
-    const isScrolled = window.scrollY > 0;
-    setScrolled(isScrolled);
-    const v = video2Ref.current;
-    if (!v) return;
-    if (isScrolled && !wasScrolled.current) {
-      v.currentTime = 0;
-      v.play().catch(() => {});
-    } else if (!isScrolled && wasScrolled.current) {
-      v.pause();
-    }
-    wasScrolled.current = isScrolled;
-  };
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  return () => window.removeEventListener('scroll', handleScroll);
+const handleScroll = () => {
+const isScrolled = window.scrollY > 0;
+setScrolled(isScrolled);
+const v = video2Ref.current;
+if (!v) return;
+if (isScrolled && !wasScrolled.current) {
+v.currentTime = 0;
+v.play().catch(() => {});
+} else if (!isScrolled && wasScrolled.current) {
+v.pause();
+}
+wasScrolled.current = isScrolled;
+};
+window.addEventListener('scroll', handleScroll, { passive: true });
+return () => window.removeEventListener('scroll', handleScroll);
 }, []);
 ```
 

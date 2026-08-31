@@ -1,0 +1,30 @@
+{
+  "record": {
+    "id": "sup-questions-set-in-serif-an-editorial-faq",
+    "title": "[Superdesign] Questions, Set in Serif — An Editorial FAQ",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Blog & Editorial",
+    "page_type": "superdesign",
+    "sort_order": 3118,
+    "image_preview_url": "/assets/superdesign/questions-set-in-serif-an-editorial-faq.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "faq",
+      "help-center",
+      "accordion",
+      "editorial",
+      "serif",
+      "magazine",
+      "warm",
+      "support",
+      "landing-page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

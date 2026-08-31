@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-teal-on-ink-newsletter-mega-footer",
+    "title": "[Superdesign] Teal-on-Ink Newsletter Mega Footer",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3065,
+    "image_preview_url": "/assets/superdesign/teal-on-ink-newsletter-mega-footer.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "footer",
+      "mega-footer",
+      "newsletter",
+      "dark",
+      "teal",
+      "responsive",
+      "saas"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

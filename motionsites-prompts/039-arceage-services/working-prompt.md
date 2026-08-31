@@ -45,10 +45,10 @@ The section is a `<section>` with:
 An absolutely-positioned div covering the entire section:
 - Wrapper: `absolute inset-0 z-0`
 - Image: `<img>` with:
-  - `src="https://github.com/dsMagnatov/Acreage-landing-assets/blob/main/1.jpg?raw=true"`
-  - `alt="Agriculture Field"`
-  - Classes: `w-full h-full object-cover`
-  - `referrerPolicy="no-referrer"`
+- `src="https://github.com/dsMagnatov/Acreage-landing-assets/blob/main/1.jpg?raw=true"`
+- `alt="Agriculture Field"`
+- Classes: `w-full h-full object-cover`
+- `referrerPolicy="no-referrer"`
 
 ---
 
@@ -65,34 +65,34 @@ Grid wrapper: `grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 w-full items-end
 
 **Left 2 columns (headline area):**
 - Wrapped in `motion.div` with:
-  - `initial={{ opacity: 0, y: 20 }}`
-  - `whileInView={{ opacity: 1, y: 0 }}`
-  - `viewport={{ once: true, margin: "-100px" }}`
-  - `transition={{ duration: 0.6, ease: "easeOut" }}`
-  - Classes: `md:col-span-2`
+- `initial={{ opacity: 0, y: 20 }}`
+- `whileInView={{ opacity: 1, y: 0 }}`
+- `viewport={{ once: true, margin: "-100px" }}`
+- `transition={{ duration: 0.6, ease: "easeOut" }}`
+- Classes: `md:col-span-2`
 
 - **Heading (h2):**
-  - Classes: `text-[clamp(1.5rem,4vw,3.5rem)] font-medium tracking-tight text-white mb-6 leading-[1.1] max-w-[800px]`
-  - Content:
-    - `<Typewriter text="A Highly Efficient, Precision-Driven Harvesting Process Built For " delay={0} speed={0.012} />`
-    - Then a `<span className="font-dm-serif italic font-normal">` wrapping `<Typewriter text="Maximum Yield" delay={0.8} speed={0.012} />`
-  - "Maximum Yield" renders in Instrument Serif italic as the accent font.
+- Classes: `text-[clamp(1.5rem,4vw,3.5rem)] font-medium tracking-tight text-white mb-6 leading-[1.1] max-w-[800px]`
+- Content:
+- `<Typewriter text="A Highly Efficient, Precision-Driven Harvesting Process Built For " delay={0} speed={0.012} />`
+- Then a `<span className="font-dm-serif italic font-normal">` wrapping `<Typewriter text="Maximum Yield" delay={0.8} speed={0.012} />`
+- "Maximum Yield" renders in Instrument Serif italic as the accent font.
 
 - **Subheadline (p):**
-  - Classes: `text-lg md:text-[24px] text-white/80 font-light tracking-wide`
-  - Content: `<Typewriter text="Precision in every pass." delay={0.1} speed={0.012} />`
+- Classes: `text-lg md:text-[24px] text-white/80 font-light tracking-wide`
+- Content: `<Typewriter text="Precision in every pass." delay={0.1} speed={0.012} />`
 
 **Right column (desktop-only button):**
 - Wrapped in `motion.div` with:
-  - `initial={{ opacity: 0, y: 20 }}`
-  - `whileInView={{ opacity: 1, y: 0 }}`
-  - `viewport={{ once: true, margin: "-100px" }}`
-  - `transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}`
-  - Classes: `hidden md:flex justify-end w-full max-w-[421px] pb-1`
+- `initial={{ opacity: 0, y: 20 }}`
+- `whileInView={{ opacity: 1, y: 0 }}`
+- `viewport={{ once: true, margin: "-100px" }}`
+- `transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}`
+- Classes: `hidden md:flex justify-end w-full max-w-[421px] pb-1`
 - **Button:**
-  - `onClick` scrolls smoothly to `#contact` section
-  - Classes: `px-6 py-2.5 rounded-full bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 text-sm tracking-wide font-medium`
-  - Text: "Schedule Service"
+- `onClick` scrolls smoothly to `#contact` section
+- Classes: `px-6 py-2.5 rounded-full bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 text-sm tracking-wide font-medium`
+- Text: "Schedule Service"
 
 ---
 
@@ -109,8 +109,8 @@ Each of the 3 columns follows the same pattern, each wrapped in `motion.div`:
 Each column structure (`flex flex-col`):
 
 1. **Lottie Icon** -- `div` with classes `w-12 h-12 mb-6 flex items-center justify-center overflow-hidden`, containing a `<Player>` component:
-   - `loop`, `autoplay`
-   - `style={{ width: '48px', height: '48px', filter: 'brightness(0) invert(1)' }}` (makes the icon white)
+- `loop`, `autoplay`
+- `style={{ width: '48px', height: '48px', filter: 'brightness(0) invert(1)' }}` (makes the icon white)
 
 2. **Divider line** -- `div` with classes `w-full h-px bg-white/20 mb-6`
 
@@ -140,15 +140,15 @@ The 3 columns with their specific content:
 ### Mobile-Only Button (below the 3 columns)
 
 - Wrapped in `motion.div` with:
-  - `initial={{ opacity: 0, y: 20 }}`
-  - `whileInView={{ opacity: 1, y: 0 }}`
-  - `viewport={{ once: true, margin: "-100px" }}`
-  - `transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}`
-  - Classes: `flex md:hidden justify-start w-full`
+- `initial={{ opacity: 0, y: 20 }}`
+- `whileInView={{ opacity: 1, y: 0 }}`
+- `viewport={{ once: true, margin: "-100px" }}`
+- `transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}`
+- Classes: `flex md:hidden justify-start w-full`
 - Same button as desktop version:
-  - Classes: `px-6 py-2.5 rounded-full bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 text-sm tracking-wide font-medium`
-  - Text: "Schedule Service"
-  - Scrolls to `#contact`
+- Classes: `px-6 py-2.5 rounded-full bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 text-sm tracking-wide font-medium`
+- Text: "Schedule Service"
+- Scrolls to `#contact`
 
 ---
 

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "aurex-finance",
+    "title": "Aurex Finance",
+    "category": "Fintech",
+    "page_type": "hero",
+    "sort_order": 816,
+    "image_preview_url": "/assets/previews/aurex-finance.webp",
+    "video_preview_url": "/assets/previews/aurex-finance.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

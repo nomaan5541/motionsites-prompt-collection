@@ -36,8 +36,8 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026070
 - **Top-left**: Large heading: "Circular systems / for a cleaner / planet" (3 lines via `<br>`). Styled: `text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl`, `font-normal`, `leading-[1.05]`, `tracking-tighter`, `text-[#E2DBC8]/80`. Wrapped in a `<Reveal delay={200}>` component.
 
 - **Bottom center**: Two elements centered:
-  1. Paragraph: "Next-Generation Portable Waste / Reclamation Technology" (line break with `<br>`). `text-sm sm:text-base`, `text-[#E2DBC8]/80`, `max-w-xs`. Wrapped in `<Reveal delay={400}>`.
-  2. Link: "Start Here" -- `text-xs uppercase tracking-[0.2em] text-[#E2DBC8]/50` with `hover:text-[#E2DBC8]` transition. Wrapped in `<Reveal delay={500}>`.
+1. Paragraph: "Next-Generation Portable Waste / Reclamation Technology" (line break with `<br>`). `text-sm sm:text-base`, `text-[#E2DBC8]/80`, `max-w-xs`. Wrapped in `<Reveal delay={400}>`.
+2. Link: "Start Here" -- `text-xs uppercase tracking-[0.2em] text-[#E2DBC8]/50` with `hover:text-[#E2DBC8]` transition. Wrapped in `<Reveal delay={500}>`.
 
 - **Bottom-left notch with social icons**: An absolutely positioned element at `bottom-0 left-0`. It contains a `flex items-center gap-4` div with background `#464340`, `px-5 py-3 rounded-tr-[20px]`. Two decorative concave-corner divs use `radial-gradient(circle at 100% 0%, transparent 20px, #464340 20px)` -- one above (top, 20x20) and one to the right (bottom, 20x20). Icons: `Linkedin`, `Phone`, `Mail` from lucide-react, size 18, color `text-[#E2DBC8]/60` with `hover:text-[#E2DBC8]`.
 
@@ -101,8 +101,8 @@ The parent container is `h-[400vh]` (creating 4x viewport of scroll distance). A
 - Layout: `flex-col justify-end`, bottom-aligned.
 - Heading: "2.01 billion" -- `text-4xl sm:text-5xl md:text-7xl lg:text-8xl`, `font-normal tracking-tighter text-[#E2DBC8]`
 - Paragraph: "Tons of household and commercial refuse produced every single year. Lined up in hauling vehicles, this debris would circle the globe **24 times**"
-  - `text-sm sm:text-base text-[#E2DBC8]/70 max-w-lg leading-relaxed`
-  - "24 times" is in a green badge: `inline-flex items-center rounded bg-[#4caf50] px-2 py-0.5 text-xs sm:text-sm font-semibold text-[#E2DBC8]`
+- `text-sm sm:text-base text-[#E2DBC8]/70 max-w-lg leading-relaxed`
+- "24 times" is in a green badge: `inline-flex items-center rounded bg-[#4caf50] px-2 py-0.5 text-xs sm:text-sm font-semibold text-[#E2DBC8]`
 - Both text elements have individual slide-up animation: `translateY(2rem)` when opacity < threshold, `translateY(0)` when visible. `transition-all duration-700 ease-out will-change-transform`.
 
 **Section Two** ("under a fifth"):

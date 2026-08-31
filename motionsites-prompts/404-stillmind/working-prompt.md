@@ -42,33 +42,33 @@ Apply a continuous "train-bob" animation: translateY oscillates between 0 and -6
 
 ```css
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 ```
 
 With a `::before` pseudo-element for a subtle gradient border:
 ```css
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 ```
 

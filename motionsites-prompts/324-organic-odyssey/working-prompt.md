@@ -25,13 +25,13 @@ Create a full-screen cinematic hero section using React, Tailwind CSS, and Frame
 - Each link staggers in with opacity 0 to 1, y:-8 to 0, delay 0.05 + index*0.06
 - Links: white/90, 0.25em tracking, uppercase, font-light, hover to white
 - Custom glass class `.mobile-menu-glass`:
-  ```css
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  ```
+```css
+background: rgba(10, 10, 10, 0.7);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.08);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+```
 - Rounded-2xl, py-8, gap-5, flex-col centered
 
 **HERO CONTENT:**
@@ -62,39 +62,39 @@ Create a full-screen cinematic hero section using React, Tailwind CSS, and Frame
 **LIQUID GLASS CSS (.liquid-glass):**
 ```css
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 
 .liquid-glass:hover {
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
+background: rgba(255, 255, 255, 0.04);
+box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15);
 }
 
 .liquid-glass:active {
-  transform: scale(0.98);
+transform: scale(0.98);
 }
 ```
 

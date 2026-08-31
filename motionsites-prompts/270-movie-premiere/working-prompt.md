@@ -17,13 +17,13 @@ Build a mobile movie app UI showcase called "Cineva Mobile UI" using React + Typ
 **Phone frame:** Fixed 375x780px, border-radius 52px, overflow hidden. Uses a custom `.phone-frame` class with layered box-shadows to simulate a real device bezel:
 ```css
 .phone-frame {
-  border-radius: 52px;
-  box-shadow:
-    inset 0 0 0 2px rgba(255, 255, 255, 0.08),
-    0 0 0 1px rgba(0, 0, 0, 0.6),
-    0 0 0 10px #1a1a1e,
-    0 0 0 11px rgba(255, 255, 255, 0.06),
-    0 0 60px rgba(0, 0, 0, 0.5);
+border-radius: 52px;
+box-shadow:
+inset 0 0 0 2px rgba(255, 255, 255, 0.08),
+0 0 0 1px rgba(0, 0, 0, 0.6),
+0 0 0 10px #1a1a1e,
+0 0 0 11px rgba(255, 255, 255, 0.06),
+0 0 60px rgba(0, 0, 0, 0.5);
 }
 ```
 
@@ -43,9 +43,9 @@ A two-level tab system with staggered fade-up animation (class `animate-stagger-
 
 - **Left tab** (outside the black area): "Premieres" - text-[11px], font-medium, px-5 py-2.5, white/40 when inactive, white when active.
 - **Main black tab area** with `rounded-tl-[28px] rounded-tr-[28px]`, bg-black, py-4 px-1, containing:
-  - A CSS radial-gradient connector div positioned at `-left-7 bottom-0` (28x28px): `radial-gradient(circle at 0% 0%, transparent 28px, #000 28px)` -- creates the smooth curve joining the tab to the content below.
-  - "In Theaters" button (left, text-[12px], font-medium)
-  - "Upcoming" button (right, ml-auto, with ChevronRight icon size 12)
+- A CSS radial-gradient connector div positioned at `-left-7 bottom-0` (28x28px): `radial-gradient(circle at 0% 0%, transparent 28px, #000 28px)` -- creates the smooth curve joining the tab to the content below.
+- "In Theaters" button (left, text-[12px], font-medium)
+- "Upcoming" button (right, ml-auto, with ChevronRight icon size 12)
 
 ---
 
@@ -69,17 +69,17 @@ Below the tabs: `bg-black rounded-tl-[28px]` (pure black, only top-left corner r
 **Card drop animation:**
 ```css
 @keyframes cardDropOut {
-  0% { transform: translateY(var(--drop-start-y)) scale(1) rotate(var(--drop-start-rot)); opacity: var(--drop-start-opacity); }
-  60% { opacity: 0.3; }
-  100% { transform: translateY(130%) scale(0.8) rotate(8deg); opacity: 0; }
+0% { transform: translateY(var(--drop-start-y)) scale(1) rotate(var(--drop-start-rot)); opacity: var(--drop-start-opacity); }
+60% { opacity: 0.3; }
+100% { transform: translateY(130%) scale(0.8) rotate(8deg); opacity: 0; }
 }
 ```
 
 **Front card overlays:**
 - Gradient overlay: `bg-gradient-to-t from-black/40 via-transparent to-transparent`
 - Top-left badges (flex column gap-2):
-  - Clock icon (12px) + "2h 15m" -- bg-black rounded-full px-3 py-1.5, text-white/90 text-xs
-  - Popcorn icon (12px) + "Sci-Fi" -- same styling
+- Clock icon (12px) + "2h 15m" -- bg-black rounded-full px-3 py-1.5, text-white/90 text-xs
+- Popcorn icon (12px) + "Sci-Fi" -- same styling
 
 ---
 
@@ -88,14 +88,14 @@ Below the tabs: `bg-black rounded-tl-[28px]` (pure black, only top-left corner r
 Absolute bottom-6, centered. Uses `.liquid-glass` class:
 ```css
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 ```
 With a `::before` pseudo-element creating a gradient border effect using mask-composite.

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "church-community",
+    "title": "Church Community",
+    "category": "Community",
+    "page_type": "mobile",
+    "sort_order": 820,
+    "image_preview_url": "/assets/previews/church-community.webp",
+    "video_preview_url": "/assets/previews/church-community.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

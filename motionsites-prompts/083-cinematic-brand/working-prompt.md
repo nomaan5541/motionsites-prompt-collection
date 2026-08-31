@@ -9,7 +9,7 @@ https://db.onlinewebfonts.com/c/5a981c7d02abe9aec215dbe4606407e2?family=Quire+Sa
 Set it as the default `sans` font family in `tailwind.config.js`:
 ```js
 fontFamily: {
-  sans: ['"Quire Sans Pro"', 'sans-serif'],
+sans: ['"Quire Sans Pro"', 'sans-serif'],
 },
 ```
 
@@ -31,8 +31,8 @@ The `<video>` element should be `absolute inset-0`, `object-cover`, with attribu
 - Inner container: `mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:h-16 sm:px-6`.
 - **Logo (left):** Lucide `Hexagon` icon (strokeWidth 1.5, 24x24, white) + text "VERTX" (`text-[15px] font-semibold tracking-tight text-white sm:text-base`). The Hexagon rotates 30deg on hover via a `group` + `group-hover:rotate-[30deg]` with `transition-transform duration-300`.
 - **Right side:** Two buttons:
-  1. "Contact" -- ghost style: `rounded-full border border-white/15 bg-white/5 px-5 py-2 text-[13px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/30 hover:text-white hover:scale-105 active:scale-100`.
-  2. "Sign Up" -- primary style with `btn-glow` class: `rounded-full bg-slate-950 px-5 py-2 text-[13px] font-medium text-white transition-transform hover:scale-105 active:scale-100`.
+1. "Contact" -- ghost style: `rounded-full border border-white/15 bg-white/5 px-5 py-2 text-[13px] font-medium text-white/80 backdrop-blur-sm transition-all hover:border-white/30 hover:text-white hover:scale-105 active:scale-100`.
+2. "Sign Up" -- primary style with `btn-glow` class: `rounded-full bg-slate-950 px-5 py-2 text-[13px] font-medium text-white transition-transform hover:scale-105 active:scale-100`.
 
 ## Hero Content (centered, shifted up 50px)
 
@@ -81,16 +81,16 @@ A character-by-character reveal animation:
 The `btn-glow` class creates an inner white glow effect on primary buttons:
 ```css
 .btn-glow {
-  outline: 1.5px solid rgba(255, 255, 255, 0.6);
-  outline-offset: -1.5px;
-  box-shadow: inset 0 0 14px 0 rgba(255, 255, 255, 0.7);
+outline: 1.5px solid rgba(255, 255, 255, 0.6);
+outline-offset: -1.5px;
+box-shadow: inset 0 0 14px 0 rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 640px) {
-  .btn-glow {
-    outline-width: 2px;
-    outline-offset: -2px;
-  }
+.btn-glow {
+outline-width: 2px;
+outline-offset: -2px;
+}
 }
 ```
 

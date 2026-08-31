@@ -1,0 +1,47 @@
+{
+  "record": {
+    "id": "sup-claymorphism-mobile-app-pastel-habit-tracker-home",
+    "title": "[Superdesign] Claymorphism Mobile App: Pastel Habit Tracker Home",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3138,
+    "image_preview_url": "/assets/superdesign/claymorphism-mobile-app-pastel-habit-tracker-home.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "claymorphism",
+      "claymorphism-ui",
+      "claymorphism-app",
+      "mobile-app-design",
+      "mobile-app",
+      "app-ui",
+      "habit-tracker",
+      "wellness-app",
+      "home-screen",
+      "soft-ui",
+      "pastel",
+      "puffy",
+      "dual-shadow",
+      "inflated-cards",
+      "nunito",
+      "sage-green",
+      "peach",
+      "sky-blue",
+      "butter-yellow",
+      "light-mode",
+      "ios",
+      "bottom-tab-bar",
+      "progress-card",
+      "streak",
+      "mobile",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

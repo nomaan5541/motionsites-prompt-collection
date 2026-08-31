@@ -1,0 +1,38 @@
+{
+  "record": {
+    "id": "sup-the-quote-set-in-burgundy",
+    "title": "[Superdesign] The Quote, Set in Burgundy",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Blog & Editorial",
+    "page_type": "superdesign",
+    "sort_order": 3063,
+    "image_preview_url": "/assets/superdesign/the-quote-set-in-burgundy.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "testimonial",
+      "testimonials",
+      "single-quote",
+      "carousel",
+      "editorial",
+      "magazine",
+      "serif",
+      "cream",
+      "burgundy",
+      "fraunces",
+      "inter",
+      "pull-quote",
+      "avatar-stack",
+      "social-proof",
+      "light",
+      "responsive",
+      "frameless"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

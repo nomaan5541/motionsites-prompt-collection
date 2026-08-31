@@ -20,32 +20,32 @@ Build a mobile wellness quiz screen inside a realistic phone frame mockup, cente
 **Content Layout (flex column, padding: 56px top, 24px sides, 24px bottom):**
 
 1. **Header Badge** (top, with 40px margin-bottom):
-   - Liquid glass pill with Timer icon (12px, white/80) + text "Vitaforge Daily" (12px, white/90, medium weight)
-   - Padding: 10px vertical, 12px horizontal
+- Liquid glass pill with Timer icon (12px, white/80) + text "Vitaforge Daily" (12px, white/90, medium weight)
+- Padding: 10px vertical, 12px horizontal
 
 2. **Title Section** (32px margin-bottom):
-   - Subtitle: "Choose all that apply" - white/60, 14px
-   - Heading: "What aspects of your wellness would you like to boost?" - white, 28px, normal weight, tight leading and tracking
+- Subtitle: "Choose all that apply" - white/60, 14px
+- Heading: "What aspects of your wellness would you like to boost?" - white, 28px, normal weight, tight leading and tracking
 
 3. **Selection Grid** (2 columns, 12px gap, pushes to fill available space):
-   - 4 cards: "Sleep quality", "Stress", "Weight", "Skin"
-   - Each card: rounded-[32px], 100px height, padding 16px
-   - Shows a number label (01, 02, etc.) in white/50, 11px, medium weight
-   - Option text in white, 16px, medium weight
-   - "Stress" (id:2) and "Skin" (id:4) are pre-selected
-   - Cards are toggleable on click
+- 4 cards: "Sleep quality", "Stress", "Weight", "Skin"
+- Each card: rounded-[32px], 100px height, padding 16px
+- Shows a number label (01, 02, etc.) in white/50, 11px, medium weight
+- Option text in white, 16px, medium weight
+- "Stress" (id:2) and "Skin" (id:4) are pre-selected
+- Cards are toggleable on click
 
 4. **Voice Button** (centered, 24px vertical margin):
-   - Yellow/gold radial glow behind: `radial-gradient(ellipse at center, rgba(220,200,80,0.5) 0%, rgba(180,160,40,0.2) 40%, transparent 70%)`
-   - 64px circular liquid glass button with a waveform SVG icon (white strokes, strokeWidth 2, strokeLinecap round) showing 5 vertical bars of varying heights
-   - "voice" label below in white/70, 12px
+- Yellow/gold radial glow behind: `radial-gradient(ellipse at center, rgba(220,200,80,0.5) 0%, rgba(180,160,40,0.2) 40%, transparent 70%)`
+- 64px circular liquid glass button with a waveform SVG icon (white strokes, strokeWidth 2, strokeLinecap round) showing 5 vertical bars of varying heights
+- "voice" label below in white/70, 12px
 
 5. **Slide-to-Confirm Button** (bottom, inside 24px horizontal padding):
-   - Full-width rounded-full track, 56px tall, liquid glass style
-   - White circular thumb (44px) on the left with ArrowRight icon (gray-800)
-   - "Done" text centered in white/60, 14px, medium weight
-   - 3 ChevronRight icons on the right (14px) at white/40, white/50, white/60 opacity
-   - Draggable thumb with pointer events: snaps back if not dragged past 85%, snaps to end if past 85%
+- Full-width rounded-full track, 56px tall, liquid glass style
+- White circular thumb (44px) on the left with ArrowRight icon (gray-800)
+- "Done" text centered in white/60, 14px, medium weight
+- 3 ChevronRight icons on the right (14px) at white/40, white/50, white/60 opacity
+- Draggable thumb with pointer events: snaps back if not dragged past 85%, snaps to end if past 85%
 
 **Liquid Glass Effect (CSS classes):**
 

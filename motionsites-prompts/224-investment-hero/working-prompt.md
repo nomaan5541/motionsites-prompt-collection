@@ -7,20 +7,20 @@ Create a luxury real estate landing page called "VELORA" using React, TypeScript
 Load these two fonts in `index.html` `<head>`:
 
 1. **Haboro Norm Regular** (serif, used for brand name and headings):
-   ```html
-   <link href="https://db.onlinewebfonts.com/c/cc69fe194f7ed41628d4628f37a10a21?family=Haboro+Norm+Regular" rel="stylesheet">
-   ```
+```html
+<link href="https://db.onlinewebfonts.com/c/cc69fe194f7ed41628d4628f37a10a21?family=Haboro+Norm+Regular" rel="stylesheet">
+```
 
 2. **Geist** (sans-serif, weights 300/400/500/600, used for body text and UI elements):
-   ```html
-   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
-   ```
+```html
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+```
 
 Register them in `tailwind.config.js`:
 ```js
 fontFamily: {
-  haboro: ['"Haboro Norm Regular"', 'serif'],
-  geist: ['Geist', 'sans-serif'],
+haboro: ['"Haboro Norm Regular"', 'serif'],
+geist: ['Geist', 'sans-serif'],
 }
 ```
 
@@ -34,77 +34,77 @@ fontFamily: {
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 body {
-  font-family: 'Geist', sans-serif;
-  overflow-x: hidden;
+font-family: 'Geist', sans-serif;
+overflow-x: hidden;
 }
 
 @keyframes menuSlideUp {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
+from {
+opacity: 0;
+transform: translateX(-50%) translateY(40px) scale(0.95);
+}
+to {
+opacity: 1;
+transform: translateX(-50%) translateY(0) scale(1);
+}
 }
 
 @keyframes menuSlideDown {
-  from {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-50%) translateY(40px) scale(0.95);
-  }
+from {
+opacity: 1;
+transform: translateX(-50%) translateY(0) scale(1);
+}
+to {
+opacity: 0;
+transform: translateX(-50%) translateY(40px) scale(0.95);
+}
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+from { opacity: 0; }
+to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+from { opacity: 1; }
+to { opacity: 0; }
 }
 
 @keyframes menuItemSlide {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 .menu-open {
-  animation: menuSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+animation: menuSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .menu-close {
-  animation: menuSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+animation: menuSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .menu-overlay-open {
-  animation: fadeIn 0.3s ease forwards;
+animation: fadeIn 0.3s ease forwards;
 }
 
 .menu-overlay-close {
-  animation: fadeOut 0.3s ease forwards;
+animation: fadeOut 0.3s ease forwards;
 }
 
 .menu-item-enter {
-  animation: menuItemSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+animation: menuItemSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 ```
 
@@ -140,35 +140,35 @@ The entire hero is a `<section>` with `fixed inset-0 h-screen w-full overflow-hi
 - Container: `flex-1 flex items-center justify-center px-4 sm:px-6`
 - Text: `font-haboro text-white text-center text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] tracking-wide uppercase max-w-5xl`
 - Content:
-  ```
-  PREMIUM REAL ESTATE FOR
-  INVESTORS BEYOND OWNERSHIP
-  ```
-  (line break between the two lines)
+```
+PREMIUM REAL ESTATE FOR
+INVESTORS BEYOND OWNERSHIP
+```
+(line break between the two lines)
 
 #### 2D. Bottom Morphing Navbar
 - Centered at the bottom: `flex justify-center pb-4 sm:pb-6 md:pb-10`
 - The bar is a black rectangle that morphs between two states:
-  - **Expanded** (menu closed): width `280px`, max-width `85vw`. Contains:
-    - Left: `Home` icon from lucide-react (`w-5 h-5 text-amber-500`)
-    - Center: "HOME" text (`font-geist text-white text-sm tracking-[0.15em] uppercase font-medium`)
-    - Right: Hamburger button (two horizontal white lines, `w-6 h-[1.5px] bg-white`, one at `top-[8px]` and one at `top-[15px]`)
-  - **Collapsed** (menu open): morphs to `56px` square showing an X close button (two `w-5 h-[1.5px] bg-white` lines rotated 45deg and -45deg)
+- **Expanded** (menu closed): width `280px`, max-width `85vw`. Contains:
+- Left: `Home` icon from lucide-react (`w-5 h-5 text-amber-500`)
+- Center: "HOME" text (`font-geist text-white text-sm tracking-[0.15em] uppercase font-medium`)
+- Right: Hamburger button (two horizontal white lines, `w-6 h-[1.5px] bg-white`, one at `top-[8px]` and one at `top-[15px]`)
+- **Collapsed** (menu open): morphs to `56px` square showing an X close button (two `w-5 h-[1.5px] bg-white` lines rotated 45deg and -45deg)
 - Transition: `transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]`
 
 #### 2E. Menu Popup
 - Triggered by hamburger click.
 - **Overlay**: `fixed inset-0 z-20`, with `menu-overlay-open`/`menu-overlay-close` CSS animation classes.
 - **Menu panel**: `fixed z-30 left-1/2 bottom-[80px] sm:bottom-[100px] md:bottom-[120px] w-[92vw] max-w-[480px] bg-black rounded-lg p-6 sm:p-8 md:p-10`
-  - Uses `menu-open`/`menu-close` CSS classes (translateX(-50%) centered via those animations).
-  - Header: "MENU" label (`font-geist text-neutral-400 text-xs tracking-[0.2em] uppercase mb-6`)
-  - Menu items list (`space-y-1`): `['About', 'Properties', 'Work', 'Partnership', 'Contact']`
-    - Each item: `font-haboro text-white text-2xl md:text-3xl lg:text-4xl hover:text-neutral-300 transition-colors duration-200 block py-1`
-    - Each `<li>` has class `menu-item-enter` with staggered `animationDelay: ${i * 60 + 100}ms` and initial `opacity: 0`
-  - Footer section: `mt-8 pt-6 border-t border-neutral-700/50 space-y-3`
-    - "Private line" row: label `font-geist text-neutral-400 text-sm`, value `font-geist text-white text-sm` showing `+44 020 8156 7290`
-    - "Email" row: same style, showing `hello@velora.com`
-  - CTA button: `w-full mt-6 bg-white text-black py-3 font-geist text-sm font-medium tracking-wide hover:bg-neutral-100 transition-colors duration-200` with text "GET IN TOUCH"
+- Uses `menu-open`/`menu-close` CSS classes (translateX(-50%) centered via those animations).
+- Header: "MENU" label (`font-geist text-neutral-400 text-xs tracking-[0.2em] uppercase mb-6`)
+- Menu items list (`space-y-1`): `['About', 'Properties', 'Work', 'Partnership', 'Contact']`
+- Each item: `font-haboro text-white text-2xl md:text-3xl lg:text-4xl hover:text-neutral-300 transition-colors duration-200 block py-1`
+- Each `<li>` has class `menu-item-enter` with staggered `animationDelay: ${i * 60 + 100}ms` and initial `opacity: 0`
+- Footer section: `mt-8 pt-6 border-t border-neutral-700/50 space-y-3`
+- "Private line" row: label `font-geist text-neutral-400 text-sm`, value `font-geist text-white text-sm` showing `+44 020 8156 7290`
+- "Email" row: same style, showing `hello@velora.com`
+- CTA button: `w-full mt-6 bg-white text-black py-3 font-geist text-sm font-medium tracking-wide hover:bg-neutral-100 transition-colors duration-200` with text "GET IN TOUCH"
 - **Close behavior**: Sets `isClosing` to true, waits 300ms, then unmounts menu.
 
 ---
@@ -213,8 +213,8 @@ The entire app container has `bg-black h-[900vh]` to create scroll space. The ga
 #### Width Expansion Easing (Phase 2):
 ```js
 const eased = expandProgress < 0.5
-  ? 4 * expandProgress * expandProgress * expandProgress
-  : 1 - Math.pow(-2 * expandProgress + 2, 3) / 2;
+? 4 * expandProgress * expandProgress * expandProgress
+: 1 - Math.pow(-2 * expandProgress + 2, 3) / 2;
 ```
 
 #### Morph (black to white) formula:
@@ -228,13 +228,13 @@ backgroundColor: `rgb(${Math.round(morphProgress * 255)}, ${Math.round(morphProg
 
 ```
 App.tsx
-  - bg-black h-[900vh]
-  - SplashScreen (conditional, unmounts after video ends)
-  - Hero Section (fixed, z-0)
-    - Video background (looping)
-    - Navbar + Heading + Bottom bar
-    - Menu popup (conditional)
-  - ScrollGallery (fixed, z-10, pointer-events-none)
+- bg-black h-[900vh]
+- SplashScreen (conditional, unmounts after video ends)
+- Hero Section (fixed, z-0)
+- Video background (looping)
+- Navbar + Heading + Bottom bar
+- Menu popup (conditional)
+- ScrollGallery (fixed, z-10, pointer-events-none)
 ```
 
 ---

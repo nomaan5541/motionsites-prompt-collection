@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-multi-step-form-flow",
+    "title": "[Superdesign] Multi-step Form Flow",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3125,
+    "image_preview_url": "/assets/superdesign/multi-step-form-flow.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 4,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "layout",
+      "page",
+      "onboarding",
+      "multistep workflow"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

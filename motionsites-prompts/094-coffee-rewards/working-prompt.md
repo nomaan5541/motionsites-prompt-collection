@@ -47,10 +47,10 @@ Build a mobile coffee profile screen inside a phone mockup frame. Use vanilla HT
 
 **Page background (behind phone):**
 - Multiple warm-toned radial gradients over `#070402`:
-  - `radial-gradient(ellipse 65% 55% at 15% 52%, rgba(168, 78, 10, 0.22))`
-  - `radial-gradient(ellipse 52% 48% at 83% 26%, rgba(122, 52, 8, 0.17))`
-  - `radial-gradient(ellipse 44% 52% at 56% 92%, rgba(98, 36, 5, 0.14))`
-  - `radial-gradient(ellipse 30% 30% at 72% 75%, rgba(60, 20, 5, 0.10))`
+- `radial-gradient(ellipse 65% 55% at 15% 52%, rgba(168, 78, 10, 0.22))`
+- `radial-gradient(ellipse 52% 48% at 83% 26%, rgba(122, 52, 8, 0.17))`
+- `radial-gradient(ellipse 44% 52% at 56% 92%, rgba(98, 36, 5, 0.14))`
+- `radial-gradient(ellipse 30% 30% at 72% 75%, rgba(60, 20, 5, 0.10))`
 
 **Entry animations (respects prefers-reduced-motion):**
 - Hero: `heroReveal` - opacity 0 + scale(1.01) to normal, 1.9s, cubic-bezier(0.16, 1, 0.3, 1)

@@ -7,11 +7,11 @@ Build a dark-themed FAQ section for a React 18 + Vite + TypeScript app using Tai
 - `cn()` helper: `twMerge(clsx(inputs))` exported from `@/lib/utils`
 - Dark theme background `#000000`, font `Inter`, Material Symbols Outlined for icons
 - Tailwind `theme.extend.colors`:
-  - `landing.surface: "rgba(255,255,255,0.10)"`
-  - `landing.surface-hover: "rgba(255,255,255,0.16)"`
-  - `border: "rgba(255,255,255,0.10)"`
-  - `foreground: "hsl(0 0% 100%)"` (semantic; use `text-foreground`, `text-foreground/60`, `text-foreground/70`, `text-foreground/80`)
-  - `background: "#000000"` (semantic)
+- `landing.surface: "rgba(255,255,255,0.10)"`
+- `landing.surface-hover: "rgba(255,255,255,0.16)"`
+- `border: "rgba(255,255,255,0.10)"`
+- `foreground: "hsl(0 0% 100%)"` (semantic; use `text-foreground`, `text-foreground/60`, `text-foreground/70`, `text-foreground/80`)
+- `background: "#000000"` (semantic)
 
 ## Helper Components
 
@@ -19,10 +19,10 @@ Build a dark-themed FAQ section for a React 18 + Vite + TypeScript app using Tai
 ```tsx
 type Props = { name: string; size?: number; className?: string; fill?: 0|1; weight?: number; grade?: number; opsz?: number };
 export const MIcon = ({ name, size=20, className, fill=0, weight=400, grade=0, opsz=24 }: Props) => (
-  <span
-    className={cn("material-symbols-outlined leading-none", className)}
-    style={{ fontSize: size, fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${opsz}` }}
-  >{name}</span>
+<span
+className={cn("material-symbols-outlined leading-none", className)}
+style={{ fontSize: size, fontVariationSettings: `'FILL' ${fill}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${opsz}` }}
+>{name}</span>
 );
 ```
 Include in `index.html`:
@@ -38,11 +38,11 @@ Include in `index.html`:
 - Inside, an absolute-inset `<span>` with style:
 ```ts
 {
-  background: `radial-gradient(${size}px circle at var(--spot-x,-200px) var(--spot-y,-200px), rgba(255,255,255,${intensity}), rgba(255,255,255,0) 60%)`,
-  padding: "1px",
-  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-  WebkitMaskComposite: "xor",
-  maskComposite: "exclude",
+background: `radial-gradient(${size}px circle at var(--spot-x,-200px) var(--spot-y,-200px), rgba(255,255,255,${intensity}), rgba(255,255,255,0) 60%)`,
+padding: "1px",
+WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+WebkitMaskComposite: "xor",
+maskComposite: "exclude",
 }
 ```
 - Global mousemove listener writes `--spot-x` / `--spot-y` on the element (relative to its bounding rect).
@@ -54,8 +54,8 @@ Include in `index.html`:
 Tailwind keyframes (in config):
 ```js
 keyframes: {
-  "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
-  "accordion-up":   { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+"accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+"accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
 },
 animation: { "accordion-down": "accordion-down 0.2s ease-out", "accordion-up": "accordion-up 0.2s ease-out" }
 ```
@@ -65,32 +65,32 @@ animation: { "accordion-down": "accordion-down 0.2s ease-out", "accordion-up": "
 ```ts
 type CategoryKey = "general" | "ai" | "integrations";
 const categories = [
-  { key: "general", label: "General" },
-  { key: "ai", label: "AI & Capabilities" },
-  { key: "integrations", label: "Integrations & Security" },
+{ key: "general", label: "General" },
+{ key: "ai", label: "AI & Capabilities" },
+{ key: "integrations", label: "Integrations & Security" },
 ];
 const faqs: Record<CategoryKey, {q:string; a:string}[]> = {
-  general: [
-    { q: "What is UI Rocket?", a: "UI Rocket is a learning platform for designers who want to master AI-powered design workflows and ship production-ready websites faster." },
-    { q: "Who is this for?", a: "Designers, founders, and creators who want to level up their AI design skills and build real, shippable products." },
-    { q: "Do I need prior design experience?", a: "No. The curriculum starts from fundamentals and progressively builds toward advanced AI-driven workflows." },
-    { q: "How long does it take?", a: "Most members make meaningful progress within a few weeks of consistent practice." },
-    { q: "Is there a community?", a: "Yes. You get access to a private community of designers and founders building with AI." },
-  ],
-  ai: [
-    { q: "Which AI tools do you cover?", a: "We focus on Lovable, Figma AI, image generation models, and the workflows that tie them together into a real design process." },
-    { q: "Will AI replace designers?", a: "No. Designers who use AI fluently will replace those who don't. The course teaches you to be the former." },
-    { q: "Do I need API keys?", a: "No. Everything you need is included — no separate API keys, subscriptions, or hidden setup." },
-    { q: "Can I use these skills with any tool?", a: "Yes. The principles transfer across tools — you'll learn frameworks, not button-clicks." },
-    { q: "How often is the content updated?", a: "Regularly. As AI tools evolve, we update the curriculum so you're always learning what's current." },
-  ],
-  integrations: [
-    { q: "Which tools does UI Rocket integrate with?", a: "UI Rocket works alongside Lovable, Figma, and the most common modern design and dev tools." },
-    { q: "Is my data secure?", a: "Yes. Your data is encrypted in transit and at rest, and never shared with third parties." },
-    { q: "Is my data used to train AI models?", a: "No. Your work and account data are never used to train AI models." },
-    { q: "Who can access our workspace data?", a: "Only members you explicitly invite. Access is fully under your control." },
-    { q: "Where is my data stored?", a: "On secure cloud infrastructure with industry-standard compliance and backups." },
-  ],
+general: [
+{ q: "What is UI Rocket?", a: "UI Rocket is a learning platform for designers who want to master AI-powered design workflows and ship production-ready websites faster." },
+{ q: "Who is this for?", a: "Designers, founders, and creators who want to level up their AI design skills and build real, shippable products." },
+{ q: "Do I need prior design experience?", a: "No. The curriculum starts from fundamentals and progressively builds toward advanced AI-driven workflows." },
+{ q: "How long does it take?", a: "Most members make meaningful progress within a few weeks of consistent practice." },
+{ q: "Is there a community?", a: "Yes. You get access to a private community of designers and founders building with AI." },
+],
+ai: [
+{ q: "Which AI tools do you cover?", a: "We focus on Lovable, Figma AI, image generation models, and the workflows that tie them together into a real design process." },
+{ q: "Will AI replace designers?", a: "No. Designers who use AI fluently will replace those who don't. The course teaches you to be the former." },
+{ q: "Do I need API keys?", a: "No. Everything you need is included — no separate API keys, subscriptions, or hidden setup." },
+{ q: "Can I use these skills with any tool?", a: "Yes. The principles transfer across tools — you'll learn frameworks, not button-clicks." },
+{ q: "How often is the content updated?", a: "Regularly. As AI tools evolve, we update the curriculum so you're always learning what's current." },
+],
+integrations: [
+{ q: "Which tools does UI Rocket integrate with?", a: "UI Rocket works alongside Lovable, Figma, and the most common modern design and dev tools." },
+{ q: "Is my data secure?", a: "Yes. Your data is encrypted in transit and at rest, and never shared with third parties." },
+{ q: "Is my data used to train AI models?", a: "No. Your work and account data are never used to train AI models." },
+{ q: "Who can access our workspace data?", a: "Only members you explicitly invite. Access is fully under your control." },
+{ q: "Where is my data stored?", a: "On secure cloud infrastructure with industry-standard compliance and backups." },
+],
 };
 ```
 
@@ -102,8 +102,8 @@ const faqs: Record<CategoryKey, {q:string; a:string}[]> = {
 ### Header (top, two-column on lg)
 - Flex column on mobile, `lg:flex-row lg:items-end lg:justify-between`, `mb-14`, `gap-10`.
 - Left block (`max-w-2xl`):
-  - Pill (FadeUp delay 1): `inline-flex items-center gap-2 rounded-full bg-landing-surface border border-white/10 px-3 py-1 text-xs text-foreground/80 backdrop-blur`, with leading `1.5×1.5` dot `bg-foreground/70`, label "FAQ".
-  - Heading (FadeUp delay 0.1): `text-3xl sm:text-4xl font-normal tracking-[-0.02em] leading-[1.05] text-foreground` — "Answers to the questions" `<br className="hidden sm:block"/>` " that come up most."
+- Pill (FadeUp delay 1): `inline-flex items-center gap-2 rounded-full bg-landing-surface border border-white/10 px-3 py-1 text-xs text-foreground/80 backdrop-blur`, with leading `1.5×1.5` dot `bg-foreground/70`, label "FAQ".
+- Heading (FadeUp delay 0.1): `text-3xl sm:text-4xl font-normal tracking-[-0.02em] leading-[1.05] text-foreground` — "Answers to the questions" `<br className="hidden sm:block"/>` " that come up most."
 - Right paragraph (FadeUp delay 0.2): `max-w-sm text-sm sm:text-base text-foreground/60` — "Learn how UI Rocket works, what it covers, how the workflow flows, and what you can expect day to day."
 
 ### Body grid
@@ -112,15 +112,15 @@ const faqs: Record<CategoryKey, {q:string; a:string}[]> = {
 #### Left column (sticky category list + "Got Questions" card)
 - Outer `flex flex-col gap-4 lg:h-full`.
 - Top wrapper `lg:flex-1` containing a `SpotlightBorder` (radius `2xl`, size 280) with classes `flex flex-col p-2 sm:p-3 lg:sticky lg:top-24`.
-  - Inside, map `categories`. Each item is itself a `SpotlightBorder as="button" radius="full" size={200} intensity={0.4}` with classes:
-    - Base: `w-full text-center px-5 py-3 text-sm transition-colors`
-    - Active: `bg-landing-surface border border-white/10 text-foreground`
-    - Inactive: `border border-transparent text-foreground/60 hover:text-foreground`
-  - `onClick` sets `active` state (`useState<CategoryKey>("general")`).
+- Inside, map `categories`. Each item is itself a `SpotlightBorder as="button" radius="full" size={200} intensity={0.4}` with classes:
+- Base: `w-full text-center px-5 py-3 text-sm transition-colors`
+- Active: `bg-landing-surface border border-white/10 text-foreground`
+- Inactive: `border border-transparent text-foreground/60 hover:text-foreground`
+- `onClick` sets `active` state (`useState<CategoryKey>("general")`).
 - Bottom "Got Questions?" card: `SpotlightBorder` radius `2xl` size 360 with `mt-8 lg:mt-0 p-2 sm:p-3`, containing nested `SpotlightBorder` radius `2xl` size 260 intensity 0.4 with `border border-white/10 bg-landing-surface p-6`:
-  - `<h3 className="text-lg font-semibold text-foreground">Got Questions?</h3>`
-  - `<p className="mt-2 text-sm text-foreground/60 leading-relaxed">Need help with something? Our team is here to make things easy. Don't hesitate to reach out.</p>`
-  - `<a href="mailto:hello@uirocket.com" className="mt-6 inline-flex items-center gap-1 text-sm text-foreground hover:text-foreground/80">Email us <span aria-hidden>→</span></a>`
+- `<h3 className="text-lg font-semibold text-foreground">Got Questions?</h3>`
+- `<p className="mt-2 text-sm text-foreground/60 leading-relaxed">Need help with something? Our team is here to make things easy. Don't hesitate to reach out.</p>`
+- `<a href="mailto:hello@uirocket.com" className="mt-6 inline-flex items-center gap-1 text-sm text-foreground hover:text-foreground/80">Email us <span aria-hidden>→</span></a>`
 
 #### Right column (accordion)
 - Outer `SpotlightBorder radius="2xl" size={360} className="p-2 sm:p-3"`.
@@ -128,11 +128,11 @@ const faqs: Record<CategoryKey, {q:string; a:string}[]> = {
 - Use `itemRefs = useRef<Array<HTMLDivElement|null>>([])` and a `useEffect` that adds a `mousemove` listener writing `--spot-x`/`--spot-y` on each item's bounding rect (so each card has its own spotlight).
 - Map `faqs[active]`. Each entry wrapped in `<FadeUp delay={0.15 * idx} key={`${active}-${idx}`}>`.
 - `AccordionItem`:
-  - `value={`${active}-${idx}`}`, ref into `itemRefs`.
-  - Classes: `relative rounded-2xl border border-white/10 bg-landing-surface px-6 [&[data-state=open]]:bg-landing-surface-hover`
-  - Inside, an absolute-inset `<span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl" style={spotlightMaskStyle(260, 0.4)} />` to render the per-card spotlight ring.
+- `value={`${active}-${idx}`}`, ref into `itemRefs`.
+- Classes: `relative rounded-2xl border border-white/10 bg-landing-surface px-6 [&[data-state=open]]:bg-landing-surface-hover`
+- Inside, an absolute-inset `<span aria-hidden className="pointer-events-none absolute inset-0 rounded-2xl" style={spotlightMaskStyle(260, 0.4)} />` to render the per-card spotlight ring.
 - `AccordionTrigger`: `py-7 text-left text-sm sm:text-base font-medium text-foreground hover:no-underline [&>svg]:hidden`
-  - Children: `<span className="flex-1 pr-4">{q}</span>` and a 28px circular icon button: `flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-foreground/70 transition-transform duration-200 group-data-[state=open]:rotate-180`, containing `<MIcon name="expand_more" size={16} />`.
+- Children: `<span className="flex-1 pr-4">{q}</span>` and a 28px circular icon button: `flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-foreground/70 transition-transform duration-200 group-data-[state=open]:rotate-180`, containing `<MIcon name="expand_more" size={16} />`.
 - `AccordionContent`: `pb-7 text-sm text-foreground/60 leading-relaxed` — render `{a}`.
 
 ## Behavior

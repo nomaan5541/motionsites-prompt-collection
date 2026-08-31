@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-cinematic-grayscale-newsletter-email",
+    "title": "[Superdesign] Cinematic Grayscale Newsletter Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3132,
+    "image_preview_url": "/assets/superdesign/cinematic-grayscale-newsletter-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "creative-newsletter",
+      "portfolio-email",
+      "digest",
+      "film",
+      "photography",
+      "studio-update",
+      "dark-mode",
+      "grayscale",
+      "monochrome",
+      "cinematic",
+      "libre-franklin",
+      "hairline-frame",
+      "editorial",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-sunset-glow-wordmark-mega-footer",
+    "title": "[Superdesign] Sunset Glow Wordmark Mega Footer",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3110,
+    "image_preview_url": "/assets/superdesign/sunset-glow-wordmark-mega-footer.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "footer",
+      "mega-footer",
+      "newsletter",
+      "dark",
+      "gradient",
+      "wordmark",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -27,42 +27,42 @@ transitionDuration: { '400': '400ms' }
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Helvetica Neue Roman';
-  src: url('/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
-       url('/fonts/HelveticaNeue-Roman.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+font-family: 'Helvetica Neue Roman';
+src: url('/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
+url('/fonts/HelveticaNeue-Roman.woff') format('woff');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
 
 * {
-  font-family: 'Geist', sans-serif;
+font-family: 'Geist', sans-serif;
 }
 
 .font-helvetica-neue,
 .font-helvetica-neue * {
-  font-family: 'Helvetica Neue Roman', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-family: 'Helvetica Neue Roman', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 @keyframes fadeSlideUp {
-  0% { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
+0% { opacity: 0; transform: translateY(24px); }
+100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+0% { opacity: 0; }
+100% { opacity: 1; }
 }
 
 .anim-stagger {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+opacity: 0;
+transform: translateY(24px);
+animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .anim-fade {
-  opacity: 0;
-  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+opacity: 0;
+animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 ```
 
@@ -97,11 +97,11 @@ VIDEO_1 (scroll-scrubbed video): https://d8j0ntlcm91z4.cloudfront.net/user_38xzZ
 ### Z-INDEX HIERARCHY
 
 ```
-z-0:  scroll spacer div
-z-2:  fixed video layer
-z-3:  sticky hero section
-z-4:  fixed card section
-z-5:  content overlays within card section
+z-0: scroll spacer div
+z-2: fixed video layer
+z-3: sticky hero section
+z-4: fixed card section
+z-5: content overlays within card section
 z-10: "+ More" button in card section
 z-30: spotlight reveal layers
 z-40: bottom gradient overlays
@@ -119,12 +119,12 @@ A `position: fixed; top: 0; left: 0; right: 0` nav with `z-[60]`, flex row, item
 
 **Left: Logo + Wordmark**
 - Custom SVG logo (24x24, white, viewBox 0 0 256 256) — a geometric 4-quadrant shape with cut corners:
-  ```
-  M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z
-  M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z
-  M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z
-  M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z
-  ```
+```
+M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z
+M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z
+M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z
+M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z
+```
 - "INFINITE" text: `text-sm font-medium tracking-wide uppercase text-white`
 
 **Center (hidden on mobile, `hidden md:flex`):** Pill navigation
@@ -187,9 +187,9 @@ A full-viewport section with:
 - Component: `RevealLayer({ image, cursorX, cursorY })`
 - A hidden `<canvas>` sized to window dimensions (resized on window resize)
 - On every render (no dependency array on the useEffect), draws a radial gradient at cursor position:
-  - `createRadialGradient(cursorX, cursorY, 0, cursorX, cursorY, 260)`
-  - Stops: 0 -> white 100%, 0.4 -> white 100%, 0.6 -> white 75%, 0.75 -> white 40%, 0.88 -> white 12%, 1.0 -> white 0%
-  - Draws filled arc circle
+- `createRadialGradient(cursorX, cursorY, 0, cursorX, cursorY, 260)`
+- Stops: 0 -> white 100%, 0.4 -> white 100%, 0.6 -> white 75%, 0.75 -> white 40%, 0.88 -> white 12%, 1.0 -> white 0%
+- Draws filled arc circle
 - Canvas is converted to `toDataURL()` and applied as CSS mask (`maskImage` + `webkitMaskImage`) to the image div
 - Image div: `absolute inset-0 bg-center bg-cover bg-no-repeat z-30 pointer-events-none` with `BG_IMAGE_2`
 
@@ -204,16 +204,16 @@ A full-viewport section with:
 **Left column (md:col-span-7 lg:col-span-8):**
 
 1. Badge line (animationDelay: 0.3s, class: anim-stagger):
-   - White circle: `w-2.5 h-2.5 rounded-full bg-white/80`
-   - Text: "Best digital banking card 2026" — `text-sm sm:text-[15px] text-white/80 font-normal tracking-wide`
+- White circle: `w-2.5 h-2.5 rounded-full bg-white/80`
+- Text: "Best digital banking card 2026" — `text-sm sm:text-[15px] text-white/80 font-normal tracking-wide`
 
 2. Heading (animationDelay: 0.5s, class: anim-stagger):
-   - `"One Card, Zero\nLimits. Worldwide."` (line break after "Zero")
-   - `text-[clamp(2.2rem,6.5vw,5rem)] font-light text-white leading-[0.95] tracking-[-0.03em] mb-8 sm:mb-10`
+- `"One Card, Zero\nLimits. Worldwide."` (line break after "Zero")
+- `text-[clamp(2.2rem,6.5vw,5rem)] font-light text-white leading-[0.95] tracking-[-0.03em] mb-8 sm:mb-10`
 
 3. Buttons row (animationDelay: 0.7s, class: anim-stagger):
-   - "See Features": `bg-white text-gray-900 text-sm font-medium px-6 sm:px-7 py-3 sm:py-3.5 rounded-full hover:bg-white/90 transition-all`
-   - "How It Works": `flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 text-white/90 text-sm font-medium px-6 sm:px-7 py-3 sm:py-3.5 rounded-full hover:bg-white/15 transition-all` with `Play` icon (size 13, `fill-white/90`)
+- "See Features": `bg-white text-gray-900 text-sm font-medium px-6 sm:px-7 py-3 sm:py-3.5 rounded-full hover:bg-white/90 transition-all`
+- "How It Works": `flex items-center gap-2.5 bg-white/5 backdrop-blur-sm border border-white/10 text-white/90 text-sm font-medium px-6 sm:px-7 py-3 sm:py-3.5 rounded-full hover:bg-white/15 transition-all` with `Play` icon (size 13, `fill-white/90`)
 
 **Right column (md:col-span-5 lg:col-span-4, animationDelay: 0.85s, class: anim-stagger):**
 - Paragraph: "Infinite is a premium metal credit card built for those who move fast and spend globally. Tap anywhere, earn instantly, skip foreign fees entirely, and travel already rewarded."
@@ -245,9 +245,9 @@ progress = Math.min(window.scrollY / 1800, 1)
 video.currentTime = progress * video.duration
 ```
 - Phase state machine:
-  - scrollY === 0 -> 'idle' (reset currentTime to 0)
-  - 0 < progress < 0.99 -> 'playing'
-  - progress >= 0.99 -> 'done'
+- scrollY === 0 -> 'idle' (reset currentTime to 0)
+- 0 < progress < 0.99 -> 'playing'
+- progress >= 0.99 -> 'done'
 - Only sets currentTime when `!video.seeking`
 - Uses a ref (`phaseRef`) to avoid unnecessary re-renders
 
@@ -298,8 +298,8 @@ A `position: fixed; inset: 0; width: 100%; height: 100%; z-index: 4` section.
 **Bottom-left content (z-5):**
 - `absolute bottom-6 sm:bottom-14 md:bottom-16 left-5 sm:left-10 md:left-14 right-5 sm:right-auto`
 - Inner `max-w-md`:
-  - Paragraph: "Get approved in seconds, receive your virtual card instantly, and arrive with cashback, travel perks, and spending insights already active." — `text-sm sm:text-[15px] md:text-base text-white/65 leading-relaxed mb-5 sm:mb-6`
-  - Button "Apply now for free": `bg-white text-gray-900 text-sm font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:bg-white/90 transition-all`
+- Paragraph: "Get approved in seconds, receive your virtual card instantly, and arrive with cashback, travel perks, and spending insights already active." — `text-sm sm:text-[15px] md:text-base text-white/65 leading-relaxed mb-5 sm:mb-6`
+- Button "Apply now for free": `bg-white text-gray-900 text-sm font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:bg-white/90 transition-all`
 
 ---
 
@@ -323,12 +323,12 @@ A `position: fixed; inset: 0; width: 100%; height: 100%; z-index: 4` section.
 
 ```
 <div min-h-screen bg-[#0A0B11]>
-  <div fixed video layer z-2 />
-  <nav fixed z-60 />
-  <div mobile overlay z-54 />
-  <div mobile menu z-55 />
-  <HeroSection sticky z-3 />
-  <div scroll-spacer 1800px z-0 />
-  <CardSection fixed z-4 />
+<div fixed video layer z-2 />
+<nav fixed z-60 />
+<div mobile overlay z-54 />
+<div mobile menu z-55 />
+<HeroSection sticky z-3 />
+<div scroll-spacer 1800px z-0 />
+<CardSection fixed z-4 />
 </div>
 ```

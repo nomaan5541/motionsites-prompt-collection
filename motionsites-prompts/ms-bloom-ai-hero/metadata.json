@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "bloom-ai-hero",
+    "title": "Bloom AI",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 818,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

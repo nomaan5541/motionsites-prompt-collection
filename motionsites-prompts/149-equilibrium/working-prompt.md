@@ -5,16 +5,16 @@ Build a full-screen, single-page React + TypeScript + Vite + Tailwind CSS hero s
 - Apply `Geist` globally via `* { font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }`
 - Include `@tailwind base; @tailwind components; @tailwind utilities;`
 - Define a `.liquid-glass` class:
-  - `background: rgba(255,255,255,0.01);`
-  - `background-blend-mode: luminosity;`
-  - `backdrop-filter: blur(4px);` plus `-webkit-backdrop-filter`
-  - `border: none;`
-  - `box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);`
-  - `position: relative; overflow: hidden;`
+- `background: rgba(255,255,255,0.01);`
+- `background-blend-mode: luminosity;`
+- `backdrop-filter: blur(4px);` plus `-webkit-backdrop-filter`
+- `border: none;`
+- `box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);`
+- `position: relative; overflow: hidden;`
 - Add a `.liquid-glass::before` pseudo-element creating a gradient border via mask compositing:
-  - `content:''; position:absolute; inset:0; border-radius:inherit; padding:1.4px;`
-  - `background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);`
-  - `-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;`
+- `content:''; position:absolute; inset:0; border-radius:inherit; padding:1.4px;`
+- `background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);`
+- `-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;`
 
 **Component (`src/App.tsx`):**
 - Import from `lucide-react`: `ChevronDown`, `Infinity`, `Menu`, `X`. Import `useState` from React.
@@ -30,8 +30,8 @@ Build a full-screen, single-page React + TypeScript + Vite + Tailwind CSS hero s
 - Logo (left): flex with `gap-2 text-white font-medium text-base`. `<Infinity size={22} strokeWidth={1.5} />` followed by `<span>Equilibrium</span>`.
 - Nav pill (center, `hidden md:flex`): `liquid-glass items-center gap-1 rounded-xl px-2 py-2`. Map `navLinks`. Each button: `flex items-center gap-0.5 px-3 py-1.5 rounded-md text-sm transition-colors`; active gets `bg-white/15 text-white`, others `text-white/70 hover:text-white`. Dropdown items render a `<ChevronDown size={13} class="mt-px" />`.
 - CTAs (right, `hidden md:flex items-center gap-3`):
-  - "Log in": `liquid-glass text-white text-sm font-medium px-4 py-2.5 rounded-full hover:bg-white/5 transition-colors`
-  - "Begin Now": `bg-white text-black text-sm font-medium px-4 py-2.5 rounded-full hover:bg-white/90 transition-colors`
+- "Log in": `liquid-glass text-white text-sm font-medium px-4 py-2.5 rounded-full hover:bg-white/5 transition-colors`
+- "Begin Now": `bg-white text-black text-sm font-medium px-4 py-2.5 rounded-full hover:bg-white/90 transition-colors`
 - Mobile toggle (`md:hidden`): `liquid-glass text-white p-2 rounded-lg`; shows `X` when open else `Menu` (size 18).
 
 **Mobile menu** (when `menuOpen`): `absolute top-[72px] left-4 right-4 z-30 md:hidden liquid-glass rounded-2xl p-4 flex flex-col gap-1`. Same nav links as buttons `flex items-center justify-between w-full px-4 py-3 rounded-lg text-sm`. Bottom CTA row: `flex gap-2 mt-2 pt-3 border-t border-white/10` with two `flex-1` buttons ("Log in", "Begin Now") matching desktop styles.
@@ -40,8 +40,8 @@ Build a full-screen, single-page React + TypeScript + Vite + Tailwind CSS hero s
 - `<h1>`: `text-white text-4xl sm:text-5xl lg:text-6xl font-medium leading-tight tracking-tight mb-4` — text: `Live Better, Feel Whole Every Day`.
 - `<p>`: `text-white/60 text-sm leading-relaxed mb-7 max-w-md` — text: `Take charge of how you feel with a companion built for your journey—build routines, follow your growth, and unlock tailored insights for a steadier, more vibrant life each day.`
 - Buttons row `flex flex-wrap items-center gap-3`:
-  - "Start Today": `bg-white text-black text-sm sm:text-base font-medium px-6 sm:px-7 py-3 rounded-full hover:bg-white/90 transition-colors`
-  - "Discover How": `liquid-glass text-white text-sm sm:text-base font-medium px-6 sm:px-7 py-3 rounded-full hover:bg-white/5 transition-colors`
+- "Start Today": `bg-white text-black text-sm sm:text-base font-medium px-6 sm:px-7 py-3 rounded-full hover:bg-white/90 transition-colors`
+- "Discover How": `liquid-glass text-white text-sm sm:text-base font-medium px-6 sm:px-7 py-3 rounded-full hover:bg-white/5 transition-colors`
 
 **Animations/interactions:** all buttons use Tailwind `transition-colors`; liquid-glass effect uses `backdrop-filter: blur(4px)` plus the animated-looking gradient border pseudo. No additional keyframe animations. The background video itself provides motion.
 

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "ai-runtime",
+    "title": "AI Runtime",
+    "category": "AI",
+    "page_type": "hero",
+    "sort_order": 811,
+    "image_preview_url": "/assets/previews/ai-runtime.webp",
+    "video_preview_url": "/assets/previews/ai-runtime.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

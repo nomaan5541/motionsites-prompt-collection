@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-babybites-sophisticated-palette",
+    "title": "[Superdesign] BabyBites - Sophisticated Palette",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3019,
+    "image_preview_url": "/assets/superdesign/babybites-sophisticated-palette.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

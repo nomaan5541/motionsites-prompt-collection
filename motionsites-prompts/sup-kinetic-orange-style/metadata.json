@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-kinetic-orange-style",
+    "title": "[Superdesign] Kinetic Orange Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3010,
+    "image_preview_url": "/assets/superdesign/kinetic-orange-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "style",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

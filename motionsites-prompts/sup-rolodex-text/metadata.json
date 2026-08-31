@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-rolodex-text",
+    "title": "[Superdesign] Rolodex Text",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3048,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/rolodex-text.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "text animation"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

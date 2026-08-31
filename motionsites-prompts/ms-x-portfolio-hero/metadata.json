@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "x-portfolio-hero",
+    "title": "xPortfolio Hero",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 892,
+    "image_preview_url": "/assets/previews/x-portfolio-hero.webp",
+    "video_preview_url": "/assets/previews/x-portfolio-hero.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

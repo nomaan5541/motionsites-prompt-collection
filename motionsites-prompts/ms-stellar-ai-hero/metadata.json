@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "stellar-ai-hero",
+    "title": "Stellar AI",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 879,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

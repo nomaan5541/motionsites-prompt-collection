@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-superdesign-editorial-waitlist",
+    "title": "[Superdesign] Superdesign Editorial Waitlist",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3029,
+    "image_preview_url": "/assets/superdesign/superdesign-editorial-waitlist.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "style",
+      "waitlist",
+      "landing page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

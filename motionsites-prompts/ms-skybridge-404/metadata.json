@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "skybridge-404",
+    "title": "Skybridge 404",
+    "category": "404",
+    "page_type": "hero",
+    "sort_order": 877,
+    "image_preview_url": "/assets/previews/skybridge-404.webp",
+    "video_preview_url": "/assets/previews/skybridge-404.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

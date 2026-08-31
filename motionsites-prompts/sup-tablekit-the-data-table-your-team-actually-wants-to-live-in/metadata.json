@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-tablekit-the-data-table-your-team-actually-wants-to-live-in",
+    "title": "[Superdesign] Tablekit — The data table your team actually wants to live in",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Dashboards",
+    "page_type": "superdesign",
+    "sort_order": 3109,
+    "image_preview_url": "/assets/superdesign/tablekit-the-data-table-your-team-actually-wants-to-live-in.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "table",
+      "admin",
+      "dashboard",
+      "data-table",
+      "saas",
+      "tasks",
+      "cobalt",
+      "light-mode",
+      "bulk-actions",
+      "sticky-header",
+      "shadcn",
+      "linear"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

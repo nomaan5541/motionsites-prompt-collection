@@ -4,25 +4,25 @@ Build a React + TypeScript + Tailwind CSS + Vite project with a single section c
 
 ```css
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Neue Montreal';
+src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
 @font-face {
-  font-family: 'PP Neue Montreal';
-  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Neue Montreal';
+src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+font-weight: 500;
+font-style: normal;
+font-display: swap;
 }
 @font-face {
-  font-family: 'PP Mondwest';
-  src: url('/PPMondwest-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+font-family: 'PP Mondwest';
+src: url('/PPMondwest-Regular.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+font-display: swap;
 }
 
 @tailwind base;
@@ -30,16 +30,16 @@ Build a React + TypeScript + Tailwind CSS + Vite project with a single section c
 @tailwind utilities;
 
 body {
-  font-family: 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+font-family: 'PP Neue Montreal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 @keyframes fadeInUp {
-  0%   { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+0% { opacity: 0; transform: translateY(30px); }
+100% { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
+animation: fadeInUp 0.8s ease-out forwards;
+opacity: 0;
 }
 ```
 
@@ -76,10 +76,10 @@ Place `PPMondwest-Regular.woff2` in the `public/` folder.
 - `<section className="w-full py-20 bg-white">` wrapper with `ref` from the in-view hook.
 - Inner container: `max-w-7xl mx-auto px-6`, then a `w-full md:pr-6` wrapper.
 - Header row: `flex flex-col md:flex-row md:items-start md:justify-between mb-16 md:max-w-4xl md:ml-auto gap-6 md:gap-0`.
-  - Left (flex-1): heading `text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] text-[#0D212C] tracking-tight font-normal`. Text: `What ` then a `<span>` with inline style `fontFamily: "'PP Mondwest', serif"` reading `builders`, then ` say`.
-  - Right column: `flex flex-col items-start md:items-end gap-2`.
-    - Row of 5 `Star` icons from lucide-react, `w-5 h-5 fill-black text-black`.
-    - Row: `Clutch` in `text-xl font-semibold text-[#0D212C]` and `5/5` in `text-base text-[#273C46]`.
+- Left (flex-1): heading `text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] text-[#0D212C] tracking-tight font-normal`. Text: `What ` then a `<span>` with inline style `fontFamily: "'PP Mondwest', serif"` reading `builders`, then ` say`.
+- Right column: `flex flex-col items-start md:items-end gap-2`.
+- Row of 5 `Star` icons from lucide-react, `w-5 h-5 fill-black text-black`.
+- Row: `Clutch` in `text-xl font-semibold text-[#0D212C]` and `5/5` in `text-base text-[#273C46]`.
 - Apply fade-in animations: heading delay `0.1s`, Clutch block delay `0.2s`, carousel delay `0.3s`, button row delay `0.4s`. Each element uses `isInView ? 'animate-fade-in-up' : 'opacity-0'` plus `style={{ animationDelay: isInView ? 'Xs' : '0s' }}`.
 
 **Carousel container**

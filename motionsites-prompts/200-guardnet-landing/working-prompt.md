@@ -1,11 +1,3 @@
-# Guardnet
-
-**ID:** guardnet-landing  
-**Category:** Landing Page  
-**Type:** landing-page  
-
----
-
 Build a single-page React + TypeScript + Vite + Tailwind CSS landing page for a security/privacy brand called guardnet. Use lucide-react only if needed; do not add other UI libraries. Place everything in src/App.tsx and src/index.css. Use the Bolt Database only if persistence is actually needed (this page needs none).
 
 Global Styling

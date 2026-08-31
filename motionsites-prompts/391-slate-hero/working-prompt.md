@@ -1,11 +1,3 @@
-# Slate
-
-**ID:** slate-hero  
-**Category:** SaaS  
-**Type:** hero  
-
----
-
 Build a full-screen hero landing page for a productivity SaaS called "Slate" with the exact specs below.
 
 Tech Stack
@@ -25,10 +17,10 @@ In index.css, apply globally:
 
 
 * {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 200;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3, h4, h5, h6 { font-weight: inherit; }
 Liquid Glass Effect
@@ -36,29 +28,29 @@ Two reusable CSS classes:
 
 
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 Navbar
 Padding: px-4 sm:px-6 lg:px-10 py-4 lg:py-5, flex with justify-between.
@@ -80,11 +72,11 @@ A flex-column wrapper:
 
 
 style={{
-  fontSize: 'clamp(36px, 8vw, 76px)',
-  letterSpacing: '-1.5px',
-  lineHeight: 1.1,
-  fontWeight: 200,
-  textShadow: '0 2px 20px rgba(0,0,0,0.3)',
+fontSize: 'clamp(36px, 8vw, 76px)',
+letterSpacing: '-1.5px',
+lineHeight: 1.1,
+fontWeight: 200,
+textShadow: '0 2px 20px rgba(0,0,0,0.3)',
 }}
 Two stacked SplitText components (the second wrapped in <div style={{ marginTop: '-0.15em' }}>):
 
@@ -108,11 +100,11 @@ Implementation: a GSAP-based component that splits text into characters, animate
 Subtext (staggered fade-in)
 
 <p
-  className="text-white/65 max-w-md mb-6 leading-relaxed px-2 hero-fade-up"
-  style={{ fontSize: 'clamp(13px, 1.5vw, 17px)', lineHeight: 1.6, animationDelay: '0.6s' }}
+className="text-white/65 max-w-md mb-6 leading-relaxed px-2 hero-fade-up"
+style={{ fontSize: 'clamp(13px, 1.5vw, 17px)', lineHeight: 1.6, animationDelay: '0.6s' }}
 >
-  Build a thriving hub where your smartest ideas grow<br className="hidden sm:block" />
-  smoothly, and your dreams arrive sooner than ever.
+Build a thriving hub where your smartest ideas grow<br className="hidden sm:block" />
+smoothly, and your dreams arrive sooner than ever.
 </p>
 CTA Buttons (staggered fade-in)
 Container: flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none.
@@ -129,13 +121,13 @@ Label "Watch demo" (fontSize: 15), no icon
 Fade-up animation CSS
 
 @keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
 }
 .hero-fade-up {
-  opacity: 0;
-  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  will-change: transform, opacity;
+opacity: 0;
+animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+will-change: transform, opacity;
 }
 Constraints
 No purple/indigo hues. White text on the video, glass surfaces use rgba(255,255,255,*) only.

@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-neural-noir-interface-style",
+    "title": "[Superdesign] Neural Noir Interface Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3008,
+    "image_preview_url": "/assets/superdesign/neural-noir-interface-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

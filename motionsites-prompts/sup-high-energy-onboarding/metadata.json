@@ -1,0 +1,37 @@
+{
+  "record": {
+    "id": "sup-high-energy-onboarding",
+    "title": "[Superdesign] High energy onboarding",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3119,
+    "image_preview_url": "/assets/superdesign/high-energy-onboarding.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "onboarding",
+      "page",
+      "maximalist",
+      "energetic",
+      "experimental",
+      "playful",
+      "bold",
+      "unconventional",
+      "multi colour",
+      "workspace setup",
+      "orange accent",
+      "cyan",
+      "neon accents",
+      "high contrast",
+      "form experience",
+      "asymmetrical split layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

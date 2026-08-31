@@ -1,116 +1,135 @@
-PROMPT:
+Build a password manager landing page hero section using React, TypeScript, Tailwind CSS, Framer Motion, and Lucide React icons. Here is every specification:
 
-Build a full-viewport cinematic movie/streaming hero section using React, Tailwind CSS, and Lucide React icons. Use the Inter font from Google Fonts. The entire page is a single full-height hero -- no scrolling, no additional sections.
+---
 
-BACKGROUND VIDEO:
+### Fonts
 
-A full-screen background video plays on loop, muted, autoplaying, covering the entire viewport with object-cover. The video is fixed-positioned behind everything at z-index 0.
+- **Heading font:** "Helvetica Now Display Bold" -- load via this stylesheet in `index.html`:
+```
+<link href="https://db.onlinewebfonts.com/c/04e6981992c0e2e7642af2074ebe3901?family=Helvetica+Now+Display+Bold" rel="stylesheet">
+```
+- **Body font:** "Inter" (weights 300-900) -- load via Google Fonts in `index.css`:
+```
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+```
 
-Video URL: https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_094145_4a271a6c-3869-4f1c-8aa7-aeb0cb227994.mp4
+### CSS Variables (defined in `:root` in `index.css`)
 
-BOTTOM BLUR OVERLAY (no gradient darkening):
+```
+--font-heading: 'Helvetica Now Display Bold', sans-serif;
+--font-body: 'Inter', sans-serif;
+--color-text: #192837;
+--color-accent: #7342E2;
+--color-login-bg: #F2F2EE;
+```
 
-Over the video, there is a single fixed, full-screen overlay div that applies a strong backdrop-blur-xl. This div uses a CSS mask so the blur only appears at the bottom and fades to transparent toward the middle of the screen. There is NO dark gradient overlay -- only blur.
+Global reset: `* { box-sizing: border-box; }`, body uses `var(--font-body)`, `var(--color-text)`, margin/padding 0.
 
-The mask: mask-image: linear-gradient(to top, black 0%, transparent 45%) (with the -webkit- prefix too).
+---
 
-This overlay is pointer-events-none and sits at z-index 1.
+### Background
 
-FONT:
+Full-viewport looping background video, absolutely positioned, covering the entire page with `object-cover`. URL:
 
-Import Inter from Google Fonts (weights 300-700). Set font-family: 'Inter', sans-serif on the body.
+```
+https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260606_131516_eca35265-ea66-4fbd-8d52-22aae6e1a503.mp4
+```
 
-LIQUID GLASS EFFECT (used on multiple buttons):
+Attributes: `autoPlay`, `muted`, `loop`, `playsInline`. Classes: `absolute inset-0 z-0 w-full h-full object-cover`.
 
-Create a reusable .liquid-glass CSS class with these exact properties:
+---
 
-background: rgba(255, 255, 255, 0.01) with background-blend-mode: luminosity
-backdrop-filter: blur(4px) (with -webkit- prefix)
-border: none
-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1)
-position: relative; overflow: hidden
-A ::before pseudo-element that creates a thin glowing border effect:
-position: absolute; inset: 0; border-radius: inherit; padding: 1.4px
-background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%)
-Uses -webkit-mask with linear-gradient(#fff 0 0) content-box and linear-gradient(#fff 0 0) combined with -webkit-mask-composite: xor and mask-composite: exclude to create a border-only gradient stroke
-pointer-events: none
-BLUR-FADE-UP ANIMATION (used on every element with staggered delays):
+### Logo (inline SVG component)
 
-Create a @keyframes blurFadeUp animation:
+A custom geometric SVG logo, 32x32, viewBox `0 0 256 256`, fill `#192837`:
 
-From: opacity: 0; filter: blur(20px); transform: translateY(40px)
-To: opacity: 1; filter: blur(0); transform: translateY(0)
-The .animate-blur-fade-up class applies this as animation: blurFadeUp 1s ease-out forwards with initial opacity: 0. Each element on the page gets a staggered animationDelay via inline style.
+```
+M 64 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 L 128 64 L 128 64.5 L 161 32 L 192 0 L 256 0 L 256 64 L 192 128 L 128 128 L 128 192 L 96 223 L 63.5 256 L 0 256 L 0 192 Z M 256 192 L 224 223 L 191.5 256 L 128 256 L 128 192 L 192 128 L 256 128 Z
+```
 
-NAVBAR (z-index 50, relative positioned):
+---
 
-A horizontal navbar with justify-between, padding px-4 sm:px-6 md:px-12 py-4 md:py-6.
+### Navbar
 
-Left: A text logo (e.g. your brand name like "CINEMATIC" or similar) styled as h-8 md:h-10, with blur-fade-up animation at delay 0ms.
+- Max-width `1280px`, centered with `margin: 0 auto`.
+- Padding: `px-5 sm:px-8 py-4 sm:py-5`.
+- `relative z-10`, flexbox with `justify-between`, `items-center`.
+- **Left:** Logo component.
+- **Center (desktop, hidden on mobile `md:flex`):** 5 nav links -- "Vault", "Plans", "Install", "News", "Help". Each is `text-sm font-medium`, color `var(--color-text)`, `transition-opacity hover:opacity-70`, gap-8.
+- **Right (desktop, hidden on mobile `md:flex`):** Two pill buttons with `gap-3`:
+- "Start For Free": background `#7342E2`, white text, `text-sm font-semibold px-5 py-2.5 rounded-full`, hover shadow, active scale-95.
+- "Sign In": background `#F2F2EE`, text `var(--color-text)`, same sizing/rounding.
+- **Mobile (`md:hidden`):** Hamburger button using Lucide `Menu` icon (24px). Toggles to `X` icon when open.
 
-Center (desktop only, hidden below lg): Navigation links -- "Movies", "TV Series", "Editor's Pick", "Interviews", "User Reviews" -- each as an anchor with text-sm, hover:text-gray-300 transition-colors, and staggered blur-fade-up delays from 100ms to 300ms (50ms increments).
+---
 
-Right: Two buttons visible on sm and up:
+### Mobile Menu (slide-in sheet)
 
-A "Search" button -- rounded-full liquid-glass pill with the text "Search" and a Lucide Search icon (size 18), padding px-4 md:px-6 py-2, blur-fade-up at 350ms.
-A user/profile circle button -- w-10 h-10 rounded-full liquid-glass with a Lucide User icon (size 18), blur-fade-up at 400ms.
-A hamburger menu button visible only below lg -- w-10 h-10 rounded-full liquid-glass with animated icon transition between Lucide Menu and X icons. The transition uses rotate-180, opacity, and scale-50 with duration-500 ease-out. Blur-fade-up at 350ms.
-MOBILE MENU (below lg breakpoint):
+Uses Framer Motion `AnimatePresence`. Two layers:
 
-An absolutely positioned dropdown below the navbar (top-[72px]), z-index 40. It slides in with translate-y-0 opacity-100 when open, -translate-y-4 opacity-0 pointer-events-none when closed, duration-500 ease-out.
+1. **Backdrop:** Fixed overlay, `rgba(25,40,55,0.35)` background, `backdrop-blur(4px)`. Fades in/out over 0.3s. Clicking dismisses the menu.
 
-Background: bg-gray-900/95 backdrop-blur-lg with border-t border-b border-gray-800 shadow-2xl.
-Contains the same 5 nav links, each in a column with py-3 px-3 rounded-lg, hover:bg-gray-800/50, and staggered slide-in animations (translate-x based, 50ms delay increments).
-Below sm, also shows Search and Profile buttons in a bordered section at the bottom.
-HERO CONTENT (bottom of viewport):
+2. **Sheet:** Fixed, right-aligned, `width: min(88vw, 360px)`, `height: 100dvh`, background `#CFC8C5`, box-shadow `-12px 0 48px rgba(25,40,55,0.18)`. Slides in from right with custom cubic bezier `[0.22, 1, 0.36, 1]` over 0.45s; exits with `[0.55, 0, 1, 0.45]` over 0.35s.
 
-A flex container that grows to fill remaining space and aligns content to the bottom (flex-1 flex flex-col justify-end), with padding px-4 sm:px-6 md:px-12 pb-8 md:pb-16, z-index 10.
+Contents:
+- **Header:** Logo + circular close button (40x40, background `rgba(25,40,55,0.1)`, X icon 20px), with `whileTap={{ scale: 0.9 }}`.
+- **Divider:** 1px line, `rgba(25,40,55,0.12)`, margin `0 24px`.
+- **Nav links:** Each link staggers in from right (x: 24 to 0, delay `0.18 + i * 0.07`, duration 0.4s). Font size `1.1rem`, rounded-xl, hover `bg-black/10`.
+- **CTA buttons:** Same "Start For Free" (`#7342E2`) and "Sign In" (`#F2F2EE`) as desktop, full-width, `py-3.5 rounded-full`, font size `0.95rem`.
 
-Inside, a flex-col md:flex-row items-end gap-8 layout:
+---
 
-Left side (flex-1):
+### Hero Content
 
-Metadata row -- a horizontal flex-wrap row with gap-3 sm:gap-6 mb-6 md:mb-8 text-xs sm:text-sm, blur-fade-up at 300ms:
+- Centered container, max-width `1280px`, `relative z-10`.
+- Padding top: `clamp(40px, 8vw, 72px)`, bottom `48px`.
+- Inner content wrapper: max-width `660px`, centered.
 
-Star icon (size 16, fill-white, responsive to sm:w-5 sm:h-5) + "8.7/10 IMDB" (font-medium)
-Clock icon (size 16) + "132 min"
-Calendar icon (size 16) + "April, 2025"
-Title -- text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal, letter-spacing -0.04em, mb-4 md:mb-6, blur-fade-up at 400ms. Text: "Step Through. Work Smarter."
+**Heading (`<h1>`):**
+- Font: `var(--font-heading)`.
+- Size: `clamp(1.65rem, 5vw, 3rem)`.
+- Line-height: `1.05`, letter-spacing: `-0.01em`.
+- Color: `var(--color-text)`.
+- Text-align: center.
+- Two lines:
+- Line 1 (nowrap): `Lock` [Zap icon 24px] `Down Your` [LockKeyhole icon 24px] `Passwords`
+- Line 2: `with Ironclad Security` [Fingerprint icon 24px]
+- All inline icons: color `#192837`, `display: inline`, `verticalAlign: middle`, `position: relative`, `top: -2px`, margin `0 4px` (Fingerprint has `marginLeft: 6px` only).
+- Animates: fade-up from `y: 28`, `opacity: 0`, duration 0.6s, ease `[0.22, 1, 0.36, 1]`, delay `0 * 0.15`.
 
-Description -- text-base sm:text-lg md:text-xl text-gray-400 mb-6 md:mb-12 max-w-2xl, blur-fade-up at 500ms. Text: "A voyage through forgotten realms, where past and future intertwine."
+**Subtext (`<p>`):**
+- Font: `var(--font-body)`.
+- Size: `clamp(0.9rem, 2.5vw, 1.1rem)`.
+- Color: `var(--color-text)` at `opacity: 0.8`.
+- Max-width: `560px`, line-height `1.65`, text-align center.
+- Copy: "Zero stress, total control. Unbreakable storage, one-tap access, and pro-grade tools for your non-stop world."
+- Animates: same fade-up, delay `1 * 0.15`.
 
-CTA buttons -- flex-wrap row with gap-3 sm:gap-4:
+**CTA Button:**
+- Pill button (`borderRadius: 50px`), background `#7342E2`, white text.
+- Size: `clamp(0.9rem, 2vw, 1rem)`, padding `17px 24px`, min-width `210px`.
+- Box-shadow: `0 4px 24px rgba(115,66,226,0.28)`.
+- Flexbox with `justify-between`, gap `32px`.
+- Label: "Get It Free" with `ArrowRightCircle` icon (20px) on right.
+- Hover: `scale: 1.04, brightness(1.1)`. Tap: `scale: 0.96`.
+- Animates: same fade-up, delay `2 * 0.15`.
 
-"Watch Now" -- bg-white text-black rounded-full font-medium, px-6 sm:px-8 py-2.5 sm:py-3, with a Lucide Play icon (size 18, fill-black), hover:bg-gray-200, blur-fade-up at 600ms.
-"Learn More" -- rounded-full font-medium liquid-glass, same padding, blur-fade-up at 700ms.
-Right side (navigation arrows):
+---
 
-A row of two pill buttons (md:w-auto, aligned right on desktop, left on mobile):
+### Animation System (Framer Motion variants)
 
-"Previous" button -- rounded-full liquid-glass, px-4 sm:px-6 py-2.5 sm:py-3, with Lucide ChevronLeft icon, blur-fade-up at 800ms.
-"Next" button -- same styling with Lucide ChevronRight icon, blur-fade-up at 900ms.
-COLOR PALETTE:
+All hero elements use a shared `fadeUp` variant:
+```
+hidden: { opacity: 0, y: 28 }
+visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] } })
+```
 
-Background: pure black (bg-black)
-Text: white, with text-gray-400 for the subtitle
-All interactive glass elements use the .liquid-glass class (nearly transparent white with blur)
-The only solid-colored element is the "Watch Now" button (white background, black text)
-STAGGER TIMING SUMMARY:
+---
 
-Logo: 0ms
-Nav links: 100ms, 150ms, 200ms, 250ms, 300ms
-Search button: 350ms
-User button: 400ms
-Metadata row: 300ms
-Title: 400ms
-Description: 500ms
-Watch Now: 600ms
-Learn More: 700ms
-Previous: 800ms
-Next: 900ms
-RESPONSIVE BREAKPOINTS:
+### Dependencies
 
-Below sm (< 640px): Smaller text, tighter padding, Search/User buttons hidden (available in mobile menu)
-Below lg (< 1024px): Nav links hidden, hamburger menu shown
-md and up: Side-by-side layout for hero content and navigation arrows
-lg and up: Full desktop navbar with all links visible
+- `react`, `react-dom` (v18)
+- `framer-motion`
+- `lucide-react` (icons: ArrowRightCircle, Zap, LockKeyhole, Fingerprint, Menu, X)
+- Tailwind CSS 3 with default config, no custom theme extensions
+- Vite + TypeScript

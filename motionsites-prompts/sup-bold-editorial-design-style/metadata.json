@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-bold-editorial-design-style",
+    "title": "[Superdesign] Bold Editorial Design Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Portfolios",
+    "page_type": "superdesign",
+    "sort_order": 3037,
+    "image_preview_url": "/assets/superdesign/bold-editorial-design-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "navy",
+      "sage",
+      "portfolio",
+      "landing page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

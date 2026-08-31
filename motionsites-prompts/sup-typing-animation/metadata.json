@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-typing-animation",
+    "title": "[Superdesign] Typing animation",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3044,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/typing-animation.mp4",
+    "is_free": true,
+    "deslop_score": 1,
+    "visual_score": 3,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "text animation"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

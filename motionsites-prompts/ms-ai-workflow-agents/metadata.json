@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "ai-workflow-agents",
+    "title": "AI Workflow Agents",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 812,
+    "image_preview_url": "/assets/previews/ai-workflow-agents.webp",
+    "video_preview_url": "/assets/previews/ai-workflow-agents.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

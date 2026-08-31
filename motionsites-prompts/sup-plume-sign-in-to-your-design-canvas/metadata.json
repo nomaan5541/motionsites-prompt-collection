@@ -1,0 +1,34 @@
+{
+  "record": {
+    "id": "sup-plume-sign-in-to-your-design-canvas",
+    "title": "[Superdesign] Plume · Sign in to your design canvas",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3116,
+    "image_preview_url": "/assets/superdesign/plume-sign-in-to-your-design-canvas.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "login",
+      "sign-in",
+      "auth",
+      "landing-page",
+      "saas",
+      "illustrated",
+      "friendly",
+      "rounded",
+      "sky-blue",
+      "coral",
+      "social-login",
+      "tailwind",
+      "nunito"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

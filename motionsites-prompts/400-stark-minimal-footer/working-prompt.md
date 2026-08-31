@@ -23,9 +23,9 @@ A decorative band at the very top of the footer with horizontally drifting dots.
 - Position absolute, `left: 0; top: 50%`. Width **200%**, height 70px.
 - Opacity 0.75. `transform: translateY(-50%)`.
 - Background-image (three layered radial-gradient dot patterns):
-  - `radial-gradient(circle, rgb(255 255 255 / 0.55) 1.5px, transparent 2px)`
-  - `radial-gradient(circle, rgb(255 255 255 / 0.35) 1px, transparent 1.5px)`
-  - `radial-gradient(circle, rgb(255 255 255 / 0.45) 1.2px, transparent 1.8px)`
+- `radial-gradient(circle, rgb(255 255 255 / 0.55) 1.5px, transparent 2px)`
+- `radial-gradient(circle, rgb(255 255 255 / 0.35) 1px, transparent 1.5px)`
+- `radial-gradient(circle, rgb(255 255 255 / 0.45) 1.2px, transparent 1.8px)`
 - Background-position: `0 8px, 24px 22px, 48px 14px`.
 - Background-size: `72px 38px, 110px 44px, 160px 52px`.
 - Animation: `footerDotsMove 18s linear infinite`.
@@ -34,8 +34,8 @@ A decorative band at the very top of the footer with horizontally drifting dots.
 
 ```
 @keyframes footerDotsMove {
-  from { transform: translate3d(0, -50%, 0); }
-  to   { transform: translate3d(-50%, -50%, 0); }
+from { transform: translate3d(0, -50%, 0); }
+to { transform: translate3d(-50%, -50%, 0); }
 }
 ```
 

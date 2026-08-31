@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "cyber-layer",
+    "title": "Cyber Layer",
+    "category": "Cybersecurity",
+    "page_type": "hero",
+    "sort_order": 824,
+    "image_preview_url": "/assets/previews/cyber-layer.webp",
+    "video_preview_url": "/assets/previews/cyber-layer.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

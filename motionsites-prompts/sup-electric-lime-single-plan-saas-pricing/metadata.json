@@ -1,0 +1,32 @@
+{
+  "record": {
+    "id": "sup-electric-lime-single-plan-saas-pricing",
+    "title": "[Superdesign] Electric-Lime Single-Plan SaaS Pricing",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3068,
+    "image_preview_url": "/assets/superdesign/electric-lime-single-plan-saas-pricing.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "pricing page",
+      "saas",
+      "single-plan",
+      "editorial",
+      "lime",
+      "high-contrast",
+      "billing-toggle",
+      "rounded",
+      "framed",
+      "dev-tool",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

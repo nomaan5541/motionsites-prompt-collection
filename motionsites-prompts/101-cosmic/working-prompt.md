@@ -87,8 +87,8 @@ Two concentric circles centered on the viewport (`left-1/2 top-1/2`, translated 
 - Font size: `clamp(2.8rem, 17vw, 23rem)`.
 - Letter spacing: `-0.04em`. Line height: `0.85`. White space: `nowrap`. Color: white.
 - **Letter-by-letter reveal animation:** Each character is a separate `<span>` with `display: inline-block`. When `videoEnded` is false, each span is at `translateY(120%) opacity:0`. When true, it transitions to `translateY(0) opacity:1`.
-  - Transform transition: `0.8s cubic-bezier(0.16, 1, 0.3, 1)` with stagger delay of `i * 60ms`.
-  - Opacity transition: `0.5s ease-out` with same stagger delay.
+- Transform transition: `0.8s cubic-bezier(0.16, 1, 0.3, 1)` with stagger delay of `i * 60ms`.
+- Opacity transition: `0.5s ease-out` with same stagger delay.
 - Spaces are rendered as `\u00A0` with width `0.25em`.
 
 ---
@@ -137,9 +137,9 @@ Triggered by tapping the hamburger. Uses two states: `menuOpen` (controls mount/
 2. **Circle reveal:** A `div` positioned at `top-4 right-5`, `rounded-full bg-white/[0.03]`. Grows from `0` to `300vmax` width/height with `transform: translate(50%, -50%)`. Easing: `cubic-bezier(0.16, 1, 0.3, 1)`, duration 800ms.
 3. **Top bar:** Logo "COSMIQ." on left, `X` close icon on right. Fades in with 200ms delay.
 4. **Nav links:** Three links ("Discover", "Story", "Connect") in a vertical column. Each is a row with the label on the left and an `ArrowUpRight` icon on the right. Separated by `border-b border-white/[0.08]`.
-   - Label font: `Anton, sans-serif`, `text-4xl`, `tracking-tight`. On hover: `tracking-wider`.
-   - Icon: `ArrowUpRight` from lucide-react, `w-5 h-5 text-white/30`. On hover: white, translates `+1px right, -1px up`.
-   - Staggered entrance: each link has `300 + i * 100 ms` delay, slides up from `translateY(30px)`.
+- Label font: `Anton, sans-serif`, `text-4xl`, `tracking-tight`. On hover: `tracking-wider`.
+- Icon: `ArrowUpRight` from lucide-react, `w-5 h-5 text-white/30`. On hover: white, translates `+1px right, -1px up`.
+- Staggered entrance: each link has `300 + i * 100 ms` delay, slides up from `translateY(30px)`.
 5. **Bottom section:** "Share" button with `Share2` icon, plus a decorative `12px-wide 1px-tall` white/20 line and tagline "Explore the unknown" in `text-[10px] tracking-[0.3em] text-white/30 uppercase`. Appears with 650ms delay.
 
 ---
@@ -148,46 +148,46 @@ Triggered by tapping the hamburger. Uses two states: `menuOpen` (controls mount/
 
 ```css
 @keyframes circleShrink {
-  0% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
-  20% { opacity: 0.3; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+0% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+20% { opacity: 0.3; }
+100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
 }
 
 @keyframes circleShrinkOuter {
-  0% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
-  25% { opacity: 0.2; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+0% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+25% { opacity: 0.2; }
+100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
 }
 
 @keyframes textReveal {
-  0% { transform: translateY(100%); opacity: 0; }
-  60% { opacity: 1; }
-  100% { transform: translateY(0); opacity: 1; }
+0% { transform: translateY(100%); opacity: 0; }
+60% { opacity: 1; }
+100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+from { opacity: 0; }
+to { opacity: 1; }
 }
 
 @keyframes rockFadeIn {
-  0% { opacity: 0; transform: translateX(-50%) scale(0.95); }
-  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+0% { opacity: 0; transform: translateX(-50%) scale(0.95); }
+100% { opacity: 1; transform: translateX(-50%) scale(1); }
 }
 
 @keyframes starTwinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.8; }
+0%, 100% { opacity: 0.2; }
+50% { opacity: 0.8; }
 }
 
 @keyframes circlePulse {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.03); }
+0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.03); }
 }
 
 @keyframes circlePulseOuter {
-  0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.28; transform: translate(-50%, -50%) scale(1.02); }
+0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+50% { opacity: 0.28; transform: translate(-50%, -50%) scale(1.02); }
 }
 ```
 

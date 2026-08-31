@@ -1,0 +1,1 @@
+Interactive call-to-action button featuring a right-arrow SVG icon and custom **glow effect** driven by CSS variables **for cursor position**. Ideal for hero sections or onboarding prompts.

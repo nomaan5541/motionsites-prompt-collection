@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-architectural-type-system-style",
+    "title": "[Superdesign] Architectural Type System Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3042,
+    "image_preview_url": "/assets/superdesign/architectural-type-system-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "product launch",
+      "waitlist",
+      "high conversion page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

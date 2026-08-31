@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-neon-velocity-countdown",
+    "title": "[Superdesign] Neon Velocity Countdown",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3033,
+    "image_preview_url": "/assets/superdesign/neon-velocity-countdown.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "product launch",
+      "style",
+      "landing page",
+      "high conversion page",
+      "waitlist"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

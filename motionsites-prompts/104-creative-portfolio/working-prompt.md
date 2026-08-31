@@ -13,8 +13,8 @@ Build a full-screen hero section for a creative portfolio using React, Vite, Tai
 
 - **Font:** Figtree (400, 500, 600) from Google Fonts, loaded in `index.html`
 - **Tailwind custom breakpoints (max-width based):**
-  - `mobile`: max 809.98px
-  - `md-tablet`: min 810px, max 1199.98px
+- `mobile`: max 809.98px
+- `md-tablet`: min 810px, max 1199.98px
 - **CSS variable:** `--ease-spring: cubic-bezier(0.16, 1, 0.3, 1)`
 
 ---
@@ -38,9 +38,9 @@ A `bg-black/10` overlay sits above videos at `z-[1]`.
 
 - **Layout:** Centered container, max-width 1340px, `py-9 px-[15px]`
 - **Left side:** Navigation items formatted as `01 / Works`, `02 / Services`, `03 / About`, `04 / Contact`
-  - Index number: `text-[8px] leading-3 tracking-[-0.08px] font-medium uppercase`
-  - Label: `text-xs leading-4 tracking-[-0.12px] font-medium uppercase`
-  - Each link has a `.nav-link-underline` effect (underline slides in from right on hover via `scaleX` transform)
+- Index number: `text-[8px] leading-3 tracking-[-0.08px] font-medium uppercase`
+- Label: `text-xs leading-4 tracking-[-0.12px] font-medium uppercase`
+- Each link has a `.nav-link-underline` effect (underline slides in from right on hover via `scaleX` transform)
 - **Right side (aligned right):** Email `Davies@gmail.com` and live clock showing `CUP HH:MM:SS` (24h format, updates every second using `Intl.DateTimeFormat('en-GB')`)
 - **Mobile:** Nav items hidden, replaced by a `Menu`/`Close` toggle button. Mobile panel uses CSS Grid `grid-rows-[0fr]`/`grid-rows-[1fr]` transition (420ms, spring ease) for smooth expand/collapse. Mobile nav links are large: `text-[28px] leading-8 tracking-[-0.84px]`
 

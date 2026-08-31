@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "3d-jack-portfolio-hero",
+    "title": "3D Jack Portfolio",
+    "category": "Portfolio",
+    "page_type": "hero",
+    "sort_order": 803,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/previews/3d-jack-portfolio-hero.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

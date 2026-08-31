@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "digital-director",
+    "title": "Digital Director",
+    "category": "Portfolio",
+    "page_type": "hero",
+    "sort_order": 831,
+    "image_preview_url": "/assets/previews/digital-director.webp",
+    "video_preview_url": "/assets/previews/digital-director.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

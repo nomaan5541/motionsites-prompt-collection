@@ -26,13 +26,13 @@ Build a full-screen hero section landing page for a data platform called "DataVi
 - Layout: `flex-1 flex flex-col justify-between`, padding `px-5 sm:px-6 md:px-12 lg:px-16 py-4 sm:py-6 md:py-10`.
 - **Heading** (top): `max-w-3xl`, padding-top `pt-2 sm:pt-4 md:pt-8`. Text: "One Central Hub" / "for Every Source" (line break between). Style: `text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-normal text-white leading-[1.1] tracking-tight`.
 - **Bottom content** (`max-w-3xl pb-2 sm:pb-4 md:pb-6`):
-  - Paragraph: `text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl`. Starts with bold white span: "End fragmented pipelines." then regular text. Another bold white span: "transparency, governance, and scalable systems".
-  - CTA Buttons (`mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-3 sm:gap-4`):
-    - Primary: "Start Integration" -- `bg-white text-gray-900 text-sm font-medium rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 hover:bg-white/90`.
-    - Secondary: "Schedule Call" -- `text-white/80 text-sm font-medium hover:text-white`.
-  - Social proof pill (`mt-6 sm:mt-8 md:mt-10`): `inline-flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5`.
-    - 3 overlapping avatar images (Pexels URLs: `774909`, `1222271`, `91227` with `?auto=compress&cs=tinysrgb&w=100`), each `w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white/30 object-cover`, stacked with `-space-x-2.5`.
-    - Text: `text-white/80 text-xs sm:text-sm leading-snug max-w-[220px] sm:max-w-xs`. Bold white span: "Adopted by 2,000+ companies and dev teams" followed by "who ship quicker, iterate safely, and keep full ownership of their pipelines."
+- Paragraph: `text-white/75 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl`. Starts with bold white span: "End fragmented pipelines." then regular text. Another bold white span: "transparency, governance, and scalable systems".
+- CTA Buttons (`mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-3 sm:gap-4`):
+- Primary: "Start Integration" -- `bg-white text-gray-900 text-sm font-medium rounded-lg px-5 sm:px-6 py-2.5 sm:py-3 hover:bg-white/90`.
+- Secondary: "Schedule Call" -- `text-white/80 text-sm font-medium hover:text-white`.
+- Social proof pill (`mt-6 sm:mt-8 md:mt-10`): `inline-flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-md border border-white/15 rounded-xl px-4 sm:px-5 py-3 sm:py-3.5`.
+- 3 overlapping avatar images (Pexels URLs: `774909`, `1222271`, `91227` with `?auto=compress&cs=tinysrgb&w=100`), each `w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white/30 object-cover`, stacked with `-space-x-2.5`.
+- Text: `text-white/80 text-xs sm:text-sm leading-snug max-w-[220px] sm:max-w-xs`. Bold white span: "Adopted by 2,000+ companies and dev teams" followed by "who ship quicker, iterate safely, and keep full ownership of their pipelines."
 
 **CSS (index.css):**
 ```css
@@ -41,15 +41,15 @@ Build a full-screen hero section landing page for a data platform called "DataVi
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 html, body {
-  font-family: 'Geist', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: 'Geist', system-ui, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 ```
 

@@ -1,0 +1,32 @@
+{
+  "record": {
+    "id": "sup-system-initialization-trust-and-transparency",
+    "title": "[Superdesign] System Initialization - Trust & Transparency",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3099,
+    "image_preview_url": "/assets/superdesign/system-initialization-trust-and-transparency.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "onboarding",
+      "page",
+      "trust-building",
+      "high contrast",
+      "stone colour",
+      "warm amber accent",
+      "lucide icon integration",
+      "expandable accordion sections",
+      "sticky positioned card",
+      "sass",
+      "ai product"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

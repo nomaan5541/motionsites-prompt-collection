@@ -15,8 +15,8 @@ The root container is `width:100%; height:100vh; overflow:hidden; position:relat
 Inside it, layer these elements (all `position:absolute`):
 
 1. **Background image** -- `inset:0`, uses `backgroundImage` with this URL:
-   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_151236_784929aa-a992-4292-9938-1dd9b5296a29.png&w=1920&q=85`
-   `backgroundSize:'cover'`, `backgroundPosition:'center'`.
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260624_151236_784929aa-a992-4292-9938-1dd9b5296a29.png&w=1920&q=85`
+`backgroundSize:'cover'`, `backgroundPosition:'center'`.
 
 2. **Gradient overlay** -- `inset:0`, `background:'linear-gradient(180deg, rgba(84,84,84,0) 0%, rgb(0,0,0) 100%)'`, `opacity:0.4`.
 
@@ -34,9 +34,9 @@ Each project has `anchorX` and `anchorY` (percentage positions). The card is `po
 
 Card structure (flex column, center-aligned, gap 8px):
 - **Image wrapper**: `padding:12px; borderRadius:8px`. On hover: `border: 2px solid rgba(255,255,255,0.2)` and `background: rgba(0,0,0,0.16)`. Otherwise transparent border and background. `transition: background 0.18s ease, border-color 0.18s ease`.
-  - **Thumbnail image**: `width:80px; height:auto; borderRadius:8px; border: 1px solid rgba(255,255,255,0.2); boxShadow: 0px 1px 6px 0px rgba(0,0,0,0.08)`.
+- **Thumbnail image**: `width:80px; height:auto; borderRadius:8px; border: 1px solid rgba(255,255,255,0.2); boxShadow: 0px 1px 6px 0px rgba(0,0,0,0.08)`.
 - **Title label**: On hover, `background: rgb(0,102,221); padding: 4px 8px; borderRadius:4px`. Otherwise transparent with `padding: 4px 0`. `transition: background 0.18s ease, padding 0.18s ease`.
-  - Text: `fontFamily:"'Inter',sans-serif"; fontWeight:400; fontSize:16px; lineHeight:1.4em; letterSpacing:-0.04em; color:rgb(247,247,247); whiteSpace:nowrap`.
+- Text: `fontFamily:"'Inter',sans-serif"; fontWeight:400; fontSize:16px; lineHeight:1.4em; letterSpacing:-0.04em; color:rgb(247,247,247); whiteSpace:nowrap`.
 
 Clicking a card (only if drag distance < 5px) opens that project in a modal window.
 
@@ -93,8 +93,8 @@ Centered fixed overlay (`inset:0; display:flex; alignItems:center; justifyConten
 
 ```css
 @keyframes springIn {
-  0% { opacity:0; transform:scale(0.8); }
-  100% { opacity:1; transform:scale(1); }
+0% { opacity:0; transform:scale(0.8); }
+100% { opacity:1; transform:scale(1); }
 }
 .spring-in { animation: springIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
 ```

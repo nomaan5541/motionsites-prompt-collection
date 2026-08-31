@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-horizontal-gallery",
+    "title": "[Superdesign] Horizontal Gallery",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Animations & Backgrounds",
+    "page_type": "superdesign",
+    "sort_order": 3035,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/horizontal-gallery.mp4",
+    "is_free": true,
+    "deslop_score": 1,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "scroll animation"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

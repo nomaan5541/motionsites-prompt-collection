@@ -72,22 +72,22 @@ Each phone has entry animation: `opacity: 0, y: 60` -> `opacity: 1, y: 0`, durat
 
 **Hero Layout** (height 100%, flex column):
 - **Video area** (63% height, flex-shrink 0): Autoplaying muted loop video:
-  `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260620_185230_f7f71ef4-6655-469f-b9c6-efbdc1f7684a.mp4`
-  Object-fit cover. Gradient overlay on bottom: `linear-gradient(to bottom, transparent 0%, #06181B 92%, #06181B 100%)`, height 55%, bottom -2px.
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260620_185230_f7f71ef4-6655-469f-b9c6-efbdc1f7684a.mp4`
+Object-fit cover. Gradient overlay on bottom: `linear-gradient(to bottom, transparent 0%, #06181B 92%, #06181B 100%)`, height 55%, bottom -2px.
 
 - **Text + CTA** (appears after video `onCanPlay`, AnimatePresence, flex-col, justify-end, padding `0 20px 24px`):
-  - Big text: `Barlow Condensed 800`, 72px, line-height 0.82, letter-spacing -0.02em, uppercase, overflow clip:
-    - "BEYOND" -- white, slides from `x: -400` (0.85s, delay 0)
-    - "BORDERS" -- yellow `#ffda00`, text-align right, slides from `x: 400` (0.85s, delay 0.13)
-    - "AND LIMITS" -- white, slides from `x: -400` (0.85s, delay 0.26)
-  - Margin-bottom 16px between text block and button.
+- Big text: `Barlow Condensed 800`, 72px, line-height 0.82, letter-spacing -0.02em, uppercase, overflow clip:
+- "BEYOND" -- white, slides from `x: -400` (0.85s, delay 0)
+- "BORDERS" -- yellow `#ffda00`, text-align right, slides from `x: 400` (0.85s, delay 0.13)
+- "AND LIMITS" -- white, slides from `x: -400` (0.85s, delay 0.26)
+- Margin-bottom 16px between text block and button.
 
 - **CTA Button** (custom SVG shape, full width, 56px height):
-  - Background is an SVG `viewBox="0 0 434.001 68"` with fill `#ffda00` -- a pill shape with a circular cutout on the right side (the full SVG path is in the code).
-  - Text "Get in touch" -- 20px, `#002a35`, Helvetica, centered in left portion (right 14.43% excluded).
-  - Right circle contains an arrow SVG (chevron/arrow pointing up-left, rotating from -135deg to -90deg on hover). Arrow stroke white, strokeWidth 2.2.
-  - Hover: scale 1.08, y -2. Tap: scale 0.97.
-  - Animates in: opacity 0, y 20 -> visible (0.7s, delay 0.5).
+- Background is an SVG `viewBox="0 0 434.001 68"` with fill `#ffda00` -- a pill shape with a circular cutout on the right side (the full SVG path is in the code).
+- Text "Get in touch" -- 20px, `#002a35`, Helvetica, centered in left portion (right 14.43% excluded).
+- Right circle contains an arrow SVG (chevron/arrow pointing up-left, rotating from -135deg to -90deg on hover). Arrow stroke white, strokeWidth 2.2.
+- Hover: scale 1.08, y -2. Tap: scale 0.97.
+- Animates in: opacity 0, y 20 -> visible (0.7s, delay 0.5).
 
 ---
 
@@ -101,31 +101,31 @@ Each phone has entry animation: `opacity: 0, y: 60` -> `opacity: 1, y: 0`, durat
 
 **Map section** (aspect-ratio 435/340, marginBottom 40px, extends full width with -20px margins):
 - Background image: `https://polo-pecan-73837341.figma.site/_assets/v11/b6d561167283e799453232309bd13dd78b2d1afa.png`
-  (object-contain, absolute inset-0)
+(object-contain, absolute inset-0)
 
 - **Route lines overlay** (positioned at left 10%, top 18%, width 80%, aspect-ratio 299/143):
-  SVG viewBox `0 0 299.037 142.509`, overflow visible. 4 animated paths with stroke `#FFDA00`, strokeWidth 2.5:
-  ```
-  M128.161 74.6764C79.9989 130.001 71.9994 46.0005 20.9815 111.737
-  M216.999 9.99985C260.499 12.4998 222.499 71.9998 291.999 58.9998
-  M130.102 70.9998C144.499 -32.0002 183.852 70.2739 219.999 3.99985
-  M14.4999 16.9998C111 20.9998 -53.0003 73.4998 21.4999 107
-  ```
-  Each path animates `pathLength: 0->1`, duration 1s, staggered delay 0.15s.
-  Each path has a triangle `polygon points="0,-4 8,0 0,4"` fill `#FFDA00` animating along it via `<animateMotion>`.
+SVG viewBox `0 0 299.037 142.509`, overflow visible. 4 animated paths with stroke `#FFDA00`, strokeWidth 2.5:
+```
+M128.161 74.6764C79.9989 130.001 71.9994 46.0005 20.9815 111.737
+M216.999 9.99985C260.499 12.4998 222.499 71.9998 291.999 58.9998
+M130.102 70.9998C144.499 -32.0002 183.852 70.2739 219.999 3.99985
+M14.4999 16.9998C111 20.9998 -53.0003 73.4998 21.4999 107
+```
+Each path animates `pathLength: 0->1`, duration 1s, staggered delay 0.15s.
+Each path has a triangle `polygon points="0,-4 8,0 0,4"` fill `#FFDA00` animating along it via `<animateMotion>`.
 
 - **Stop dots** (5 dots at specific coordinates):
-  ```
-  [9.519, 15.519], [289.519, 59.518], [220.519, 9.519], [125.518, 78.519], [19.519, 104.519]
-  ```
-  Each: outer circle r=9.519 fill `#FFDA00`, inner circle r=3.389 fill `#002A35`. Scale in with stagger.
+```
+[9.519, 15.519], [289.519, 59.518], [220.519, 9.519], [125.518, 78.519], [19.519, 104.519]
+```
+Each: outer circle r=9.519 fill `#FFDA00`, inner circle r=3.389 fill `#002A35`. Scale in with stagger.
 
 - **Floating transport icons** (3 circular white badges, width 16% of map container, aspect-ratio 1):
-  1. Ship at left 26%, top 28.9% -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/08d6a37375d428e07c59e24a8529de89bfee157e.08d6a373.png`
-  2. Car at left 70.8%, top 15.6% -- rotated 9.73deg -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/7d6f50a87e1427d9b4d1a9c9f1c064ff04b2b3f9.7d6f50a8.png`
-  3. Plane at left 55.2%, top 52.1% -- rotated 180deg scaleY(-1) -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/0e0282ab1c70db03d437b0d01875ce45557d49f6.0e0282ab.png`
+1. Ship at left 26%, top 28.9% -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/08d6a37375d428e07c59e24a8529de89bfee157e.08d6a373.png`
+2. Car at left 70.8%, top 15.6% -- rotated 9.73deg -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/7d6f50a87e1427d9b4d1a9c9f1c064ff04b2b3f9.7d6f50a8.png`
+3. Plane at left 55.2%, top 52.1% -- rotated 180deg scaleY(-1) -- image: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/0e0282ab1c70db03d437b0d01875ce45557d49f6.0e0282ab.png`
 
-  Each: white rounded-full bg, box-shadow `0 4px 20px rgba(0,0,0,0.2)`, images 80% width/height object-cover. Scale in with delays 0.3/0.5/0.7, then float up/down infinitely (y oscillates by -6/-8/-5px, duration ~2.5-3.3s each).
+Each: white rounded-full bg, box-shadow `0 4px 20px rgba(0,0,0,0.2)`, images 80% width/height object-cover. Scale in with delays 0.3/0.5/0.7, then float up/down infinitely (y oscillates by -6/-8/-5px, duration ~2.5-3.3s each).
 
 **Stats** (flex column, gap 48px):
 1. "3M+" (white, Barlow Condensed 800, 72px) + "tons of cargo / delivered / without delays" (18px, line-height 1.3, `#1a1a1a`). Gap 16px between number and text. Slides from `x: -60`.
@@ -147,13 +147,13 @@ Both use `useInView` trigger with `margin: '0px 0px -40px 0px'`.
 
 **Form** (flex column, gap 16px, marginBottom 44px):
 - 3 inputs: "First Name", "Last Name", "E-mail"
-  - Style: `padding: 18px 24px; border-radius: 40px; border: none; background: rgba(255,255,255,0.08); color: #fff; font-size: 16px`
-  - Each animates in (y: 20 -> 0) with stagger (0.15, 0.25, 0.35)
-  - On focus: background `rgba(255,255,255,0.14)`, scale 1.01
+- Style: `padding: 18px 24px; border-radius: 40px; border: none; background: rgba(255,255,255,0.08); color: #fff; font-size: 16px`
+- Each animates in (y: 20 -> 0) with stagger (0.15, 0.25, 0.35)
+- On focus: background `rgba(255,255,255,0.14)`, scale 1.01
 
 - **Submit button** "Send": `width: 100%; padding: 18px; border-radius: 40px; background: #FFDA00; color: #0a1f2b; font-size: 20px; font-weight: 700`. marginTop 4px.
-  - Hover: scale 1.03, y -2, background `#ffe84d`.
-  - Tap: scale 0.97.
+- Hover: scale 1.03, y -2, background `#ffe84d`.
+- Tap: scale 0.97.
 
 **Contact info** (marginBottom 32px):
 - `info@cargox-group.com` -- 18px, `#b0b8bc`, no underline. Hover: white, x +4.

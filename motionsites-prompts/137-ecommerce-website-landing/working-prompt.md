@@ -1,11 +1,3 @@
-# E-commerce Website
-
-**ID:** ecommerce-website-landing  
-**Category:** Landing Page  
-**Type:** landing-page  
-
----
-
 Prompt to recreate this landing page:
 
 Build a health/wellness e-commerce landing page using React, Vite, Tailwind CSS, TypeScript, and shadcn/ui. The design is clean, minimal, and modern with a near-white background (hsl(0 0% 98%)), near-black foreground (hsl(11 6% 11%)), and fully rounded borders (border-radius: 9999px). No custom fonts — use system defaults. The page has the following sections in order:

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "fun-404-page",
+    "title": "Fun 404 Page",
+    "category": "Education",
+    "page_type": "hero",
+    "sort_order": 838,
+    "image_preview_url": "/assets/previews/fun-404-page.webp",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

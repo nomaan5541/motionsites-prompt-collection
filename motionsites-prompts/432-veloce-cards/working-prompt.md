@@ -10,10 +10,10 @@ Build an "Insights" stats section for a fintech landing page using React + TypeS
 **CSS (`index.css`) -- add globally:**
 ```css
 @layer base {
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+* {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
 }
 ```
 

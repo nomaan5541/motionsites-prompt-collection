@@ -1,0 +1,41 @@
+{
+  "record": {
+    "id": "sup-prism-frosted-glass-pastel-agency-studio",
+    "title": "[Superdesign] Prism — Frosted-Glass Pastel Agency Studio",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Portfolios",
+    "page_type": "superdesign",
+    "sort_order": 3064,
+    "image_preview_url": "/assets/superdesign/prism-frosted-glass-pastel-agency-studio.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "agency-website",
+      "glassmorphism",
+      "frosted-glass",
+      "pastel",
+      "mesh-gradient",
+      "light",
+      "peach",
+      "sky",
+      "mint",
+      "inter",
+      "agency",
+      "studio",
+      "portfolio",
+      "bento",
+      "landing-page",
+      "marketing-site",
+      "sticky-nav",
+      "responsive",
+      "soft-ui",
+      "testimonials"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "record": {
+    "id": "sup-folded-paper-club-invite-email",
+    "title": "[Superdesign] Folded-Paper Club Invite Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3135,
+    "image_preview_url": "/assets/superdesign/folded-paper-club-invite-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "invitation-email",
+      "event-invite",
+      "rsvp",
+      "club",
+      "nightlife",
+      "party",
+      "streetwear",
+      "underground",
+      "lo-fi",
+      "paper-texture",
+      "folded-paper",
+      "black",
+      "red",
+      "inter-tight",
+      "flyer",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

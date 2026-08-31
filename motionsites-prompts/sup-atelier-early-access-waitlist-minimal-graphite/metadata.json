@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-atelier-early-access-waitlist-minimal-graphite",
+    "title": "[Superdesign] Atelier · Early Access (waitlist-minimal-graphite)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3107,
+    "image_preview_url": "/assets/superdesign/atelier-early-access-waitlist-minimal-graphite.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "signup",
+      "waitlist",
+      "early-access",
+      "minimal",
+      "monochrome",
+      "graphite",
+      "editorial",
+      "landing-page",
+      "saas",
+      "email-capture"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -6,8 +6,8 @@ Create a keyframe animation in CSS named blink for the typewriter cursor:
 code
 CSS
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
 }
 .animate-blink { animation: blink 1s step-end infinite; }
 2. General Page Structure

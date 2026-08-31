@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-calendar-ui-warm-editorial-week-planner",
+    "title": "[Superdesign] Calendar UI: Warm Editorial Week Planner",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Calendar",
+    "page_type": "superdesign",
+    "sort_order": 3139,
+    "image_preview_url": "/assets/superdesign/calendar-ui-warm-editorial-week-planner.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "calendar",
+      "scheduler",
+      "week view",
+      "planner",
+      "productivity"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

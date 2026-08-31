@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "task-engine",
+    "title": "Task Engine",
+    "category": "SaaS",
+    "page_type": "features",
+    "sort_order": 882,
+    "image_preview_url": "/assets/previews/task-engine.webp",
+    "video_preview_url": "/assets/previews/task-engine.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

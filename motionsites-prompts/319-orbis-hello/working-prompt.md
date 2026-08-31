@@ -12,12 +12,12 @@
 > **Tailwind config** -- Extend `theme` with these exact custom values:
 > ```js
 > fontFamily: {
->   grotesk: ['Anton', 'sans-serif'],
->   condiment: ['Condiment', 'cursive'],
+> grotesk: ['Anton', 'sans-serif'],
+> condiment: ['Condiment', 'cursive'],
 > },
 > colors: {
->   cream: '#EFF4FF',
->   neon: '#6FFF00',
+> cream: '#EFF4FF',
+> neon: '#6FFF00',
 > }
 > ```
 > `font-grotesk` maps to **Anton** (a tall, condensed display font). `font-condiment` maps to **Condiment** (a flowing cursive/script font).

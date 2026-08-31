@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-cream-and-sky-playful-saas-pricing",
+    "title": "[Superdesign] Cream & Sky Playful SaaS Pricing",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3077,
+    "image_preview_url": "/assets/superdesign/cream-and-sky-playful-saas-pricing.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "pricing page",
+      "saas",
+      "light",
+      "cream",
+      "playful",
+      "serif",
+      "rounded",
+      "three-tier",
+      "billing-toggle",
+      "highlighted-tier",
+      "faq-accordion",
+      "developer-tools"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

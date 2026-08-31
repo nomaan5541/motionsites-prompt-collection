@@ -10,7 +10,7 @@
     "page_type": "landing",
     "row_span": 1,
     "is_free": true,
-    "image_preview_url": null,
+    "image_preview_url": "/assets/previews/vertex-sci.webp",
     "video_preview_url": null
   },
   "result": {
@@ -21,9 +21,7 @@
     "section_names": []
   },
   "workingPrompt": {
-    "mode": "premium",
-    "generatedAt": "2026-07-17T13:17:16.473Z",
-    "file": "working-prompt.md",
-    "note": "Unlocked prompt from archive."
+    "mode": "original",
+    "recovered": true
   }
 }

@@ -1,11 +1,3 @@
-# Veloce Finance
-
-**ID:** veloce-finance-landing  
-**Category:** Landing Page  
-**Type:** landing-page  
-
----
-
 Build a React + TypeScript + Vite landing page for a fintech app called "veloce" using Tailwind CSS and Framer Motion. The page has 4 sections. Do not use purple/indigo colors — the gradient used is a specific brand gradient defined below.
 
 Dependencies:
@@ -40,10 +32,10 @@ Also add globally:
 
 
 @layer base {
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+* {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
 }
 Brand gradient: from-[#B56939] via-[#5C3779] to-[#454BBB] (left to right)
 

@@ -1,0 +1,22 @@
+{
+  "record": {
+    "id": "sup-neumorphism",
+    "title": "[Superdesign] Neumorphism",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3015,
+    "image_preview_url": "/assets/superdesign/neumorphism.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

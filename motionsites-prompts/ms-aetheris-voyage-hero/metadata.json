@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "aetheris-voyage-hero",
+    "title": "Aetheris Voyage",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 808,
+    "image_preview_url": "/assets/previews/aetheris-voyage-hero.webp",
+    "video_preview_url": null,
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-editorial-violet-saas-pricing-matrix",
+    "title": "[Superdesign] Editorial Violet SaaS Pricing Matrix",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3087,
+    "image_preview_url": "/assets/superdesign/editorial-violet-saas-pricing-matrix.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "pricing page",
+      "comparison-table",
+      "saas",
+      "light",
+      "editorial",
+      "violet",
+      "minimal",
+      "developer-tool",
+      "design-tool",
+      "sticky-nav",
+      "billing-toggle",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

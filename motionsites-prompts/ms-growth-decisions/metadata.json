@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "growth-decisions",
+    "title": "Growth Decisions",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 839,
+    "image_preview_url": "/assets/previews/growth-decisions.webp",
+    "video_preview_url": "/assets/previews/growth-decisions.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

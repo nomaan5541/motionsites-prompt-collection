@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "sky-elite-private-jets",
+    "title": "SkyElite Private Jets",
+    "category": "Landing Page",
+    "page_type": "hero",
+    "sort_order": 876,
+    "image_preview_url": "/assets/previews/sky-elite-private-jets.webp",
+    "video_preview_url": "/assets/previews/sky-elite-private-jets.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

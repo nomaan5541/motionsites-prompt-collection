@@ -31,10 +31,10 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026062
 
 **Hero content (bottom of section, z-10, padding 0 20px 24px):**
 - Large headline in Barlow Condensed 800, uppercase, clamp(48px, 14vw, 72px), line-height 0.82:
-  - "BEYOND" (white) - slides from x:-400
-  - "BORDERS" (yellow #ffda00, text-align right) - slides from x:+400
-  - "AND LIMITS" (white) - slides from x:-400
-  - Staggered delays: 0s, 0.13s, 0.26s. Duration 0.85s, expo-out [0.16, 1, 0.3, 1]
+- "BEYOND" (white) - slides from x:-400
+- "BORDERS" (yellow #ffda00, text-align right) - slides from x:+400
+- "AND LIMITS" (white) - slides from x:-400
+- Staggered delays: 0s, 0.13s, 0.26s. Duration 0.85s, expo-out [0.16, 1, 0.3, 1]
 - CTA Button: Custom SVG pill shape (fill #ffda00) with a circular end section containing a rotating arrow (white stroke, rotates from -135deg to -90deg on hover). Text "Get in touch" centered in the non-circle area. Font: Helvetica 20px, color #002a35. Hover: scale 1.08, y:-2. Tap: scale 0.97.
 
 **Show hero content only after video `onCanPlay` fires** (fade in with AnimatePresence).
@@ -52,20 +52,20 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026062
 - Background map image: `https://polo-pecan-73837341.figma.site/_assets/v11/b6d561167283e799453232309bd13dd78b2d1afa.png`
 - Aspect ratio 435/340, extends 20px beyond container edges
 - SVG overlay (viewBox 0 0 299.037 142.509) at left:10%, top:18%, width:80% with 4 curved route paths in yellow (#FFDA00, 2.5 stroke):
-  ```
-  M128.161 74.6764C79.9989 130.001 71.9994 46.0005 20.9815 111.737
-  M216.999 9.99985C260.499 12.4998 222.499 71.9998 291.999 58.9998
-  M130.102 70.9998C144.499 -32.0002 183.852 70.2739 219.999 3.99985
-  M14.4999 16.9998C111 20.9998 -53.0003 73.4998 21.4999 107
-  ```
+```
+M128.161 74.6764C79.9989 130.001 71.9994 46.0005 20.9815 111.737
+M216.999 9.99985C260.499 12.4998 222.499 71.9998 291.999 58.9998
+M130.102 70.9998C144.499 -32.0002 183.852 70.2739 219.999 3.99985
+M14.4999 16.9998C111 20.9998 -53.0003 73.4998 21.4999 107
+```
 - Route lines animate with `pathLength` from 0 to 1, staggered
 - Animated yellow arrow polygons (points="0,-4 8,0 0,4") using SVG `<animateMotion>` along each path, rotating automatically
 - 5 stop dots at coordinates: [9.519,15.519], [289.519,59.518], [220.519,9.519], [125.518,78.519], [19.519,104.519] - each is a yellow circle r=9.519 with dark center r=3.389 (#002A35). They pop in with scale animation.
 - 3 floating transport icons (white circle bg, 16% width, rounded-full, box-shadow):
-  - Ship: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/08d6a37375d428e07c59e24a8529de89bfee157e.08d6a373.png` at left:26%, top:28.9%
-  - Car: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/7d6f50a87e1427d9b4d1a9c9f1c064ff04b2b3f9.7d6f50a8.png` at left:70.8%, top:15.6%, rotate(9.73deg)
-  - Plane: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/0e0282ab1c70db03d437b0d01875ce45557d49f6.0e0282ab.png` at left:55.2%, top:52.1%, rotate(180deg) scaleY(-1)
-  - Icons pop in (scale 0.5 -> 1), then continuously float up/down with infinite y animation
+- Ship: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/08d6a37375d428e07c59e24a8529de89bfee157e.08d6a373.png` at left:26%, top:28.9%
+- Car: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/7d6f50a87e1427d9b4d1a9c9f1c064ff04b2b3f9.7d6f50a8.png` at left:70.8%, top:15.6%, rotate(9.73deg)
+- Plane: `https://image-bottom-92901062.figma.site/_components/v2/142c6a6f3074dd8aee013fa440ff4ff369649d48/0e0282ab1c70db03d437b0d01875ce45557d49f6.0e0282ab.png` at left:55.2%, top:52.1%, rotate(180deg) scaleY(-1)
+- Icons pop in (scale 0.5 -> 1), then continuously float up/down with infinite y animation
 
 **Stats** (scroll-triggered, slide in from opposite sides):
 - "3M+" white Barlow Condensed 800, clamp(50px, 14vw, 72px) + "tons of cargo / delivered / without delays" in #1a1a1a, clamp(14px, 3.8vw, 18px)
@@ -109,9 +109,9 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026062
 
 ```json
 {
-  "motion": "^12.40.0",
-  "lucide-react": "^0.344.0",
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1"
+"motion": "^12.40.0",
+"lucide-react": "^0.344.0",
+"react": "^18.3.1",
+"react-dom": "^18.3.1"
 }
 ```

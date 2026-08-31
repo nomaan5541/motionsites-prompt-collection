@@ -37,13 +37,13 @@ The root is `relative min-h-screen flex flex-col`. Inside it:
 
 - Flex row, `items-center justify-between`, padding `px-6 md:px-12 lg:px-16 py-5`
 - **Logo (left):** A custom SVG icon (4 quarter-circle leaf shapes forming a circle, white fill, `w-8 h-8`) next to the text "NEXOVA" in `text-white text-xl font-bold tracking-wider`. The exact SVG path is:
-  ```
-  M480 240a240 240 0 0 0-240 240 240 240 0 0 0 240-240Z
-  M240 0A240 240 0 0 0 0 240 240 240 0 0 0 240 0Z
-  M480 240A240 240 0 0 0 240 0a240 240 0 0 0 240 240Z
-  M240 480A240 240 0 0 0 0 240a240 240 0 0 0 240 240Z
-  ```
-  viewBox `0 0 480 480`
+```
+M480 240a240 240 0 0 0-240 240 240 240 0 0 0 240-240Z
+M240 0A240 240 0 0 0 0 240 240 240 0 0 0 240 0Z
+M480 240A240 240 0 0 0 240 0a240 240 0 0 0 240 240Z
+M240 480A240 240 0 0 0 0 240a240 240 0 0 0 240 240Z
+```
+viewBox `0 0 480 480`
 - **Desktop nav links (center):** Hidden below `lg`. Links: Domain, Servers, Cloud, Managed, Email, Privacy. Styled `text-white/80 hover:text-white text-sm tracking-wide` with 200ms color transition, `gap-8`.
 - **Login button (right):** Hidden below `lg`. Gradient button `bg-gradient-to-r from-emerald-400 to-cyan-500`, white text, `text-sm font-semibold px-6 py-2.5 rounded-full`. Text "LOG IN" with a Lucide `ArrowRight` icon (w-4 h-4) beside it.
 - **Mobile hamburger:** Visible below `lg` breakpoint. A button with `z-[60]` showing Lucide `Menu` / `X` icons that cross-fade with rotation: the active icon is `opacity-100 rotate-0 scale-100`, the inactive is `opacity-0 rotate-90 scale-75` (or `-rotate-90`), all with `transition-all duration-300`.
@@ -66,50 +66,50 @@ Uses two state variables: `mobileMenuOpen` (controls mount) and `menuVisible` (c
 Centered vertically and horizontally in the remaining space: `flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-12 sm:py-16 md:py-0`.
 
 1. **Subtitle lines (two h1 tags):**
-   - "This page seems to have" and "slipped beyond our reach :/"
-   - Both: `text-white/80 text-lg xs:text-2xl sm:text-3xl md:text-5xl font-light leading-snug tracking-tight`
-   - First line: `mb-1 sm:mb-2`, second line: `mb-8 sm:mb-12`
+- "This page seems to have" and "slipped beyond our reach :/"
+- Both: `text-white/80 text-lg xs:text-2xl sm:text-3xl md:text-5xl font-light leading-snug tracking-tight`
+- First line: `mb-1 sm:mb-2`, second line: `mb-8 sm:mb-12`
 
 2. **Giant "404" text:**
-   - Wrapped in a `relative mb-8 sm:mb-12 w-full flex justify-center overflow-visible` div
-   - The `<span>`: `text-[80px] xs:text-[100px] sm:text-[140px] md:text-[200px] lg:text-[260px] font-black text-white leading-none tracking-tighter select-none`
-   - Has class `four-oh-four` which applies this CSS glow:
-     ```css
-     .four-oh-four {
-       text-shadow: 0 0 80px rgba(255,255,255,0.3), 0 0 160px rgba(255,255,255,0.1);
-     }
-     ```
+- Wrapped in a `relative mb-8 sm:mb-12 w-full flex justify-center overflow-visible` div
+- The `<span>`: `text-[80px] xs:text-[100px] sm:text-[140px] md:text-[200px] lg:text-[260px] font-black text-white leading-none tracking-tighter select-none`
+- Has class `four-oh-four` which applies this CSS glow:
+```css
+.four-oh-four {
+text-shadow: 0 0 80px rgba(255,255,255,0.3), 0 0 160px rgba(255,255,255,0.1);
+}
+```
 
 3. **"Return to Main Page" button:**
-   - An `<a>` tag with class `liquid-glass` (glassmorphism effect) + `text-white text-[10px] xs:text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] font-medium px-6 sm:px-8 py-3 sm:py-3.5 rounded-full uppercase`
-   - The `liquid-glass` CSS class:
-     ```css
-     .liquid-glass {
-       background: rgba(255, 255, 255, 0.01);
-       background-blend-mode: luminosity;
-       backdrop-filter: blur(4px);
-       -webkit-backdrop-filter: blur(4px);
-       border: none;
-       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-       position: relative;
-       overflow: hidden;
-     }
-     .liquid-glass::before {
-       content: '';
-       position: absolute;
-       inset: 0;
-       border-radius: inherit;
-       padding: 1.4px;
-       background: linear-gradient(180deg,
-         rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-         rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-         rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-       -webkit-mask-composite: xor;
-       mask-composite: exclude;
-       pointer-events: none;
-     }
-     ```
+- An `<a>` tag with class `liquid-glass` (glassmorphism effect) + `text-white text-[10px] xs:text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] font-medium px-6 sm:px-8 py-3 sm:py-3.5 rounded-full uppercase`
+- The `liquid-glass` CSS class:
+```css
+.liquid-glass {
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
+}
+.liquid-glass::before {
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
+}
+```
 
 ---
 

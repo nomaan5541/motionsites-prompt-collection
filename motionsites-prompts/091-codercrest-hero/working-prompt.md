@@ -1,59 +1,54 @@
-# CoderCrest
+Create a React + TypeScript component named HeroSection in src/components/HeroSection.tsx using Tailwind CSS and the hls.js npm package (install it: npm install hls.js).
 
-**ID:** codercrest-hero  
-**Category:** SaaS  
-**Type:** hero  
+Layout & Background:
 
----
+A <section> that is 100vh tall, position: relative, overflow: hidden, flex column centered, with background: #000.
+A fullscreen HLS video background using this Mux stream URL:
+https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8
 
-Build a React + TypeScript + Tailwind CSS hero section component named HeroSection saved at src/components/HeroSection.tsx. Match this specification exactly.
+The video is <video autoPlay loop muted playsInline> with classes absolute inset-0 w-full h-full object-cover and zIndex: 0. Play it through hls.js: if Hls.isSupported(), create an Hls({ autoStartLoad: true }) instance, loadSource, attachMedia, and play on MANIFEST_PARSED. Else, fall back to native application/vnd.apple.mpegurl support. Clean up the Hls instance on unmount. No overlay over the video — full opacity.
+Content container:
 
-Layout & container:
+A div with classes relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto and inline style marginTop: 380 (pushes content down 380px).
+Headline (<h1>):
 
-A full-viewport <section> with height: 100vh, solid black background #000, position: relative, overflow: hidden, flex column, centered both axes.
-Inside, a centered content <div> with classes relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto.
-Typography:
-
-Heading uses font family 'YDYoonche L', 'YDYoonche M', sans-serif, weight 300, letter-spacing -0.01em, line-height 1.1, color #fff.
-Heading font-size: clamp(2.2rem, 7vw, 6.5rem) (responsive).
-Heading content (an <h1> with three lines):
-
-Line 1: text The vision — wrapped in a <span> with a linear-gradient text fill: linear-gradient(90deg, #333333 0%, #878787 50%, #333333 100%) using -webkit-background-clip: text and -webkit-text-fill-color: transparent. display: block, line-height: 1.1, margin-bottom: -0.22em.
-Line 2: text of engineering — same gradient styling as Line 1.
-Line 3: a flex span (flex items-center justify-center gap-3 flex-wrap) color #fff containing in order:
-<span style="color:#555">is</span>
-A circular video icon (human) — size 110px desktop.
+Font: 'YDYoonche L', 'YDYoonche M', sans-serif
+fontSize: clamp(2.2rem, 7vw, 6.5rem), color: #fff, fontWeight: 300, letterSpacing: -0.01em, lineHeight: 1.1, className="leading-tight".
+Three lines:
+"The vision" — gradient text using background: linear-gradient(90deg, #666666 0%, #d0d0d0 50%, #666666 100%) with WebkitBackgroundClip: text, WebkitTextFillColor: transparent, backgroundClip: text, display: block, lineHeight: 1.1, marginBottom: -0.22em.
+"of engineering" — same gradient styling as line 1.
+A flex line flex items-center justify-center gap-3 flex-wrap with white text containing in order:
+<span style={{color:'#999'}}>is</span>
+A circular video icon (see below) playing the human clip
 <span>human</span>
-<span> with color:#555, position:relative, top:0.15em, marginLeft:0.25em containing +.
-A circular video icon (AI) — size 110px desktop.
+<span style={{color:'#999', position:'relative', top:'0.15em', marginLeft:'0.25em'}}>+</span>
+A circular video icon playing the AI clip
 <span>AI</span>
 VideoIcon component:
-Create a VideoIcon({ src, size = 72 }) component:
 
-Outer <span>: inline-block align-middle rounded-full overflow-hidden, with inline style width: clamp(48px, 10vw, ${size}px), height: clamp(48px, 10vw, ${size}px), flexShrink: 0.
-Inner <video> with autoPlay, loop, muted, playsInline, src={src}, style width:100%; height:100%; objectFit:cover; display:block.
-Use useRef + useEffect to call videoRef.current.play().catch(() => {}) on mount to ensure autoplay works.
-Video URLs (use exactly):
+Outer <span> with classes inline-block align-middle rounded-full overflow-hidden, sized via inline style width/height: clamp(48px, 10vw, ${size}px) (default size=72, but the hero passes size={110} for both icons), flexShrink: 0.
+Inner <video autoPlay loop muted playsInline> with width: 100%, height: 100%, objectFit: cover, display: block. Call videoRef.current.play().catch(() => {}) in a useEffect.
+Two CloudFront MP4 sources:
+VIDEO_HUMAN:
+https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_090051_64ea5059-da6b-492b-a171-aa7ecc767dc3.mp4
 
+VIDEO_AI:
+https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_093237_ff0ddc63-c068-4e29-96da-fdd0e40af133.mp4
 
-const VIDEO_HUMAN = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_090051_64ea5059-da6b-492b-a171-aa7ecc767dc3.mp4';
-const VIDEO_AI = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260424_093237_ff0ddc63-c068-4e29-96da-fdd0e40af133.mp4';
-Subheading paragraph:
+Subheading (<p>):
 
-Classes: mt-4 max-w-xl text-center px-2.
-Inline style: fontSize: clamp(0.95rem, 2.2vw, 1.2rem), color: #888, lineHeight: 1.4, fontWeight: 400.
-Text: We help you map the talent you need, track the talent you have, and close your gaps to thrive in a GenAI world.
-CTA button:
+Classes mt-4 max-w-xl text-center px-2.
+fontSize: clamp(0.95rem, 2.2vw, 1.2rem), color: #ccc, lineHeight: 1.4, fontWeight: 400.
+Text: "We help you map the talent you need, track the talent you have, and close your gaps to thrive in a GenAI world."
+CTA Button:
 
-Classes: mt-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0px_6px_32px_8px_rgba(39,243,169,0.22)] active:scale-[0.98].
-Inline style: padding: 12px 28px, background: #000, boxShadow: 0px 6px 24px 6px rgba(39, 243, 169, 0.15), borderRadius: 8, outline: 1px solid #30463C, outlineOffset: -1, border: none, cursor: pointer, display: inline-flex, alignItems: center, justifyContent: center, gap: 10.
-Inner <span> with color: #fff, fontSize: 14, fontWeight: 400, text Join The Movement!.
-Animations / micro-interactions:
+Classes: mt-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0px_6px_32px_8px_rgba(39,243,169,0.22)] active:scale-[0.98]
+Inline style: padding: '12px 28px', background: '#000', boxShadow: '0px 6px 24px 6px rgba(39, 243, 169, 0.15)', borderRadius: 8, outline: '1px solid #30463C', outlineOffset: -1, border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10.
+Inner <span> with color: '#fff', fontSize: 14, fontWeight: 400, text: "Join The Movement!".
+Animations / interactions:
 
-Button: 300ms transition; on hover scales to 1.03 and gains a stronger green glow 0px 6px 32px 8px rgba(39,243,169,0.22); on active scales to 0.98.
-Video icons: silently autoplay, loop, muted; play() called in useEffect to defeat autoplay restrictions.
-Imports:
+All three videos auto-play, loop, muted, inline.
+Button has a 300ms transition: scales to 1.03 and gains a brighter green glow on hover, scales to 0.98 on active.
+Fonts:
 
-
-import { useRef, useEffect } from 'react';
-Export the component as default. No external dependencies beyond React and Tailwind. Do not use purple/indigo. The accent green throughout is #27F3A9 (used in the button glow).
+The headline expects 'YDYoonche L' / 'YDYoonche M' to be loaded globally (e.g., via index.css or an external font provider). It falls back to sans-serif.

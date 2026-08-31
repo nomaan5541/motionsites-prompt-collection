@@ -1,12 +1,3 @@
-# Focus AI
-
-**ID:** focus-ai-landing  
-**Category:** Landing Page  
-**Type:** landing-page  
-
----
-
-
 Build a Velorah landing page -- a premium, dark-themed single-page site for an electric RV/camper brand. Use React, TypeScript, Tailwind CSS, and the hls.js library. The page has 6 sections stacked vertically. The entire page background is pure black (hsl(0,0%,0%)). Use the font Instrument Serif (loaded from Google Fonts via <link> in index.html) for all headings and display text, and Inter for body text.
 
 GLOBAL STYLES (index.css):
@@ -14,7 +5,7 @@ GLOBAL STYLES (index.css):
 Import Google Fonts at the top:
 
 @import
- url('https://fonts.googleapis.com/css2?family=Instrumental+Serif&family=Inter:wght@400;500&display=swap');
+url('https://fonts.googleapis.com/css2?family=Instrumental+Serif&family=Inter:wght@400;500&display=swap');
 CSS custom properties (dark-only, no light mode):
 
 --background: 201 100% 13%
@@ -51,7 +42,7 @@ Uses -webkit-mask with xor composite and mask-composite: exclude to create the b
 Animations:
 
 @keyframes
- fade-rise: from opacity:0; translateY(24px) to opacity:1; translateY(0)
+fade-rise: from opacity:0; translateY(24px) to opacity:1; translateY(0)
 .animate-fade-rise: animation: fade-rise 0.8s ease-out both
 .animate-fade-rise-delay: same with 0.2s delay
 .animate-fade-rise-delay-2: same with 0.4s delay

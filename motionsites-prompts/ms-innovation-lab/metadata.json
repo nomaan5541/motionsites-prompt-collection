@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "innovation-lab",
+    "title": "Innovation Lab",
+    "category": "Technology",
+    "page_type": "hero",
+    "sort_order": 842,
+    "image_preview_url": "/assets/previews/innovation-lab.webp",
+    "video_preview_url": "/assets/previews/innovation-lab.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -44,13 +44,13 @@ Each item is wrapped in a FadeIn with staggered delay (`i * 0.1`) and `y: 30`.
 - **Divider line** between items (not above the first): `border-top: 1px solid rgba(12, 12, 12, 0.15)`, full width
 - **Row layout**: `display: flex, align-items: start, gap-6 sm:gap-8 md:gap-10, py-8 sm:py-10 md:py-12, w-full`
 - **Left side -- Number**:
-  - `font-black uppercase leading-none flex-shrink-0`
-  - Font size: `clamp(3rem, 10vw, 140px)`
-  - Color: `#0C0C0C`
-  - Displays the zero-padded number (01, 02, etc.)
+- `font-black uppercase leading-none flex-shrink-0`
+- Font size: `clamp(3rem, 10vw, 140px)`
+- Color: `#0C0C0C`
+- Displays the zero-padded number (01, 02, etc.)
 - **Right side -- Name + Description** (flex column, `gap-2 sm:gap-4 md:gap-5, pt-1`):
-  - **Name**: `font-medium uppercase`, size `clamp(1rem, 2.2vw, 2.1rem)`, color `#0C0C0C`
-  - **Description**: `font-light leading-relaxed max-w-2xl`, size `clamp(0.85rem, 1.6vw, 1.25rem)`, color `#0C0C0C` with `opacity: 0.6`
+- **Name**: `font-medium uppercase`, size `clamp(1rem, 2.2vw, 2.1rem)`, color `#0C0C0C`
+- **Description**: `font-light leading-relaxed max-w-2xl`, size `clamp(0.85rem, 1.6vw, 1.25rem)`, color `#0C0C0C` with `opacity: 0.6`
 
 **FadeIn component (reusable, framer-motion):**
 - Props: `delay`, `duration` (default 0.7), `x` (default 0), `y` (default 30), `className`, `style`, `as` (HTML element tag, default `div`)

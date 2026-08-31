@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "mostar-guide",
+    "title": "Mostar Guide",
+    "category": "Travel",
+    "page_type": "hero",
+    "sort_order": 850,
+    "image_preview_url": "/assets/previews/mostar-guide.webp",
+    "video_preview_url": "/assets/previews/mostar-guide.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

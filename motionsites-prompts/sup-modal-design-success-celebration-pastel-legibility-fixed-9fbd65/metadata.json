@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-modal-design-success-celebration-pastel-legibility-fixed-9fbd65",
+    "title": "[Superdesign] Modal Design · success-celebration (pastel) — legibility fixed",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3097,
+    "image_preview_url": "/assets/superdesign/modal-design-success-celebration-pastel-legibility-fixed-9fbd65.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "modal",
+      "success",
+      "celebration",
+      "confetti",
+      "pastel",
+      "sky-blue",
+      "coral",
+      "cream",
+      "checkmark",
+      "dialog",
+      "success-state",
+      "onboarding",
+      "upgrade",
+      "poppins",
+      "playful",
+      "accessible",
+      "high-contrast",
+      "pattern-library"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

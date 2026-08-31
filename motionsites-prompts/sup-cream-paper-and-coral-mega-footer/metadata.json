@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-cream-paper-and-coral-mega-footer",
+    "title": "[Superdesign] Cream Paper & Coral Mega Footer",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3100,
+    "image_preview_url": "/assets/superdesign/cream-paper-and-coral-mega-footer.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "footer",
+      "mega-footer",
+      "newsletter",
+      "cream",
+      "coral",
+      "serif",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

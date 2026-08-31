@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-pill-nav",
+    "title": "[Superdesign] Pill Nav",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3046,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/pill-nav.mp4",
+    "is_free": true,
+    "deslop_score": 4,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "ui component",
+      "nav"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

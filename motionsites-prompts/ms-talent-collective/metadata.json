@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "talent-collective",
+    "title": "Talent Collective",
+    "category": "Agency",
+    "page_type": "hero",
+    "sort_order": 881,
+    "image_preview_url": "/assets/previews/talent-collective.webp",
+    "video_preview_url": "/assets/previews/talent-collective.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

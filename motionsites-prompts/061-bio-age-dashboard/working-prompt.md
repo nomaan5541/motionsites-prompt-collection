@@ -115,14 +115,14 @@ Custom `AnimatedElement` component using IntersectionObserver (threshold 0.1). E
 
 ```css
 @keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
 }
 .animate-ticker { animation: ticker 12s linear infinite; }
 
 @keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
 }
 .animate-spin-bg { animation: spin-slow 30s linear infinite; }
 ```
@@ -133,8 +133,8 @@ Custom `AnimatedElement` component using IntersectionObserver (threshold 0.1). E
 
 ```js
 colors: {
-  surface: { 900: '#0a0a0a', 800: '#1a1a1a', 700: '#2a2a2a', 600: '#3a3a3a' },
-  gold: { 400: '#c9a96e', 500: '#b8944d', 600: '#a07d3a' },
+surface: { 900: '#0a0a0a', 800: '#1a1a1a', 700: '#2a2a2a', 600: '#3a3a3a' },
+gold: { 400: '#c9a96e', 500: '#b8944d', 600: '#a07d3a' },
 },
 fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
 ```

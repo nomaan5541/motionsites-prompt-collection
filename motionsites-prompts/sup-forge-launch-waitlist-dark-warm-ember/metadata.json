@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-forge-launch-waitlist-dark-warm-ember",
+    "title": "[Superdesign] Forge — Launch Waitlist (dark, warm-ember)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3124,
+    "image_preview_url": "/assets/superdesign/forge-launch-waitlist-dark-warm-ember.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "startup-website",
+      "launch",
+      "waitlist",
+      "landing-page",
+      "dark",
+      "warm",
+      "coral",
+      "ember",
+      "glassmorphism",
+      "space-grotesk",
+      "saas",
+      "minimal"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -15,13 +15,13 @@ Full viewport (`h-screen w-screen`), solid white background, flexbox centered, o
 - Border-radius: 52px
 - Overflow: hidden
 - Box-shadow (layered bezel effect):
-  ```
-  inset 0 0 0 2px rgba(255, 255, 255, 0.08),
-  0 0 0 1px rgba(0, 0, 0, 0.6),
-  0 0 0 10px #1a1a1e,
-  0 0 0 11px rgba(255, 255, 255, 0.06),
-  0 0 60px rgba(0, 0, 0, 0.5)
-  ```
+```
+inset 0 0 0 2px rgba(255, 255, 255, 0.08),
+0 0 0 1px rgba(0, 0, 0, 0.6),
+0 0 0 10px #1a1a1e,
+0 0 0 11px rgba(255, 255, 255, 0.06),
+0 0 60px rgba(0, 0, 0, 0.5)
+```
 
 **Dynamic Island notch:** Absolute, top-0, centered horizontally, 120px wide, 28px tall, solid black, `rounded-b-2xl`, z-50.
 
@@ -58,16 +58,16 @@ Each card:
 **Card data with exact image URLs:**
 
 1. **Tokyo** - 23 moments
-   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101902_e8f0f37b-18b7-4c14-bb5c-99f0724d2646.png&w=1280&q=85`
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101902_e8f0f37b-18b7-4c14-bb5c-99f0724d2646.png&w=1280&q=85`
 
 2. **Seoul** - 18 moments
-   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101935_4b17f250-8ddb-4ff2-b63d-dfd3497d4428.png&w=1280&q=85`
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101935_4b17f250-8ddb-4ff2-b63d-dfd3497d4428.png&w=1280&q=85`
 
 3. **Bali** - 29 moments
-   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101958_7116d6bf-fd6f-496f-b3cf-007688cd5123.png&w=1280&q=85`
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_101958_7116d6bf-fd6f-496f-b3cf-007688cd5123.png&w=1280&q=85`
 
 4. **Rome** - 15 moments
-   `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_143008_72ee7299-04a8-474c-ae73-220d45b24a20.png&w=1280&q=85`
+`https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_143008_72ee7299-04a8-474c-ae73-220d45b24a20.png&w=1280&q=85`
 
 ---
 
@@ -76,9 +76,9 @@ Each card:
 - Absolute, bottom-6, centered horizontally, z-30
 - liquid-glass pill (`rounded-full, flex, gap-6, px-6 py-2`)
 - 3 nav items (flex-col, items-center, gap-0.5):
-  - "Feed" + Home icon (size 20) -- inactive (`text-white/50`)
-  - "Account" + User icon (size 20) -- inactive (`text-white/50`)
-  - "Trips" + FileText icon (size 20) -- active (`text-white`)
+- "Feed" + Home icon (size 20) -- inactive (`text-white/50`)
+- "Account" + User icon (size 20) -- inactive (`text-white/50`)
+- "Trips" + FileText icon (size 20) -- active (`text-white`)
 - Label style: `text-[10px] font-medium`
 
 ---
@@ -87,30 +87,30 @@ Each card:
 
 ```css
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 ```
 

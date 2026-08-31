@@ -80,10 +80,10 @@ Build a full-screen, scroll-driven fashion/archive landing page for a brand call
 - Flex row, justify-content: space-between, align-items: center
 - Motion animation: same easing, delay 0.15s
 - Contains:
-  - "ABOUT" text (hidden on mobile): Inter Tight, 500, 15px, uppercase, white
-  - A flex row with gap 50px (desktop) / 20px (mobile):
-    - Hamburger SVG icon: viewBox `0 0 40 40`, two horizontal lines (`M0 14H40` and `M0 26H40`), stroke white, strokeWidth 2.5. Size: 30x30 (desktop), 24x24 (mobile)
-    - "[ CART ]" text: Inter Tight, 500, 15px (desktop) / 13px (mobile), white
+- "ABOUT" text (hidden on mobile): Inter Tight, 500, 15px, uppercase, white
+- A flex row with gap 50px (desktop) / 20px (mobile):
+- Hamburger SVG icon: viewBox `0 0 40 40`, two horizontal lines (`M0 14H40` and `M0 26H40`), stroke white, strokeWidth 2.5. Size: 30x30 (desktop), 24x24 (mobile)
+- "[ CART ]" text: Inter Tight, 500, 15px (desktop) / 13px (mobile), white
 
 #### 1E. Product Info (Bottom Right)
 - `id="outro-info"`, `position: fixed`, `pointer-events-none`, `z-index: 20`
@@ -93,13 +93,13 @@ Build a full-screen, scroll-driven fashion/archive landing page for a brand call
 - Motion animation: opacity 0->1, delay 0.45s
 - `data-outro-offset`: 166 (desktop), 132 (mobile) -- used by scroll animation
 - Contains:
-  - Top block (flex-column, align flex-start, width 100% desktop / 252px mobile, margin-bottom 32px desktop / 12px mobile):
-    - Circle icon: relative div (30x30 desktop, 20x20 mobile) containing:
-      - SVG circle (cx=20, cy=20, r=18.75, stroke white, strokeWidth 2.5 desktop / 2 mobile)
-      - `<span id="circle-symbol">` centered inside, shows "8" initially, changes to random symbol from `['8', '$', '^^', '%', '/']` on scroll (throttled 80ms)
-      - Font: Inter Tight, 500, 15px (desktop) / 10px (mobile), letter-spacing -0.04em, uppercase, white
-    - Collection label: Inter Tight, 500, 30px (desktop) / 20px (mobile), line-height 100%, text-align center, letter-spacing -0.04em, uppercase, white. Content: `ARCHIVE COLLECTION` + line break + `"PROMPT"`
-  - Price: Inter Tight, 500, 80px (desktop) / 60px (mobile), line-height 100%, text-align center, letter-spacing -0.04em, white. Content: `$97,33`
+- Top block (flex-column, align flex-start, width 100% desktop / 252px mobile, margin-bottom 32px desktop / 12px mobile):
+- Circle icon: relative div (30x30 desktop, 20x20 mobile) containing:
+- SVG circle (cx=20, cy=20, r=18.75, stroke white, strokeWidth 2.5 desktop / 2 mobile)
+- `<span id="circle-symbol">` centered inside, shows "8" initially, changes to random symbol from `['8', '$', '^^', '%', '/']` on scroll (throttled 80ms)
+- Font: Inter Tight, 500, 15px (desktop) / 10px (mobile), letter-spacing -0.04em, uppercase, white
+- Collection label: Inter Tight, 500, 30px (desktop) / 20px (mobile), line-height 100%, text-align center, letter-spacing -0.04em, uppercase, white. Content: `ARCHIVE COLLECTION` + line break + `"PROMPT"`
+- Price: Inter Tight, 500, 80px (desktop) / 60px (mobile), line-height 100%, text-align center, letter-spacing -0.04em, white. Content: `$97,33`
 
 #### 1F. "View" Button (Bottom Right, Initially Hidden)
 - `id="outro-buy"`, `position: fixed`, `pointer-events-none`, `z-index: 20`
@@ -164,20 +164,20 @@ CRITICAL: Only update currentTime when !video.seeking -- this prevents jittery p
 - Responsive columns: 2 (< 640px), 3 (640-1024px), 4 (>= 1024px)
 - Each cell has `aspect-ratio: 2/3`
 - Layout function `buildLayout(count, cols)` creates rows:
-  - For each row `r`, compute primary column: `a = (r * 2 + (r % 2)) % cols`
-  - Place one image at column `a`
-  - Every 3rd row (`r % 3 === 0`), place a second image at `b = (a + 2) % cols` (or `(a+1)%cols` if same as a)
-  - Empty cells get `-1` (rendered as empty spacer divs)
+- For each row `r`, compute primary column: `a = (r * 2 + (r % 2)) % cols`
+- Place one image at column `a`
+- Every 3rd row (`r % 3 === 0`), place a second image at `b = (a + 2) % cols` (or `(a+1)%cols` if same as a)
+- Empty cells get `-1` (rendered as empty spacer divs)
 
 #### Card Behavior
 - Each card has class `bp-card`, `will-change: transform`
 - `transform: scale(0)` initially
 - `transform-origin`: cards in left half of grid get `right bottom`, right half get `left bottom`
 - Scale is computed per-frame in RAF based on card's vertical position:
-  - **Enter**: `Math.min(1, (vh - top) / (vh * 0.6))` -- scales from 0 to 1 as it enters viewport
-  - **Exit**: `Math.min(1, bottom / (vh * 0.4))` -- scales from 1 to 0 as it exits top
-  - Final scale: `Math.min(enter, exit)`
-  - If card is fully off-screen (bottom <= 0 or top >= vh): `scale(0)`
+- **Enter**: `Math.min(1, (vh - top) / (vh * 0.6))` -- scales from 0 to 1 as it enters viewport
+- **Exit**: `Math.min(1, bottom / (vh * 0.4))` -- scales from 1 to 0 as it exits top
+- Final scale: `Math.min(enter, exit)`
+- If card is fully off-screen (bottom <= 0 or top >= vh): `scale(0)`
 
 #### Scroll Phases (RAF-based, NOT scroll events)
 - **Phase 1** (scrollY 0 to vh): Panel slides up. Cards are computed with panelOffset = `vh - scrollY`
@@ -195,13 +195,13 @@ CRITICAL: Only update currentTime when !video.seeking -- this prevents jittery p
 @import "tailwindcss";
 
 .bp-card {
-  will-change: transform;
+will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bp-card {
-    will-change: auto;
-  }
+.bp-card {
+will-change: auto;
+}
 }
 ```
 

@@ -1,0 +1,32 @@
+{
+  "record": {
+    "id": "sup-gridwright-design-the-web-type-the-prompt-swiss-grid-signal-red",
+    "title": "[Superdesign] Gridwright — Design the web, type the prompt (Swiss Grid / Signal Red)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3058,
+    "image_preview_url": "/assets/superdesign/gridwright-design-the-web-type-the-prompt-swiss-grid-signal-red.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "saas-website",
+      "swiss-grid",
+      "international-typographic-style",
+      "landing-page",
+      "minimal",
+      "monochrome",
+      "red-accent",
+      "12-column-grid",
+      "developer-tool",
+      "pricing",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

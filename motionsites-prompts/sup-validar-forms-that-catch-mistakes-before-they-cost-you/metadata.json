@@ -1,0 +1,30 @@
+{
+  "record": {
+    "id": "sup-validar-forms-that-catch-mistakes-before-they-cost-you",
+    "title": "[Superdesign] Validar — Forms that catch mistakes before they cost you",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3081,
+    "image_preview_url": "/assets/superdesign/validar-forms-that-catch-mistakes-before-they-cost-you.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "form",
+      "validation",
+      "saas",
+      "landing-page",
+      "teal",
+      "inline-validation",
+      "sign-up",
+      "accessibility",
+      "product-marketing"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-system-interface-feature-announcement",
+    "title": "[Superdesign] System Interface Feature Announcement",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Other",
+    "page_type": "superdesign",
+    "sort_order": 3123,
+    "image_preview_url": "/assets/superdesign/system-interface-feature-announcement.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "light gray",
+      "feature announcement",
+      "terminal green accent",
+      "high contrast",
+      "brutalist",
+      "sass",
+      "ai product"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

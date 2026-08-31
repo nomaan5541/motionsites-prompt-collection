@@ -17,21 +17,40 @@ export function SearchPage() {
   const filtered = useMemo(() => {
     let result = catalogItems;
     if (query) {
-      const q = query.toLowerCase();
+      const q = query.toLowerCase().trim();
+      const qNorm = q.replace(/[-_]+/g, " ");
       
       const scored = result.map((item) => {
-        // exact match boost
-        if (item.title.toLowerCase().includes(q) || item.prompt.toLowerCase().includes(q)) {
+        const titleLower = item.title.toLowerCase();
+        const idLower = item.id.toLowerCase();
+        const catLower = item.category.toLowerCase();
+        const promptLower = item.prompt.toLowerCase();
+        const tagsJoined = item.tags.join(" ").toLowerCase();
+
+        // Exact substring / keyword match in title, id, category, or tags
+        if (
+          titleLower.includes(q) ||
+          titleLower.includes(qNorm) ||
+          idLower.includes(q) ||
+          idLower.includes(q.replace(/\s+/g, "-")) ||
+          catLower.includes(q) ||
+          tagsJoined.includes(q)
+        ) {
+          return { item, score: 3 };
+        }
+
+        // Substring in prompt body
+        if (promptLower.includes(q)) {
           return { item, score: 2 };
         }
         
-        // fuzzy match
+        // Fuzzy match on title
         const sim = similarity(q, item.title);
         return { item, score: sim };
       });
       
-      // Filter out low scores (less than 0.3) unless they matched perfectly
-      const matched = scored.filter(s => s.score > 0.3).sort((a, b) => b.score - a.score);
+      // Filter out low scores
+      const matched = scored.filter(s => s.score > 0.28).sort((a, b) => b.score - a.score);
       result = matched.map(m => m.item);
     }
     return result;

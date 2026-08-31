@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "railroad.ai",
+    "title": "Railroad.ai",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 867,
+    "image_preview_url": "/assets/previews/railroad.ai.webp",
+    "video_preview_url": "/assets/previews/railroad.ai.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

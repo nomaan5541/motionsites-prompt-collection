@@ -1,11 +1,3 @@
-# Bionova Biotech
-
-**ID:** bionova-hero  
-**Category:** SaaS  
-**Type:** hero  
-
----
-
 Create a "BIONOVA" biotech consulting hero section that spans exactly 100vh on desktop (scrollable on mobile). Use Poppins font (imported from Google Fonts) as the heading font family. Install hls.js for video streaming.
 
 Design system:

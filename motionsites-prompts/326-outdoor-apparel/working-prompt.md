@@ -80,11 +80,11 @@ A fixed text element at the bottom of the viewport that animates on scroll.
 - Content: `We work in weathered nylon, laminated layers, and raw shell.`
 - Responsive: 60px at <=1200px, 40px at <=768px, 28px at <=480px.
 - **Scroll animation**: As the user scrolls through the hero (0% to 85% of hero spacer height), the title:
-  - Translates up by 150px
-  - Scales down from 1.0 to 0.8
-  - Fades out (opacity 1 to 0, starting at 30% progress)
-  - Blurs up to 24px
-  - All smoothed with lerp factor 0.12 per frame.
+- Translates up by 150px
+- Scales down from 1.0 to 0.8
+- Fades out (opacity 1 to 0, starting at 30% progress)
+- Blurs up to 24px
+- All smoothed with lerp factor 0.12 per frame.
 
 ---
 

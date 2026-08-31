@@ -1,0 +1,25 @@
+{
+  "record": {
+    "id": "sup-laboratory-skincare",
+    "title": "[Superdesign] Laboratory Skincare",
+    "category": "Superdesign Canvas",
+    "originalCategory": "E-commerce",
+    "page_type": "superdesign",
+    "sort_order": 3092,
+    "image_preview_url": "/assets/superdesign/laboratory-skincare.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "shopify",
+      "ecommerce",
+      "layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

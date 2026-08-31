@@ -1,0 +1,27 @@
+{
+  "record": {
+    "id": "sup-lumina-saas-landing-page",
+    "title": "[Superdesign] Lumina SaaS Landing Page",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3002,
+    "image_preview_url": "/assets/superdesign/lumina-saas-landing-page.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "bold",
+      "energetic",
+      "yellow",
+      "style",
+      "landing page",
+      "saas landing"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

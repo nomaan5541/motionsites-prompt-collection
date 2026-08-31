@@ -8,20 +8,20 @@ Register **"Mazzard H"** in `index.css` and apply it globally:
 
 ```css
 @font-face {
-  font-family: 'Mazzard H';
-  font-weight: 400;
-  font-style: normal;
-  src: url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.woff') format('woff'),
-       url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.ttf') format('truetype');
+font-family: 'Mazzard H';
+font-weight: 400;
+font-style: normal;
+src: url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.woff2') format('woff2'),
+url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.woff') format('woff'),
+url('https://db.onlinewebfonts.com/t/eb5b5ee332420add9a40ee988cb6ac37.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Mazzard H';
-  font-weight: 500;
-  font-style: normal;
-  src: url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.woff') format('woff'),
-       url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.ttf') format('truetype');
+font-family: 'Mazzard H';
+font-weight: 500;
+font-style: normal;
+src: url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.woff2') format('woff2'),
+url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.woff') format('woff'),
+url('https://db.onlinewebfonts.com/t/875fffdfa62169a0f131e90f37f1faf4.ttf') format('truetype');
 }
 
 @tailwind base;
@@ -29,7 +29,7 @@ Register **"Mazzard H"** in `index.css` and apply it globally:
 @tailwind utilities;
 
 @layer base {
-  html, body, * { font-family: 'Mazzard H', sans-serif; }
+html, body, * { font-family: 'Mazzard H', sans-serif; }
 }
 ```
 
@@ -49,10 +49,10 @@ const CARD_IMG = 'https://cdn.prod.website-files.com/6720dd1ab6df0da205830ab1/68
 
 ```ts
 interface ServiceCardProps {
-  label: string;
-  icon: React.ReactNode;
-  title: React.ReactNode;
-  bullets: string[];
+label: string;
+icon: React.ReactNode;
+title: React.ReactNode;
+bullets: string[];
 }
 ```
 
@@ -220,30 +220,30 @@ All icons: `viewBox="0 0 16 16"`, `fill="none"`, `style={{ width: '100%', height
 
 ```ts
 const CARDS = [
-  {
-    label: 'Planning',
-    icon: <DesignIcon />,
-    title: <>Turn new programs<br />into structured plans without the noise.</>,
-    bullets: ['Embedded program leads', 'Decision-ready roadmaps'],
-  },
-  {
-    label: 'Procurement',
-    icon: <OnboardingIcon />,
-    title: <>Source and qualify<br />vendors with far<br />less friction.</>,
-    bullets: ['Cross-org scope alignment', 'End-to-end accountability'],
-  },
-  {
-    label: 'Logistics',
-    icon: <DeliveryIcon />,
-    title: <>Move the right<br />materials on time<br />without surprises.</>,
-    bullets: ['Spec and fit validations', 'Change order ownership'],
-  },
-  {
-    label: 'Commissioning',
-    icon: <DeploymentIcon />,
-    title: <>Activate systems with complete context, not guesswork.</>,
-    bullets: ['Uninterrupted workflows', 'Verified clean handoffs'],
-  },
+{
+label: 'Planning',
+icon: <DesignIcon />,
+title: <>Turn new programs<br />into structured plans without the noise.</>,
+bullets: ['Embedded program leads', 'Decision-ready roadmaps'],
+},
+{
+label: 'Procurement',
+icon: <OnboardingIcon />,
+title: <>Source and qualify<br />vendors with far<br />less friction.</>,
+bullets: ['Cross-org scope alignment', 'End-to-end accountability'],
+},
+{
+label: 'Logistics',
+icon: <DeliveryIcon />,
+title: <>Move the right<br />materials on time<br />without surprises.</>,
+bullets: ['Spec and fit validations', 'Change order ownership'],
+},
+{
+label: 'Commissioning',
+icon: <DeploymentIcon />,
+title: <>Activate systems with complete context, not guesswork.</>,
+bullets: ['Uninterrupted workflows', 'Verified clean handoffs'],
+},
 ];
 ```
 

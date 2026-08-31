@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "neo-vision",
+    "title": "NeoVision",
+    "category": "Landing Page",
+    "page_type": "landing-page",
+    "sort_order": 852,
+    "image_preview_url": "/assets/previews/neo-vision.webp",
+    "video_preview_url": "/assets/previews/neo-vision.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -14,9 +14,9 @@ A loading intro that plays on first load:
 - Shows a progress bar at the bottom (px-12, bottom-12). Left label says "Loading" in white/40, uppercase, tracking-[0.2em], xs text. Right shows the percentage in white, sm, tabular-nums font-medium.
 - The progress bar is 1px tall, bg-white/10 track, with a white fill that animates from 0% to 100% over 2400ms (20ms interval steps).
 - Once 100% is reached, wait 300ms, then trigger a "curtain reveal" animation:
-  - Two panels (left half and right half) slide apart: left translates -100% X, right translates +100% X.
-  - Duration: 1200ms, easing: cubic-bezier(0.76, 0, 0.24, 1).
-  - The loader content fades to opacity-0 with duration-300 during reveal.
+- Two panels (left half and right half) slide apart: left translates -100% X, right translates +100% X.
+- Duration: 1200ms, easing: cubic-bezier(0.76, 0, 0.24, 1).
+- The loader content fades to opacity-0 with duration-300 during reveal.
 - After 1200ms of the curtain animation, call onComplete to signal the main content can appear.
 
 ---
@@ -79,7 +79,7 @@ A fullscreen video background hero with scroll-driven crossfade between two stat
 
 Mobile (flex sm:hidden, mt-6, gap-6, horizontal):
 - "8M+" / "Skin Transformed"
-- "96.4%" / "Visible Renewal"  
+- "96.4%" / "Visible Renewal"
 - "37" / "Patents Granted"
 - Numbers: text-xl font-light. Labels: text-[10px] text-white/50. Dividers: w-[1px] h-8 bg-[#5794E2]/40.
 

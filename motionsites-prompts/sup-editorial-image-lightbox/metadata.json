@@ -1,0 +1,48 @@
+{
+  "record": {
+    "id": "sup-editorial-image-lightbox",
+    "title": "[Superdesign] Editorial Image Lightbox",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Blog & Editorial",
+    "page_type": "superdesign",
+    "sort_order": 3108,
+    "image_preview_url": "/assets/superdesign/editorial-image-lightbox.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "modal",
+      "lightbox",
+      "image-lightbox",
+      "gallery",
+      "editorial",
+      "magazine",
+      "fraunces",
+      "serif",
+      "inter",
+      "cream",
+      "burgundy",
+      "ink",
+      "coal",
+      "dark-stage",
+      "vignette",
+      "grain",
+      "caption",
+      "prev-next",
+      "filmstrip",
+      "filter-pills",
+      "figure",
+      "figcaption",
+      "glassmorphism",
+      "phosphor",
+      "pattern-library",
+      "prompt-to-ui",
+      "aperture"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

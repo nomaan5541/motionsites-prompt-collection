@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-superdesign-setup-inline-preview",
+    "title": "[Superdesign] Superdesign Setup - Inline Preview",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3113,
+    "image_preview_url": "/assets/superdesign/superdesign-setup-inline-preview.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "onboarding",
+      "developer",
+      "high contrast",
+      "minimal",
+      "brutalist",
+      "zinc neutral",
+      "light mode",
+      "dark mode",
+      "ai product",
+      "configuration wizard",
+      "monospace-accents",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "velorah-focus-hero",
+    "title": "Velorah Focus",
+    "category": "Social Media",
+    "page_type": "social-media",
+    "sort_order": 886,
+    "image_preview_url": null,
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

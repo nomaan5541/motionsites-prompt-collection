@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-bold-editorial-studio-style",
+    "title": "[Superdesign] Bold Editorial Studio Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3014,
+    "image_preview_url": "/assets/superdesign/bold-editorial-studio-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

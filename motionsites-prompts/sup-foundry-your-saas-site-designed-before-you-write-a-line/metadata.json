@@ -1,0 +1,32 @@
+{
+  "record": {
+    "id": "sup-foundry-your-saas-site-designed-before-you-write-a-line",
+    "title": "[Superdesign] Foundry: Your SaaS Site, Designed Before You Write a Line",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3083,
+    "image_preview_url": "/assets/superdesign/foundry-your-saas-site-designed-before-you-write-a-line.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "saas-website",
+      "landing-page",
+      "editorial",
+      "serif",
+      "fraunces",
+      "warm",
+      "cream",
+      "terracotta",
+      "olive",
+      "marketing-page",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

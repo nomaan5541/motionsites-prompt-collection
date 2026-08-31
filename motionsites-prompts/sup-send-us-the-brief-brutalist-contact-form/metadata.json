@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-send-us-the-brief-brutalist-contact-form",
+    "title": "[Superdesign] Send Us the Brief — Brutalist Contact Form",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3075,
+    "image_preview_url": "/assets/superdesign/send-us-the-brief-brutalist-contact-form.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "contact-form",
+      "contact",
+      "brutalist",
+      "neo-brutalist",
+      "acid-yellow",
+      "monochrome",
+      "hard-shadow",
+      "form",
+      "brief",
+      "bold"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

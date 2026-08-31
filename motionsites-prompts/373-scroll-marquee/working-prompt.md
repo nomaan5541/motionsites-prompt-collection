@@ -48,9 +48,9 @@ https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif
 **Scroll-driven parallax animation (vanilla JS, not CSS animation):**
 - Each row's image array is tripled (`[...ROW, ...ROW, ...ROW]`) to create enough content for continuous scrolling appearance
 - On every scroll event (passive listener), calculate offset:
-  1. Get the section's bounding rect top relative to the document
-  2. `scrolled = window.scrollY - sectionTop + window.innerHeight`
-  3. `offset = scrolled * 0.3` (parallax factor of 0.3)
+1. Get the section's bounding rect top relative to the document
+2. `scrolled = window.scrollY - sectionTop + window.innerHeight`
+3. `offset = scrolled * 0.3` (parallax factor of 0.3)
 - Row 1: `transform: translateX(${offset - 200}px)` -- moves right as user scrolls
 - Row 2: `transform: translateX(${-(offset - 200)}px)` -- moves left as user scrolls
 - Initial transform: Row 1 starts at `translateX(-200px)`, Row 2 starts at `translateX(200px)`

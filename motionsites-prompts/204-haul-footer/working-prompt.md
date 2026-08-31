@@ -22,14 +22,14 @@ Build a React functional component using Tailwind CSS, `motion/react` for animat
 - Card Styling: `bg-white/95`, `backdrop-blur-sm`, `shadow-xl`, rounded corners (`rounded-2xl` mobile, `rounded-3xl` desktop), `overflow-hidden`.
 - Animation: The card should slide down and fade in (`initial={{ opacity: 0, y: -20 }}`, `animate={{ opacity: 1, y: 0 }}`, duration 0.8s easeOut).
 - **Footer Content (Top Half):**
-  - Use a flex row layout (flex-col on mobile, flex-row on md+) with spread space.
-  - **Logo Area**: Include an orange square (`bg-orange-500`, 40x40px mobile, 48x48px desktop, rounded-lg, shadow-inner, p-2). Inside the square, place an SVG with viewBox "0 0 256 256" and this exact white path: `d="M 228 0 C 172.772 0 128 44.772 128 100 L 128 0 L 0 0 L 0 28 C 0 83.228 44.772 128 100 128 L 0 128 L 0 256 L 28 256 C 83.228 256 128 211.228 128 156 L 128 256 L 256 256 L 256 228 C 256 172.772 211.228 128 156 128 L 256 128 L 256 0 Z"`. Next to the logo block, add the text "HAUL!" (`text-gray-900`, 2xl/3xl, font-bold, tracking-tighter).
-  - **Links Area**: Display 3 columns of links using flex. Layout: `Company` (Founding, Platform, Testify), `Mobile` (Get Apple App, Get Google App), `Contracts` (Private Data, User Consent). Section headers should be uppercase, tracking-widest, text-sm, bold. Link items should be gray-500, font-medium, and hover to `orange-600` with transition.
+- Use a flex row layout (flex-col on mobile, flex-row on md+) with spread space.
+- **Logo Area**: Include an orange square (`bg-orange-500`, 40x40px mobile, 48x48px desktop, rounded-lg, shadow-inner, p-2). Inside the square, place an SVG with viewBox "0 0 256 256" and this exact white path: `d="M 228 0 C 172.772 0 128 44.772 128 100 L 128 0 L 0 0 L 0 28 C 0 83.228 44.772 128 100 128 L 0 128 L 0 256 L 28 256 C 83.228 256 128 211.228 128 156 L 128 256 L 256 256 L 256 228 C 256 172.772 211.228 128 156 128 L 256 128 L 256 0 Z"`. Next to the logo block, add the text "HAUL!" (`text-gray-900`, 2xl/3xl, font-bold, tracking-tighter).
+- **Links Area**: Display 3 columns of links using flex. Layout: `Company` (Founding, Platform, Testify), `Mobile` (Get Apple App, Get Google App), `Contracts` (Private Data, User Consent). Section headers should be uppercase, tracking-widest, text-sm, bold. Link items should be gray-500, font-medium, and hover to `orange-600` with transition.
 - **Footer Content (Bottom Bar):**
-  - Add a top border (`border-gray-100`) and use a solid white background (`bg-white`).
-  - Layout: flex, space between, aligning text to the left and social icons to the right. 
-  - Text: "© 2026 HAUL! All Rights Reserved" (text-sm, gray-500, medium).
-  - **Social Icons**: Map through an array of icons imported from `lucide-react`: Facebook, Twitter, Instagram, Linkedin (w-5 h-5). Wrap them in `a` tags shaped as 40x40px circles with `border-gray-100`. On hover, they should turn `bg-orange-500` with white text and an `orange-500` border (transition all duration-300).
+- Add a top border (`border-gray-100`) and use a solid white background (`bg-white`).
+- Layout: flex, space between, aligning text to the left and social icons to the right.
+- Text: "© 2026 HAUL! All Rights Reserved" (text-sm, gray-500, medium).
+- **Social Icons**: Map through an array of icons imported from `lucide-react`: Facebook, Twitter, Instagram, Linkedin (w-5 h-5). Wrap them in `a` tags shaped as 40x40px circles with `border-gray-100`. On hover, they should turn `bg-orange-500` with white text and an `orange-500` border (transition all duration-300).
 
 **5. Background Truck Parallax Layer:**
 - Add a `motion.div` placed absolutely at the bottom of the container (`absolute inset-x-0 bottom-0 h-full`).

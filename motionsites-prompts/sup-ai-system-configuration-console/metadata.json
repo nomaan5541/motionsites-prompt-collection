@@ -1,0 +1,35 @@
+{
+  "record": {
+    "id": "sup-ai-system-configuration-console",
+    "title": "[Superdesign] AI System Configuration Console",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Dashboards",
+    "page_type": "superdesign",
+    "sort_order": 3093,
+    "image_preview_url": "/assets/superdesign/ai-system-configuration-console.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "technical dashboard",
+      "dark mode",
+      "acid green accent",
+      "brutalist interface",
+      "high-fidelity prototype",
+      "cybernetic ui",
+      "system labels",
+      "dashboard",
+      "developer tool",
+      "infrastructure ui",
+      "system configuration",
+      "operating console",
+      "onboarding",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

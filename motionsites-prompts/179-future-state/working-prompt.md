@@ -4,7 +4,7 @@ Global setup
 
 - `index.html` title: `NOVA_AI — Today AI Aligns With Bold Dreams`. Load this font in `<head>`:
 
-  `<link href="https://db.onlinewebfonts.com/c/4556933d6966c60eda45bebad34d9c90?family=Flexo+Soft+Medium" rel="stylesheet" />`
+`<link href="https://db.onlinewebfonts.com/c/4556933d6966c60eda45bebad34d9c90?family=Flexo+Soft+Medium" rel="stylesheet" />`
 
 - `index.css`: Tailwind base/components/utilities; `body { font-family: 'Flexo Soft Medium', system-ui, sans-serif; background-color: #0a0a0a; color: #fff; -webkit-font-smoothing: antialiased; }`; `::selection { background-color: rgba(255,255,255,0.2); }`
 
@@ -46,21 +46,21 @@ Component 4 — SectionOne (hero, bottom-anchored)
 
 - Left: `<h1 className="max-w-xl text-4xl font-medium uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">` with four staggered lines, each a `<Reveal as="span" className="block ...">`:
 
-  1. delay 100, `pl-6 sm:pl-12`: `Today AI`
+1. delay 100, `pl-6 sm:pl-12`: `Today AI`
 
-  2. delay 220, no indent: `Aligns ` + `<span className="normal-case italic font-light">with</span>`
+2. delay 220, no indent: `Aligns ` + `<span className="normal-case italic font-light">with</span>`
 
-  3. delay 340, `pl-10 sm:pl-20`: `// Bold`
+3. delay 340, `pl-10 sm:pl-20`: `// Bold`
 
-  4. delay 460, `pl-16 sm:pl-32`: `Dreams`
+4. delay 460, `pl-16 sm:pl-32`: `Dreams`
 
 - Right column (`flex w-full max-w-xs flex-col items-start` — visible on ALL breakpoints, stacks under the headline on mobile):
 
-  - Reveal delay 400: row `mb-6 flex w-full items-center justify-between font-mono text-white sm:mb-8` with `( A )` (text-lg) and `[ 001 /004 ]` (`text-xs text-white/70`).
+- Reveal delay 400: row `mb-6 flex w-full items-center justify-between font-mono text-white sm:mb-8` with `( A )` (text-lg) and `[ 001 /004 ]` (`text-xs text-white/70`).
 
-  - Reveal delay 520: paragraph `mb-6 text-sm leading-relaxed text-white/85 drop-shadow-md sm:mb-8`: "NovaAI is where your bravest work finds its true expression. We hand you the means not only to form the future."
+- Reveal delay 520: paragraph `mb-6 text-sm leading-relaxed text-white/85 drop-shadow-md sm:mb-8`: "NovaAI is where your bravest work finds its true expression. We hand you the means not only to form the future."
 
-  - Reveal delay 640: full-width pill CTA `Begin Today`: `block w-full rounded-full border border-white/60 px-8 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white hover:text-black`.
+- Reveal delay 640: full-width pill CTA `Begin Today`: `block w-full rounded-full border border-white/60 px-8 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white hover:text-black`.
 
 - Absolute bottom-left (Reveal delay 760, `bottom-5 left-5 sm:bottom-6 sm:left-8 md:left-12`): `Share2` icon button (size 18, `text-white/80 hover:text-white`, aria-label "Share").
 
@@ -72,15 +72,15 @@ Component 5 — SectionTwo
 
 - Middle row: `relative flex flex-1 flex-col justify-center gap-10 px-5 pt-24 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:px-8 sm:pt-0 md:px-12`.
 
-  - `<h2 className="max-w-sm text-4xl font-medium uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">`, two Reveal lines: delay 100 `Learn ` + italic `<span className="normal-case italic font-light">to see</span>`; delay 220 `Brilliantly`.
+- `<h2 className="max-w-sm text-4xl font-medium uppercase leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">`, two Reveal lines: delay 100 `Learn ` + italic `<span className="normal-case italic font-light">to see</span>`; delay 220 `Brilliantly`.
 
-  - Reveal delay 340: `flex items-center justify-between font-mono text-white sm:justify-start sm:gap-16 md:gap-24` with `( B )` (text-lg) and `[ 002 /004 ]` (`text-xs text-white/70`).
+- Reveal delay 340: `flex items-center justify-between font-mono text-white sm:justify-start sm:gap-16 md:gap-24` with `( B )` (text-lg) and `[ 002 /004 ]` (`text-xs text-white/70`).
 
 - Bottom block: `relative flex flex-col gap-10 px-5 pb-16 sm:px-8 md:px-12 md:pb-20`.
 
-  - Reveal delay 460 paragraph (`max-w-xs text-sm leading-relaxed text-white/85 drop-shadow-md`): "Our AI doesn't just respond — it interprets, sharpens, and delivers. From outline to final render, it supplies the insight you want."
+- Reveal delay 460 paragraph (`max-w-xs text-sm leading-relaxed text-white/85 drop-shadow-md`): "Our AI doesn't just respond — it interprets, sharpens, and delivers. From outline to final render, it supplies the insight you want."
 
-  - Reveal delay 580 CTA `Run The Demo`, in-flow full-width on mobile, absolutely bottom-centered on sm+: wrapper `w-full max-w-xs sm:absolute sm:bottom-16 sm:left-1/2 sm:w-auto sm:max-w-none sm:-translate-x-1/2 md:bottom-20`; anchor `block rounded-full border border-white/60 px-10 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white hover:text-black`.
+- Reveal delay 580 CTA `Run The Demo`, in-flow full-width on mobile, absolutely bottom-centered on sm+: wrapper `w-full max-w-xs sm:absolute sm:bottom-16 sm:left-1/2 sm:w-auto sm:max-w-none sm:-translate-x-1/2 md:bottom-20`; anchor `block rounded-full border border-white/60 px-10 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white hover:text-black`.
 
 - Reveal delay 700, absolute bottom-left (same classes as Section 1): `Share2` icon button.
 

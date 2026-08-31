@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-coral-gradient-product-launch-email",
+    "title": "[Superdesign] Coral Gradient Product-Launch Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3129,
+    "image_preview_url": "/assets/superdesign/coral-gradient-product-launch-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "product-launch",
+      "feature-announcement",
+      "saas-email",
+      "marketing-email",
+      "announcement",
+      "hero",
+      "cta",
+      "coral",
+      "gradient",
+      "cobalt",
+      "sora",
+      "inter",
+      "light-mode",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

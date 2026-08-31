@@ -1,0 +1,1 @@
+Create a typing animation that reveals each character with a 50ms delay between characters for the main headline.

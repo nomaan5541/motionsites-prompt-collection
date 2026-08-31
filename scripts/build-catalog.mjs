@@ -28,58 +28,6 @@ const publicPreviewOverrides = {
   "19": ["https://motionsites.ai/assets/hero-viktor-portfolio-poster-S-47espj.png", "https://motionsites.ai/assets/hero-viktor-portfolio-preview-Bd2-Dg_u.gif"],
   "20": ["https://motionsites.ai/assets/hero-space-voyage-poster-Dti9x8oS.png", "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"],
   "21": ["https://motionsites.ai/assets/hero-buzzentic-poster-7nm68cTe.png", "https://motionsites.ai/assets/hero-buzzentic-preview-CbopM29R.gif"],
-  "codercrest-hero": ["https://motionsites.ai/assets/codercrest-hero-B-d2p-pC.png", "https://motionsites.ai/assets/codercrest-hero-CoycO52t.gif"],
-  "urban-jungle-hero": ["https://motionsites.ai/assets/hero-urban-jungle-poster-DNnMHsAj.png", "https://motionsites.ai/assets/hero-urban-jungle-preview-DUD-6bVK.gif"],
-  "liquid-glass-agency": ["https://motionsites.ai/assets/hero-liquid-glass-agency-poster-BvnVaqJh.png", "https://motionsites.ai/assets/hero-liquid-glass-agency-preview-Cr5Q9-lc.gif"],
-  "grow-ai-hero": ["https://motionsites.ai/assets/hero-grow-ai-poster-B-kSCKSN.png", "https://motionsites.ai/assets/hero-grow-ai-preview-BlQ8tAQ-.gif"],
-  "ember-dsgn-hero": ["https://image.mux.com/iK2ACd5wEwi7ORN8i16kl59Cck01IREnB3hX6EnnqiUk/thumbnail.webp?width=1200&time=2", "https://image.mux.com/iK2ACd5wEwi7ORN8i16kl59Cck01IREnB3hX6EnnqiUk/animated.webp?width=640&fps=15"],
-  "wisa-space-hero": ["https://motionsites.ai/assets/hero-wisa-space-poster-CWyENdkI.png", "https://motionsites.ai/assets/hero-wisa-space-preview-CAIFtU8c.gif"],
-  "acreage-farming-hero": ["https://motionsites.ai/assets/hero-acreage-farming-poster-DA8kFOg1.png", "https://motionsites.ai/assets/hero-acreage-farming-preview-DY4bc7ni.gif"],
-  "impressive-hero": ["https://motionsites.ai/assets/hero-impressive-poster-BPadbNDX.png", "https://motionsites.ai/assets/hero-impressive-preview-BCJtlSs2.gif"],
-  "flowmate-landing": ["https://motionsites.ai/assets/hero-flowmate-poster-DDfS_CZz.png", "https://motionsites.ai/assets/hero-flowmate-preview-BmYI3ZvH.gif"],
-  "luminex-hero": ["https://motionsites.ai/assets/hero-luminex-poster-9lhDX6Fl.png", "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif"],
-  "nike-premium-landing": ["https://motionsites.ai/assets/hero-nike-premium-landing-poster-Bcg5HGjQ.png", "https://motionsites.ai/assets/hero-nike-premium-landing-preview-_VyIBlIe.gif"],
-  "sentinel-ai-hero": ["https://motionsites.ai/assets/hero-sentinel-ai-poster-B7n15kua.png", "https://motionsites.ai/assets/hero-sentinel-ai-preview-BXas7Q1_.gif"],
-  "slam-dunk-hero": ["https://motionsites.ai/assets/hero-slam-dunk-poster-Cd-dE4fD.png", "https://motionsites.ai/assets/hero-slam-dunk-preview-Cmg3K_S4.gif"],
-  "crypto-wealth-hero": ["https://motionsites.ai/assets/hero-crypto-wealth-poster-DzHusafH.png", "https://motionsites.ai/assets/hero-crypto-wealth-preview-Cv79y7eb.gif"],
-  "shamoni-hero": ["https://motionsites.ai/assets/hero-shamoni-poster-CgFgfjoV.png", "https://motionsites.ai/assets/hero-shamoni-preview-DfbPWZl9.gif"],
-  "nexacore-hero": ["https://motionsites.ai/assets/hero-nexacore-poster-D8kt5SRH.png", "https://motionsites.ai/assets/hero-nexacore-preview-DtWEu8_f.gif"],
-  "stellar-ai-v2-hero": ["https://motionsites.ai/assets/hero-stellar-ai-v2-poster-D2407pz-.png", "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"],
-  "taskly-hero": ["https://motionsites.ai/assets/hero-taskly-poster-B5eMEGQS.png", "https://motionsites.ai/assets/hero-taskly-preview-Dq2MKaI0.gif"],
-  "xportfolio-hero": ["https://motionsites.ai/assets/hero-xportfolio-poster-B6q-pIN8.png", "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif"],
-  "ai-designer-agency": ["https://motionsites.ai/assets/hero-ai-designer-agency-poster-CQqRSMUo.png", "https://motionsites.ai/assets/hero-ai-designer-agency-preview-vrAje6Od.gif"],
-  "neovision-landing": ["https://motionsites.ai/assets/hero-neovision-poster-CIjls94N.png", "https://motionsites.ai/assets/hero-neovision-preview-qwRNOas1.gif"],
-  "guardnet-landing": ["https://motionsites.ai/assets/hero-guardnet-poster-BgcbWciF.png", "https://motionsites.ai/assets/hero-guardnet-preview-DAQqiNXC.gif"],
-  "automation-machines-hero": ["https://motionsites.ai/assets/hero-automation-machines-poster-CRJvUPpQ.png", "https://motionsites.ai/assets/hero-automation-machines-preview-DlTveRIN.gif"],
-  "focus-ai-landing": ["https://motionsites.ai/assets/hero-focus-ai-poster-KA-Ezq1n.png", "https://motionsites.ai/assets/hero-focus-ai-preview-Bnad3D1L.gif"],
-  "rivr-defi-landing": ["https://motionsites.ai/assets/landing-rivr-defi-poster-DCTiByUf.png", "https://motionsites.ai/assets/landing-rivr-defi-preview-BPVSgEtB.gif"],
-  "yacht-club-hero": ["https://motionsites.ai/assets/hero-yacht-club-poster-_Oi_fq0F.png", "https://motionsites.ai/assets/hero-yacht-club-preview-BXyoIjIf.gif"],
-  "ecommerce-website-landing": ["https://motionsites.ai/assets/hero-ecommerce-website-poster-DUcLYbYg.png", "https://motionsites.ai/assets/hero-ecommerce-website-preview-D7j_TrNR.gif"],
-  "ecovolta-hero": ["https://motionsites.ai/assets/hero-ecovolta-poster-C62kq2ZR.png", "https://motionsites.ai/assets/hero-ecovolta-preview-BXrSPAWj.gif"],
-  "orbit-engineers": ["https://motionsites.ai/assets/hero-orbit-engineers-poster-BT1ffUzn.png", null],
-  "pro-ai-deck": ["https://motionsites.ai/assets/hero-pro-ai-deck-poster-CF077Cec.png", "https://motionsites.ai/assets/hero-pro-ai-deck-preview-BBbLJNeM.gif"],
-  "terra-hero": ["https://motionsites.ai/assets/hero-terra-poster-BN-oVgFr.png", "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"],
-  "veloce-finance-landing": ["https://motionsites.ai/assets/hero-veloce-finance-poster-Crck1KtV.png", "https://motionsites.ai/assets/hero-veloce-finance-preview-DQW35gIt.gif"],
-  "clubx-hero": ["https://motionsites.ai/assets/hero-clubx-poster-Dwv_zKz1.png", "https://motionsites.ai/assets/hero-clubx-preview-CpKCe8yV.gif"],
-  "railroad-ai-hero": ["https://motionsites.ai/assets/hero-railroad-ai-poster-lVI2bwI8.png", "https://motionsites.ai/assets/hero-railroad-ai-preview-CBjplU90.gif"],
-  "slate-hero": ["https://motionsites.ai/assets/slate-hero-DVrU4R-f.png", "https://motionsites.ai/assets/slate-hero-BY-9TCfd.gif"],
-  "ecovolta-v2-hero": ["https://motionsites.ai/assets/hero-ecovolta-v2-poster-CuiiqzXg.png", "https://motionsites.ai/assets/hero-ecovolta-v2-preview-D8IVEFGK.gif"],
-  "evr-ventures-hero": ["https://motionsites.ai/assets/hero-evr-ventures-poster-Bld4o1cl.png", "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif"],
-  "deck-investor": ["https://motionsites.ai/assets/hero-deck-poster-yx2SqADM.png", "https://motionsites.ai/assets/hero-deck-preview-CbidQJxW.gif"],
-  "vitara-hero": ["https://motionsites.ai/assets/hero-vitara-poster-CKA8M1gM.png", "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"],
-  "bionova-hero": ["https://motionsites.ai/assets/hero-bionova-poster-CPaKbq55.png", "https://motionsites.ai/assets/hero-bionova-preview-Sk76d0_D.gif"],
-  "finlytic-hero": ["https://motionsites.ai/assets/hero-finlytic-poster-BKqseFhS.png", "https://motionsites.ai/assets/hero-finlytic-preview-CV9g0FHP.gif"],
-  "nova-space-landing": ["https://motionsites.ai/assets/hero-nova-space-poster-BNMHPfK2.png", "https://motionsites.ai/assets/hero-nova-space-preview-ej0OOJ0M.gif"],
-  "zenith-realty-landing": ["https://motionsites.ai/assets/landing-zenith-realty-poster-Pwf4HO6U.png", "https://motionsites.ai/assets/landing-zenith-realty-preview-Y1uTjYYl.gif"],
-  "akor-security-landing": ["https://motionsites.ai/assets/hero-akor-security-poster-Cw0Ko1yz.png", "https://motionsites.ai/assets/hero-akor-security-preview-hRrwsPNf.gif"],
-  "prioritize-hero": ["https://motionsites.ai/assets/hero-prioritize-preview-DlI3SYr4.png", "https://motionsites.ai/assets/hero-prioritize-preview-DlI3SYr4.png"],
-  "planet-orbit-hero": ["https://motionsites.ai/assets/hero-planet-orbit-poster-CuWG70ga.png", "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif"],
-  "mindloop-hero": ["https://motionsites.ai/assets/hero-mindloop-poster-2_RhEWJd.png", "https://motionsites.ai/assets/hero-mindloop-preview-BR8xW6xW.gif"],
-  "nexus-hero": ["https://motionsites.ai/assets/hero-nexus-poster-fNblRje9.png", "https://motionsites.ai/assets/hero-nexus-preview-74RfhYpA.gif"],
-  "nickel-hero": ["https://motionsites.ai/assets/hero-nickel-poster-Co3f0jXk.png", "https://motionsites.ai/assets/hero-nickel-preview-CnRoBZt5.gif"],
-  "orbit-web3-hero": ["https://motionsites.ai/assets/hero-orbit-web3-poster-CsiRb_pp.png", "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif"],
-  "apex-saas-hero": ["https://motionsites.ai/assets/hero-apex-saas-poster-CZ6BkKIa.png", "https://motionsites.ai/assets/hero-apex-saas-preview-CbnBKSPv.gif"],
-  "vertex-ai-hero": ["https://motionsites.ai/assets/hero-vertex-ai-poster-DEZfbTg3.png", "https://motionsites.ai/assets/hero-vertex-ai-preview-Da80y3xa.gif"],
 };
 
 function slugify(value) {
@@ -156,7 +104,89 @@ function extractPromptPreviewUrl(prompt) {
   return null;
 }
 
-function mediaFromRecord(record, prompt) {
+function findLocalMedia(record, folderName) {
+  const id = String(record.id || folderName).toLowerCase();
+  const candidates = [
+    id,
+    folderName,
+    folderName.replace(/^\d+-/, ""),
+    id.replace(/^sup-/, ""),
+    id.replace(/^hx-/, ""),
+    id.replace(/^dev21-/, ""),
+    id.replace(/^ms-/, ""),
+  ].filter(Boolean);
+
+  for (const name of candidates) {
+    // 1. Superdesign assets
+    const supPng = path.join(root, "public", "assets", "superdesign", `${name}.png`);
+    const supMp4 = path.join(root, "public", "assets", "superdesign", `${name}.mp4`);
+    if (fs.existsSync(supPng)) {
+      return {
+        mediaType: "image",
+        mediaUrl: `/assets/superdesign/${name}.png`,
+        posterUrl: `/assets/superdesign/${name}.png`,
+        animatedUrl: null,
+      };
+    }
+    if (fs.existsSync(supMp4)) {
+      return {
+        mediaType: "video",
+        mediaUrl: `/assets/superdesign/${name}.mp4`,
+        posterUrl: fs.existsSync(supPng) ? `/assets/superdesign/${name}.png` : null,
+        animatedUrl: null,
+      };
+    }
+
+    // 2. Previews (webp, mp4, png)
+    const prevWebp = path.join(root, "public", "assets", "previews", `${name}.webp`);
+    const prevMp4 = path.join(root, "public", "assets", "previews", `${name}.mp4`);
+    const prevPng = path.join(root, "public", "assets", "previews", `${name}.png`);
+
+    if (fs.existsSync(prevWebp)) {
+      return {
+        mediaType: fs.existsSync(prevMp4) ? "video" : "image",
+        mediaUrl: fs.existsSync(prevMp4) ? `/assets/previews/${name}.mp4` : `/assets/previews/${name}.webp`,
+        posterUrl: `/assets/previews/${name}.webp`,
+        animatedUrl: null,
+      };
+    }
+    if (fs.existsSync(prevPng)) {
+      return {
+        mediaType: "image",
+        mediaUrl: `/assets/previews/${name}.png`,
+        posterUrl: `/assets/previews/${name}.png`,
+        animatedUrl: null,
+      };
+    }
+    if (fs.existsSync(prevMp4)) {
+      return {
+        mediaType: "video",
+        mediaUrl: `/assets/previews/${name}.mp4`,
+        posterUrl: null,
+        animatedUrl: null,
+      };
+    }
+
+    // 3. Community previews
+    const commWebp = path.join(root, "public", "assets", "community", "superdesign", `${name}.webp`);
+    if (fs.existsSync(commWebp)) {
+      return {
+        mediaType: "image",
+        mediaUrl: `/assets/community/superdesign/${name}.webp`,
+        posterUrl: `/assets/community/superdesign/${name}.webp`,
+        animatedUrl: null,
+      };
+    }
+  }
+
+  return null;
+}
+
+function mediaFromRecord(record, prompt, folderName) {
+  // Check local assets first
+  const local = findLocalMedia(record, folderName);
+  if (local) return local;
+
   if (record.video_preview_url) {
     return {
       mediaType: "video",
@@ -213,7 +243,7 @@ function buildItem(folderName) {
   const title = record.title || record.id || folderName;
   const pageType = record.page_type || record.type || "prompt";
   const prompt = readPrompt(folderPath);
-  const media = applyPublicPreviewOverride(record, mediaFromRecord(record, prompt));
+  const media = applyPublicPreviewOverride(record, mediaFromRecord(record, prompt, folderName));
 
   return {
     id: record.id || folderName,
@@ -233,7 +263,7 @@ function buildItem(folderName) {
     sortOrder: Number(record.sort_order || 9999),
     rowSpan: Number(record.row_span || 1),
     createdAt: record.created_at || null,
-    tags: Array.isArray(record.types) ? record.types : [],
+    tags: Array.isArray(record.types || record.tags) ? (record.types || record.tags) : [],
   };
 }
 
@@ -248,8 +278,6 @@ const folders = fs
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
 const items = folders.map(buildItem).sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title));
-
-// Check removed to allow dynamic amount of prompts
 
 const emptyPrompt = items.find((item) => !item.prompt.trim());
 if (emptyPrompt) {
@@ -281,10 +309,48 @@ const summary = {
   generatedAt: new Date().toISOString(),
 };
 
-const moduleText = `/* eslint-disable */\n// Generated by scripts/build-catalog.mjs. Do not edit manually.\n\nexport type CatalogItem = {\n  id: string;\n  slug: string;\n  title: string;\n  category: string;\n  originalCategory: string;\n  pageType: string;\n  prompt: string;\n  folder: string;\n  mediaType: \"video\" | \"image\" | \"none\";\n  mediaUrl: string | null;\n  posterUrl: string | null;\n  animatedUrl: string | null;\n  sourceMode: \"original\" | \"reconstructed\";\n  access: \"free\";\n  sortOrder: number;\n  rowSpan: number;\n  createdAt: string | null;\n  tags: string[];\n};\n\nexport type CatalogSummary = {\n  total: number;\n  access: Record<string, number>;\n  sourceModes: Record<string, number>;\n  media: Record<string, number>;\n  categories: Record<string, number>;\n  generatedAt: string;\n};\n\nexport const catalogItems: CatalogItem[] = ${JSON.stringify(items, null, 2)};\n\nexport const catalogSummary: CatalogSummary = ${JSON.stringify(summary, null, 2)};\n`;
+const moduleText = `/* eslint-disable */
+// Generated by scripts/build-catalog.mjs. Do not edit manually.
+
+export type CatalogItem = {
+  id: string;
+  slug: string;
+  title: string;
+  category: string;
+  originalCategory: string;
+  pageType: string;
+  prompt: string;
+  folder: string;
+  mediaType: "video" | "image" | "none";
+  mediaUrl: string | null;
+  posterUrl: string | null;
+  animatedUrl: string | null;
+  sourceMode: "original" | "reconstructed";
+  access: "free";
+  sortOrder: number;
+  rowSpan: number;
+  createdAt: string | null;
+  tags: string[];
+};
+
+export type CatalogSummary = {
+  total: number;
+  access: Record<string, number>;
+  sourceModes: Record<string, number>;
+  media: Record<string, number>;
+  categories: Record<string, number>;
+  generatedAt: string;
+};
+
+export const catalogItems: CatalogItem[] = ${JSON.stringify(items, null, 2)};
+
+export const catalogSummary: CatalogSummary = ${JSON.stringify(summary, null, 2)};
+`;
 
 fs.mkdirSync(path.dirname(outFile), { recursive: true });
 fs.writeFileSync(outFile, moduleText);
 fs.writeFileSync(summaryFile, `${JSON.stringify(summary, null, 2)}\n`);
 
 console.log(`Generated ${items.length} free catalog items -> ${path.relative(root, outFile)}`);
+console.log(`Media breakdown:`, summary.media);
+console.log(`Category breakdown:`, summary.categories);

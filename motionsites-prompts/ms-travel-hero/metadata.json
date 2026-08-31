@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "travel-hero",
+    "title": "Scenic Travel",
+    "category": "Landing Page",
+    "page_type": "hero",
+    "sort_order": 885,
+    "image_preview_url": "/assets/previews/travel-hero.webp",
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

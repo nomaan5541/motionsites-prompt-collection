@@ -10,8 +10,8 @@ A full-bleed looping background video with the event title centered.
 - Video covers the entire frame, with a dark overlay on top (`rgba(0,0,0,.12)`), a bottom gradient fade (transparent to near-black over the bottom 34%), and a top gradient fade (semi-black fading to transparent over the top 16%)
 - **Top bar:** "MEWS" in all caps (Michroma font, 16px, bold, letter-spacing .22em, white) on the left. On the right, a 46px circular button with purple-tinted border (`#78739f`) and two horizontal lines inside (hamburger menu)
 - **Center content:**
-  - Title "Unfold" in a large elegant serif/sans (General Sans semibold, 88px, white, slight negative letter-spacing)
-  - Below by 48px: a metadata row centered with "Volume 05", a white pill shape (46x15px rounded), "Amsterdam", a small white dot (7px circle), "29.05.2024" -- all in Axiforma/Poppins medium 14px
+- Title "Unfold" in a large elegant serif/sans (General Sans semibold, 88px, white, slight negative letter-spacing)
+- Below by 48px: a metadata row centered with "Volume 05", a white pill shape (46x15px rounded), "Amsterdam", a small white dot (7px circle), "29.05.2024" -- all in Axiforma/Poppins medium 14px
 - **Bottom (44px from bottom):** A white rounded pill button "Get a ticket" with right arrow, Inter bold 18px, padding 19px 34px, border-radius 40px, subtle box shadow. Include a one-time sheen/gloss animation sweeping across the button after the entrance animation
 
 ---
@@ -26,8 +26,8 @@ Dark screen (`#08080a`) with subtle border (`rgba(148,145,182,.28)`).
 - **Divider:** thin horizontal line (`rgba(255,255,255,.14)`)
 - **Filter chips row** (flex wrap): "All" (active, filled purple `#9393f3` with dark text), "Keynote", "Hotelier", "Technology", "Consultant" (outlined, white at 55% opacity, rounded pill shape, 13.5px)
 - **Speaker cards** (2-column grid, gap 14px):
-  - Card 1: Image of Dimitris Manikis (URL: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_082140_91d42552-7cae-4b03-9a4d-f36a29ae93dc.png&w=1280&q=85`), aspect ratio ~150:172, border-radius 20px. Name: "Dimitris Manikis" (Inter 15px, white). Role: "President and MD for..." (Inter 12px, white 50%, ellipsis truncated)
-  - Card 2: Image of Fiona McDonnell (URL: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_082107_663b204f-717a-49cf-9e97-7632b85a1cfd.png&w=1280&q=85`). Name: "Fiona McDonnell". Role: "VP Global Partner..."
+- Card 1: Image of Dimitris Manikis (URL: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_082140_91d42552-7cae-4b03-9a4d-f36a29ae93dc.png&w=1280&q=85`), aspect ratio ~150:172, border-radius 20px. Name: "Dimitris Manikis" (Inter 15px, white). Role: "President and MD for..." (Inter 12px, white 50%, ellipsis truncated)
+- Card 2: Image of Fiona McDonnell (URL: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260704_082107_663b204f-717a-49cf-9e97-7632b85a1cfd.png&w=1280&q=85`). Name: "Fiona McDonnell". Role: "VP Global Partner..."
 
 ---
 
@@ -40,14 +40,14 @@ Dark screen (`#0c0e12`) with subtle border.
 - **Title:** "FAQs" (Axiforma regular, 52px, white, margin-top 74px)
 - **Divider:** same style, wider vertical margins (72px top, 40px bottom)
 - **Filter chips** (flex wrap with line breaks):
-  - Row 1: "All" (active), "Where can I stay?", "In-person experience"
-  - Row 2: "Tickets", "Venue", "Workshop sessions"
-  - Row 3: "Networking & afterparty", "Other"
+- Row 1: "All" (active), "Where can I stay?", "In-person experience"
+- Row 2: "Tickets", "Venue", "Workshop sessions"
+- Row 3: "Networking & afterparty", "Other"
 - **FAQ accordion items** (no expand behavior needed, just visual):
-  - Each group has a small label tab above the first item (10px text on dark background `#1a1c22`, rounded top corners, text color `rgba(214,211,242,.9)`)
-  - Each item: dark card (`#131519`), border `1.5px solid rgba(255,255,255,.14)`, border-radius 22px, padding ~22px. Question text on the left (Inter 17px, white), "+" toggle button on the right (36px circle with thin white border, white plus SVG icon)
-  - Group 1 -- label "Where can I stay?": one question "Where can I stay?"
-  - Group 2 -- label "In-person experience": two questions "What time does the event start?" and "What's included in my ticket?"
+- Each group has a small label tab above the first item (10px text on dark background `#1a1c22`, rounded top corners, text color `rgba(214,211,242,.9)`)
+- Each item: dark card (`#131519`), border `1.5px solid rgba(255,255,255,.14)`, border-radius 22px, padding ~22px. Question text on the left (Inter 17px, white), "+" toggle button on the right (36px circle with thin white border, white plus SVG icon)
+- Group 1 -- label "Where can I stay?": one question "Where can I stay?"
+- Group 2 -- label "In-person experience": two questions "What time does the event start?" and "What's included in my ticket?"
 
 ---
 

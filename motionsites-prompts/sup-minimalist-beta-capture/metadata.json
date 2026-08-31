@@ -1,0 +1,26 @@
+{
+  "record": {
+    "id": "sup-minimalist-beta-capture",
+    "title": "[Superdesign] Minimalist Beta Capture",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Waitlist & Coming Soon",
+    "page_type": "superdesign",
+    "sort_order": 3026,
+    "image_preview_url": "/assets/superdesign/minimalist-beta-capture.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "high conversion page",
+      "landing page",
+      "product launch",
+      "waitlist",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "club-x-investors",
+    "title": "ClubX Investors",
+    "category": "Landing Page",
+    "page_type": "landing-page",
+    "sort_order": 821,
+    "image_preview_url": "/assets/previews/club-x-investors.webp",
+    "video_preview_url": "/assets/previews/club-x-investors.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

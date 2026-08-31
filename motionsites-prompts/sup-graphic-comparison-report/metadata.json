@@ -1,0 +1,30 @@
+{
+  "record": {
+    "id": "sup-graphic-comparison-report",
+    "title": "[Superdesign] Graphic Comparison Report",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3057,
+    "image_preview_url": "/assets/superdesign/graphic-comparison-report.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "comparison page",
+      "high contrast",
+      "offwhite",
+      "vibrant cobalt",
+      "technical analysis",
+      "b2b",
+      "product evaluation",
+      "graphic poster",
+      "editorial"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -8,9 +8,9 @@ SECTION CONTAINER (`.stats`)
 - Padding: `clamp(44px, 5vw, 86px) clamp(16px, 3.8vw, 72px) clamp(54px, 5vw, 90px)`.
 - Color: `#f7f8f8`.
 - Background (layered):
-  - `radial-gradient(circle at 78% 18%, rgb(113 145 208 / 0.18), transparent 34%)`
-  - `radial-gradient(circle at 18% 88%, rgb(170 184 213 / 0.11), transparent 28%)`
-  - `linear-gradient(180deg, #111414 0%, #171a1a 100%)`
+- `radial-gradient(circle at 78% 18%, rgb(113 145 208 / 0.18), transparent 34%)`
+- `radial-gradient(circle at 18% 88%, rgb(170 184 213 / 0.11), transparent 28%)`
+- `linear-gradient(180deg, #111414 0%, #171a1a 100%)`
 
 ---
 
@@ -22,7 +22,7 @@ HEADER (`.stats__header`)
 Left column (`.stats__title-wrap`):
 
 - H2: "Unmatched propulsion data across every flight-critical layer."
-  - Max-width 920px, margin 0, color `#f7f8f8`, `font-size: clamp(29px, 3.2vw, 54px)`, weight 300, letter-spacing 0, line-height 1.08.
+- Max-width 920px, margin 0, color `#f7f8f8`, `font-size: clamp(29px, 3.2vw, 54px)`, weight 300, letter-spacing 0, line-height 1.08.
 
 Right column (`.stats__summary`):
 
@@ -115,13 +115,13 @@ Each bar row (`.stats__bar-row`) is an `
 3. **Value label (`.statsvalue`):** Absolute, z-index 3, `top: 50%; right: 18px; transform: translateY(-50%)`. Color `#ffffff`, `font-size: clamp(14px, 1vw, 18px)`, weight 740. Displays value + unit (e.g., "82%").
 
 4. **Spark trace (`.statstrace`):** Absolute inset 0, z-index 2, pointer-events none. Contains 6 `` elements per row, each positioned at `--point-x` (percentage along the bar) and `--point-y` (alternating 34% and 62% vertically). Each spark:
-   - 18px square (variants: 14px for `--1`, 11px for `--2`), border-radius 50%.
-   - Background: `radial-gradient(circle, rgb(255 255 255 / 0.95) 0 8%, rgb(214 227 255 / 0.42) 9% 22%, transparent 58%)`.
-   - `filter: blur(0.1px)`. Starts `opacity: 0; transform: translate(-50%, -50%) scale(0.2)`.
-   - `::before`: Horizontal cross-hair line -- 24px x 1px, centered, `background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.72), transparent)`. Rotated by `var(--spark-rotate)`.
-   - `::after`: Vertical cross-hair -- 1px x 18px, centered, `background: linear-gradient(180deg, transparent, rgb(170 184 213 / 0.62), transparent)`. Same rotation.
-   - Spark variant rotations: `--1` = 22deg, `--2` = -18deg, default = 0deg.
-   - Animates with `stats-point-in`: `420ms cubic-bezier(0.22, 1, 0.36, 1) forwards` to `opacity: 0.86; transform: translate(-50%, -50%) scale(1)`. Delay: `var(--bar-delay) + 260ms + var(--point-delay)` (point-delay increments 70ms per point).
+- 18px square (variants: 14px for `--1`, 11px for `--2`), border-radius 50%.
+- Background: `radial-gradient(circle, rgb(255 255 255 / 0.95) 0 8%, rgb(214 227 255 / 0.42) 9% 22%, transparent 58%)`.
+- `filter: blur(0.1px)`. Starts `opacity: 0; transform: translate(-50%, -50%) scale(0.2)`.
+- `::before`: Horizontal cross-hair line -- 24px x 1px, centered, `background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.72), transparent)`. Rotated by `var(--spark-rotate)`.
+- `::after`: Vertical cross-hair -- 1px x 18px, centered, `background: linear-gradient(180deg, transparent, rgb(170 184 213 / 0.62), transparent)`. Same rotation.
+- Spark variant rotations: `--1` = 22deg, `--2` = -18deg, default = 0deg.
+- Animates with `stats-point-in`: `420ms cubic-bezier(0.22, 1, 0.36, 1) forwards` to `opacity: 0.86; transform: translate(-50%, -50%) scale(1)`. Delay: `var(--bar-delay) + 260ms + var(--point-delay)` (point-delay increments 70ms per point).
 
 ### Axis (`.statsaxis`)
 
@@ -135,19 +135,19 @@ Each bar row (`.stats__bar-row`) is an `
 
 ```
 @keyframes stats-row-in {
-  to { opacity: 1; transform: none; }
+to { opacity: 1; transform: none; }
 }
 
 @keyframes stats-fill {
-  to { transform: scaleX(1); }
+to { transform: scaleX(1); }
 }
 
 @keyframes stats-range-in {
-  to { opacity: 1; transform: scaleX(1); }
+to { opacity: 1; transform: scaleX(1); }
 }
 
 @keyframes stats-point-in {
-  to { opacity: 0.86; transform: translate(-50%, -50%) scale(1); }
+to { opacity: 0.86; transform: translate(-50%, -50%) scale(1); }
 }
 ```
 
@@ -161,47 +161,47 @@ Each bar row (`.stats__bar-row`) is an `
 
 ```
 cities: {
-  title: "Cities & Infrastructure",
-  summary: "Distributed aerospace infrastructure needs engines that can test, relight, and recover across dense launch corridors and remote operating bases.",
-  bars: [
-    { label: "Mobile integration bays", value: 82, target: 88, rangeStart: 58, rangeEnd: 91, unit: "%", note: "deployment coverage", trace: [28, 42, 57, 63, 74, 82] },
-    { label: "Airport-adjacent service cells", value: 68, target: 74, rangeStart: 44, rangeEnd: 79, unit: "%", note: "qualified workflows", trace: [18, 36, 41, 55, 61, 68] },
-    { label: "Remote launch support", value: 54, target: 63, rangeStart: 30, rangeEnd: 70, unit: "%", note: "field readiness", trace: [14, 24, 39, 43, 48, 54] },
-    { label: "Thermal recovery loops", value: 76, target: 81, rangeStart: 50, rangeEnd: 84, unit: "%", note: "heat reuse potential", trace: [26, 38, 49, 66, 72, 76] },
-  ],
+title: "Cities & Infrastructure",
+summary: "Distributed aerospace infrastructure needs engines that can test, relight, and recover across dense launch corridors and remote operating bases.",
+bars: [
+{ label: "Mobile integration bays", value: 82, target: 88, rangeStart: 58, rangeEnd: 91, unit: "%", note: "deployment coverage", trace: [28, 42, 57, 63, 74, 82] },
+{ label: "Airport-adjacent service cells", value: 68, target: 74, rangeStart: 44, rangeEnd: 79, unit: "%", note: "qualified workflows", trace: [18, 36, 41, 55, 61, 68] },
+{ label: "Remote launch support", value: 54, target: 63, rangeStart: 30, rangeEnd: 70, unit: "%", note: "field readiness", trace: [14, 24, 39, 43, 48, 54] },
+{ label: "Thermal recovery loops", value: 76, target: 81, rangeStart: 50, rangeEnd: 84, unit: "%", note: "heat reuse potential", trace: [26, 38, 49, 66, 72, 76] },
+],
 }
 
 materials: {
-  title: "Materials & Manufacturing",
-  summary: "EngineTech combines high-temperature alloys, additive tooling, and inspection data to compress the path from design lock to certified hardware.",
-  bars: [
-    { label: "Nickel superalloy margin", value: 91, target: 94, rangeStart: 68, rangeEnd: 96, unit: "%", note: "thermal headroom", trace: [44, 61, 70, 79, 86, 91] },
-    { label: "Additive chamber tooling", value: 72, target: 80, rangeStart: 48, rangeEnd: 86, unit: "%", note: "lead-time reduction", trace: [19, 34, 48, 53, 67, 72] },
-    { label: "Sub-micron inspection yield", value: 96, target: 97, rangeStart: 82, rangeEnd: 99, unit: "%", note: "accepted components", trace: [71, 77, 84, 89, 94, 96] },
-    { label: "Reusable test article cycles", value: 84, target: 88, rangeStart: 62, rangeEnd: 91, unit: "%", note: "qualification depth", trace: [36, 52, 64, 71, 79, 84] },
-  ],
+title: "Materials & Manufacturing",
+summary: "EngineTech combines high-temperature alloys, additive tooling, and inspection data to compress the path from design lock to certified hardware.",
+bars: [
+{ label: "Nickel superalloy margin", value: 91, target: 94, rangeStart: 68, rangeEnd: 96, unit: "%", note: "thermal headroom", trace: [44, 61, 70, 79, 86, 91] },
+{ label: "Additive chamber tooling", value: 72, target: 80, rangeStart: 48, rangeEnd: 86, unit: "%", note: "lead-time reduction", trace: [19, 34, 48, 53, 67, 72] },
+{ label: "Sub-micron inspection yield", value: 96, target: 97, rangeStart: 82, rangeEnd: 99, unit: "%", note: "accepted components", trace: [71, 77, 84, 89, 94, 96] },
+{ label: "Reusable test article cycles", value: 84, target: 88, rangeStart: 62, rangeEnd: 91, unit: "%", note: "qualification depth", trace: [36, 52, 64, 71, 79, 84] },
+],
 }
 
 fuels: {
-  title: "Fuels & Upstream",
-  summary: "Fuel-path analysis links propellant availability, storage constraints, and injector behavior before a program commits to flight architecture.",
-  bars: [
-    { label: "Methane supply compatibility", value: 78, target: 83, rangeStart: 52, rangeEnd: 88, unit: "%", note: "regional availability", trace: [22, 31, 46, 58, 69, 78] },
-    { label: "Kerosene retrofit readiness", value: 64, target: 70, rangeStart: 40, rangeEnd: 74, unit: "%", note: "legacy platforms", trace: [28, 35, 39, 52, 57, 64] },
-    { label: "Cryogenic storage stability", value: 88, target: 92, rangeStart: 66, rangeEnd: 95, unit: "%", note: "validated envelopes", trace: [45, 56, 68, 74, 83, 88] },
-    { label: "Injector response confidence", value: 92, target: 94, rangeStart: 70, rangeEnd: 97, unit: "%", note: "hot-fire data", trace: [48, 62, 73, 85, 89, 92] },
-  ],
+title: "Fuels & Upstream",
+summary: "Fuel-path analysis links propellant availability, storage constraints, and injector behavior before a program commits to flight architecture.",
+bars: [
+{ label: "Methane supply compatibility", value: 78, target: 83, rangeStart: 52, rangeEnd: 88, unit: "%", note: "regional availability", trace: [22, 31, 46, 58, 69, 78] },
+{ label: "Kerosene retrofit readiness", value: 64, target: 70, rangeStart: 40, rangeEnd: 74, unit: "%", note: "legacy platforms", trace: [28, 35, 39, 52, 57, 64] },
+{ label: "Cryogenic storage stability", value: 88, target: 92, rangeStart: 66, rangeEnd: 95, unit: "%", note: "validated envelopes", trace: [45, 56, 68, 74, 83, 88] },
+{ label: "Injector response confidence", value: 92, target: 94, rangeStart: 70, rangeEnd: 97, unit: "%", note: "hot-fire data", trace: [48, 62, 73, 85, 89, 92] },
+],
 }
 
 hydrogen: {
-  title: "H2 Hydrogen",
-  summary: "Hydrogen programs require tight coordination between tankage, feed systems, ignition stability, and ultra-low-temperature operations.",
-  bars: [
-    { label: "Hydrogen-ready turbopumps", value: 86, target: 90, rangeStart: 62, rangeEnd: 93, unit: "%", note: "design maturity", trace: [30, 46, 60, 71, 79, 86] },
-    { label: "LH2 feedline conditioning", value: 74, target: 82, rangeStart: 47, rangeEnd: 86, unit: "%", note: "ground systems", trace: [18, 29, 44, 58, 66, 74] },
-    { label: "Ignition stability range", value: 93, target: 95, rangeStart: 72, rangeEnd: 98, unit: "%", note: "transient control", trace: [54, 68, 75, 84, 90, 93] },
-    { label: "Zero-carbon flight pathway", value: 81, target: 87, rangeStart: 56, rangeEnd: 90, unit: "%", note: "program fit", trace: [24, 39, 55, 68, 76, 81] },
-  ],
+title: "H2 Hydrogen",
+summary: "Hydrogen programs require tight coordination between tankage, feed systems, ignition stability, and ultra-low-temperature operations.",
+bars: [
+{ label: "Hydrogen-ready turbopumps", value: 86, target: 90, rangeStart: 62, rangeEnd: 93, unit: "%", note: "design maturity", trace: [30, 46, 60, 71, 79, 86] },
+{ label: "LH2 feedline conditioning", value: 74, target: 82, rangeStart: 47, rangeEnd: 86, unit: "%", note: "ground systems", trace: [18, 29, 44, 58, 66, 74] },
+{ label: "Ignition stability range", value: 93, target: 95, rangeStart: 72, rangeEnd: 98, unit: "%", note: "transient control", trace: [54, 68, 75, 84, 90, 93] },
+{ label: "Zero-carbon flight pathway", value: 81, target: 87, rangeStart: 56, rangeEnd: 90, unit: "%", note: "program fit", trace: [24, 39, 55, 68, 76, 81] },
+],
 }
 ```
 
@@ -210,9 +210,9 @@ hydrogen: {
 1. On click, update `.is-active` class and `aria-selected` on all tab buttons.
 2. Remove `.is-visible` from summary and `.is-ready` from chart.
 3. After a 140ms delay:
-   - Update summary text content.
-   - Replace chart innerHTML with new chart-head, bars, and axis markup (using the dataset for the active tab).
-   - On the next `requestAnimationFrame`, add `.is-visible` to summary and `.is-ready` to chart, triggering all staggered CSS animations.
+- Update summary text content.
+- Replace chart innerHTML with new chart-head, bars, and axis markup (using the dataset for the active tab).
+- On the next `requestAnimationFrame`, add `.is-visible` to summary and `.is-ready` to chart, triggering all staggered CSS animations.
 
 ---
 

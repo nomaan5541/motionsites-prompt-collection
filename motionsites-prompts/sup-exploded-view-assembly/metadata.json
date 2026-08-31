@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-exploded-view-assembly",
+    "title": "[Superdesign] \"Exploded View\" Assembly",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Animations & Backgrounds",
+    "page_type": "superdesign",
+    "sort_order": 3047,
+    "image_preview_url": "/assets/superdesign/exploded-view-assembly.png",
+    "video_preview_url": "/assets/superdesign/exploded-view-assembly.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "scroll animation",
+      "landing page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

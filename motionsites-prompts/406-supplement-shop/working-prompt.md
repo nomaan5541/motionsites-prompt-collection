@@ -41,9 +41,9 @@ Create a mobile supplement e-commerce product screen displayed inside a realisti
 ### Products data:
 ```
 [
-  { id: 1, name: 'Herbix 60', subtitle: 'Vitamin Complex', dosage: '250 mg', price: 30.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_182445_93ebd4ab-c1d7-447d-a033-c817f33efcd0.png&w=1280&q=85' },
-  { id: 2, name: 'Herbix 30', subtitle: 'Immunity Boost', dosage: '500 mg', price: 25.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184200_daae953b-540b-48d5-8a1f-70323e53af56.png&w=1280&q=85' },
-  { id: 3, name: 'Herbix 90', subtitle: 'Joint Support', dosage: '300 mg', price: 35.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184122_8a7d693e-37da-417d-804a-807ea67916af.png&w=1280&q=85' },
+{ id: 1, name: 'Herbix 60', subtitle: 'Vitamin Complex', dosage: '250 mg', price: 30.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_182445_93ebd4ab-c1d7-447d-a033-c817f33efcd0.png&w=1280&q=85' },
+{ id: 2, name: 'Herbix 30', subtitle: 'Immunity Boost', dosage: '500 mg', price: 25.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184200_daae953b-540b-48d5-8a1f-70323e53af56.png&w=1280&q=85' },
+{ id: 3, name: 'Herbix 90', subtitle: 'Joint Support', dosage: '300 mg', price: 35.0, image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260706_184122_8a7d693e-37da-417d-804a-807ea67916af.png&w=1280&q=85' },
 ]
 ```
 

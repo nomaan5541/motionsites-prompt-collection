@@ -21,11 +21,11 @@ Build a React + Vite + TypeScript + Tailwind CSS mobile app mockup called "Roam 
 - Frame shadow (class `phone-frame`):
 ```css
 box-shadow:
-  inset 0 0 0 2px rgba(255, 255, 255, 0.08),
-  0 0 0 1px rgba(0, 0, 0, 0.6),
-  0 0 0 10px #1a1a1e,
-  0 0 0 11px rgba(255, 255, 255, 0.06),
-  0 0 60px rgba(0, 0, 0, 0.3);
+inset 0 0 0 2px rgba(255, 255, 255, 0.08),
+0 0 0 1px rgba(0, 0, 0, 0.6),
+0 0 0 10px #1a1a1e,
+0 0 0 11px rgba(255, 255, 255, 0.06),
+0 0 60px rgba(0, 0, 0, 0.3);
 ```
 - **Dynamic Island:** Absolute positioned, `top-[12px]`, centered horizontally, `w-[126px] h-[37px] bg-black rounded-full z-50`
 
@@ -35,8 +35,8 @@ box-shadow:
 
 ```css
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(18px); }
+to { opacity: 1; transform: translateY(0); }
 }
 .animate-stagger { opacity: 0; animation: fadeSlideUp 0.6s ease-out forwards; }
 .stagger-1 { animation-delay: 0.1s; }
@@ -72,12 +72,12 @@ autoPlay muted loop playsInline
 **Content overlay** (`relative flex-1 flex flex-col px-7 pt-20 pb-8 z-10`):
 
 - **Heading** (stagger-1): Font: Nomada Didone, color `#01080A`, size `52px`, line-height `1.05`, tracking-tight, mb-5. Text:
-  ```
-  Roam
-  Beyond
-  Borders
-  ```
-  (Each word on its own line via `<br />`)
+```
+Roam
+Beyond
+Borders
+```
+(Each word on its own line via `<br />`)
 
 - **Subtext** (stagger-2): Color `#01080A/70`, size `15px`, leading-relaxed, max-w-[240px], font-inter. Text: "Uncover hidden gems and craft memories that last forever"
 
@@ -93,9 +93,9 @@ Dark background (`bg-[#1C1C1C]`), scrollable content.
 
 ### Header (stagger-1, `px-6 pt-16 pb-8`)
 - Left: Avatar (40x40 rounded-full) + text column
-  - Avatar image: `https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100`
-  - Small text: "Welcome back," (`text-white/60 text-xs font-inter`)
-  - Name: "Elena Castillo" (`text-white text-[22px] font-heading`)
+- Avatar image: `https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100`
+- Small text: "Welcome back," (`text-white/60 text-xs font-inter`)
+- Name: "Elena Castillo" (`text-white text-[22px] font-heading`)
 - Right: Bell icon (lucide-react, size 20, white)
 
 ### Search Bar (stagger-2, `px-6 mb-3`)
@@ -144,9 +144,9 @@ Dark background (`bg-[#1C1C1C]`), scrollable content.
 - Bottom gradient: `absolute bottom-0 left-0 right-0 h-[50%] rounded-b-3xl backdrop-blur-sm bg-gradient-to-t from-black/40 via-black/20 to-transparent` with mask: `linear-gradient(to top, black 60%, transparent 100%)`
 - "Curated" badge (top-right): `bg-white/90 backdrop-blur-md rounded-lg px-2 py-1.5` with BadgeCheck icon (size 12) + text `text-gray-800 text-[10px] font-inter font-semibold`
 - Bottom info (`absolute bottom-0 p-5`):
-  - Country name: `text-white font-heading text-xl`
-  - Price: `text-white text-[11px] font-inter font-medium`
-  - Description: `text-white/70 text-[11px] leading-snug font-inter`
+- Country name: `text-white font-heading text-xl`
+- Price: `text-white text-[11px] font-inter font-medium`
+- Description: `text-white/70 text-[11px] leading-snug font-inter`
 
 ### Bottom Navigation (stagger-6, `flex justify-center pb-8 pt-3`)
 - Pill container: `bg-[#333333] rounded-full p-2 flex items-center gap-6`

@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-palette-social-first-friendly-sign-up",
+    "title": "[Superdesign] Palette — Social-first friendly sign-up",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3060,
+    "image_preview_url": "/assets/superdesign/palette-social-first-friendly-sign-up.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "signup",
+      "auth",
+      "login",
+      "sso",
+      "social-login",
+      "social-first",
+      "saas",
+      "form",
+      "onboarding",
+      "cream",
+      "coral",
+      "teal",
+      "poppins",
+      "landing-page",
+      "sticky-nav",
+      "warm",
+      "friendly",
+      "indie-maker"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,11 +1,3 @@
-# Investor Deck
-
-**ID:** deck-investor  
-**Category:** Investor Presentations  
-**Type:** landing-page  
-
----
-
 Build a presentation-style slide deck web app with 5 slides using React, Tailwind CSS, hls.js for Mux HLS video playback, and motion (from motion/react) for animations. The font is Aeonik, sans-serif. The entire deck has a black background (bg-black) so transitions fade through black, never white.
 
 Global Architecture

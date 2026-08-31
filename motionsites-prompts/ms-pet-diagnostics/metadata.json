@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "pet-diagnostics",
+    "title": "Pet Diagnostics",
+    "category": "Healthcare",
+    "page_type": "features",
+    "sort_order": 860,
+    "image_preview_url": "/assets/previews/pet-diagnostics.webp",
+    "video_preview_url": "/assets/previews/pet-diagnostics.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

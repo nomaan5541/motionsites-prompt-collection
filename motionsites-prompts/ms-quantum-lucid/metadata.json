@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "quantum-lucid",
+    "title": "Quantum Lucid",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 866,
+    "image_preview_url": "/assets/previews/quantum-lucid.webp",
+    "video_preview_url": "/assets/previews/quantum-lucid.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

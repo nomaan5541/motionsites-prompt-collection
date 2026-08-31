@@ -1,11 +1,3 @@
-# EcoVolta V2
-
-**ID:** ecovolta-v2-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 Create a full-screen landing page hero section with the following exact specifications:
 
 Video Background

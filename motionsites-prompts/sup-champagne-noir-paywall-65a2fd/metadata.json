@@ -1,0 +1,27 @@
+{
+  "record": {
+    "id": "sup-champagne-noir-paywall-65a2fd",
+    "title": "[Superdesign] Champagne Noir Paywall",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3082,
+    "image_preview_url": "/assets/superdesign/champagne-noir-paywall-65a2fd.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "paywall",
+      "subscription",
+      "pricing",
+      "premium",
+      "dark mode"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

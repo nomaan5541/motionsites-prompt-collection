@@ -38,24 +38,24 @@ A static array of 3 feedback objects, each with `quote`, `author`, `title`, `ava
 
 ```js
 const feedbacks = [
-  {
-    quote: "\u00abWorking with the Acreage Ag team gave us a competitive edge in bringing our crops to market. Their technical expertise, machinery, and customer service are outstanding. We consider them a key partner for all our harvesting needs\u00bb",
-    author: "Maranda Walsh",
-    title: "Operations Manager, GreenAcres Farms",
-    avatar: "https://picsum.photos/seed/maranda/100/100"
-  },
-  {
-    quote: "\u00abThe team's dedication and innovative approach transformed our farm operations. They delivered a high-quality harvest on time and within budget. We highly recommend their services.\u00bb",
-    author: "John Doe",
-    title: "Owner, Valley Wheat Producers",
-    avatar: "https://picsum.photos/seed/john/100/100"
-  },
-  {
-    quote: "\u00abExceptional service and outstanding yields. The operators were highly skilled and integrated seamlessly with our in-house farm hands. A truly remarkable partnership.\u00bb",
-    author: "Sarah Smith",
-    title: "Chief Agronomist, HarvestYield Co.",
-    avatar: "https://picsum.photos/seed/sarah/100/100"
-  }
+{
+quote: "\u00abWorking with the Acreage Ag team gave us a competitive edge in bringing our crops to market. Their technical expertise, machinery, and customer service are outstanding. We consider them a key partner for all our harvesting needs\u00bb",
+author: "Maranda Walsh",
+title: "Operations Manager, GreenAcres Farms",
+avatar: "https://picsum.photos/seed/maranda/100/100"
+},
+{
+quote: "\u00abThe team's dedication and innovative approach transformed our farm operations. They delivered a high-quality harvest on time and within budget. We highly recommend their services.\u00bb",
+author: "John Doe",
+title: "Owner, Valley Wheat Producers",
+avatar: "https://picsum.photos/seed/john/100/100"
+},
+{
+quote: "\u00abExceptional service and outstanding yields. The operators were highly skilled and integrated seamlessly with our in-house farm hands. A truly remarkable partnership.\u00bb",
+author: "Sarah Smith",
+title: "Chief Agronomist, HarvestYield Co.",
+avatar: "https://picsum.photos/seed/sarah/100/100"
+}
 ];
 ```
 
@@ -81,20 +81,20 @@ Custom directional variants for the `AnimatePresence` carousel:
 
 ```js
 const variants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 100 : -100,
-    opacity: 0
-  }),
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1
-  },
-  exit: (direction) => ({
-    zIndex: 0,
-    x: direction < 0 ? 100 : -100,
-    opacity: 0
-  })
+enter: (direction) => ({
+x: direction > 0 ? 100 : -100,
+opacity: 0
+}),
+center: {
+zIndex: 1,
+x: 0,
+opacity: 1
+},
+exit: (direction) => ({
+zIndex: 0,
+x: direction < 0 ? 100 : -100,
+opacity: 0
+})
 };
 ```
 
@@ -132,14 +132,14 @@ The entire section content is wrapped in a `motion.div`:
 ### Element 3: Quote Carousel Area
 
 - Wrapper `motion.div`:
-  - Variants: hidden = `{ opacity: 0, y: 20 }`, visible = `{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }`
-  - Classes: `relative overflow-hidden min-h-[300px] md:min-h-[250px] flex items-center`
+- Variants: hidden = `{ opacity: 0, y: 20 }`, visible = `{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }`
+- Classes: `relative overflow-hidden min-h-[300px] md:min-h-[250px] flex items-center`
 - Inside: `<AnimatePresence initial={false} custom={direction} mode="wait">`
-  - `motion.div` keyed by `currentIndex`, using the directional slide variants described above
-  - Classes: `w-full`
-  - Contains the quote `<p>`:
-    - Classes: `text-2xl md:text-4xl lg:text-[44px] font-light leading-snug md:leading-tight text-right tracking-tight`
-    - Content: `<Typewriter text={feedbacks[currentIndex].quote} delay={0.2} speed={0.012} />`
+- `motion.div` keyed by `currentIndex`, using the directional slide variants described above
+- Classes: `w-full`
+- Contains the quote `<p>`:
+- Classes: `text-2xl md:text-4xl lg:text-[44px] font-light leading-snug md:leading-tight text-right tracking-tight`
+- Content: `<Typewriter text={feedbacks[currentIndex].quote} delay={0.2} speed={0.012} />`
 
 ### Element 4: Bottom Divider Line
 
@@ -149,27 +149,27 @@ The entire section content is wrapped in a `motion.div`:
 ### Element 5: Author Info + Navigation Arrows
 
 - Wrapper `motion.div`:
-  - Variants: hidden = `{ opacity: 0, y: 20 }`, visible = `{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }`
-  - Classes: `flex flex-col sm:flex-row justify-between items-center gap-6`
+- Variants: hidden = `{ opacity: 0, y: 20 }`, visible = `{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }`
+- Classes: `flex flex-col sm:flex-row justify-between items-center gap-6`
 
 **Left side: Author info (animated on slide change)**
 - `<AnimatePresence mode="wait">` wrapping a `motion.div` keyed by `currentIndex`:
-  - `initial={{ opacity: 0, y: 10 }}`, `animate={{ opacity: 1, y: 0 }}`, `exit={{ opacity: 0, y: -10 }}`
-  - `transition={{ duration: 0.2 }}`
-  - Classes: `flex items-center gap-4 w-full sm:w-auto`
+- `initial={{ opacity: 0, y: 10 }}`, `animate={{ opacity: 1, y: 0 }}`, `exit={{ opacity: 0, y: -10 }}`
+- `transition={{ duration: 0.2 }}`
+- Classes: `flex items-center gap-4 w-full sm:w-auto`
 - Avatar `<img>`:
-  - `src={feedbacks[currentIndex].avatar}`
-  - Classes: `w-14 h-14 rounded-full object-cover`
-  - `referrerPolicy="no-referrer"`
+- `src={feedbacks[currentIndex].avatar}`
+- Classes: `w-14 h-14 rounded-full object-cover`
+- `referrerPolicy="no-referrer"`
 - Author name `<h3>`: classes `font-medium text-lg`, content `<Typewriter text={author} delay={0.4} speed={0.012} />`
 - Author title `<p>`: classes `text-gray-500 text-sm`, content `<Typewriter text={title} delay={0.5} speed={0.012} />`
 
 **Right side: Navigation arrows**
 - Wrapper: `flex gap-2 w-full sm:w-auto justify-end`
 - Two circular buttons, each:
-  - Classes: `w-14 h-14 bg-[#D9D9D9] hover:bg-[#c9c9c9] transition-colors flex items-center justify-center rounded-full`
-  - Left button: `onClick={prevSlide}`, contains `<ArrowLeft className="w-6 h-6 text-black" strokeWidth={1.5} />`, `aria-label="Previous feedback"`
-  - Right button: `onClick={nextSlide}`, contains `<ArrowRight className="w-6 h-6 text-black" strokeWidth={1.5} />`, `aria-label="Next feedback"`
+- Classes: `w-14 h-14 bg-[#D9D9D9] hover:bg-[#c9c9c9] transition-colors flex items-center justify-center rounded-full`
+- Left button: `onClick={prevSlide}`, contains `<ArrowLeft className="w-6 h-6 text-black" strokeWidth={1.5} />`, `aria-label="Previous feedback"`
+- Right button: `onClick={nextSlide}`, contains `<ArrowRight className="w-6 h-6 text-black" strokeWidth={1.5} />`, `aria-label="Next feedback"`
 
 ---
 

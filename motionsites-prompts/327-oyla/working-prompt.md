@@ -36,11 +36,11 @@ CSS font stacks:
 
 ```css
 :root {
-  --color-bg: #ffffff;
-  --color-primary-text: #000000;
-  --color-demoted-text: #000000;
-  --color-divider: #000000;
-  --font-stack: 'Inter Tight', 'Inter', Arial, sans-serif;
+--color-bg: #ffffff;
+--color-primary-text: #000000;
+--color-demoted-text: #000000;
+--color-divider: #000000;
+--font-stack: 'Inter Tight', 'Inter', Arial, sans-serif;
 }
 ```
 
@@ -56,10 +56,10 @@ CSS font stacks:
 - **Layout:** Flexbox row, space-between, center aligned
 - **Left:** OYLA logo as inline SVG (112x60px viewBox), all paths filled `#A3111E`. The logo contains the letters "OYLA" in a custom serif typeface with a distinctive "O" made of two concentric ellipses
 - **Right:** Navigation group containing:
-  - "ABOUT" link — `font-size: 15px`, `font-weight: 500`, uppercase, `color: #A3111E`, `gap: 194px` from the cart/menu group
-  - Cart/Menu group (`gap: 50px`):
-    - Hamburger button: 2 horizontal lines, each `30px` wide, `2.2px` height, `#A3111E`, `5px` gap between them
-    - "[ BAG ]" button text — same 15px/500 style as ABOUT, `color: #A3111E`
+- "ABOUT" link — `font-size: 15px`, `font-weight: 500`, uppercase, `color: #A3111E`, `gap: 194px` from the cart/menu group
+- Cart/Menu group (`gap: 50px`):
+- Hamburger button: 2 horizontal lines, each `30px` wide, `2.2px` height, `#A3111E`, `5px` gap between them
+- "[ BAG ]" button text — same 15px/500 style as ABOUT, `color: #A3111E`
 - **Hover states:** `opacity: 0.7` on all interactive header elements
 
 ---
@@ -69,17 +69,17 @@ CSS font stacks:
 - **Container:** `height: 500vh` (creates the scroll distance for video scrubbing), `background: #000000`, `z-index: 10`
 - **Sticky viewport:** `position: sticky; top: 0; height: 100vh`, black background, flex column, content pinned to bottom-left with `padding: 48px`
 - **Video element:** Absolutely positioned, full-cover (`object-fit: cover`), `z-index: 1`, playsinline, muted, preload="auto"
-  - **Primary video URL:** `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260627_212146_743b92b3-40a3-46cb-988d-7bf716564ec3.mp4`
+- **Primary video URL:** `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260627_212146_743b92b3-40a3-46cb-988d-7bf716564ec3.mp4`
 - **Hero content overlay** (`z-index: 3`, `max-width: 700px`, left-aligned):
-  - **Title:** "MEASURED" on line 1, "PURITY" on line 2
-    - Font: Instrument Serif, `clamp(36px, 6vw, 72px)`, weight 400, `line-height: 1.05`, `letter-spacing: -1px`, `color: #000000`
-    - Each line wrapped in `<span class="hero-title-line"><span class="hero-title-line-inner">...</span></span>`
-  - **DISCOVER button** (below title, `margin-top: 10px`):
-    - Capsule shape: white background, `border: 1px solid rgba(0,0,0,0.08)`, `border-radius: 100px`, `padding: 4px 4px 4px 18px`
-    - Text "DISCOVER" — 13px, weight 500, uppercase
-    - Circle icon: `28px` diameter, `#2e2e2e` background, white `+` cross made with `::before`/`::after` pseudo-elements (10px x 1.5px horizontal, 1.5px x 10px vertical)
-    - Hover: background flips to `#000000`, text becomes white, circle becomes white with black cross
-    - Click action: smooth scrolls to the footer
+- **Title:** "MEASURED" on line 1, "PURITY" on line 2
+- Font: Instrument Serif, `clamp(36px, 6vw, 72px)`, weight 400, `line-height: 1.05`, `letter-spacing: -1px`, `color: #000000`
+- Each line wrapped in `<span class="hero-title-line"><span class="hero-title-line-inner">...</span></span>`
+- **DISCOVER button** (below title, `margin-top: 10px`):
+- Capsule shape: white background, `border: 1px solid rgba(0,0,0,0.08)`, `border-radius: 100px`, `padding: 4px 4px 4px 18px`
+- Text "DISCOVER" — 13px, weight 500, uppercase
+- Circle icon: `28px` diameter, `#2e2e2e` background, white `+` cross made with `::before`/`::after` pseudo-elements (10px x 1.5px horizontal, 1.5px x 10px vertical)
+- Hover: background flips to `#000000`, text becomes white, circle becomes white with black cross
+- Click action: smooth scrolls to the footer
 
 ---
 
@@ -89,7 +89,7 @@ The video scrubbing uses a `requestAnimationFrame` loop with a **seeking guard**
 
 ```js
 if (!video.seeking && Math.abs(video.currentTime - currentTime) > 0.01) {
-  video.currentTime = currentTime;
+video.currentTime = currentTime;
 }
 ```
 
@@ -111,29 +111,29 @@ if (!video.seeking && Math.abs(video.currentTime - currentTime) > 0.01) {
 - **Section:** Full viewport height (`100vh`), `overflow: hidden`, `border-top` and `border-bottom: 1px solid #000`, `z-index: 10`
 - **Grid:** Flexbox row, `width: max-content`, containing 6 product cards
 - **Each card:** `width: 33.333vw`, `border-right: 1px solid #000`, white background, centered content with `padding: clamp(40px, 8vh, 80px) 48px`, `gap: clamp(24px, 4vh, 48px)`
-  - Image container: `height: 280px`, centered, `max-width: 85%`, `object-fit: contain`
-  - Product name: 18px, weight 400, `letter-spacing: -0.2px`
-  - Price: 16px, weight 500, `opacity: 0.6`
+- Image container: `height: 280px`, centered, `max-width: 85%`, `object-fit: contain`
+- Product name: 18px, weight 400, `letter-spacing: -0.2px`
+- Price: 16px, weight 500, `opacity: 0.6`
 
 **Products (with exact CloudFront image URLs):**
 
 1. **Obsidian Coil** — $480
-   - Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144408_92b74dc4-ca69-412a-acfd-304f9b29eb5e_min.webp`
+- Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144408_92b74dc4-ca69-412a-acfd-304f9b29eb5e_min.webp`
 
 2. **Void Arc** — $560
-   - Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_145142_ed02063b-d983-47d2-b60b-4b4a5a3448bd_min.webp`
+- Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_145142_ed02063b-d983-47d2-b60b-4b4a5a3448bd_min.webp`
 
 3. **Onyx Hex** — $620
-   - Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144747_f21bc119-e460-45be-a071-851291bd71c5_min.webp`
+- Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144747_f21bc119-e460-45be-a071-851291bd71c5_min.webp`
 
 4. **Shadow Sigil** — $740
-   - Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260627_215521_100b78bd-d24a-4225-b2e8-5bb30d44af73_min.webp`
+- Image: `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260627_215521_100b78bd-d24a-4225-b2e8-5bb30d44af73_min.webp`
 
 5. **Eclipse Band** — $820
-   - Image: (same as Obsidian Coil) `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144408_92b74dc4-ca69-412a-acfd-304f9b29eb5e_min.webp`
+- Image: (same as Obsidian Coil) `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_144408_92b74dc4-ca69-412a-acfd-304f9b29eb5e_min.webp`
 
 6. **Matte Skull** — $950
-   - Image: (same as Void Arc) `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_145142_ed02063b-d983-47d2-b60b-4b4a5a3448bd_min.webp`
+- Image: (same as Void Arc) `https://d8j0ntlcm91z4.cloudfront.net/user_39ca84eAE1ODL9hbR5VhoEj8tBf/hf_20260628_145142_ed02063b-d983-47d2-b60b-4b4a5a3448bd_min.webp`
 
 **GSAP ScrollTrigger animation:**
 - Section is pinned (`pin: true`, `start: "top top"`)
@@ -152,19 +152,19 @@ if (!video.seeking && Math.abs(video.currentTime - currentTime) > 0.01) {
 
 - **Layout:** CSS Grid `50% 50%`, `border-bottom: 1px solid #000`
 - **Left column:** `position: sticky; top: 0; height: 100vh`, flex column, `justify-content: space-between`, `padding: 48px 96px 48px 48px`
-  - **Heading:** "Made Without Compromise" — Instrument Serif, `clamp(32px, 4vw, 42px)`, weight 400, `line-height: 1.15`
-  - **3 paragraphs** (Inter Tight, 24px, weight 400, `line-height: 1.1`, `letter-spacing: -0.2px`, `gap: 32px`):
-    1. "Each ring is forged by a single pair of hands — no factory floor, no assembly line. The material is chosen first; the form follows its nature."
-    2. "We work in oxidized silver, blackened bronze, and raw brass. Weights are deliberate. Edges are left where they fall. Nothing is smoothed for comfort."
-    3. "OYLA exists for those who wear jewelry that means something. Not decoration — declaration. One piece at a time, made to last a lifetime."
-  - **VIEW COLLECTION button** (same capsule style as DISCOVER button)
-  - All left-column elements have `data-fade-slide-in` attribute for scroll-triggered fade+slide animation (autoAlpha 0->1, y 20->0, stagger 0.15, duration 0.8, power2.out)
+- **Heading:** "Made Without Compromise" — Instrument Serif, `clamp(32px, 4vw, 42px)`, weight 400, `line-height: 1.15`
+- **3 paragraphs** (Inter Tight, 24px, weight 400, `line-height: 1.1`, `letter-spacing: -0.2px`, `gap: 32px`):
+1. "Each ring is forged by a single pair of hands — no factory floor, no assembly line. The material is chosen first; the form follows its nature."
+2. "We work in oxidized silver, blackened bronze, and raw brass. Weights are deliberate. Edges are left where they fall. Nothing is smoothed for comfort."
+3. "OYLA exists for those who wear jewelry that means something. Not decoration — declaration. One piece at a time, made to last a lifetime."
+- **VIEW COLLECTION button** (same capsule style as DISCOVER button)
+- All left-column elements have `data-fade-slide-in` attribute for scroll-triggered fade+slide animation (autoAlpha 0->1, y 20->0, stagger 0.15, duration 0.8, power2.out)
 
 - **Right column:** `border-left: 1px solid #000`, scrollable, contains 4 stat cards:
-  - Each card: `padding: 48px`, `min-height: 45vh`, `border-bottom: 1px solid #000` (except last)
-  - Each card has a "stomp-wrapper" with two "stomp-stack" divs (stack-a and stack-b), each containing duplicate h1 headings (first is hidden via CSS `:first-child { display: none }`)
-  - Heading font: Instrument Serif, `clamp(46px, 5.5vw, 70px)`, `letter-spacing: -1.5px`, `line-height: 0.95`
-  - Detail paragraph below: 24px, `padding-top: 42px`, `line-height: 1.2`
+- Each card: `padding: 48px`, `min-height: 45vh`, `border-bottom: 1px solid #000` (except last)
+- Each card has a "stomp-wrapper" with two "stomp-stack" divs (stack-a and stack-b), each containing duplicate h1 headings (first is hidden via CSS `:first-child { display: none }`)
+- Heading font: Instrument Serif, `clamp(46px, 5.5vw, 70px)`, `letter-spacing: -1.5px`, `line-height: 0.95`
+- Detail paragraph below: 24px, `padding-top: 42px`, `line-height: 1.2`
 
 **Stat cards content:**
 
@@ -190,14 +190,14 @@ Card 4 also has: `<p class="card-subtext">Est. OYLA Studio, 2019.</p>` (13px, `m
 **Column 1 — Sign in & Credits:**
 - Header: "Sign in" link (18px, weight 400, `letter-spacing: -0.2px`)
 - Credits block (18px, `line-height: 1.35`):
-  ```
-  Handcrafted in small batches
-  OYLA Studio
-  [blank line]
-  Based in Berlin
-  (c) OYLA 2026
-  All pieces are original designs.
-  ```
+```
+Handcrafted in small batches
+OYLA Studio
+[blank line]
+Based in Berlin
+(c) OYLA 2026
+All pieces are original designs.
+```
 
 **Column 2 — Links:**
 - Header: "Instagram" link
@@ -208,10 +208,10 @@ Card 4 also has: `<p class="card-subtext">Est. OYLA Studio, 2019.</p>` (13px, `m
 - Header: "Newsletter" (h3, 18px, weight 400)
 - Description: "Join our list. Be first to know new drops. 10% off your first order." (18px, `line-height: 1.35`, `max-width: 380px`, `margin-bottom: 24px`)
 - Form: Capsule input (`background: #f7f7f5`, `border-radius: 100px`, `padding: 6px 6px 6px 24px`, `max-width: 440px`)
-  - Input: placeholder "Email", 14px, transparent background
-  - Focus state: `box-shadow: 0 0 0 1px #000000`
-  - Submit button: same capsule button pattern with "SUBSCRIBE" text and `+` circle
-  - On submit: `alert('You're on the list. Welcome.')`
+- Input: placeholder "Email", 14px, transparent background
+- Focus state: `box-shadow: 0 0 0 1px #000000`
+- Submit button: same capsule button pattern with "SUBSCRIBE" text and `+` circle
+- On submit: `alert('You're on the list. Welcome.')`
 
 ---
 

@@ -5,9 +5,9 @@
 ### Fonts
 
 1. **ITC Garamond Std Narrow** (self-hosted from Cloudinary):
-   - Light (300): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-LtNarrow_i2zcip.woff2` / `.woff` variant `ITCGaramondStd-LtNarrow_soc5vc.woff`
-   - Book (400): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-BkNarrow_xjfoc0.woff2` / `.woff` variant `ITCGaramondStd-BkNarrow_wfoxm1.woff`
-   - Book Italic (400 italic): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-BkNarrowIta_hiy9ld.woff2` / `.woff` variant `ITCGaramondStd-BkNarrowIta_rlarxo.woff`
+- Light (300): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-LtNarrow_i2zcip.woff2` / `.woff` variant `ITCGaramondStd-LtNarrow_soc5vc.woff`
+- Book (400): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-BkNarrow_xjfoc0.woff2` / `.woff` variant `ITCGaramondStd-BkNarrow_wfoxm1.woff`
+- Book Italic (400 italic): `https://res.cloudinary.com/dgupuutfn/raw/upload/v1783596334/ITCGaramondStd-BkNarrowIta_hiy9ld.woff2` / `.woff` variant `ITCGaramondStd-BkNarrowIta_rlarxo.woff`
 
 2. **Google Fonts**: `Playfair Display` (400, 500, 600 + italic) and `Inter` (400, 500, 600, 700)
 
@@ -65,9 +65,9 @@ https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_2026071
 **Background fade** (full overlay, z-index 1):
 ```css
 linear-gradient(to bottom,
-  rgba(20,21,29,0) 0%, rgba(20,21,29,0) 40%,
-  rgba(20,21,29,0.55) 55%, rgba(20,21,29,0.92) 66%,
-  #14151d 74%, #14151d 100%);
+rgba(20,21,29,0) 0%, rgba(20,21,29,0) 40%,
+rgba(20,21,29,0.55) 55%, rgba(20,21,29,0.92) 66%,
+#14151d 74%, #14151d 100%);
 ```
 
 **Heading** (left 28px, top 386px):
@@ -92,17 +92,17 @@ Icons are all SVG, 19x19 (or 20x20 for infinity), stroke #fff, stroke-width 1.7,
 **Pricing cards** (left 28px, top 561px, 314x123px):
 
 - **Monthly card** (left 0, 144x123px, border-radius 14px):
-  - Background image: `https://polo-pecan-73837341.figma.site/_assets/v11/ef4533e6536f2495088e56e0f98036b5ff15446d.png` (cover, centered)
-  - Border: 1px solid `rgba(255,255,255,0.11)`
-  - Inner padding: 14px 14px 15px 15px
-  - "Monthly" label (13px, weight 400), "$20" price (19px, weight 500, margin-top 6px, letter-spacing 0.3px), "Billed Monthly" at bottom-left (12px)
-  - All text white with `text-shadow: 0 1px 6px rgba(0,0,0,0.35)`
+- Background image: `https://polo-pecan-73837341.figma.site/_assets/v11/ef4533e6536f2495088e56e0f98036b5ff15446d.png` (cover, centered)
+- Border: 1px solid `rgba(255,255,255,0.11)`
+- Inner padding: 14px 14px 15px 15px
+- "Monthly" label (13px, weight 400), "$20" price (19px, weight 500, margin-top 6px, letter-spacing 0.3px), "Billed Monthly" at bottom-left (12px)
+- All text white with `text-shadow: 0 1px 6px rgba(0,0,0,0.35)`
 
 - **Yearly card** (left 154px, 160x123px, border-radius 14px):
-  - Background: #1e212a, border: 1px solid `rgba(255,255,255,0.11)`
-  - "Yearly" label + "Billed Yearly" in `rgba(255,255,255,0.50)`
-  - "$200" price in `rgba(255,255,255,0.62)`
-  - **Save badge** (left 15px, top 66px): inline-flex pill, padding 5px 8px, border-radius 11px, background #4d5057, text "Save $40.00" (10.5px, weight 600, color `rgba(255,255,255,0.65)`, letter-spacing 0.2px)
+- Background: #1e212a, border: 1px solid `rgba(255,255,255,0.11)`
+- "Yearly" label + "Billed Yearly" in `rgba(255,255,255,0.50)`
+- "$200" price in `rgba(255,255,255,0.62)`
+- **Save badge** (left 15px, top 66px): inline-flex pill, padding 5px 8px, border-radius 11px, background #4d5057, text "Save $40.00" (10.5px, weight 600, color `rgba(255,255,255,0.65)`, letter-spacing 0.2px)
 
 **Subscribe button** (left 28px, top 709px, 314x50px):
 - White background, border-radius 26px

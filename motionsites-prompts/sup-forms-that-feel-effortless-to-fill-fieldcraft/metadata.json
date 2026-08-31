@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-forms-that-feel-effortless-to-fill-fieldcraft",
+    "title": "[Superdesign] Forms that feel effortless to fill — Fieldcraft",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3104,
+    "image_preview_url": "/assets/superdesign/forms-that-feel-effortless-to-fill-fieldcraft.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "form",
+      "forms",
+      "settings",
+      "saas",
+      "tailwind",
+      "inter",
+      "emerald",
+      "checkbox",
+      "radio",
+      "responsive-grid"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

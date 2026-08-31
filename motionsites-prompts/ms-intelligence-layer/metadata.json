@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "intelligence-layer",
+    "title": "Intelligence Layer",
+    "category": "Technology",
+    "page_type": "hero",
+    "sort_order": 844,
+    "image_preview_url": "/assets/previews/intelligence-layer.webp",
+    "video_preview_url": "/assets/previews/intelligence-layer.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

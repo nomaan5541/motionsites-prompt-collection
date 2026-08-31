@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-force-field-background",
+    "title": "[Superdesign] Force Field Background",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Animations & Backgrounds",
+    "page_type": "superdesign",
+    "sort_order": 3031,
+    "image_preview_url": "/assets/superdesign/force-field-background.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "background"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

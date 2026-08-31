@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "orbit-flora",
+    "title": "Orbit Flora",
+    "category": "AI",
+    "page_type": "hero",
+    "sort_order": 856,
+    "image_preview_url": "/assets/previews/orbit-flora.webp",
+    "video_preview_url": "/assets/previews/orbit-flora.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

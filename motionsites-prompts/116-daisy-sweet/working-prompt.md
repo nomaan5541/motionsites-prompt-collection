@@ -20,15 +20,15 @@ Create a reusable function that returns an object with a `style` property for CS
 
 ```ts
 function anim(visible: boolean, delay: number, opts: { y?: number; x?: number; duration?: number } = {}) {
-  const { y = 20, x = 0, duration = 1600 } = opts;
-  const translateFrom = y !== 0 ? `translateY(${y}px)` : x !== 0 ? `translateX(${x}px)` : 'none';
-  return {
-    style: {
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'translate(0,0)' : translateFrom,
-      transition: `opacity ${duration}ms ${EASE} ${delay}ms, transform ${duration}ms ${EASE} ${delay}ms`,
-    } as React.CSSProperties,
-  };
+const { y = 20, x = 0, duration = 1600 } = opts;
+const translateFrom = y !== 0 ? `translateY(${y}px)` : x !== 0 ? `translateX(${x}px)` : 'none';
+return {
+style: {
+opacity: visible ? 1 : 0,
+transform: visible ? 'translate(0,0)' : translateFrom,
+transition: `opacity ${duration}ms ${EASE} ${delay}ms, transform ${duration}ms ${EASE} ${delay}ms`,
+} as React.CSSProperties,
+};
 }
 ```
 
@@ -38,14 +38,14 @@ This returns `{ style: {...} }` so it can be spread as `{...anim(...)}` directly
 
 ```ts
 const SCENT_PRODUCT = {
-  name: 'Eau So Sweet',
-  size: '100 ml / 3.3 oz',
-  image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260511_151640_5b4a7bf8-4eb2-4a49-aa63-17a9bb642b88.png&w=1280&q=85',
-  notes: [
-    { label: 'Fruity top', ingredient: 'WHITE RASPBERRIES' },
-    { label: 'Floral heart', ingredient: 'DAISY TREE PETALS' },
-    { label: 'Feminine base', ingredient: 'SUGAR MUSKS' },
-  ],
+name: 'Eau So Sweet',
+size: '100 ml / 3.3 oz',
+image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260511_151640_5b4a7bf8-4eb2-4a49-aa63-17a9bb642b88.png&w=1280&q=85',
+notes: [
+{ label: 'Fruity top', ingredient: 'WHITE RASPBERRIES' },
+{ label: 'Floral heart', ingredient: 'DAISY TREE PETALS' },
+{ label: 'Feminine base', ingredient: 'SUGAR MUSKS' },
+],
 };
 ```
 
@@ -63,27 +63,27 @@ Accepts props:
 
 ```ts
 {
-  bg: string;                                         // background color
-  product: { name: string; size: string; image: string };
-  notes: { label: string; ingredient: string }[];
-  visible: boolean;                                   // controls animation trigger
-  noteStyle?: 'normal' | 'bold';                      // defaults to 'normal'
+bg: string; // background color
+product: { name: string; size: string; image: string };
+notes: { label: string; ingredient: string }[];
+visible: boolean; // controls animation trigger
+noteStyle?: 'normal' | 'bold'; // defaults to 'normal'
 }
 ```
 
 ### Outer wrapper
 ```
 <div
-  className="relative flex flex-col px-6 md:px-8 pt-6 md:pt-8 pb-8 md:pb-10"
-  style={{ backgroundColor: bg, minHeight: '100%' }}
+className="relative flex flex-col px-6 md:px-8 pt-6 md:pt-8 pb-8 md:pb-10"
+style={{ backgroundColor: bg, minHeight: '100%' }}
 >
 ```
 
 ### 1. Top labels row
 ```
 <div
-  className="flex items-start justify-between mb-auto"
-  {...anim(visible, 0, { y: 12, duration: 1400 })}
+className="flex items-start justify-between mb-auto"
+{...anim(visible, 0, { y: 12, duration: 1400 })}
 >
 ```
 - Left label: `<span className="text-xs font-normal" style={{ color: TEXT_COLOR }}>` — text is `'Daisy love'` when `noteStyle !== 'bold'`, `'Daisy wild'` when `noteStyle === 'bold'`.
@@ -92,36 +92,36 @@ Accepts props:
 ### 2. Product image block
 ```
 <div
-  className="flex flex-col items-center py-8"
-  style={{ flex: 1, justifyContent: 'center', ...anim(visible, 300, { y: 40, duration: 1800 }).style }}
+className="flex flex-col items-center py-8"
+style={{ flex: 1, justifyContent: 'center', ...anim(visible, 300, { y: 40, duration: 1800 }).style }}
 >
 ```
 
 #### Image container
 ```
 <div
-  className="overflow-hidden"
-  style={{
-    width: 'clamp(140px, 40%, 220px)',
-    aspectRatio: '220/340',
-    backgroundColor: '#D9D9D9',
-    borderRadius: '2px',
-    flexShrink: 0,
-  }}
+className="overflow-hidden"
+style={{
+width: 'clamp(140px, 40%, 220px)',
+aspectRatio: '220/340',
+backgroundColor: '#D9D9D9',
+borderRadius: '2px',
+flexShrink: 0,
+}}
 >
-  <img
-    src={product.image}
-    alt={product.name}
-    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-  />
+<img
+src={product.image}
+alt={product.name}
+style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+/>
 </div>
 ```
 
 #### Caption (below image)
 ```
 <div className="text-center mt-4" {...anim(visible, 600, { y: 10, duration: 1400 })}>
-  <p className="text-sm font-normal" style={{ color: TEXT_COLOR }}>{product.name}</p>
-  <p className="text-xs font-normal mt-1" style={{ color: TEXT_COLOR }}>{product.size}</p>
+<p className="text-sm font-normal" style={{ color: TEXT_COLOR }}>{product.name}</p>
+<p className="text-xs font-normal mt-1" style={{ color: TEXT_COLOR }}>{product.size}</p>
 </div>
 ```
 
@@ -142,19 +142,19 @@ For each note object, render a `<div key={note.ingredient}>` containing two `<p>
 #### SHOP NOW button (right side)
 ```
 <button
-  className="text-xs font-bold tracking-widest uppercase border px-6 py-3 relative group shrink-0"
-  style={{
-    color: TEXT_COLOR,
-    borderColor: TEXT_COLOR,
-    backgroundColor: 'transparent',
-    ...anim(visible, 1150, { y: 16, duration: 1400 }).style,
-  }}
+className="text-xs font-bold tracking-widest uppercase border px-6 py-3 relative group shrink-0"
+style={{
+color: TEXT_COLOR,
+borderColor: TEXT_COLOR,
+backgroundColor: 'transparent',
+...anim(visible, 1150, { y: 16, duration: 1400 }).style,
+}}
 >
-  <span className="relative z-10 group-hover:text-black transition-colors duration-500">SHOP NOW</span>
-  <span
-    className="absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
-    style={{ backgroundColor: '#ffffff' }}
-  />
+<span className="relative z-10 group-hover:text-black transition-colors duration-500">SHOP NOW</span>
+<span
+className="absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+style={{ backgroundColor: '#ffffff' }}
+/>
 </button>
 ```
 
@@ -170,12 +170,12 @@ const ref = useRef<HTMLDivElement>(null);
 const [visible, setVisible] = useState(false);
 
 useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-    { threshold: 0.15 }
-  );
-  if (ref.current) observer.observe(ref.current);
-  return () => observer.disconnect();
+const observer = new IntersectionObserver(
+([entry]) => { if (entry.isIntersecting) setVisible(true); },
+{ threshold: 0.15 }
+);
+if (ref.current) observer.observe(ref.current);
+return () => observer.disconnect();
 }, []);
 ```
 
@@ -185,7 +185,7 @@ Once 15% of the section is visible, `visible` flips to `true` permanently (one-s
 
 ```
 <section ref={ref} className="relative w-full">
-  <div className="flex flex-col md:grid md:min-h-screen" style={{ gridTemplateColumns: '1fr 1fr' }}>
+<div className="flex flex-col md:grid md:min-h-screen" style={{ gridTemplateColumns: '1fr 1fr' }}>
 ```
 
 Three children inside:
@@ -193,10 +193,10 @@ Three children inside:
 #### Child 1: ProductPanel (always visible)
 ```
 <ProductPanel
-  bg={BG_BLUE}
-  product={SCENT_PRODUCT}
-  notes={SCENT_PRODUCT.notes}
-  visible={visible}
+bg={BG_BLUE}
+product={SCENT_PRODUCT}
+notes={SCENT_PRODUCT.notes}
+visible={visible}
 />
 ```
 Called with `noteStyle` defaulting to `'normal'` (not passed explicitly), so top labels read `Daisy love` / `Sweet`, and note labels use `fontWeight: 400`.
@@ -204,9 +204,9 @@ Called with `noteStyle` defaulting to `'normal'` (not passed explicitly), so top
 #### Child 2: Desktop video panel (hidden below `md`)
 ```
 <div className="hidden md:block relative overflow-hidden" style={{ backgroundColor: '#111', minHeight: '100%' }}>
-  <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151802_1bbf9a81-a7cb-4be1-b858-f1cd92b62b96.mp4" type="video/mp4" />
-  </video>
+<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151802_1bbf9a81-a7cb-4be1-b858-f1cd92b62b96.mp4" type="video/mp4" />
+</video>
 </div>
 ```
 - Background `#111` shows while video loads.
@@ -216,9 +216,9 @@ Called with `noteStyle` defaulting to `'normal'` (not passed explicitly), so top
 #### Child 3: Mobile video strip (hidden at `md` and above)
 ```
 <div className="md:hidden relative overflow-hidden" style={{ height: '75vw', backgroundColor: '#111' }}>
-  <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151802_1bbf9a81-a7cb-4be1-b858-f1cd92b62b96.mp4" type="video/mp4" />
-  </video>
+<video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_151802_1bbf9a81-a7cb-4be1-b858-f1cd92b62b96.mp4" type="video/mp4" />
+</video>
 </div>
 ```
 - Fixed aspect via `height: 75vw` (so on a 390px phone it is ~293px tall).

@@ -1,11 +1,3 @@
-# Vitara
-
-**ID:** vitara-hero  
-**Category:** Landing Page  
-**Type:** hero  
-
----
-
 Create a modern healthcare AI landing page with a full-screen video background hero section with the following exact specifications:
 
 VIDEO BACKGROUND:
@@ -63,8 +55,8 @@ CSS UTILITIES NEEDED:
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeUp { animation: fadeUp 0.6s ease-out; }
@@ -89,5 +81,3 @@ Text medium: gray-600
 Text light on dark: white and gray-300
 Button primary: gray-800
 This creates a premium, sophisticated healthcare AI landing page with smooth animations, a cinematic video background, and clean typography using Inria Serif for headlines.
-
-

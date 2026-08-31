@@ -1,0 +1,51 @@
+{
+  "record": {
+    "id": "sup-warm-terracotta-ai-chat-interface",
+    "title": "[Superdesign] Warm Terracotta AI Chat Interface",
+    "category": "Superdesign Canvas",
+    "originalCategory": "AI Chat",
+    "page_type": "superdesign",
+    "sort_order": 3136,
+    "image_preview_url": "/assets/superdesign/warm-terracotta-ai-chat-interface.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "ai-chat",
+      "chatbot-ui",
+      "chat-interface",
+      "chat-ui",
+      "conversational-ui",
+      "ai-assistant",
+      "chat-app",
+      "messaging-ui",
+      "llm-chat",
+      "chatgpt-alternative",
+      "claude-style",
+      "chat-sidebar",
+      "message-thread",
+      "composer",
+      "model-picker",
+      "code-block",
+      "conversation-history",
+      "terracotta",
+      "warm",
+      "cream",
+      "paper",
+      "editorial",
+      "fraunces",
+      "serif-display",
+      "jetbrains-mono",
+      "inter",
+      "light-mode",
+      "frameless",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

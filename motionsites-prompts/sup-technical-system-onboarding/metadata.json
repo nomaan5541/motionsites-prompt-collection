@@ -1,0 +1,33 @@
+{
+  "record": {
+    "id": "sup-technical-system-onboarding",
+    "title": "[Superdesign] Technical System Onboarding",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Onboarding",
+    "page_type": "superdesign",
+    "sort_order": 3115,
+    "image_preview_url": "/assets/superdesign/technical-system-onboarding.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "onboarding",
+      "page",
+      "dark mode",
+      "high contrast",
+      "multistep workflow",
+      "sass",
+      "ai product",
+      "slate colour",
+      "black",
+      "orange accent",
+      "research tool",
+      "enterprise software"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "record": {
+    "id": "sup-editorial-cream-ink-two-path-saas-pricing-3dee65",
+    "title": "[Superdesign] Editorial Cream + Ink Two-Path SaaS Pricing",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Pricing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3067,
+    "image_preview_url": "/assets/superdesign/editorial-cream-ink-two-path-saas-pricing-3dee65.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "pricing page",
+      "saas",
+      "light",
+      "cream",
+      "editorial",
+      "serif-display",
+      "two-path",
+      "contact-sales",
+      "dark-panel",
+      "tiered-plans",
+      "billing-toggle",
+      "dev-tool",
+      "ai-design",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

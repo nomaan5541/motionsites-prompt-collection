@@ -1,0 +1,25 @@
+{
+  "record": {
+    "id": "sup-brutalist-style-ecommerce-page",
+    "title": "[Superdesign] Brutalist Style Ecommerce Page",
+    "category": "Superdesign Canvas",
+    "originalCategory": "E-commerce",
+    "page_type": "superdesign",
+    "sort_order": 3028,
+    "image_preview_url": "/assets/superdesign/brutalist-style-ecommerce-page.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "ecommerce",
+      "landing page",
+      "style",
+      "orange accent"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

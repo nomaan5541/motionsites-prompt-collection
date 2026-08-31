@@ -55,11 +55,11 @@ Two pieces of state:
 
 ```js
 const validations = {
-  name: formData.name.trim().length > 0,
-  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email),
-  phone: /^\+[\d\s\-\(\)]{7,20}$/.test(formData.phone),
-  farm: formData.farm.trim().length > 0,
-  message: formData.message.trim().length > 0,
+name: formData.name.trim().length > 0,
+email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email),
+phone: /^\+[\d\s\-\(\)]{7,20}$/.test(formData.phone),
+farm: formData.farm.trim().length > 0,
+message: formData.message.trim().length > 0,
 };
 ```
 
@@ -89,8 +89,8 @@ A helper function `renderIcon(fieldName, isRequired)` that:
 
 ```js
 const formVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+hidden: { opacity: 0, y: 20 },
+visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
 ```
 
@@ -118,10 +118,10 @@ A `div` with classes `text-center mb-16 w-full`.
 **Heading (h2):**
 - Classes: `text-[clamp(1.5rem,4vw,3.5rem)] font-medium tracking-tight mb-6 leading-[1.1]`
 - Content (3 Typewriter segments across 2 lines):
-  - `<span className="text-black font-dm-serif font-normal italic">` wrapping `<Typewriter text="Let's grow!" delay={0} speed={0.012} />`
-  - Then a space, then `<Typewriter text="Fill in the form" delay={0.2} speed={0.012} />`
-  - Then `<br />`
-  - Then `<Typewriter text="and we'll be in touch" delay={0.4} speed={0.012} />`
+- `<span className="text-black font-dm-serif font-normal italic">` wrapping `<Typewriter text="Let's grow!" delay={0} speed={0.012} />`
+- Then a space, then `<Typewriter text="Fill in the form" delay={0.2} speed={0.012} />`
+- Then `<br />`
+- Then `<Typewriter text="and we'll be in touch" delay={0.4} speed={0.012} />`
 - "Let's grow!" is rendered in Instrument Serif italic; the rest is in Barlow medium.
 
 **Subtitle (p):**
@@ -142,7 +142,7 @@ A `div` with classes `text-center mb-16 w-full`.
 - `<label>`: classes `text-sm font-medium`
 - Inner `div`: classes `relative w-full`
 - `<input>`: classes `w-full bg-transparent outline-none placeholder:text-[#D9D9D9] focus:placeholder:text-gray-500 transition-colors duration-300 text-base pr-8`
-  - All inputs have `value`, `onChange={handleChange}`, `onBlur={handleBlur}`, and `name` attribute matching the field key
+- All inputs have `value`, `onChange={handleChange}`, `onBlur={handleBlur}`, and `name` attribute matching the field key
 - After the input: `{renderIcon('fieldName', isRequired)}`
 
 The 5 fields in order:

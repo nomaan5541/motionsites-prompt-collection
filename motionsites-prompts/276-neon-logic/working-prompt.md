@@ -10,19 +10,19 @@ Build a single-page landing site for "SynapseX" -- a futuristic neural-AI interf
 ### Video URLs (CloudFront -- use exactly these)
 
 1. **Hero (mouse-scrubbed, NOT autoplay):**
-   `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_083515_290e5a10-0b95-41af-a5e2-32b6389baa4d.mp4`
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_083515_290e5a10-0b95-41af-a5e2-32b6389baa4d.mp4`
 
 2. **Second Section (autoplay, muted, loop):**
-   `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_092455_089c54f8-3b03-4966-9df1-e9746063d0ef.mp4`
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_092455_089c54f8-3b03-4966-9df1-e9746063d0ef.mp4`
 
 3. **Metrics Section (autoplay, muted, loop):**
-   `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095810_ecea3dd2-fc5e-4e41-8696-4219290b6589.mp4`
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095810_ecea3dd2-fc5e-4e41-8696-4219290b6589.mp4`
 
 4. **Technology Section (autoplay, muted, loop):**
-   `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095750_32a52ce0-2005-45c9-9093-41f03fde9530.mp4`
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095750_32a52ce0-2005-45c9-9093-41f03fde9530.mp4`
 
 5. **Footer (autoplay, muted, loop):**
-   `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_080203_fd7f4f85-3a86-4837-8192-85e7bfe68e75.mp4`
+`https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_080203_fd7f4f85-3a86-4837-8192-85e7bfe68e75.mp4`
 
 ### Dependencies
 
@@ -88,10 +88,10 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 - **Large background watermark text:** The word "TRANSCENDENCE" in "Anton SC" font, centered vertically (offset +50px from center), `clamp(120px, 30vw, 521px)` font size, uppercase, letter-spacing -4px. Opacity 0.10. Color achieved via `radial-gradient(circle, rgba(142,127,148,0) 0%, #8E7F94 70%)` as `background-clip: text` with transparent fill.
 - **Layout:** Flexbox column, padding `px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-8 sm:pb-12`. Content is pushed to the bottom using `flex-1` spacer.
 - **Bottom row:** `flex-col gap-6 md:flex-row md:items-end md:justify-between`
-  - **Left column** (`flex flex-col gap-4`):
-    - **h1** "Brain" / "And Body" (two lines via `<br>`): `text-white font-light leading-[0.95] tracking-[-0.03em] text-[clamp(40px,10vw,100px)]`. Each line uses `ScrambleIn` with delays 200ms and 500ms.
-    - **Description paragraph** (motion.p): fade-up animation (y:25->0, opacity 0->1, duration 0.9s, cubic-bezier ease `[0.215, 0.610, 0.355, 1.000]`, delay 0.2s). Text: "Built at the intersection of neuroscience and artificial intelligence. SynapseX continuously maps neural pathways, cognitive load, and physiological states into a single adaptive intelligence layer." Style: `max-w-sm text-[13px] sm:text-[15px] text-white/60 leading-relaxed`
-  - **Right h1** "One" / "Network": Same styling as left h1 but with `text-left md:text-right`. ScrambleIn delays: 700ms and 1000ms.
+- **Left column** (`flex flex-col gap-4`):
+- **h1** "Brain" / "And Body" (two lines via `<br>`): `text-white font-light leading-[0.95] tracking-[-0.03em] text-[clamp(40px,10vw,100px)]`. Each line uses `ScrambleIn` with delays 200ms and 500ms.
+- **Description paragraph** (motion.p): fade-up animation (y:25->0, opacity 0->1, duration 0.9s, cubic-bezier ease `[0.215, 0.610, 0.355, 1.000]`, delay 0.2s). Text: "Built at the intersection of neuroscience and artificial intelligence. SynapseX continuously maps neural pathways, cognitive load, and physiological states into a single adaptive intelligence layer." Style: `max-w-sm text-[13px] sm:text-[15px] text-white/60 leading-relaxed`
+- **Right h1** "One" / "Network": Same styling as left h1 but with `text-left md:text-right`. ScrambleIn delays: 700ms and 1000ms.
 
 ---
 
@@ -102,10 +102,10 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 
 **Desktop (hidden below `sm`):**
 - Left group: two pills side by side with gap-2
-  - **Logo pill:** h-12, px-5, `bg-white/15 backdrop-blur-md rounded-[14px]`. Contains SynapseXLogo (18x18px white) + "SynapseX" text (16px font-medium tracking-tight white). WhileHover: scale 1.02 + bg rgba(255,255,255,0.22). WhileTap: scale 0.98. Hides on `sm` when menu open (`hidden md:flex`), shows normally otherwise.
-  - **Expanding menu pill:** Animates width from 48px (closed) to 290px (open) with spring (stiffness 350, damping 28). h-12, `rounded-[14px]`, `bg-white/15 backdrop-blur-md`. Contains:
-    - Hamburger button: when closed = 48x48px rounded-[14px]; when open = 36x36px rounded-[11px] with `bg-white/10 hover:bg-white/20 ml-1.5`
-    - Nav links (fade in when open, offset x:15->0): "About" and "Metrics" with ScrambleText on hover. 16px font-normal text-white/85 hover:text-white. Smooth-scroll to `window.innerHeight` and `window.innerHeight * 2` respectively.
+- **Logo pill:** h-12, px-5, `bg-white/15 backdrop-blur-md rounded-[14px]`. Contains SynapseXLogo (18x18px white) + "SynapseX" text (16px font-medium tracking-tight white). WhileHover: scale 1.02 + bg rgba(255,255,255,0.22). WhileTap: scale 0.98. Hides on `sm` when menu open (`hidden md:flex`), shows normally otherwise.
+- **Expanding menu pill:** Animates width from 48px (closed) to 290px (open) with spring (stiffness 350, damping 28). h-12, `rounded-[14px]`, `bg-white/15 backdrop-blur-md`. Contains:
+- Hamburger button: when closed = 48x48px rounded-[14px]; when open = 36x36px rounded-[11px] with `bg-white/10 hover:bg-white/20 ml-1.5`
+- Nav links (fade in when open, offset x:15->0): "About" and "Metrics" with ScrambleText on hover. 16px font-normal text-white/85 hover:text-white. Smooth-scroll to `window.innerHeight` and `window.innerHeight * 2` respectively.
 - Right: **Download button** -- `h-12 px-6 bg-white rounded-full`, black text. Apple icon + "Download" with ScrambleText on hover. WhileHover: scale 1.03 + bg #e2e2e6. WhileTap: scale 0.97.
 
 **Mobile (visible below `sm`):**
@@ -118,9 +118,9 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 - **Background:** Video #2, autoplay muted loop, object-cover
 - **Top gradient overlay:** 180px height, linear-gradient from `#010103` to transparent, z-10
 - **Content:** Centered large paragraph in a `max-w-5xl` container with 3D perspective (400px)
-  - Framer Motion: `rotateX(24deg) translateY(${yScaleValue}px) translateZ(15px)` where `yScaleValue` transforms from 60 to -120 based on smooth scroll progress (spring: stiffness 15, damping 32, mass 1.8). Opacity fades in from 0 to 1 between scroll progress 0.3-0.5.
-  - Text: "A neural-AI interface built on the architecture of the human nervous system. SynapseX translates synaptic activity into computational intelligence. Every signal becomes measurable, structured, and visible. It continuously reconstructs internal state as a dynamic neural map. Biological noise is filtered into actionable cognitive patterns."
-  - Style: `font-sans font-normal text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-white leading-[1.35] tracking-[-0.02em] select-none px-6 sm:px-12 text-center`
+- Framer Motion: `rotateX(24deg) translateY(${yScaleValue}px) translateZ(15px)` where `yScaleValue` transforms from 60 to -120 based on smooth scroll progress (spring: stiffness 15, damping 32, mass 1.8). Opacity fades in from 0 to 1 between scroll progress 0.3-0.5.
+- Text: "A neural-AI interface built on the architecture of the human nervous system. SynapseX translates synaptic activity into computational intelligence. Every signal becomes measurable, structured, and visible. It continuously reconstructs internal state as a dynamic neural map. Biological noise is filtered into actionable cognitive patterns."
+- Style: `font-sans font-normal text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] text-white leading-[1.35] tracking-[-0.02em] select-none px-6 sm:px-12 text-center`
 
 ---
 
@@ -130,11 +130,11 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 - **Layout:** Centered content, `pt-32 pb-32 px-6`, max-w-6xl
 - **Subtitle:** "Performance Metrics" -- `text-white/40 text-[13px] sm:text-[14px] tracking-[0.2em] uppercase mb-20 text-center`. Fades in on scroll (whileInView, duration 1.2s, once, amount 0.3).
 - **Metrics grid:** 3 columns on md, 1 on mobile, gap-16 md:gap-8. Each metric fades up (y:30->0, opacity, duration 0.8s, staggered 0.15s delay per item):
-  - "2.4ms" -- Synaptic Latency
-  - "99.7%" -- Signal Accuracy
-  - "140B" -- Neural Parameters
-  - Value: `text-white text-[clamp(48px,10vw,96px)] font-light tracking-[-0.04em] leading-none`
-  - Label: `text-white/40 text-[13px] sm:text-[15px] mt-4 tracking-wide`
+- "2.4ms" -- Synaptic Latency
+- "99.7%" -- Signal Accuracy
+- "140B" -- Neural Parameters
+- Value: `text-white text-[clamp(48px,10vw,96px)] font-light tracking-[-0.04em] leading-none`
+- Label: `text-white/40 text-[13px] sm:text-[15px] mt-4 tracking-wide`
 
 ---
 
@@ -143,16 +143,16 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 - **Background:** Video #4, autoplay muted loop, object-cover
 - **Layout:** Flexbox column, `px-8 sm:px-12 md:px-16 py-12 sm:py-16`
 - **Top area:** flex-col md:flex-row md:justify-between md:items-start gap-6
-  - **Left heading:** "Adaptive / Intelligence" (two lines), `text-white font-light text-[clamp(36px,8vw,72px)] leading-[0.95] tracking-[-0.03em]`. Fades up (y:40->0, duration 1.0s, whileInView once amount 0.3).
-  - **Right paragraph:** "The system learns your neural baseline within 72 hours. From there, every cognitive state is mapped, predicted, and optimized in real time." `text-white/50 text-[13px] sm:text-[15px] leading-relaxed max-w-xs md:text-right md:pt-2`. Fades up (y:20->0, duration 1.0s, delay 0.2s).
+- **Left heading:** "Adaptive / Intelligence" (two lines), `text-white font-light text-[clamp(36px,8vw,72px)] leading-[0.95] tracking-[-0.03em]`. Fades up (y:40->0, duration 1.0s, whileInView once amount 0.3).
+- **Right paragraph:** "The system learns your neural baseline within 72 hours. From there, every cognitive state is mapped, predicted, and optimized in real time." `text-white/50 text-[13px] sm:text-[15px] leading-relaxed max-w-xs md:text-right md:pt-2`. Fades up (y:20->0, duration 1.0s, delay 0.2s).
 - **Spacer** (`flex-1`)
 - **Bottom grid:** 2 cols on mobile, 4 cols on md, gap-8 md:gap-6. Fades in on scroll (duration 1.0s, delay 0.3s). Each item staggered (y:20->0, duration 0.7s, delay i*0.1):
-  1. "Cortical Mapping" -- "Real-time spatial reconstruction of active neural regions."
-  2. "Signal Isolation" -- "Separates cognitive intent from biological noise."
-  3. "State Prediction" -- "Anticipates cognitive transitions before they occur."
-  4. "Loop Feedback" -- "Closed-loop adjustment based on outcome correlation."
-  - Title: `text-white text-[14px] sm:text-[16px] font-normal mb-2`
-  - Desc: `text-white/40 text-[12px] sm:text-[14px] leading-relaxed`
+1. "Cortical Mapping" -- "Real-time spatial reconstruction of active neural regions."
+2. "Signal Isolation" -- "Separates cognitive intent from biological noise."
+3. "State Prediction" -- "Anticipates cognitive transitions before they occur."
+4. "Loop Feedback" -- "Closed-loop adjustment based on outcome correlation."
+- Title: `text-white text-[14px] sm:text-[16px] font-normal mb-2`
+- Desc: `text-white/40 text-[12px] sm:text-[14px] leading-relaxed`
 
 ---
 
@@ -160,12 +160,12 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 
 - Centered content, max-w-3xl, `px-6 py-32`
 - **Heading block** (fades up y:30->0, duration 1.0s, whileInView once amount 0.4):
-  - Subtitle: "Architecture" -- `text-white/40 text-[13px] sm:text-[14px] tracking-[0.2em] uppercase mb-8`
-  - Heading: "Three layers. Zero friction." -- `text-white font-light text-[clamp(28px,6vw,56px)] leading-[1.15] tracking-[-0.02em] mb-10`
-  - Description: "Sensor layer captures raw bioelectric signals. Processing layer isolates intent. Interface layer delivers structured output to any connected system." -- `text-white/45 text-[15px] sm:text-[17px] leading-relaxed max-w-xl mx-auto`
+- Subtitle: "Architecture" -- `text-white/40 text-[13px] sm:text-[14px] tracking-[0.2em] uppercase mb-8`
+- Heading: "Three layers. Zero friction." -- `text-white font-light text-[clamp(28px,6vw,56px)] leading-[1.15] tracking-[-0.02em] mb-10`
+- Description: "Sensor layer captures raw bioelectric signals. Processing layer isolates intent. Interface layer delivers structured output to any connected system." -- `text-white/45 text-[15px] sm:text-[17px] leading-relaxed max-w-xl mx-auto`
 - **Layer cards** (fade in, duration 1.2s, delay 0.4s, whileInView once amount 0.4): 3 stacked cards, `mt-20 flex-col items-center gap-4`. Each card: `max-w-md h-[72px] border border-white/10 rounded-lg flex items-center justify-between px-6`
-  - Left: "Layer 1/2/3" -- `text-white/30 text-[12px] tracking-[0.15em] uppercase`
-  - Right: "Capture" / "Process" / "Interface" -- `text-white text-[16px] sm:text-[18px] font-light`
+- Left: "Layer 1/2/3" -- `text-white/30 text-[12px] tracking-[0.15em] uppercase`
+- Right: "Capture" / "Process" / "Interface" -- `text-white text-[16px] sm:text-[18px] font-light`
 
 ---
 
@@ -175,8 +175,8 @@ M 1.5,23 L 1.5,33 C 1.5,38.5 6,43 11.5,43 L 16.5,43 C 22,43 26.5,38.5 26.5,33 Q 
 - Two-column layout (stacked on mobile): `flex-col md:flex-row min-h-[400px]`
 - **Left:** Video #5, `object-cover`, fills half width (h-[300px] on mobile, auto height on md)
 - **Right:** Flex column justify-between, `p-10 sm:p-16`
-  - Top: SynapseXLogo (18x18px, text-white/70) + "SynapseX" text (15px font-medium text-white/70 tracking-tight), mb-8. Below: "The next evolution of human-machine interaction. Built for those who refuse to be limited by biology alone." `text-white/40 text-[14px] sm:text-[15px] leading-relaxed max-w-sm`
-  - Bottom: "(c) 2026 SynapseX Labs. All rights reserved." `text-white/25 text-[12px] mt-12`
+- Top: SynapseXLogo (18x18px, text-white/70) + "SynapseX" text (15px font-medium text-white/70 tracking-tight), mb-8. Below: "The next evolution of human-machine interaction. Built for those who refuse to be limited by biology alone." `text-white/40 text-[14px] sm:text-[15px] leading-relaxed max-w-sm`
+- Bottom: "(c) 2026 SynapseX Labs. All rights reserved." `text-white/25 text-[12px] mt-12`
 
 ---
 

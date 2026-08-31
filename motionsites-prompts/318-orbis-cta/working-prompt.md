@@ -12,41 +12,41 @@
 > **Tailwind custom config:**
 > ```js
 > fontFamily: {
->   grotesk: ['Anton', 'sans-serif'],
->   condiment: ['Condiment', 'cursive'],
+> grotesk: ['Anton', 'sans-serif'],
+> condiment: ['Condiment', 'cursive'],
 > },
 > colors: {
->   cream: '#EFF4FF',
->   neon: '#6FFF00',
+> cream: '#EFF4FF',
+> neon: '#6FFF00',
 > }
 > ```
 >
 > **CSS class `.liquid-glass`** (glassmorphism container):
 > ```css
 > .liquid-glass {
->   background: rgba(255, 255, 255, 0.01);
->   background-blend-mode: luminosity;
->   backdrop-filter: blur(4px);
->   -webkit-backdrop-filter: blur(4px);
->   border: none;
->   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
->   position: relative;
->   overflow: hidden;
+> background: rgba(255, 255, 255, 0.01);
+> background-blend-mode: luminosity;
+> backdrop-filter: blur(4px);
+> -webkit-backdrop-filter: blur(4px);
+> border: none;
+> box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+> position: relative;
+> overflow: hidden;
 > }
 > .liquid-glass::before {
->   content: '';
->   position: absolute;
->   inset: 0;
->   border-radius: inherit;
->   padding: 1.4px;
->   background: linear-gradient(180deg,
->     rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
->     rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
->     rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
->   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
->   -webkit-mask-composite: xor;
->   mask-composite: exclude;
->   pointer-events: none;
+> content: '';
+> position: absolute;
+> inset: 0;
+> border-radius: inherit;
+> padding: 1.4px;
+> background: linear-gradient(180deg,
+> rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+> rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+> rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+> -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+> -webkit-mask-composite: xor;
+> mask-composite: exclude;
+> pointer-events: none;
 > }
 > ```
 >
@@ -137,7 +137,7 @@
 > - `min-w` and `min-h` ensure buttons don't collapse too small on tiny screens.
 >
 > Each button contains one icon from `lucide-react`, in this order top to bottom:
-> 1. `<Mail />` 
+> 1. `<Mail />`
 > 2. `<Twitter />`
 > 3. `<Github />`
 >

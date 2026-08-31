@@ -23,53 +23,53 @@ Create a fullscreen hero section for a SaaS product called "flowpath" using Reac
 - Container: `flex-1 flex items-start justify-center` with `pt-16 sm:pt-20 md:pt-24` for spacing from the nav
 - Text wrapper: `text-center max-w-3xl`
 - Heading `<h1>`: `text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-[-0.02em]`
-  - Content (with line breaks):
-    ```
-    Bridge the
-    gaps. <span class="text-white/60">Ditch the</span>
-    <span class="text-white/60">grindwork.</span>
-    ```
+- Content (with line breaks):
+```
+Bridge the
+gaps. <span class="text-white/60">Ditch the</span>
+<span class="text-white/60">grindwork.</span>
+```
 - Subheading `<p>`: `text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-md mx-auto mt-6 sm:mt-8`
-  - Text: "Flowpath unifies your complete wellness tools, so your crew spends less energy plugging gaps and more on real progress."
+- Text: "Flowpath unifies your complete wellness tools, so your crew spends less energy plugging gaps and more on real progress."
 - Two CTA buttons side by side (`flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8`):
-  1. "Begin your journey" - solid white button: `px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-gray-900 text-sm font-semibold rounded-full hover:bg-white/90`
-  2. "See it live" - glass button: `px-5 sm:px-6 py-2.5 sm:py-3 liquid-glass rounded-full text-white text-sm font-semibold hover:bg-white/10`
+1. "Begin your journey" - solid white button: `px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-gray-900 text-sm font-semibold rounded-full hover:bg-white/90`
+2. "See it live" - glass button: `px-5 sm:px-6 py-2.5 sm:py-3 liquid-glass rounded-full text-white text-sm font-semibold hover:bg-white/10`
 
 **Custom CSS (`.liquid-glass` class):**
 ```css
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+background: rgba(255, 255, 255, 0.01);
+background-blend-mode: luminosity;
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border: none;
+box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+position: relative;
+overflow: hidden;
 }
 
 .liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+content: '';
+position: absolute;
+inset: 0;
+border-radius: inherit;
+padding: 1.4px;
+background: linear-gradient(180deg,
+rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
 }
 ```
 
 **Additional CSS utilities:**
 ```css
 @keyframes dropdown-in {
-  from { opacity: 0; transform: translateY(-4px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+from { opacity: 0; transform: translateY(-4px) scale(0.96); }
+to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .animate-dropdown { animation: dropdown-in 0.2s ease-out; }
 .duration-400 { transition-duration: 400ms; }

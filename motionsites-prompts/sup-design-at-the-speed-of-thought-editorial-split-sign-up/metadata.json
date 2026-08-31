@@ -1,0 +1,53 @@
+{
+  "record": {
+    "id": "sup-design-at-the-speed-of-thought-editorial-split-sign-up",
+    "title": "[Superdesign] Design at the Speed of Thought — Editorial Split Sign-Up",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3089,
+    "image_preview_url": "/assets/superdesign/design-at-the-speed-of-thought-editorial-split-sign-up.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "signup",
+      "auth",
+      "sign-up",
+      "create-account",
+      "editorial",
+      "magazine",
+      "serif",
+      "split-screen",
+      "two-column",
+      "burgundy",
+      "cream",
+      "warm",
+      "dark-form",
+      "oauth",
+      "social-login",
+      "sso",
+      "google",
+      "github",
+      "email-first",
+      "form",
+      "onboarding",
+      "fraunces",
+      "inter",
+      "landing-page",
+      "sticky-nav",
+      "password-strength",
+      "film-grain",
+      "testimonial",
+      "faq-accordion",
+      "trust-strip",
+      "saas",
+      "premium"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

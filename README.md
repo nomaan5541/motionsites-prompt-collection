@@ -2,7 +2,7 @@
 
 # ⚡ MotionSites Prompts Collection
 
-### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **661 prompts and growing.**
+### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **895 prompts and growing.**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
@@ -10,7 +10,7 @@
 [![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites-prompt-collection)](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**661 free, production-ready AI prompts** that generate stunning landing pages, hero sections, and web components. Copy a prompt → Paste into your AI tool → Get a pixel-perfect design in seconds.
+**895 free, production-ready AI prompts** that generate stunning landing pages, hero sections, interactive 3D canvases, and modern web components. Copy a prompt → Paste into your AI tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Get a pixel-perfect design in seconds.
 
 [🌐 **Browse the Live Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
@@ -20,21 +20,19 @@
 
 ## 💥 Recent Major Updates & Today's Changelog
 
-> **Latest Release Summary**: Massive library expansion (+191 Prompts), 6 live interactive component demos, 3 new dedicated site sections, and user notice systems.
+> **Latest Release Summary**: Massive multi-source repository sync (**895 Total Prompts**), 100% missing prompt recovery, integration of 140 vision-curated SuperDesign prompt specs with local preview textures, and optimized React/Vite web application.
 
-### 🌟 1. Extracted 191 New Prompts & Asset Packages
-* 🟢 **HorizonX Library (93 Prompts)**: Extracted senior-grade React, WebGL particle, & liquid hero prompts (*Morpho 3D Particle Butterfly*, *Aurel Liquid Hero*, *Hand Prosthesis Simulator*, *Digital Wave Field Hero*, *EIDOLON Monolith Hero*, *Gallery Ring 3D*, etc.). Saved in [`extractions/horizonx`](file:///f:/motionsites.ai-main/extractions/horizonx).
-* 🟢 **21st.dev Registry (93 Prompts)**: Extracted community component & template prompts across 75 categories (*Animated Heroes*, *Shaders*, *Backgrounds*, *Gradients*, *Buttons*, *Footers*, *AI Chats*) with `npx shadcn@latest add ...` CLI installation commands. Saved in [`extractions/21st_dev`](file:///f:/motionsites.ai-main/extractions/21st_dev).
-* 🟢 **Superdesign Canvas (5 Prompts)**: Extracted AI product design agent prompts (*Infinite Canvas Motion*, *Glassmorphism UI Component Suite*, *AI Prompt-to-Mockup Engine*, *SaaS Hero Showcase*, *Theme Switcher Engine*). Saved in [`extractions/superdesign`](file:///f:/motionsites.ai-main/extractions/superdesign).
+### 🌟 1. Full Multi-Source Synchronization (895 Prompts)
+* 🟢 **Superdesign Canvas (145 Prompts)**: Integrated the full 140 vision-curated design prompts from [`superdesigndev/superdesign-prompts`](https://github.com/superdesigndev/superdesign-prompts) featuring interactive 3D tubes background shaders, neon glow cursors, editorial waitlists, bento grids, skeuomorphic audio players, and SaaS calculators with local high-res `.png` and `.mp4` preview textures.
+* 🟢 **100% Missing Prompts Recovered**: Restored complete, un-truncated original prompt texts for all 113 previously missing/partial prompts from `zhaosenlin12-creator/MotionSites` (`retro-futurist`, `layered-depth`, `ember-dsgn-hero`, `faq-cta`, `guardnet-landing`, `f1-racing-hub`, `ai-workflow-agents`, `neo-vision`, `sky-elite-private-jets`, etc.).
+* 🟢 **HorizonX Library (93 Prompts)**: Senior-grade React, WebGL particle, & liquid hero prompts (*Morpho 3D Particle Butterfly*, *Aurel Liquid Hero*, *Hand Prosthesis Simulator*, *Digital Wave Field Hero*, etc.).
+* 🟢 **21st.dev Registry (93 Prompts)**: Component & template prompts across 75 categories with CLI installation anchors.
+* 🟢 **MotionSites Core & Extended (420+ Prompts)**: Complete landing pages, pricing tables, hero sections, footers, CTAs, and SaaS dashboards.
 
-### 💻 2. Built 6 Live Interactive Component Demos (`/examples`)
-Created 6 full, interactive, high-end React component demos accessible at `/examples`:
-1. **MORPHO — 3D Particles Simulator**: HTML5 Canvas particle butterfly with real-time cursor physics, wing-flap animation, particle count slider (60–300), speed multiplier, and color scheme picker (*Blue*, *Purple*, *Gold*).
-2. **Aurel Liquid Hero**: Dark glass hero section with water ripple gradient blur, editorial serif typography, ambient equalizer frequency visualizer, and sound toggle.
-3. **Superdesign Infinite Canvas Motion**: Interactive canvas with draggable node cards, animated SVG flow lines, zoom/pan controls (`+` / `-`), and AI Node creation.
-4. **Superdesign Glassmorphism UI Suite**: Backdrop-blur card container with 1px neon borders, prompt input bar, live UI mockup vs. TSX code tab switcher, and **Dark / Light theme switcher**.
-5. **21st.dev Red In Black Neon Shader**: High-intensity dark mode hero section with crimson pulsing neon WebGL shader glow, author metadata (`ashish.indora`), and copyable `npx shadcn` CLI command bar.
-6. **21st.dev AI Agent Pipeline & Terminal**: Autonomous AI code build pipeline card (`Input Spec` ➔ `Code Generator` ➔ `AST Linter` ➔ `Deploy Sandbox`) with an interactive **"Run AI Pipeline"** button and live terminal stream.
+### 💻 2. Local Preview Textures & Offline-First Media
+* Over **660+ local media preview files** added to `public/assets/previews/`, `public/assets/superdesign/`, and `public/assets/community/`.
+* High-performance instant rendering with animated video and image preview cards.
+* Zero-duplication validation: each prompt has unique identification, normalized slug paths, and structured JSON metadata.
 
 ## ✨ Key Features & Capabilities
 

@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-deep-red-style-5b01cb",
+    "title": "[Superdesign] Deep Red Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3004,
+    "image_preview_url": "/assets/superdesign/deep-red-style-5b01cb.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "style",
+      "page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

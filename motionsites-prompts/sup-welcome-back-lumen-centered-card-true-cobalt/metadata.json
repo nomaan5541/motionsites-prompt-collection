@@ -1,0 +1,35 @@
+{
+  "record": {
+    "id": "sup-welcome-back-lumen-centered-card-true-cobalt",
+    "title": "[Superdesign] Welcome back · Lumen — centered-card (true cobalt)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3101,
+    "image_preview_url": "/assets/superdesign/welcome-back-lumen-centered-card-true-cobalt.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 6,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "login",
+      "sign-in",
+      "auth",
+      "authentication",
+      "login-form",
+      "centered-card",
+      "single-column",
+      "cobalt",
+      "blue",
+      "saas",
+      "social-login",
+      "sticky-nav",
+      "floating-label",
+      "inter"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

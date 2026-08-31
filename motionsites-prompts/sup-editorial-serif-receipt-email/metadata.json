@@ -1,0 +1,40 @@
+{
+  "record": {
+    "id": "sup-editorial-serif-receipt-email",
+    "title": "[Superdesign] Editorial Serif Receipt Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3130,
+    "image_preview_url": "/assets/superdesign/editorial-serif-receipt-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "email",
+      "receipt",
+      "order-confirmation",
+      "transactional-email",
+      "ecommerce-email",
+      "invoice",
+      "order-summary",
+      "editorial",
+      "serif",
+      "oswald",
+      "spectral",
+      "navy",
+      "paper",
+      "warm-neutral",
+      "dotted-leader",
+      "light-mode",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

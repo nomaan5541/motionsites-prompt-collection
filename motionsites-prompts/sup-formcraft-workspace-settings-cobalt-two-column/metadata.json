@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-formcraft-workspace-settings-cobalt-two-column",
+    "title": "[Superdesign] Formcraft — Workspace Settings (cobalt two-column)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3106,
+    "image_preview_url": "/assets/superdesign/formcraft-workspace-settings-cobalt-two-column.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "form",
+      "settings",
+      "saas",
+      "two-column",
+      "toggle",
+      "tailwind",
+      "inter",
+      "cobalt",
+      "sticky-nav",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

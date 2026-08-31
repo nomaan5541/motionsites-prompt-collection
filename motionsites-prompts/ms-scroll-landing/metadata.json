@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "scroll-landing",
+    "title": "Scroll Landing Page",
+    "category": "Interactive",
+    "page_type": "hero",
+    "sort_order": 872,
+    "image_preview_url": "/assets/previews/scroll-landing.webp",
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

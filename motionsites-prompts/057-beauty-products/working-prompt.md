@@ -50,11 +50,11 @@
 > ```css
 > .scrollbar-hide::-webkit-scrollbar { display: none; }
 > @keyframes scale-in {
->   from { transform: scale(0); opacity: 0; }
->   to { transform: scale(1); opacity: 1; }
+> from { transform: scale(0); opacity: 0; }
+> to { transform: scale(1); opacity: 1; }
 > }
 > .animate-scale-in {
->   animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+> animation: scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 > }
 > ```
 >

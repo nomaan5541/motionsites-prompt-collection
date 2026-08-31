@@ -1,11 +1,3 @@
-# Social Media Posts
-
-**ID:** social-media-posts-hero  
-**Category:** Hero Section  
-**Type:** hero  
-
----
-
 Create a 3x2 grid of 6 social media post cards (384px x 384px each, 16px gap) centered on the page. Every card has 12px rounded corners and overflow-hidden.
 
 Background image: Download this image and save it as public/bg.jpeg, then set it as the full-page background with background-size: cover, background-position: center, background-repeat: no-repeat on the outermost container. The container should be min-h-screen, flexbox centered, and allow overflow scrolling.

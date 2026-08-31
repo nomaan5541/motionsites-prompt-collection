@@ -15,19 +15,19 @@ Build a standalone single-section page: the "Platform Accordion" from Nimbus Gri
 **CSS variables on `:root`:**
 ```css
 :root {
-  color-scheme: dark;
-  --bg: #17130d;
-  --ink: #fff4d5;
-  --muted: #dacaa1;
-  --line: rgba(255, 240, 199, 0.28);
-  --glass: rgba(255, 239, 199, 0.16);
-  --glass-strong: rgba(255, 239, 199, 0.24);
-  --accent: #ead09a;
-  --accent-2: #ffd879;
-  --deep: #4d3f24;
-  --radius: 8px;
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+color-scheme: dark;
+--bg: #17130d;
+--ink: #fff4d5;
+--muted: #dacaa1;
+--line: rgba(255, 240, 199, 0.28);
+--glass: rgba(255, 239, 199, 0.16);
+--glass-strong: rgba(255, 239, 199, 0.24);
+--accent: #ead09a;
+--accent-2: #ffd879;
+--deep: #4d3f24;
+--radius: 8px;
+--font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+--font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
 }
 ```
 
@@ -36,8 +36,8 @@ Build a standalone single-section page: the "Platform Accordion" from Nimbus Gri
 **Screen-reader utility:**
 ```css
 .sr-only {
-  position: absolute; width: 1px; height: 1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+position: absolute; width: 1px; height: 1px;
+overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
 }
 ```
 
@@ -50,12 +50,12 @@ Build a standalone single-section page: the "Platform Accordion" from Nimbus Gri
 **Outer container styles:**
 ```css
 .platform-accordion {
-  position: relative;
-  min-height: 420svh;
-  border-top: 1px solid rgba(255, 240, 199, 0.1);
-  background:
-    radial-gradient(circle at 86% 30%, rgba(234, 208, 154, 0.13), transparent 24rem),
-    #050604;
+position: relative;
+min-height: 420svh;
+border-top: 1px solid rgba(255, 240, 199, 0.1);
+background:
+radial-gradient(circle at 86% 30%, rgba(234, 208, 154, 0.13), transparent 24rem),
+#050604;
 }
 ```
 
@@ -63,14 +63,14 @@ Build a standalone single-section page: the "Platform Accordion" from Nimbus Gri
 
 ```css
 .accordion-inner {
-  position: sticky;
-  top: 0;
-  display: grid;
-  grid-template-columns: minmax(160px, 0.22fr) minmax(0, 0.78fr);
-  gap: clamp(28px, 5vw, 72px);
-  height: 100svh;
-  padding: clamp(48px, 7vw, 86px) clamp(20px, 5vw, 72px);
-  overflow: hidden;
+position: sticky;
+top: 0;
+display: grid;
+grid-template-columns: minmax(160px, 0.22fr) minmax(0, 0.78fr);
+gap: clamp(28px, 5vw, 72px);
+height: 100svh;
+padding: clamp(48px, 7vw, 86px) clamp(20px, 5vw, 72px);
+overflow: hidden;
 }
 ```
 
@@ -90,41 +90,41 @@ Each button has `data-accordion-tab="infra|residency|scaling|visibility"` respec
 
 ```css
 .accordion-nav {
-  align-self: start;
-  display: grid;
-  gap: 16px;
-  padding-top: 14px;
+align-self: start;
+display: grid;
+gap: 16px;
+padding-top: 14px;
 }
 
 .accordion-tab {
-  position: relative;
-  border: 0;
-  background: transparent;
-  color: rgba(255, 247, 222, 0.38);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1rem;
-  letter-spacing: 0.08rem;
-  text-align: left;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 160ms ease, transform 160ms ease;
+position: relative;
+border: 0;
+background: transparent;
+color: rgba(255, 247, 222, 0.38);
+font-family: var(--font-mono);
+font-size: 11px;
+line-height: 1rem;
+letter-spacing: 0.08rem;
+text-align: left;
+text-transform: uppercase;
+cursor: pointer;
+transition: color 160ms ease, transform 160ms ease;
 }
 
 .accordion-tab::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 12px;
-  border-radius: 1px;
-  background: currentColor;
-  vertical-align: 1px;
+content: "";
+display: inline-block;
+width: 7px;
+height: 7px;
+margin-right: 12px;
+border-radius: 1px;
+background: currentColor;
+vertical-align: 1px;
 }
 
 .accordion-tab.active {
-  color: var(--accent);
-  transform: translateX(2px);
+color: var(--accent);
+transform: translateX(2px);
 }
 ```
 
@@ -138,22 +138,22 @@ Each card has `data-accordion-card="infra|residency|scaling|visibility"`.
 
 ```css
 .accordion-stack {
-  position: relative;
-  height: min(80svh, 820px);
-  align-self: center;
-  overflow: hidden;
+position: relative;
+height: min(80svh, 820px);
+align-self: center;
+overflow: hidden;
 }
 
 .accordion-card {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: minmax(220px, 0.35fr) minmax(340px, 0.65fr);
-  border-top: 1px solid rgba(255, 247, 222, 0.2);
-  background: #050604;
-  transform: translateY(var(--card-y, 100%));
-  clip-path: inset(0 0 var(--card-clip-bottom, 0px) 0);
-  will-change: transform, clip-path;
+position: absolute;
+inset: 0;
+display: grid;
+grid-template-columns: minmax(220px, 0.35fr) minmax(340px, 0.65fr);
+border-top: 1px solid rgba(255, 247, 222, 0.2);
+background: #050604;
+transform: translateY(var(--card-y, 100%));
+clip-path: inset(0 0 var(--card-clip-bottom, 0px) 0);
+will-change: transform, clip-path;
 }
 ```
 
@@ -164,31 +164,31 @@ Each card has `data-accordion-card="infra|residency|scaling|visibility"`.
 **Left: `.accordion-copy`**
 ```html
 <div class="accordion-copy">
-  <h3>[Card title]</h3>
-  <p>[Card description]</p>
+<h3>[Card title]</h3>
+<p>[Card description]</p>
 </div>
 ```
 
 ```css
 .accordion-copy {
-  padding: 26px 30px 0 0;
+padding: 26px 30px 0 0;
 }
 
 .accordion-card h3 {
-  margin-bottom: 28px;
-  color: var(--ink);
-  font-size: clamp(24px, 2.2vw, 40px);
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.0125rem;
+margin-bottom: 28px;
+color: var(--ink);
+font-size: clamp(24px, 2.2vw, 40px);
+font-weight: 400;
+line-height: 1.2;
+letter-spacing: 0.0125rem;
 }
 
 .accordion-card p {
-  max-width: 340px;
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: clamp(15px, 1.4vw, 22px);
-  line-height: 1.55;
+max-width: 340px;
+margin-bottom: 0;
+color: var(--muted);
+font-size: clamp(15px, 1.4vw, 22px);
+line-height: 1.55;
 }
 ```
 
@@ -198,55 +198,55 @@ Gold gradient panel containing a dark code window.
 
 ```css
 .accordion-visual {
-  min-height: 100%;
-  padding: clamp(34px, 5vw, 64px);
-  background:
-    linear-gradient(135deg, rgba(234, 208, 154, 0.92), rgba(106, 91, 52, 0.68)),
-    radial-gradient(circle at 15% 20%, rgba(255, 247, 222, 0.65), transparent 20rem);
-  overflow: hidden;
+min-height: 100%;
+padding: clamp(34px, 5vw, 64px);
+background:
+linear-gradient(135deg, rgba(234, 208, 154, 0.92), rgba(106, 91, 52, 0.68)),
+radial-gradient(circle at 15% 20%, rgba(255, 247, 222, 0.65), transparent 20rem);
+overflow: hidden;
 }
 ```
 
 **Code window (`.code-window`):**
 ```css
 .code-window {
-  width: min(420px, 100%);
-  margin-inline: auto;
-  padding: 18px 20px 24px;
-  border-radius: 8px;
-  background: rgba(8, 10, 10, 0.88);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+width: min(420px, 100%);
+margin-inline: auto;
+padding: 18px 20px 24px;
+border-radius: 8px;
+background: rgba(8, 10, 10, 0.88);
+box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
 }
 
 .metric-window {
-  margin-top: clamp(18px, 5vw, 70px);
+margin-top: clamp(18px, 5vw, 70px);
 }
 
 [data-accordion-card="infra"] .code-window {
-  margin-top: 40px;
+margin-top: 40px;
 }
 
 [data-accordion-card="visibility"] .metric-window {
-  margin-top: clamp(12px, 3.75vw, 52px);
+margin-top: clamp(12px, 3.75vw, 52px);
 }
 
 .code-window > span {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 5px;
-  border-radius: 50%;
-  background: rgba(255, 247, 222, 0.56);
+display: inline-block;
+width: 7px;
+height: 7px;
+margin-right: 5px;
+border-radius: 50%;
+background: rgba(255, 247, 222, 0.56);
 }
 
 .code-window pre {
-  margin: 22px 0 0;
-  color: rgba(255, 247, 222, 0.82);
-  font-family: var(--font-mono);
-  font-size: clamp(11px, 1vw, 14px);
-  line-height: 1.55;
-  letter-spacing: 0;
-  white-space: pre-wrap;
+margin: 22px 0 0;
+color: rgba(255, 247, 222, 0.82);
+font-family: var(--font-mono);
+font-size: clamp(11px, 1vw, 14px);
+line-height: 1.55;
+letter-spacing: 0;
+white-space: pre-wrap;
 }
 ```
 
@@ -261,12 +261,12 @@ Each code window has 3 `<span></span>` dot elements (the 3 macOS-style dots), th
 - Description: `Define storage pools, quotas, regions, and access policy in code so every workspace ships with the same controls.`
 - Code window (no `.metric-window` class):
 ```
-01  storage_pool = {
-02    name      = "client-vault"
-03    region    = "eu-central"
-04    quota     = "24 TiB"
-05    policy    = encrypted_fast
-06  }
+01 storage_pool = {
+02 name = "client-vault"
+03 region = "eu-central"
+04 quota = "24 TiB"
+05 policy = encrypted_fast
+06 }
 ```
 
 **Card 2 — `residency`:**
@@ -276,10 +276,10 @@ Each code window has 3 `<span></span>` dot elements (the 3 macOS-style dots), th
 ```
 Region policy
 
-EU Central     locked
-US East        allowed
-AP Southeast   review
-Retention      7 years
+EU Central locked
+US East allowed
+AP Southeast review
+Retention 7 years
 ```
 
 **Card 3 — `scaling`:**
@@ -289,10 +289,10 @@ Retention      7 years
 ```
 Capacity forecast
 
-Used       18.4 TiB
-Reserved   24 TiB
-Burst      ready
-Next tier  approved
+Used 18.4 TiB
+Reserved 24 TiB
+Burst ready
+Next tier approved
 ```
 
 **Card 4 — `visibility`:**
@@ -302,10 +302,10 @@ Next tier  approved
 ```
 Operations view
 
-Sync health       stable
-Cold data         14%
-Policy drift       0
-Audit export      live
+Sync health stable
+Cold data 14%
+Policy drift 0
+Audit export live
 ```
 
 ---
@@ -318,69 +318,69 @@ const accordionTabs = Array.from(document.querySelectorAll("[data-accordion-tab]
 const accordionCards = Array.from(document.querySelectorAll("[data-accordion-card]"));
 
 function activateAccordionPanel(panelName) {
-  accordionTabs.forEach((tab) => {
-    const isActive = tab.dataset.accordionTab === panelName;
-    tab.classList.toggle("active", isActive);
-    tab.setAttribute("aria-selected", String(isActive));
-  });
-  accordionCards.forEach((card) => {
-    card.classList.toggle("active", card.dataset.accordionCard === panelName);
-  });
+accordionTabs.forEach((tab) => {
+const isActive = tab.dataset.accordionTab === panelName;
+tab.classList.toggle("active", isActive);
+tab.setAttribute("aria-selected", String(isActive));
+});
+accordionCards.forEach((card) => {
+card.classList.toggle("active", card.dataset.accordionCard === panelName);
+});
 }
 
 function updateScrollAccordion() {
-  if (!accordionSection || !accordionCards.length) return;
+if (!accordionSection || !accordionCards.length) return;
 
-  const rect = accordionSection.getBoundingClientRect();
-  const scrollable = Math.max(1, rect.height - window.innerHeight);
-  const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-  const maxIndex = accordionCards.length - 1;
-  const rawIndex = progress * maxIndex;
-  const activeIndex = Math.min(maxIndex, Math.max(0, Math.round(rawIndex)));
-  const stack = document.querySelector(".accordion-stack");
-  const stackHeight = stack ? stack.clientHeight : window.innerHeight * 0.74;
-  const collapsedHeight = window.innerWidth <= 820 ? 96 : 84;
+const rect = accordionSection.getBoundingClientRect();
+const scrollable = Math.max(1, rect.height - window.innerHeight);
+const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
+const maxIndex = accordionCards.length - 1;
+const rawIndex = progress * maxIndex;
+const activeIndex = Math.min(maxIndex, Math.max(0, Math.round(rawIndex)));
+const stack = document.querySelector(".accordion-stack");
+const stackHeight = stack ? stack.clientHeight : window.innerHeight * 0.74;
+const collapsedHeight = window.innerWidth <= 820 ? 96 : 84;
 
-  const cardPositions = accordionCards.map((_, index) => {
-    let y = 0;
-    if (index > 0) {
-      const segmentProgress = Math.min(1, Math.max(0, rawIndex - (index - 1)));
-      const startY = stackHeight + collapsedHeight;
-      const endY = index * collapsedHeight;
-      y = startY + (endY - startY) * segmentProgress;
-    }
-    return Math.round(y);
-  });
+const cardPositions = accordionCards.map((_, index) => {
+let y = 0;
+if (index > 0) {
+const segmentProgress = Math.min(1, Math.max(0, rawIndex - (index - 1)));
+const startY = stackHeight + collapsedHeight;
+const endY = index * collapsedHeight;
+y = startY + (endY - startY) * segmentProgress;
+}
+return Math.round(y);
+});
 
-  accordionCards.forEach((card, index) => {
-    const y = cardPositions[index];
-    const nextY = cardPositions[index + 1];
-    const visibleHeight = typeof nextY === "number"
-      ? Math.max(collapsedHeight, Math.min(stackHeight, nextY + 2))
-      : stackHeight;
-    const clipBottom = Math.max(0, stackHeight - visibleHeight);
+accordionCards.forEach((card, index) => {
+const y = cardPositions[index];
+const nextY = cardPositions[index + 1];
+const visibleHeight = typeof nextY === "number"
+? Math.max(collapsedHeight, Math.min(stackHeight, nextY + 2))
+: stackHeight;
+const clipBottom = Math.max(0, stackHeight - visibleHeight);
 
-    card.style.setProperty("--card-y", `${Math.round(y)}px`);
-    card.style.setProperty("--card-clip-bottom", `${Math.round(clipBottom)}px`);
-    card.style.zIndex = String(index + 1);
-  });
+card.style.setProperty("--card-y", `${Math.round(y)}px`);
+card.style.setProperty("--card-clip-bottom", `${Math.round(clipBottom)}px`);
+card.style.zIndex = String(index + 1);
+});
 
-  const activeCard = accordionCards[activeIndex];
-  if (activeCard) activateAccordionPanel(activeCard.dataset.accordionCard);
+const activeCard = accordionCards[activeIndex];
+if (activeCard) activateAccordionPanel(activeCard.dataset.accordionCard);
 }
 
 // Tab click scrolls to the correct segment
 accordionTabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    if (!accordionSection || !accordionCards.length) return;
-    const index = accordionCards.findIndex(
-      (card) => card.dataset.accordionCard === tab.dataset.accordionTab
-    );
-    const maxIndex = accordionCards.length - 1;
-    const scrollable = accordionSection.offsetHeight - window.innerHeight;
-    const target = accordionSection.offsetTop + (index / maxIndex) * scrollable;
-    window.scrollTo({ top: target, behavior: "smooth" });
-  });
+tab.addEventListener("click", () => {
+if (!accordionSection || !accordionCards.length) return;
+const index = accordionCards.findIndex(
+(card) => card.dataset.accordionCard === tab.dataset.accordionTab
+);
+const maxIndex = accordionCards.length - 1;
+const scrollable = accordionSection.offsetHeight - window.innerHeight;
+const target = accordionSection.offsetTop + (index / maxIndex) * scrollable;
+window.scrollTo({ top: target, behavior: "smooth" });
+});
 });
 
 window.addEventListener("scroll", updateScrollAccordion, { passive: true });
@@ -403,40 +403,40 @@ updateScrollAccordion();
 
 ```css
 .platform-accordion {
-  min-height: 420svh;
+min-height: 420svh;
 }
 
 .accordion-inner {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 22px;
-  padding: 34px 20px;
+grid-template-columns: 1fr;
+grid-template-rows: auto 1fr;
+gap: 22px;
+padding: 34px 20px;
 }
 
 .accordion-nav {
-  align-self: start;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding-top: 0;
+align-self: start;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 12px;
+padding-top: 0;
 }
 
 .accordion-stack {
-  height: 78svh;
-  align-self: stretch;
+height: 78svh;
+align-self: stretch;
 }
 
 .accordion-card {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+grid-template-columns: 1fr;
+grid-template-rows: auto 1fr;
 }
 
 .accordion-copy {
-  padding: 22px 0 24px;
+padding: 22px 0 24px;
 }
 
 .accordion-visual {
-  min-height: 0;
-  padding: 28px;
+min-height: 0;
+padding: 28px;
 }
 ```
 
@@ -446,23 +446,23 @@ At 820px: Nav becomes a 2-column grid above the stack. Cards become single-colum
 
 ```css
 .accordion-nav {
-  grid-template-columns: 1fr;
+grid-template-columns: 1fr;
 }
 
 .accordion-inner {
-  padding-inline: 18px;
+padding-inline: 18px;
 }
 
 .accordion-card h3 {
-  font-size: 26px;
+font-size: 26px;
 }
 
 .accordion-card p {
-  font-size: 14px;
+font-size: 14px;
 }
 
 .accordion-visual {
-  padding: 18px;
+padding: 18px;
 }
 ```
 
@@ -473,9 +473,9 @@ At 520px: Nav becomes single-column. Tighter padding. Smaller text.
 ## Project structure
 
 ```
-index.html       (section markup + font links)
-styles.css       (all styles + media queries)
-script.js        (scroll-driven accordion + tab click)
-package.json     (vite ^5.4.2, "type": "module", scripts: dev/build/preview)
-vite.config.js   (default export)
+index.html (section markup + font links)
+styles.css (all styles + media queries)
+script.js (scroll-driven accordion + tab click)
+package.json (vite ^5.4.2, "type": "module", scripts: dev/build/preview)
+vite.config.js (default export)
 ```

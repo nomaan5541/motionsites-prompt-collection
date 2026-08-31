@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "apex-saa-s",
+    "title": "Apex SaaS",
+    "category": "SaaS",
+    "page_type": "hero",
+    "sort_order": 814,
+    "image_preview_url": "/assets/previews/apex-saa-s.webp",
+    "video_preview_url": "/assets/previews/apex-saa-s.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

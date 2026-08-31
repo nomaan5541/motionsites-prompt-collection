@@ -1,0 +1,35 @@
+{
+  "record": {
+    "id": "sup-chrome-extension-landing-page",
+    "title": "[Superdesign] Chrome Extension Landing Page",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3024,
+    "image_preview_url": "/assets/superdesign/chrome-extension-landing-page.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "chrome extension",
+      "landing page",
+      "gray",
+      "high contrast",
+      "browser native",
+      "developer tool",
+      "minimalist",
+      "macos",
+      "chrome",
+      "teal accent",
+      "blue accent",
+      "sass landing",
+      "style",
+      "product launch"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

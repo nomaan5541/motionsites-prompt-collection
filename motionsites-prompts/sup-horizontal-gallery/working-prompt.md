@@ -1,0 +1,3 @@
+Create a 'sticky' section where the vertical scroll locks, and the content slides horizontally to showcase a gallery. 
+
+**Technical Requirement**: Ensure the GSAP initialization is robust. Since this is a React component, please include a small delay or safety check inside useLayoutEffect to ensure the DOM is fully rendered and widths are accurate before the ScrollTrigger calculates the pinning logic.

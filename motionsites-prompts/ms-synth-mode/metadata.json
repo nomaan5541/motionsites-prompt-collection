@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "synth-mode",
+    "title": "Synth Mode",
+    "category": "Fashion",
+    "page_type": "hero",
+    "sort_order": 880,
+    "image_preview_url": "/assets/previews/synth-mode.webp",
+    "video_preview_url": "/assets/previews/synth-mode.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "record": {
+    "id": "sup-ledgerline-deep-teal-mint-fintech-startup-dashboard-hero",
+    "title": "[Superdesign] Ledgerline — Deep-Teal + Mint Fintech Startup (Dashboard Hero)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Dashboards",
+    "page_type": "superdesign",
+    "sort_order": 3127,
+    "image_preview_url": "/assets/superdesign/ledgerline-deep-teal-mint-fintech-startup-dashboard-hero.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "startup-website",
+      "landing-page",
+      "startup",
+      "fintech",
+      "finance",
+      "banking",
+      "teal",
+      "mint",
+      "deep-teal",
+      "cream",
+      "dashboard-mock",
+      "product-mock",
+      "bento-grid",
+      "stats-band",
+      "trust",
+      "compliance",
+      "security",
+      "virtual-card",
+      "frosted-glass",
+      "responsive",
+      "web"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

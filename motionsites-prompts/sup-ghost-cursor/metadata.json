@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-ghost-cursor",
+    "title": "[Superdesign] Ghost Cursor",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Components",
+    "page_type": "superdesign",
+    "sort_order": 3039,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/ghost-cursor.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 4,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "background"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

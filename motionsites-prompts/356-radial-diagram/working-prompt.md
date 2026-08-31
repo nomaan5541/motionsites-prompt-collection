@@ -18,9 +18,9 @@ Build an "Our Comprehensive Branding Approach" section as a React component usin
 
 - Two lines of text stacked vertically:
 
-  - Line 1: "Our Comprehensive" in `text-[#6e6e6e]` (gray), `font-light`, size `clamp(2rem, 3.4vw, 2.6rem)`, `leading-[1.18]`, `tracking-[-0.01em]`. Animates from `opacity:0, y:20` to visible, duration `0.7s`.
+- Line 1: "Our Comprehensive" in `text-[#6e6e6e]` (gray), `font-light`, size `clamp(2rem, 3.4vw, 2.6rem)`, `leading-[1.18]`, `tracking-[-0.01em]`. Animates from `opacity:0, y:20` to visible, duration `0.7s`.
 
-  - Line 2: "Branding Approach" in `text-white`, same font styling. Same animation but with `delay: 0.1s`.
+- Line 2: "Branding Approach" in `text-white`, same font styling. Same animation but with `delay: 0.1s`.
 
 - A small square button to the right: `h-7 w-7`, `border border-white/20`, contains a plus icon (SVG: two perpendicular lines forming a +, `stroke="currentColor"`, `strokeWidth="1.3"`, viewBox `0 0 12 12`). Text color `text-white/70`, hover: `bg-white/10 text-white`. Animates scale from 0.8 to 1, opacity 0 to 1, delay `0.25s`.
 
@@ -46,17 +46,17 @@ Build an "Our Comprehensive Branding Approach" section as a React component usin
 
 - The exact glitch block positions (x%, y%, width px, height px):
 
-  ```
+```
 
-  (2, -3, 22, 22), (12, -5, 14, 10), (28, -2, 10, 10),
+(2, -3, 22, 22), (12, -5, 14, 10), (28, -2, 10, 10),
 
-  (82, 22, 8, 8), (-4, 75, 16, 12), (8, 82, 10, 10),
+(82, 22, 8, 8), (-4, 75, 16, 12), (8, 82, 10, 10),
 
-  (-2, 88, 18, 16), (56, 82, 12, 14), (70, 90, 10, 10),
+(-2, 88, 18, 16), (56, 82, 12, 14), (70, 90, 10, 10),
 
-  (42, 94, 8, 6)
+(42, 94, 8, 6)
 
-  ```
+```
 
 - The entire portrait group animates from `opacity:0, y:24` to visible, duration `0.8s`, delay `0.2s`.
 
@@ -72,11 +72,11 @@ Build an "Our Comprehensive Branding Approach" section as a React component usin
 
 - Attribution block `mt-10`:
 
-  - Name: "Alex West" in `text-[1.15rem] font-medium tracking-[0.01em] text-white`
+- Name: "Alex West" in `text-[1.15rem] font-medium tracking-[0.01em] text-white`
 
-  - Title: "Founder & Creative Director" (`&amp;` in JSX) in `mt-1 text-[0.85rem] tracking-wide text-[#6e6e6e]`
+- Title: "Founder & Creative Director" (`&amp;` in JSX) in `mt-1 text-[0.85rem] tracking-wide text-[#6e6e6e]`
 
-  - Both animate together from `y:14`, delay `0.55s`.
+- Both animate together from `y:14`, delay `0.55s`.
 
 ---
 
@@ -88,23 +88,23 @@ Build an "Our Comprehensive Branding Approach" section as a React component usin
 
 - SVG with `viewBox="0 0 100 100"`, absolutely filling the container:
 
-  - A circle centered at `(50, 50)` with radius `30`, `stroke="white"`, `strokeWidth="0.18"`, `opacity="0.45"`
+- A circle centered at `(50, 50)` with radius `30`, `stroke="white"`, `strokeWidth="0.18"`, `opacity="0.45"`
 
-  - 3 lines radiating from center `(50,50)` outward to radius `36` (30+6) at these angles:
+- 3 lines radiating from center `(50,50)` outward to radius `36` (30+6) at these angles:
 
-    - "websites" at 215 degrees
+- "websites" at 215 degrees
 
-    - "brands" at 335 degrees
+- "brands" at 335 degrees
 
-    - "ui/ux design" at 110 degrees
+- "ui/ux design" at 110 degrees
 
-  - Lines default: `strokeWidth: 0.18`, `opacity: 0.45`. On hover of corresponding label: `strokeWidth: 0.6`, `opacity: 1`. Transition duration `0.3s`.
+- Lines default: `strokeWidth: 0.18`, `opacity: 0.45`. On hover of corresponding label: `strokeWidth: 0.6`, `opacity: 1`. Transition duration `0.3s`.
 
 - 3 text labels positioned at radius `46` (30+16) from center at the same angles, using `transform: translate(-50%, -50%)` for centering. Styled with `fontSize: clamp(1.25rem, 2.8vw, 2.4rem)`, `letterSpacing: -0.01em`, `text-white`, `whitespace-nowrap`.
 
-  - Default `fontWeight: 300`, on hover of that label: `fontWeight: 700` (transition `0.25s`).
+- Default `fontWeight: 300`, on hover of that label: `fontWeight: 700` (transition `0.25s`).
 
-  - Each label animates in with `opacity:0, y:16` to visible, staggered by `0.15s` starting at delay `0.6s`, duration `0.7s`.
+- Each label animates in with `opacity:0, y:16` to visible, staggered by `0.15s` starting at delay `0.6s`, duration `0.7s`.
 
 - Hover state is shared: hovering a label highlights both the label (bold) and its corresponding SVG line.
 

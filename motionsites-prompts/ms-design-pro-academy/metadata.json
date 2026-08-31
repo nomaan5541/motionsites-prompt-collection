@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "design-pro-academy",
+    "title": "DesignPro Academy",
+    "category": "Hero Section",
+    "page_type": "hero",
+    "sort_order": 828,
+    "image_preview_url": "/assets/previews/design-pro-academy.webp",
+    "video_preview_url": "/assets/previews/design-pro-academy.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

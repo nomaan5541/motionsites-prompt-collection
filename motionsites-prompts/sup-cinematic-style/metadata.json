@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-cinematic-style",
+    "title": "[Superdesign] Cinematic Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3009,
+    "image_preview_url": "/assets/superdesign/cinematic-style.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

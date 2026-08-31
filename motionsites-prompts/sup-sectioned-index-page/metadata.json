@@ -1,0 +1,25 @@
+{
+  "record": {
+    "id": "sup-sectioned-index-page",
+    "title": "[Superdesign] Sectioned Index Page",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3071,
+    "image_preview_url": "/assets/superdesign/sectioned-index-page.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 7,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "index",
+      "browse",
+      "layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

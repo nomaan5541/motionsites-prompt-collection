@@ -8,23 +8,23 @@ Build a single-page React + TypeScript + Vite + Tailwind CSS v4 landing page. Th
 
 ```json
 {
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.14",
-    "@vitejs/plugin-react": "^5.0.4",
-    "express": "^4.21.2",
-    "hls.js": "^1.6.16",
-    "react": "^19.0.1",
-    "react-dom": "^19.0.1",
-    "vite": "^6.2.3"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.14.0",
-    "esbuild": "^0.25.0",
-    "tailwindcss": "^4.1.14",
-    "tsx": "^4.21.0",
-    "typescript": "~5.8.2"
-  }
+"dependencies": {
+"@tailwindcss/vite": "^4.1.14",
+"@vitejs/plugin-react": "^5.0.4",
+"express": "^4.21.2",
+"hls.js": "^1.6.16",
+"react": "^19.0.1",
+"react-dom": "^19.0.1",
+"vite": "^6.2.3"
+},
+"devDependencies": {
+"@types/express": "^4.17.21",
+"@types/node": "^22.14.0",
+"esbuild": "^0.25.0",
+"tailwindcss": "^4.1.14",
+"tsx": "^4.21.0",
+"typescript": "~5.8.2"
+}
 }
 ```
 
@@ -63,7 +63,7 @@ Google Font: **"Press Start 2P"** -- imported via CSS `@import url(...)`. Regist
 
 ```css
 @theme {
-  --font-press-start: "Press Start 2P", system-ui, sans-serif;
+--font-press-start: "Press Start 2P", system-ui, sans-serif;
 }
 ```
 
@@ -92,15 +92,15 @@ Applied everywhere via class `font-press-start`.
 ```html
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scroll Video</title>
-  </head>
-  <body class="bg-slate-950 overflow-x-hidden m-0 p-0 selection:bg-emerald-500/20">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scroll Video</title>
+</head>
+<body class="bg-slate-950 overflow-x-hidden m-0 p-0 selection:bg-emerald-500/20">
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
 ```
 
@@ -113,41 +113,41 @@ Applied everywhere via class `font-press-start`.
 @import "tailwindcss";
 
 @theme {
-  --font-press-start: "Press Start 2P", system-ui, sans-serif;
+--font-press-start: "Press Start 2P", system-ui, sans-serif;
 }
 
 @keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+0% { transform: translate3d(0, 0, 0); }
+100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes sticker-fade-out {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--rot)) scale(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.05);
-  }
-  30% {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.0);
-  }
-  85% {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.0);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--rot)) scale(0.8);
-  }
+0% {
+opacity: 0;
+transform: translate(-50%, -50%) rotate(var(--rot)) scale(0);
+}
+20% {
+opacity: 1;
+transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.05);
+}
+30% {
+opacity: 1;
+transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.0);
+}
+85% {
+opacity: 1;
+transform: translate(-50%, -50%) rotate(var(--rot)) scale(1.0);
+}
+100% {
+opacity: 0;
+transform: translate(-50%, -50%) rotate(var(--rot)) scale(0.8);
+}
 }
 
 .animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 10s linear infinite;
+display: flex;
+width: max-content;
+animation: marquee 10s linear infinite;
 }
 ```
 
@@ -299,15 +299,15 @@ FRAMEWORK IS
 
 WHY CHOOSE US?
 1. ZERO MOCKUPS,
-   ONLY REAL CODE.
+ONLY REAL CODE.
 2. SPEED RUNS -
-   ZERO WASTED TIME.
+ZERO WASTED TIME.
 3. DIGITAL EDGE -
-   AESTHETIC
-   DOMINANCE.
+AESTHETIC
+DOMINANCE.
 4. SYSTEM STATE -
-   INTELLIGENT
-   INTERACTION.
+INTELLIGENT
+INTERACTION.
 
 ---
 
@@ -386,21 +386,21 @@ import fs from "fs";
 import { createServer as createViteServer } from "vite";
 
 async function startServer() {
-  const app = express();
-  const PORT = 3000;
-  const publicDir = path.join(process.cwd(), "public");
-  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+const app = express();
+const PORT = 3000;
+const publicDir = path.join(process.cwd(), "public");
+if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
 
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({ server: { middlewareMode: true }, appType: "spa" });
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
-    app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
-  }
+if (process.env.NODE_ENV !== "production") {
+const vite = await createViteServer({ server: { middlewareMode: true }, appType: "spa" });
+app.use(vite.middlewares);
+} else {
+const distPath = path.join(process.cwd(), "dist");
+app.use(express.static(distPath));
+app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
+}
 
-  app.listen(PORT, "0.0.0.0", () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on http://localhost:${PORT}`));
 }
 startServer();
 ```
@@ -416,8 +416,8 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig(() => ({
-  plugins: [react(), tailwindcss()],
-  resolve: { alias: { '@': path.resolve(__dirname, '.') } },
+plugins: [react(), tailwindcss()],
+resolve: { alias: { '@': path.resolve(__dirname, '.') } },
 }));
 ```
 

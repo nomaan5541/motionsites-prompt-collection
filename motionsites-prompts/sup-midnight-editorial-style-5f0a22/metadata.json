@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-midnight-editorial-style-5f0a22",
+    "title": "[Superdesign] Midnight Editorial Style",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Design Systems & Styles",
+    "page_type": "superdesign",
+    "sort_order": 3022,
+    "image_preview_url": "/assets/superdesign/midnight-editorial-style-5f0a22.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 7,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

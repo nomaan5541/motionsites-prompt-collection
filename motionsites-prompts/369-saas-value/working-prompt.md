@@ -77,8 +77,8 @@ Headline (h1)
 - `text-gray-900 font-normal leading-[1.05] tracking-tight`
 - Sizes: `text-[40px] min-[400px]:text-[44px] sm:text-6xl lg:text-7xl xl:text-[80px]`
 - Two lines, each a `` with staggered `animate-fade-up`:
-  - Line 1: "Get cited." (no delay)
-  - Line 2: "Effortlessly." (`[animation-delay:100ms]`)
+- Line 1: "Get cited." (no delay)
+- Line 2: "Effortlessly." (`[animation-delay:100ms]`)
 
 ### Search Bar (form)
 - `animate-fade-up [animation-delay:220ms] mt-5 sm:mt-6 w-full max-w-xl`
@@ -111,10 +111,10 @@ Another flex spacer (`flex-1 min-h-10 sm:min-h-12 lg:min-h-16 shrink-0`) separat
 ### Mockup Chrome
 - Outer: `rounded-t-2xl overflow-hidden bg-[#1a1a1c] shadow-[0_-20px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/10 text-left`
 - **Title bar**: `bg-[#242427] border-b border-white/5 px-4 py-2.5`
-  - Traffic lights: three spans `w-2.5 h-2.5 rounded-full` colored `#ff5f57`, `#febc2e`, `#28c840`
-  - Icons (all `w-3.5 h-3.5 text-white/40`): `PanelLeft`, `ChevronLeft`, `ChevronRight` (text-white/25)
-  - Center URL bar: `bg-[#1a1a1c] rounded-md px-6 py-1 text-[10px] text-white/60` with `Monitor` icon -- text "questly.ai"
-  - Right icons: `RotateCw`, `Share`, `Plus`, `Copy`
+- Traffic lights: three spans `w-2.5 h-2.5 rounded-full` colored `#ff5f57`, `#febc2e`, `#28c840`
+- Icons (all `w-3.5 h-3.5 text-white/40`): `PanelLeft`, `ChevronLeft`, `ChevronRight` (text-white/25)
+- Center URL bar: `bg-[#1a1a1c] rounded-md px-6 py-1 text-[10px] text-white/60` with `Monitor` icon -- text "questly.ai"
+- Right icons: `RotateCw`, `Share`, `Plus`, `Copy`
 
 ### Sidebar (22% width)
 - `border-r border-white/5 bg-[#1e1e21] px-3 py-3.5`
@@ -126,11 +126,11 @@ Another flex spacer (`flex-1 min-h-10 sm:min-h-12 lg:min-h-16 shrink-0`) separat
 ### Main Content Area
 - Header: workspace icon (larger `w-9 h-9 rounded-lg bg-[#e8553f]`), "CareNest" `text-sm font-medium text-white`, subtitle `text-[10px] text-white/45`, and a "Generate" button with `Sparkles` icon
 - **Stats grid** (4 columns): `grid-cols-4 divide-x divide-white/5 rounded-xl bg-white/[0.03] ring-1 ring-white/5`
-  - RELEASED: 62 / Posts indexed
-  - BREADTH: 12 / Subject groups
-  - REMAINING: 412 / Ready to draft
-  - MAX REACH: 3,156,200 / Searches a month
-  - Values: `text-xl font-medium text-white`, labels: `text-[8px] tracking-wider text-white/35`
+- RELEASED: 62 / Posts indexed
+- BREADTH: 12 / Subject groups
+- REMAINING: 412 / Ready to draft
+- MAX REACH: 3,156,200 / Searches a month
+- Values: `text-xl font-medium text-white`, labels: `text-[8px] tracking-wider text-white/35`
 - **Subject cards** (3 columns): Elder Care, Mobility, Home Safety -- `rounded-lg bg-white/[0.03] ring-1 ring-white/5`
 - **Drafting inbox** table: 5 rows with question, volume, difficulty, status columns. "Drafting" status colored `text-[#febc2e]/80`
 
@@ -140,18 +140,18 @@ Another flex spacer (`flex-1 min-h-10 sm:min-h-12 lg:min-h-16 shrink-0`) separat
 
 ```css
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 @keyframes fade-down {
-  from { opacity: 0; transform: translateY(-16px); }
-  to { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(-16px); }
+to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(64px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+from { opacity: 0; transform: translateY(64px) scale(0.97); }
+to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -179,12 +179,12 @@ FILE STRUCTURE
 
 ```
 src/
-  App.tsx            -- renders <Hero />
-  main.tsx           -- ReactDOM.createRoot
-  index.css          -- Tailwind directives + custom keyframes
-  components/
-    Hero.tsx          -- main section with bg image, content, ScaledDashboard, grass overlay
-    Navbar.tsx        -- top nav with mobile drawer
-    Logo.tsx          -- SVG logo component
-    DashboardMockup.tsx -- full browser-chrome dashboard mockup
+App.tsx -- renders <Hero />
+main.tsx -- ReactDOM.createRoot
+index.css -- Tailwind directives + custom keyframes
+components/
+Hero.tsx -- main section with bg image, content, ScaledDashboard, grass overlay
+Navbar.tsx -- top nav with mobile drawer
+Logo.tsx -- SVG logo component
+DashboardMockup.tsx -- full browser-chrome dashboard mockup
 ```

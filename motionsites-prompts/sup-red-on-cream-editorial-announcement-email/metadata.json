@@ -1,0 +1,39 @@
+{
+  "record": {
+    "id": "sup-red-on-cream-editorial-announcement-email",
+    "title": "[Superdesign] Red-on-Cream Editorial Announcement Email",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Email & Newsletter",
+    "page_type": "superdesign",
+    "sort_order": 3133,
+    "image_preview_url": "/assets/superdesign/red-on-cream-editorial-announcement-email.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "email",
+      "newsletter",
+      "announcement-email",
+      "case-study",
+      "agency-email",
+      "studio-update",
+      "b2b-email",
+      "editorial",
+      "brutalist",
+      "mono-ink",
+      "vermillion",
+      "cream",
+      "archivo",
+      "extreme-scale",
+      "label-value-rows",
+      "600px-column",
+      "responsive",
+      "desktop"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

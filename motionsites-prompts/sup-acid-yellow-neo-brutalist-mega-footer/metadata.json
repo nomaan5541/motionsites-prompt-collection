@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-acid-yellow-neo-brutalist-mega-footer",
+    "title": "[Superdesign] Acid-Yellow Neo-Brutalist Mega Footer",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3080,
+    "image_preview_url": "/assets/superdesign/acid-yellow-neo-brutalist-mega-footer.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "footer",
+      "mega-footer",
+      "neo-brutalist",
+      "newsletter",
+      "yellow",
+      "marquee",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

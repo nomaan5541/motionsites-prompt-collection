@@ -19,16 +19,16 @@ Create a single-page dental clinic landing page using **React + Vite + TypeScrip
 @tailwind utilities;
 
 @layer base {
-  html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: 'Open Sauce One', -apple-system, BlinkMacSystemFont, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+html, body, #root {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+body {
+font-family: 'Open Sauce One', -apple-system, BlinkMacSystemFont, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
 }
 ```
 
@@ -58,10 +58,10 @@ const SECTION3_BG = 'https://images.higgs.ai/?default=1&output=webp&url=https%3A
 const featureBars = ['Advanced Dentistry', 'High Quality Equipment', 'Friendly Staff'];
 
 const services = [
-  { name: 'Dental\nVeneers', num: '01', active: true },
-  { name: 'Dental\nCrowns', num: '02', active: false },
-  { name: 'Teeth\nWhitening', num: '03', active: false },
-  { name: 'Dental\nImplants', num: null, active: false },
+{ name: 'Dental\nVeneers', num: '01', active: true },
+{ name: 'Dental\nCrowns', num: '02', active: false },
+{ name: 'Teeth\nWhitening', num: '03', active: false },
+{ name: 'Dental\nImplants', num: null, active: false },
 ];
 ```
 
@@ -85,12 +85,12 @@ Sections 1 and 2 use a single large background image shared across multiple card
 - Props: `bgImage`, `position` (from useMaskPositions), `imageWidth` (from useImageWidth), `focalX` (0-1 float), `className`, `children`, `cardRef`, `style`.
 - Calculates `overflow = imageWidth > position.sw ? imageWidth - position.sw : 0`, then `focalOffset = overflow * focalX`.
 - Applies inline style:
-  ```
-  backgroundImage: url(bgImage)
-  backgroundSize: auto [position.sh]px
-  backgroundPosition: -[position.x + focalOffset]px -[position.y]px
-  backgroundRepeat: no-repeat
-  ```
+```
+backgroundImage: url(bgImage)
+backgroundSize: auto [position.sh]px
+backgroundPosition: -[position.x + focalOffset]px -[position.y]px
+backgroundRepeat: no-repeat
+```
 - `focalX` values: Section 1 mobile=0.7, desktop=0.8. Section 2 mobile=0.65, desktop=0.8.
 
 **`useIsMobile` hook:**
@@ -105,12 +105,12 @@ Sections 1 and 2 use a single large background image shared across multiple card
 - Returns `{ containerRef, getAnimStyle }`.
 - `containerRef` is attached to the section; when it crosses the threshold, `visible` becomes true (fires once).
 - `getAnimStyle(index)` returns:
-  ```css
-  opacity: visible ? 1 : 0
-  transform: visible ? 'translateY(0)' : 'translateY(24px)'
-  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1) [index*120]ms,
-              transform 0.6s cubic-bezier(0.16,1,0.3,1) [index*120]ms
-  ```
+```css
+opacity: visible ? 1 : 0
+transform: visible ? 'translateY(0)' : 'translateY(24px)'
+transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1) [index*120]ms,
+transform 0.6s cubic-bezier(0.16,1,0.3,1) [index*120]ms
+```
 
 ---
 
@@ -153,12 +153,12 @@ Sections 1 and 2 use a single large background image shared across multiple card
 - Panel: `absolute top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl`, slides with `translate-x-0` (open) / `translate-x-full` (closed), `duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`
 - Content: `flex flex-col justify-center h-full px-8 gap-1`
 - Nav links: ['Home', 'Services', 'About', 'Gallery', 'Contact']
-  - Each: `text-4xl font-bold text-black hover:text-neutral-500`
-  - Staggered entrance: `opacity-0 translate-x-8` -> `opacity-100 translate-x-0`, `transitionDelay: ${100 + i * 60}ms` when open
-  - `transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`
+- Each: `text-4xl font-bold text-black hover:text-neutral-500`
+- Staggered entrance: `opacity-0 translate-x-8` -> `opacity-100 translate-x-0`, `transitionDelay: ${100 + i * 60}ms` when open
+- `transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`
 - Bottom section: `mt-8 pt-8 border-t border-neutral-200`, delayed 450ms
-  - "Dental Emergency" text: `text-sm font-semibold text-black mb-4`
-  - Button: `w-full px-6 py-4 bg-black rounded-full text-white text-sm font-semibold hover:bg-neutral-800 transition-colors duration-200`, text "Book Appointment"
+- "Dental Emergency" text: `text-sm font-semibold text-black mb-4`
+- Button: `w-full px-6 py-4 bg-black rounded-full text-white text-sm font-semibold hover:bg-neutral-800 transition-colors duration-200`, text "Book Appointment"
 - When open: `document.body.style.overflow = 'hidden'`. Cleanup on unmount.
 
 ---
@@ -180,10 +180,10 @@ Uses `HERO_IMAGE` as shared background via MaskedCard technique.
 - `MaskedCard`: `w-full flex-1 min-h-0 rounded-xl md:rounded-2xl overflow-hidden relative`
 - Animated with `s1Reveal.getAnimStyle(3)`
 - **Top-left text:** `absolute top-4 left-4 md:top-7 md:left-7`, `text-black text-xs md:text-sm font-semibold leading-4 md:leading-5 max-w-[200px] md:max-w-[300px] z-10`
-  - Content: "We wish to provide professional dental services" `<br/>` "that match the current technologies"
+- Content: "We wish to provide professional dental services" `<br/>` "that match the current technologies"
 - **Bottom-left block:** `absolute bottom-5 left-3 md:bottom-8 md:left-4 z-10`
-  - Label: `block text-black text-xs md:text-sm font-semibold mb-1 md:mb-2`, text "Trusted Dentist in West New York"
-  - Heading: `<h1>` with `text-black text-[clamp(3rem,11vw,11rem)] font-bold leading-[0.79] tracking-tight`, content: "Dental" `<br/>` "Care"
+- Label: `block text-black text-xs md:text-sm font-semibold mb-1 md:mb-2`, text "Trusted Dentist in West New York"
+- Heading: `<h1>` with `text-black text-[clamp(3rem,11vw,11rem)] font-bold leading-[0.79] tracking-tight`, content: "Dental" `<br/>` "Care"
 - **Bottom-right text:** `absolute bottom-6 right-4 md:bottom-10 md:right-8`, `text-white text-xs md:text-sm font-semibold z-10`, content: "Free Consultation"
 
 ---
@@ -220,13 +220,13 @@ Uses `SECTION2_IMAGE` as shared background via MaskedCard technique.
 - Animated: `s2Reveal.getAnimStyle(3)`
 - Inner container: `absolute inset-0 z-10 flex flex-wrap md:flex-nowrap gap-1.5 md:gap-2 p-2 md:p-3`
 - 4 service sub-cards mapped from `services` array:
-  - Container: `flex-1 min-w-[calc(50%-4px)] md:min-w-0 rounded-xl md:rounded-2xl p-3 md:p-5 flex flex-col justify-between`
-  - Active: `bg-white/90 backdrop-blur-md`
-  - Inactive: `bg-white/20 backdrop-blur-xl`
-  - Service name: `<h3>` with `text-xl md:text-4xl font-bold leading-[1.05] whitespace-pre-line`, color: active=`text-black`, inactive=`text-white`
-  - Number badge (if `svc.num` exists): `self-end w-8 h-8 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-semibold`
-    - Active: `border-black text-black`
-    - Inactive: `border-white text-white`
+- Container: `flex-1 min-w-[calc(50%-4px)] md:min-w-0 rounded-xl md:rounded-2xl p-3 md:p-5 flex flex-col justify-between`
+- Active: `bg-white/90 backdrop-blur-md`
+- Inactive: `bg-white/20 backdrop-blur-xl`
+- Service name: `<h3>` with `text-xl md:text-4xl font-bold leading-[1.05] whitespace-pre-line`, color: active=`text-black`, inactive=`text-white`
+- Number badge (if `svc.num` exists): `self-end w-8 h-8 md:w-12 md:h-12 rounded-full border flex items-center justify-center text-xs md:text-sm font-semibold`
+- Active: `border-black text-black`
+- Inactive: `border-white text-white`
 
 ---
 
@@ -258,8 +258,8 @@ Does NOT use MaskedCard technique. Uses regular `<img>` tags and solid backgroun
 - `<div>`: `rounded-xl md:rounded-2xl bg-zinc-200 p-5 md:p-7 flex items-end justify-between flex-[0.8] min-h-[160px] md:min-h-0`
 - Animated: `s3Reveal.getAnimStyle(2)`
 - Left content block:
-  - Label: `<p>` with `text-xs md:text-sm font-semibold text-black mb-2 md:mb-3`, text "Consultation"
-  - Heading: `<h3>` with `text-xl md:text-3xl font-bold text-black leading-6 md:leading-8`, content: "Dental" `<br/>` "Restoration" `<br/>` "Services"
+- Label: `<p>` with `text-xs md:text-sm font-semibold text-black mb-2 md:mb-3`, text "Consultation"
+- Heading: `<h3>` with `text-xl md:text-3xl font-bold text-black leading-6 md:leading-8`, content: "Dental" `<br/>` "Restoration" `<br/>` "Services"
 - Button: `px-5 py-3 md:px-8 md:py-5 bg-white rounded-full text-black text-base md:text-xl font-bold hover:scale-105 transition-transform`, text "Book Online"
 
 #### RIGHT COLUMN: Single tall image card
@@ -273,14 +273,14 @@ Does NOT use MaskedCard technique. Uses regular `<img>` tags and solid backgroun
 - `flex-1 bg-white rounded-xl md:rounded-2xl p-3 md:p-5 flex flex-col justify-between h-36 md:h-52`
 - Heading: `<h4>` with `text-lg md:text-2xl font-bold text-black leading-5 md:leading-7`, content: "The Process" `<br/>` "of Installing" `<br/>` "Implants"
 - Arrow icon: `self-end w-9 h-9 md:w-12 md:h-12 rounded-full border border-black flex items-center justify-center`
-  - SVG: `width="14" height="14" viewBox="0 0 14 14" fill="none"`, class `rotate-[-45deg]`
-  - Path: `d="M1 7h12m0 0L8 2m5 5L8 12"` with `stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"`
+- SVG: `width="14" height="14" viewBox="0 0 14 14" fill="none"`, class `rotate-[-45deg]`
+- Path: `d="M1 7h12m0 0L8 2m5 5L8 12"` with `stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"`
 
 **Overlay Card 2 (glass, right):**
 - `flex-1 bg-white/20 backdrop-blur-xl rounded-xl md:rounded-2xl p-3 md:p-5 flex flex-col justify-between h-36 md:h-52`
 - Heading: `<h4>` with `text-lg md:text-2xl font-bold text-white leading-5 md:leading-7`, content: "Caring" `<br/>` "for Dental" `<br/>` "Implants"
 - Arrow icon: `self-end w-9 h-9 md:w-12 md:h-12 rounded-full border border-white flex items-center justify-center`
-  - Same SVG as above but with added class `text-white`
+- Same SVG as above but with added class `text-white`
 
 ---
 

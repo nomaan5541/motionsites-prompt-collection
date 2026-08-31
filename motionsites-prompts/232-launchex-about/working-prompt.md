@@ -31,36 +31,36 @@
 > - Paragraph 1: `"Launchex.Hub is a platform that is part of a portfolio of companies Launchex, for sourcing and showcasing groundbreaking innovations."`
 > - Paragraph 2: `"Launchex.Hub's mission is to offer every local-language innovator the chance to reshape our world with their pioneering creation."` -- with `mt-4` spacing
 > - Below paragraphs, an external link:
->   - `<a>` tag pointing to `https://base.launchex.vc/`, opens in new tab (`target="_blank" rel="noreferrer"`)
->   - `group inline-flex items-center gap-4 mt-6 text-[14px] font-medium`, color `#154359`
->   - Text: `"Launchex.Hub website"`
->   - Next to it, an icon button: `flex items-center justify-center w-8 h-8 border`, border color `#154359`, with `transition-transform group-hover:-translate-y-0.5`
->   - The icon button uses a chamfered clip-path: `polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)`
->   - Inside the button: `<ArrowUpRight>` from lucide-react, `w-3.5 h-3.5`, `strokeWidth={2}`
+> - `<a>` tag pointing to `https://base.launchex.vc/`, opens in new tab (`target="_blank" rel="noreferrer"`)
+> - `group inline-flex items-center gap-4 mt-6 text-[14px] font-medium`, color `#154359`
+> - Text: `"Launchex.Hub website"`
+> - Next to it, an icon button: `flex items-center justify-center w-8 h-8 border`, border color `#154359`, with `transition-transform group-hover:-translate-y-0.5`
+> - The icon button uses a chamfered clip-path: `polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)`
+> - Inside the button: `<ArrowUpRight>` from lucide-react, `w-3.5 h-3.5`, `strokeWidth={2}`
 >
 > **Stats cards grid (below the heading row):**
 > - `mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5`
 > - Contains 3 stat cards with this exact data:
->   1. value: `"7+ years"`, text: `"Launchex has served the market, guiding ventures and their journeys"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_154203_6c6f94dc-a07e-4ba5-8688-106f01ccd2c8.png&w=1280&q=85`, offset: false
->   2. value: `"15000+"`, text: `"innovation ventures moved through the Launchex pipeline"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_154151_45c62c60-3bcc-4f21-8f9d-03722ebb5df8.png&w=1280&q=85`, offset: true
->   3. value: `"120+"`, text: `"accelerator sessions delivered by Launchex across Eastern Europe"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_152238_24ec8db4-d728-4739-bb30-e985533e9637.png&w=1280&q=85`, offset: false
+> 1. value: `"7+ years"`, text: `"Launchex has served the market, guiding ventures and their journeys"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_154203_6c6f94dc-a07e-4ba5-8688-106f01ccd2c8.png&w=1280&q=85`, offset: false
+> 2. value: `"15000+"`, text: `"innovation ventures moved through the Launchex pipeline"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_154151_45c62c60-3bcc-4f21-8f9d-03722ebb5df8.png&w=1280&q=85`, offset: true
+> 3. value: `"120+"`, text: `"accelerator sessions delivered by Launchex across Eastern Europe"`, image: `https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260514_152238_24ec8db4-d728-4739-bb30-e985533e9637.png&w=1280&q=85`, offset: false
 >
 > **Each stat card:**
 > - Outer wrapper: `relative w-full h-[280px] sm:h-[340px]`
 > - The 2nd card (index 1, offset: true) gets `lg:mt-24` to create a staggered effect
 > - Outer wrapper has `backgroundColor: 'rgba(255, 255, 255, 0.8)'` and `padding: '1.5px'` (acts as a thin white border)
 > - Each card uses a unique polygon clip-path for chamfered/angular corners:
->   - Card 1: `polygon(64px 0, calc(100% - 14px) 0, calc(100% - 4px) 4px, 100% 14px, 100% calc(100% - 14px), calc(100% - 4px) calc(100% - 4px), calc(100% - 14px) 100%, 14px 100%, 4px calc(100% - 4px), 0 calc(100% - 14px), 0 64px)` -- large chamfer on top-left
->   - Card 2: `polygon(0 14px, 4px 4px, 14px 0, calc(100% - 64px) 0, 100% 64px, 100% calc(100% - 14px), calc(100% - 4px) calc(100% - 4px), calc(100% - 14px) 100%, 64px 100%, 0 calc(100% - 64px))` -- large chamfer on top-right and bottom-left
->   - Card 3: `polygon(0 14px, 4px 4px, 14px 0, calc(100% - 64px) 0, 100% 64px, 100% calc(100% - 64px), calc(100% - 64px) 100%, 14px 100%, 4px calc(100% - 4px), 0 calc(100% - 14px))` -- large chamfer on top-right, bottom-right
+> - Card 1: `polygon(64px 0, calc(100% - 14px) 0, calc(100% - 4px) 4px, 100% 14px, 100% calc(100% - 14px), calc(100% - 4px) calc(100% - 4px), calc(100% - 14px) 100%, 14px 100%, 4px calc(100% - 4px), 0 calc(100% - 14px), 0 64px)` -- large chamfer on top-left
+> - Card 2: `polygon(0 14px, 4px 4px, 14px 0, calc(100% - 64px) 0, 100% 64px, 100% calc(100% - 14px), calc(100% - 4px) calc(100% - 4px), calc(100% - 14px) 100%, 64px 100%, 0 calc(100% - 64px))` -- large chamfer on top-right and bottom-left
+> - Card 3: `polygon(0 14px, 4px 4px, 14px 0, calc(100% - 64px) 0, 100% 64px, 100% calc(100% - 64px), calc(100% - 64px) 100%, 14px 100%, 4px calc(100% - 4px), 0 calc(100% - 14px))` -- large chamfer on top-right, bottom-right
 > - The same clip-path is applied to both the outer div and the inner image div (creating an inset border effect)
 > - Inner div: `relative w-full h-full overflow-hidden bg-cover bg-center`, with the card's image as `backgroundImage`, `mixBlendMode: 'Normal'`
 >
 > **Text overlay inside each card:**
 > - Positioned absolutely with different placements per card:
->   - Card 1: `left-6 right-6 bottom-6`
->   - Card 2: `left-6 bottom-20`
->   - Card 3: `left-6 right-28 bottom-6`
+> - Card 1: `left-6 right-6 bottom-6`
+> - Card 2: `left-6 bottom-20`
+> - Card 3: `left-6 right-28 bottom-6`
 > - All have `max-w-[66%]`
 > - The stat value uses `.font-firs font-semibold uppercase leading-none text-[36px] sm:text-[52px]`
 > - Value text has a gradient fill: `linear-gradient(294deg, #185B7B 20%, #4BBDF0)` applied via `background`, `WebkitBackgroundClip: 'text'`, `backgroundClip: 'text'`, `color: 'transparent'`
@@ -73,11 +73,11 @@
 > **Fonts required in CSS:**
 > ```css
 > html, body {
->   font-family: 'Inter', system-ui, -apple-system, sans-serif;
->   -webkit-font-smoothing: antialiased;
+> font-family: 'Inter', system-ui, -apple-system, sans-serif;
+> -webkit-font-smoothing: antialiased;
 > }
 > .font-firs {
->   font-family: 'TT Firs Neue', 'Inter', system-ui, sans-serif;
+> font-family: 'TT Firs Neue', 'Inter', system-ui, sans-serif;
 > }
 > ```
 >

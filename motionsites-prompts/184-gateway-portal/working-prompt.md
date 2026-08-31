@@ -19,7 +19,7 @@ Tailwind directives at top. Then: universal `box-sizing: border-box`; `html, bod
 Assets (use these exact URLs)
 ```js
 const PORTAL_BG = 'https://res.cloudinary.com/dy5er7kv5/image/upload/q_auto/f_auto/v1781046673/image_1_ksxfzb.png';
-const WORLD_BG  = 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_231253_53c0854c-d13c-42c1-9fc0-17e87cd34091.png&w=1280&q=85';
+const WORLD_BG = 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260609_231253_53c0854c-d13c-42c1-9fc0-17e87cd34091.png&w=1280&q=85';
 ```
 `PORTAL_BG` is the foreground "portal" image you zoom into; `WORLD_BG` is the cloud/world background revealed behind it.
 
@@ -35,11 +35,11 @@ Layout structure (z-index stack on `#0a0608` root)
 - Helper math: `easeInOut(t) = t<0.5 ? 2t² : -1+(4-2t)t`, `lerp(a,b,t)`, `clamp`.
 - **Mouse parallax** via `requestAnimationFrame`: read raw mouse as `(clientX/innerWidth - 0.5)2` (same for Y). Smooth toward it with `lerp(..., 0.07)` each frame. Invert (`rx=-mx, ry=-my`). Magnitudes `MAG = { world: 6, portal: 7 }`.
 - Each frame, with `ep = easeInOut(scrollProgress)`:
-  - World: `scale = lerp(1, 1.18, ep)`, `transform: scale(s) translate(rx6px, ry6px)`.
-  - Portal: `scale = lerp(1, 7.5, ep)`, `transform: scale(s) translate(rx7px, ry*7px)`, `transformOrigin: '52% 38%'`.
+- World: `scale = lerp(1, 1.18, ep)`, `transform: scale(s) translate(rx6px, ry6px)`.
+- Portal: `scale = lerp(1, 7.5, ep)`, `transform: scale(s) translate(rx7px, ry*7px)`, `transformOrigin: '52% 38%'`.
 - **Opacity transitions** driven by scrollProgress:
-  - `portalOpacity` = 1 until 0.66, then fades to 0 over the next 0.22 of scroll.
-  - `scene1Opacity` = `clamp(1 - scrollProgress/0.22, 0, 1)` (Scene 1 UI fades out in the first 22% of scroll). When `< 0.05`, set `pointerEvents: none`.
+- `portalOpacity` = 1 until 0.66, then fades to 0 over the next 0.22 of scroll.
+- `scene1Opacity` = `clamp(1 - scrollProgress/0.22, 0, 1)` (Scene 1 UI fades out in the first 22% of scroll). When `< 0.05`, set `pointerEvents: none`.
 - `uiVisible` state flips true 600ms after mount; Scene 1 UI fades/slides up (`translateY(24px)→0`, `opacity 0→1`, `transition: opacity 1s ease, transform 1s ease`, `transitionDelay: 0.3s`).
 
 ### Navigation (fixed, top)
@@ -52,11 +52,11 @@ A bottom-aligned container with Tailwind classes `absolute inset-x-0 bottom-0 fl
 - **Column 1** (`maxWidth 560px`, left aligned): `
 
 ` Helvetica Now Display weight 500, white, `lineHeight 1.04`, `letterSpacing -0.02em`, `fontSize clamp(40px,4vw,58px)` (mobile `clamp(30px,9vw,44px)`). The word **"Discover"** is a leading span in Mr Dafoe, color `#9a9a9a`, `fontSize 1.15em`, `marginRight 0.12em`. Full text:
-  > *Discover* Living \
- Digital Worlds \
- Vivid, Alive, Endless
-  
-  Below it a `
+> *Discover* Living \
+Digital Worlds \
+Vivid, Alive, Endless
+
+Below it a `
 
 ` (weight 400, `13–14px`, `lineHeight 1.6`, `color rgba(255,255,255,0.5)`, `maxWidth 340px`, `marginTop 18px`): "Experience immersive worlds with stories that blur the line between imagination, AI and living reality made for you."
 - **Column 2** (hidden on mobile, flex, `gap 14px`): a large "A." in Mr Dafoe (64px, white, `lineHeight 0.8`) next to a `
@@ -73,24 +73,24 @@ Real worlds."
 
 ` (weight 500, 17px, `maxWidth 420px`, white, `textShadow 0 2px 16px rgba(0,0,0,0.3)`, `marginTop 16px`): "See how Auragate helps others, and find out what it can do for you."
 - Below: `` with these 7 testimonial quotes (in order):
-  1. "It is amazing to see and feel the worlds I am stepping into each day."
-  2. "I have been feeling much more alive inside these living worlds, even on the long days."
-  3. "My wonder has been growing so fast that it is hard to believe the difference. Auragate gave me exactly the vision I needed."
-  4. "The first two scenes felt alive. I tried everything we dreamed up and it worked."
-  5. "The wonder of it all really moved me, it even brought a tear to my eyes every time."
-  6. "I finally feel immersed, like the worlds were built just for me."
-  7. "Stepping into it was effortless and the worlds have been unlike anything I dreamt."
+1. "It is amazing to see and feel the worlds I am stepping into each day."
+2. "I have been feeling much more alive inside these living worlds, even on the long days."
+3. "My wonder has been growing so fast that it is hard to believe the difference. Auragate gave me exactly the vision I needed."
+4. "The first two scenes felt alive. I tried everything we dreamed up and it worked."
+5. "The wonder of it all really moved me, it even brought a tear to my eyes every time."
+6. "I finally feel immersed, like the worlds were built just for me."
+7. "Stepping into it was effortless and the worlds have been unlike anything I dreamt."
 
 ### ArcCardCarousel (the signature component)
 A fanned arc of cards centered on screen. State `active` starts at `floor(total/2)`. Constants (desktop / mobile): `cardW 300/230`, `cardH 420/320`, `stepX 295/170`, `dropY 52/34`, `tilt 8/7`, `containerH 560/460`. Container `position: relative; width: 100%; height: containerH`.
 
-For each card compute signed position `pos` relative to `active` wrapped into `[-half, +half]`; `abs = |pos|`; `isCenter = pos===0`. 
+For each card compute signed position `pos` relative to `active` wrapped into `[-half, +half]`; `abs = |pos|`; `isCenter = pos===0`.
 - **Transform:** `translateX(posstepX) translateY(absdropY + (isCenter ? 30 : 0)) rotate(postilt deg)` — this creates the downward-curving arc with outer cards dropped and rotated. (mobile center bump = 22.)
 - `opacity`: center `1`, else `max(0, 0.6 - (abs-1)0.2)`. `zIndex: 100 - abs`. `pointerEvents: isCenter ? 'auto' : 'none'`. `transition: transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease`.
-- **Card face:** `borderRadius 28px` (22 mobile). 
-  - **Center card:** solid `background: rgb(247,251,255)`, `border 1px solid rgba(255,255,255,0.6)`, no backdrop filter, and `boxShadow: '0 8px 24px rgba(0,0,0,0.08), 0 0 50px rgba(255,255,255,0.55), 0 0 90px rgba(255,255,255,0.35)'` (soft dark + layered white glow). Quote text color `#2c2420`.
-  - **Inactive cards:** frosted glass — `background: linear-gradient(135deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.24) 100%)`, `backdropFilter: blur(18px) saturate(140%)` (+ `-webkit-`), `border 1px solid rgba(255,255,255,0.28)`, `boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.45)'` (inset highlight only, no drop shadow). Quote text `rgba(255,255,255,0.85)`.
-  - Quote `
+- **Card face:** `borderRadius 28px` (22 mobile).
+- **Center card:** solid `background: rgb(247,251,255)`, `border 1px solid rgba(255,255,255,0.6)`, no backdrop filter, and `boxShadow: '0 8px 24px rgba(0,0,0,0.08), 0 0 50px rgba(255,255,255,0.55), 0 0 90px rgba(255,255,255,0.35)'` (soft dark + layered white glow). Quote text color `#2c2420`.
+- **Inactive cards:** frosted glass — `background: linear-gradient(135deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.24) 100%)`, `backdropFilter: blur(18px) saturate(140%)` (+ `-webkit-`), `border 1px solid rgba(255,255,255,0.28)`, `boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.45)'` (inset highlight only, no drop shadow). Quote text `rgba(255,255,255,0.85)`.
+- Quote `
 
 `: Helvetica Now Display weight 500, 17px (15 mobile), `lineHeight 1.5`, `letterSpacing -0.01em`, wrapped in typographic quotes `“…”`, centered, card uses flex center.
 - **Nav buttons** (absolute, `bottom: -40px`, centered, `gap 10px`): two round 46px (42px mobile) buttons. Prev (`dir -1`): `background rgba(255,255,255,0.2)`, no shadow, white chevron-left SVG with a glowing `drop-shadow` filter (`rgba(255,255,255,0.7) 0 0 6px` + `rgba(255,255,255,0.4) 0 0 14px`). Next (`dir 1`): `background rgba(255,255,255,0.9)`, `boxShadow 0 6px 18px rgba(0,0,0,0.18)`, dark `#2c2420` chevron-right. Clicking advances `active` by `±1` with modulo wrap.

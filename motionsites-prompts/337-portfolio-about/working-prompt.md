@@ -11,28 +11,28 @@ Create an "About Me" section using React, Tailwind CSS, and **framer-motion**. T
 **4 decorative corner images (absolute positioned, z-0):**
 
 1. **Top-left** -- Moon icon
-   - URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png`
-   - Position: `top-[4%] left-[1%] sm:left-[2%] md:left-[4%]`
-   - Size: `w-[120px] sm:w-[160px] md:w-[210px] h-auto`
-   - Fade-in animation: `delay: 0.1`, slides from left (`x: -80, y: 0`), `duration: 0.9`
+- URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png`
+- Position: `top-[4%] left-[1%] sm:left-[2%] md:left-[4%]`
+- Size: `w-[120px] sm:w-[160px] md:w-[210px] h-auto`
+- Fade-in animation: `delay: 0.1`, slides from left (`x: -80, y: 0`), `duration: 0.9`
 
 2. **Bottom-left** -- 3D object
-   - URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png`
-   - Position: `bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%]`
-   - Size: `w-[100px] sm:w-[140px] md:w-[180px] h-auto`
-   - Fade-in animation: `delay: 0.25`, slides from left (`x: -80, y: 0`), `duration: 0.9`
+- URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png`
+- Position: `bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%]`
+- Size: `w-[100px] sm:w-[140px] md:w-[180px] h-auto`
+- Fade-in animation: `delay: 0.25`, slides from left (`x: -80, y: 0`), `duration: 0.9`
 
 3. **Top-right** -- Lego icon
-   - URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png`
-   - Position: `top-[4%] right-[1%] sm:right-[2%] md:right-[4%]`
-   - Size: `w-[120px] sm:w-[160px] md:w-[210px] h-auto`
-   - Fade-in animation: `delay: 0.15`, slides from right (`x: 80, y: 0`), `duration: 0.9`
+- URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png`
+- Position: `top-[4%] right-[1%] sm:right-[2%] md:right-[4%]`
+- Size: `w-[120px] sm:w-[160px] md:w-[210px] h-auto`
+- Fade-in animation: `delay: 0.15`, slides from right (`x: 80, y: 0`), `duration: 0.9`
 
 4. **Bottom-right** -- 3D group
-   - URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png`
-   - Position: `bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%]`
-   - Size: `w-[130px] sm:w-[170px] md:w-[220px] h-auto`
-   - Fade-in animation: `delay: 0.3`, slides from right (`x: 80, y: 0`), `duration: 0.9`
+- URL: `https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png`
+- Position: `bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%]`
+- Size: `w-[130px] sm:w-[170px] md:w-[220px] h-auto`
+- Fade-in animation: `delay: 0.3`, slides from right (`x: 80, y: 0`), `duration: 0.9`
 
 **Center content (relative z-10, max-w-4xl, centered):**
 
@@ -41,30 +41,30 @@ Vertical layout with `gap-16 sm:gap-20 md:gap-24`, containing two groups:
 **Group 1 -- Heading + Animated Text** (gap `10 sm:14 md:16`):
 
 - **Heading "About me":**
-  - `font-black uppercase leading-none tracking-tight text-center`
-  - Font size: `clamp(3rem, 12vw, 160px)`
-  - Uses a CSS class `hero-heading` which applies a gradient text fill:
-    ```css
-    .hero-heading {
-      background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    ```
-  - Fade-in: `delay: 0, y: 40`
+- `font-black uppercase leading-none tracking-tight text-center`
+- Font size: `clamp(3rem, 12vw, 160px)`
+- Uses a CSS class `hero-heading` which applies a gradient text fill:
+```css
+.hero-heading {
+background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+```
+- Fade-in: `delay: 0, y: 40`
 
 - **Animated paragraph** (scroll-driven character-by-character reveal):
-  - Text content: `"With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"`
-  - Styling: `text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]`
-  - Font size: `clamp(1rem, 2vw, 1.35rem)`
-  - **Animation behavior** (uses framer-motion `useScroll` + `useTransform`):
-    - Each character is rendered as an individual `<span>` with `position: relative; display: inline-block`
-    - An invisible duplicate holds the space; the visible character is absolutely positioned on top
-    - Scroll tracking: `useScroll({ target: containerRef, offset: ['start 0.8', 'end 0.2'] })`
-    - Per-character opacity: calculate `charProgress = index / totalChars`, then `start = max(0, charProgress - 0.1)` and `end = min(1, charProgress + 0.05)`. Map `scrollYProgress` from `[start, end]` to opacity `[0.2, 1]`
-    - Spaces are rendered as `\u00A0` (non-breaking space)
-    - Characters start dim (opacity 0.2) and brighten to full opacity (1) as the user scrolls through the section, creating a progressive text reveal from left to right
+- Text content: `"With more than five years of experience in design, i focus on branding, web design, and user experience, i truly enjoy working with businesses that aim to stand out and present their best image. Let's build something incredible together!"`
+- Styling: `text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]`
+- Font size: `clamp(1rem, 2vw, 1.35rem)`
+- **Animation behavior** (uses framer-motion `useScroll` + `useTransform`):
+- Each character is rendered as an individual `<span>` with `position: relative; display: inline-block`
+- An invisible duplicate holds the space; the visible character is absolutely positioned on top
+- Scroll tracking: `useScroll({ target: containerRef, offset: ['start 0.8', 'end 0.2'] })`
+- Per-character opacity: calculate `charProgress = index / totalChars`, then `start = max(0, charProgress - 0.1)` and `end = min(1, charProgress + 0.05)`. Map `scrollYProgress` from `[start, end]` to opacity `[0.2, 1]`
+- Spaces are rendered as `\u00A0` (non-breaking space)
+- Characters start dim (opacity 0.2) and brighten to full opacity (1) as the user scrolls through the section, creating a progressive text reveal from left to right
 
 **Group 2 -- Contact Button:**
 - Fade-in: `delay: 0.3, y: 20`

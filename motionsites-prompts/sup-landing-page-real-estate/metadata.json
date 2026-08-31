@@ -1,0 +1,22 @@
+{
+  "record": {
+    "id": "sup-landing-page-real-estate",
+    "title": "[Superdesign] Landing Page / Real-Estate",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3085,
+    "image_preview_url": "/assets/superdesign/landing-page-real-estate.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 5,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "skill"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

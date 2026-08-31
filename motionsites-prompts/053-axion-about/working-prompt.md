@@ -32,12 +32,12 @@ Wrapper: `lg:hidden px-5 sm:px-8`.
 1. **Paragraph:** "Through research, creative thinking and iteration we help growing brands realize their digital full potential." - `text-[15px] sm:text-[17px] leading-[1.6] font-medium text-gray-900 mb-6`.
 
 2. **CTA button** (inside a `mb-8` wrapper): Orange button (`bg-[#F26522] hover:bg-[#e05a1a]`) with text "About our studio", `text-white text-[13px] sm:text-[14px] font-medium rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3`. Contains:
-   - **Text-roll hover animation:** The button text is inside `overflow-hidden h-[20px]` > `flex flex-col` container. The text is duplicated (two identical `h-[20px] flex items-center` spans). On `group-hover`, the flex-col translates `-translate-y-1/2` with `transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]`.
-   - **Arrow circle:** White circle `bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center`. Contains `ArrowRight` from lucide-react (size 14), `text-[#F26522]`, starts at `-rotate-45`, on `group-hover` rotates to `rotate-0` (same duration-500 easing). The entire button has `className="group"`.
+- **Text-roll hover animation:** The button text is inside `overflow-hidden h-[20px]` > `flex flex-col` container. The text is duplicated (two identical `h-[20px] flex items-center` spans). On `group-hover`, the flex-col translates `-translate-y-1/2` with `transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]`.
+- **Arrow circle:** White circle `bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center`. Contains `ArrowRight` from lucide-react (size 14), `text-[#F26522]`, starts at `-rotate-45`, on `group-hover` rotates to `rotate-0` (same duration-500 easing). The entire button has `className="group"`.
 
 3. **Images:** `flex flex-col sm:flex-row gap-4 sm:gap-5`.
-   - First: `sm:w-[45%]`, `<img>` with `w-full aspect-[438/346] rounded-xl sm:rounded-2xl object-cover`.
-   - Second: `sm:w-[55%]`, `<img>` with `w-full aspect-[900/600] rounded-xl sm:rounded-2xl object-cover`.
+- First: `sm:w-[45%]`, `<img>` with `w-full aspect-[438/346] rounded-xl sm:rounded-2xl object-cover`.
+- Second: `sm:w-[55%]`, `<img>` with `w-full aspect-[900/600] rounded-xl sm:rounded-2xl object-cover`.
 
 ---
 
@@ -47,8 +47,8 @@ Wrapper: `hidden lg:grid grid-cols-[26%_1fr_48%] items-end gap-6 xl:gap-8 px-5 s
 
 - **Left column** (`self-end`): Small image, `w-full aspect-[438/346] rounded-2xl object-cover`.
 - **Center column** (`self-start flex flex-col justify-end`):
-  - Paragraph: `text-[16px] xl:text-[18px] leading-[1.65] font-medium text-gray-900 whitespace-nowrap mb-6`. Text with explicit `<br/>` tags: "Through research, creative thinking`<br/>`and iteration we help growing brands`<br/>`realize their digital full potential."
-  - Same orange CTA button as mobile (identical text-roll animation).
+- Paragraph: `text-[16px] xl:text-[18px] leading-[1.65] font-medium text-gray-900 whitespace-nowrap mb-6`. Text with explicit `<br/>` tags: "Through research, creative thinking`<br/>`and iteration we help growing brands`<br/>`realize their digital full potential."
+- Same orange CTA button as mobile (identical text-roll animation).
 - **Right column** (`self-end`): Large image, `w-full aspect-[3/2] rounded-2xl object-cover`.
 
 ---

@@ -1,0 +1,31 @@
+{
+  "record": {
+    "id": "sup-aurora-glass-sign-in-to-the-canvas",
+    "title": "[Superdesign] Aurora Glass — Sign in to the canvas",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Auth & Login",
+    "page_type": "superdesign",
+    "sort_order": 3056,
+    "image_preview_url": "/assets/superdesign/aurora-glass-sign-in-to-the-canvas.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "login",
+      "sign-in",
+      "auth",
+      "glassmorphism",
+      "dark-mode",
+      "aurora",
+      "gradient",
+      "split-screen",
+      "saas",
+      "hero"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

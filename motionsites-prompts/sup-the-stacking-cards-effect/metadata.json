@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-the-stacking-cards-effect",
+    "title": "[Superdesign] The \"Stacking Cards\" Effect",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Animations & Backgrounds",
+    "page_type": "superdesign",
+    "sort_order": 3016,
+    "image_preview_url": "/assets/superdesign/the-stacking-cards-effect.png",
+    "video_preview_url": "/assets/superdesign/the-stacking-cards-effect.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 5,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "scroll animation",
+      "landing page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

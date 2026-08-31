@@ -21,7 +21,7 @@ Build a full-screen, two-section yoga coach landing page using React + TypeScrip
 @import "tailwindcss";
 
 @theme {
-  --font-anton: "Anton", sans-serif;
+--font-anton: "Anton", sans-serif;
 }
 ```
 
@@ -43,9 +43,9 @@ https://stream.mux.com/YyFgoUXUTVMiVMMLeQoq49tP00joMyEzoRmnEnk02H5rA.m3u8
 
 **Three Card Videos (HLS streams, second section, play on hover):**
 ```
-Card 1 (Left):   https://stream.mux.com/S9BmS8DLYYowz7jr1BkN2PbAQm4bjEwijllpwmEB4xA.m3u8
+Card 1 (Left): https://stream.mux.com/S9BmS8DLYYowz7jr1BkN2PbAQm4bjEwijllpwmEB4xA.m3u8
 Card 2 (Center): https://stream.mux.com/83kMTSKA4Xy01RTddNwDdt7OjCocQTCdKHY7AsD02Dlgc.m3u8
-Card 3 (Right):  https://stream.mux.com/c4KUkE6NHGljcc4M8458iMEdHAbUvsG5MTpqefzBYvo.m3u8
+Card 3 (Right): https://stream.mux.com/c4KUkE6NHGljcc4M8458iMEdHAbUvsG5MTpqefzBYvo.m3u8
 ```
 
 ---
@@ -76,12 +76,12 @@ Card 3 (Right):  https://stream.mux.com/c4KUkE6NHGljcc4M8458iMEdHAbUvsG5MTpqefzB
 - Transition: `duration: 1, ease: [0.16, 1, 0.3, 1]` (custom cubic bezier).
 - Text: `font-anton text-white text-xl sm:text-2xl md:text-3xl lg:text-[2.2rem] leading-[0.95] tracking-wide uppercase`
 - Content:
-  ```
-  FIND YOUR FOCUS,
-  ARRANGE PRIVATE
-  YOGA SESSIONS, AND LIVE
-  THE MINDFUL WAY
-  ```
+```
+FIND YOUR FOCUS,
+ARRANGE PRIVATE
+YOGA SESSIONS, AND LIVE
+THE MINDFUL WAY
+```
 
 #### Bottom Bar (w-full, flex col on mobile, flex row items-end justify-between on md+)
 
@@ -91,20 +91,20 @@ Card 3 (Right):  https://stream.mux.com/c4KUkE6NHGljcc4M8458iMEdHAbUvsG5MTpqefzB
 - Transition: `duration: 1.1, ease: [0.16, 1, 0.3, 1]`
 - Text: `font-anton text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[11rem] leading-none tracking-tight uppercase`
 - Content:
-  ```
-  HEY, I AM
-  JESSICA
-  ```
+```
+HEY, I AM
+JESSICA
+```
 
 **Bottom-Right Title:**
 - Same animation/transition as bottom-left.
 - Container: `text-left md:text-right pointer-events-auto overflow-hidden`
 - Same text sizing.
 - Content:
-  ```
-  YOGA
-  COACH
-  ```
+```
+YOGA
+COACH
+```
 
 **Center Circular "LET'S START" Button:**
 - Position: `absolute left-1/2 bottom-[15%] md:bottom-2 -translate-x-1/2 z-20 pointer-events-auto`
@@ -212,13 +212,13 @@ Card 3 (Right):  https://stream.mux.com/c4KUkE6NHGljcc4M8458iMEdHAbUvsG5MTpqefzB
 
 ```json
 "dependencies": {
-  "@tailwindcss/vite": "^4.1.14",
-  "@vitejs/plugin-react": "^5.0.4",
-  "hls.js": "^1.6.16",
-  "motion": "^12.23.24",
-  "react": "^19.0.1",
-  "react-dom": "^19.0.1",
-  "vite": "^6.2.3"
+"@tailwindcss/vite": "^4.1.14",
+"@vitejs/plugin-react": "^5.0.4",
+"hls.js": "^1.6.16",
+"motion": "^12.23.24",
+"react": "^19.0.1",
+"react-dom": "^19.0.1",
+"vite": "^6.2.3"
 }
 ```
 

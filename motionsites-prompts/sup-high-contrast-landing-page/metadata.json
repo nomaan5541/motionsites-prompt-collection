@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-high-contrast-landing-page",
+    "title": "[Superdesign] High Contrast Landing Page",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Landing Pages",
+    "page_type": "superdesign",
+    "sort_order": 3001,
+    "image_preview_url": "/assets/superdesign/high-contrast-landing-page.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "landing page",
+      "style"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

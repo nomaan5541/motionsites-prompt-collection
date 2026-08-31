@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "real-time-alerts",
+    "title": "Real-Time Alerts",
+    "category": "Sign in",
+    "page_type": "hero",
+    "sort_order": 868,
+    "image_preview_url": "/assets/previews/real-time-alerts.webp",
+    "video_preview_url": "/assets/previews/real-time-alerts.mp4",
+    "is_free": true,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

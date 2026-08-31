@@ -1,0 +1,24 @@
+{
+  "record": {
+    "id": "sup-gesture-first-navigation-system",
+    "title": "[Superdesign] Gesture First Navigation System",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Mobile Apps",
+    "page_type": "superdesign",
+    "sort_order": 3066,
+    "image_preview_url": "/assets/superdesign/gesture-first-navigation-system.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 4,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "navigation",
+      "layout"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -8,7 +8,7 @@ Build a single React + TypeScript + Tailwind + framer-motion section called `Cor
 - Dark theme. Page background `#000000` (set on `body`).
 - Font: **Inter** (Google Fonts, weights 300–700) as default sans.
 - Icons: **Material Symbols Rounded** via Google Fonts link:
-  `https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200`
+`https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200`
 - Tailwind tokens (HSL): `--background: 270 80% 3%;` `--foreground: 0 0% 100%;` mapped to `background` / `foreground`.
 - Extra Tailwind color: `landing.surface: rgba(255,255,255,0.10)`.
 
@@ -22,10 +22,10 @@ export const cn = (...i: ClassValue[]) => twMerge(clsx(i));
 ## Material Icon component (`MIcon`)
 ```tsx
 export const MIcon = ({ name, size = 16, className = "" }:{name:string;size?:number;className?:string}) => (
-  <span
-    className={`material-symbols-rounded ${className}`}
-    style={{ fontSize: size, fontVariationSettings: `"FILL" 0, "wght" 400, "GRAD" 0, "opsz" ${size}` }}
-  >{name}</span>
+<span
+className={`material-symbols-rounded ${className}`}
+style={{ fontSize: size, fontVariationSettings: `"FILL" 0, "wght" 400, "GRAD" 0, "opsz" ${size}` }}
+>{name}</span>
 );
 ```
 
@@ -38,11 +38,11 @@ export const MIcon = ({ name, size = 16, className = "" }:{name:string;size?:num
 - Absolutely positioned `<span>` overlay with:
 ```ts
 {
-  background: `radial-gradient(${size}px circle at var(--spot-x,-200px) var(--spot-y,-200px), rgba(255,255,255,${intensity}), rgba(255,255,255,0) 60%)`,
-  padding: "1px",
-  WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-  WebkitMaskComposite: "xor",
-  maskComposite: "exclude",
+background: `radial-gradient(${size}px circle at var(--spot-x,-200px) var(--spot-y,-200px), rgba(255,255,255,${intensity}), rgba(255,255,255,0) 60%)`,
+padding: "1px",
+WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+WebkitMaskComposite: "xor",
+maskComposite: "exclude",
 }
 ```
 - Props: `radius`, `size` (px), `intensity` (0–1). Used three times in this section with sizes 360/600/360 and intensity 0.5.
@@ -50,18 +50,18 @@ export const MIcon = ({ name, size = 16, className = "" }:{name:string;size?:num
 ## Tab data (exact URLs, order matters)
 ```ts
 const tabs = [
-  { label: "Exclusive Tutorial",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222821_06fd2e74-16a5-4e7f-90ed-14e6760e7edb.png&w=1280&q=85",
-    caption: "Step-by-step guides to master AI design tools." },
-  { label: "Courses",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222901_b133c5f0-191c-4285-a018-a68fd9c9f5ac.png&w=1280&q=85",
-    caption: "Structured learning paths to level up your skills." },
-  { label: "Templates",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_225713_3226e3ad-3364-42b1-99bd-ed82005c0524.png&w=1280&q=85",
-    caption: "Production-ready designs you can customize instantly." },
-  { label: "Animated Backgrounds",
-    image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222832_223716d0-9b6c-4c48-98a6-a5e3c02e2962.png&w=1280&q=85",
-    caption: "Motion-ready visuals that bring your projects to life." },
+{ label: "Exclusive Tutorial",
+image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222821_06fd2e74-16a5-4e7f-90ed-14e6760e7edb.png&w=1280&q=85",
+caption: "Step-by-step guides to master AI design tools." },
+{ label: "Courses",
+image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222901_b133c5f0-191c-4285-a018-a68fd9c9f5ac.png&w=1280&q=85",
+caption: "Structured learning paths to level up your skills." },
+{ label: "Templates",
+image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_225713_3226e3ad-3364-42b1-99bd-ed82005c0524.png&w=1280&q=85",
+caption: "Production-ready designs you can customize instantly." },
+{ label: "Animated Backgrounds",
+image: "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260521_222832_223716d0-9b6c-4c48-98a6-a5e3c02e2962.png&w=1280&q=85",
+caption: "Motion-ready visuals that bring your projects to life." },
 ];
 ```
 
@@ -74,13 +74,13 @@ const tabs = [
 
 ```tsx
 <section className="relative w-full bg-background py-12 sm:py-16">
-  <div className="mx-auto max-w-[1180px] px-4 sm:px-6">
+<div className="mx-auto max-w-[1180px] px-4 sm:px-6">
 ```
 
 ### Header row (flex, stacks on mobile)
 - Left column `max-w-2xl`:
-  - Pill (FadeUp d=0): `inline-flex items-center gap-2 rounded-full bg-landing-surface border border-white/10 px-3 py-1 text-xs text-foreground/80 backdrop-blur` with `1.5x1.5` dot `bg-foreground/70` + text "Core Features".
-  - Heading (FadeUp d=0.1): `text-3xl sm:text-4xl font-normal tracking-[-0.02em] leading-[1.05] text-foreground`. Content: `One platform to run your<br className="hidden sm:block"/><span className="text-foreground/55"> entire AI design journey.</span>`
+- Pill (FadeUp d=0): `inline-flex items-center gap-2 rounded-full bg-landing-surface border border-white/10 px-3 py-1 text-xs text-foreground/80 backdrop-blur` with `1.5x1.5` dot `bg-foreground/70` + text "Core Features".
+- Heading (FadeUp d=0.1): `text-3xl sm:text-4xl font-normal tracking-[-0.02em] leading-[1.05] text-foreground`. Content: `One platform to run your<br className="hidden sm:block"/><span className="text-foreground/55"> entire AI design journey.</span>`
 - Right (FadeUp d=0.2, `max-w-sm md:pt-2`): paragraph `text-sm sm:text-base leading-relaxed text-foreground/65`: "UI Rocket brings your lessons, templates, tools, and community into one space — so you stop switching between tabs and start shipping real AI-powered work."
 - Wrapper: `mb-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between`.
 
@@ -120,11 +120,11 @@ Inner card (the 900×562 box): `flex overflow-hidden rounded-2xl bg-white/[0.04]
 
 ### Sidebar (`w-[210px]`, `flex flex-col gap-1 p-3`)
 - Brand row: `mb-3 flex items-center justify-between px-2 py-2`.
-  - Left: icon box `flex h-6 w-6 items-center justify-center rounded-md` with inline gradient `linear-gradient(135deg, rgb(158,103,250), rgb(254,106,187) 50%, rgb(255,156,101))`, `MIcon "rocket_launch" size={14} className="text-white"`, label `text-[13px] font-semibold text-white` = "UI Rocket".
-  - Right: `MIcon "search" size={14} className="text-white/40"`.
+- Left: icon box `flex h-6 w-6 items-center justify-center rounded-md` with inline gradient `linear-gradient(135deg, rgb(158,103,250), rgb(254,106,187) 50%, rgb(255,156,101))`, `MIcon "rocket_launch" size={14} className="text-white"`, label `text-[13px] font-semibold text-white` = "UI Rocket".
+- Right: `MIcon "search" size={14} className="text-white/40"`.
 - Nav list (`flex flex-col gap-0.5`). Items:
-  Dashboard/`grid_view`, Courses/`school`, Templates/`dashboard`, Tutorials/`play_circle`, Backgrounds/`auto_awesome`, Pricing/`sell`.
-  Item base: `flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[12px] transition-colors`. Active: `bg-white/[0.08] text-white`. Inactive: `text-white/55 hover:text-white/80`. Icon size 14.
+Dashboard/`grid_view`, Courses/`school`, Templates/`dashboard`, Tutorials/`play_circle`, Backgrounds/`auto_awesome`, Pricing/`sell`.
+Item base: `flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-[12px] transition-colors`. Active: `bg-white/[0.08] text-white`. Inactive: `text-white/55 hover:text-white/80`. Icon size 14.
 
 ### Main column (`flex min-w-0 flex-1 flex-col p-3`)
 Inside: `flex h-full w-full flex-col overflow-hidden rounded-2xl bg-black/20`.
@@ -144,19 +144,19 @@ Each panel fills the body with a small grid of cards in the same monochrome whit
 
 Assets (use exact URLs):
 - Play icon SVG:
-  `https://miptxtnhvjrkpmnjgdhk.supabase.co/storage/v1/object/public/training-assets/landing/play_icon.svg`
+`https://miptxtnhvjrkpmnjgdhk.supabase.co/storage/v1/object/public/training-assets/landing/play_icon.svg`
 - Module / template cover thumbnails (cycle through):
-  - `https://miptxtnhvjrkpmnjgdhk.supabase.co/storage/v1/object/public/training-assets/landing/module-cover-1.png`
-  - `.../module-cover-2.png`
-  - `.../module-cover-3.png`
-  - `.../module-cover-4.png`
-  - `.../module-cover-5.png`
-  - `.../module-cover-6.png`
+- `https://miptxtnhvjrkpmnjgdhk.supabase.co/storage/v1/object/public/training-assets/landing/module-cover-1.png`
+- `.../module-cover-2.png`
+- `.../module-cover-3.png`
+- `.../module-cover-4.png`
+- `.../module-cover-5.png`
+- `.../module-cover-6.png`
 - Tutorial thumbnails: reuse the four `images.higgs.ai` URLs from the tabs array.
 - Background videos (CloudFront, use as `<video>` `src`):
-  - `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260521_014404_bg1.mp4`
-  - `.../hf_20260521_014404_bg2.mp4` … through `bg6.mp4`
-  (If a specific URL 404s, fall back to the matching higgs.ai poster image as a static tile.)
+- `https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260521_014404_bg1.mp4`
+- `.../hf_20260521_014404_bg2.mp4` … through `bg6.mp4`
+(If a specific URL 404s, fall back to the matching higgs.ai poster image as a static tile.)
 
 ## Putting it together
 ```tsx

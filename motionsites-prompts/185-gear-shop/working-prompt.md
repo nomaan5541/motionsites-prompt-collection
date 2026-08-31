@@ -32,14 +32,14 @@ Build a static Vite HTML page that displays 3 iPhone 15 Pro mockup screens side 
 - Full-bleed cover image: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-4.d020e935.png` with Ken Burns animation (scale 1.16 to 1 over 16s) + fade in over 1.4s.
 - **"20 new arrivals" badge**: absolute `top: 62px; left: 24px`, white pill (`border-radius: 999px`), `padding: 12px 20px`, `font-size: 13px`, `font-weight: 500`, with fire emoji. Shadow: `0 8px 20px rgba(160, 80, 70, 0.18)`. Animates in from left.
 - **Play button**: absolute `top: 268px; right: 19px`, `120x124px` SVG with:
-  - Two concentric stroke circles (`#FFE8DD`, r=64.4 and r=44.4)
-  - Radial gradient glow ring (r=40)
-  - Solid radial gradient button (r=30.5) going from `#FCB6AD` center to `#E5665B` edge
-  - White play triangle with glow filter (`feGaussianBlur stdDeviation="3.2"`)
-  - Pop animation (scale 0.8 to 1 with spring easing `cubic-bezier(0.34, 1.5, 0.5, 1)`)
+- Two concentric stroke circles (`#FFE8DD`, r=64.4 and r=44.4)
+- Radial gradient glow ring (r=40)
+- Solid radial gradient button (r=30.5) going from `#FCB6AD` center to `#E5665B` edge
+- White play triangle with glow filter (`feGaussianBlur stdDeviation="3.2"`)
+- Pop animation (scale 0.8 to 1 with spring easing `cubic-bezier(0.34, 1.5, 0.5, 1)`)
 - **Headline**: absolute `left: 28px; bottom: 150px`
-  - Line 1: "- old tracks -" (using centered dots), `font-size: 32px`, `font-weight: 200`, color `#d6837b`, `-webkit-text-stroke: 1.5px #d6837b`
-  - Line 2: "With new sounds", `font-size: 75px`, `line-height: 0.95`, `font-weight: 500`, white, `text-shadow: 0 2px 18px rgba(120, 40, 30, 0.18)`
+- Line 1: "- old tracks -" (using centered dots), `font-size: 32px`, `font-weight: 200`, color `#d6837b`, `-webkit-text-stroke: 1.5px #d6837b`
+- Line 2: "With new sounds", `font-size: 75px`, `line-height: 0.95`, `font-weight: 500`, white, `text-shadow: 0 2px 18px rgba(120, 40, 30, 0.18)`
 
 ---
 
@@ -47,18 +47,18 @@ Build a static Vite HTML page that displays 3 iPhone 15 Pro mockup screens side 
 
 - Background: `#fdbdb4`
 - **Top bar** (below status bar, `padding: 62px 24px 20px 24px`):
-  - Search pill: white, `border-radius: 999px`, `height: 52px`, with search icon SVG (`stroke-width: 2.5`) + "search" text
-  - Avatar: `52px` circle, image from `https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=120&h=120&fit=crop&crop=faces`
+- Search pill: white, `border-radius: 999px`, `height: 52px`, with search icon SVG (`stroke-width: 2.5`) + "search" text
+- Avatar: `52px` circle, image from `https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=120&h=120&fit=crop&crop=faces`
 - **Content sheet**: `background: #FBE7E2`, `border-radius: 60px 60px 0 0`, `margin-top: 26px`, `padding: 56px 20px 0 20px`
-  - "New arrivals" heading: `font-size: 38px`, `font-weight: 400`, `-webkit-text-stroke: 0.6px #111111`, line break between "New" and "arrivals"
-  - Hamburger menu icon SVG (3 lines of decreasing length)
-  - **Filter pills row**: "All" (filled black `#111111`, white text), "Headphones" and "Speakers" (transparent with `1.5px solid #111111` border). All `font-size: 16px`, `padding: 15px 28-30px`, `border-radius: 999px`.
-  - **Product grid**: 2-column CSS grid, `gap: 14px`, each card is `background: #f2cfcb`, `border-radius: 26px`, centered content:
-    - Airpods Pro: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-3.82d4333a.png` -- $499.00
-    - Speakers: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-2.04df17d2.png` -- $359.00
-    - Headphones: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image.a862e80a.png` -- $650.00
-    - Earphones: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-1.3ff69aba.png` -- $60.00
-    - Product names: `17px`, `font-weight: 500`, `#111111`. Prices: `14px`, `font-weight: 600`, `#7c6a66`, system font.
+- "New arrivals" heading: `font-size: 38px`, `font-weight: 400`, `-webkit-text-stroke: 0.6px #111111`, line break between "New" and "arrivals"
+- Hamburger menu icon SVG (3 lines of decreasing length)
+- **Filter pills row**: "All" (filled black `#111111`, white text), "Headphones" and "Speakers" (transparent with `1.5px solid #111111` border). All `font-size: 16px`, `padding: 15px 28-30px`, `border-radius: 999px`.
+- **Product grid**: 2-column CSS grid, `gap: 14px`, each card is `background: #f2cfcb`, `border-radius: 26px`, centered content:
+- Airpods Pro: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-3.82d4333a.png` -- $499.00
+- Speakers: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-2.04df17d2.png` -- $359.00
+- Headphones: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image.a862e80a.png` -- $650.00
+- Earphones: `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image-1.3ff69aba.png` -- $60.00
+- Product names: `17px`, `font-weight: 500`, `#111111`. Prices: `14px`, `font-weight: 600`, `#7c6a66`, system font.
 - **Floating cart pill**: absolute centered bottom `26px`, black `#111111` pill, "$1080.00" in white `13px font-weight: 300` + white circle with shopping bag SVG icon + small red dot indicator (`#e2574c`, 5px). Shadow: `0 12px 28px rgba(60, 20, 15, 0.35)`.
 
 ---
@@ -69,14 +69,14 @@ Build a static Vite HTML page that displays 3 iPhone 15 Pro mockup screens side 
 - **Top bar**: flex space-between, `padding: 62px 28px 0 28px`. Left: 3 white vertical dots SVG. Right: white hamburger icon SVG.
 - **Product image**: centered, `330x330px`, `https://order-twine-70493179.figma.site/_components/v2/1fb0bd10fd40f9a9e279e8076f3762dd0f7d9889/image.a862e80a.png`, scale-in animation.
 - **Color swatches row**: 4 items, each `72x72px`, `border-radius: 22px`, `background: #FBDFD9`, containing a `42px` circle with `11px` colored border:
-  - Navy blue: `#1e3a6e`
-  - Green: `#9fd6a0`
-  - Gray: `#c9c2c0`
-  - Coral: `#ef8177`
+- Navy blue: `#1e3a6e`
+- Green: `#9fd6a0`
+- Gray: `#c9c2c0`
+- Coral: `#ef8177`
 - **Bottom sheet**: `background: #FBE7E2`, `border-radius: 60px 60px 0 0`, `margin-top: 28px`, `padding: 34px 26px 44px 26px`
-  - "Apple Airpods" heading: `font-size: 45px`, `font-weight: 400`, `-webkit-text-stroke: 0.5px #111111`
-  - Description: "A mesh textile wraps the ear cushions to provide pillow-like softness", `font-size: 18px`, `line-height: 1.5`, color `#b0a6a1`
-  - Footer row: "$499.00" (`22px`, `font-weight: 500`, system font) + "Add to cart" pill (`background: #F6C6BE`, `border-radius: 999px`) with shopping bag SVG icon
+- "Apple Airpods" heading: `font-size: 45px`, `font-weight: 400`, `-webkit-text-stroke: 0.5px #111111`
+- Description: "A mesh textile wraps the ear cushions to provide pillow-like softness", `font-size: 18px`, `line-height: 1.5`, color `#b0a6a1`
+- Footer row: "$499.00" (`22px`, `font-weight: 500`, system font) + "Add to cart" pill (`background: #F6C6BE`, `border-radius: 999px`) with shopping bag SVG icon
 
 ---
 

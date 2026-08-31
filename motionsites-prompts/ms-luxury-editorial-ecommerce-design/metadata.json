@@ -1,0 +1,21 @@
+{
+  "record": {
+    "id": "luxury-editorial-ecommerce-design",
+    "title": "Luxury Ecommerce Design",
+    "category": "Landing Page",
+    "page_type": "landing",
+    "sort_order": 848,
+    "image_preview_url": "/assets/previews/luxury-editorial-ecommerce-design.webp",
+    "video_preview_url": null,
+    "is_free": false,
+    "types": [
+      "MotionSites",
+      "React",
+      "Tailwind",
+      "Framer Motion"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "record": {
+    "id": "sup-hyperspeed-background",
+    "title": "[Superdesign] Hyperspeed Background",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Animations & Backgrounds",
+    "page_type": "superdesign",
+    "sort_order": 3050,
+    "image_preview_url": null,
+    "video_preview_url": "/assets/superdesign/hyperspeed-background.mp4",
+    "is_free": true,
+    "deslop_score": 2,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "animation",
+      "background"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

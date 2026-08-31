@@ -1,11 +1,3 @@
-# Urban Jungle
-
-**ID:** urban-jungle-hero  
-**Category:** Landing Page  
-**Type:** hero  
-
----
-
 Build a scroll-driven hero section landing page using React 19, Vite, Tailwind CSS v4 (using @tailwindcss/vite plugin), GSAP (with ScrollTrigger + ScrollToPlugin), hls.js, and react-router-dom (BrowserRouter). The page body is black with white text. The root container is 500vh tall.
 
 SETUP
@@ -26,34 +18,34 @@ Tailwind v4 theme (index.css):
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-dirtyline: "Dirtyline36Daysoftype2022", sans-serif;
-  --animate-marquee: marquee 20s linear infinite;
-  @keyframes marquee {
-    100% { transform: translateX(-50%); }
-  }
+--font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+--font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+--font-dirtyline: "Dirtyline36Daysoftype2022", sans-serif;
+--animate-marquee: marquee 20s linear infinite;
+@keyframes marquee {
+100% { transform: translateX(-50%); }
+}
 }
 
 @font-face {
-  font-family: 'Dirtyline36Daysoftype2022';
-  src: url('/Dirtyline-36daysoftype-2022.woff2') format('woff2');
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-  font-display: swap;
+font-family: 'Dirtyline36Daysoftype2022';
+src: url('/Dirtyline-36daysoftype-2022.woff2') format('woff2');
+font-style: normal;
+font-weight: normal;
+text-rendering: optimizeLegibility;
+font-display: swap;
 }
 
 body {
-  background-color: black;
-  color: white;
+background-color: black;
+color: white;
 }
 
 LAYER 1: BACKGROUND -- ScrollVideo Component
 A full-screen fixed video background that scrubs its playback position based on scroll progress (scroll at top = frame 0, scroll at bottom = last frame).
 
-Video source (Mux HLS stream):
-https://stream.mux.com/43NlHXsaMrmyzWamMk87m01fNyxSTekAD669BBAPBNm00.m3u8
+Video source :
+https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260709_080129_da34b00e-a5db-47dd-81a1-cccad79ac1ac.mp4
 
 Props: src (string), className (string)
 
@@ -64,6 +56,8 @@ For Safari (native HLS), set video.src = src directly.
 Track buffer progress via FRAG_BUFFERED event, calculating (bufferedEnd / duration) * 100.
 The <video> element is rendered directly (no canvas). Classes: w-full h-full object-cover scale-[1.35]. Attributes: muted, playsInline, crossOrigin="anonymous".
 Scroll-to-seek: Use GSAP ScrollTrigger.create with trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: true. On onUpdate, calculate targetTime = self.progress * duration. Throttle seeking: track a currentTarget variable. If video.seeking is true, set seekPending = true. On the seeked event, if seekPending, call doSeek() again with the latest currentTarget. This prevents hammering the decoder.
+if (!video.seeking).
+Тепер ми кажемо браузеру: "Оновлюй кадр відео ТІЛЬКИ тоді, коли ти повністю закінчив малювати попередній"."
 Mouse parallax on video wrapper: On mousemove, GSAP tweens the wrapper's x/y by moveX * -30 and moveY * -30, where moveX/moveY are normalized mouse offset from center (-1 to 1). Duration: 1.5, ease: power2.out.
 Loading overlay: Show a fixed, z-50, centered black overlay with "Loading... {progress}%" in white, text-2xl font-sans. Hide once canplay fires.
 Wrapper div classes: fixed top-0 left-0 w-full h-full z-0 scale-[1.05] origin-center
@@ -169,6 +163,6 @@ APP COMPONENT ASSEMBLY
 <ScrollVideo src="https://stream.mux.com/43NlHXsaMrmyzWamMk87m01fNyxSTekAD669BBAPBNm00.m3u8" />
 <PillNav />
 <div style={{ position: "relative", height: "500vh" }}>
-  <ScrollFloat>{`Unleash The\nFull Power`}</ScrollFloat>
-  <GlassPanel />
+<ScrollFloat>{`Unleash The\nFull Power`}</ScrollFloat>
+<GlassPanel />
 </div>

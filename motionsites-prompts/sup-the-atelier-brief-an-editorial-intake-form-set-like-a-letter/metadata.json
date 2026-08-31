@@ -1,0 +1,34 @@
+{
+  "record": {
+    "id": "sup-the-atelier-brief-an-editorial-intake-form-set-like-a-letter",
+    "title": "[Superdesign] The Atelier Brief — an editorial intake form, set like a letter",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3074,
+    "image_preview_url": "/assets/superdesign/the-atelier-brief-an-editorial-intake-form-set-like-a-letter.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 8,
+    "tags": [
+      "Superdesign",
+      "form",
+      "contact-form",
+      "intake-form",
+      "editorial",
+      "serif",
+      "fraunces",
+      "inter",
+      "burgundy",
+      "cream",
+      "underline-input",
+      "minimal",
+      "two-column",
+      "landing-page"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

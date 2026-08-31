@@ -1,0 +1,28 @@
+{
+  "record": {
+    "id": "sup-ink-and-acid-mono-sitemap-footer",
+    "title": "[Superdesign] Ink & Acid Mono Sitemap Footer",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Forms & Contact",
+    "page_type": "superdesign",
+    "sort_order": 3086,
+    "image_preview_url": "/assets/superdesign/ink-and-acid-mono-sitemap-footer.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 6,
+    "tags": [
+      "Superdesign",
+      "footer",
+      "mega-footer",
+      "newsletter",
+      "dark",
+      "acid-green",
+      "mono",
+      "responsive"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "record": {
+    "id": "sup-verdance-agency-website-design-studio-dark-emerald",
+    "title": "[Superdesign] Verdance — Agency Website Design Studio (Dark Emerald)",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Portfolios",
+    "page_type": "superdesign",
+    "sort_order": 3122,
+    "image_preview_url": "/assets/superdesign/verdance-agency-website-design-studio-dark-emerald.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 9,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "agency-website",
+      "design-studio",
+      "dark-emerald",
+      "forest-green",
+      "brass",
+      "gold-accent",
+      "editorial",
+      "portfolio",
+      "marketing-site",
+      "landing-page",
+      "inter",
+      "fraunces",
+      "serif-accent",
+      "giant-headline",
+      "sticky-nav",
+      "marquee",
+      "work-grid",
+      "responsive",
+      "awwwards",
+      "dark"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}

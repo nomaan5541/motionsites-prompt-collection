@@ -1,0 +1,27 @@
+{
+  "record": {
+    "id": "sup-volt-electric-lime-fitness-dashboard-a7544c",
+    "title": "[Superdesign] Volt — Electric-Lime Fitness Dashboard",
+    "category": "Superdesign Canvas",
+    "originalCategory": "Dashboards",
+    "page_type": "superdesign",
+    "sort_order": 3098,
+    "image_preview_url": "/assets/superdesign/volt-electric-lime-fitness-dashboard-a7544c.png",
+    "video_preview_url": null,
+    "is_free": true,
+    "deslop_score": 8,
+    "visual_score": 9,
+    "tags": [
+      "Superdesign",
+      "mobile app",
+      "fitness",
+      "health",
+      "dashboard",
+      "activity rings",
+      "dark mode"
+    ]
+  },
+  "workingPrompt": {
+    "mode": "original"
+  }
+}
