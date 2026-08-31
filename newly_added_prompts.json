@@ -1,0 +1,821 @@
+{
+  "superdesign": [
+    {
+      "id": "sup-anim-01",
+      "title": "[Superdesign] Interactive Canvas Motion & Micro-interactions",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-tubes-interactive-background",
+      "title": "[Superdesign] Tubes Interactive Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-anim-02",
+      "title": "[Superdesign] Glassmorphism UI Component Suite",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-high-contrast-landing-page",
+      "title": "[Superdesign] High Contrast Landing Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-anim-03",
+      "title": "[Superdesign] AI Prompt-to-Mockup Flow Generator",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-lumina-saas-landing-page",
+      "title": "[Superdesign] Lumina SaaS Landing Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-red-noir-style",
+      "title": "[Superdesign] Red Noir Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-anim-04",
+      "title": "[Superdesign] SaaS Hero & Interactive Feature Showcase",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-anim-05",
+      "title": "[Superdesign] Dark / Light Mode Theme Switching Engine",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-deep-red-style-5b01cb",
+      "title": "[Superdesign] Deep Red Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-glassmorphism-style",
+      "title": "[Superdesign] Glassmorphism Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-mosaic-grid-architecture-style",
+      "title": "[Superdesign] Mosaic Grid Architecture Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-softly-digital-wellness-app",
+      "title": "[Superdesign] Softly - Digital Wellness App",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-neural-noir-interface-style",
+      "title": "[Superdesign] Neural Noir Interface Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cinematic-style",
+      "title": "[Superdesign] Cinematic Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-kinetic-orange-style",
+      "title": "[Superdesign] Kinetic Orange Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-luxury-focused-design-system",
+      "title": "[Superdesign] Luxury-focused Design System",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-brutalist-e-commerce-page",
+      "title": "[Superdesign] Brutalist E-commerce Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-nature-inspired-style",
+      "title": "[Superdesign] Nature Inspired Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-bold-editorial-studio-style",
+      "title": "[Superdesign] Bold Editorial Studio Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-neumorphism",
+      "title": "[Superdesign] Neumorphism",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-the-stacking-cards-effect",
+      "title": "[Superdesign] The \"Stacking Cards\" Effect",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-synapse",
+      "title": "[Superdesign] Synapse",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-bold-editorial-style",
+      "title": "[Superdesign] Bold Editorial Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-babybites-sophisticated-palette",
+      "title": "[Superdesign] BabyBites - Sophisticated Palette",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-hyper-saturated-fluid",
+      "title": "[Superdesign] Hyper-Saturated Fluid",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-saas-landing-page-for-developer-tool",
+      "title": "[Superdesign] SaaS Landing Page for Developer Tool",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-midnight-editorial-style-5f0a22",
+      "title": "[Superdesign] Midnight Editorial Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-hyper-speed-loading-state",
+      "title": "[Superdesign] Hyper-Speed Loading State",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-chrome-extension-landing-page",
+      "title": "[Superdesign] Chrome Extension Landing Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cinematic-noir-style",
+      "title": "[Superdesign] Cinematic Noir Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-minimalist-beta-capture",
+      "title": "[Superdesign] Minimalist Beta Capture",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-card-swap",
+      "title": "[Superdesign] Card Swap",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-brutalist-style-ecommerce-page",
+      "title": "[Superdesign] Brutalist Style Ecommerce Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-superdesign-editorial-waitlist",
+      "title": "[Superdesign] Superdesign Editorial Waitlist",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-hover-reveal-effect",
+      "title": "[Superdesign] Hover reveal effect",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-force-field-background",
+      "title": "[Superdesign] Force Field Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-scroll-journey-line",
+      "title": "[Superdesign] Scroll Journey Line",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-neon-velocity-countdown",
+      "title": "[Superdesign] Neon Velocity Countdown",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-gooey-gradient-background",
+      "title": "[Superdesign] Gooey Gradient Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-horizontal-gallery",
+      "title": "[Superdesign] Horizontal Gallery",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-disruptor-beta-launch",
+      "title": "[Superdesign] Disruptor Beta Launch",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-bold-editorial-design-style",
+      "title": "[Superdesign] Bold Editorial Design Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-light-beam-button",
+      "title": "[Superdesign] Light Beam Button",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-ghost-cursor",
+      "title": "[Superdesign] Ghost Cursor",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-aura-audio-showroom",
+      "title": "[Superdesign] Aura Audio Showroom",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-interactive-folder",
+      "title": "[Superdesign] Interactive Folder",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-architectural-type-system-style",
+      "title": "[Superdesign] Architectural Type System Style",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-parallax-stars-background",
+      "title": "[Superdesign] Parallax Stars Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-typing-animation",
+      "title": "[Superdesign] Typing animation",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-shiny-text",
+      "title": "[Superdesign] Shiny Text",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-pill-nav",
+      "title": "[Superdesign] Pill Nav",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-exploded-view-assembly",
+      "title": "[Superdesign] \"Exploded View\" Assembly",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-rolodex-text",
+      "title": "[Superdesign] Rolodex Text",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-lightning-background",
+      "title": "[Superdesign] Lightning Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-hyperspeed-background",
+      "title": "[Superdesign] Hyperspeed Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-light-rays-background",
+      "title": "[Superdesign] Light Rays Background",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-glow-cursor-button",
+      "title": "[Superdesign] Glow Cursor Button",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-interactive-card-stack",
+      "title": "[Superdesign] Interactive Card Stack",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-counter",
+      "title": "[Superdesign] Counter",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-coverflow-carousels-that-turn-heads-dark-coverflow-aurora",
+      "title": "[Superdesign] Coverflow — Carousels that turn heads (dark coverflow aurora)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-aurora-glass-sign-in-to-the-canvas",
+      "title": "[Superdesign] Aurora Glass — Sign in to the canvas",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-graphic-comparison-report",
+      "title": "[Superdesign] Graphic Comparison Report",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-gridwright-design-the-web-type-the-prompt-swiss-grid-signal-red",
+      "title": "[Superdesign] Gridwright — Design the web, type the prompt (Swiss Grid / Signal Red)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-landing-page-local-small-business",
+      "title": "[Superdesign] Landing Page / Local Small Business",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-palette-social-first-friendly-sign-up",
+      "title": "[Superdesign] Palette — Social-first friendly sign-up",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-super-shampoo-high-conversion-lp",
+      "title": "[Superdesign] Super Shampoo - High Conversion LP",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-slate-roi-calculator-pricing",
+      "title": "[Superdesign] Slate ROI-Calculator Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-the-quote-set-in-burgundy",
+      "title": "[Superdesign] The Quote, Set in Burgundy",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-prism-frosted-glass-pastel-agency-studio",
+      "title": "[Superdesign] Prism — Frosted-Glass Pastel Agency Studio",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-teal-on-ink-newsletter-mega-footer",
+      "title": "[Superdesign] Teal-on-Ink Newsletter Mega Footer",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-gesture-first-navigation-system",
+      "title": "[Superdesign] Gesture First Navigation System",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-cream-ink-two-path-saas-pricing-3dee65",
+      "title": "[Superdesign] Editorial Cream + Ink Two-Path SaaS Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-electric-lime-single-plan-saas-pricing",
+      "title": "[Superdesign] Electric-Lime Single-Plan SaaS Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-electric-blue-studio-pricing-188a8f",
+      "title": "[Superdesign] Electric-Blue Studio Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-account-setup-flow-goals-interests-card-based",
+      "title": "[Superdesign] Account Setup Flow — Goals / Interests (Card-Based)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-sectioned-index-page",
+      "title": "[Superdesign] Sectioned Index Page",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-electric-dark-usage-based-pricing-calculator-20e556",
+      "title": "[Superdesign] Electric Dark Usage-Based Pricing Calculator",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-emerald-4-tier-saas-pricing-table",
+      "title": "[Superdesign] Emerald 4-Tier SaaS Pricing Table",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-the-atelier-brief-an-editorial-intake-form-set-like-a-letter",
+      "title": "[Superdesign] The Atelier Brief — an editorial intake form, set like a letter",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-send-us-the-brief-brutalist-contact-form",
+      "title": "[Superdesign] Send Us the Brief — Brutalist Contact Form",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-music-player-now-playing",
+      "title": "[Superdesign] Editorial Music Player (Now Playing)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cream-and-sky-playful-saas-pricing",
+      "title": "[Superdesign] Cream & Sky Playful SaaS Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-crimson-dev-tool-pricing",
+      "title": "[Superdesign] Editorial Crimson Dev-Tool Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-card-grid-browse",
+      "title": "[Superdesign] Card Grid Browse",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-acid-yellow-neo-brutalist-mega-footer",
+      "title": "[Superdesign] Acid-Yellow Neo-Brutalist Mega Footer",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-validar-forms-that-catch-mistakes-before-they-cost-you",
+      "title": "[Superdesign] Validar — Forms that catch mistakes before they cost you",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-champagne-noir-paywall-65a2fd",
+      "title": "[Superdesign] Champagne Noir Paywall",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-foundry-your-saas-site-designed-before-you-write-a-line",
+      "title": "[Superdesign] Foundry: Your SaaS Site, Designed Before You Write a Line",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-loam-warm-earthy-organic-agency-website",
+      "title": "[Superdesign] Loam — Warm Earthy Organic Agency Website",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-landing-page-real-estate",
+      "title": "[Superdesign] Landing Page / Real-Estate",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-ink-and-acid-mono-sitemap-footer",
+      "title": "[Superdesign] Ink & Acid Mono Sitemap Footer",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-violet-saas-pricing-matrix",
+      "title": "[Superdesign] Editorial Violet SaaS Pricing Matrix",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-saas-onboarding",
+      "title": "[Superdesign] Editorial SaaS Onboarding",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-design-at-the-speed-of-thought-editorial-split-sign-up",
+      "title": "[Superdesign] Design at the Speed of Thought — Editorial Split Sign-Up",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-swiss-grid-agency-layout",
+      "title": "[Superdesign] Swiss Grid Agency Layout",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-create-your-account-promptly-split-image-emerald-sign-up",
+      "title": "[Superdesign] Create your account · Promptly — split-image emerald sign-up",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-laboratory-skincare",
+      "title": "[Superdesign] Laboratory Skincare",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-ai-system-configuration-console",
+      "title": "[Superdesign] AI System Configuration Console",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-midnight-navy-fintech-pricing-656a6d",
+      "title": "[Superdesign] Midnight Navy Fintech Pricing",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-minimalist-wireframe-login",
+      "title": "[Superdesign] Minimalist Wireframe Login",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-feature-announcement",
+      "title": "[Superdesign] Editorial Feature Announcement",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-modal-design-success-celebration-pastel-legibility-fixed-9fbd65",
+      "title": "[Superdesign] Modal Design · success-celebration (pastel) — legibility fixed",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-volt-electric-lime-fitness-dashboard-a7544c",
+      "title": "[Superdesign] Volt — Electric-Lime Fitness Dashboard",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-system-initialization-trust-and-transparency",
+      "title": "[Superdesign] System Initialization - Trust & Transparency",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cream-paper-and-coral-mega-footer",
+      "title": "[Superdesign] Cream Paper & Coral Mega Footer",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-welcome-back-lumen-centered-card-true-cobalt",
+      "title": "[Superdesign] Welcome back · Lumen — centered-card (true cobalt)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-atlas-studio-charting-your-account-step-one-of-three",
+      "title": "[Superdesign] Atlas Studio — Charting Your Account, Step One of Three",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-fintech-wallet-mobile-home-screen",
+      "title": "[Superdesign] Fintech Wallet — Mobile Home Screen",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-forms-that-feel-effortless-to-fill-fieldcraft",
+      "title": "[Superdesign] Forms that feel effortless to fill — Fieldcraft",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-loop-say-hello-we-dont-bite-friendly-illustrated-sky",
+      "title": "[Superdesign] Loop · Say hello, we don't bite (friendly illustrated sky)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-formcraft-workspace-settings-cobalt-two-column",
+      "title": "[Superdesign] Formcraft — Workspace Settings (cobalt two-column)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-atelier-early-access-waitlist-minimal-graphite",
+      "title": "[Superdesign] Atelier · Early Access (waitlist-minimal-graphite)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-image-lightbox",
+      "title": "[Superdesign] Editorial Image Lightbox",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-tablekit-the-data-table-your-team-actually-wants-to-live-in",
+      "title": "[Superdesign] Tablekit — The data table your team actually wants to live in",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-sunset-glow-wordmark-mega-footer",
+      "title": "[Superdesign] Sunset Glow Wordmark Mega Footer",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-atelier-design-spoken-into-being-editorial-serif-burgundy",
+      "title": "[Superdesign] Atelier — Design, Spoken Into Being (editorial serif / burgundy)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-modal-design-success-celebration-pastel-legibility-fixed",
+      "title": "[Superdesign] Modal Design · success-celebration (pastel) — legibility fixed",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-superdesign-setup-inline-preview",
+      "title": "[Superdesign] Superdesign Setup - Inline Preview",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-verify-its-you-aperture-otp-2fa-graphite-platinum",
+      "title": "[Superdesign] Verify it's you · Aperture (OTP / 2FA, graphite-platinum)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-technical-system-onboarding",
+      "title": "[Superdesign] Technical System Onboarding",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-plume-sign-in-to-your-design-canvas",
+      "title": "[Superdesign] Plume · Sign in to your design canvas",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-gen-z-social-app",
+      "title": "[Superdesign] Gen-Z Social App",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-questions-set-in-serif-an-editorial-faq",
+      "title": "[Superdesign] Questions, Set in Serif — An Editorial FAQ",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-high-energy-onboarding",
+      "title": "[Superdesign] High energy onboarding",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-sign-in-to-verdant-classic-split-emerald",
+      "title": "[Superdesign] Sign in to Verdant — Classic Split (Emerald)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-momentum-ship-your-startup-launch-before-the-idea-cools",
+      "title": "[Superdesign] Momentum — Ship Your Startup Launch Before the Idea Cools",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-verdance-agency-website-design-studio-dark-emerald",
+      "title": "[Superdesign] Verdance — Agency Website Design Studio (Dark Emerald)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-system-interface-feature-announcement",
+      "title": "[Superdesign] System Interface Feature Announcement",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-forge-launch-waitlist-dark-warm-ember",
+      "title": "[Superdesign] Forge — Launch Waitlist (dark, warm-ember)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-multi-step-form-flow",
+      "title": "[Superdesign] Multi-step Form Flow",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-workspace-settings-formcraft-two-column-cobalt",
+      "title": "[Superdesign] Workspace Settings · Formcraft (two-column, cobalt)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-ledgerline-deep-teal-mint-fintech-startup-dashboard-hero",
+      "title": "[Superdesign] Ledgerline — Deep-Teal + Mint Fintech Startup (Dashboard Hero)",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-skeuomorphism-music-player-tactile-leather-and-brass-now-playing-ui",
+      "title": "[Superdesign] Skeuomorphism Music Player: Tactile Leather and Brass Now Playing UI",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-coral-gradient-product-launch-email",
+      "title": "[Superdesign] Coral Gradient Product-Launch Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-editorial-serif-receipt-email",
+      "title": "[Superdesign] Editorial Serif Receipt Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cinematic-editorial-newsletter-email",
+      "title": "[Superdesign] Cinematic Editorial Newsletter Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-cinematic-grayscale-newsletter-email",
+      "title": "[Superdesign] Cinematic Grayscale Newsletter Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-red-on-cream-editorial-announcement-email",
+      "title": "[Superdesign] Red-on-Cream Editorial Announcement Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-movie-poster-film-premiere-invite-email",
+      "title": "[Superdesign] Movie-Poster Film Premiere Invite Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-folded-paper-club-invite-email",
+      "title": "[Superdesign] Folded-Paper Club Invite Email",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-warm-terracotta-ai-chat-interface",
+      "title": "[Superdesign] Warm Terracotta AI Chat Interface",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-glassmorphism-dashboard-frosted-sunrise-analytics-ui",
+      "title": "[Superdesign] Glassmorphism Dashboard: Frosted Sunrise Analytics UI",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-claymorphism-mobile-app-pastel-habit-tracker-home",
+      "title": "[Superdesign] Claymorphism Mobile App: Pastel Habit Tracker Home",
+      "category": "Superdesign Canvas"
+    },
+    {
+      "id": "sup-calendar-ui-warm-editorial-week-planner",
+      "title": "[Superdesign] Calendar UI: Warm Editorial Week Planner",
+      "category": "Superdesign Canvas"
+    }
+  ],
+  "motionsites_new_and_recovered": [
+    {
+      "id": "ember-dsgn-hero",
+      "title": "ember dsgn hero",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "faq-cta",
+      "title": "FAQ CTA",
+      "category": "CTA"
+    },
+    {
+      "id": "guardnet-landing",
+      "title": "guardnet landing",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "layered-depth",
+      "title": "Layered Depth",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "retro-futurist",
+      "title": "Retro Futurist",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "ai-workflow-agents",
+      "title": "AI Workflow Agents",
+      "category": "SaaS"
+    },
+    {
+      "id": "church-community",
+      "title": "Church Community",
+      "category": "Community"
+    },
+    {
+      "id": "club-x-investors",
+      "title": "ClubX Investors",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "design-pro-academy",
+      "title": "DesignPro Academy",
+      "category": "Hero Sections"
+    },
+    {
+      "id": "f1-racing-hub",
+      "title": "F1 Racing Hub",
+      "category": "Mobile App"
+    },
+    {
+      "id": "fun-404-page",
+      "title": "Fun 404 Page",
+      "category": "Education"
+    },
+    {
+      "id": "innovation-lab",
+      "title": "Innovation Lab",
+      "category": "Technology"
+    },
+    {
+      "id": "mind-body-healing",
+      "title": "Mind-Body Healing",
+      "category": "Healthcare"
+    },
+    {
+      "id": "neo-vision",
+      "title": "NeoVision",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "sky-elite-private-jets",
+      "title": "SkyElite Private Jets",
+      "category": "Landing Pages"
+    },
+    {
+      "id": "taskora-saa-s-hero",
+      "title": "Taskora SaaS Hero",
+      "category": "SaaS"
+    },
+    {
+      "id": "wellness-device",
+      "title": "Wellness Devicex",
+      "category": "Healthcare"
+    },
+    {
+      "id": "x-portfolio-hero",
+      "title": "xPortfolio Hero",
+      "category": "Hero Sections"
+    }
+  ]
+}
