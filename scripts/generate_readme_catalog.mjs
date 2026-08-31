@@ -16,114 +16,58 @@ import('../src/data/prompts.generated.ts').then(mod => {
   const hero = items.filter(i => i.category === 'Hero Sections');
   const others = items.filter(i => !['Superdesign Canvas', 'HorizonX Library', '21st.dev Registry', 'Landing Pages', 'SaaS', 'Agency', 'Hero Sections'].includes(i.category));
 
-  // Recovered / New MotionSites specific prompts list
-  const recoveredList = [
-    { title: 'Retro Futurist', id: 'retro-futurist', cat: 'Landing Pages', folder: 'motionsites-prompts/360-retro-futurist' },
-    { title: 'Layered Depth', id: 'layered-depth', cat: 'Landing Pages', folder: 'motionsites-prompts/233-layered-depth' },
-    { title: 'Ember Dsgn Hero', id: 'ember-dsgn-hero', cat: 'Landing Pages', folder: 'motionsites-prompts/147-ember-dsgn-hero' },
-    { title: 'FAQ CTA', id: 'faq-cta', cat: 'CTA', folder: 'motionsites-prompts/158-faq-cta' },
-    { title: 'Guardnet Landing', id: 'guardnet-landing', cat: 'Landing Pages', folder: 'motionsites-prompts/200-guardnet-landing' },
-    { title: 'F1 Racing Hub', id: 'f1-racing-hub', cat: 'Mobile App', folder: 'motionsites-prompts/ms-f1-racing-hub' },
-    { title: 'AI Workflow Agents', id: 'ai-workflow-agents', cat: 'AI', folder: 'motionsites-prompts/ms-ai-workflow-agents' },
-    { title: 'NeoVision', id: 'neo-vision', cat: 'Landing Pages', folder: 'motionsites-prompts/ms-neo-vision' },
-    { title: 'Sky Elite Private Jets', id: 'sky-elite-private-jets', cat: 'Travel', folder: 'motionsites-prompts/ms-sky-elite-private-jets' },
-    { title: 'Church Community', id: 'church-community', cat: 'Community', folder: 'motionsites-prompts/ms-church-community' },
-    { title: 'Innovation Lab', id: 'innovation-lab', cat: 'Technology', folder: 'motionsites-prompts/ms-innovation-lab' },
-    { title: 'Mind Body Healing', id: 'mind-body-healing', cat: 'Healthcare', folder: 'motionsites-prompts/ms-mind-body-healing' },
-    { title: 'Wellness Device', id: 'wellness-device', cat: 'Healthcare', folder: 'motionsites-prompts/ms-wellness-device' },
-    { title: 'Club X Investors', id: 'club-x-investors', cat: 'Fintech', folder: 'motionsites-prompts/ms-club-x-investors' },
-    { title: 'Design Pro Academy', id: 'design-pro-academy', cat: 'Education', folder: 'motionsites-prompts/ms-design-pro-academy' },
-    { title: 'Fun 404 Page', id: 'fun-404-page', cat: '404', folder: 'motionsites-prompts/ms-fun-404-page' }
+  // Category navigation list with continuous start/end numbering
+  let currentNum = 1;
+
+  const categories = [
+    { name: 'Superdesign Canvas (Curated UI & Shaders)', tag: 'superdesign-canvas', items: superdesign, icon: '🎨' },
+    { name: 'HorizonX 3D & Vibecoding Library', tag: 'horizonx-library', items: horizonx, icon: '🌌' },
+    { name: '21st.dev Component Registry', tag: '21stdev-registry', items: dev21, icon: '🧩' },
+    { name: 'Full Landing Pages & Experiences', tag: 'landing-pages', items: landingPages, icon: '🚀' },
+    { name: 'SaaS Platforms & Dashboards', tag: 'saas-dashboards', items: saas, icon: '💻' },
+    { name: 'Agency & Studio Showcases', tag: 'agency-showcases', items: agency, icon: '🏢' },
+    { name: 'High-Impact Hero Sections', tag: 'hero-sections', items: hero, icon: '🎯' },
+    { name: 'Specialized UI, Pricing, Footers & CTAs', tag: 'specialized-components', items: others, icon: '⚙️' },
   ];
+
+  const catMeta = categories.map(cat => {
+    const start = currentNum;
+    const end = currentNum + cat.items.length - 1;
+    currentNum = end + 1;
+    return { ...cat, start, end, count: cat.items.length };
+  });
+
+  let globalIndex = 1;
 
   let md = `<div align="center">
 
 # ⚡ MotionSites Prompts Collection
 
-### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **${items.length} prompts (Zero Duplicates).**
+### The definitive open-source library of production-ready AI web design prompts
+### 💎 **${items.length} Curated Prompts (Continuous Global Index #1 to #${items.length} — Zero Duplicates)**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/network/members)
-[![Open Issues](https://img.shields.io/github/issues/nomaan5541/motionsites-prompt-collection)](https://github.com/nomaan5541/motionsites-prompt-collection/issues)
+[![Total Prompts](https://img.shields.io/badge/Prompts-${items.length}%20Verified-blueviolet.svg)](#quick-navigation-index-jump-to-category)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-**${items.length} free, production-ready AI prompts** that generate stunning landing pages, hero sections, interactive 3D canvases, and modern web components. Copy a prompt → Paste into your AI tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Get a pixel-perfect design in seconds.
+**${items.length} free, hyper-fidelity prompts** that generate modern landing pages, interactive 3D WebGL canvases, bento grids, and high-conversion UI components. Copy a prompt → Paste into your AI coding tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Ship pixel-perfect websites.
 
-[🌐 **Browse the Live Library**](https://motionsitesai-main.vercel.app/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
 ---
 
-## 💥 Newly Added Prompts & Latest Multi-Source Synchronization
+## 📑 <a id="quick-navigation-index-jump-to-category"></a>Quick Navigation Index (Jump to Category)
 
-> **Latest Sync Summary**: Added **144 SuperDesign vision-curated prompts**, recovered **100% of previously missing MotionSites prompts with full un-truncated texts**, added **660+ local high-resolution preview textures & videos**, and completed a full **zero-duplicate audit (813 verified unique prompts)**.
+Click any category below to jump directly to its section in the continuous **#1 to #${items.length}** catalog:
 
----
-
-### 🌟 1. Recovered & New MotionSites Prompts (Full Original Text Restored)
-
-| # | Prompt Title | Category | Folder Path |
-|---|---|---|---|
-${recoveredList.map((item, idx) => `| ${idx + 1} | **${item.title}** | ${item.cat} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
-### 🎨 2. Newly Integrated SuperDesign Canvas Prompts (${superdesign.length} Prompts)
-
-Curated React / Tailwind / Framer Motion prompt codes imported from [\`superdesigndev/superdesign-prompts\`](https://github.com/superdesigndev/superdesign-prompts) with local preview textures:
-
-| # | Prompt Title | Category | Folder / Source |
-|---|---|---|---|
-${superdesign.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[Superdesign\]\s*/, '')}** | ${item.originalCategory || 'Superdesign Canvas'} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
-## 📊 Complete Prompt Catalog Breakdown (${items.length} Prompts)
-
-| Collection / Category | Count | Primary Frameworks / Stack | Local Preview Assets |
-| :--- | :--- | :--- | :--- |
-| 🎨 **Superdesign Canvas** | **${superdesign.length}** | React, Three.js, Lucide, Tailwind, Framer Motion | \`public/assets/superdesign/*.png\` |
-| 🌌 **HorizonX Library** | **${horizonx.length}** | WebGL, Three.js, Canvas 2D, Framer Motion | Mux Video & WebP Posters |
-| 🧩 **21st.dev Registry** | **${dev21.length}** | React, Tailwind, shadcn/ui CLI | WebP & PNG Component Previews |
-| 🚀 **Landing Pages** | **${landingPages.length}** | React, Next.js, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| 💻 **SaaS Dashboards & Heroes** | **${saas.length}** | React, Tailwind CSS, Tremor, Lucide | High-Res WebP Previews & MP4 Loops |
-| 🏢 **Agency Showcases** | **${agency.length}** | React, GSAP ScrollTrigger, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| 🎯 **Hero Sections** | **${hero.length}** | React, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| ⚙️ **Specialized & Components (Pricing, Footers, CTA, etc.)** | **${others.length}** | React, Tailwind CSS, Lucide | WebP Previews & Gradients |
-
----
-
-## 🌌 HorizonX 3D & Vibecoding Prompts (${horizonx.length} Prompts)
-
-| # | Prompt Title | Category | Folder / Source |
-|---|---|---|---|
-${horizonx.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[HorizonX\]\s*/, '')}** | HorizonX Library | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
-## 🧩 21st.dev Registry Component Prompts (${dev21.length} Prompts)
-
-| # | Prompt Title | Category | Folder / Source |
-|---|---|---|---|
-${dev21.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[21st\.dev\]\s*/, '')}** | 21st.dev Registry | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
-## 🚀 MotionSites Core & Extended Landing Pages (${landingPages.length} Prompts)
-
-| # | Prompt Title | Category | Folder / Source |
-|---|---|---|---|
-${landingPages.map((item, idx) => `| ${idx + 1} | **${item.title}** | Landing Pages | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
-## 💻 SaaS, Agency & Special Component Prompts (${saas.length + agency.length + hero.length + others.length} Prompts)
-
-| # | Prompt Title | Category | Folder / Source |
-|---|---|---|---|
-${[...saas, ...agency, ...hero, ...others].map((item, idx) => `| ${idx + 1} | **${item.title}** | ${item.category} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
+| Category | Continuous Range | Total Count | Quick Jump Link |
+| :--- | :---: | :---: | :--- |
+${catMeta.map(c => `| ${c.icon} **${c.name}** | \`#${c.start}\` – \`#${c.end}\` | **${c.count}** prompts | [Jump to ${c.name}](#${c.tag}) |`).join('\n')}
+| 🏆 **Total Library** | **\`#1\` – \`#${items.length}\`** | **${items.length} Prompts** | [View Full Master Catalog](#master-catalog) |
 
 ---
 
@@ -147,6 +91,34 @@ The web application will be live at:
 
 ---
 
+# 📚 <a id="master-catalog"></a>#1 to #${items.length} Complete Continuous Prompt Catalog
+
+`;
+
+  // Render each category with continuous numbering
+  catMeta.forEach(cat => {
+    md += `---
+
+## <a id="${cat.tag}"></a>${cat.icon} ${cat.name} (\`#${cat.start}\` – \`#${cat.end}\`)
+
+> **${cat.count} Prompts in this section** · [⬆️ Back to Category Index](#quick-navigation-index-jump-to-category)
+
+| Global # | Prompt Title | Category / Stack | Folder Path |
+| :---: | :--- | :--- | :--- |
+`;
+
+    cat.items.forEach(item => {
+      const cleanTitle = item.title.replace(/^\[(Superdesign|HorizonX|21st\.dev)\]\s*/, '');
+      const folderLink = `[\`${item.folder}\`](${item.folder})`;
+      md += `| **#${globalIndex}** | **${cleanTitle}** | ${item.category} | ${folderLink} |\n`;
+      globalIndex++;
+    });
+
+    md += '\n';
+  });
+
+  md += `---
+
 ## 📂 Repository File Structure
 
 \`\`\`text
@@ -163,7 +135,7 @@ motionsites-prompt-collection/
 ├── scripts/                   # Catalog generation & synchronization utilities
 │   ├── build-catalog.mjs      # Compiles catalog data into TypeScript modules
 │   ├── deduplicate_catalog.mjs# Zero-duplicate audit & validation engine
-│   └── sync_external_sources.mjs # Synchronizes upstream prompt datasets
+│   └── generate_readme_catalog.mjs # Continuous 1-813 README generator
 ├── src/                       # React / Vite web application source code
 │   ├── components/            # UI components (HomePage, SearchPage, MediaFrame, PromptModal)
 │   └── data/                  # Generated catalog TypeScript data (813 items)
@@ -181,5 +153,5 @@ This repository is distributed under the **MIT License**. All prompt texts are o
 `;
 
   fs.writeFileSync(outFile, md, 'utf8');
-  console.log('Successfully generated full README.md with all new prompts and categories!');
+  console.log(`Successfully generated continuous #1 to #${items.length} README.md with fast category index navigation!`);
 });
