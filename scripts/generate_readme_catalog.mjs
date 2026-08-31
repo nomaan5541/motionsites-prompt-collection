@@ -50,11 +50,12 @@ import('../src/data/prompts.generated.ts').then(mod => {
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/network/members)
 [![Total Prompts](https://img.shields.io/badge/Prompts-${items.length}%20Verified-blueviolet.svg)](#quick-navigation-index-jump-to-category)
+[![DMCA Compliant](https://img.shields.io/badge/DMCA-Compliant-success.svg)](DMCA.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 **${items.length} free, hyper-fidelity prompts** that generate modern landing pages, interactive 3D WebGL canvases, bento grids, and high-conversion UI components. Copy a prompt → Paste into your AI coding tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Ship pixel-perfect websites.
 
-[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📜 **DMCA Takedown**](DMCA.md) · [📄 **License**](LICENSE)
 
 </div>
 
@@ -67,7 +68,7 @@ Click any category below to jump directly to its section in the continuous **#1 
 | Category | Continuous Range | Total Count | Quick Jump Link |
 | :--- | :---: | :---: | :--- |
 ${catMeta.map(c => `| ${c.icon} **${c.name}** | \`#${c.start}\` – \`#${c.end}\` | **${c.count}** prompts | [Jump to ${c.name}](#${c.tag}) |`).join('\n')}
-| 🏆 **Total Library** | **\`#1\` – \`#${items.length}\`** | **${items.length} Prompts** | [View Full Master Catalog](#master-catalog) |
+| 🏆 **Total Master Catalog** | **\`#1\` – \`#${items.length}\`** | **${items.length} Prompts** | [View Full Continuous Catalog](#master-catalog) |
 
 ---
 
@@ -119,39 +120,93 @@ The web application will be live at:
 
   md += `---
 
-## 📂 Repository File Structure
+## 📂 <a id="repository-structure"></a>Comprehensive Repository Architecture & Directory Hierarchy
+
+The repository is structured into modular layers separating prompt storage, static media assets, automated ETL build pipelines, the React/Vite web application, and legal compliance frameworks:
 
 \`\`\`text
 motionsites-prompt-collection/
-├── assets/                    # Media preview assets (images and videos)
-│   ├── community/             # Community UI textures
-│   ├── images/                # High-resolution image assets
-│   ├── previews/              # WebP / MP4 preview loops
-│   └── videos/                # Video clips
-├── motionsites-prompts/       # 813 Master prompt folders (metadata.json + prompt.md)
-├── prompts/                   # Individual prompt markdown files
-├── public/                    # Static assets served by Vite
-│   └── assets/                # Web-accessible previews and textures
-├── scripts/                   # Catalog generation & synchronization utilities
-│   ├── build-catalog.mjs      # Compiles catalog data into TypeScript modules
-│   ├── deduplicate_catalog.mjs# Zero-duplicate audit & validation engine
-│   └── generate_readme_catalog.mjs # Continuous 1-813 README generator
-├── src/                       # React / Vite web application source code
-│   ├── components/            # UI components (HomePage, SearchPage, MediaFrame, PromptModal)
-│   └── data/                  # Generated catalog TypeScript data (813 items)
-├── motionsites_all_prompts.json # Master structured JSON prompt dataset (813 unique records)
-├── preview_mapping.json       # Mapped preview references for all 813 prompts
-├── package.json               # Project scripts and dependencies
-└── README.md                  # Complete documentation and prompt catalog
+│
+├── 📂 motionsites-prompts/       # Canonical master prompt folders (813 unique prompt directories)
+│   ├── 📂 001-3d-boxes/          # Individual prompt bundle
+│   │   ├── 📄 metadata.json      # Structured record (ID, title, tags, color palette, preview URLs)
+│   │   ├── 📄 prompt.md          # Primary prompt text for AI coding tools (Claude Code, Cursor, v0)
+│   │   └── 📄 working-prompt.md  # Un-truncated raw working draft and component instructions
+│   ├── 📂 sup-aura-audio-.../    # SuperDesign Canvas curated prompts with WebGL & 3D shaders
+│   ├── 📂 hx-ai-assistant-.../   # HorizonX Library WebGL & Three.js vibecoding prompts
+│   └── 📂 dev21-bento-grid-.../  # 21st.dev Registry modern React/Tailwind components
+│
+├── 📂 prompts/                   # Single-file Markdown distribution mirrors
+│   ├── 📄 001-3d-boxes.md        # Standalone prompt file for direct curl / API access
+│   └── 📄 superdesign-*.md       # SuperDesign single-file prompts
+│
+├── 📂 public/                    # Static web assets served directly by Vite dev server
+│   └── 📂 assets/                # Web-accessible media assets
+│       ├── 📂 previews/          # High-resolution WebP previews and MP4 video loops (500+ items)
+│       ├── 📂 superdesign/       # High-fidelity UI screenshots and component textures (144 items)
+│       └── 📂 community/         # Open-source community component previews
+│
+├── 📂 assets/                    # Project source media mirrors
+│   ├── 📂 images/                # Raw image sources
+│   ├── 📂 previews/              # Local preview assets
+│   └── 📂 videos/                # WebM / MP4 video loops
+│
+├── 📂 scripts/                   # Automated build, ETL, and deduplication engines
+│   ├── 📄 build-catalog.mjs      # Compiles motionsites-prompts/ into TypeScript modules
+│   ├── 📄 deduplicate_catalog.mjs# Zero-duplicate audit engine (SHA-256 hash & title verification)
+│   ├── 📄 generate_readme_catalog.mjs # Auto-generates indexed continuous #1-#813 README.md
+│   └── 📄 sync_external_sources.mjs  # Synchronizes external scratch repositories and assets
+│
+├── 📂 src/                       # React 19 + TypeScript + Vite Web Application
+│   ├── 📂 components/            # Reusable UI component modules
+│   │   ├── 📄 HomePage.tsx       # Discovery grid, search bar, and hero showcase
+│   │   ├── 📄 SearchPage.tsx     # Filterable fuzzy search engine across all 813 prompts
+│   │   ├── 📄 MediaFrame.tsx     # Adaptive media player (MP4 autoplay, WebP fallbacks)
+│   │   ├── 📄 PromptGrid.tsx     # Responsive grid layout for prompt cards
+│   │   └── 📄 PromptModal.tsx    # One-click prompt copier and full-screen inspector
+│   ├── 📂 data/                  # Auto-generated catalog data structures
+│   │   ├── 📄 prompts.generated.ts # 813 strongly-typed catalog items exported for React
+│   │   └── 📄 catalog-summary.json # Summary statistics by category, type, and media format
+│   ├── 📄 App.tsx                # Client-side router and theme provider
+│   ├── 📄 main.tsx               # Application entry point and DOM bootstrap
+│   └── 📄 index.css              # Global design system tokens and Tailwind CSS utilities
+│
+├── 📄 motionsites_all_prompts.json # Master JSON dataset (813 structured records for external tools)
+├── 📄 preview_mapping.json       # Index-to-media resolution mapping table
+├── 📄 missing_prompts.json       # Integrity tracker (0 missing prompts, fully resolved)
+├── 📄 package.json               # Project manifest, dependencies, and NPM build scripts
+├── 📄 vite.config.ts             # Vite bundler configuration with Rolldown optimization
+└── 📄 README.md                  # Master documentation and continuous #1-#813 prompt catalog
 \`\`\`
 
 ---
 
-## 📄 License & Fair Use Notice
+## ⚖️ <a id="legal-policies"></a>Legal Policies, Fair Use & DMCA Takedown Procedures
 
-This repository is distributed under the **MIT License**. All prompt texts are original community resources or open-source reconstructed design prompts for AI coding agents.
+This repository operates under strict compliance with open-source licensing, intellectual property standards, and statutory safe harbor provisions:
+
+| Policy Document | Description | Direct Link |
+| :--- | :--- | :--- |
+| 📜 **DMCA Takedown Policy** | Formal notice submission procedures, required statutory elements, SLA, and counter-notifications | [View DMCA.md](DMCA.md) |
+| ⚖️ **Fair Use Notice** | Four-factor fair use analysis under 17 U.S.C. § 107 for transformative prompt engineering | [View FAIR_USE_NOTICE.md](FAIR_USE_NOTICE.md) |
+| 🛡️ **Legal Disclaimer** | AS-IS warranty exclusions, AI model output disclaimers, and trademark notices | [View DISCLAIMER.md](DISCLAIMER.md) |
+| 📋 **Terms of Use** | Permitted open-source usage, commercial deployment guidelines, and acceptable use | [View TERMS_OF_USE.md](TERMS_OF_USE.md) |
+| 🔒 **Privacy Policy** | Data protection, telemetry disclosures, and local storage privacy standards | [View PRIVACY_POLICY.md](PRIVACY_POLICY.md) |
+| 📄 **MIT License** | Open-source permissive software license | [View LICENSE](LICENSE) |
+
+### ⚡ Rapid Takedown SLA & Channel
+If you are a copyright holder and believe that any prompt text or preview media infringes your copyright:
+1. Submit an issue: [Open a DMCA Takedown Request Issue](https://github.com/nomaan5541/motionsites-prompt-collection/issues/new?title=DMCA+Takedown+Request).
+2. Specify the prompt ID or file path.
+3. **Guaranteed SLA**: The content will be removed within **24 to 48 hours** upon receiving a compliant notice.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [\`LICENSE\`](LICENSE) for complete license terms.
 `;
 
   fs.writeFileSync(outFile, md, 'utf8');
-  console.log(`Successfully generated continuous #1 to #${items.length} README.md with fast category index navigation!`);
+  console.log(`Successfully generated updated README.md with detailed file structure and comprehensive legal policies!`);
 });
