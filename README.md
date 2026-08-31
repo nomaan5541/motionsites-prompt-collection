@@ -1007,6 +1007,17 @@ motionsites-prompt-collection/
 
 ---
 
+## 💬 A Note from the Creator
+
+> **[SYSTEM NOTE]**:  
+> I spent over a month of late nights engineering and curating this entire 813-prompt collection from scratch.  
+>  
+> Please do not waste weeks of your own precious time trying to extract, scrape, or rebuild a project like this yourself. If you have any new prompts or repositories, just reach out and message me—I will gladly integrate them for the entire community.  
+>  
+> I appreciate your ambition, but save your time and build something great.
+
+---
+
 ## 📄 License
 
 This repository is distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
