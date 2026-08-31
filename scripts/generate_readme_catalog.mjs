@@ -41,6 +41,8 @@ import('../src/data/prompts.generated.ts').then(mod => {
 
   let md = `<div align="center">
 
+<img src="assets/images/social-banner.jpg" alt="813+ AI Web Design Prompts Collection Banner" width="100%" />
+
 # ⚡ MotionSites Prompts Collection
 
 ### The definitive open-source library of production-ready AI web design prompts
