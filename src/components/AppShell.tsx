@@ -241,8 +241,7 @@ function Footer() {
             <span className="text-xl font-black lowercase tracking-[-0.05em]">motionsites</span>
           </div>
           <p className="mt-5 max-w-md text-sm leading-6 text-white/52">
-            A free prompt catalogue built from the local MotionSites archive. Copy prompts, preview references, and ship
-            landing pages without paid gates.
+            The definitive open-source collection of 813+ curated AI web design prompts. Copy prompts, explore 3D WebGL scenes & SuperDesign canvases, and ship landing pages without paid gates.
           </p>
           <div className="mt-6">
             <a

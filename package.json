@@ -1,7 +1,7 @@
 {
   "name": "motionsites-free-library",
   "private": false,
-  "description": "A free MotionSites-inspired prompt catalog with animated cards, copy actions, and prompt-driven live previews.",
+  "description": "The largest open-source collection of 813+ production-ready AI web design prompts — SuperDesign Canvas, HorizonX 3D WebGL, 21st.dev components, and high-converting landing pages.",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
