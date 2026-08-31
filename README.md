@@ -15,7 +15,17 @@
 
 **813 free, hyper-fidelity prompts** that generate modern landing pages, interactive 3D WebGL canvases, bento grids, and high-conversion UI components. Copy a prompt → Paste into your AI coding tool (Claude Code, Cursor, Bolt.new, Lovable, v0) → Ship pixel-perfect websites.
 
-[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-support-this-project) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
+<br />
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnomaan5541%2Fmotionsites-prompt-collection)
+&nbsp;&nbsp;
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=nomaan5541%2Fmotionsites-prompt-collection)
+&nbsp;&nbsp;
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/nomaan5541/motionsites-prompt-collection)
+
+<br />
+
+[🌐 **Browse Web App on Localhost**](http://localhost:5173/) · [⭐ **Star this repo**](#-star-history) · [🤝 **Contribute**](CONTRIBUTING.md) · [📄 **License**](LICENSE)
 
 </div>
 
@@ -1006,6 +1016,12 @@ motionsites-prompt-collection/
 ├── 📄 vite.config.ts             # Vite bundler configuration with Rolldown optimization
 └── 📄 README.md                  # Master documentation and continuous #1-#813 prompt catalog
 ```
+
+---
+
+## 📈 <a id="star-history"></a>Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=nomaan5541/motionsites-prompt-collection&type=Date)](https://star-history.com/#nomaan5541/motionsites-prompt-collection&Date)
 
 ---
 
