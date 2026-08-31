@@ -6,9 +6,7 @@ const outFile = path.join(rootDir, 'README.md');
 
 import('../src/data/prompts.generated.ts').then(mod => {
   const items = mod.catalogItems;
-  const summary = mod.catalogSummary;
 
-  // Group by collection / category
   const superdesign = items.filter(i => i.category === 'Superdesign Canvas');
   const horizonx = items.filter(i => i.category === 'HorizonX Library');
   const dev21 = items.filter(i => i.category === '21st.dev Registry');
@@ -18,11 +16,31 @@ import('../src/data/prompts.generated.ts').then(mod => {
   const hero = items.filter(i => i.category === 'Hero Sections');
   const others = items.filter(i => !['Superdesign Canvas', 'HorizonX Library', '21st.dev Registry', 'Landing Pages', 'SaaS', 'Agency', 'Hero Sections'].includes(i.category));
 
+  // Recovered / New MotionSites specific prompts list
+  const recoveredList = [
+    { title: 'Retro Futurist', id: 'retro-futurist', cat: 'Landing Pages', folder: 'motionsites-prompts/360-retro-futurist' },
+    { title: 'Layered Depth', id: 'layered-depth', cat: 'Landing Pages', folder: 'motionsites-prompts/233-layered-depth' },
+    { title: 'Ember Dsgn Hero', id: 'ember-dsgn-hero', cat: 'Landing Pages', folder: 'motionsites-prompts/147-ember-dsgn-hero' },
+    { title: 'FAQ CTA', id: 'faq-cta', cat: 'CTA', folder: 'motionsites-prompts/158-faq-cta' },
+    { title: 'Guardnet Landing', id: 'guardnet-landing', cat: 'Landing Pages', folder: 'motionsites-prompts/200-guardnet-landing' },
+    { title: 'F1 Racing Hub', id: 'f1-racing-hub', cat: 'Mobile App', folder: 'motionsites-prompts/ms-f1-racing-hub' },
+    { title: 'AI Workflow Agents', id: 'ai-workflow-agents', cat: 'AI', folder: 'motionsites-prompts/ms-ai-workflow-agents' },
+    { title: 'NeoVision', id: 'neo-vision', cat: 'Landing Pages', folder: 'motionsites-prompts/ms-neo-vision' },
+    { title: 'Sky Elite Private Jets', id: 'sky-elite-private-jets', cat: 'Travel', folder: 'motionsites-prompts/ms-sky-elite-private-jets' },
+    { title: 'Church Community', id: 'church-community', cat: 'Community', folder: 'motionsites-prompts/ms-church-community' },
+    { title: 'Innovation Lab', id: 'innovation-lab', cat: 'Technology', folder: 'motionsites-prompts/ms-innovation-lab' },
+    { title: 'Mind Body Healing', id: 'mind-body-healing', cat: 'Healthcare', folder: 'motionsites-prompts/ms-mind-body-healing' },
+    { title: 'Wellness Device', id: 'wellness-device', cat: 'Healthcare', folder: 'motionsites-prompts/ms-wellness-device' },
+    { title: 'Club X Investors', id: 'club-x-investors', cat: 'Fintech', folder: 'motionsites-prompts/ms-club-x-investors' },
+    { title: 'Design Pro Academy', id: 'design-pro-academy', cat: 'Education', folder: 'motionsites-prompts/ms-design-pro-academy' },
+    { title: 'Fun 404 Page', id: 'fun-404-page', cat: '404', folder: 'motionsites-prompts/ms-fun-404-page' }
+  ];
+
   let md = `<div align="center">
 
 # ⚡ MotionSites Prompts Collection
 
-### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **${items.length} prompts and growing.**
+### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **${items.length} prompts (Zero Duplicates).**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
@@ -38,21 +56,27 @@ import('../src/data/prompts.generated.ts').then(mod => {
 
 ---
 
-## 💥 Recent Major Updates & Multi-Repository Synchronization
+## 💥 Newly Added Prompts & Latest Multi-Source Synchronization
 
-> **Latest Release Summary**: Massive multi-source repository sync (**${items.length} Total Prompts**), 100% missing prompt text recovery, integration of 140 vision-curated SuperDesign prompt specs with local preview textures, and offline-first media rendering.
+> **Latest Sync Summary**: Added **144 SuperDesign vision-curated prompts**, recovered **100% of previously missing MotionSites prompts with full un-truncated texts**, added **660+ local high-resolution preview textures & videos**, and completed a full **zero-duplicate audit (813 verified unique prompts)**.
 
-### 🌟 1. Full Multi-Source Synchronization (${items.length} Prompts)
-* 🟢 **Superdesign Canvas (${superdesign.length} Prompts)**: Integrated the complete 140 vision-curated design prompts from [\`superdesigndev/superdesign-prompts\`](https://github.com/superdesigndev/superdesign-prompts) featuring interactive 3D tubes background shaders, neon glow cursors, editorial waitlists, bento grids, skeuomorphic audio players, and SaaS calculators with local high-res \`.png\` and \`.mp4\` preview textures.
-* 🟢 **100% Missing Prompts Recovered**: Restored complete, un-truncated original prompt texts for all 113 previously missing/partial prompts from \`zhaosenlin12-creator/MotionSites\` (\`retro-futurist\`, \`layered-depth\`, \`ember-dsgn-hero\`, \`faq-cta\`, \`guardnet-landing\`, \`f1-racing-hub\`, \`ai-workflow-agents\`, \`neo-vision\`, \`sky-elite-private-jets\`, etc.).
-* 🟢 **HorizonX Library (${horizonx.length} Prompts)**: Senior-grade React, WebGL particle, & liquid hero prompts (*Morpho 3D Particle Butterfly*, *Aurel Liquid Hero*, *Hand Prosthesis Simulator*, *Digital Wave Field Hero*, etc.).
-* 🟢 **21st.dev Registry (${dev21.length} Prompts)**: Component & template prompts across 75 categories with CLI installation anchors.
-* 🟢 **MotionSites Core & Extended (${landingPages.length + saas.length + agency.length + hero.length + others.length} Prompts)**: Complete landing pages, pricing tables, hero sections, footers, CTAs, and SaaS dashboards.
+---
 
-### 💻 2. Local Preview Textures & Offline-First Media
-* Over **660+ local media preview files** added to \`public/assets/previews/\`, \`public/assets/superdesign/\`, and \`public/assets/community/\`.
-* High-performance instant rendering with animated video and image preview cards.
-* Zero-duplication validation: each prompt has unique identification, normalized slug paths, and structured JSON metadata.
+### 🌟 1. Recovered & New MotionSites Prompts (Full Original Text Restored)
+
+| # | Prompt Title | Category | Folder Path |
+|---|---|---|---|
+${recoveredList.map((item, idx) => `| ${idx + 1} | **${item.title}** | ${item.cat} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
+
+---
+
+### 🎨 2. Newly Integrated SuperDesign Canvas Prompts (${superdesign.length} Prompts)
+
+Curated React / Tailwind / Framer Motion prompt codes imported from [\`superdesigndev/superdesign-prompts\`](https://github.com/superdesigndev/superdesign-prompts) with local preview textures:
+
+| # | Prompt Title | Category | Folder / Source |
+|---|---|---|---|
+${superdesign.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[Superdesign\]\s*/, '')}** | ${item.originalCategory || 'Superdesign Canvas'} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
 
 ---
 
@@ -71,17 +95,9 @@ import('../src/data/prompts.generated.ts').then(mod => {
 
 ---
 
-## 🎨 Superdesign Canvas Prompts (${superdesign.length} Prompts)
-
-| # | Prompt Title | Category | ID / Folder |
-|---|---|---|---|
-${superdesign.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[Superdesign\]\s*/, '')}** | ${item.originalCategory || 'Superdesign Canvas'} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
-
----
-
 ## 🌌 HorizonX 3D & Vibecoding Prompts (${horizonx.length} Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 ${horizonx.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[HorizonX\]\s*/, '')}** | HorizonX Library | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
 
@@ -89,7 +105,7 @@ ${horizonx.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[Horizon
 
 ## 🧩 21st.dev Registry Component Prompts (${dev21.length} Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 ${dev21.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[21st\.dev\]\s*/, '')}** | 21st.dev Registry | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
 
@@ -97,7 +113,7 @@ ${dev21.map((item, idx) => `| ${idx + 1} | **${item.title.replace(/^\[21st\.dev\
 
 ## 🚀 MotionSites Core & Extended Landing Pages (${landingPages.length} Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 ${landingPages.map((item, idx) => `| ${idx + 1} | **${item.title}** | Landing Pages | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
 
@@ -105,7 +121,7 @@ ${landingPages.map((item, idx) => `| ${idx + 1} | **${item.title}** | Landing Pa
 
 ## 💻 SaaS, Agency & Special Component Prompts (${saas.length + agency.length + hero.length + others.length} Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 ${[...saas, ...agency, ...hero, ...others].map((item, idx) => `| ${idx + 1} | **${item.title}** | ${item.category} | [\`${item.folder}\`](${item.folder}) |`).join('\n')}
 
@@ -140,18 +156,19 @@ motionsites-prompt-collection/
 │   ├── images/                # High-resolution image assets
 │   ├── previews/              # WebP / MP4 preview loops
 │   └── videos/                # Video clips
-├── motionsites-prompts/       # 895 Master prompt folders (metadata.json + prompt.md)
+├── motionsites-prompts/       # 813 Master prompt folders (metadata.json + prompt.md)
 ├── prompts/                   # Individual prompt markdown files
 ├── public/                    # Static assets served by Vite
 │   └── assets/                # Web-accessible previews and textures
 ├── scripts/                   # Catalog generation & synchronization utilities
 │   ├── build-catalog.mjs      # Compiles catalog data into TypeScript modules
+│   ├── deduplicate_catalog.mjs# Zero-duplicate audit & validation engine
 │   └── sync_external_sources.mjs # Synchronizes upstream prompt datasets
 ├── src/                       # React / Vite web application source code
 │   ├── components/            # UI components (HomePage, SearchPage, MediaFrame, PromptModal)
-│   └── data/                  # Generated catalog TypeScript data (895 items)
-├── motionsites_all_prompts.json # Master structured JSON prompt dataset (512+ records)
-├── preview_mapping.json       # Mapped preview references for all 895 prompts
+│   └── data/                  # Generated catalog TypeScript data (813 items)
+├── motionsites_all_prompts.json # Master structured JSON prompt dataset (813 unique records)
+├── preview_mapping.json       # Mapped preview references for all 813 prompts
 ├── package.json               # Project scripts and dependencies
 └── README.md                  # Complete documentation and prompt catalog
 \`\`\`
@@ -164,5 +181,5 @@ This repository is distributed under the **MIT License**. All prompt texts are o
 `;
 
   fs.writeFileSync(outFile, md, 'utf8');
-  console.log('Successfully generated full README.md with all', items.length, 'prompts!');
+  console.log('Successfully generated full README.md with all new prompts and categories!');
 });

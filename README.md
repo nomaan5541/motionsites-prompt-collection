@@ -2,7 +2,7 @@
 
 # ⚡ MotionSites Prompts Collection
 
-### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **813 prompts and growing.**
+### The absolute largest open-source collection of production-ready, hyper-fidelity AI web design prompts — **813 prompts (Zero Duplicates).**
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nomaan5541/motionsites-prompt-collection?style=social)](https://github.com/nomaan5541/motionsites-prompt-collection/stargazers)
@@ -18,42 +18,40 @@
 
 ---
 
-## 💥 Recent Major Updates & Multi-Repository Synchronization
+## 💥 Newly Added Prompts & Latest Multi-Source Synchronization
 
-> **Latest Release Summary**: Massive multi-source repository sync (**813 Total Prompts**), 100% missing prompt text recovery, integration of 140 vision-curated SuperDesign prompt specs with local preview textures, and offline-first media rendering.
-
-### 🌟 1. Full Multi-Source Synchronization (813 Prompts)
-* 🟢 **Superdesign Canvas (144 Prompts)**: Integrated the complete 140 vision-curated design prompts from [`superdesigndev/superdesign-prompts`](https://github.com/superdesigndev/superdesign-prompts) featuring interactive 3D tubes background shaders, neon glow cursors, editorial waitlists, bento grids, skeuomorphic audio players, and SaaS calculators with local high-res `.png` and `.mp4` preview textures.
-* 🟢 **100% Missing Prompts Recovered**: Restored complete, un-truncated original prompt texts for all 113 previously missing/partial prompts from `zhaosenlin12-creator/MotionSites` (`retro-futurist`, `layered-depth`, `ember-dsgn-hero`, `faq-cta`, `guardnet-landing`, `f1-racing-hub`, `ai-workflow-agents`, `neo-vision`, `sky-elite-private-jets`, etc.).
-* 🟢 **HorizonX Library (93 Prompts)**: Senior-grade React, WebGL particle, & liquid hero prompts (*Morpho 3D Particle Butterfly*, *Aurel Liquid Hero*, *Hand Prosthesis Simulator*, *Digital Wave Field Hero*, etc.).
-* 🟢 **21st.dev Registry (93 Prompts)**: Component & template prompts across 75 categories with CLI installation anchors.
-* 🟢 **MotionSites Core & Extended (483 Prompts)**: Complete landing pages, pricing tables, hero sections, footers, CTAs, and SaaS dashboards.
-
-### 💻 2. Local Preview Textures & Offline-First Media
-* Over **660+ local media preview files** added to `public/assets/previews/`, `public/assets/superdesign/`, and `public/assets/community/`.
-* High-performance instant rendering with animated video and image preview cards.
-* Zero-duplication validation: each prompt has unique identification, normalized slug paths, and structured JSON metadata.
+> **Latest Sync Summary**: Added **144 SuperDesign vision-curated prompts**, recovered **100% of previously missing MotionSites prompts with full un-truncated texts**, added **660+ local high-resolution preview textures & videos**, and completed a full **zero-duplicate audit (813 verified unique prompts)**.
 
 ---
 
-## 📊 Complete Prompt Catalog Breakdown (813 Prompts)
+### 🌟 1. Recovered & New MotionSites Prompts (Full Original Text Restored)
 
-| Collection / Category | Count | Primary Frameworks / Stack | Local Preview Assets |
-| :--- | :--- | :--- | :--- |
-| 🎨 **Superdesign Canvas** | **144** | React, Three.js, Lucide, Tailwind, Framer Motion | `public/assets/superdesign/*.png` |
-| 🌌 **HorizonX Library** | **93** | WebGL, Three.js, Canvas 2D, Framer Motion | Mux Video & WebP Posters |
-| 🧩 **21st.dev Registry** | **93** | React, Tailwind, shadcn/ui CLI | WebP & PNG Component Previews |
-| 🚀 **Landing Pages** | **358** | React, Next.js, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| 💻 **SaaS Dashboards & Heroes** | **24** | React, Tailwind CSS, Tremor, Lucide | High-Res WebP Previews & MP4 Loops |
-| 🏢 **Agency Showcases** | **19** | React, GSAP ScrollTrigger, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| 🎯 **Hero Sections** | **7** | React, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
-| ⚙️ **Specialized & Components (Pricing, Footers, CTA, etc.)** | **75** | React, Tailwind CSS, Lucide | WebP Previews & Gradients |
+| # | Prompt Title | Category | Folder Path |
+|---|---|---|---|
+| 1 | **Retro Futurist** | Landing Pages | [`motionsites-prompts/360-retro-futurist`](motionsites-prompts/360-retro-futurist) |
+| 2 | **Layered Depth** | Landing Pages | [`motionsites-prompts/233-layered-depth`](motionsites-prompts/233-layered-depth) |
+| 3 | **Ember Dsgn Hero** | Landing Pages | [`motionsites-prompts/147-ember-dsgn-hero`](motionsites-prompts/147-ember-dsgn-hero) |
+| 4 | **FAQ CTA** | CTA | [`motionsites-prompts/158-faq-cta`](motionsites-prompts/158-faq-cta) |
+| 5 | **Guardnet Landing** | Landing Pages | [`motionsites-prompts/200-guardnet-landing`](motionsites-prompts/200-guardnet-landing) |
+| 6 | **F1 Racing Hub** | Mobile App | [`motionsites-prompts/ms-f1-racing-hub`](motionsites-prompts/ms-f1-racing-hub) |
+| 7 | **AI Workflow Agents** | AI | [`motionsites-prompts/ms-ai-workflow-agents`](motionsites-prompts/ms-ai-workflow-agents) |
+| 8 | **NeoVision** | Landing Pages | [`motionsites-prompts/ms-neo-vision`](motionsites-prompts/ms-neo-vision) |
+| 9 | **Sky Elite Private Jets** | Travel | [`motionsites-prompts/ms-sky-elite-private-jets`](motionsites-prompts/ms-sky-elite-private-jets) |
+| 10 | **Church Community** | Community | [`motionsites-prompts/ms-church-community`](motionsites-prompts/ms-church-community) |
+| 11 | **Innovation Lab** | Technology | [`motionsites-prompts/ms-innovation-lab`](motionsites-prompts/ms-innovation-lab) |
+| 12 | **Mind Body Healing** | Healthcare | [`motionsites-prompts/ms-mind-body-healing`](motionsites-prompts/ms-mind-body-healing) |
+| 13 | **Wellness Device** | Healthcare | [`motionsites-prompts/ms-wellness-device`](motionsites-prompts/ms-wellness-device) |
+| 14 | **Club X Investors** | Fintech | [`motionsites-prompts/ms-club-x-investors`](motionsites-prompts/ms-club-x-investors) |
+| 15 | **Design Pro Academy** | Education | [`motionsites-prompts/ms-design-pro-academy`](motionsites-prompts/ms-design-pro-academy) |
+| 16 | **Fun 404 Page** | 404 | [`motionsites-prompts/ms-fun-404-page`](motionsites-prompts/ms-fun-404-page) |
 
 ---
 
-## 🎨 Superdesign Canvas Prompts (144 Prompts)
+### 🎨 2. Newly Integrated SuperDesign Canvas Prompts (144 Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+Curated React / Tailwind / Framer Motion prompt codes imported from [`superdesigndev/superdesign-prompts`](https://github.com/superdesigndev/superdesign-prompts) with local preview textures:
+
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 | 1 | **Interactive Canvas Motion & Micro-interactions** | Superdesign Canvas | [`motionsites-prompts/sup-anim-01`](motionsites-prompts/sup-anim-01) |
 | 2 | **Tubes Interactive Background** | Superdesign Canvas | [`motionsites-prompts/sup-tubes-interactive-background`](motionsites-prompts/sup-tubes-interactive-background) |
@@ -202,9 +200,24 @@
 
 ---
 
+## 📊 Complete Prompt Catalog Breakdown (813 Prompts)
+
+| Collection / Category | Count | Primary Frameworks / Stack | Local Preview Assets |
+| :--- | :--- | :--- | :--- |
+| 🎨 **Superdesign Canvas** | **144** | React, Three.js, Lucide, Tailwind, Framer Motion | `public/assets/superdesign/*.png` |
+| 🌌 **HorizonX Library** | **93** | WebGL, Three.js, Canvas 2D, Framer Motion | Mux Video & WebP Posters |
+| 🧩 **21st.dev Registry** | **93** | React, Tailwind, shadcn/ui CLI | WebP & PNG Component Previews |
+| 🚀 **Landing Pages** | **358** | React, Next.js, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
+| 💻 **SaaS Dashboards & Heroes** | **24** | React, Tailwind CSS, Tremor, Lucide | High-Res WebP Previews & MP4 Loops |
+| 🏢 **Agency Showcases** | **19** | React, GSAP ScrollTrigger, Framer Motion | High-Res WebP Previews & MP4 Loops |
+| 🎯 **Hero Sections** | **7** | React, Tailwind CSS, Framer Motion | High-Res WebP Previews & MP4 Loops |
+| ⚙️ **Specialized & Components (Pricing, Footers, CTA, etc.)** | **75** | React, Tailwind CSS, Lucide | WebP Previews & Gradients |
+
+---
+
 ## 🌌 HorizonX 3D & Vibecoding Prompts (93 Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 | 1 | **MORPHO — 3D Particles Simulator** | HorizonX Library | [`motionsites-prompts/hx-morpho`](motionsites-prompts/hx-morpho) |
 | 2 | **Aurel Liquid Hero** | HorizonX Library | [`motionsites-prompts/hx-aurel-liquid-hero`](motionsites-prompts/hx-aurel-liquid-hero) |
@@ -304,7 +317,7 @@
 
 ## 🧩 21st.dev Registry Component Prompts (93 Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 | 1 | **Red In Black (by ashish.indora)** | 21st.dev Registry | [`motionsites-prompts/dev21-ashish.indora-red-in-black`](motionsites-prompts/dev21-ashish.indora-red-in-black) |
 | 2 | **Maomao (by nellycyberpro)** | 21st.dev Registry | [`motionsites-prompts/dev21-nellycyberpro-maomao`](motionsites-prompts/dev21-nellycyberpro-maomao) |
@@ -404,7 +417,7 @@
 
 ## 🚀 MotionSites Core & Extended Landing Pages (358 Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 | 1 | **3** | Landing Pages | [`motionsites-prompts/003-3`](motionsites-prompts/003-3) |
 | 2 | **3d story** | Landing Pages | [`motionsites-prompts/004-3d-story`](motionsites-prompts/004-3d-story) |
@@ -769,7 +782,7 @@
 
 ## 💻 SaaS, Agency & Special Component Prompts (125 Prompts)
 
-| # | Prompt Title | Category | ID / Folder |
+| # | Prompt Title | Category | Folder / Source |
 |---|---|---|---|
 | 1 | **apex saas hero** | SaaS | [`motionsites-prompts/036-apex-saas-hero`](motionsites-prompts/036-apex-saas-hero) |
 | 2 | **bio age dashboard** | SaaS | [`motionsites-prompts/061-bio-age-dashboard`](motionsites-prompts/061-bio-age-dashboard) |
@@ -928,18 +941,19 @@ motionsites-prompt-collection/
 │   ├── images/                # High-resolution image assets
 │   ├── previews/              # WebP / MP4 preview loops
 │   └── videos/                # Video clips
-├── motionsites-prompts/       # 895 Master prompt folders (metadata.json + prompt.md)
+├── motionsites-prompts/       # 813 Master prompt folders (metadata.json + prompt.md)
 ├── prompts/                   # Individual prompt markdown files
 ├── public/                    # Static assets served by Vite
 │   └── assets/                # Web-accessible previews and textures
 ├── scripts/                   # Catalog generation & synchronization utilities
 │   ├── build-catalog.mjs      # Compiles catalog data into TypeScript modules
+│   ├── deduplicate_catalog.mjs# Zero-duplicate audit & validation engine
 │   └── sync_external_sources.mjs # Synchronizes upstream prompt datasets
 ├── src/                       # React / Vite web application source code
 │   ├── components/            # UI components (HomePage, SearchPage, MediaFrame, PromptModal)
-│   └── data/                  # Generated catalog TypeScript data (895 items)
-├── motionsites_all_prompts.json # Master structured JSON prompt dataset (512+ records)
-├── preview_mapping.json       # Mapped preview references for all 895 prompts
+│   └── data/                  # Generated catalog TypeScript data (813 items)
+├── motionsites_all_prompts.json # Master structured JSON prompt dataset (813 unique records)
+├── preview_mapping.json       # Mapped preview references for all 813 prompts
 ├── package.json               # Project scripts and dependencies
 └── README.md                  # Complete documentation and prompt catalog
 ```
